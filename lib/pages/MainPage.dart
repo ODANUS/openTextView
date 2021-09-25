@@ -118,13 +118,13 @@ class MainPage extends GetView<MainCtl> {
               child: StreamBuilder(
                   stream: AudioService.runningStream,
                   builder: (c, snapshot) => GetBuilder<MainCtl>(builder: (ctl) {
+                        if (ctl.contents.isEmpty) {
+                          return Text(
+                              "좌측 상단 책 아이콘을 클릭하거나. 우측 ... 아이콘 큭릭후 파일 탐색기를 이용하여 책을 열어주세요.");
+                        }
                         return ScrollablePositionedList.builder(
                           itemCount: ctl.contents.length,
                           itemBuilder: (context, index) {
-                            // return InkWell(
-                            //   child: Text("asdf"),
-                            //   onLongPress: () {},
-                            // );
                             if (index >= ctl.contents.length || index < 0) {
                               return Text('');
                             }
