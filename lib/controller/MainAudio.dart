@@ -53,6 +53,7 @@ class TextPlayerTask extends BackgroundAudioTask {
     });
 
     Map ttsConf = params['tts'];
+    await tts.setEngine(await tts.getDefaultEngine);
     await tts.awaitSpeakCompletion(true);
     await tts.setSpeechRate(ttsConf['speechRate']);
     await tts.setVolume(ttsConf['volume']);
