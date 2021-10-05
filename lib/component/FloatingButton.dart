@@ -12,21 +12,32 @@ class FloatingButton extends GetView<MainCtl> {
   // bool bplayTts = false;
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: AudioService.runningStream,
-        builder: (c, snapshot) {
-          bool bplay = snapshot.data ?? false;
+    return FloatingActionButton(
+        elevation: 2.0,
+        onPressed: () async {
+          // if (bplay) {
+          //   controller.stop();
+          // } else {
+          //   controller.play();
+          // }
+        },
+        child: Icon(Icons.volume_up));
 
-          return FloatingActionButton(
-              elevation: 2.0,
-              onPressed: () async {
-                if (bplay) {
-                  controller.stop();
-                } else {
-                  controller.play();
-                }
-              },
-              child: Icon(bplay ? Icons.volume_off_sharp : Icons.volume_up));
-        });
+    //   return StreamBuilder(
+    //       stream: AudioService.runningStream,
+    //       builder: (c, snapshot) {
+    //         bool bplay = snapshot.data ?? false;
+
+    //         return FloatingActionButton(
+    //             elevation: 2.0,
+    //             onPressed: () async {
+    //               if (bplay) {
+    //                 controller.stop();
+    //               } else {
+    //                 controller.play();
+    //               }
+    //             },
+    //             child: Icon(bplay ? Icons.volume_off_sharp : Icons.volume_up));
+    //       });
   }
 }

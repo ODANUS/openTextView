@@ -114,82 +114,83 @@ class MainPage extends GetView<MainCtl> {
             }),
             Expanded(
                 child: Container(
-              padding: EdgeInsets.only(left: 5, right: 5, top: 5),
-              child: StreamBuilder(
-                  stream: AudioService.runningStream,
-                  builder: (c, snapshot) => GetBuilder<MainCtl>(builder: (ctl) {
-                        if (ctl.contents.isEmpty) {
-                          return Text(
-                              "좌측 상단 책 아이콘을 클릭하거나. 우측 ... 아이콘 큭릭후 파일 탐색기를 이용하여 책을 열어주세요.");
-                        }
-                        return ScrollablePositionedList.builder(
-                          itemCount: ctl.contents.length,
-                          itemBuilder: (context, index) {
-                            if (index >= ctl.contents.length || index < 0) {
-                              return Text('');
-                            }
-                            if (snapshot.data) {
-                              int cnt =
-                                  ((ctl.config['tts'] as RxMap)['groupcnt']);
-                              int endpos = ctl.curPos.value + cnt;
-                              if (index >= ctl.curPos.value && index < endpos) {
-                                return InkWell(
-                                    onLongPress: () {
-                                      Clipboard.setData(ClipboardData(
-                                          text: ctl.contents[index]));
-                                      final snackBar = SnackBar(
-                                        content: Text(
-                                          '[${ctl.contents[index]}]\n클립보드에 복사됨.',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText1,
-                                        ),
-                                        backgroundColor:
-                                            Theme.of(context).cardTheme.color,
-                                        duration: Duration(milliseconds: 1000),
-                                      );
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(snackBar);
-                                    },
-                                    child: Text(
-                                      '${ctl.contents[index]}',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        // backgroundColor: Theme.of(context)
-                                        //     .colorScheme
-                                        //     .surface
-                                      ),
-                                    ));
-                              }
-                            }
-                            return InkWell(
-                              child: Text('${ctl.contents[index] ?? ""}'),
-                              onLongPress: () {
-                                Clipboard.setData(
-                                    ClipboardData(text: ctl.contents[index]));
-                                final snackBar = SnackBar(
-                                  content: Text(
-                                    '[${ctl.contents[index]}]\n클립보드에 복사됨.',
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1,
-                                  ),
-                                  backgroundColor:
-                                      Theme.of(context).cardTheme.color,
-                                  duration: Duration(milliseconds: 1000),
-                                );
+                    padding: EdgeInsets.only(left: 5, right: 5, top: 5),
+                    child: Text("test")
+                    //   StreamBuilder(
+                    //       stream: AudioService.runningStream,
+                    //       builder: (c, snapshot) => GetBuilder<MainCtl>(builder: (ctl) {
+                    //             if (ctl.contents.isEmpty) {
+                    //               return Text(
+                    //                   "좌측 상단 책 아이콘을 클릭하거나. 우측 ... 아이콘 큭릭후 파일 탐색기를 이용하여 책을 열어주세요.");
+                    //             }
+                    //             return ScrollablePositionedList.builder(
+                    //               itemCount: ctl.contents.length,
+                    //               itemBuilder: (context, index) {
+                    //                 if (index >= ctl.contents.length || index < 0) {
+                    //                   return Text('');
+                    //                 }
+                    //                 if (snapshot.data) {
+                    //                   int cnt =
+                    //                       ((ctl.config['tts'] as RxMap)['groupcnt']);
+                    //                   int endpos = ctl.curPos.value + cnt;
+                    //                   if (index >= ctl.curPos.value && index < endpos) {
+                    //                     return InkWell(
+                    //                         onLongPress: () {
+                    //                           Clipboard.setData(ClipboardData(
+                    //                               text: ctl.contents[index]));
+                    //                           final snackBar = SnackBar(
+                    //                             content: Text(
+                    //                               '[${ctl.contents[index]}]\n클립보드에 복사됨.',
+                    //                               style: Theme.of(context)
+                    //                                   .textTheme
+                    //                                   .bodyText1,
+                    //                             ),
+                    //                             backgroundColor:
+                    //                                 Theme.of(context).cardTheme.color,
+                    //                             duration: Duration(milliseconds: 1000),
+                    //                           );
+                    //                           ScaffoldMessenger.of(context)
+                    //                               .showSnackBar(snackBar);
+                    //                         },
+                    //                         child: Text(
+                    //                           '${ctl.contents[index]}',
+                    //                           style: TextStyle(
+                    //                             fontWeight: FontWeight.w700,
+                    //                             // backgroundColor: Theme.of(context)
+                    //                             //     .colorScheme
+                    //                             //     .surface
+                    //                           ),
+                    //                         ));
+                    //                   }
+                    //                 }
+                    //                 return InkWell(
+                    //                   child: Text('${ctl.contents[index] ?? ""}'),
+                    //                   onLongPress: () {
+                    //                     Clipboard.setData(
+                    //                         ClipboardData(text: ctl.contents[index]));
+                    //                     final snackBar = SnackBar(
+                    //                       content: Text(
+                    //                         '[${ctl.contents[index]}]\n클립보드에 복사됨.',
+                    //                         style:
+                    //                             Theme.of(context).textTheme.bodyText1,
+                    //                       ),
+                    //                       backgroundColor:
+                    //                           Theme.of(context).cardTheme.color,
+                    //                       duration: Duration(milliseconds: 1000),
+                    //                     );
 
-                                // Find the ScaffoldMessenger in the widget tree
-                                // and use it to show a SnackBar.
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              },
-                            );
-                          },
-                          itemScrollController: ctl.itemScrollctl,
-                          itemPositionsListener: ctl.itemPosListener,
-                        );
-                      })),
-            ))
+                    //                     // Find the ScaffoldMessenger in the widget tree
+                    //                     // and use it to show a SnackBar.
+                    //                     ScaffoldMessenger.of(context)
+                    //                         .showSnackBar(snackBar);
+                    //                   },
+                    //                 );
+                    //               },
+                    //               itemScrollController: ctl.itemScrollctl,
+                    //               itemPositionsListener: ctl.itemPosListener,
+                    //             );
+                    //           })),
+                    ))
           ],
         ),
       ),

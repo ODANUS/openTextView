@@ -98,21 +98,21 @@ class MainCtl extends GetxController {
   void onInit() async {
     super.onInit();
 
-    if (!AudioService.connected) {
-      await AudioService.connect();
-    }
+    // if (!AudioService.connected) {
+    //   await AudioService.connect();
+    // }
 
-    AudioService.currentMediaItemStream.listen((event) {
-      if (event?.extras != null) {
-        if (!isScroll.value) {
-          itemScrollctl.jumpTo(
-              index: event.extras['pos'] as int, alignment: 0.1);
-        }
-        curPos.value = event.extras['pos'];
-        curPos.update((val) {});
-      }
-      // itemScrollctl.jumpTo(index: event.extras['pos']);
-    });
+    // AudioService.currentMediaItemStream.listen((event) {
+    //   if (event?.extras != null) {
+    //     if (!isScroll.value) {
+    //       itemScrollctl.jumpTo(
+    //           index: event.extras['pos'] as int, alignment: 0.1);
+    //     }
+    //     curPos.value = event.extras['pos'];
+    //     curPos.update((val) {});
+    //   }
+    //   // itemScrollctl.jumpTo(index: event.extras['pos']);
+    // });
 
     itemPosListener.itemPositions.addListener(onScroll);
 
@@ -125,18 +125,18 @@ class MainCtl extends GetxController {
     }, time: Duration(milliseconds: 500));
     // 설정 이벤트
     ever(config['theme'], changeTheme);
-    debounce(config['tts'], (ttsConf) async {
-      // tts 옵션 변경시 tts 옵션 처리 로직 부분 .
-      if (AudioService.runningStream.value) {
-        AudioService.customAction('tts', ttsConf);
-      }
-    }, time: Duration(milliseconds: 500));
-    debounce(config['filter'], (filterList) {
-      // tts 음성 시 무시하거나 대체될 로직 부분 ,
-      if (AudioService.runningStream.value) {
-        AudioService.customAction('filter', filterList);
-      }
-    }, time: Duration(milliseconds: 500));
+    // debounce(config['tts'], (ttsConf) async {
+    //   // tts 옵션 변경시 tts 옵션 처리 로직 부분 .
+    //   if (AudioService.runningStream.value) {
+    //     AudioService.customAction('tts', ttsConf);
+    //   }
+    // }, time: Duration(milliseconds: 500));
+    // debounce(config['filter'], (filterList) {
+    //   // tts 음성 시 무시하거나 대체될 로직 부분 ,
+    //   if (AudioService.runningStream.value) {
+    //     AudioService.customAction('filter', filterList);
+    //   }
+    // }, time: Duration(milliseconds: 500));
 
     debounce(config['picker'], (v) async {
       if (ocrData['brun'] == 1) {
@@ -371,9 +371,9 @@ class MainCtl extends GetxController {
 
         contents.addAll(arr);
         // contents 업데이트후 tts 작동 중이면 tts 에 contents 도 같이 갱신 해줘야함.
-        if (AudioService.runningStream.value) {
-          AudioService.customAction('contents', contents);
-        }
+        // if (AudioService.runningStream.value) {
+        //   AudioService.customAction('contents', contents);
+        // }
         update();
       }
       if (ocrData['brun'] == 1) {
@@ -532,28 +532,28 @@ class MainCtl extends GetxController {
   }
 
   void play() async {
-    if (!AudioService.connected) {
-      await AudioService.connect();
-    }
-    RxList colors = (config["theme"] as RxList);
+    // if (!AudioService.connected) {
+    //   await AudioService.connect();
+    // }
+    // RxList colors = (config["theme"] as RxList);
 
-    await AudioService.start(
-      backgroundTaskEntrypoint: textToSpeechTaskEntrypoint,
-      androidNotificationChannelName: '오픈텍스트뷰어',
-      androidNotificationColor: colors.isNotEmpty ? colors[0] : 0xFFFFFFFF,
-      androidNotificationIcon: 'mipmap/ic_launcher',
-      params: {
-        ...Map.from(config),
-        "contents": contents,
-        "history": List.from(history)
-      },
-    );
+    // await AudioService.start(
+    //   backgroundTaskEntrypoint: textToSpeechTaskEntrypoint,
+    //   androidNotificationChannelName: '오픈텍스트뷰어',
+    //   androidNotificationColor: colors.isNotEmpty ? colors[0] : 0xFFFFFFFF,
+    //   androidNotificationIcon: 'mipmap/ic_launcher',
+    //   params: {
+    //     ...Map.from(config),
+    //     "contents": contents,
+    //     "history": List.from(history)
+    //   },
+    // );
 
-    await AudioService.play();
+    // await AudioService.play();
   }
 
   void stop() async {
-    await AudioService.stop();
-    await AudioService.disconnect();
+    // await AudioService.stop();
+    // await AudioService.disconnect();
   }
 }
