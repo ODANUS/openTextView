@@ -1,23 +1,22 @@
 import 'dart:io';
-import 'dart:typed_data';
+// import 'dart:typed_data';
 
-import 'package:audio_service/audio_service.dart';
-import 'package:flutter/material.dart';
+// import 'package:audio_service/audio_service.dart';
+// import 'package:flutter/material.dart';
 import 'package:flutter_archive/flutter_archive.dart';
 import 'package:flutter_background/flutter_background.dart';
-import 'package:flutter_charset_detector/flutter_charset_detector.dart';
-import 'package:charset_converter/charset_converter.dart';
+// import 'package:flutter_charset_detector/flutter_charset_detector.dart';
+// import 'package:charset_converter/charset_converter.dart';
 import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:localstorage/localstorage.dart';
-import 'package:open_textview/controller/MainAudio.dart';
+// import 'package:open_textview/controller/MainAudio.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:image/image.dart' as im;
-import 'dart:ui' as ui;
+// import 'package:image/image.dart' as im;
+// import 'dart:ui' as ui;
 
 class FindObj {
-  FindObj({this.pos, this.contents});
+  FindObj({required this.pos, required this.contents});
   int pos;
   String contents;
 }
@@ -34,7 +33,7 @@ class MainCtl extends GetxController {
   final findText = "".obs;
   final findList = List<FindObj>.empty().obs;
 
-  final LocalStorage storage = new LocalStorage('opentextview');
+  // final LocalStorage storage = new LocalStorage('opentextview');
 
   final playState = false.obs;
 
@@ -69,29 +68,29 @@ class MainCtl extends GetxController {
 
   void onScroll() {
     // 스크롤 중에 이동 방지
-    isScroll.update((val) => true);
+    // isScroll.update((val) => true);
 
-    var min = itemPosListener.itemPositions.value
-        .where((ItemPosition position) => position.itemTrailingEdge > 0)
-        .reduce((ItemPosition min, ItemPosition position) =>
-            position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
-        .index;
+    // var min = itemPosListener.itemPositions.value
+    //     .where((ItemPosition position) => position.itemTrailingEdge > 0)
+    //     .reduce((ItemPosition min, ItemPosition position) =>
+    //         position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
+    //     .index;
 
-    curPos.value = min;
-    int whereIdx = history.indexWhere((element) {
-      return element['name'] == (config['picker'] as Map)['name'];
-    });
-    DateTime now = DateTime.now();
-    DateFormat formatter = new DateFormat('yyyy-MM-dd hh-mm-ss');
-    // if (curPos.value > 0) {
+    // curPos.value = min;
+    // int whereIdx = history.indexWhere((element) {
+    //   return element['name'] == (config['picker'] as Map)['name'];
+    // });
+    // DateTime now = DateTime.now();
+    // DateFormat formatter = new DateFormat('yyyy-MM-dd hh-mm-ss');
+    // // if (curPos.value > 0) {
+    // // }
+
+    // if (whereIdx >= 0) {
+    //   history[whereIdx]['pos'] = curPos.value;
+    //   history[whereIdx]['date'] = formatter.format(now);
+    //   history.refresh();
     // }
-
-    if (whereIdx >= 0) {
-      history[whereIdx]['pos'] = curPos.value;
-      history[whereIdx]['date'] = formatter.format(now);
-      history.refresh();
-    }
-    update(['scroll']);
+    // update(['scroll']);
   }
 
   @override
@@ -114,17 +113,17 @@ class MainCtl extends GetxController {
     //   // itemScrollctl.jumpTo(index: event.extras['pos']);
     // });
 
-    itemPosListener.itemPositions.addListener(onScroll);
+    // itemPosListener.itemPositions.addListener(onScroll);
 
-    debounce(isScroll, (v) {
-      if (v) {
-        isScroll.update((val) {
-          return false;
-        });
-      }
-    }, time: Duration(milliseconds: 500));
-    // 설정 이벤트
-    ever(config['theme'], changeTheme);
+    // debounce(isScroll, (v) {
+    //   if (v) {
+    //     isScroll.update((val) {
+    //       return false;
+    //     });
+    //   }
+    // }, time: Duration(milliseconds: 500));
+    // // 설정 이벤트
+    // ever(config['theme'], changeTheme);
     // debounce(config['tts'], (ttsConf) async {
     //   // tts 옵션 변경시 tts 옵션 처리 로직 부분 .
     //   if (AudioService.runningStream.value) {
@@ -138,121 +137,121 @@ class MainCtl extends GetxController {
     //   }
     // }, time: Duration(milliseconds: 500));
 
-    debounce(config['picker'], (v) async {
-      if (ocrData['brun'] == 1) {
-        ocrData.update('brun', (value) => 0);
-        await Future.delayed(const Duration(milliseconds: 4000));
-      }
-      if ((v as Map).isNotEmpty && v['extension'] == 'zip') {
-        File f = File(
-            '${(config['ocr'] as RxMap)['path']}/${v['name'].split('.')[0]}.txt');
-        if (f.existsSync()) {
-          showDialog(
-              context: Get.context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text("openTextView"),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "이미 ocr 이 완료된 파일 입니다. OCR작업 하시겠습니까?",
-                      ),
-                    ],
-                  ),
-                  actions: [
-                    ElevatedButton(
-                      child: new Text("취소"),
-                      onPressed: () {
-                        Get.back();
-                      },
-                    ),
-                    ElevatedButton(
-                      child: new Text("작업"),
-                      onPressed: () {
-                        jobOcr(v);
-                        Get.back();
-                      },
-                    ),
-                  ],
-                );
-              });
-          return;
-        }
-        jobOcr(v);
-      }
-      if ((v as Map).isNotEmpty && v['extension'] == 'txt') {
-        File file = File(v['path']);
-        if (file.existsSync()) {
-          if (AudioService.runningStream.value) {
-            AudioService.stop();
-          }
-          Uint8List u8list = file.readAsBytesSync();
-          String decodeContents;
-          try {
-            DecodingResult decodingResult = await CharsetDetector.autoDecode(
-              u8list,
-            );
-            decodeContents = decodingResult.string;
-          } catch (e) {
-            decodeContents = await CharsetConverter.decode('EUC-KR', u8list);
-          }
-          // contents.assignAll([]);
-          contents.clear();
+    // debounce(config['picker'], (v) async {
+    //   if (ocrData['brun'] == 1) {
+    //     ocrData.update('brun', (value) => 0);
+    //     await Future.delayed(const Duration(milliseconds: 4000));
+    //   }
+    //   if ((v as Map).isNotEmpty && v['extension'] == 'zip') {
+    //     File f = File(
+    //         '${(config['ocr'] as RxMap)['path']}/${v['name'].split('.')[0]}.txt');
+    //     if (f.existsSync()) {
+    //       showDialog(
+    //           context: Get.context,
+    //           builder: (BuildContext context) {
+    //             return AlertDialog(
+    //               title: Text("openTextView"),
+    //               content: Column(
+    //                 mainAxisSize: MainAxisSize.min,
+    //                 children: [
+    //                   Text(
+    //                     "이미 ocr 이 완료된 파일 입니다. OCR작업 하시겠습니까?",
+    //                   ),
+    //                 ],
+    //               ),
+    //               actions: [
+    //                 ElevatedButton(
+    //                   child: new Text("취소"),
+    //                   onPressed: () {
+    //                     Get.back();
+    //                   },
+    //                 ),
+    //                 ElevatedButton(
+    //                   child: new Text("작업"),
+    //                   onPressed: () {
+    //                     jobOcr(v);
+    //                     Get.back();
+    //                   },
+    //                 ),
+    //               ],
+    //             );
+    //           });
+    //       return;
+    //     }
+    //     jobOcr(v);
+    //   }
+    //   if ((v as Map).isNotEmpty && v['extension'] == 'txt') {
+    //     File file = File(v['path']);
+    //     if (file.existsSync()) {
+    //       if (AudioService.runningStream.value) {
+    //         AudioService.stop();
+    //       }
+    //       Uint8List u8list = file.readAsBytesSync();
+    //       String decodeContents;
+    //       try {
+    //         DecodingResult decodingResult = await CharsetDetector.autoDecode(
+    //           u8list,
+    //         );
+    //         decodeContents = decodingResult.string;
+    //       } catch (e) {
+    //         decodeContents = await CharsetConverter.decode('EUC-KR', u8list);
+    //       }
+    //       // contents.assignAll([]);
+    //       contents.clear();
 
-          contents.assignAll(decodeContents.split('\n'));
-          update();
+    //       contents.assignAll(decodeContents.split('\n'));
+    //       update();
 
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            int whereIdx = history.indexWhere((element) {
-              return element['name'] == (config['picker'] as Map)['name'];
-            });
-            DateTime now = DateTime.now();
-            DateFormat formatter = new DateFormat('yyyy-MM-dd hh-mm-ss');
-            if (whereIdx < 0) {
-              history.add(
-                  {'name': v['name'], 'pos': 0, 'date': formatter.format(now)});
-              itemScrollctl.jumpTo(index: 0, alignment: 0.1);
-            } else {
-              itemScrollctl.jumpTo(
-                  index: history[whereIdx]['pos'] as int, alignment: 0.1);
-              history[whereIdx]['date'] = formatter.format(now);
-            }
-            itemPosListener.itemPositions.addListener(onScroll);
-          });
-        }
-      }
-    }, time: Duration(milliseconds: 300));
+    //       WidgetsBinding.instance.addPostFrameCallback((_) {
+    //         int whereIdx = history.indexWhere((element) {
+    //           return element['name'] == (config['picker'] as Map)['name'];
+    //         });
+    //         DateTime now = DateTime.now();
+    //         DateFormat formatter = new DateFormat('yyyy-MM-dd hh-mm-ss');
+    //         if (whereIdx < 0) {
+    //           history.add(
+    //               {'name': v['name'], 'pos': 0, 'date': formatter.format(now)});
+    //           itemScrollctl.jumpTo(index: 0, alignment: 0.1);
+    //         } else {
+    //           itemScrollctl.jumpTo(
+    //               index: history[whereIdx]['pos'] as int, alignment: 0.1);
+    //           history[whereIdx]['date'] = formatter.format(now);
+    //         }
+    //         itemPosListener.itemPositions.addListener(onScroll);
+    //       });
+    //     }
+    //   }
+    // }, time: Duration(milliseconds: 300));
 
     // [*]--------------[*]
     // 옵션 로드 / 공통 이벤트 처리 로직
     // [*]--------------[*]
-    await storage.ready;
+    // await storage.ready;
 
-    // 초기 설정 파일 로드
-    // print('초기 설정 파일 로드');
-    // print(storage.getItem('config'));
-    // print(storage.getItem('history'));
-    // print('초기 설정 파일 로드 end');
-    try {
-      assignConfig(storage.getItem('config') ?? {});
-      assignHistory(storage.getItem('history') ?? []);
-    } catch (e) {
-      // storage.clear();
-    }
+    // // 초기 설정 파일 로드
+    // // print('초기 설정 파일 로드');
+    // // print(storage.getItem('config'));
+    // // print(storage.getItem('history'));
+    // // print('초기 설정 파일 로드 end');
+    // try {
+    //   assignConfig(storage.getItem('config') ?? {});
+    //   assignHistory(storage.getItem('history') ?? []);
+    // } catch (e) {
+    //   // storage.clear();
+    // }
 
-    // save config , 초기 설정 로드 후 저장 이벤트 를 셋팅 한다.
-    config.keys.forEach((key) {
-      debounce(config[key], (v) async {
-        await storage.ready;
-        await storage.setItem('config', config.toJson());
-      }, time: Duration(milliseconds: 400));
-    });
+    // // save config , 초기 설정 로드 후 저장 이벤트 를 셋팅 한다.
+    // // config.keys.forEach((key) {
+    // //   debounce(config[key], (v) async {
+    // //     await storage.ready;
+    // //     await storage.setItem('config', config.toJson());
+    // //   }, time: Duration(milliseconds: 400));
+    // // });
 
-    debounce(history, (v) async {
-      await storage.ready;
-      await storage.setItem('history', history.toJson());
-    }, time: Duration(milliseconds: 500));
+    // debounce(history, (v) async {
+    //   await storage.ready;
+    //   await storage.setItem('history', history.toJson());
+    // }, time: Duration(milliseconds: 500));
   }
 
   void jobOcr(v) async {
@@ -315,27 +314,27 @@ class MainCtl extends GetxController {
         // File(
         //     '${(config['ocr'] as RxMap)['path']}${imgFiles[i].toString().split('/').last}_ocr.jpg')
         //   ..writeAsBytesSync(im.encodeJpg(image));
-        im.Image image =
-            im.decodeImage(File(imgFiles[i].toString()).readAsBytesSync());
-        image = im.adjustColor(
-          image.clone(),
-          gamma: 5,
-        );
-        File('${imgFiles[i].toString()}_ocr.jpg')
-          ..writeAsBytesSync(im.encodeJpg(image));
-        // print(i);
-        String conv = await _ocr('${imgFiles[i].toString()}_ocr.jpg');
-        if (conv.split('   ').length > 3) {
-          im.Image image =
-              im.decodeImage(File(imgFiles[i].toString()).readAsBytesSync());
-          image = im.adjustColor(
-            image.clone(),
-            gamma: 20,
-          );
-          File('${imgFiles[i].toString()}_ocr.jpg')
-            ..writeAsBytesSync(im.encodeJpg(image));
-          conv = await _ocr('${imgFiles[i].toString()}_ocr.jpg');
-        }
+        // im.Image image =
+        //     im.decodeImage(File(imgFiles[i].toString()).readAsBytesSync());
+        // image = im.adjustColor(
+        //   image.clone(),
+        //   gamma: 5,
+        // );
+        // File('${imgFiles[i].toString()}_ocr.jpg')
+        //   ..writeAsBytesSync(im.encodeJpg(image));
+        // // print(i);
+        // String conv = await _ocr('${imgFiles[i].toString()}_ocr.jpg');
+        // if (conv.split('   ').length > 3) {
+        //   im.Image image =
+        //       im.decodeImage(File(imgFiles[i].toString()).readAsBytesSync());
+        //   image = im.adjustColor(
+        //     image.clone(),
+        //     gamma: 20,
+        //   );
+        //   File('${imgFiles[i].toString()}_ocr.jpg')
+        //     ..writeAsBytesSync(im.encodeJpg(image));
+        //   conv = await _ocr('${imgFiles[i].toString()}_ocr.jpg');
+        // }
         // String text = await FlutterTesseractOcr.extractText(
         //     '${imgFiles[i].toString()}_ocr.jpg',
         //     language: ((config['ocr'] as RxMap)['lang'] as List).join("+"),
@@ -358,23 +357,23 @@ class MainCtl extends GetxController {
         // text = text.replaceAll('___QWER!@#”___', '”\n');
         // text = text.replaceAll('___QWER!@#\'___', '\'\n');
 
-        var arr = conv.split('\n');
-        if (contents.isNotEmpty) {
-          int len = contents.last.length - 1 ?? 0;
-          if (contents.last
-                  .lastIndexOf(RegExp('\\.|"|\'|”|’|\\!|\\?|\\\|\\)|\\]')) <
-              len) {
-            contents.last += ' ' + arr.first;
-            arr.removeAt(0);
-          }
-        }
-
-        contents.addAll(arr);
-        // contents 업데이트후 tts 작동 중이면 tts 에 contents 도 같이 갱신 해줘야함.
-        // if (AudioService.runningStream.value) {
-        //   AudioService.customAction('contents', contents);
+        // var arr = conv.split('\n');
+        // if (contents.isNotEmpty) {
+        //   int len = contents.last.length - 1 ?? 0;
+        //   if (contents.last
+        //           .lastIndexOf(RegExp('\\.|"|\'|”|’|\\!|\\?|\\\|\\)|\\]')) <
+        //       len) {
+        //     contents.last += ' ' + arr.first;
+        //     arr.removeAt(0);
+        //   }
         // }
-        update();
+
+        // contents.addAll(arr);
+        // // contents 업데이트후 tts 작동 중이면 tts 에 contents 도 같이 갱신 해줘야함.
+        // // if (AudioService.runningStream.value) {
+        // //   AudioService.customAction('contents', contents);
+        // // }
+        // update();
       }
       if (ocrData['brun'] == 1) {
         File f = File(
@@ -415,121 +414,121 @@ class MainCtl extends GetxController {
   }
 
   setConfig(Map<String, dynamic> config, List history) {
-    try {
-      int whereIdx = history.indexWhere((element) {
-        return element['name'] == (config['picker'] as Map)['name'];
-      });
-      assignConfig(config ?? {});
-      assignHistory(history ?? []);
-      itemScrollctl.jumpTo(index: history[whereIdx]['pos'], alignment: 0.1);
-    } catch (e) {}
+    // try {
+    //   int whereIdx = history.indexWhere((element) {
+    //     return element['name'] == (config['picker'] as Map)['name'];
+    //   });
+    //   assignConfig(config ?? {});
+    //   assignHistory(history ?? []);
+    //   itemScrollctl.jumpTo(index: history[whereIdx]['pos'], alignment: 0.1);
+    // } catch (e) {}
   }
 
   assignHistory(List tmpHistory) {
-    history.assignAll(tmpHistory);
+    // history.assignAll(tmpHistory);
   }
 
   assignConfig(Map<String, dynamic> tmpConfig) {
-    tmpConfig.keys.forEach((key) {
-      if (config[key] == null) {
-        return;
-      }
-      try {
-        if (config[key] is RxList && (tmpConfig[key] as List).isNotEmpty) {
-          (config[key] as RxList).assignAll(tmpConfig[key]);
-        } else if (config[key] is RxMap && (tmpConfig[key] as Map).isNotEmpty) {
-          (config[key] as RxMap).assignAll(tmpConfig[key]);
-        }
-      } catch (e) {
-        print(e);
-      }
-    });
+    // tmpConfig.keys.forEach((key) {
+    //   if (config[key] == null) {
+    //     return;
+    //   }
+    //   try {
+    //     if (config[key] is RxList && (tmpConfig[key] as List).isNotEmpty) {
+    //       (config[key] as RxList).assignAll(tmpConfig[key]);
+    //     } else if (config[key] is RxMap && (tmpConfig[key] as Map).isNotEmpty) {
+    //       (config[key] as RxMap).assignAll(tmpConfig[key]);
+    //     }
+    //   } catch (e) {
+    //     print(e);
+    //   }
+    // });
   }
 
   changeTheme(v) {
-    if (v != null && v.length <= 0) {
-      return;
-    }
-    int c1 = v[0];
-    int c2 = v[1];
+    // if (v != null && v.length <= 0) {
+    //   return;
+    // }
+    // int c1 = v[0];
+    // int c2 = v[1];
 
-    Color color1 = Color(c1);
-    Color color2 = Color(c2);
-    Get.changeTheme(ThemeData(
-        scaffoldBackgroundColor: color1,
-        dialogBackgroundColor: color1,
-        appBarTheme: AppBarTheme(
-            backgroundColor: color1,
-            textTheme: TextTheme(
-              headline3: TextStyle(color: color2),
-              headline4: TextStyle(color: color2),
-              headline5: TextStyle(color: color2),
-              headline6: TextStyle(color: color2),
-              headline1: TextStyle(color: color2),
-              headline2: TextStyle(color: color2),
-              bodyText1: TextStyle(color: color2),
-              bodyText2: TextStyle(color: color2),
-              subtitle1: TextStyle(color: color2),
-              subtitle2: TextStyle(color: color2),
-              overline: TextStyle(color: color2),
-              caption: TextStyle(color: color2),
-            )),
-        bottomSheetTheme: BottomSheetThemeData(backgroundColor: color1),
-        cardTheme: CardTheme(color: getSwatchShade(color1, 400)), //
-        hintColor: color2,
-        colorScheme: ColorScheme.light(
-          primary: color2,
-          primaryVariant: color2,
-          secondary: color2,
-          secondaryVariant: color2,
-          surface: getSwatchShade(color1, 400),
-          // background: color1,
-          // error: color1,
-          onPrimary: color1,
-          onSecondary: color1,
-          onSurface: color2,
-        ),
-        accentColor: color2,
-        iconTheme: IconThemeData(color: color2),
-        // accentIconTheme: IconThemeData(color: color2),
-        primaryIconTheme: IconThemeData(color: color2),
-        popupMenuTheme: PopupMenuThemeData(color: getSwatchShade(color1, 400)),
-        checkboxTheme: CheckboxThemeData(
-            fillColor: MaterialStateProperty.all(color2),
-            checkColor: MaterialStateProperty.all(color1)),
-        textTheme: TextTheme(
-          headline3: TextStyle(color: color2),
-          headline4: TextStyle(color: color2),
-          headline5: TextStyle(color: color2),
-          headline6: TextStyle(color: color2),
-          headline1: TextStyle(color: color2),
-          headline2: TextStyle(color: color2),
-          bodyText1: TextStyle(color: color2),
-          bodyText2: TextStyle(color: color2),
-          subtitle1: TextStyle(color: color2),
-          subtitle2: TextStyle(color: color2),
-          overline: TextStyle(color: color2),
-          caption: TextStyle(color: color2),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          labelStyle: TextStyle(color: color2),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: color2,
-            ),
-          ),
-        ),
-        floatingActionButtonTheme:
-            FloatingActionButtonThemeData(backgroundColor: color2)));
+    // Color color1 = Color(c1);
+    // Color color2 = Color(c2);
+    // Get.changeTheme(ThemeData(
+    //     scaffoldBackgroundColor: color1,
+    //     dialogBackgroundColor: color1,
+    //     appBarTheme: AppBarTheme(
+    //         backgroundColor: color1,
+    //         textTheme: TextTheme(
+    //           headline3: TextStyle(color: color2),
+    //           headline4: TextStyle(color: color2),
+    //           headline5: TextStyle(color: color2),
+    //           headline6: TextStyle(color: color2),
+    //           headline1: TextStyle(color: color2),
+    //           headline2: TextStyle(color: color2),
+    //           bodyText1: TextStyle(color: color2),
+    //           bodyText2: TextStyle(color: color2),
+    //           subtitle1: TextStyle(color: color2),
+    //           subtitle2: TextStyle(color: color2),
+    //           overline: TextStyle(color: color2),
+    //           caption: TextStyle(color: color2),
+    //         )),
+    //     bottomSheetTheme: BottomSheetThemeData(backgroundColor: color1),
+    //     cardTheme: CardTheme(color: getSwatchShade(color1, 400)), //
+    //     hintColor: color2,
+    //     colorScheme: ColorScheme.light(
+    //       primary: color2,
+    //       primaryVariant: color2,
+    //       secondary: color2,
+    //       secondaryVariant: color2,
+    //       surface: getSwatchShade(color1, 400),
+    //       // background: color1,
+    //       // error: color1,
+    //       onPrimary: color1,
+    //       onSecondary: color1,
+    //       onSurface: color2,
+    //     ),
+    //     accentColor: color2,
+    //     iconTheme: IconThemeData(color: color2),
+    //     // accentIconTheme: IconThemeData(color: color2),
+    //     primaryIconTheme: IconThemeData(color: color2),
+    //     popupMenuTheme: PopupMenuThemeData(color: getSwatchShade(color1, 400)),
+    //     checkboxTheme: CheckboxThemeData(
+    //         fillColor: MaterialStateProperty.all(color2),
+    //         checkColor: MaterialStateProperty.all(color1)),
+    //     textTheme: TextTheme(
+    //       headline3: TextStyle(color: color2),
+    //       headline4: TextStyle(color: color2),
+    //       headline5: TextStyle(color: color2),
+    //       headline6: TextStyle(color: color2),
+    //       headline1: TextStyle(color: color2),
+    //       headline2: TextStyle(color: color2),
+    //       bodyText1: TextStyle(color: color2),
+    //       bodyText2: TextStyle(color: color2),
+    //       subtitle1: TextStyle(color: color2),
+    //       subtitle2: TextStyle(color: color2),
+    //       overline: TextStyle(color: color2),
+    //       caption: TextStyle(color: color2),
+    //     ),
+    //     inputDecorationTheme: InputDecorationTheme(
+    //       labelStyle: TextStyle(color: color2),
+    //       border: OutlineInputBorder(
+    //         borderSide: BorderSide(),
+    //       ),
+    //       focusedBorder: OutlineInputBorder(
+    //         borderSide: BorderSide(
+    //           color: color2,
+    //         ),
+    //       ),
+    //     ),
+    //     floatingActionButtonTheme:
+    //         FloatingActionButtonThemeData(backgroundColor: color2)));
   }
 
-  Color getSwatchShade(Color c, int swatchValue) {
-    final hsl = HSLColor.fromColor(c);
-    return hsl.withSaturation(1 - (swatchValue / 1000)).toColor();
-  }
+  // Color getSwatchShade(Color c, int swatchValue) {
+  //   final hsl = HSLColor.fromColor(c);
+  //   return hsl.withSaturation(1 - (swatchValue / 1000)).toColor();
+  // }
 
   void play() async {
     // if (!AudioService.connected) {
