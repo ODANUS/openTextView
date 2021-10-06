@@ -1,18 +1,22 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
 class UserData {
   UserData({
     this.theme = "light",
     this.filter = const [],
     this.history = const [],
   })  : tts = Tts(),
-        ocr = Ocr();
+        ocr = Ocr(),
+        ui = Ui();
 
   Tts tts;
   List<Filter> filter;
   Ocr ocr;
   List<History> history;
   String theme;
+  Ui ui;
 
   factory UserData.fromJson(String str) => UserData.fromMap(json.decode(str));
 
@@ -29,7 +33,8 @@ class UserData {
         theme: json["theme"] == null ? "" : json["theme"],
       )
         ..tts = json["tts"] == null ? Tts() : Tts.fromMap(json["tts"])
-        ..ocr = json["ocr"] == null ? Ocr() : Ocr.fromMap(json["ocr"]);
+        ..ocr = json["ocr"] == null ? Ocr() : Ocr.fromMap(json["ocr"])
+        ..ui = json["ui"] == null ? Ui() : Ui.fromMap(json["ui"]);
 
   Map<String, dynamic> toMap() => {
         "tts": tts.toMap(),
@@ -37,6 +42,7 @@ class UserData {
         "ocr": ocr.toMap(),
         "history": List<dynamic>.from(history.map((x) => x.toMap())),
         "theme": theme,
+        "ui": ui.toMap(),
       };
 }
 
@@ -94,10 +100,10 @@ class History {
   String toJson() => json.encode(toMap());
 
   factory History.fromMap(Map<String, dynamic> json) => History(
-        date: json["date"] == null ? null : json["date"],
-        pos: json["pos"] == null ? null : json["pos"],
-        name: json["name"] == null ? null : json["name"],
-        path: json["path"] == null ? null : json["path"],
+        date: json["date"] == null ? "" : json["date"],
+        pos: json["pos"] == null ? 0 : json["pos"],
+        name: json["name"] == null ? "" : json["name"],
+        path: json["path"] == null ? "" : json["path"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -119,9 +125,14 @@ class Ocr {
 
   String toJson() => json.encode(toMap());
 
-  factory Ocr.fromMap(Map<String, dynamic> json) => Ocr(
-        lang: List<String>.from(json["lang"].map((x) => x)),
-      );
+  factory Ocr.fromMap(Map<String, dynamic> json) {
+    print("-----------------${json}");
+    return Ocr(
+      lang: json["lang"] == null
+          ? []
+          : List<String>.from(json["lang"].map((x) => x)),
+    );
+  }
 
   Map<String, dynamic> toMap() => {
         "lang": List<dynamic>.from(lang.map((x) => x)),
@@ -168,5 +179,25 @@ class Tts {
         "groupcnt": groupcnt,
         "headsetbutton": headsetbutton,
         "audiosession": audiosession,
+      };
+}
+
+class Ui {
+  Ui({
+    this.fontSize = 12,
+  });
+
+  int fontSize;
+
+  factory Ui.fromJson(String str) => Ui.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Ui.fromMap(Map<String, dynamic> json) => Ui(
+        fontSize: json["fontSize"] == null ? null : json["fontSize"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "fontSize": fontSize == null ? null : fontSize,
       };
 }

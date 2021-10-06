@@ -28,18 +28,19 @@ class OptionCache extends GetView<GlobalController> {
               children: [
                 ListTile(
                   onTap: () async {
-                    final LocalStorage storage =
-                        new LocalStorage('opentextview');
-                    await storage.ready;
+                    controller.loadconfig();
+                    // final LocalStorage storage =
+                    //     new LocalStorage('opentextview');
+                    // await storage.ready;
 
-                    // Directory d = await getTemporaryDirectory();
-                    // var list = await d.list().toList();
-                    // print(list);
-                    Directory d1 = await getApplicationDocumentsDirectory();
-                    var list1 = await d1.list().toList();
-                    print(d1.path);
-                    File f = File(d1.path + "/opentextview");
-                    print(f.readAsStringSync());
+                    // // Directory d = await getTemporaryDirectory();
+                    // // var list = await d.list().toList();
+                    // // print(list);
+                    // Directory d1 = await getApplicationDocumentsDirectory();
+                    // var list1 = await d1.list().toList();
+                    // print(d1.path);
+                    // File f = File(d1.path + "/opentextview");
+                    // print(f.readAsStringSync());
                     // var ss = await (list.first as Directory).list().toList();
                     // print(ss);
                     // await pageCtl.createBackupFile();

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import 'package:googleapis/drive/v3.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/controller/global_controller.dart';
-import 'package:open_textview/provider/Gdrive.dart';
-import 'package:open_textview/provider/utils.dart';
+import 'package:open_textview/model/user_data.dart';
 
 class OptionFilterCtl extends GetxController {
   // RxList<File> backupFiles = RxList<File>();
-  Rx<bool> isLoading = false.obs;
+  final idxeditTarget = (-1).obs;
+  final tmpEditFilter = Filter().obs;
 }
 
 const List<dynamic> DFFILTER = [
@@ -105,69 +104,199 @@ class OptionFilter extends GetView<GlobalController> {
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionFilterCtl());
-    Widget delIcon = IconSlideAction(
-      caption: '삭제',
-      color: Colors.red,
-      icon: Icons.delete,
-      onTap: () async {},
-    );
-    Widget editIcon = IconSlideAction(
-      caption: '수정',
-      color: Colors.green,
-      icon: Icons.edit,
-      onTap: () async {},
-    );
-    return Obx(() => Stack(
-          children: [
-            ExpansionTile(
-              onExpansionChanged: (b) async {},
-              title: Text("TTS 필터 설정"),
-              children: [
-                Container(
-                    width: double.infinity,
-                    height: 100,
-                    // duration: const Duration(milliseconds: 300),
-                    child:
-                        ListView(scrollDirection: Axis.horizontal, children: [
-                      ...DFFILTER.map((e) {
-                        return Card(
-                            margin: EdgeInsets.all(10),
-                            child: InkWell(
-                                onTap: () {
-                                  // RxList rxlist = controller.config['filter'];
-                                  // rxlist.add(Map.from({...e, "enable": true}));
-                                  // controller.update();
-                                },
-                                child: Padding(
-                                    padding: EdgeInsets.all(5),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(e['name']),
-                                          Text(e['filter'])
-                                        ]))));
-                      }).toList()
-                    ])),
-                // map
-                Slidable(
+
+    return Obx(() {
+      var filterList = controller.userData.value.filter;
+      return Stack(
+        children: [
+          ExpansionTile(
+            onExpansionChanged: (b) async {},
+            title: Text("TTS 필터 설정"),
+            children: [
+              Container(
+                  width: double.infinity,
+                  height: 100,
+                  // duration: const Duration(milliseconds: 300),
+                  child: ListView(scrollDirection: Axis.horizontal, children: [
+                    ...DFFILTER.map((e) {
+                      return Card(
+                          margin: EdgeInsets.all(10),
+                          child: InkWell(
+                              onTap: () {
+                                controller.userData.update((val) {
+                                  val!.filter
+                                      .add(Filter.fromMap(e)..enable = true);
+                                });
+                              },
+                              child: Padding(
+                                  padding: EdgeInsets.all(5),
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(e['name']),
+                                        Text(e['filter'])
+                                      ]))));
+                    }).toList()
+                  ])),
+              ...filterList.map((e) {
+                var idx = filterList.indexOf(e);
+                bool bedit = idx == pageCtl.idxeditTarget.value;
+                var tmpFilter = pageCtl.tmpEditFilter.value;
+                var rxFilter = pageCtl.tmpEditFilter;
+                Widget delIcon = IconSlideAction(
+                  caption: '삭제',
+                  color: Colors.red,
+                  icon: Icons.delete,
+                  onTap: () async {
+                    controller.userData.update((v) {
+                      filterList.remove(e);
+                    });
+                  },
+                );
+                Widget editIcon = IconSlideAction(
+                  caption: '수정',
+                  color: Colors.green,
+                  icon: Icons.edit,
+                  onTap: () async {
+                    pageCtl.tmpEditFilter(Filter.fromMap(e.toMap()));
+                    pageCtl.idxeditTarget(idx);
+                  },
+                );
+
+                return Card(
+                    child: Slidable(
                   actionPane: SlidableDrawerActionPane(),
-                  child: ListTile(onTap: () {}, title: Text("asdf")),
+                  child: ListTile(
+                      onTap: () {
+                        print(e.toJson());
+                      },
+                      title: bedit
+                          ? TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "이름",
+                              ),
+                              initialValue: tmpFilter.name,
+                              onChanged: (v) => rxFilter.update((val) {
+                                tmpFilter.name = v;
+                              }),
+                            )
+                          : Text(e.name),
+                      subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            bedit
+                                ? Column(children: [
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                        labelText: "필터 규칙",
+                                      ),
+                                      initialValue: tmpFilter.filter,
+                                      onChanged: (v) => rxFilter.update((val) {
+                                        tmpFilter.filter = v;
+                                      }),
+                                    ),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                        labelText: "변경 문자",
+                                      ),
+                                      initialValue: tmpFilter.to,
+                                      onChanged: (v) => rxFilter.update((val) {
+                                        tmpFilter.to = v;
+                                      }),
+                                    )
+                                  ])
+                                : Wrap(
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.center,
+                                    children: [
+                                      Text("${e.filter}"),
+                                      Text("   ->   "),
+                                      Text("${e.to == "" ? "없음" : e.to}"),
+                                    ],
+                                  ),
+                            Row(
+                              children: [
+                                Text("정규식 사용 : "),
+                                bedit
+                                    ? Checkbox(
+                                        value: tmpFilter.expr,
+                                        onChanged: (b) {
+                                          pageCtl.tmpEditFilter.update((val) {
+                                            tmpFilter.expr = b!;
+                                          });
+                                        },
+                                      )
+                                    : Checkbox(
+                                        value: e.expr,
+                                        onChanged: (b) {
+                                          controller.userData.update((v) {
+                                            e.expr = b!;
+                                          });
+                                        },
+                                      )
+                              ],
+                            ),
+                            if (bedit)
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        pageCtl.idxeditTarget(-1);
+                                      },
+                                      child: Text("취소")),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        controller.userData.update((val) {
+                                          filterList[idx] =
+                                              Filter.fromMap(tmpFilter.toMap());
+                                        });
+                                        pageCtl.idxeditTarget(-1);
+                                      },
+                                      child: Text("확인")),
+                                ],
+                              )
+                          ]),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text("사용"),
+                          bedit
+                              ? Checkbox(
+                                  value: tmpFilter.enable,
+                                  onChanged: (b) {
+                                    pageCtl.tmpEditFilter.update((val) {
+                                      tmpFilter.enable = b!;
+                                    });
+                                  },
+                                )
+                              : Checkbox(
+                                  value: e.enable,
+                                  onChanged: (b) {
+                                    controller.userData.update((v) {
+                                      e.enable = b!;
+                                    });
+                                  }),
+                        ],
+                      )),
                   actionExtentRatio: 0.2,
                   secondaryActions: [delIcon, editIcon],
                   actions: [delIcon, editIcon],
-                )
-              ],
-            ),
-            if (pageCtl.isLoading.value)
-              Positioned.fill(
-                child: Container(
-                  color: Colors.black12,
-                  alignment: Alignment.center,
-                  child: CircularProgressIndicator(),
-                ),
-              ),
-          ],
-        ));
+                ));
+              }).toList(),
+              ElevatedButton(
+                  onPressed: () {
+                    controller.userData.update((val) {
+                      val!.filter.add(Filter());
+                    });
+                  },
+                  child: Icon(Ionicons.add)),
+            ],
+          ),
+        ],
+      );
+    });
   }
 }

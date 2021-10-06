@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer' as d;
 import 'dart:io';
 import 'dart:math';
@@ -7,6 +8,8 @@ import 'package:charset_converter/charset_converter.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:intl/intl.dart';
+import 'package:open_textview/model/user_data.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utils {
@@ -15,16 +18,6 @@ class Utils {
     String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
     if (selectedDirectory != null) {
       return selectedDirectory;
-      // var d = Directory(selectedDirectory);
-      // var flist = await d.list().toList();
-      // var f = File("/storage/emulated/0/미디어/대한민국헌법(헌법제9호).txt");
-      // String contents = await f.readAsString();
-
-      // print(contents);
-
-      // var wf = File(selectedDirectory + "/test1111.txt");
-      // var ss = await wf.writeAsString("adsdsdsds");
-      // print(await ss.readAsString());
     }
     return null;
   }
@@ -45,6 +38,34 @@ class Utils {
     SharedPreferences prefs = await _prefs;
     prefs.reload();
     prefs.setStringList("libraryPaths", libraryPaths);
+  }
+
+  static Future<String?> loadUserData() async {
+    SharedPreferences prefs = await _prefs;
+    prefs.reload();
+    return prefs.getString("userdata");
+  }
+
+  static Future<void> setUserData(strjson) async {
+    SharedPreferences prefs = await _prefs;
+    prefs.setString("userdata", strjson);
+  }
+
+  static Future<void> clearUserData() async {
+    SharedPreferences prefs = await _prefs;
+    prefs.remove("userdata");
+  }
+
+  static Future<String?> loadCurrentData() async {
+    SharedPreferences prefs = await _prefs;
+    prefs.reload();
+    return prefs.getString("currentdata");
+  }
+
+  static Future setCurrentData(strjson) async {
+    SharedPreferences prefs = await _prefs;
+    prefs.reload();
+    prefs.setString("currentdata", strjson);
   }
 
   static Future<String> readFile(File f) async {
@@ -76,5 +97,52 @@ class Utils {
     DateFormat dateFormat = DateFormat(f);
     d = d.add(Duration(days: add));
     return dateFormat.format(d);
+  }
+
+  // 기존 데이터 마이그레이션을 위해 한동안 유지후 삭제 해야함.
+  static Future<bool> isLocalStorage() async {
+    Directory appdir = await getApplicationDocumentsDirectory();
+    File f = File(appdir.path + "/opentextview");
+    return f.existsSync();
+  }
+
+  static Future<String> getLocalStorage() async {
+    Directory appdir = await getApplicationDocumentsDirectory();
+    File f = File(appdir.path + "/opentextview");
+    return f.readAsStringSync();
+  }
+
+  static Future<void> delLocalStorage() async {
+    Directory appdir = await getApplicationDocumentsDirectory();
+    File f = File(appdir.path + "/opentextview");
+    f.deleteSync();
+  }
+
+  static Future<UserData?> localStorageToUserData() async {
+    if (await Utils.isLocalStorage()) {
+      String strlocaljson = await Utils.getLocalStorage();
+      dynamic localjson = json.decode(strlocaljson);
+      UserData tmpuserData = UserData();
+      if (localjson['config'] != null) {
+        if (localjson['config']['tts'] != null) {
+          tmpuserData.tts = Tts.fromMap(localjson['config']['tts']);
+        }
+        if (localjson['config']['filter'] != null) {
+          tmpuserData.filter = (localjson['config']['filter'] as List)
+              .map((e) => Filter.fromMap(e))
+              .toList();
+        }
+        if (localjson['config']['ocr'] != null) {
+          tmpuserData.ocr = Ocr.fromMap(localjson['config']['ocr']);
+        }
+      }
+      if (localjson['history'] != null) {
+        tmpuserData.history = (localjson['history'] as List)
+            .map((e) => History.fromMap(e))
+            .toList();
+      }
+      return tmpuserData;
+    }
+    return null;
   }
 }

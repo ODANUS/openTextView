@@ -17,126 +17,155 @@ class OptionTts extends GetView<GlobalController> {
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionTtsCtl());
 
-    return Obx(() => Stack(
-          children: [
-            ExpansionTile(
-              onExpansionChanged: (b) async {},
-              title: Text("TTS 설정"),
-              children: [
-                ListTile(
-                    title: Text('속도 : ${1}'),
-                    subtitle: Container(
-                        width: double.infinity,
-                        // color: Colors.red,
-                        child: Row(children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_before_sharp)),
-                          Expanded(
-                              child: Slider(
-                            value: 1,
-                            min: 0,
-                            max: 5,
-                            divisions: 500,
-                            label: "1",
-                            onChanged: (double v) {},
-                          )),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_next_sharp)),
-                        ]))),
-                ListTile(
-                    title: Text('볼륨 : ${1}'),
-                    subtitle: Container(
-                        width: double.infinity,
-                        // color: Colors.red,
-                        child: Row(children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_before_sharp)),
-                          Expanded(
-                              child: Slider(
-                            value: 1,
-                            min: 0,
-                            max: 1,
-                            divisions: 10,
-                            label: "1",
-                            onChanged: (double v) {},
-                          )),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_next_sharp)),
-                        ]))),
-                ListTile(
-                    title: Text('피치 : ${1}'),
-                    subtitle: Container(
-                        width: double.infinity,
-                        // color: Colors.red,
-                        child: Row(children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_before_sharp)),
-                          Expanded(
-                              child: Slider(
-                            value: 1,
-                            min: 0.5,
-                            max: 2,
-                            divisions: 15,
-                            label: "1",
-                            onChanged: (double v) {},
-                          )),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_next_sharp)),
-                        ]))),
-                ListTile(
-                    title: Text('한번에 읽을 라인수  : ${1}'),
-                    subtitle: Container(
-                        width: double.infinity,
-                        // color: Colors.red,
-                        child: Row(children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_before_sharp)),
-                          Expanded(
-                              child: Slider(
-                            value: 1,
-                            min: 1,
-                            max: 40,
-                            divisions: 40,
-                            label: "1",
-                            onChanged: (double v) {},
-                          )),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_next_sharp)),
-                        ]))),
-                Padding(
+    return Obx(() {
+      var tts = controller.userData.value.tts;
+      return Stack(
+        children: [
+          ExpansionTile(
+            onExpansionChanged: (b) async {},
+            title: Text("TTS 설정"),
+            children: [
+              ListTile(
+                  title: Text('속도 : ${tts.speechRate.toStringAsFixed(2)}'),
+                  subtitle: Container(
+                      width: double.infinity,
+                      // color: Colors.red,
+                      child: Row(children: [
+                        IconButton(
+                            onPressed: () {
+                              controller.userData.update((val) {
+                                tts.speechRate -= 0.01;
+                              });
+                            },
+                            icon: Icon(Icons.navigate_before_sharp)),
+                        Expanded(
+                            child: Slider(
+                          value: tts.speechRate,
+                          min: 0,
+                          max: 5,
+                          divisions: 50,
+                          label: tts.speechRate.toStringAsFixed(2),
+                          onChanged: (double v) {
+                            controller.userData.update((val) {
+                              tts.speechRate = v;
+                            });
+                          },
+                        )),
+                        IconButton(
+                            onPressed: () {
+                              controller.userData.update((val) {
+                                tts.speechRate += 0.01;
+                              });
+                            },
+                            icon: Icon(Icons.navigate_next_sharp)),
+                      ]))),
+              ListTile(
+                  title: Text('볼륨 : ${tts.volume.toStringAsFixed(1)}'),
+                  subtitle: Container(
+                      width: double.infinity,
+                      // color: Colors.red,
+                      child: Row(children: [
+                        Expanded(
+                            child: Slider(
+                          value: tts.volume,
+                          min: 0,
+                          max: 1,
+                          divisions: 10,
+                          label: tts.volume.toStringAsFixed(1),
+                          onChanged: (double v) {
+                            controller.userData.update((val) {
+                              tts.volume = v;
+                            });
+                          },
+                        )),
+                      ]))),
+              ListTile(
+                  title: Text('피치 : ${tts.pitch.toStringAsFixed(1)}'),
+                  subtitle: Container(
+                      width: double.infinity,
+                      // color: Colors.red,
+                      child: Row(children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.navigate_before_sharp)),
+                        Expanded(
+                            child: Slider(
+                          value: tts.pitch,
+                          min: 0.5,
+                          max: 2,
+                          divisions: 15,
+                          label: tts.pitch.toStringAsFixed(1),
+                          onChanged: (double v) {
+                            controller.userData.update((val) {
+                              tts.pitch = v;
+                            });
+                          },
+                        )),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.navigate_next_sharp)),
+                      ]))),
+              ListTile(
+                  title: Text('한번에 읽을 라인수  : ${tts.groupcnt}'),
+                  subtitle: Container(
+                      width: double.infinity,
+                      // color: Colors.red,
+                      child: Row(children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.navigate_before_sharp)),
+                        Expanded(
+                            child: Slider(
+                          value: tts.groupcnt.toDouble(),
+                          min: 1,
+                          max: 40,
+                          divisions: 40,
+                          label: tts.groupcnt.toStringAsFixed(0),
+                          onChanged: (double v) {
+                            controller.userData.update((val) {
+                              tts.groupcnt = v.toInt();
+                            });
+                          },
+                        )),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.navigate_next_sharp)),
+                      ]))),
+              Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: CheckboxListTile(
+                    contentPadding: EdgeInsets.all(0),
+                    title: Text("다른 플레이어 실행시 정지"),
+                    value: tts.audiosession,
+                    onChanged: (b) {
+                      controller.userData.update((val) {
+                        tts.audiosession = b!;
+                      });
+                    }),
+              ),
+              Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: CheckboxListTile(
                       contentPadding: EdgeInsets.all(0),
-                      title: Text("다른 플레이어 실행시 정지"),
-                      value: true,
-                      onChanged: (b) {}),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
-                    child: CheckboxListTile(
-                        contentPadding: EdgeInsets.all(0),
-                        title: Text('헤드셋 버튼 사용'),
-                        value: true,
-                        onChanged: (b) {})),
-              ],
-            ),
-            if (pageCtl.isLoading.value)
-              Positioned.fill(
-                child: Container(
-                  color: Colors.black12,
-                  alignment: Alignment.center,
-                  child: CircularProgressIndicator(),
-                ),
+                      title: Text('헤드셋 버튼 사용'),
+                      value: tts.headsetbutton,
+                      onChanged: (b) {
+                        controller.userData.update((val) {
+                          tts.headsetbutton = b!;
+                        });
+                      })),
+            ],
+          ),
+          if (pageCtl.isLoading.value)
+            Positioned.fill(
+              child: Container(
+                color: Colors.black12,
+                alignment: Alignment.center,
+                child: CircularProgressIndicator(),
               ),
-          ],
-        ));
+            ),
+        ],
+      );
+    });
   }
 }
