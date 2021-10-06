@@ -168,9 +168,9 @@ class OptionFilter extends GetView<GlobalController> {
                     child: Slidable(
                   actionPane: SlidableDrawerActionPane(),
                   child: ListTile(
-                      onTap: () {
-                        print(e.toJson());
-                      },
+                      // onTap: () {
+                      //   print(e.toJson());
+                      // },
                       title: bedit
                           ? TextFormField(
                               decoration: InputDecoration(
