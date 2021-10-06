@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/provider/utils.dart';
@@ -64,6 +66,20 @@ class LibraryPage extends GetView<GlobalController> {
                                 path: e,
                                 onTab: (File f) async {
                                   String contents = await Utils.readFile(f);
+                                  if (f.path.split(".").last == "json") {
+                                    final LocalStorage storage =
+                                        new LocalStorage('opentextview');
+                                    await storage.ready;
+                                    var json = jsonDecode(contents);
+                                    var m =
+                                        json['config'] as Map<String, dynamic>;
+                                    var l = json['history'] as List;
+                                    await storage.setItem(
+                                        'config', (m.obs).toJson());
+                                    await storage.setItem(
+                                        'history', (l.obs).toJson());
+                                    return;
+                                  }
                                   controller.setContents(contents);
                                   controller.tabIndex(0);
                                 },
@@ -90,7 +106,9 @@ class LibraryPage extends GetView<GlobalController> {
 
 class DirectoryListWidget extends GetView {
   DirectoryListWidget(
-      {required this.path, required this.onTab, this.exs = const ["txt"]});
+      {required this.path,
+      required this.onTab,
+      this.exs = const ["txt", "json"]});
   String path;
   Function onTab;
   List<String> exs;

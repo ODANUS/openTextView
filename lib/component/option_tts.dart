@@ -111,16 +111,21 @@ class OptionTts extends GetView<GlobalController> {
                               onPressed: () {},
                               icon: Icon(Icons.navigate_next_sharp)),
                         ]))),
-                CheckboxListTile(
-                    contentPadding: EdgeInsets.all(0),
-                    title: Text("다른 플레이어 실행시 정지"),
-                    value: true,
-                    onChanged: (b) {}),
-                CheckboxListTile(
-                    contentPadding: EdgeInsets.all(0),
-                    title: Text('헤드셋 버튼 사용'),
-                    value: true,
-                    onChanged: (b) {}),
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: CheckboxListTile(
+                      contentPadding: EdgeInsets.all(0),
+                      title: Text("다른 플레이어 실행시 정지"),
+                      value: true,
+                      onChanged: (b) {}),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: CheckboxListTile(
+                        contentPadding: EdgeInsets.all(0),
+                        title: Text('헤드셋 버튼 사용'),
+                        value: true,
+                        onChanged: (b) {})),
               ],
             ),
             if (pageCtl.isLoading.value)

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import 'package:googleapis/drive/v3.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/utils.dart';
@@ -28,11 +28,20 @@ class OptionCache extends GetView<GlobalController> {
               children: [
                 ListTile(
                   onTap: () async {
-                    Directory d = await getTemporaryDirectory();
-                    var list = await d.list().toList();
-                    print(list);
-                    var ss = await (list.first as Directory).list().toList();
-                    print(ss);
+                    final LocalStorage storage =
+                        new LocalStorage('opentextview');
+                    await storage.ready;
+
+                    // Directory d = await getTemporaryDirectory();
+                    // var list = await d.list().toList();
+                    // print(list);
+                    Directory d1 = await getApplicationDocumentsDirectory();
+                    var list1 = await d1.list().toList();
+                    print(d1.path);
+                    File f = File(d1.path + "/opentextview");
+                    print(f.readAsStringSync());
+                    // var ss = await (list.first as Directory).list().toList();
+                    // print(ss);
                     // await pageCtl.createBackupFile();
                   },
                   title: Text("aaaaaaa"),
