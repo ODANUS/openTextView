@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -6,6 +8,7 @@ import 'package:googleapis/drive/v3.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/utils.dart';
+import 'package:path_provider/path_provider.dart';
 
 class OptionCacheCtl extends GetxController {
   // RxList<File> backupFiles = RxList<File>();
@@ -25,6 +28,11 @@ class OptionCache extends GetView<GlobalController> {
               children: [
                 ListTile(
                   onTap: () async {
+                    Directory d = await getTemporaryDirectory();
+                    var list = await d.list().toList();
+                    print(list);
+                    var ss = await (list.first as Directory).list().toList();
+                    print(ss);
                     // await pageCtl.createBackupFile();
                   },
                   title: Text("aaaaaaa"),

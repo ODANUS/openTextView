@@ -24,16 +24,103 @@ class OptionTts extends GetView<GlobalController> {
               title: Text("TTS 설정"),
               children: [
                 ListTile(
-                  onTap: () async {
-                    // await pageCtl.createBackupFile();
-                  },
-                  title: Text("aaaaaaa"),
-                ),
-                Divider(),
-
-                // ListTile(
-                //   title: Text("백업 리스트"),
-                // )
+                    title: Text('속도 : ${1}'),
+                    subtitle: Container(
+                        width: double.infinity,
+                        // color: Colors.red,
+                        child: Row(children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_before_sharp)),
+                          Expanded(
+                              child: Slider(
+                            value: 1,
+                            min: 0,
+                            max: 5,
+                            divisions: 500,
+                            label: "1",
+                            onChanged: (double v) {},
+                          )),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_next_sharp)),
+                        ]))),
+                ListTile(
+                    title: Text('볼륨 : ${1}'),
+                    subtitle: Container(
+                        width: double.infinity,
+                        // color: Colors.red,
+                        child: Row(children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_before_sharp)),
+                          Expanded(
+                              child: Slider(
+                            value: 1,
+                            min: 0,
+                            max: 1,
+                            divisions: 10,
+                            label: "1",
+                            onChanged: (double v) {},
+                          )),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_next_sharp)),
+                        ]))),
+                ListTile(
+                    title: Text('피치 : ${1}'),
+                    subtitle: Container(
+                        width: double.infinity,
+                        // color: Colors.red,
+                        child: Row(children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_before_sharp)),
+                          Expanded(
+                              child: Slider(
+                            value: 1,
+                            min: 0.5,
+                            max: 2,
+                            divisions: 15,
+                            label: "1",
+                            onChanged: (double v) {},
+                          )),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_next_sharp)),
+                        ]))),
+                ListTile(
+                    title: Text('한번에 읽을 라인수  : ${1}'),
+                    subtitle: Container(
+                        width: double.infinity,
+                        // color: Colors.red,
+                        child: Row(children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_before_sharp)),
+                          Expanded(
+                              child: Slider(
+                            value: 1,
+                            min: 1,
+                            max: 40,
+                            divisions: 40,
+                            label: "1",
+                            onChanged: (double v) {},
+                          )),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.navigate_next_sharp)),
+                        ]))),
+                CheckboxListTile(
+                    contentPadding: EdgeInsets.all(0),
+                    title: Text("다른 플레이어 실행시 정지"),
+                    value: true,
+                    onChanged: (b) {}),
+                CheckboxListTile(
+                    contentPadding: EdgeInsets.all(0),
+                    title: Text('헤드셋 버튼 사용'),
+                    value: true,
+                    onChanged: (b) {}),
               ],
             ),
             if (pageCtl.isLoading.value)

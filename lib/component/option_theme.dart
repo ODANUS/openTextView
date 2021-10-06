@@ -24,16 +24,15 @@ class OptionTheme extends GetView<GlobalController> {
               title: Text("테마 설정"),
               children: [
                 ListTile(
-                  onTap: () async {
-                    // await pageCtl.createBackupFile();
-                  },
-                  title: Text("aaaaaaa"),
-                ),
-                Divider(),
-
-                // ListTile(
-                //   title: Text("백업 리스트"),
-                // )
+                    title: Text('라이트 테마'),
+                    onTap: () {
+                      Get.changeTheme(ThemeData.light());
+                    }),
+                ListTile(
+                    title: Text('다크 테마'),
+                    onTap: () {
+                      Get.changeTheme(ThemeData.dark());
+                    }),
               ],
             ),
             if (pageCtl.isLoading.value)
