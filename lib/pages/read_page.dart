@@ -1,11 +1,7 @@
-import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/readpage_floating_button.dart';
-import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -21,10 +17,15 @@ class ReadPage extends GetView<GlobalController> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("파일명"),
+        title: Text(
+          controller.lastData.value.name,
+          style: TextStyle(fontSize: 15),
+        ),
       ),
       body: Obx(() => ScrollablePositionedList.builder(
           padding: EdgeInsets.all(10),
+          itemScrollController: controller.itemScrollctl,
+          itemPositionsListener: controller.itemPosListener,
           itemCount: controller.contents.length,
           itemBuilder: (BuildContext context, int idx) {
             return InkWell(

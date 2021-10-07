@@ -70,23 +70,7 @@ class LibraryPage extends GetView<GlobalController> {
                                 path: e,
                                 delList: pageCtl.delList,
                                 onTab: (File f) async {
-                                  String contents = await Utils.readFile(f);
-                                  // if (f.path.split(".").last == "json") {
-                                  //   final LocalStorage storage =
-                                  //       new LocalStorage('opentextview');
-                                  //   await storage.ready;
-                                  //   var json = jsonDecode(contents);
-                                  //   var m =
-                                  //       json['config'] as Map<String, dynamic>;
-                                  //   var l = json['history'] as List;
-                                  //   await storage.setItem(
-                                  //       'config', (m.obs).toJson());
-                                  //   await storage.setItem(
-                                  //       'history', (l.obs).toJson());
-                                  //   return;
-                                  // }
-                                  controller.setContents(contents);
-                                  controller.tabIndex(0);
+                                  controller.openFile(f);
                                 },
                                 onDeleteFile: (File f) async {
                                   var status = await Permission.storage.status;
@@ -101,7 +85,6 @@ class LibraryPage extends GetView<GlobalController> {
                                   if (!status.isGranted) {
                                     await Permission.storage.request();
                                   }
-
                                   await d.delete(recursive: true);
                                   pageCtl.delList.add(d.path);
                                 },

@@ -5,12 +5,13 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
+import 'package:open_textview/controller/global_controller.dart';
 
 class readPageFloatingButtonCtl extends GetxController {
   Rx<bool> bFind = false.obs;
 }
 
-class readPageFloatingButton extends GetView {
+class readPageFloatingButton extends GetView<GlobalController> {
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(readPageFloatingButtonCtl());
@@ -45,7 +46,7 @@ class readPageFloatingButton extends GetView {
                             if (pageCtl.bFind.value)
                               IconButton(
                                   onPressed: () {
-                                    OpenModal.openJumpModal();
+                                    OpenModal.openSearchModal();
                                   },
                                   icon: Icon(Icons.find_in_page_outlined)),
                             if (pageCtl.bFind.value)
