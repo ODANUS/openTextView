@@ -59,7 +59,11 @@ class readPageFloatingButton extends GetView<GlobalController> {
                         ),
                 ))),
             FloatingActionButton.extended(
-                onPressed: () => AudioPlay.play(),
+                onPressed: () => AudioPlay.play(
+                    contents: controller.contents,
+                    filter: controller.userData.value.filter.toList(),
+                    lastData: controller.lastData.value.toMap(),
+                    tts: controller.userData.value.tts.toMap()),
                 label: AudioPlay.builder(builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();
@@ -99,7 +103,15 @@ class readPageFloatingButton extends GetView<GlobalController> {
                               if (!snapshot.data!.playing)
                                 IconButton(
                                     onPressed: () {
-                                      AudioPlay.play();
+                                      AudioPlay.play(
+                                          contents: controller.contents,
+                                          filter: controller
+                                              .userData.value.filter
+                                              .toList(),
+                                          lastData:
+                                              controller.lastData.value.toMap(),
+                                          tts: controller.userData.value.tts
+                                              .toMap());
                                     },
                                     icon: Icon(Ionicons.play)),
                             ],

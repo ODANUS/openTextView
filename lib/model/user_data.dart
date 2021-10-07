@@ -24,10 +24,10 @@ class UserData {
 
   factory UserData.fromMap(Map<String, dynamic> json) => UserData(
         filter: json["filter"] == null
-            ? []
+            ? List<Filter>.from([])
             : List<Filter>.from(json["filter"].map((x) => Filter.fromMap(x))),
         history: json["history"] == null
-            ? []
+            ? List<History>.from([History.fromMap({})])
             : List<History>.from(
                 json["history"].map((x) => History.fromMap(x))),
         theme: json["theme"] == null ? "" : json["theme"],
@@ -126,10 +126,9 @@ class Ocr {
   String toJson() => json.encode(toMap());
 
   factory Ocr.fromMap(Map<String, dynamic> json) {
-    print("-----------------${json}");
     return Ocr(
       lang: json["lang"] == null
-          ? []
+          ? List<String>.from([])
           : List<String>.from(json["lang"].map((x) => x)),
     );
   }

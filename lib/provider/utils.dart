@@ -56,6 +56,22 @@ class Utils {
     prefs.remove("userdata");
   }
 
+  static Future<String?> loadLastData() async {
+    SharedPreferences prefs = await _prefs;
+    prefs.reload();
+    return prefs.getString("lastdata");
+  }
+
+  static Future<void> setLastData(strjson) async {
+    SharedPreferences prefs = await _prefs;
+    prefs.setString("lastdata", strjson);
+  }
+
+  static Future<void> clearLastData() async {
+    SharedPreferences prefs = await _prefs;
+    prefs.remove("lastdata");
+  }
+
   static Future<String?> loadCurrentData() async {
     SharedPreferences prefs = await _prefs;
     prefs.reload();
