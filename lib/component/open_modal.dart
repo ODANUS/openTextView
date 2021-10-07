@@ -64,4 +64,29 @@ class OpenModal {
 
     return completer.future;
   }
+
+  static openJumpModal() {
+    final Completer completer = Completer();
+
+    Get.dialog(AlertDialog(
+      content: Container(
+          width: double.maxFinite,
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Text("이동"),
+            ],
+          )),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: Text("확인"))
+      ],
+      actionsAlignment: MainAxisAlignment.spaceAround,
+    )).whenComplete(() {});
+
+    return completer.future;
+  }
 }

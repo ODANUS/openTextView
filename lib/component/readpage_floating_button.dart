@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
 
 class readPageFloatingButtonCtl extends GetxController {
@@ -43,11 +44,15 @@ class readPageFloatingButton extends GetView {
                                 icon: Icon(Ionicons.search)),
                             if (pageCtl.bFind.value)
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    OpenModal.openJumpModal();
+                                  },
                                   icon: Icon(Icons.find_in_page_outlined)),
                             if (pageCtl.bFind.value)
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    OpenModal.openJumpModal();
+                                  },
                                   icon: Icon(Icons.low_priority))
                           ],
                         ),
