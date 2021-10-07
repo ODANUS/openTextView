@@ -71,7 +71,6 @@ class OptionHistory extends GetView<GlobalController> {
                   icon: Icons.edit,
                   onTap: () async {},
                 );
-                print(e.path);
                 return Card(
                   child: Slidable(
                     actionPane: SlidableDrawerActionPane(),

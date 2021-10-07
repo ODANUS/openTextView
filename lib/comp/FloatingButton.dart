@@ -21,13 +21,10 @@ class FloatingButton extends GetView<MainCtl> {
           String? selectedDirectory =
               await FilePicker.platform.getDirectoryPath();
           if (selectedDirectory != null) {
-            print(selectedDirectory);
             var d = Directory(selectedDirectory);
             var flist = await d.list().toList();
             var f = File("/storage/emulated/0/미디어/대한민국헌법(헌법제9호).txt");
             String contents = await f.readAsString();
-
-            print(contents);
 
             // var wf = File(selectedDirectory + "/test1111.txt");
             // var ss = await wf.writeAsString("adsdsdsds");

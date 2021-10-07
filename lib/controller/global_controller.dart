@@ -1,14 +1,16 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:get/state_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/pages/library_page.dart';
 import 'package:open_textview/provider/utils.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GlobalController extends GetxController {
-  Rx<UserData> userData = UserData().obs;
+  final userData = UserData().obs;
   RxList<String> libraryPaths = RxList<String>();
   RxList<String> contents = RxList<String>();
   final Rx<int> tabIndex = 0.obs;
@@ -21,9 +23,15 @@ class GlobalController extends GetxController {
       libraryPaths.assignAll(list);
     }
 
-    ever(libraryPaths, (v) {
+    ever(libraryPaths, (v) async {
       Utils.setLibraryPrefs(v as List<String>);
     });
+    await loadconfig();
+
+    debounce(userData, (callback) {
+      print(userData.value.theme);
+      Utils.setUserData(userData.toJson());
+    }, time: 3.seconds);
 
     super.onInit();
   }
@@ -40,6 +48,17 @@ class GlobalController extends GetxController {
     }
     if (strUserData != null) {
       userData(UserData.fromJson(strUserData));
+    }
+    changeTheme(userData.value.theme);
+    print(userData.value.theme);
+  }
+
+  changeTheme(String str) {
+    if (str == "dark") {
+      Get.changeTheme(ThemeData.dark());
+    }
+    if (str == "light") {
+      Get.changeTheme(ThemeData.light());
     }
   }
 

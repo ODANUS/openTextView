@@ -4,27 +4,25 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:localstorage/localstorage.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/provider/utils.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class LibraryPageCtl extends GetxController {
   final libList = [];
+  RxList<String> delList = RxList<String>();
+  RxString tmpDir = "".obs;
 
-  // @override
-  // void onInit() {
-  //   final ctl = Get.find<GlobalController>();
-  //   ever(ctl.libraryPaths, (callback) {
-  //     print("[[[[[[[[[[[[[[[[[[[[[[[${callback}");
-  //     getLib(callback as List<String>);
-  //   });
-  //   getLib(ctl.libraryPaths);
-  //   // TODO: implement onInit
-  //   super.onInit();
-  // }
+  @override
+  void onInit() async {
+    tmpDir((await getTemporaryDirectory()).path);
+    super.onInit();
+  }
 }
 
 class LibraryPage extends GetView<GlobalController> {
@@ -43,17 +41,23 @@ class LibraryPage extends GetView<GlobalController> {
         // Utils.getLibraryList(controller.libraryPaths.first);
         return RefreshIndicator(
             onRefresh: () async {
+              pageCtl.delList.clear();
               controller.libraryPaths.refresh();
             },
             child: ListView(
-              padding: EdgeInsets.all(10),
-              children: controller.libraryPaths.map((e) {
-                int idx = controller.libraryPaths.indexOf(e);
+              padding:
+                  EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 150),
+              children:
+                  [...controller.libraryPaths, pageCtl.tmpDir.value].map((e) {
+                if (e == "") {
+                  return SizedBox();
+                }
                 return Card(
                     child: InkWell(
                         onLongPress: () async {
                           var rtn = await OpenModal.openModalSelect(
-                              title: "해당 서재를 삭제 하시겠습니까?");
+                              title:
+                                  "해당 서재를 리스트 에서 제거 하시겠습니까?\n(데이터는 삭제 되지 않습니다.)");
                           if (rtn == true) {
                             controller.libraryPaths.remove(e);
                           }
@@ -64,24 +68,42 @@ class LibraryPage extends GetView<GlobalController> {
                             children: [
                               DirectoryListWidget(
                                 path: e,
+                                delList: pageCtl.delList,
                                 onTab: (File f) async {
                                   String contents = await Utils.readFile(f);
-                                  if (f.path.split(".").last == "json") {
-                                    final LocalStorage storage =
-                                        new LocalStorage('opentextview');
-                                    await storage.ready;
-                                    var json = jsonDecode(contents);
-                                    var m =
-                                        json['config'] as Map<String, dynamic>;
-                                    var l = json['history'] as List;
-                                    await storage.setItem(
-                                        'config', (m.obs).toJson());
-                                    await storage.setItem(
-                                        'history', (l.obs).toJson());
-                                    return;
-                                  }
+                                  // if (f.path.split(".").last == "json") {
+                                  //   final LocalStorage storage =
+                                  //       new LocalStorage('opentextview');
+                                  //   await storage.ready;
+                                  //   var json = jsonDecode(contents);
+                                  //   var m =
+                                  //       json['config'] as Map<String, dynamic>;
+                                  //   var l = json['history'] as List;
+                                  //   await storage.setItem(
+                                  //       'config', (m.obs).toJson());
+                                  //   await storage.setItem(
+                                  //       'history', (l.obs).toJson());
+                                  //   return;
+                                  // }
                                   controller.setContents(contents);
                                   controller.tabIndex(0);
+                                },
+                                onDeleteFile: (File f) async {
+                                  var status = await Permission.storage.status;
+                                  if (!status.isGranted) {
+                                    await Permission.storage.request();
+                                  }
+                                  await f.delete();
+                                  pageCtl.delList.add(f.path);
+                                },
+                                onDeleteDir: (Directory d) async {
+                                  var status = await Permission.storage.status;
+                                  if (!status.isGranted) {
+                                    await Permission.storage.request();
+                                  }
+
+                                  await d.delete(recursive: true);
+                                  pageCtl.delList.add(d.path);
                                 },
                               )
                             ])));
@@ -107,10 +129,16 @@ class LibraryPage extends GetView<GlobalController> {
 class DirectoryListWidget extends GetView {
   DirectoryListWidget(
       {required this.path,
+      required this.delList,
       required this.onTab,
-      this.exs = const ["txt", "json"]});
+      required this.onDeleteFile,
+      required this.onDeleteDir,
+      this.exs = const ["txt"]});
   String path;
+  List<String> delList;
   Function onTab;
+  Function(File) onDeleteFile;
+  Function(Directory) onDeleteDir;
   List<String> exs;
 
   @override
@@ -134,40 +162,81 @@ class DirectoryListWidget extends GetView {
               }
               return 1;
             });
+            if (snapshot.data!.isEmpty) {
+              return SizedBox();
+            }
             // snapshot.data!.sort((a, b) {
             //   (a as File).lastModified()
 
             // }  return
-            return Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Column(
-                  children: [
-                    ...snapshot.data!.map((e) {
-                      if (e is Directory) {
+            return Obx(() {
+              var dellis = delList;
+              return Padding(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  child: Column(
+                    children: [
+                      ...snapshot.data!.map((e) {
+                        if (dellis.indexOf(e.path) >= 0) {
+                          return SizedBox();
+                        }
+                        if (e is Directory) {
+                          Widget delIcon = IconSlideAction(
+                            caption: '삭제',
+                            color: Colors.red,
+                            icon: Icons.delete,
+                            onTap: () {
+                              onDeleteDir(e as Directory);
+                            },
+                          );
+                          return Card(
+                              child: Slidable(
+                                  actionPane: SlidableDrawerActionPane(),
+                                  actionExtentRatio: 0.2,
+                                  secondaryActions: [delIcon],
+                                  actions: [delIcon],
+                                  child: ExpansionTile(
+                                      leading: Icon(Ionicons.folder_outline),
+                                      title: Text(e.path.split("/").last),
+                                      children: [
+                                        DirectoryListWidget(
+                                            path: e.path,
+                                            delList: delList,
+                                            onTab: onTab,
+                                            onDeleteFile: onDeleteFile,
+                                            onDeleteDir: onDeleteDir)
+                                      ])));
+                        }
+                        var f = e as File;
+
+                        var ex = f.path.split(".").last;
+                        bool bex = exs.indexOf(ex) >= 0;
+                        String size = Utils.getFileSize(f);
+                        Widget delIcon = IconSlideAction(
+                          caption: '삭제',
+                          color: Colors.red,
+                          icon: Icons.delete,
+                          onTap: () {
+                            onDeleteFile(f);
+                          },
+                        );
                         return Card(
-                            child: ExpansionTile(
-                                leading: Icon(Ionicons.folder_outline),
-                                title: Text(e.path.split("/").last),
-                                children: [
-                              DirectoryListWidget(path: e.path, onTab: onTab)
-                            ]));
-                      }
-                      var f = e as File;
-                      var ex = f.path.split(".").last;
-                      bool bex = exs.indexOf(ex) >= 0;
-                      int bytes = f.lengthSync();
-                      String size = Utils.getFileSize(f);
-                      return Card(
-                          child: ListTile(
-                        onTap: bex ? () => onTab(e) : null,
-                        leading: Icon(Ionicons.document_outline),
-                        title: Text(e.path.split("/").last,
-                            style: TextStyle(color: bex ? null : Colors.grey)),
-                        trailing: Text("${size}"),
-                      ));
-                    }).toList()
-                  ],
-                ));
+                            child: Slidable(
+                                actionPane: SlidableDrawerActionPane(),
+                                actionExtentRatio: 0.2,
+                                secondaryActions: [delIcon],
+                                actions: [delIcon],
+                                child: ListTile(
+                                  onTap: bex ? () => onTab(e) : null,
+                                  leading: Icon(Ionicons.document_outline),
+                                  title: Text(e.path.split("/").last,
+                                      style: TextStyle(
+                                          color: bex ? null : Colors.grey)),
+                                  trailing: Text("${size}"),
+                                )));
+                      }).toList()
+                    ],
+                  ));
+            });
           }
           return Text("");
         });

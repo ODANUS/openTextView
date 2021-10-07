@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:googleapis/drive/v3.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/utils.dart';
 
@@ -11,12 +12,12 @@ class OptionBackupCtl extends GetxController {
   RxList<File> backupFiles = RxList<File>();
   Rx<bool> isLoading = false.obs;
 
-  Future<void> createBackupFile() async {
+  Future<void> createBackupFile(str) async {
     isLoading(true);
     DateTime now = DateTime.now();
     await Gdrive.createFile(
         name: "opentextView_${Utils.DF(now, f: "yyyy-MM-dd hh:mm")}.json",
-        data: "{}");
+        data: str);
     await loadBackupFileList();
     isLoading(false);
   }
@@ -34,11 +35,12 @@ class OptionBackupCtl extends GetxController {
     isLoading(false);
   }
 
-  Future<void> loadBackupFile(String id) async {
+  Future<String> loadBackupFile(String id) async {
     isLoading(true);
     String str = await Gdrive.readAppData(id);
-    print(str);
+
     isLoading(false);
+    return str;
   }
 }
 
@@ -60,7 +62,8 @@ class OptionBackup extends GetView<GlobalController> {
               children: [
                 ListTile(
                   onTap: () async {
-                    await pageCtl.createBackupFile();
+                    await pageCtl
+                        .createBackupFile(controller.userData.toJson());
                   },
                   title: Text("구글 드라이브 백업"),
                 ),
@@ -77,8 +80,10 @@ class OptionBackup extends GetView<GlobalController> {
                   return Slidable(
                     actionPane: SlidableDrawerActionPane(),
                     child: ListTile(
-                        onTap: () {
-                          pageCtl.loadBackupFile(element.id!);
+                        onTap: () async {
+                          String str =
+                              await pageCtl.loadBackupFile(element.id!);
+                          controller.userData(UserData.fromJson(str));
                         },
                         title: Text(element.name!)),
                     actionExtentRatio: 0.2,
