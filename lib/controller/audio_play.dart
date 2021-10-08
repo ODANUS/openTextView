@@ -184,7 +184,7 @@ class AudioPlay {
     _audioHandler = await AudioService.init(
       builder: () => AudioHandler(),
       config: AudioServiceConfig(
-        androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
+        androidNotificationChannelId: 'com.khjde.opentextview1.channel.audio',
         androidNotificationChannelName: 'Music playback',
       ),
     );

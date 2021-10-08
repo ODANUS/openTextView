@@ -35,14 +35,14 @@ class readPageFloatingButton extends GetView<GlobalController> {
                     ),
                   ),
                   child: !pageCtl.bFind.value
-                      ? Icon(Ionicons.search)
+                      ? Icon(Ionicons.chevron_forward_outline)
                       : Row(
                           children: [
                             IconButton(
                                 onPressed: () {
                                   pageCtl.bFind(!pageCtl.bFind.value);
                                 },
-                                icon: Icon(Ionicons.search)),
+                                icon: Icon(Ionicons.chevron_back_outline)),
                             if (pageCtl.bFind.value)
                               IconButton(
                                   onPressed: () {
@@ -54,7 +54,13 @@ class readPageFloatingButton extends GetView<GlobalController> {
                                   onPressed: () {
                                     OpenModal.openJumpModal();
                                   },
-                                  icon: Icon(Icons.low_priority))
+                                  icon: Icon(Icons.low_priority)),
+                            if (pageCtl.bFind.value)
+                              IconButton(
+                                  onPressed: () {
+                                    // OpenModal.openJumpModal();
+                                  },
+                                  icon: Icon(Ionicons.text_outline))
                           ],
                         ),
                 ))),

@@ -17,10 +17,18 @@ class ReadPage extends GetView<GlobalController> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        toolbarHeight: 40,
+        // elevation: 0,
+        // backgroundColor: Colors.transparent,
         title: Text(
           controller.lastData.value.name,
-          style: TextStyle(fontSize: 15),
+          style: TextStyle(
+            fontSize: 15,
+          ),
         ),
+        // actions: [
+
+        // ],
       ),
       body: Obx(() => ScrollablePositionedList.builder(
           padding: EdgeInsets.all(10),
