@@ -17,7 +17,7 @@ class ReadPage extends GetView<GlobalController> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        toolbarHeight: 40,
+        toolbarHeight: 30,
         // elevation: 0,
         // backgroundColor: Colors.transparent,
         title: Text(

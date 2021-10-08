@@ -45,6 +45,11 @@ class GlobalController extends GetxController {
       Utils.setUserData(userData.toJson());
     }, time: 3.seconds);
 
+    debounce(userData, (UserData callback) {
+      AudioPlay.setConfig(
+          tts: callback.tts.toMap(), filter: callback.filter.toList());
+    }, time: 300.milliseconds);
+
     // save data
     debounce(lastData, (callback) {
       History history = (callback as History);

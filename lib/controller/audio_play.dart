@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:audio_service/audio_service.dart';
@@ -49,12 +50,16 @@ class AudioHandler extends BaseAudioHandler
   bool listenPlaying = false;
 
   Completer<bool> _completer = Completer<bool>();
-  Future<void> initTts() async {
-    await tts.setEngine(await tts.getDefaultEngine);
-    // await tts.awaitSpeakCompletion(true);
+  Future<void> setTts() async {
     await tts.setSpeechRate(ttsOption.speechRate);
     await tts.setVolume(ttsOption.volume);
     await tts.setPitch(ttsOption.pitch);
+  }
+
+  Future<void> initTts() async {
+    await tts.setEngine(await tts.getDefaultEngine);
+    // await tts.awaitSpeakCompletion(true);
+
     tts.setStartHandler(() {
       print("setStartHandler");
     });
@@ -166,10 +171,15 @@ class AudioHandler extends BaseAudioHandler
   Future<dynamic> customAction(String name,
       [Map<String, dynamic>? extras]) async {
     if (name == "init" && extras != null) {
-      this.ttsOption = Tts.fromMap(extras["tts"]);
       this.contents = extras["contents"] as List<String>;
+      this.ttsOption = Tts.fromMap(extras["tts"]);
       this.filter = extras["filter"];
       this.lastData = History.fromMap(extras["lastData"]);
+    }
+    if (name == "config" && extras != null) {
+      this.ttsOption = Tts.fromMap(extras["tts"]);
+      this.filter = extras["filter"];
+      setTts();
     }
   }
 
@@ -201,6 +211,16 @@ class AudioPlay {
 
   static removeLisen(Function(PlaybackState) fn) {
     lisenFunction.remove(fn);
+  }
+
+  static setConfig({
+    required Map<String, dynamic> tts,
+    required List<dynamic> filter,
+  }) {
+    _audioHandler!.customAction("config", {
+      "tts": tts,
+      "filter": filter,
+    });
   }
 
   static play(
