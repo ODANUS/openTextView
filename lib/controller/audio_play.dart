@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:audio_service/audio_service.dart';
+import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:open_textview/model/user_data.dart';
@@ -16,6 +17,8 @@ class AudioHandler extends BaseAudioHandler
   List<Filter> filter = List.of([Filter()]);
   History lastData = History();
   List<String> contents = [];
+
+  AudioSession? session;
 
   // mix in default seek callback implementations
   PlaybackState baseState = PlaybackState(
@@ -38,11 +41,12 @@ class AudioHandler extends BaseAudioHandler
       title: '',
       artist: '',
       duration: const Duration(milliseconds: 1000000)));
-  final STAT_STOP = 0;
-  final STAT_PLAY = 1;
-  final STAT_PAUSE = 2;
+  final int STAT_STOP = 0;
+  final int STAT_PLAY = 1;
+  final int STAT_PAUSE = 2;
 
   int playstat = 0;
+  bool listenPlaying = false;
 
   Completer<bool> _completer = Completer<bool>();
   Future<void> initTts() async {
@@ -77,6 +81,25 @@ class AudioHandler extends BaseAudioHandler
   Future<void> play() async {
     playstat = STAT_PLAY;
 
+    session = await AudioSession.instance;
+    session!.interruptionEventStream.listen((event) {
+      if (event.type == AudioInterruptionType.pause) {
+        if (event.begin) {
+          bool laststat = playstat == STAT_PLAY;
+          pause();
+          listenPlaying = laststat;
+        } else if (listenPlaying == true) {
+          play();
+        }
+        return;
+      }
+      if (event.begin && event.type == AudioInterruptionType.unknown) {
+        if (ttsOption.audiosession) {
+          pause();
+        } else {}
+      }
+    });
+
     await initTts();
 
     mediaItem.add(MediaItem(
@@ -90,14 +113,22 @@ class AudioHandler extends BaseAudioHandler
       // for (var i = lastData.pos; i < 30; i += 2) {
       if (playstat != STAT_PLAY) break;
       int end = min(i + ttsOption.groupcnt, contents.length - 1);
-
       String speakText = contents.getRange(i, end).join("\n");
+      filter.forEach((e) {
+        if (e.expr) {
+          speakText =
+              speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+        } else {
+          speakText = speakText.replaceAll(e.filter, e.to);
+        }
+      });
 
+      playbackState
+          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
+      print(speakText);
       await speak(speakText);
       lastData.pos = i;
       await Utils.setLastData(lastData.toJson());
-      playbackState
-          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
       if (end >= contents.length - 1) {
         stop();
         break;
@@ -114,6 +145,7 @@ class AudioHandler extends BaseAudioHandler
             MediaControl.stop,
           ],
           processingState: AudioProcessingState.completed,
+          updatePosition: Duration(seconds: lastData.pos),
           playing: false,
         ));
     tts.stop();
@@ -138,10 +170,6 @@ class AudioHandler extends BaseAudioHandler
       this.contents = extras["contents"] as List<String>;
       this.filter = extras["filter"];
       this.lastData = History.fromMap(extras["lastData"]);
-      // print("[[[[[[[[[[[[[[[[[ : $name");
-      // print("[[[[[[[[[[[[[[[[[ : $extras");
-      // print("[[[[[[[[[[[[[[[[[ : ${extras["tts"]}");
-      // print("[[[[[[[[[[[[[[[[[ : ${extras["lastData"]}");
     }
   }
 
