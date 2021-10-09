@@ -98,7 +98,6 @@ class LibraryPage extends GetView<GlobalController> {
           // pageCtl.getLib(controller.libraryPaths);
           var path = await Utils.selectLibrary();
           if (path != null) {
-            print(path);
             controller.addLibrary(path);
           }
         },
@@ -116,7 +115,7 @@ class DirectoryListWidget extends GetView {
       required this.onTab,
       required this.onDeleteFile,
       required this.onDeleteDir,
-      this.exs = const ["txt"]});
+      this.exs = const ["txt", "json"]});
   String path;
   List<String> delList;
   Function onTab;
@@ -131,7 +130,6 @@ class DirectoryListWidget extends GetView {
         future: Utils.getLibraryList(path),
         builder: (BuildContext context,
             AsyncSnapshot<List<FileSystemEntity>> snapshot) {
-          print(snapshot.connectionState);
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator();
           }

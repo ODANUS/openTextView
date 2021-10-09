@@ -1,4 +1,4 @@
-package com.khjde.opentextview1
+package com.khjde.opentextview
 
 import io.flutter.embedding.android.FlutterActivity
 

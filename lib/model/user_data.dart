@@ -183,7 +183,7 @@ class Tts {
 
 class Ui {
   Ui({
-    this.fontSize = 12,
+    this.fontSize = 14,
   });
 
   int fontSize;

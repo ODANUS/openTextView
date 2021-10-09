@@ -16,7 +16,10 @@ class MainPage extends GetView<GlobalController> {
           index: controller.tabIndex.value,
           children: [ReadPage(), LibraryPage(), SettingPage()])),
 
-      bottomNavigationBar: Obx(() => BottomNavigationBar(
+      bottomNavigationBar: Obx(() => AnimatedContainer(
+          duration: Duration(milliseconds: 500),
+          height: controller.isVisible.value ? 60.0 : 0.0,
+          child: BottomNavigationBar(
               currentIndex: controller.tabIndex.value,
               onTap: (idx) => controller.tabIndex(idx),
               items: [
@@ -32,7 +35,7 @@ class MainPage extends GetView<GlobalController> {
                   label: "설정",
                   icon: Icon(Ionicons.settings_outline),
                 ),
-              ])),
+              ]))),
       // floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
       // floatingActionButton: FloatingButton(),
     );

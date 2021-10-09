@@ -12,16 +12,21 @@ import 'package:path_provider/path_provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class GlobalController extends GetxController {
+class GlobalController extends GetxController with WidgetsBindingObserver {
   final userData = UserData().obs;
   RxList<String> libraryPaths = RxList<String>();
   RxList<String> contents = RxList<String>();
   final Rx<int> tabIndex = 0.obs;
 
+  Rx<bool> isVisible = true.obs;
+
   Rx<History> lastData = History().obs;
 
   final itemScrollctl = ItemScrollController();
   final itemPosListener = ItemPositionsListener.create();
+  Rx<AppLifecycleState> appLifecycleState = AppLifecycleState.inactive.obs;
+
+  final navBarController = ScrollController();
   // RxList
 
   @override
@@ -75,9 +80,12 @@ class GlobalController extends GetxController {
 
     AudioPlay.lisen((e) {
       if (e.playing) {
-        lastData.update((v) {
-          v!.pos = e.updatePosition.inSeconds;
+        lastData.update((val) {
+          val!.pos = e.updatePosition.inSeconds;
         });
+        if (appLifecycleState == AppLifecycleState.inactive) {
+          itemScrollctl.jumpTo(index: e.updatePosition.inSeconds);
+        }
       }
     });
 
@@ -87,6 +95,12 @@ class GlobalController extends GetxController {
           .reduce((ItemPosition min, ItemPosition position) =>
               position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
           .index;
+      if (lastData.value.pos < min) {
+        isVisible(false);
+      }
+      if (lastData.value.pos > min) {
+        isVisible(true);
+      }
       lastData.update((val) {
         val!.pos = min;
       });
@@ -110,7 +124,6 @@ class GlobalController extends GetxController {
       userData(UserData.fromJson(strUserData));
     }
     changeTheme(userData.value.theme);
-    print(userData.value.theme);
   }
 
   changeTheme(String str) {
@@ -142,7 +155,6 @@ class GlobalController extends GetxController {
 
     setContents(contents);
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      print("---WidgetsBinding.instance!.addPostFrameCallback----");
       itemScrollctl.jumpTo(index: lastData.value.pos);
     });
     // if (arrs.isNotEmpty) {
@@ -169,6 +181,34 @@ class GlobalController extends GetxController {
     libraryPaths.add(path);
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    appLifecycleState(state);
+
+    super.didChangeAppLifecycleState(state);
+    // bforeground
+    // switch (state) {
+    //   case AppLifecycleState.resumed:
+    //     bforeground.update((val) {
+    //       bforeground.value = true;
+    //     });
+    //     // widget is resumed
+    //     break;
+    //   case AppLifecycleState.inactive:
+
+    //     // widget is inactive
+    //     break;
+    //   case AppLifecycleState.paused:
+    //     bforeground.update((val) {
+    //       bforeground.value = true;
+    //     });
+    //     // widget is paused
+    //     break;
+    //   case AppLifecycleState.detached:
+    //     // widget is detached
+    //     break;
+    // }
+  }
   // selectLibrary() {}
 
   // loadLibrary() {}

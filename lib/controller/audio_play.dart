@@ -6,6 +6,7 @@ import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:googleapis/chat/v1.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/utils.dart';
 
@@ -13,7 +14,15 @@ class AudioHandler extends BaseAudioHandler
     with
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
+  AudioHandler() {
+    AudioSession.instance.then((value) {
+      this.session = value;
+      this.session!.configure(AudioSessionConfiguration.speech());
+    });
+  }
+
   FlutterTts tts = FlutterTts();
+  bool bInitTts = false;
   Tts ttsOption = Tts();
   List<Filter> filter = List.of([Filter()]);
   History lastData = History();
@@ -57,11 +66,16 @@ class AudioHandler extends BaseAudioHandler
   }
 
   Future<void> initTts() async {
-    await tts.setEngine(await tts.getDefaultEngine);
-    // await tts.awaitSpeakCompletion(true);
+    // print("[[[[[[[[[[[[[[[[${await tts.getDefaultEngine}");
+    if (!bInitTts) {
+      bInitTts = true;
 
+      await tts.setEngine(await tts.getDefaultEngine);
+    }
+
+    setTts();
     tts.setStartHandler(() {
-      print("setStartHandler");
+      // print("setStartHandler");
     });
     tts.setCompletionHandler(() {
       _completer.complete(true);
@@ -70,6 +84,7 @@ class AudioHandler extends BaseAudioHandler
         (String text, int startOffset, int endOffset, String word) {});
     tts.setErrorHandler((msg) {
       playstat = STAT_STOP;
+      _completer.complete(false);
     });
     tts.setCancelHandler(() {
       _completer.complete(false);
@@ -78,16 +93,28 @@ class AudioHandler extends BaseAudioHandler
 
   Future<bool> speak(String text) {
     _completer = Completer<bool>();
-    tts.speak(text);
+    try {
+      tts.speak(text);
+    } catch (e) {
+      _completer.complete(false);
+    }
     return _completer.future;
   }
 
   // onplay
   Future<void> play() async {
     playstat = STAT_PLAY;
+    this.session!.setActive(true);
 
-    session = await AudioSession.instance;
-    session!.interruptionEventStream.listen((event) {
+    await this.session!.configure(AudioSessionConfiguration.speech());
+    // this.session!.interruptionEventStream.
+
+    session!.devicesChangedEventStream.listen((event) {
+      if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
+        stop();
+      }
+    });
+    this.session!.interruptionEventStream.listen((event) {
       if (event.type == AudioInterruptionType.pause) {
         if (event.begin) {
           bool laststat = playstat == STAT_PLAY;
@@ -113,7 +140,6 @@ class AudioHandler extends BaseAudioHandler
       title: '${lastData.name}',
       duration: Duration(seconds: contents.length),
     ));
-
     for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
       // for (var i = lastData.pos; i < 30; i += 2) {
       if (playstat != STAT_PLAY) break;
@@ -130,8 +156,12 @@ class AudioHandler extends BaseAudioHandler
 
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-      print(speakText);
-      await speak(speakText);
+
+      bool bspeak = await speak(speakText);
+      // if (!bspeak) {
+      //   break;
+      // }
+
       lastData.pos = i;
       await Utils.setLastData(lastData.toJson());
       if (end >= contents.length - 1) {
@@ -142,8 +172,9 @@ class AudioHandler extends BaseAudioHandler
   }
 
   Future<void> pause() async {
-    playstat = STAT_PAUSE;
+    // session!.setActive(false);
 
+    await tts.stop();
     this.playbackState.add(baseState.copyWith(
           controls: [
             MediaControl.play,
@@ -153,17 +184,19 @@ class AudioHandler extends BaseAudioHandler
           updatePosition: Duration(seconds: lastData.pos),
           playing: false,
         ));
-    tts.stop();
+
+    playstat = STAT_PAUSE;
     super.pause();
   }
 
   Future<void> stop() async {
-    playstat = STAT_STOP;
+    session!.setActive(false);
     // this.playbackState.close();
+    await tts.stop();
     this.playbackState.add(PlaybackState());
-    tts.stop();
     // await playbackState.firstWhere(
     //     (state) => state.processingState == AudioProcessingState.idle);
+    playstat = STAT_STOP;
     super.stop();
   }
 
@@ -183,6 +216,16 @@ class AudioHandler extends BaseAudioHandler
     }
   }
 
+  @override
+  Future<void> click([MediaButton button = MediaButton.media]) async {
+    // switch (button) {
+    //   case MediaButton.media:
+
+    //     break;
+
+    // }
+  }
+
   Future<void> seek(Duration position) async {}
   Future<void> skipToQueueItem(int i) async {}
 }
@@ -194,7 +237,7 @@ class AudioPlay {
     _audioHandler = await AudioService.init(
       builder: () => AudioHandler(),
       config: AudioServiceConfig(
-        androidNotificationChannelId: 'com.khjde.opentextview1.channel.audio',
+        androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
         androidNotificationChannelName: 'Music playback',
       ),
     );
@@ -235,7 +278,6 @@ class AudioPlay {
       "lastData": lastData,
     });
     _audioHandler!.play();
-    print(_audioHandler!.playbackState.stream);
   }
 
   static stop() {

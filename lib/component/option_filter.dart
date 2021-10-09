@@ -101,6 +101,16 @@ const List<dynamic> DFFILTER = [
 ];
 
 class OptionFilter extends GetView<GlobalController> {
+  addFilter(Filter f) {
+    controller.userData.update((val) {
+      if (val!.filter.isEmpty) {
+        val.filter = [f];
+      } else {
+        val.filter.add(f);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionFilterCtl());
@@ -123,10 +133,7 @@ class OptionFilter extends GetView<GlobalController> {
                           margin: EdgeInsets.all(10),
                           child: InkWell(
                               onTap: () {
-                                controller.userData.update((val) {
-                                  val!.filter
-                                      .add(Filter.fromMap(e)..enable = true);
-                                });
+                                addFilter(Filter.fromMap(e)..enable = true);
                               },
                               child: Padding(
                                   padding: EdgeInsets.all(5),
@@ -289,7 +296,7 @@ class OptionFilter extends GetView<GlobalController> {
               ElevatedButton(
                   onPressed: () {
                     controller.userData.update((val) {
-                      val!.filter.add(Filter());
+                      addFilter(Filter());
                     });
                   },
                   child: Icon(Ionicons.add)),

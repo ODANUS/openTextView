@@ -25,10 +25,6 @@ class FloatingButton extends GetView<MainCtl> {
             var flist = await d.list().toList();
             var f = File("/storage/emulated/0/미디어/대한민국헌법(헌법제9호).txt");
             String contents = await f.readAsString();
-
-            // var wf = File(selectedDirectory + "/test1111.txt");
-            // var ss = await wf.writeAsString("adsdsdsds");
-            // print(await ss.readAsString());
           }
         },
         child: Icon(Icons.volume_up));

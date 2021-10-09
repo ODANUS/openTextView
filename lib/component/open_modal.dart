@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -71,6 +72,8 @@ class OpenModal {
     final Completer completer = Completer();
     final ctl = Get.find<GlobalController>();
     Timer? _timer;
+    TextEditingController c = TextEditingController()
+      ..text = ctl.lastData.value.pos.toString();
     Get.dialog(AlertDialog(
       title: Text("위치 이동"),
       content: Container(
@@ -89,7 +92,17 @@ class OpenModal {
                   label: "${ctl.lastData.value.pos}",
                   onChanged: (double v) {
                     ctl.itemScrollctl.jumpTo(index: v.toInt());
+                    c.text = v.toInt().toString();
                   })),
+              TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "위치 이동",
+                  ),
+                  controller: c,
+                  // initialValue: ctl.lastData.value.pos.toString(),
+                  onChanged: (v) {
+                    ctl.itemScrollctl.jumpTo(index: int.parse(v));
+                  })
             ],
           )),
       actions: [
@@ -147,6 +160,56 @@ class OpenModal {
                     ),
                   );
                 }).toList()
+              ],
+            );
+          })),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: Text("확인"))
+      ],
+      actionsAlignment: MainAxisAlignment.spaceAround,
+    )).whenComplete(() {
+      modalCtl.text("");
+    });
+
+    return completer.future;
+  }
+
+  static openFontSizeModal() {
+    final Completer completer = Completer();
+    final ctl = Get.find<GlobalController>();
+    final modalCtl = Get.put(openSearchCtl());
+
+    Get.dialog(AlertDialog(
+      title: Text("폰트 사이즈 설정"),
+      content: Container(
+          constraints: BoxConstraints(maxHeight: 300),
+          color: Colors.transparent,
+          width: double.maxFinite,
+          child: Obx(() {
+            List<String> searchList = [];
+
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      ctl.userData.update((val) {
+                        val!.ui.fontSize += 1;
+                      });
+                    },
+                    icon: Icon(Ionicons.add_outline)),
+                Text("${ctl.userData.value.ui.fontSize}"),
+                IconButton(
+                    onPressed: () {
+                      ctl.userData.update((val) {
+                        val!.ui.fontSize -= 1;
+                      });
+                    },
+                    icon: Icon(Ionicons.remove_outline)),
               ],
             );
           })),
