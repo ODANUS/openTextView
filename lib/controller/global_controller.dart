@@ -95,12 +95,12 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
           .reduce((ItemPosition min, ItemPosition position) =>
               position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
           .index;
-      if (lastData.value.pos < min) {
-        isVisible(false);
-      }
-      if (lastData.value.pos > min) {
-        isVisible(true);
-      }
+      // if (lastData.value.pos < min) {
+      //   isVisible(false);
+      // }
+      // if (lastData.value.pos > min) {
+      //   isVisible(true);
+      // }
       lastData.update((val) {
         val!.pos = min;
       });

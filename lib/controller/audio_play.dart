@@ -15,9 +15,32 @@ class AudioHandler extends BaseAudioHandler
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
   AudioHandler() {
-    AudioSession.instance.then((value) {
+    AudioSession.instance.then((value) async {
       this.session = value;
       this.session!.configure(AudioSessionConfiguration.speech());
+      await this.session!.configure(AudioSessionConfiguration.speech());
+      session!.devicesChangedEventStream.listen((event) {
+        if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
+          stop();
+        }
+      });
+      this.session!.interruptionEventStream.listen((event) {
+        if (event.type == AudioInterruptionType.pause) {
+          if (event.begin) {
+            bool laststat = playstat == STAT_PLAY;
+            pause();
+            listenPlaying = laststat;
+          } else if (listenPlaying == true) {
+            play();
+          }
+          return;
+        }
+        if (event.begin && event.type == AudioInterruptionType.unknown) {
+          if (ttsOption.audiosession) {
+            pause();
+          } else {}
+        }
+      });
     });
   }
 
@@ -63,7 +86,7 @@ class AudioHandler extends BaseAudioHandler
     await tts.setSpeechRate(ttsOption.speechRate);
     await tts.setVolume(ttsOption.volume);
     await tts.setPitch(ttsOption.pitch);
-    await tts.awaitSpeakCompletion(true);
+    // await tts.awaitSpeakCompletion(true);
   }
 
   Future<void> initTts() async {
@@ -79,15 +102,19 @@ class AudioHandler extends BaseAudioHandler
       // print("setStartHandler");
     });
     tts.setCompletionHandler(() {
+      print(">>>> :setCompletionHandler");
       _completer.complete(true);
     });
     tts.setProgressHandler(
         (String text, int startOffset, int endOffset, String word) {});
     tts.setErrorHandler((msg) {
       playstat = STAT_STOP;
+      print(">>>> :setErrorHandler");
       _completer.complete(false);
     });
     tts.setCancelHandler(() {
+      playstat = STAT_STOP;
+      print(">>>> :setCancelHandler");
       _completer.complete(false);
     });
   }
@@ -105,33 +132,8 @@ class AudioHandler extends BaseAudioHandler
   // onplay
   Future<void> play() async {
     playstat = STAT_PLAY;
+    print("playplayplayplayplayplayplayplayplayplayplayplay");
     this.session!.setActive(true);
-
-    await this.session!.configure(AudioSessionConfiguration.speech());
-    // this.session!.interruptionEventStream.
-
-    session!.devicesChangedEventStream.listen((event) {
-      if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
-        stop();
-      }
-    });
-    this.session!.interruptionEventStream.listen((event) {
-      if (event.type == AudioInterruptionType.pause) {
-        if (event.begin) {
-          bool laststat = playstat == STAT_PLAY;
-          pause();
-          listenPlaying = laststat;
-        } else if (listenPlaying == true) {
-          play();
-        }
-        return;
-      }
-      if (event.begin && event.type == AudioInterruptionType.unknown) {
-        if (ttsOption.audiosession) {
-          pause();
-        } else {}
-      }
-    });
 
     await initTts();
 
@@ -142,6 +144,7 @@ class AudioHandler extends BaseAudioHandler
       duration: Duration(seconds: contents.length),
     ));
     for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
+      print("playstat : ${playstat}");
       if (playstat != STAT_PLAY) break;
       int end = min(i + ttsOption.groupcnt, contents.length - 1);
       String speakText = contents.getRange(i, end).join("\n");
@@ -159,14 +162,14 @@ class AudioHandler extends BaseAudioHandler
 
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-
-      await tts.speak(speakText);
-      // bool bspeak = await speak(speakText);
-      // if (!bspeak) {
-      //   break;
-      // }
-
+      print(speakText);
+      bool bspeak = await speak(speakText);
       lastData.pos = i;
+      // bool bspeak = await speak(speakText);
+      if (!bspeak) {
+        break;
+      }
+
       await Utils.setLastData(lastData.toJson());
       if (end >= contents.length - 1) {
         stop();
