@@ -309,7 +309,7 @@
 //                                             try {
 //                                               await d.create();
 //                                             } catch (e) {
-//                                               print(e);
+
 //                                               alertStoragePermissionError(
 //                                                   value);
 //                                               return;
@@ -321,7 +321,7 @@
 //                                             try {
 //                                               await f.create();
 //                                             } catch (e) {
-//                                               print(e);
+
 //                                               alertStoragePermissionError(
 //                                                   f.path);
 //                                               return;

@@ -39,14 +39,7 @@ class SettingPage extends GetView<GlobalController> {
                   session.setActive(true);
                   await session.configure(AudioSessionConfiguration.speech());
 
-                  session.becomingNoisyEventStream.listen((_) {
-                    print("becomingNoisyEventStream");
-                  });
-                  session.devicesChangedEventStream.listen((event) {
-                    print("devicesChangedEventStream $event");
-                  });
                   session.interruptionEventStream.listen((event) {
-                    print("interruptionEventStream asdf");
                     if (event.type == AudioInterruptionType.pause) {
                       if (event.begin) {
                         return;
@@ -59,7 +52,7 @@ class SettingPage extends GetView<GlobalController> {
                   });
                   // controller.changeTheme("dark");
                   // var status = await Permission.storage.status;
-                  // print(status);
+
                   // if (!status.isGranted) {
                   //   await Permission.storage.request();
                   // }

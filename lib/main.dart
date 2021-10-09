@@ -1,13 +1,11 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:open_textview/controller/MainCtl.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/pages/main_page.dart';
 
 void main() async {
-  Get.lazyPut(() => MainCtl());
   Get.lazyPut(() => GlobalController());
   await AudioPlay.init();
   runApp(

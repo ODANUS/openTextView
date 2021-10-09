@@ -3,12 +3,12 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -52,6 +52,7 @@ class LibraryPage extends GetView<GlobalController> {
                 if (e == "") {
                   return SizedBox();
                 }
+                int idxOf = controller.lastData.value.path.indexOf(e);
                 return Card(
                     child: InkWell(
                         onLongPress: () async {
@@ -64,6 +65,7 @@ class LibraryPage extends GetView<GlobalController> {
                         },
                         child: ExpansionTile(
                             // initiallyExpanded: idx == 0,
+                            initiallyExpanded: idxOf >= 0,
                             title: Text(e.split("/").last),
                             children: [
                               DirectoryListWidget(
@@ -108,14 +110,14 @@ class LibraryPage extends GetView<GlobalController> {
   }
 }
 
-class DirectoryListWidget extends GetView {
+class DirectoryListWidget extends GetView<GlobalController> {
   DirectoryListWidget(
       {required this.path,
       required this.delList,
       required this.onTab,
       required this.onDeleteFile,
       required this.onDeleteDir,
-      this.exs = const ["txt", "json"]});
+      this.exs = const ["txt"]});
   String path;
   List<String> delList;
   Function onTab;
@@ -169,6 +171,9 @@ class DirectoryListWidget extends GetView {
                               onDeleteDir(e as Directory);
                             },
                           );
+                          int idxOf =
+                              controller.lastData.value.path.indexOf(e.path);
+
                           return Card(
                               child: Slidable(
                                   actionPane: SlidableDrawerActionPane(),
@@ -176,6 +181,7 @@ class DirectoryListWidget extends GetView {
                                   secondaryActions: [delIcon],
                                   actions: [delIcon],
                                   child: ExpansionTile(
+                                      initiallyExpanded: idxOf >= 0,
                                       leading: Icon(Ionicons.folder_outline),
                                       title: Text(e.path.split("/").last),
                                       children: [
@@ -200,6 +206,12 @@ class DirectoryListWidget extends GetView {
                             onDeleteFile(f);
                           },
                         );
+                        String name = e.path.split("/").last;
+                        List<History> targetList =
+                            controller.userData.value.history.where((e) {
+                          return e.name == name;
+                        }).toList();
+
                         return Card(
                             child: Slidable(
                                 actionPane: SlidableDrawerActionPane(),
@@ -212,6 +224,11 @@ class DirectoryListWidget extends GetView {
                                   title: Text(e.path.split("/").last,
                                       style: TextStyle(
                                           color: bex ? null : Colors.grey)),
+                                  subtitle: targetList.isNotEmpty &&
+                                          targetList.first.length > 0
+                                      ? Text(
+                                          '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}%')
+                                      : Text(''),
                                   trailing: Text("${size}"),
                                 )));
                       }).toList()

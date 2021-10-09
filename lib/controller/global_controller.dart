@@ -75,8 +75,11 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
       }
       userData.update((val) {
         val!.history[idx].pos = history.pos;
+        val.history[idx].length = history.length;
+        val.history[idx].path = history.path;
+        val.history[idx].date = history.date;
       });
-    }, time: 200.milliseconds);
+    }, time: 600.milliseconds);
 
     AudioPlay.lisen((e) {
       if (e.playing) {
@@ -104,7 +107,6 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
       lastData.update((val) {
         val!.pos = min;
       });
-      // print(ss.last.index);
     });
 
     super.onInit();
@@ -143,25 +145,22 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   Future<void> openFile(File f) async {
     String contents = await Utils.readFile(f);
     String name = f.path.split("/").last;
+    AudioPlay.stop();
     var arrs = userData.value.history.where((e) {
       return name == e.name || f.path == e.path;
     }).toList();
-    lastData(History(
-      date: Utils.DF(DateTime.now(), f: "yyyy-MM-dd HH:mm:ss"),
-      name: f.path.split("/").last,
-      pos: arrs.isEmpty ? 0 : arrs.first.pos,
-      path: f.path,
-    ));
 
     setContents(contents);
+    lastData(History(
+        date: Utils.DF(DateTime.now(), f: "yyyy-MM-dd HH:mm:ss"),
+        name: f.path.split("/").last,
+        pos: arrs.isEmpty ? 0 : arrs.first.pos,
+        path: f.path,
+        length: this.contents.length));
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       itemScrollctl.jumpTo(index: lastData.value.pos);
     });
-    // if (arrs.isNotEmpty) {
-    //   print("=========================== ${arrs.first.pos}");
-    // }else{
-    //   itemScrollctl.jumpTo(0);
-    // }
+
     tabIndex(0);
   }
 

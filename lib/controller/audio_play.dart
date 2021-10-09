@@ -62,7 +62,7 @@ class AudioHandler extends BaseAudioHandler
     systemActions: const {
       MediaAction.seek,
     },
-    androidCompactActionIndices: const [0],
+    androidCompactActionIndices: const [0, 1],
     processingState: AudioProcessingState.ready,
     playing: true,
     speed: 0,
@@ -90,7 +90,6 @@ class AudioHandler extends BaseAudioHandler
   }
 
   Future<void> initTts() async {
-    // print("[[[[[[[[[[[[[[[[${await tts.getDefaultEngine}");
     if (!bInitTts) {
       bInitTts = true;
 
@@ -98,23 +97,18 @@ class AudioHandler extends BaseAudioHandler
     }
 
     setTts();
-    tts.setStartHandler(() {
-      // print("setStartHandler");
-    });
+    tts.setStartHandler(() {});
     tts.setCompletionHandler(() {
-      print(">>>> :setCompletionHandler");
       _completer.complete(true);
     });
     tts.setProgressHandler(
         (String text, int startOffset, int endOffset, String word) {});
     tts.setErrorHandler((msg) {
       playstat = STAT_STOP;
-      print(">>>> :setErrorHandler");
       _completer.complete(false);
     });
     tts.setCancelHandler(() {
       playstat = STAT_STOP;
-      print(">>>> :setCancelHandler");
       _completer.complete(false);
     });
   }
@@ -132,7 +126,6 @@ class AudioHandler extends BaseAudioHandler
   // onplay
   Future<void> play() async {
     playstat = STAT_PLAY;
-    print("playplayplayplayplayplayplayplayplayplayplayplay");
     this.session!.setActive(true);
 
     await initTts();
@@ -144,7 +137,6 @@ class AudioHandler extends BaseAudioHandler
       duration: Duration(seconds: contents.length),
     ));
     for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
-      print("playstat : ${playstat}");
       if (playstat != STAT_PLAY) break;
       int end = min(i + ttsOption.groupcnt, contents.length - 1);
       String speakText = contents.getRange(i, end).join("\n");
@@ -162,7 +154,7 @@ class AudioHandler extends BaseAudioHandler
 
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-      print(speakText);
+
       bool bspeak = await speak(speakText);
       lastData.pos = i;
       // bool bspeak = await speak(speakText);

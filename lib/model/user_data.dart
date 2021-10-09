@@ -88,10 +88,12 @@ class History {
     this.pos = 0,
     this.name = "",
     this.path = "",
+    this.length = 0,
   });
 
   String date;
   int pos;
+  int length;
   String name;
   String path;
 
@@ -102,6 +104,7 @@ class History {
   factory History.fromMap(Map<String, dynamic> json) => History(
         date: json["date"] == null ? "" : json["date"],
         pos: json["pos"] == null ? 0 : json["pos"],
+        length: json["length"] == null ? 0 : json["length"],
         name: json["name"] == null ? "" : json["name"],
         path: json["path"] == null ? "" : json["path"],
       );
@@ -109,6 +112,7 @@ class History {
   Map<String, dynamic> toMap() => {
         "date": date,
         "pos": pos,
+        "length": length,
         "name": name,
         "path": path,
       };
