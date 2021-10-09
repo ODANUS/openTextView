@@ -63,6 +63,7 @@ class AudioHandler extends BaseAudioHandler
     await tts.setSpeechRate(ttsOption.speechRate);
     await tts.setVolume(ttsOption.volume);
     await tts.setPitch(ttsOption.pitch);
+    await tts.awaitSpeakCompletion(true);
   }
 
   Future<void> initTts() async {
@@ -141,23 +142,26 @@ class AudioHandler extends BaseAudioHandler
       duration: Duration(seconds: contents.length),
     ));
     for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
-      // for (var i = lastData.pos; i < 30; i += 2) {
       if (playstat != STAT_PLAY) break;
       int end = min(i + ttsOption.groupcnt, contents.length - 1);
       String speakText = contents.getRange(i, end).join("\n");
+
       filter.forEach((e) {
-        if (e.expr) {
-          speakText =
-              speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
-        } else {
-          speakText = speakText.replaceAll(e.filter, e.to);
+        if (e.enable) {
+          if (e.expr) {
+            speakText =
+                speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+          } else {
+            speakText = speakText.replaceAll(e.filter, e.to);
+          }
         }
       });
 
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
-      bool bspeak = await speak(speakText);
+      await tts.speak(speakText);
+      // bool bspeak = await speak(speakText);
       // if (!bspeak) {
       //   break;
       // }

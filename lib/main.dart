@@ -11,8 +11,9 @@ void main() async {
   Get.lazyPut(() => GlobalController());
   await AudioPlay.init();
   runApp(
-    GetMaterialApp(debugShowCheckedModeBanner: false,
-        // themeMode: ThemeMode.light,
+    GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.light,
         getPages: [GetPage(name: '/', page: () => MainPage())]),
   );
 }
