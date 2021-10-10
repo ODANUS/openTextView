@@ -5,7 +5,7 @@ import 'package:audio_service/audio_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_tesseract_ocr/android_ios.dart';
+import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/component/readpage_floating_button.dart';
 import 'package:open_textview/controller/audio_play.dart';
