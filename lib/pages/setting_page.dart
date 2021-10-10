@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,8 @@ import 'package:open_textview/component/option_osslicense.dart';
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SettingPage extends GetView<GlobalController> {
   @override
@@ -34,23 +38,37 @@ class SettingPage extends GetView<GlobalController> {
           if (kDebugMode)
             ElevatedButton(
                 onPressed: () async {
-                  AudioSession? session;
-                  session = await AudioSession.instance;
-                  session.setActive(true);
-                  await session.configure(AudioSessionConfiguration.speech());
+                  // AudioSession? session;
+                  // session = await AudioSession.instance;
+                  // session.setActive(true);
+                  // await session.configure(AudioSessionConfiguration.speech());
 
-                  session.interruptionEventStream.listen((event) {
-                    if (event.type == AudioInterruptionType.pause) {
-                      if (event.begin) {
-                        return;
-                      }
-                      if (event.begin &&
-                          event.type == AudioInterruptionType.unknown) {
-                        return;
-                      }
-                    }
-                  });
+                  // session.interruptionEventStream.listen((event) {
+                  //   if (event.type == AudioInterruptionType.pause) {
+                  //     if (event.begin) {
+                  //       return;
+                  //     }
+                  //     if (event.begin &&
+                  //         event.type == AudioInterruptionType.unknown) {
+                  //       return;
+                  //     }
+                  //   }
+                  // });
                   // controller.changeTheme("dark");
+                  var status = await Permission.storage.status;
+
+                  if (!status.isGranted) {
+                    await Permission.storage.request();
+                  }
+                  // var path = await getApplicationDocumentsDirectory();
+                  // var dn = await getExternalStorageDirectories();
+                  // print(dn);
+                  Directory d = Directory("${controller.libraryPaths[0]}/OCR");
+                  print(await File("${d.path}/test_ocr.txt").stat());
+                  File("${d.path}/test_ocr.txt")
+                      .writeAsStringSync("testestestes");
+                  print(await d.list().toList());
+
                   // var status = await Permission.storage.status;
 
                   // if (!status.isGranted) {
@@ -67,7 +85,7 @@ class SettingPage extends GetView<GlobalController> {
                   // File("${d.path}/test_ocr2.txt")
                   //     .writeAsStringSync("testestestes");
                 },
-                child: Text("test"))
+                child: Text("test")),
         ],
       ),
     );

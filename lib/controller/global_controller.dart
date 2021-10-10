@@ -6,11 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/user_data.dart';
-import 'package:open_textview/pages/library_page.dart';
 import 'package:open_textview/provider/utils.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class GlobalController extends GetxController with WidgetsBindingObserver {
   final userData = UserData().obs;
@@ -143,6 +140,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   }
 
   Future<void> openFile(File f) async {
+    print(f.path);
     String contents = await Utils.readFile(f);
     String name = f.path.split("/").last;
     AudioPlay.stop();

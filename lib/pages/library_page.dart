@@ -29,6 +29,8 @@ class LibraryPage extends GetView<GlobalController> {
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(LibraryPageCtl());
+    String path = controller.lastData.value.path;
+    List<History> listHistory = controller.userData.value.history;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -52,7 +54,7 @@ class LibraryPage extends GetView<GlobalController> {
                 if (e == "") {
                   return SizedBox();
                 }
-                int idxOf = controller.lastData.value.path.indexOf(e);
+                int idxOf = path.indexOf(e);
                 return Card(
                     child: InkWell(
                         onLongPress: () async {
@@ -71,25 +73,27 @@ class LibraryPage extends GetView<GlobalController> {
                               DirectoryListWidget(
                                 path: e,
                                 delList: pageCtl.delList,
+                                historylist: listHistory,
+                                curOpenPath: path,
                                 onTab: (File f) async {
                                   controller.openFile(f);
                                 },
-                                onDeleteFile: (File f) async {
-                                  var status = await Permission.storage.status;
-                                  if (!status.isGranted) {
-                                    await Permission.storage.request();
-                                  }
-                                  await f.delete();
-                                  pageCtl.delList.add(f.path);
-                                },
-                                onDeleteDir: (Directory d) async {
-                                  var status = await Permission.storage.status;
-                                  if (!status.isGranted) {
-                                    await Permission.storage.request();
-                                  }
-                                  await d.delete(recursive: true);
-                                  pageCtl.delList.add(d.path);
-                                },
+                                // onDeleteFile: (File f) async {
+                                //   var status = await Permission.storage.status;
+                                //   if (!status.isGranted) {
+                                //     await Permission.storage.request();
+                                //   }
+                                //   await f.delete();
+                                //   pageCtl.delList.add(f.path);
+                                // },
+                                // onDeleteDir: (Directory d) async {
+                                //   var status = await Permission.storage.status;
+                                //   if (!status.isGranted) {
+                                //     await Permission.storage.request();
+                                //   }
+                                //   await d.delete(recursive: true);
+                                //   pageCtl.delList.add(d.path);
+                                // },
                               )
                             ])));
               }).toList(),
@@ -110,20 +114,25 @@ class LibraryPage extends GetView<GlobalController> {
   }
 }
 
-class DirectoryListWidget extends GetView<GlobalController> {
-  DirectoryListWidget(
-      {required this.path,
-      required this.delList,
-      required this.onTab,
-      required this.onDeleteFile,
-      required this.onDeleteDir,
-      this.exs = const ["txt"]});
+class DirectoryListWidget extends GetView {
+  DirectoryListWidget({
+    required this.path,
+    required this.delList,
+    required this.onTab,
+    required this.historylist,
+    this.curOpenPath = "",
+    this.exs = const ["txt"],
+    // required this.onDeleteFile,
+    // required this.onDeleteDir,
+  });
   String path;
   List<String> delList;
   Function onTab;
-  Function(File) onDeleteFile;
-  Function(Directory) onDeleteDir;
   List<String> exs;
+  String curOpenPath;
+  List<History> historylist;
+  // Function(File) onDeleteFile;
+  // Function(Directory) onDeleteDir;
 
   @override
   Widget build(BuildContext context) {
@@ -154,6 +163,7 @@ class DirectoryListWidget extends GetView<GlobalController> {
             // }  return
             return Obx(() {
               var dellis = delList;
+
               return Padding(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Column(
@@ -163,34 +173,35 @@ class DirectoryListWidget extends GetView<GlobalController> {
                           return SizedBox();
                         }
                         if (e is Directory) {
-                          Widget delIcon = IconSlideAction(
-                            caption: '삭제',
-                            color: Colors.red,
-                            icon: Icons.delete,
-                            onTap: () {
-                              onDeleteDir(e as Directory);
-                            },
-                          );
-                          int idxOf =
-                              controller.lastData.value.path.indexOf(e.path);
+                          // Widget delIcon = IconSlideAction(
+                          //   caption: '삭제',
+                          //   color: Colors.red,
+                          //   icon: Icons.delete,
+                          //   onTap: () {
+                          //     onDeleteDir(e as Directory);
+                          //   },
+                          // );
+                          int idxOf = curOpenPath.indexOf(e.path);
 
                           return Card(
                               child: Slidable(
                                   actionPane: SlidableDrawerActionPane(),
                                   actionExtentRatio: 0.2,
-                                  secondaryActions: [delIcon],
-                                  actions: [delIcon],
+                                  // secondaryActions: [delIcon],
+                                  // actions: [delIcon],
                                   child: ExpansionTile(
                                       initiallyExpanded: idxOf >= 0,
                                       leading: Icon(Ionicons.folder_outline),
                                       title: Text(e.path.split("/").last),
                                       children: [
                                         DirectoryListWidget(
-                                            path: e.path,
-                                            delList: delList,
-                                            onTab: onTab,
-                                            onDeleteFile: onDeleteFile,
-                                            onDeleteDir: onDeleteDir)
+                                          path: e.path,
+                                          delList: delList,
+                                          historylist: historylist,
+                                          onTab: onTab,
+                                          // onDeleteFile: onDeleteFile,
+                                          // onDeleteDir: onDeleteDir,
+                                        )
                                       ])));
                         }
                         var f = e as File;
@@ -198,17 +209,16 @@ class DirectoryListWidget extends GetView<GlobalController> {
                         var ex = f.path.split(".").last;
                         bool bex = exs.indexOf(ex) >= 0;
                         String size = Utils.getFileSize(f);
-                        Widget delIcon = IconSlideAction(
-                          caption: '삭제',
-                          color: Colors.red,
-                          icon: Icons.delete,
-                          onTap: () {
-                            onDeleteFile(f);
-                          },
-                        );
+                        // Widget delIcon = IconSlideAction(
+                        //   caption: '삭제',
+                        //   color: Colors.red,
+                        //   icon: Icons.delete,
+                        //   onTap: () {
+                        //     onDeleteFile(f);
+                        //   },
+                        // );
                         String name = e.path.split("/").last;
-                        List<History> targetList =
-                            controller.userData.value.history.where((e) {
+                        List<History> targetList = historylist.where((e) {
                           return e.name == name;
                         }).toList();
 
@@ -216,8 +226,8 @@ class DirectoryListWidget extends GetView<GlobalController> {
                             child: Slidable(
                                 actionPane: SlidableDrawerActionPane(),
                                 actionExtentRatio: 0.2,
-                                secondaryActions: [delIcon],
-                                actions: [delIcon],
+                                // secondaryActions: [delIcon],
+                                // actions: [delIcon],
                                 child: ListTile(
                                   onTap: bex ? () => onTab(e) : null,
                                   leading: Icon(Ionicons.document_outline),
