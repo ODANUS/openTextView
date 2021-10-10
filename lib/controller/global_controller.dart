@@ -19,6 +19,8 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
 
   Rx<History> lastData = History().obs;
 
+  RxList<String> lastImageData = RxList<String>();
+
   final itemScrollctl = ItemScrollController();
   final itemPosListener = ItemPositionsListener.create();
   Rx<AppLifecycleState> appLifecycleState = AppLifecycleState.inactive.obs;
@@ -140,26 +142,37 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   }
 
   Future<void> openFile(File f) async {
-    print(f.path);
-    String contents = await Utils.readFile(f);
-    String name = f.path.split("/").last;
-    AudioPlay.stop();
-    var arrs = userData.value.history.where((e) {
-      return name == e.name || f.path == e.path;
+    if (f.path.split(".").last == "txt") {
+      String contents = await Utils.readFile(f);
+      String name = f.path.split("/").last;
+      AudioPlay.stop();
+      var arrs = userData.value.history.where((e) {
+        return name == e.name || f.path == e.path;
+      }).toList();
+
+      setContents(contents);
+      lastData(History(
+          date: Utils.DF(DateTime.now(), f: "yyyy-MM-dd HH:mm:ss"),
+          name: f.path.split("/").last,
+          pos: arrs.isEmpty ? 0 : arrs.first.pos,
+          path: f.path,
+          length: this.contents.length));
+      WidgetsBinding.instance!.addPostFrameCallback((_) {
+        itemScrollctl.jumpTo(index: lastData.value.pos);
+      });
+
+      tabIndex(0);
+      return;
+    }
+    Directory d = f.parent;
+    var files = await d.list().toList();
+
+    var tmpList = files.map((e) {
+      return e.path;
     }).toList();
-
-    setContents(contents);
-    lastData(History(
-        date: Utils.DF(DateTime.now(), f: "yyyy-MM-dd HH:mm:ss"),
-        name: f.path.split("/").last,
-        pos: arrs.isEmpty ? 0 : arrs.first.pos,
-        path: f.path,
-        length: this.contents.length));
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      itemScrollctl.jumpTo(index: lastData.value.pos);
-    });
-
-    tabIndex(0);
+    lastImageData.assignAll(tmpList);
+    // print(await d.list().toList());
+    // lastImageData
   }
 
   // loadLibrary() async {

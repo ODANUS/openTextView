@@ -3,6 +3,7 @@ import 'package:ionicons/ionicons.dart';
 
 import 'package:get/get.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/pages/image_viewer_page.dart';
 import 'package:open_textview/pages/library_page.dart';
 import 'package:open_textview/pages/read_page.dart';
 import 'package:open_textview/pages/setting_page.dart';
@@ -12,21 +13,26 @@ class MainPage extends GetView<GlobalController> {
   Widget build(BuildContext context) {
     // final pageCtl = Get.put(MainPageCtl());
     return Scaffold(
-      body: Obx(() => IndexedStack(
-          index: controller.tabIndex.value,
-          children: [ReadPage(), LibraryPage(), SettingPage()])),
+      body: Obx(() => IndexedStack(index: controller.tabIndex.value, children: [
+            ReadPage(),
+            // ImageViewerPage(),
+            LibraryPage(),
+            SettingPage()
+          ])),
 
-      bottomNavigationBar: Obx(() => AnimatedContainer(
-          duration: Duration(milliseconds: 500),
-          height: controller.isVisible.value ? 60.0 : 0.0,
-          child: BottomNavigationBar(
+      bottomNavigationBar: Obx(() => BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
               currentIndex: controller.tabIndex.value,
               onTap: (idx) => controller.tabIndex(idx),
               items: [
                 BottomNavigationBarItem(
-                  label: "책보기",
+                  label: "텍스트 뷰어",
                   icon: Icon(Icons.menu_book_outlined),
                 ),
+                // BottomNavigationBarItem(
+                //   label: "이미지 뷰어",
+                //   icon: Icon(Icons.image_outlined),
+                // ),
                 BottomNavigationBarItem(
                   label: "내서재",
                   icon: Icon(Ionicons.library_outline),
@@ -35,7 +41,7 @@ class MainPage extends GetView<GlobalController> {
                   label: "설정",
                   icon: Icon(Ionicons.settings_outline),
                 ),
-              ]))),
+              ])),
       // floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
       // floatingActionButton: FloatingButton(),
     );

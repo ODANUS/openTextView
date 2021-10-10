@@ -46,7 +46,7 @@ class ReadPage extends GetView<GlobalController> {
         }
 
         return Obx(() => ScrollablePositionedList.builder(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 150),
             itemScrollController: controller.itemScrollctl,
             itemPositionsListener: controller.itemPosListener,
             itemCount: controller.contents.length,
@@ -73,7 +73,11 @@ class ReadPage extends GetView<GlobalController> {
                     decoration:
                         BoxDecoration(color: brange ? Colors.blue[100] : null),
                     child: Obx(
-                      () => Text(controller.contents[idx],
+                      () => Text(
+                          // controller.contents[idx],
+                          idx <= controller.contents.length
+                              ? controller.contents[idx]
+                              : "",
                           style: TextStyle(
                               fontSize: controller.userData.value.ui.fontSize
                                   .toDouble())),

@@ -121,7 +121,14 @@ class DirectoryListWidget extends GetView {
     required this.onTab,
     required this.historylist,
     this.curOpenPath = "",
-    this.exs = const ["txt"],
+    this.exs = const [
+      "txt",
+      // "gif",
+      // "png",
+      // "jpg",
+      // "tiff",
+      // "zip",
+    ],
     // required this.onDeleteFile,
     // required this.onDeleteDir,
   });
@@ -205,8 +212,11 @@ class DirectoryListWidget extends GetView {
                                       ])));
                         }
                         var f = e as File;
-
-                        var ex = f.path.split(".").last;
+                        String ex = "";
+                        var exList = f.path.split(".");
+                        if (exList.isNotEmpty) {
+                          ex = exList.last.toLowerCase();
+                        }
                         bool bex = exs.indexOf(ex) >= 0;
                         String size = Utils.getFileSize(f);
                         // Widget delIcon = IconSlideAction(
@@ -235,7 +245,8 @@ class DirectoryListWidget extends GetView {
                                       style: TextStyle(
                                           color: bex ? null : Colors.grey)),
                                   subtitle: targetList.isNotEmpty &&
-                                          targetList.first.length > 0
+                                          targetList.first.length > 0 &&
+                                          ex == "txt"
                                       ? Text(
                                           '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}%')
                                       : Text(''),
