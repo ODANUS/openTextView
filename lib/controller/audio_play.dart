@@ -136,9 +136,11 @@ class AudioHandler extends BaseAudioHandler
       title: '${lastData.name}',
       duration: Duration(seconds: contents.length),
     ));
-    for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
+    int cnt = ttsOption.groupcnt;
+    for (var i = lastData.pos; i < contents.length; i += cnt) {
       if (playstat != STAT_PLAY) break;
-      int end = min(i + ttsOption.groupcnt, contents.length - 1);
+      int end = min(i + ttsOption.groupcnt, contents.length);
+
       String speakText = contents.getRange(i, end).join("\n");
 
       filter.forEach((e) {
@@ -154,16 +156,16 @@ class AudioHandler extends BaseAudioHandler
 
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-
+      await Future.delayed(Duration(milliseconds: 300));
       bool bspeak = await speak(speakText);
       lastData.pos = i;
-      // bool bspeak = await speak(speakText);
+
       if (!bspeak) {
         break;
       }
 
       await Utils.setLastData(lastData.toJson());
-      if (end >= contents.length - 1) {
+      if (end >= contents.length) {
         stop();
         break;
       }
