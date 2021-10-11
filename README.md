@@ -12,6 +12,10 @@ tts 설정 에서 여러줄 을 읽도록 설정할 수 있습니다.
 
 [구글 플레이 링크](https://play.google.com/store/apps/details?id=com.khjde.opentextview)
 
+1.2.4 (2021 10 11) 패치내역 : 
+
+1.인덱스 계산 오류로 마지막줄 안읽는 버그 수정
+
 ---
 1.1.9 (2021 10 09) 패치내역 : 
 
