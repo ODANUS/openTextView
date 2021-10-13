@@ -227,10 +227,61 @@ class OpenModal {
 
     return completer.future;
   }
+
+  static openAutoExitModal() {
+    final Completer completer = Completer();
+    final modalCtl = Get.put(openSearchCtl());
+
+    Get.dialog(AlertDialog(
+      title: Text("자동 종료 설정"),
+      content: Container(
+          color: Colors.transparent,
+          width: double.maxFinite,
+          child: Obx(() {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text("${modalCtl.autoexitValue.value.toInt()}분"),
+                Slider(
+                    min: 0,
+                    max: 200,
+                    divisions: 200,
+                    label: "${modalCtl.autoexitValue.value.toInt()}분",
+                    value: modalCtl.autoexitValue.value,
+                    onChanged: (v) {
+                      modalCtl.autoexitValue(v);
+                    })
+              ],
+            );
+          })),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Get.back();
+              completer.complete();
+            },
+            child: Text("취소")),
+        ElevatedButton(
+            onPressed: () {
+              Get.back();
+              completer.complete(modalCtl.autoexitValue.value.toInt());
+            },
+            child: Text("확인"))
+      ],
+      actionsAlignment: MainAxisAlignment.spaceAround,
+    )).whenComplete(() {
+      modalCtl.text("");
+      modalCtl.autoexitValue(0.0);
+    });
+
+    return completer.future;
+  }
 }
 
 class openSearchCtl extends GetxController {
   final text = "".obs;
+  final autoexitValue = (0.0).obs;
 
   @override
   void onClose() {

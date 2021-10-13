@@ -7,6 +7,7 @@ import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:googleapis/chat/v1.dart';
+import 'package:googleapis/realtimebidding/v1.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/utils.dart';
 
@@ -15,33 +16,34 @@ class AudioHandler extends BaseAudioHandler
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
   AudioHandler() {
-    AudioSession.instance.then((value) async {
-      this.session = value;
-      this.session!.configure(AudioSessionConfiguration.speech());
-      await this.session!.configure(AudioSessionConfiguration.speech());
-      session!.devicesChangedEventStream.listen((event) {
-        if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
-          stop();
-        }
-      });
-      this.session!.interruptionEventStream.listen((event) {
-        if (event.type == AudioInterruptionType.pause) {
-          if (event.begin) {
-            bool laststat = playstat == STAT_PLAY;
-            pause();
-            listenPlaying = laststat;
-          } else if (listenPlaying == true) {
-            play();
-          }
-          return;
-        }
-        if (event.begin && event.type == AudioInterruptionType.unknown) {
-          if (ttsOption.audiosession) {
-            pause();
-          } else {}
-        }
-      });
-    });
+    // AudioSession.instance.then((value) async {
+    //   this.session = value;
+    //   this.session!.configure(AudioSessionConfiguration.speech());
+    //   await this.session!.configure(AudioSessionConfiguration.speech());
+
+    //   session!.devicesChangedEventStream.listen((event) {
+    //     if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
+    //       stop();
+    //     }
+    //   });
+    //   this.session!.interruptionEventStream.listen((event) {
+    //     if (event.type == AudioInterruptionType.pause) {
+    //       if (event.begin) {
+    //         bool laststat = playstat == STAT_PLAY;
+    //         pause();
+    //         listenPlaying = laststat;
+    //       } else if (listenPlaying == true) {
+    //         play();
+    //       }
+    //       return;
+    //     }
+    //     if (event.begin && event.type == AudioInterruptionType.unknown) {
+    //       if (ttsOption.audiosession) {
+    //         pause();
+    //       } else {}
+    //     }
+    //   });
+    // });
   }
 
   FlutterTts tts = FlutterTts();
@@ -59,27 +61,31 @@ class AudioHandler extends BaseAudioHandler
       MediaControl.pause,
       MediaControl.stop,
     ],
-    systemActions: const {
-      MediaAction.seek,
-    },
+    // systemActions: const {
+    //   MediaAction.pause,
+    //   MediaAction.play,
+    //   MediaAction.stop,
+    // },
+
     androidCompactActionIndices: const [0, 1],
     processingState: AudioProcessingState.ready,
     playing: true,
     speed: 0,
   );
 
-  MediaItem baseItem = (MediaItem(
+  MediaItem baseItem = MediaItem(
       id: 'tts',
       album: 'tts',
       title: '',
       artist: '',
-      duration: const Duration(milliseconds: 1000000)));
+      duration: const Duration(milliseconds: 1000000));
   final int STAT_STOP = 0;
   final int STAT_PLAY = 1;
   final int STAT_PAUSE = 2;
 
   int playstat = 0;
   bool listenPlaying = false;
+  DateTime? autoExitDate;
 
   Completer<bool> _completer = Completer<bool>();
   Future<void> setTts() async {
@@ -108,7 +114,6 @@ class AudioHandler extends BaseAudioHandler
       _completer.complete(false);
     });
     tts.setCancelHandler(() {
-      playstat = STAT_STOP;
       _completer.complete(false);
     });
   }
@@ -126,6 +131,34 @@ class AudioHandler extends BaseAudioHandler
   // onplay
   Future<void> play() async {
     playstat = STAT_PLAY;
+    AudioService.androidForceEnableMediaButtons();
+    if (this.session == null) {
+      this.session = await AudioSession.instance;
+      await this.session!.configure(AudioSessionConfiguration.speech());
+      session!.devicesChangedEventStream.listen((event) {
+        if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
+          this.stop();
+        }
+      });
+      this.session!.interruptionEventStream.listen((event) {
+        if (event.type == AudioInterruptionType.pause) {
+          if (event.begin) {
+            bool laststat = playstat == STAT_PLAY;
+            this.pause();
+            listenPlaying = laststat;
+          } else if (listenPlaying == true) {
+            this.play();
+          }
+          return;
+        }
+        if (event.begin && event.type == AudioInterruptionType.unknown) {
+          if (ttsOption.audiosession) {
+            this.pause();
+          } else {}
+        }
+      });
+    }
+
     this.session!.setActive(true);
 
     await initTts();
@@ -153,18 +186,29 @@ class AudioHandler extends BaseAudioHandler
           }
         }
       });
-
+      if (this.autoExitDate != null) {
+        mediaItem.first.then((e) {
+          var now = DateTime.now();
+          if (autoExitDate!.isBefore(now)) {
+            autoExitDate = null;
+            this.stop();
+          } else {
+            var ss = autoExitDate!.difference(now);
+            mediaItem.add(e!.copyWith(album: "${ss.inMinutes} 분뒤 자동 종료"));
+          }
+        });
+      }
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-      await Future.delayed(Duration(milliseconds: 300));
+
       bool bspeak = await speak(speakText);
       lastData.pos = i;
+      await Utils.setLastData(lastData.toJson());
 
       if (!bspeak) {
         break;
       }
 
-      await Utils.setLastData(lastData.toJson());
       if (end >= contents.length) {
         stop();
         break;
@@ -173,7 +217,7 @@ class AudioHandler extends BaseAudioHandler
   }
 
   Future<void> pause() async {
-    // session!.setActive(false);
+    AudioService.androidForceEnableMediaButtons();
 
     await tts.stop();
     this.playbackState.add(baseState.copyWith(
@@ -191,7 +235,9 @@ class AudioHandler extends BaseAudioHandler
   }
 
   Future<void> stop() async {
-    session!.setActive(false);
+    if (session != null) {
+      session!.setActive(false);
+    }
     // this.playbackState.close();
     await tts.stop();
     this.playbackState.add(PlaybackState());
@@ -215,20 +261,22 @@ class AudioHandler extends BaseAudioHandler
       this.filter = extras["filter"];
       setTts();
     }
+    if (name == "autoExit" && extras != null) {
+      this.autoExitDate = extras["autoExit"];
+    }
   }
 
   @override
   Future<void> click([MediaButton button = MediaButton.media]) async {
-    // switch (button) {
-    //   case MediaButton.media:
-
-    //     break;
-
-    // }
+    if (ttsOption.headsetbutton) {
+      if (playstat == STAT_PLAY) {
+        pause();
+      } else if (playstat == STAT_PAUSE) {
+        play();
+      }
+    }
+    // return super.click(button);
   }
-
-  Future<void> seek(Duration position) async {}
-  Future<void> skipToQueueItem(int i) async {}
 }
 
 class AudioPlay {
@@ -238,8 +286,10 @@ class AudioPlay {
     _audioHandler = await AudioService.init(
       builder: () => AudioHandler(),
       config: AudioServiceConfig(
-        androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
-        androidNotificationChannelName: 'Music playback',
+        androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
+        // androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
+        androidNotificationChannelName: 'tts',
+        androidNotificationOngoing: true,
       ),
     );
     _audioHandler!.playbackState.stream.listen((event) {
@@ -247,6 +297,7 @@ class AudioPlay {
         e(event);
       });
     });
+    return _audioHandler;
   }
 
   static lisen(Function(PlaybackState) fn) {
@@ -264,6 +315,12 @@ class AudioPlay {
     _audioHandler!.customAction("config", {
       "tts": tts,
       "filter": filter,
+    });
+  }
+
+  static setAutoExit({required DateTime t}) {
+    _audioHandler!.customAction("autoExit", {
+      "autoExit": t,
     });
   }
 

@@ -98,6 +98,21 @@ class readPageFloatingButton extends GetView<GlobalController> {
                                   snapshot.data!.processingState ==
                                       AudioProcessingState.completed)
                                 IconButton(
+                                    onPressed: () async {
+                                      var t =
+                                          await OpenModal.openAutoExitModal();
+                                      if (t != null) {
+                                        DateTime now = DateTime.now();
+                                        DateTime exitTime =
+                                            now.add(Duration(minutes: t));
+                                        AudioPlay.setAutoExit(t: exitTime);
+                                      }
+                                    },
+                                    icon: Icon(Ionicons.moon_outline)),
+                              if (snapshot.data!.playing ||
+                                  snapshot.data!.processingState ==
+                                      AudioProcessingState.completed)
+                                IconButton(
                                     onPressed: () {
                                       AudioPlay.stop();
                                     },
