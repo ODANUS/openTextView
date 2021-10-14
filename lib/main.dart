@@ -4,10 +4,12 @@ import 'package:get/get.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/pages/main_page.dart';
+import 'package:wakelock/wakelock.dart';
 
 void main() async {
   Get.lazyPut(() => GlobalController());
   await AudioPlay.init();
+  Wakelock.enable();
   runApp(
     GetMaterialApp(
         debugShowCheckedModeBanner: false,
