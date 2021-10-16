@@ -58,6 +58,7 @@ dependencies:
   # device_info: ^2.0.0 
   googleapis: ^4.0.0 
   google_sign_in: ^5.0.7 
+  # flutter_tesseract_ocr: ^0.4.17
   
 
   

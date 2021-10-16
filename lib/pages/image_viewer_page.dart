@@ -5,6 +5,7 @@
 // import 'package:flutter/foundation.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
+// import 'package:flutter_tesseract_ocr/android_ios.dart';
 // import 'package:get/get.dart';
 // import 'package:open_textview/component/readpage_floating_button.dart';
 // import 'package:open_textview/controller/audio_play.dart';
@@ -17,7 +18,7 @@
 //   test() async {
 //     HttpClient httpClient = new HttpClient();
 //     HttpClientRequest request = await httpClient.getUrl(Uri.parse(
-//         'https://github.com/tesseract-ocr/tessdata/raw/master/kor.traineddata'));
+//         'https://github.com/tesseract-ocr/tessdata/raw/main/kor.traineddata'));
 //     HttpClientResponse response = await request.close();
 //     Uint8List bytes = await consolidateHttpClientResponseBytes(response);
 
