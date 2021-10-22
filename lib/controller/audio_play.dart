@@ -169,8 +169,8 @@ class AudioHandler extends BaseAudioHandler
       title: '${lastData.name}',
       duration: Duration(seconds: contents.length),
     ));
-    int cnt = ttsOption.groupcnt;
-    for (var i = lastData.pos; i < contents.length; i += cnt) {
+    // int cnt = ttsOption.groupcnt;
+    for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
       if (playstat != STAT_PLAY) break;
       int end = min(i + ttsOption.groupcnt, contents.length);
 
