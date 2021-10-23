@@ -3,7 +3,7 @@ apktool b google-text-to-speech-24-9-361717975
 
 keytool -genkeypair -v -keystore test.keystore -alias test -keyalg RSA -keysize 4096 -validity 10000
 
-pw 123456
+pw : 123456
 
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore test.keystore google-text-to-speech-24-9-361717975.apk test
 
