@@ -1,0 +1,85 @@
+
+apktool b google-text-to-speech-24-9-361717975 
+
+keytool -genkeypair -v -keystore test.keystore -alias test -keyalg RSA -keysize 4096 -validity 10000
+
+pw 123456
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore test.keystore google-text-to-speech-24-9-361717975.apk test
+
+
+수정한 xml : 
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.google.android.ttss" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <application android:allowBackup="true" android:backupAgent="com.google.android.tts.settings.TTSBackupAgent" android:extractNativeLibs="true" android:forceQueryable="true" android:fullBackupOnly="false" android:icon="@mipmap/product_logo_text_to_speech_launcher_color_48" android:installLocation="internalOnly" android:label="@string/app_name" android:launchMode="singleInstance" android:name="com.google.android.tts.service.GoogleTTSApplication" android:restoreAnyVersion="true" android:roundIcon="@mipmap/product_logo_text_to_speech_launcher_color_48" android:supportsRtl="true" android:theme="@style/SettingsTheme" android:usesCleartextTraffic="false">
+        <service android:directBootAware="true" android:exported="true" android:label="@string/app_name" android:name="com.google.android.tts.service.GoogleTTSService">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.TTS_SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.speech.tts" android:resource="@xml/tts_engine"/>
+        </service>
+        <activity android:directBootAware="true" android:exported="true" android:name="com.google.android.tts.settings.CheckVoiceData" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.CHECK_TTS_DATA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:directBootAware="true" android:exported="true" android:name="com.google.android.tts.settings.GetSampleText" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.GET_SAMPLE_TEXT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/tts_settings_label" android:name="com.google.android.tts.settings.EngineSettings">
+            <intent-filter>
+                <action android:name="com.google.android.tts.settings.EngineSettings"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:directBootAware="true" android:exported="true" android:label="@string/voice_data_install_title" android:name="com.google.android.tts.local.voicepack.ui.VoiceDataInstallActivity">
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.INSTALL_TTS_DATA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.google.android.tts.local.voicepack.ui.MultipleVoicesActivity"/>
+        <activity android:exported="false" android:label="@string/analytics_title" android:name="com.google.android.tts.settings.AnalyticsActivity"/>
+        <service android:exported="false" android:name="com.google.android.libraries.micore.superpacks.scheduling.DownloadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.backup.api_key" android:value="DummyKey"/>
+        <meta-data android:name="com.google.android.gms.phenotype.registration.xml:com.google.android.libraries.performance.primes" android:resource="@xml/com_google_android_libraries_performance_primes_phenotype"/>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.libraries.phenotype.registration.PhenotypeMetadataHolderService" android:process="">
+            <intent-filter>
+                <action android:name="com.google.android.libraries.phenotype.registration.PhenotypeMetadataHolderService"/>
+            </intent-filter>
+            <meta-data android:name="com.google.android.gms.phenotype.registration.binarypb:com.google.android.libraries.performance.primes" android:resource="@raw/com_google_android_libraries_performance_primes_registration_info"/>
+            <meta-data android:name="com.google.android.gms.phenotype.registration.binarypb:com.google.android.tts" android:resource="@raw/com_google_android_tts_registration_info"/>
+        </service>
+        <meta-data android:name="com.google.android.gms.phenotype.registration.xml:com.google.android.tts" android:resource="@xml/com_google_android_tts_phenotype"/>
+        <meta-data android:name="com.google.android.tts.config.BuildType" android:value="RELEASE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:exported="false" android:name="com.google.android.libraries.performance.primes.transmitter.LifeboatReceiver" android:process=":primes_lifeboat"/>
+        <receiver android:exported="true" android:name="com.google.android.libraries.phenotype.client.stable.AccountRemovedBroadcastReceiver" android:process="">
+            <intent-filter>
+                <action android:name="android.accounts.action.ACCOUNT_REMOVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.libraries.phenotype.client.stable.PhenotypeUpdateBackgroundBroadcastReceiver" android:permission="com.google.android.gms.permission.PHENOTYPE_UPDATE_BROADCAST" android:process="">
+            <intent-filter>
+                <action android:name="com.google.android.gms.phenotype.UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseMenuActivity" android:theme="@style/Theme.AppCompat.DayNight"/>
+        <activity android:exported="false" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseActivity" android:theme="@style/Theme.AppCompat.DayNight"/>
+        <provider android:authorities="com.google.android.apps.speech.ttsaa.tgoogletts.CarUiInstaller" android:directBootAware="true" android:exported="false" android:name="com.android.car.ui.core.CarUiInstaller" android:process="@string/car_ui_installer_process_name"/>
+    </application>
+</manifest>
