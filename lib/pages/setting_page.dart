@@ -14,6 +14,7 @@ import 'package:open_textview/component/option_tts.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends GetView<GlobalController> {
   @override
@@ -31,10 +32,19 @@ class SettingPage extends GetView<GlobalController> {
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
           Card(child: OptionHistory()),
+
           Card(child: OptionTheme()),
           // Card(child: OptionCache()),
           // Card(child: OptionOcr()),
           Card(child: OptionOsslicense()),
+          Card(
+            child: ListTile(
+                title: Text('tts 목소리 문제 해결 방법 보러가기.'),
+                onTap: () {
+                  launch(
+                      "https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
+                }),
+          ),
           if (kDebugMode)
             ElevatedButton(
                 onPressed: () async {
