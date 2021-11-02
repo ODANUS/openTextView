@@ -10,6 +10,7 @@ import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:intl/intl.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utils {
@@ -22,9 +23,22 @@ class Utils {
     return null;
   }
 
+  static Future<String?> selectFile() async {
+    var selectedDirectory =
+        await FilePicker.platform.pickFiles(type: FileType.any);
+    print(selectedDirectory);
+    // if (selectedDirectory != null) {
+    //   return selectedDirectory;
+    // }
+    // return null;
+  }
+
   static Future<List<FileSystemEntity>> getLibraryList(String path) async {
+    await Permission.storage.request();
     Directory dir = Directory(path);
+    print(path);
     var listDir = await dir.list().toList();
+    print(listDir);
     return listDir;
   }
 

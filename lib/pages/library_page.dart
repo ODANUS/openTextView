@@ -17,6 +17,7 @@ class LibraryPageCtl extends GetxController {
   final libList = [];
   RxList<String> delList = RxList<String>();
   RxString tmpDir = "".obs;
+  RxBool reload = false.obs;
 
   @override
   void onInit() async {
@@ -47,67 +48,74 @@ class LibraryPage extends GetView<GlobalController> {
               controller.libraryPaths.refresh();
             },
             child: ListView(
-              padding:
-                  EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 150),
-              children:
-                  [...controller.libraryPaths, pageCtl.tmpDir.value].map((e) {
-                if (e == "") {
-                  return SizedBox();
-                }
-                int idxOf = path.indexOf(e);
-                return Card(
-                    child: InkWell(
-                        onLongPress: () async {
-                          var rtn = await OpenModal.openModalSelect(
-                              title:
-                                  "해당 서재를 리스트 에서 제거 하시겠습니까?\n(데이터는 삭제 되지 않습니다.)");
-                          if (rtn == true) {
-                            controller.libraryPaths.remove(e);
-                          }
-                        },
-                        child: ExpansionTile(
-                            // initiallyExpanded: idx == 0,
-                            initiallyExpanded: idxOf >= 0,
-                            title: Text(e.split("/").last),
-                            children: [
-                              DirectoryListWidget(
-                                path: e,
-                                delList: pageCtl.delList,
-                                historylist: listHistory,
-                                curOpenPath: path,
-                                onTab: (File f) async {
-                                  controller.openFile(f);
-                                },
-                                // onDeleteFile: (File f) async {
-                                //   var status = await Permission.storage.status;
-                                //   if (!status.isGranted) {
-                                //     await Permission.storage.request();
-                                //   }
-                                //   await f.delete();
-                                //   pageCtl.delList.add(f.path);
-                                // },
-                                // onDeleteDir: (Directory d) async {
-                                //   var status = await Permission.storage.status;
-                                //   if (!status.isGranted) {
-                                //     await Permission.storage.request();
-                                //   }
-                                //   await d.delete(recursive: true);
-                                //   pageCtl.delList.add(d.path);
-                                // },
-                              )
-                            ])));
-              }).toList(),
-            ));
+                padding:
+                    EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 150),
+                children: [
+                  Card(
+                    child: Text(
+                        "권한 문제로. 최신버전에서는 폴더내 파일 조회 기능이 작동하지 않습니다. \n파일 추가후 cache/file_picker 에서 파일을 클릭하여 사용하시기 바랍니다.\n이부분은 최대한 빨리 구조를 변경 하도록 하겠습니다."),
+                  ),
+                  ...[pageCtl.tmpDir.value].map((e) {
+                    if (e == "") {
+                      return SizedBox();
+                    }
+                    int idxOf = path.indexOf(e);
+                    return Card(
+                        child: InkWell(
+                            onLongPress: () async {
+                              var rtn = await OpenModal.openModalSelect(
+                                  title:
+                                      "해당 서재를 리스트 에서 제거 하시겠습니까?\n(데이터는 삭제 되지 않습니다.)");
+                              if (rtn == true) {
+                                controller.libraryPaths.remove(e);
+                              }
+                            },
+                            child: ExpansionTile(
+                                // initiallyExpanded: idx == 0,
+                                initiallyExpanded: idxOf >= 0,
+                                title: Text(e.split("/").last),
+                                children: [
+                                  DirectoryListWidget(
+                                    path: e,
+                                    delList: pageCtl.delList,
+                                    historylist: listHistory,
+                                    curOpenPath: path,
+                                    onTab: (File f) async {
+                                      controller.openFile(f);
+                                    },
+                                    // onDeleteFile: (File f) async {
+                                    //   var status = await Permission.storage.status;
+                                    //   if (!status.isGranted) {
+                                    //     await Permission.storage.request();
+                                    //   }
+                                    //   await f.delete();
+                                    //   pageCtl.delList.add(f.path);
+                                    // },
+                                    // onDeleteDir: (Directory d) async {
+                                    //   var status = await Permission.storage.status;
+                                    //   if (!status.isGranted) {
+                                    //     await Permission.storage.request();
+                                    //   }
+                                    //   await d.delete(recursive: true);
+                                    //   pageCtl.delList.add(d.path);
+                                    // },
+                                  )
+                                ])));
+                  }).toList(),
+                ]));
       }),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           // pageCtl.getLib(controller.libraryPaths);
-          var path = await Utils.selectLibrary();
-          if (path != null) {
-            controller.addLibrary(path);
-          }
+          // var path = await Utils.selectLibrary();
+          var path = await Utils.selectFile();
+          controller.libraryPaths.refresh();
+          // print(path);
+          // if (path != null) {
+          //   controller.addLibrary(path);
+          // }
         },
-        label: Text('서재 추가'),
+        label: Text('파일 추가'),
         icon: Icon(Ionicons.add),
       ),
     );
