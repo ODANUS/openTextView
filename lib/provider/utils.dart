@@ -23,14 +23,15 @@ class Utils {
     return null;
   }
 
-  static Future<String?> selectFile() async {
-    var selectedDirectory =
-        await FilePicker.platform.pickFiles(type: FileType.any);
-    print(selectedDirectory);
+  static Future<FilePickerResult?> selectFile() async {
+    var selectedFiles = await FilePicker.platform.pickFiles(
+        type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt']);
+
     // if (selectedDirectory != null) {
     //   return selectedDirectory;
     // }
     // return null;
+    return selectedFiles;
   }
 
   static Future<List<FileSystemEntity>> getLibraryList(String path) async {
