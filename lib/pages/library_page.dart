@@ -23,7 +23,7 @@ class LibraryPageCtl extends GetxController {
   void onInit() async {
     var tmp = await getTemporaryDirectory();
     var dir = Directory("${tmp.path}/file_picker");
-    print(dir.path);
+
     if (dir.existsSync()) {
       tmpDir(dir.path);
     }
