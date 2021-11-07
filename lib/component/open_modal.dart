@@ -91,8 +91,11 @@ class OpenModal {
                   divisions: ctl.contents.length,
                   label: "${ctl.lastData.value.pos}",
                   onChanged: (double v) {
-                    ctl.itemScrollctl.jumpTo(index: v.toInt());
-                    c.text = v.toInt().toString();
+                    if (ctl.contents.length >= v.toInt() &&
+                        !ctl.scrollstat.value) {
+                      ctl.itemScrollctl.jumpTo(index: v.toInt());
+                      c.text = v.toInt().toString();
+                    }
                   })),
               TextFormField(
                   decoration: InputDecoration(
@@ -101,7 +104,10 @@ class OpenModal {
                   controller: c,
                   // initialValue: ctl.lastData.value.pos.toString(),
                   onChanged: (v) {
-                    ctl.itemScrollctl.jumpTo(index: int.parse(v));
+                    if (ctl.contents.length >= int.parse(v) &&
+                        !ctl.scrollstat.value) {
+                      ctl.itemScrollctl.jumpTo(index: int.parse(v));
+                    }
                   })
             ],
           )),
@@ -154,7 +160,10 @@ class OpenModal {
                     child: ListTile(
                       onTap: () {
                         int idx = ctl.contents.indexOf(e);
-                        ctl.itemScrollctl.jumpTo(index: idx);
+                        if (ctl.contents.length >= idx &&
+                            !ctl.scrollstat.value) {
+                          ctl.itemScrollctl.jumpTo(index: idx);
+                        }
                       },
                       title: Text(e),
                     ),

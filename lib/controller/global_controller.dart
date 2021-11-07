@@ -26,6 +26,8 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   Rx<AppLifecycleState> appLifecycleState = AppLifecycleState.inactive.obs;
 
   final navBarController = ScrollController();
+
+  final Rx<bool> scrollstat = false.obs;
   // RxList
 
   @override
@@ -85,13 +87,20 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
         lastData.update((val) {
           val!.pos = e.updatePosition.inSeconds;
         });
-        if (appLifecycleState == AppLifecycleState.inactive) {
-          itemScrollctl.jumpTo(index: e.updatePosition.inSeconds);
+        if (appLifecycleState.value == AppLifecycleState.inactive) {
+          if (contents.length >= e.updatePosition.inSeconds &&
+              !scrollstat.value) {
+            itemScrollctl.jumpTo(index: e.updatePosition.inSeconds);
+          }
         }
       }
     });
 
+    debounce(scrollstat, (bool b) {
+      scrollstat(false);
+    }, time: 500.milliseconds);
     itemPosListener.itemPositions.addListener(() {
+      scrollstat(true);
       var min = itemPosListener.itemPositions.value
           .where((ItemPosition position) => position.itemTrailingEdge > 0)
           .reduce((ItemPosition min, ItemPosition position) =>
@@ -151,6 +160,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
       }).toList();
 
       setContents(contents);
+      // setContents("test");
       lastData(History(
           date: Utils.DF(DateTime.now(), f: "yyyy-MM-dd HH:mm:ss"),
           name: f.path.split("/").last,
@@ -158,7 +168,9 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
           path: f.path,
           length: this.contents.length));
       WidgetsBinding.instance!.addPostFrameCallback((_) {
-        itemScrollctl.jumpTo(index: lastData.value.pos);
+        if (this.contents.length >= lastData.value.pos) {
+          itemScrollctl.jumpTo(index: lastData.value.pos);
+        }
       });
 
       tabIndex(0);
@@ -196,28 +208,6 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     appLifecycleState(state);
 
     super.didChangeAppLifecycleState(state);
-    // bforeground
-    // switch (state) {
-    //   case AppLifecycleState.resumed:
-    //     bforeground.update((val) {
-    //       bforeground.value = true;
-    //     });
-    //     // widget is resumed
-    //     break;
-    //   case AppLifecycleState.inactive:
-
-    //     // widget is inactive
-    //     break;
-    //   case AppLifecycleState.paused:
-    //     bforeground.update((val) {
-    //       bforeground.value = true;
-    //     });
-    //     // widget is paused
-    //     break;
-    //   case AppLifecycleState.detached:
-    //     // widget is detached
-    //     break;
-    // }
   }
   // selectLibrary() {}
 

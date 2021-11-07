@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/model/user_data.dart';
@@ -21,13 +22,17 @@ class LibraryPageCtl extends GetxController {
 
   @override
   void onInit() async {
+    loadtmpDir();
+    debounce(tmpDir, (v) => loadtmpDir());
+    super.onInit();
+  }
+
+  void loadtmpDir() async {
     var tmp = await getTemporaryDirectory();
     var dir = Directory("${tmp.path}/file_picker");
-
     if (dir.existsSync()) {
       tmpDir(dir.path);
     }
-    super.onInit();
   }
 }
 
@@ -43,17 +48,15 @@ class LibraryPage extends GetView<GlobalController> {
         title: Text("내서재"),
       ),
       body: Obx(() {
-        // Utils.getLibraryList(controller.libraryPaths.first);
         return RefreshIndicator(
             onRefresh: () async {
               pageCtl.tmpDir.refresh();
-              // pageCtl.delList.clear();
-              // controller.libraryPaths.refresh();
             },
             child: ListView(
                 padding:
                     EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 150),
                 children: [
+                  AdsComp(),
                   Card(
                       child: Padding(
                     padding: EdgeInsets.all(10),

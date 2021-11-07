@@ -55,37 +55,47 @@ class OptionHistory extends GetView<GlobalController> {
                     onPressed: () {},
                   )),
               ...copyHistoryList.map((e) {
-                Widget delIcon = IconSlideAction(
-                  caption: '삭제',
-                  color: Colors.red,
-                  icon: Icons.delete,
-                  onTap: () {
-                    controller.userData.update((val) {
-                      historyList.remove(e);
-                    });
-                  },
-                );
-                Widget editIcon = IconSlideAction(
-                  caption: '수정',
-                  color: Colors.green,
-                  icon: Icons.edit,
-                  onTap: () async {},
+                Widget delwidget = Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.delete, color: Colors.white),
+                    Text(
+                      "드래그하여 삭제",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
                 );
                 return Card(
-                  child: Slidable(
-                    actionPane: SlidableDrawerActionPane(),
-                    child: ListTile(
-                      onTap: () {},
-                      title: Text(e.name),
-                      subtitle: Row(
-                        children: [Text("마지막 위치 : "), Text("${e.pos}")],
-                      ),
+                    child: Dismissible(
+                  key: Key(e.name),
+                  onDismissed: (direction) {
+                    controller.userData.update((UserData? val) {
+                      if (val != null) {
+                        val.history.remove(e);
+                      }
+                    });
+                  },
+                  background: Container(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    color: Colors.red,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [delwidget, delwidget],
                     ),
-                    actionExtentRatio: 0.2,
-                    secondaryActions: [delIcon],
-                    actions: [delIcon],
                   ),
-                );
+                  child: ListTile(
+                    onTap: () {},
+                    title: Text(e.name),
+                    subtitle: Row(
+                      children: [Text("마지막 위치 : "), Text("${e.pos}")],
+                    ),
+                  ),
+                )
+                    // actionExtentRatio: 0.2,
+                    // secondaryActions: [delIcon],
+                    // actions: [delIcon],
+                    // ),
+                    );
               }).toList(),
             ],
           ),
