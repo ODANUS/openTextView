@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -47,70 +45,76 @@ class LibraryPage extends GetView<GlobalController> {
         centerTitle: true,
         title: Text("내서재"),
       ),
-      body: Obx(() {
-        return RefreshIndicator(
-            onRefresh: () async {
-              pageCtl.tmpDir.refresh();
-            },
-            child: ListView(
-                padding:
-                    EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 150),
-                children: [
-                  AdsComp(),
-                  Card(
-                      child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text("파일 추가시 길게 눌러 여러개를 추가 할 수 있습니다."),
-                  )),
-                  ...[pageCtl.tmpDir.value].map((e) {
-                    if (e == "") {
-                      return SizedBox();
-                    }
-                    int idxOf = path.indexOf(e);
-                    return Card(
-                        child: InkWell(
-                            // onLongPress: () async {
-                            //   var rtn = await OpenModal.openModalSelect(
-                            //       title:
-                            //           "해당 서재를 리스트 에서 제거 하시겠습니까?\n(데이터는 삭제 되지 않습니다.)");
-                            //   if (rtn == true) {
-                            //     controller.libraryPaths.remove(e);
-                            //   }
-                            // },
-                            child: ExpansionTile(
-                                // initiallyExpanded: idx == 0,
-                                initiallyExpanded: true,
-                                title: Text('파일목록'), //Text(e.split("/").last),
-                                children: [
-                          DirectoryListWidget(
-                            path: e,
-                            delList: pageCtl.delList,
-                            historylist: listHistory,
-                            curOpenPath: path,
-                            onTab: (File f) async {
-                              controller.openFile(f);
-                            },
-                            onDeleteFile: (File f) async {
-                              var status = await Permission.storage.status;
-                              if (!status.isGranted) {
-                                await Permission.storage.request();
-                              }
-                              await f.delete();
-                              pageCtl.delList.add(f.path);
-                            },
-                            // onDeleteDir: (Directory d) async {
-                            //   var status = await Permission.storage.status;
-                            //   if (!status.isGranted) {
-                            //     await Permission.storage.request();
-                            //   }
-                            //   await d.delete(recursive: true);
-                            //   pageCtl.delList.add(d.path);
-                            // },
-                          )
-                        ])));
-                  }).toList(),
-                ]));
-      }),
+      body: Column(children: [
+        Container(
+            padding: EdgeInsets.only(top: 2, bottom: 2), child: AdsComp()),
+        Expanded(
+          child: Obx(() {
+            return RefreshIndicator(
+                onRefresh: () async {
+                  pageCtl.tmpDir.refresh();
+                },
+                child: ListView(
+                    padding: EdgeInsets.only(
+                        left: 10, right: 10, top: 10, bottom: 150),
+                    children: [
+                      Card(
+                          child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Text("파일 추가시 길게 눌러 여러개를 추가 할 수 있습니다."),
+                      )),
+                      ...[pageCtl.tmpDir.value].map((e) {
+                        if (e == "") {
+                          return SizedBox();
+                        }
+                        int idxOf = path.indexOf(e);
+                        return Card(
+                            child: InkWell(
+                                // onLongPress: () async {
+                                //   var rtn = await OpenModal.openModalSelect(
+                                //       title:
+                                //           "해당 서재를 리스트 에서 제거 하시겠습니까?\n(데이터는 삭제 되지 않습니다.)");
+                                //   if (rtn == true) {
+                                //     controller.libraryPaths.remove(e);
+                                //   }
+                                // },
+                                child: ExpansionTile(
+                                    // initiallyExpanded: idx == 0,
+                                    initiallyExpanded: true,
+                                    title:
+                                        Text('파일목록'), //Text(e.split("/").last),
+                                    children: [
+                              DirectoryListWidget(
+                                path: e,
+                                delList: pageCtl.delList,
+                                historylist: listHistory,
+                                curOpenPath: path,
+                                onTab: (File f) async {
+                                  controller.openFile(f);
+                                },
+                                onDeleteFile: (File f) async {
+                                  var status = await Permission.storage.status;
+                                  if (!status.isGranted) {
+                                    await Permission.storage.request();
+                                  }
+                                  await f.delete();
+                                  pageCtl.delList.add(f.path);
+                                },
+                                // onDeleteDir: (Directory d) async {
+                                //   var status = await Permission.storage.status;
+                                //   if (!status.isGranted) {
+                                //     await Permission.storage.request();
+                                //   }
+                                //   await d.delete(recursive: true);
+                                //   pageCtl.delList.add(d.path);
+                                // },
+                              )
+                            ])));
+                      }).toList(),
+                    ]));
+          }),
+        ),
+      ]),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           // pageCtl.getLib(controller.libraryPaths);

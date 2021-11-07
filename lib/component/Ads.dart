@@ -31,7 +31,7 @@ class AdsCtl extends GetxController {
         onAdLoaded: (Ad ad) {
           anchoredBanner = ad as BannerAd;
           isLoadAd(true);
-          print("=--------------------------");
+
           // update();
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
