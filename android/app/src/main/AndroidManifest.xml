@@ -14,7 +14,7 @@
   </queries>
 
    <application
-        android:label="오픈텍뷰"
+        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true"
         >

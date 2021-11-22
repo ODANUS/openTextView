@@ -43,7 +43,7 @@ class LibraryPage extends GetView<GlobalController> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("내서재"),
+        title: Text("my_library".tr),
       ),
       body: Column(children: [
         Container(
@@ -58,11 +58,11 @@ class LibraryPage extends GetView<GlobalController> {
                     padding: EdgeInsets.only(
                         left: 10, right: 10, top: 10, bottom: 150),
                     children: [
-                      Card(
-                          child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text("파일 추가시 길게 눌러 여러개를 추가 할 수 있습니다."),
-                      )),
+                      // Card(
+                      //     child: Padding(
+                      //   padding: EdgeInsets.all(10),
+                      //   child: Text("파일 추가시 길게 눌러 여러개를 추가 할 수 있습니다."),
+                      // )),
                       ...[pageCtl.tmpDir.value].map((e) {
                         if (e == "") {
                           return SizedBox();
@@ -81,8 +81,8 @@ class LibraryPage extends GetView<GlobalController> {
                                 child: ExpansionTile(
                                     // initiallyExpanded: idx == 0,
                                     initiallyExpanded: true,
-                                    title:
-                                        Text('파일목록'), //Text(e.split("/").last),
+                                    title: Text('file_list'
+                                        .tr), //Text(e.split("/").last),
                                     children: [
                               DirectoryListWidget(
                                 path: e,
@@ -127,7 +127,7 @@ class LibraryPage extends GetView<GlobalController> {
           //   controller.addLibrary(path);
           // }
         },
-        label: Text('파일 추가'),
+        label: Text('Add_file'.tr),
         icon: Icon(Ionicons.add),
       ),
     );
@@ -240,7 +240,7 @@ class DirectoryListWidget extends GetView {
                         bool bex = exs.indexOf(ex) >= 0;
                         String size = Utils.getFileSize(f);
                         Widget delIcon = IconSlideAction(
-                          caption: '서재에서 제거',
+                          caption: 'remove_from_library'.tr,
                           color: Colors.red,
                           icon: Icons.delete,
                           onTap: () {

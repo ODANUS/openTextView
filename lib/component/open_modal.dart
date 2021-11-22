@@ -29,13 +29,13 @@ class OpenModal {
               completer.complete(false);
               Get.back();
             },
-            child: Text("취소")),
+            child: Text("cancel".tr)),
         ElevatedButton(
             onPressed: () {
               completer.complete(true);
               Get.back();
             },
-            child: Text("확인"))
+            child: Text("confirm".tr))
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {});
@@ -60,7 +60,7 @@ class OpenModal {
             onPressed: () {
               Get.back();
             },
-            child: Text("확인"))
+            child: Text("confirm".tr))
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {});
@@ -75,14 +75,15 @@ class OpenModal {
     TextEditingController c = TextEditingController()
       ..text = ctl.lastData.value.pos.toString();
     Get.dialog(AlertDialog(
-      title: Text("위치 이동"),
+      title: Text("move_location".tr),
       content: Container(
           width: double.maxFinite,
           child: ListView(
             shrinkWrap: true,
             children: [
               Obx(() => Center(
-                    child: Text("현재 위치 : ${ctl.lastData.value.pos}"),
+                    child: Text(
+                        "${"Current_location".tr} : ${ctl.lastData.value.pos}"),
                   )),
               Obx(() => Slider(
                   value: ctl.lastData.value.pos.toDouble(),
@@ -99,7 +100,7 @@ class OpenModal {
                   })),
               TextFormField(
                   decoration: InputDecoration(
-                    labelText: "위치 이동",
+                    labelText: "move_location".tr,
                   ),
                   controller: c,
                   // initialValue: ctl.lastData.value.pos.toString(),
@@ -116,7 +117,7 @@ class OpenModal {
             onPressed: () {
               Get.back();
             },
-            child: Text("확인"))
+            child: Text("confirm".tr))
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {});
@@ -130,7 +131,7 @@ class OpenModal {
     final modalCtl = Get.put(openSearchCtl());
 
     Get.dialog(AlertDialog(
-      title: Text("페이지 검색"),
+      title: Text("page_search".tr),
       content: Container(
           constraints: BoxConstraints(maxHeight: 500),
           width: double.maxFinite,
@@ -149,7 +150,7 @@ class OpenModal {
               children: [
                 TextField(
                   decoration: InputDecoration(
-                    labelText: "검색할 단어 / 문장을 입력해 주세요.",
+                    labelText: "Please enter a word/sentence to search for".tr,
                   ),
                   onChanged: (v) {
                     modalCtl.text(v);
@@ -177,7 +178,7 @@ class OpenModal {
             onPressed: () {
               Get.back();
             },
-            child: Text("확인"))
+            child: Text("confirm".tr))
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {
@@ -193,7 +194,7 @@ class OpenModal {
     final modalCtl = Get.put(openSearchCtl());
 
     Get.dialog(AlertDialog(
-      title: Text("폰트 사이즈 설정"),
+      title: Text("Font size setting".tr),
       content: Container(
           constraints: BoxConstraints(maxHeight: 300),
           color: Colors.transparent,
@@ -227,7 +228,7 @@ class OpenModal {
             onPressed: () {
               Get.back();
             },
-            child: Text("확인"))
+            child: Text("confirm".tr))
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {
@@ -242,7 +243,7 @@ class OpenModal {
     final modalCtl = Get.put(openSearchCtl());
 
     Get.dialog(AlertDialog(
-      title: Text("자동 종료 설정"),
+      title: Text("Auto shutdown settings".tr),
       content: Container(
           color: Colors.transparent,
           width: double.maxFinite,
@@ -251,12 +252,14 @@ class OpenModal {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("${modalCtl.autoexitValue.value.toInt()}분"),
+                Text("@num minutes".trParams(
+                    {"num": modalCtl.autoexitValue.value.toString()})),
                 Slider(
                     min: 0,
                     max: 200,
                     divisions: 200,
-                    label: "${modalCtl.autoexitValue.value.toInt()}분",
+                    label: "@num minutes".trParams(
+                        {"num": modalCtl.autoexitValue.value.toString()}),
                     value: modalCtl.autoexitValue.value,
                     onChanged: (v) {
                       modalCtl.autoexitValue(v);
@@ -270,13 +273,13 @@ class OpenModal {
               Get.back();
               completer.complete();
             },
-            child: Text("취소")),
+            child: Text("cancel".tr)),
         ElevatedButton(
             onPressed: () {
               Get.back();
               completer.complete(modalCtl.autoexitValue.value.toInt());
             },
-            child: Text("확인"))
+            child: Text("confirm".tr))
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {

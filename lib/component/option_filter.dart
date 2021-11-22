@@ -11,72 +11,72 @@ class OptionFilterCtl extends GetxController {
   final tmpEditFilter = Filter().obs;
 }
 
-const List<dynamic> DFFILTER = [
+List<dynamic> DFFILTER = [
   {
-    "name": "중국어(한자) 필터",
+    "name": "Chinese (Hanja) filter".tr,
     "expr": true,
     "filter": "[一-龥]",
     "to": '',
     'enable': false
   },
   {
-    "name": "일본어(일어) 필터",
+    "name": "Japanese (Japanese) filter".tr,
     "expr": true,
     "filter": "[ぁ-ゔ]|[ァ-ヴー]|[々〆〤]",
     "to": '',
     'enable': false
   },
   {
-    "name": "물음표 여러개 필터",
+    "name": "filter multiple question marks".tr,
     "expr": true,
     "filter": "\\?{1,}",
     "to": '?',
     'enable': false
   },
   {
-    "name": "느낌표 여러개 필터",
+    "name": "Filter multiple exclamation marks".tr,
     "expr": true,
     "filter": "\\!{1,}",
     "to": '!',
     'enable': false
   },
   {
-    "name": "다시다시다시(----)",
+    "name": "filter ----".tr,
     "expr": true,
     "filter": "-{2,}",
     "to": '',
     'enable': false
   },
   {
-    "name": "는는는(===)",
+    "name": "filter ===".tr,
     "expr": true,
     "filter": "={2,}",
     "to": '',
     'enable': false
   },
   {
-    "name": "점점점(......)",
+    "name": "filter .....".tr,
     "expr": true,
     "filter": "\\.{2,}|\\…{1,}",
     "to": '',
     'enable': false
   },
   {
-    "name": "물음표,느낌표제거(?!)",
+    "name": "filter ?!".tr,
     "expr": true,
     "filter": "\\?{1,}!{1,}",
     "to": '!',
     'enable': false
   },
   {
-    "name": "느낌표,물음표제거(!?)",
+    "name": "filter !?".tr,
     "expr": true,
     "filter": "!{1,}\\?{1,}",
     "to": '!',
     'enable': false
   },
   {
-    "name": "여러 느낌표나 물음표 필터후 문장에 물음표만 있을경우 필터",
+    "name": "filter ?,!".tr,
     "expr": true,
     "filter":
         """"!"|"\\."|"\\?"|'!'|'\\?'|“\\.”|“!”|“\\?”|‘!’|‘\\?|\\[!\\]|\\[\\?\\]|\\[\\.\\]""",
@@ -84,14 +84,14 @@ const List<dynamic> DFFILTER = [
     'enable': false
   },
   {
-    "name": "아포스트로피(홀따음표) 필터",
+    "name": "apostrophe filter".tr,
     "expr": false,
     "filter": "'",
     "to": '',
     'enable': false
   },
   {
-    "name": "특수문자 반복 된경우 필터",
+    "name": "special character repeat filter".tr,
     "expr": true,
     "filter":
         "\\&{2,}|\\#{2,}|\\@{2,}|\\\${2,}|~{1,}|\\*{2,}|\\[\\]|\\(\\)|\\{\\}",
@@ -121,7 +121,7 @@ class OptionFilter extends GetView<GlobalController> {
         children: [
           ExpansionTile(
             onExpansionChanged: (b) async {},
-            title: Text("TTS 필터 설정"),
+            title: Text("TTS filter settings".tr),
             children: [
               Container(
                   width: double.infinity,
@@ -152,7 +152,7 @@ class OptionFilter extends GetView<GlobalController> {
                 var tmpFilter = pageCtl.tmpEditFilter.value;
                 var rxFilter = pageCtl.tmpEditFilter;
                 Widget delIcon = IconSlideAction(
-                  caption: '삭제',
+                  caption: 'delete'.tr,
                   color: Colors.red,
                   icon: Icons.delete,
                   onTap: () async {
@@ -162,7 +162,7 @@ class OptionFilter extends GetView<GlobalController> {
                   },
                 );
                 Widget editIcon = IconSlideAction(
-                  caption: '수정',
+                  caption: 'edit'.tr,
                   color: Colors.green,
                   icon: Icons.edit,
                   onTap: () async {
@@ -178,7 +178,7 @@ class OptionFilter extends GetView<GlobalController> {
                       title: bedit
                           ? TextFormField(
                               decoration: InputDecoration(
-                                labelText: "이름",
+                                labelText: "name".tr,
                               ),
                               initialValue: tmpFilter.name,
                               onChanged: (v) => rxFilter.update((val) {
@@ -193,7 +193,7 @@ class OptionFilter extends GetView<GlobalController> {
                                 ? Column(children: [
                                     TextFormField(
                                       decoration: InputDecoration(
-                                        labelText: "필터 규칙",
+                                        labelText: "filter rules".tr,
                                       ),
                                       initialValue: tmpFilter.filter,
                                       onChanged: (v) => rxFilter.update((val) {
@@ -202,7 +202,7 @@ class OptionFilter extends GetView<GlobalController> {
                                     ),
                                     TextFormField(
                                       decoration: InputDecoration(
-                                        labelText: "변경 문자",
+                                        labelText: "change text".tr,
                                       ),
                                       initialValue: tmpFilter.to,
                                       onChanged: (v) => rxFilter.update((val) {
@@ -216,12 +216,12 @@ class OptionFilter extends GetView<GlobalController> {
                                     children: [
                                       Text("${e.filter}"),
                                       Text("   ->   "),
-                                      Text("${e.to == "" ? "없음" : e.to}"),
+                                      Text("${e.to == "" ? "none".tr : e.to}"),
                                     ],
                                   ),
                             Row(
                               children: [
-                                Text("정규식 사용 : "),
+                                Text("${"Use regular expressions".tr} : "),
                                 bedit
                                     ? Checkbox(
                                         value: tmpFilter.expr,
@@ -250,7 +250,7 @@ class OptionFilter extends GetView<GlobalController> {
                                       onPressed: () {
                                         pageCtl.idxeditTarget(-1);
                                       },
-                                      child: Text("취소")),
+                                      child: Text("cancel".tr)),
                                   ElevatedButton(
                                       onPressed: () {
                                         controller.userData.update((val) {
@@ -259,14 +259,14 @@ class OptionFilter extends GetView<GlobalController> {
                                         });
                                         pageCtl.idxeditTarget(-1);
                                       },
-                                      child: Text("확인")),
+                                      child: Text("confirm".tr)),
                                 ],
                               )
                           ]),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text("사용"),
+                          Text("use".tr),
                           bedit
                               ? Checkbox(
                                   value: tmpFilter.enable,

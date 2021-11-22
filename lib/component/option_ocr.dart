@@ -21,7 +21,7 @@ class OptionOcr extends GetView<GlobalController> {
           children: [
             ExpansionTile(
               onExpansionChanged: (b) async {},
-              title: Text("OCR 이미지 인식 설정"),
+              title: Text("OCR image recognition settings".tr),
               children: [
                 ListTile(
                   onTap: () async {

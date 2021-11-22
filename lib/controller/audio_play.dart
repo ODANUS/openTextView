@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
-
+import 'package:get/get.dart';
 import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
@@ -194,7 +194,9 @@ class AudioHandler extends BaseAudioHandler
             this.stop();
           } else {
             var ss = autoExitDate!.difference(now);
-            mediaItem.add(e!.copyWith(album: "${ss.inMinutes} 분뒤 자동 종료"));
+            mediaItem.add(e!.copyWith(
+                album: "Auto_shut_down_after_@min_minute"
+                    .trParams({"min": ss.inMinutes.toString()})));
           }
         });
       }

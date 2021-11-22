@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/i18n.dart';
 import 'package:open_textview/pages/main_page.dart';
 import 'package:wakelock/wakelock.dart';
 
@@ -12,21 +13,12 @@ void main() async {
   Wakelock.enable();
   runApp(
     GetMaterialApp(
+        translations: Messages(),
+        locale: Get.deviceLocale,
+        // locale: Locale('ko'),
+        fallbackLocale: Locale('en'),
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
         getPages: [GetPage(name: '/', page: () => MainPage())]),
   );
 }
-
-      // WillPopScope(
-      //       child: ,
-      //       onWillPop: () async {
-      //         var ctl = Get.find<MainCtl>();
-      //         var rtn = true;
-      //         rtn &= ctl.ocrData['brun'] == 0;
-      //         // rtn &= !AudioService.runningStream.value;
-
-      //         ctl.update();
-      //         return rtn;
-      //       },
-      //     )),

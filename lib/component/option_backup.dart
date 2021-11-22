@@ -58,19 +58,19 @@ class OptionBackup extends GetView<GlobalController> {
                   await pageCtl.loadBackupFileList();
                 }
               },
-              title: Text("백업 / 복구"),
+              title: Text("Backup / Recovery".tr),
               children: [
                 ListTile(
                   onTap: () async {
                     await pageCtl
                         .createBackupFile(controller.userData.toJson());
                   },
-                  title: Text("구글 드라이브 백업"),
+                  title: Text("google drive backup".tr),
                 ),
                 Divider(),
                 ...pageCtl.backupFiles.map((element) {
                   Widget delIcon = IconSlideAction(
-                    caption: '삭제',
+                    caption: 'delete'.tr,
                     color: Colors.red,
                     icon: Icons.delete,
                     onTap: () async {

@@ -4,7 +4,7 @@ import 'package:audio_session/audio_session.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/component/option_backup.dart';
 import 'package:open_textview/component/option_filter.dart';
@@ -24,7 +24,7 @@ class SettingPage extends GetView<GlobalController> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("설정"),
+        title: Text("Settings".tr),
       ),
       body: ListView(
         padding: EdgeInsets.all(10),
@@ -40,7 +40,7 @@ class SettingPage extends GetView<GlobalController> {
           Card(child: OptionOsslicense()),
           Card(
             child: ListTile(
-                title: Text('tts 목소리 문제 해결 방법 보러가기.'),
+                title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
                 onTap: () {
                   launch(
                       "https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");

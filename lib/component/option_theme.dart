@@ -16,10 +16,10 @@ class OptionTheme extends GetView<GlobalController> {
           children: [
             ExpansionTile(
               onExpansionChanged: (b) async {},
-              title: Text("테마 설정"),
+              title: Text("Style Theme settings".tr),
               children: [
                 ListTile(
-                    title: Text('라이트 테마'),
+                    title: Text('light theme'.tr),
                     onTap: () {
                       controller.userData.update((val) {
                         val!.theme = "light";
@@ -27,7 +27,7 @@ class OptionTheme extends GetView<GlobalController> {
                       Get.changeTheme(ThemeData.light());
                     }),
                 ListTile(
-                    title: Text('다크 테마'),
+                    title: Text('Dark theme'.tr),
                     onTap: () {
                       controller.userData.update((val) {
                         val!.theme = "dark";

@@ -23,10 +23,11 @@ class OptionTts extends GetView<GlobalController> {
         children: [
           ExpansionTile(
             onExpansionChanged: (b) async {},
-            title: Text("TTS 설정"),
+            title: Text("TTS settings".tr),
             children: [
               ListTile(
-                  title: Text('속도 : ${tts.speechRate.toStringAsFixed(2)}'),
+                  title: Text(
+                      '${"speed".tr} : ${tts.speechRate.toStringAsFixed(2)}'),
                   subtitle: Container(
                       width: double.infinity,
                       // color: Colors.red,
@@ -60,7 +61,8 @@ class OptionTts extends GetView<GlobalController> {
                             icon: Icon(Icons.navigate_next_sharp)),
                       ]))),
               ListTile(
-                  title: Text('볼륨 : ${tts.volume.toStringAsFixed(1)}'),
+                  title:
+                      Text('${"volume".tr} : ${tts.volume.toStringAsFixed(1)}'),
                   subtitle: Container(
                       width: double.infinity,
                       // color: Colors.red,
@@ -80,7 +82,8 @@ class OptionTts extends GetView<GlobalController> {
                         )),
                       ]))),
               ListTile(
-                  title: Text('피치 : ${tts.pitch.toStringAsFixed(1)}'),
+                  title:
+                      Text('${"pitch".tr} : ${tts.pitch.toStringAsFixed(1)}'),
                   subtitle: Container(
                       width: double.infinity,
                       // color: Colors.red,
@@ -114,7 +117,8 @@ class OptionTts extends GetView<GlobalController> {
                             icon: Icon(Icons.navigate_next_sharp)),
                       ]))),
               ListTile(
-                  title: Text('한번에 읽을 라인수  : ${tts.groupcnt}'),
+                  title: Text(
+                      '${"Number of lines to read at a time".tr}  : ${tts.groupcnt}'),
                   subtitle: Container(
                       width: double.infinity,
                       // color: Colors.red,
@@ -151,7 +155,7 @@ class OptionTts extends GetView<GlobalController> {
                 padding: EdgeInsets.only(left: 20, right: 20),
                 child: CheckboxListTile(
                     contentPadding: EdgeInsets.all(0),
-                    title: Text("다른 플레이어 실행시 정지"),
+                    title: Text("Freeze when other players are running".tr),
                     value: tts.audiosession,
                     onChanged: (b) {
                       controller.userData.update((val) {
@@ -163,7 +167,7 @@ class OptionTts extends GetView<GlobalController> {
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: CheckboxListTile(
                       contentPadding: EdgeInsets.all(0),
-                      title: Text('헤드셋 버튼 사용'),
+                      title: Text('Using the headset button'.tr),
                       value: tts.headsetbutton,
                       onChanged: (b) {
                         controller.userData.update((val) {

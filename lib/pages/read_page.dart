@@ -61,7 +61,7 @@ class ReadPage extends GetView<GlobalController> {
                       ClipboardData(text: controller.contents[idx]));
                   final snackBar = SnackBar(
                     content: Text(
-                      '[${controller.contents[idx]}]\n클립보드에 복사됨.',
+                      '[${controller.contents[idx]}]\n${"Copied to clipboard".tr}.',
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     backgroundColor: Theme.of(context).backgroundColor,

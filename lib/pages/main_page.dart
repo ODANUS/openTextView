@@ -26,7 +26,7 @@ class MainPage extends GetView<GlobalController> {
               onTap: (idx) => controller.tabIndex(idx),
               items: [
                 BottomNavigationBarItem(
-                  label: "텍스트 뷰어",
+                  label: "text_viewer".tr,
                   icon: Icon(Icons.menu_book_outlined),
                 ),
                 // BottomNavigationBarItem(
@@ -34,11 +34,11 @@ class MainPage extends GetView<GlobalController> {
                 //   icon: Icon(Icons.image_outlined),
                 // ),
                 BottomNavigationBarItem(
-                  label: "내서재",
+                  label: "my_library".tr,
                   icon: Icon(Ionicons.library_outline),
                 ),
                 BottomNavigationBarItem(
-                  label: "설정",
+                  label: "Settings".tr,
                   icon: Icon(Ionicons.settings_outline),
                 ),
               ])),

@@ -23,7 +23,7 @@ class OptionOsslicense extends GetView<GlobalController> {
           children: [
             ExpansionTile(
               onExpansionChanged: (b) async {},
-              title: Text("오픈소스 라이선스"),
+              title: Text("open source license".tr),
               children: [
                 ...ossLicenses
                     .map((key, value) {
@@ -36,7 +36,7 @@ class OptionOsslicense extends GetView<GlobalController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '라이선스 : ${value["license"]}',
+                                      '${"license".tr} : ${value["license"]}',
                                       maxLines: 5,
                                     ),
                                     Divider(),
@@ -46,7 +46,7 @@ class OptionOsslicense extends GetView<GlobalController> {
                                             alignment: Alignment.center,
                                             width: double.infinity,
                                             child: new Text(
-                                              '홈페이지',
+                                              'home page'.tr,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w700),
                                             ),

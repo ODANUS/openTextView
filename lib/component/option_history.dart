@@ -32,7 +32,7 @@ class OptionHistory extends GetView<GlobalController> {
         children: [
           ExpansionTile(
             onExpansionChanged: (b) async {},
-            title: Text("히스토리"),
+            title: Text("history".tr),
             children: [
               ListTile(
                   title: Row(
@@ -40,7 +40,8 @@ class OptionHistory extends GetView<GlobalController> {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: "검색할 단어 / 문장을 입력해 주세요.",
+                            labelText:
+                                "Please enter a word/sentence to search for".tr,
                           ),
                           onChanged: (v) {
                             pageCtl.searchText(v);
@@ -60,7 +61,7 @@ class OptionHistory extends GetView<GlobalController> {
                   children: [
                     Icon(Icons.delete, color: Colors.white),
                     Text(
-                      "드래그하여 삭제",
+                      "Drag to delete".tr,
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
@@ -87,7 +88,10 @@ class OptionHistory extends GetView<GlobalController> {
                     onTap: () {},
                     title: Text(e.name),
                     subtitle: Row(
-                      children: [Text("마지막 위치 : "), Text("${e.pos}")],
+                      children: [
+                        Text("${"last position".tr} : "),
+                        Text("${e.pos}")
+                      ],
                     ),
                   ),
                 )
