@@ -10,6 +10,8 @@ import 'package:open_textview/component/option_backup.dart';
 import 'package:open_textview/component/option_filter.dart';
 import 'package:open_textview/component/option_history.dart';
 import 'package:open_textview/component/option_osslicense.dart';
+import 'package:open_textview/component/option_review.dart';
+import 'package:open_textview/component/option_share.dart';
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
 import 'package:open_textview/controller/global_controller.dart';
@@ -30,6 +32,7 @@ class SettingPage extends GetView<GlobalController> {
         padding: EdgeInsets.all(10),
         children: [
           Card(child: OptionBackup()),
+          AdsComp(),
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
           Card(child: OptionHistory()),
@@ -37,7 +40,8 @@ class SettingPage extends GetView<GlobalController> {
           Card(child: OptionTheme()),
           // Card(child: OptionCache()),
           // Card(child: OptionOcr()),
-          Card(child: OptionOsslicense()),
+          Card(child: OptionReview()),
+          Card(child: OptionShare()),
           Card(
             child: ListTile(
                 title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
@@ -46,8 +50,8 @@ class SettingPage extends GetView<GlobalController> {
                       "https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
                 }),
           ),
+          Card(child: OptionOsslicense()),
           Divider(),
-          AdsComp(),
           if (kDebugMode)
             ElevatedButton(
                 onPressed: () async {

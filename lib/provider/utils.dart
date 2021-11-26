@@ -37,9 +37,7 @@ class Utils {
   static Future<List<FileSystemEntity>> getLibraryList(String path) async {
     await Permission.storage.request();
     Directory dir = Directory(path);
-    print(path);
     var listDir = await dir.list().toList();
-    print(listDir);
     return listDir;
   }
 

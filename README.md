@@ -11,7 +11,14 @@ openTextView 오픈텍스트뷰어 는 텍스트를 음성으로 변경 하여 �
 tts 설정 에서 여러줄 을 읽도록 설정할 수 있습니다.
 
 [구글 플레이 링크](https://play.google.com/store/apps/details?id=com.khjde.opentextview)
+---
+1.3.4 (2021 11 26) 패치내역 : 
 
+1. 서재 정렬 기능 추가. 
+
+2. 설정에 어플 공유 / 리뷰 쓰기 버튼 추가.
+
+---
 ---
 1.3.2 (2021 11 07) 패치내역 : 
 

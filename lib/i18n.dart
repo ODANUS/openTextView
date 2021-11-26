@@ -73,7 +73,9 @@ class Messages extends Translations {
               "Freeze when other players are running",
           "Using the headset button": "Using the headset button",
           "@num minutes": "@num minutes",
-          "language": "English (US)"
+          "language": "English (US)",
+          "go to review": "go to review",
+          "Share the app": "Share the app",
         },
         "ko": {
           "key": "ko",
@@ -139,7 +141,9 @@ class Messages extends Translations {
           "Freeze when other players are running": "다른 플레이어가 실행 중일 때 멈 춥니 다",
           "Using the headset button": "헤드셋 버튼을 사용합니다",
           "@num minutes": "@num 분",
-          "language": "한국어"
+          "language": "한국어",
+          "go to review": "어플 리뷰하러 가기.",
+          "Share the app": "어플 공유 하기",
         },
         "gl": {
           "key": "gl",
@@ -213,7 +217,9 @@ class Messages extends Translations {
               "Conxelar cando se executan outros xogadores",
           "Using the headset button": "Usando o botón de auriculares",
           "@num minutes": "minutos de @num",
-          "language": "Galego"
+          "language": "Galego",
+          "go to review": "Vaia á revisión.",
+          "Share the app": "Comparte a App.",
         },
         "gu": {
           "key": "gu",
@@ -284,7 +290,9 @@ class Messages extends Translations {
               "જ્યારે અન્ય ખેલાડીઓ ચાલી રહ્યા હોય ત્યારે ફ્રીઝ કરો",
           "Using the headset button": "હેડસેટ બટનનો ઉપયોગ કરવો",
           "@num minutes": "@num નમ ​​મિનિટ",
-          "language": "ગુજરાતી"
+          "language": "ગુજરાતી",
+          "go to review": "સમીક્ષા પર જાઓ",
+          "Share the app": "એપ્લિકેશન શેર કરો",
         },
         "el": {
           "key": "el",
@@ -356,7 +364,9 @@ class Messages extends Translations {
               "Πάγωμα όταν εκτελούνται άλλοι παίκτες",
           "Using the headset button": "Χρησιμοποιώντας το κουμπί ακουστικών",
           "@num minutes": "@num λεπτά",
-          "language": "Ελληνικά"
+          "language": "Ελληνικά",
+          "go to review": "Πηγαίνετε στην αναθεώρηση",
+          "Share the app": "Μοιραστείτε την εφαρμογή",
         },
         "nl": {
           "key": "nl",
@@ -426,7 +436,9 @@ class Messages extends Translations {
               "Bevriezen wanneer andere spelers lopen",
           "Using the headset button": "De hoofdtelefoonknop gebruiken",
           "@num minutes": "@num minuten",
-          "language": "Nederlands"
+          "language": "Nederlands",
+          "go to review": "Ga naar beoordeling",
+          "Share the app": "Deel de app",
         },
         "ne": {
           "key": "ne",
@@ -499,7 +511,9 @@ class Messages extends Translations {
               "फ्रिज जब अन्य खेलाडीहरू चलिरहेका छन्",
           "Using the headset button": "हेडसेट बटन प्रयोग गर्दै",
           "@num minutes": "@num मिनेट",
-          "language": "नेपाली"
+          "language": "नेपाली",
+          "go to review": "समीक्षा गर्नुहोस्",
+          "Share the app": "अनुप्रयोग साझा गर्नुहोस्",
         },
         "no": {
           "key": "no",
@@ -569,7 +583,9 @@ class Messages extends Translations {
               "Fryse når andre spillere kjører",
           "Using the headset button": "Bruke Headset-knappen",
           "@num minutes": "@num minutter",
-          "language": "Norsk"
+          "language": "Norsk",
+          "go to review": "Gå til anmeldelse",
+          "Share the app": "Del appen",
         },
         "da": {
           "key": "da",
@@ -639,7 +655,9 @@ class Messages extends Translations {
               "Fryser, når andre spillere kører",
           "Using the headset button": "Brug af headset-knappen",
           "@num minutes": "@num minutter",
-          "language": "Dansk"
+          "language": "Dansk",
+          "go to review": "Gå til Review.",
+          "Share the app": "Del appen",
         },
         "de": {
           "key": "de",
@@ -711,7 +729,9 @@ class Messages extends Translations {
               "Einfrieren, wenn andere Spieler laufen",
           "Using the headset button": "Verwenden der Headset-Taste",
           "@num minutes": "@num Minuten",
-          "language": "Deutsch"
+          "language": "Deutsch",
+          "go to review": "Zur Überprüfung gehen",
+          "Share the app": "Teilen Sie die App",
         },
         "lo": {
           "key": "lo",
@@ -780,7 +800,9 @@ class Messages extends Translations {
               "freeze ໃນເວລາທີ່ຜູ້ນອື່ນໆກໍາລັງແລ່ນ",
           "Using the headset button": "ການໃຊ້ປຸ່ມຫູຟັງ",
           "@num minutes": "@num ນາທີ",
-          "language": "ພາສາລາວ"
+          "language": "ພາສາລາວ",
+          "go to review": "ປ່ວງໄປທີ່ທົບທວນ",
+          "Share the app": "ແບ່ງປັນແອັບ app",
         },
         "lv": {
           "key": "lv",
@@ -854,7 +876,9 @@ class Messages extends Translations {
               "Iesaldēt, kad darbojas citi spēlētāji",
           "Using the headset button": "Izmantojot austiņu pogu",
           "@num minutes": "@num minūtes",
-          "language": "Latviešu"
+          "language": "Latviešu",
+          "go to review": "Iet uz pārskatu",
+          "Share the app": "Koplietojiet lietotni",
         },
         "ru": {
           "key": "ru",
@@ -929,7 +953,9 @@ class Messages extends Translations {
               "Заморозить, когда другие игроки бегут",
           "Using the headset button": "Использование кнопки гарнитуры",
           "@num minutes": "@num минут",
-          "language": "Русский"
+          "language": "Русский",
+          "go to review": "Перейти к пересмотру",
+          "Share the app": "Поделиться приложением",
         },
         "ro": {
           "key": "ro",
@@ -1003,7 +1029,9 @@ class Messages extends Translations {
               "Înghețați când se execută alți jucători",
           "Using the headset button": "Utilizarea butonului setului cu cască",
           "@num minutes": "Minutele @num.",
-          "language": "Română"
+          "language": "Română",
+          "go to review": "Mergeți la examinare",
+          "Share the app": "Distribuiți aplicația",
         },
         "lt": {
           "key": "lt",
@@ -1076,7 +1104,9 @@ class Messages extends Translations {
               "Užšaldyti, kai veikia kiti žaidėjai",
           "Using the headset button": "Naudojant ausinių mygtuką",
           "@num minutes": "@num minutės",
-          "language": "Lietuvių"
+          "language": "Lietuvių",
+          "go to review": "Eikite į peržiūrą",
+          "Share the app": "Bendrinkite programą",
         },
         "mr": {
           "key": "mr",
@@ -1147,7 +1177,9 @@ class Messages extends Translations {
               "इतर खेळाडू चालत असताना फ्रीझ करा",
           "Using the headset button": "हेडसेट बटण वापरणे",
           "@num minutes": "@num काही मिनिटे",
-          "language": "महारो"
+          "language": "महारो",
+          "go to review": "पुनरावलोकन करा",
+          "Share the app": "अॅप सामायिक करा",
         },
         "mk": {
           "key": "mk",
@@ -1220,7 +1252,9 @@ class Messages extends Translations {
               "Замрзнување кога другите играчи работат",
           "Using the headset button": "Користење на копчето за слушалки",
           "@num minutes": "@num минути",
-          "language": "Македонски"
+          "language": "Македонски",
+          "go to review": "Одете на преглед",
+          "Share the app": "Споделете ја апликацијата",
         },
         "ml": {
           "key": "ml",
@@ -1295,7 +1329,9 @@ class Messages extends Translations {
               "മറ്റ് കളിക്കാർ പ്രവർത്തിക്കുമ്പോൾ ഫ്രീസുചെയ്യുക",
           "Using the headset button": "ഹെഡ്സെറ്റ് ബട്ടൺ ഉപയോഗിക്കുന്നു",
           "@num minutes": "@num മിനിറ്റുകൾ",
-          "language": "മലയാളം"
+          "language": "മലയാളം",
+          "go to review": "അവലോകനത്തിലേക്ക് പോകുക",
+          "Share the app": "അപ്ലിക്കേഷൻ പങ്കിടുക",
         },
         "ms": {
           "key": "ms",
@@ -1365,7 +1401,9 @@ class Messages extends Translations {
               "Membekukan apabila pemain lain sedang berjalan",
           "Using the headset button": "Menggunakan butang alat dengar",
           "@num minutes": "@num minit",
-          "language": "Bahasa Melayu"
+          "language": "Bahasa Melayu",
+          "go to review": "Pergi ke semakan",
+          "Share the app": "Kongsi aplikasi itu",
         },
         "ms": {
           "key": "ms",
@@ -1435,7 +1473,9 @@ class Messages extends Translations {
               "Membekukan apabila pemain lain sedang berjalan",
           "Using the headset button": "Menggunakan butang alat dengar",
           "@num minutes": "@num minit",
-          "language": "Bahasa Melayu (Malaysia)"
+          "language": "Bahasa Melayu (Malaysia)",
+          "go to review": "Pergi ke semakan",
+          "Share the app": "Kongsi aplikasi itu",
         },
         "mn": {
           "key": "mn",
@@ -1507,7 +1547,9 @@ class Messages extends Translations {
               "Бусад тоглогчид ажиллаж байх үед хөлдөөх",
           "Using the headset button": "Чихэвчийг ашиглан",
           "@num minutes": "@num минут",
-          "language": "Монгол"
+          "language": "Монгол",
+          "go to review": "Хянах гэж",
+          "Share the app": "Апп-ыг хуваалцана уу",
         },
         "eu": {
           "key": "eu",
@@ -1578,7 +1620,9 @@ class Messages extends Translations {
               "Izoztu beste jokalari batzuk martxan daudenean",
           "Using the headset button": "Entzungailuaren botoia erabiliz",
           "@num minutes": "@num minutu",
-          "language": "Euskara"
+          "language": "Euskara",
+          "go to review": "Joan berrikuspenera",
+          "Share the app": "Partekatu aplikazioa",
         },
         "my": {
           "key": "my",
@@ -1652,7 +1696,9 @@ class Messages extends Translations {
               "အခြားကစားသမားများအပြေးသောအခါအေးခဲ",
           "Using the headset button": "နားကြပ်ခလုတ်ကိုအသုံးပြုခြင်း",
           "@num minutes": "@num မိနစ်",
-          "language": "ဗမာ \\ t ဗမာ"
+          "language": "ဗမာ \\ t ဗမာ",
+          "go to review": "ပြန်လည်သုံးသပ်ရန်သွားပါ",
+          "Share the app": "app ကိုမျှဝေပါ",
         },
         "vi": {
           "key": "vi",
@@ -1722,7 +1768,9 @@ class Messages extends Translations {
               "Đóng băng khi những người chơi khác đang chạy",
           "Using the headset button": "Sử dụng nút tai nghe",
           "@num minutes": "@num phút",
-          "language": "Tiếng Việt"
+          "language": "Tiếng Việt",
+          "go to review": "Đi xem đánh giá",
+          "Share the app": "Chia sẻ ứng dụng",
         },
         "be": {
           "key": "be",
@@ -1795,7 +1843,9 @@ class Messages extends Translations {
               "Замарожванне, калі іншыя гульцы працуюць",
           "Using the headset button": "Выкарыстанне кнопкі гарнітуры",
           "@num minutes": "@num хвілін",
-          "language": "Беларускі"
+          "language": "Беларускі",
+          "go to review": "ісці ў разгляд",
+          "Share the app": "Падзяліцеся прыкладанне",
         },
         "bn": {
           "key": "bn",
@@ -1866,7 +1916,9 @@ class Messages extends Translations {
               "অন্যান্য খেলোয়াড় চলমান হয় যখন স্থির করা",
           "Using the headset button": "হেডসেট বাটন ব্যবহার করে",
           "@num minutes": "@num নাম মিনিট",
-          "language": "বাংলা"
+          "language": "বাংলা",
+          "go to review": "পর্যালোচনা করতে যান",
+          "Share the app": "অ্যাপ্লিকেশন শেয়ার করুন",
         },
         "bg": {
           "key": "bg",
@@ -1940,7 +1992,9 @@ class Messages extends Translations {
               "Замразяване, когато се изпълняват други играчи",
           "Using the headset button": "Използване на бутона за слушалки",
           "@num minutes": "@num минути",
-          "language": "Български"
+          "language": "Български",
+          "go to review": "Отидете на преглед",
+          "Share the app": "Споделете приложението",
         },
         "sr": {
           "key": "sr",
@@ -2012,7 +2066,9 @@ class Messages extends Translations {
               "Замрзавање када се други играчи покрећу",
           "Using the headset button": "Коришћење дугмета за слушалице",
           "@num minutes": "@num ни минута",
-          "language": "Српски"
+          "language": "Српски",
+          "go to review": "ићи на преглед",
+          "Share the app": "Поделите апликацију",
         },
         "sw": {
           "key": "sw",
@@ -2085,7 +2141,9 @@ class Messages extends Translations {
               "Kufungia wakati wachezaji wengine wanaendesha",
           "Using the headset button": "Kutumia kifungo cha kichwa cha kichwa",
           "@num minutes": "@num Dakika.",
-          "language": "Kiswahili"
+          "language": "Kiswahili",
+          "go to review": "Nenda kwa ukaguzi",
+          "Share the app": "Shiriki programu hiyo",
         },
         "sv": {
           "key": "sv",
@@ -2155,7 +2213,9 @@ class Messages extends Translations {
               "Frys när andra spelare körs",
           "Using the headset button": "Använda headsetknappen",
           "@num minutes": "@num minuter",
-          "language": "Svenska"
+          "language": "Svenska",
+          "go to review": "gå till granskning",
+          "Share the app": "Dela appen",
         },
         "es": {
           "key": "es",
@@ -2230,7 +2290,9 @@ class Messages extends Translations {
               "Congelar cuando otros jugadores corren",
           "Using the headset button": "Usando el botón Auricular",
           "@num minutes": "@num minutos",
-          "language": "Español"
+          "language": "Español",
+          "go to review": "Ir a la revisión",
+          "Share the app": "Comparte la aplicación",
         },
         "sk": {
           "key": "sk",
@@ -2301,7 +2363,9 @@ class Messages extends Translations {
               "Zmraziť, keď sú spustení ostatní hráči",
           "Using the headset button": "Pomocou tlačidla headsetu",
           "@num minutes": "@num minút",
-          "language": "Slovensky"
+          "language": "Slovensky",
+          "go to review": "Prejsť",
+          "Share the app": "Zdieľajte aplikáciu",
         },
         "sl": {
           "key": "sl",
@@ -2372,7 +2436,9 @@ class Messages extends Translations {
               "Zamrznite, ko potekajo drugi igralci",
           "Using the headset button": "Uporaba gumba slušalk",
           "@num minutes": "@num minut",
-          "language": "Slovenščina"
+          "language": "Slovenščina",
+          "go to review": "Pojdi na pregled",
+          "Share the app": "Delite aplikacijo",
         },
         "si": {
           "key": "si",
@@ -2442,7 +2508,9 @@ class Messages extends Translations {
               "අනෙක් ක්රීඩකයන් ක්රියාත්මක වන විට කැටි කරන්න",
           "Using the headset button": "හෙඩ්සෙට් බොත්තම භාවිතා කිරීම",
           "@num minutes": "@num මිනිත්තු",
-          "language": "සිංගලා"
+          "language": "සිංගලා",
+          "go to review": "සමාලෝචනය සඳහා යන්න",
+          "Share the app": "යෙදුම බෙදා ගන්න",
         },
         "ar": {
           "key": "ar",
@@ -2512,7 +2580,9 @@ class Messages extends Translations {
               "تجميد عندما يعمل اللاعبون الآخرون",
           "Using the headset button": "باستخدام زر سماعة الرأس",
           "@num minutes": "@num دقيقة",
-          "language": "عربي"
+          "language": "عربي",
+          "go to review": "الذهاب إلى مراجعة",
+          "Share the app": "مشاركة التطبيق",
         },
         "hy": {
           "key": "hy",
@@ -2584,7 +2654,9 @@ class Messages extends Translations {
               "Սառեցնել, երբ մյուս խաղացողներն աշխատում են",
           "Using the headset button": "Օգտագործելով ականջակալների կոճակը",
           "@num minutes": "@num րոպե",
-          "language": "Հայերեն"
+          "language": "Հայերեն",
+          "go to review": "Գնալ վերանայման",
+          "Share the app": "Կիսվեք ծրագիրը",
         },
         "is": {
           "key": "is",
@@ -2656,7 +2728,9 @@ class Messages extends Translations {
               "Frysta þegar aðrir leikmenn eru í gangi",
           "Using the headset button": "Notkun höfuðtól hnappinn",
           "@num minutes": "@um mínútur",
-          "language": "Íslenska"
+          "language": "Íslenska",
+          "go to review": "Farðu í skoðun",
+          "Share the app": "Deila forritinu",
         },
         "az": {
           "key": "az",
@@ -2727,7 +2801,9 @@ class Messages extends Translations {
               "Digər oyunçuların işlədikdə dondurun",
           "Using the headset button": "Qulaqlıq düyməsini istifadə edərək",
           "@num minutes": "@num Tumlu dəqiqə",
-          "language": "Azərbaycan"
+          "language": "Azərbaycan",
+          "go to review": "nəzərdən keçirmək üçün gedin",
+          "Share the app": "Tətbiqi paylaşın",
         },
         "af": {
           "key": "af",
@@ -2799,7 +2875,9 @@ class Messages extends Translations {
               "Vries wanneer ander spelers hardloop",
           "Using the headset button": "Gebruik die Headset-knoppie",
           "@num minutes": "@num minute",
-          "language": "Afrika"
+          "language": "Afrika",
+          "go to review": "Gaan na hersiening",
+          "Share the app": "Deel die program",
         },
         "sq": {
           "key": "sq",
@@ -2873,7 +2951,9 @@ class Messages extends Translations {
               "Ngrijë kur lojtarët e tjerë po konkurrojnë",
           "Using the headset button": "Duke përdorur butonin e kufjeve",
           "@num minutes": "Minuta @num",
-          "language": "Shqip"
+          "language": "Shqip",
+          "go to review": "Shko te shqyrtoni",
+          "Share the app": "Ndani aplikacionin",
         },
         "am": {
           "key": "am",
@@ -2941,7 +3021,9 @@ class Messages extends Translations {
           "Freeze when other players are running": "ሌሎች ተጫዋቾች በሚሰሩበት ጊዜ ቀዝቅዙ",
           "Using the headset button": "የጆሮ ማዳመጫውን ቁልፍ በመጠቀም",
           "@num minutes": "@num ደቂቃዎች",
-          "language": "አማርኛ"
+          "language": "አማርኛ",
+          "go to review": "ለመገምገም ሂድ",
+          "Share the app": "መተግበሪያውን ያጋሩ",
         },
         "et": {
           "key": "et",
@@ -3011,7 +3093,9 @@ class Messages extends Translations {
               "Külmutada, kui teised mängijad töötavad",
           "Using the headset button": "Peakomplekti nupu kasutamine",
           "@num minutes": "@num minutit",
-          "language": "Eesti keel"
+          "language": "Eesti keel",
+          "go to review": "Mine ülevaate",
+          "Share the app": "Jagage rakendust",
         },
         "en": {
           "key": "en",
@@ -3083,7 +3167,9 @@ class Messages extends Translations {
               "Freeze when other players are running",
           "Using the headset button": "Using the headset button",
           "@num minutes": "@num minutes",
-          "language": "English"
+          "language": "English",
+          "go to review": "go to review",
+          "Share the app": "Share the app",
         },
         "ur": {
           "key": "ur",
@@ -3154,7 +3240,9 @@ class Messages extends Translations {
               "جب دیگر کھلاڑی چل رہے ہیں تو منجمد",
           "Using the headset button": "ہیڈسیٹ بٹن کا استعمال کرتے ہوئے",
           "@num minutes": "num منٹ",
-          "language": "اردو"
+          "language": "اردو",
+          "go to review": "جائزہ لینے کے لئے جاؤ",
+          "Share the app": "اپلی کیشن کا اشتراک کریں",
         },
         "uk": {
           "key": "uk",
@@ -3228,7 +3316,9 @@ class Messages extends Translations {
               "Заморозити, коли інші гравці працюють",
           "Using the headset button": "Використання кнопки гарнітури",
           "@num minutes": "@num хвилин",
-          "language": "Українська"
+          "language": "Українська",
+          "go to review": "Перейти до перегляду",
+          "Share the app": "Поділіться додатком",
         },
         "it": {
           "key": "it",
@@ -3301,7 +3391,9 @@ class Messages extends Translations {
               "Congelare quando altri giocatori sono in esecuzione",
           "Using the headset button": "Usando il pulsante della cuffia",
           "@num minutes": "@num minuti.",
-          "language": "Italiano"
+          "language": "Italiano",
+          "go to review": "Vai alla recensione",
+          "Share the app": "Condividi l'app.",
         },
         "id": {
           "key": "id",
@@ -3372,7 +3464,9 @@ class Messages extends Translations {
               "Membekukan ketika pemain lain berjalan",
           "Using the headset button": "Menggunakan tombol headset",
           "@num minutes": "@num menit.",
-          "language": "Bahasa Indonesia"
+          "language": "Bahasa Indonesia",
+          "go to review": "pergi ke ulasan",
+          "Share the app": "Bagikan aplikasi",
         },
         "ja": {
           "key": "ja",
@@ -3438,7 +3532,9 @@ class Messages extends Translations {
           "Freeze when other players are running": "他のプレイヤーが稼働しているときに凍結してください",
           "Using the headset button": "ヘッドセットボタンを使う",
           "@num minutes": "@num議事録",
-          "language": "日本語"
+          "language": "日本語",
+          "go to review": "口コミを送り料上",
+          "Share the app": "アプリを共有してください",
         },
         "ka": {
           "key": "ka",
@@ -3513,7 +3609,9 @@ class Messages extends Translations {
               "გაყინვა, როდესაც სხვა მოთამაშეები გაშვებულია",
           "Using the headset button": "გამოყენებით headset ღილაკს",
           "@num minutes": "@num nin minutes",
-          "language": "ქართული"
+          "language": "ქართული",
+          "go to review": "გადახედეთ",
+          "Share the app": "გაუზიარეთ აპლიკაცია",
         },
         "zu": {
           "key": "zu",
@@ -3587,7 +3685,9 @@ class Messages extends Translations {
               "Uqhwa lapho abanye abadlali besebenza",
           "Using the headset button": "Kusetshenziswa inkinobho ye-Headset",
           "@num minutes": "@num imizuzu",
-          "language": "Zulur"
+          "language": "Zulur",
+          "go to review": "Iya kubukeze",
+          "Share the app": "Yabelana ngohlelo lokusebenza",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -3652,7 +3752,9 @@ class Messages extends Translations {
           "Freeze when other players are running": "当其他玩家正在运行时冻结",
           "Using the headset button": "使用耳机按钮",
           "@num minutes": "@num钟",
-          "language": "简体中文"
+          "language": "简体中文",
+          "go to review": "去点评",
+          "Share the app": "分享应用程序",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -3717,7 +3819,9 @@ class Messages extends Translations {
           "Freeze when other players are running": "當其他玩家正在運行時凍結",
           "Using the headset button": "使用耳機按鈕",
           "@num minutes": "@num鐘",
-          "language": "繁體中文"
+          "language": "繁體中文",
+          "go to review": "去點評",
+          "Share the app": "分享應用程序",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -3782,7 +3886,9 @@ class Messages extends Translations {
           "Freeze when other players are running": "當其他玩家正在運行時凍結",
           "Using the headset button": "使用耳機按鈕",
           "@num minutes": "@num鐘",
-          "language": "中文（香港）"
+          "language": "中文（香港）",
+          "go to review": "去點評",
+          "Share the app": "分享應用程序",
         },
         "cs": {
           "key": "cs",
@@ -3853,7 +3959,9 @@ class Messages extends Translations {
               "Zamrznout, když běží ostatní hráči",
           "Using the headset button": "Pomocí tlačítka headsetu",
           "@num minutes": "@num minut",
-          "language": "Čeština"
+          "language": "Čeština",
+          "go to review": "jít na recenzi",
+          "Share the app": "Sdílejte aplikaci",
         },
         "kk": {
           "key": "kk",
@@ -3924,7 +4032,9 @@ class Messages extends Translations {
               "Басқа ойыншылар жұмыс істеп тұрған кезде қатып қалады",
           "Using the headset button": "Гарнитураның батырмасын пайдалану",
           "@num minutes": "@num минуттары",
-          "language": "Қазақстан"
+          "language": "Қазақстан",
+          "go to review": "Қарауға барыңыз",
+          "Share the app": "Бағдарламаны бөлісіңіз",
         },
         "ca": {
           "key": "ca",
@@ -3999,7 +4109,9 @@ class Messages extends Translations {
               "Congelar quan s'executen altres jugadors",
           "Using the headset button": "Utilitzant el botó Healtet",
           "@num minutes": "@num minuts",
-          "language": "Català"
+          "language": "Català",
+          "go to review": "Aneu a la revisió",
+          "Share the app": "Comparteix l'aplicació",
         },
         "kn": {
           "key": "kn",
@@ -4073,7 +4185,9 @@ class Messages extends Translations {
               "ಇತರ ಆಟಗಾರರು ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಫ್ರೀಜ್ ಮಾಡಿ",
           "Using the headset button": "ಹೆಡ್ಸೆಟ್ ಬಟನ್ ಬಳಸಿ",
           "@num minutes": "@num ನಿಮಿಷಗಳು",
-          "language": "ಕಾನ್ನಾ ಡಯಾ"
+          "language": "ಕಾನ್ನಾ ಡಯಾ",
+          "go to review": "ವಿಮರ್ಶೆಗೆ ಹೋಗಿ",
+          "Share the app": "ಅಪ್ಲಿಕೇಶನ್ ಹಂಚಿಕೊಳ್ಳಿ",
         },
         "hr": {
           "key": "hr",
@@ -4145,7 +4259,9 @@ class Messages extends Translations {
               "Zamrznuti kada drugi igrači trče",
           "Using the headset button": "Pomoću gumba slušalice",
           "@num minutes": "@num minute",
-          "language": "Hrvatski"
+          "language": "Hrvatski",
+          "go to review": "ići na pregled",
+          "Share the app": "Podijelite aplikaciju",
         },
         "km": {
           "key": "km",
@@ -4216,7 +4332,9 @@ class Messages extends Translations {
               "បង្កកនៅពេលដែលអ្នកលេងផ្សេងទៀតកំពុងដំណើរការ",
           "Using the headset button": "ដោយប្រើប៊ូតុងកាស",
           "@num minutes": "នាទី @num",
-          "language": "ខ្មែរ"
+          "language": "ខ្មែរ",
+          "go to review": "ចូលទៅកាន់ការពិនិត្យឡើងវិញ",
+          "Share the app": "ចែករំលែកកម្មវិធី",
         },
         "ky": {
           "key": "ky",
@@ -4289,7 +4407,9 @@ class Messages extends Translations {
               "Башка оюнчулар иштеп жатканда тоңдургула",
           "Using the headset button": "Гарнитура баскычын колдонуу",
           "@num minutes": "@num мүнөт",
-          "language": "Кыргызча"
+          "language": "Кыргызча",
+          "go to review": "карап чыгуу",
+          "Share the app": "Колдонмону бөлүшүңүз",
         },
         "ta": {
           "key": "ta",
@@ -4363,7 +4483,9 @@ class Messages extends Translations {
               "மற்ற வீரர்கள் இயங்கும் போது முடக்கம்",
           "Using the headset button": "ஹெட்செட் பட்டன் பயன்படுத்தி",
           "@num minutes": "@num நிமிடங்கள்",
-          "language": "தமிழ்"
+          "language": "தமிழ்",
+          "go to review": "மறுபரிசீலனை செய்யுங்கள்",
+          "Share the app": "பயன்பாட்டை பகிர்ந்து",
         },
         "th": {
           "key": "th",
@@ -4434,7 +4556,9 @@ class Messages extends Translations {
               "ตรึงเมื่อผู้เล่นคนอื่นกำลังทำงานอยู่",
           "Using the headset button": "ใช้ปุ่มชุดหูฟัง",
           "@num minutes": "@num นาทีนาที",
-          "language": "ไทย"
+          "language": "ไทย",
+          "go to review": "ไปที่รีวิว",
+          "Share the app": "แชร์แอป",
         },
         "tr": {
           "key": "tr",
@@ -4507,7 +4631,9 @@ class Messages extends Translations {
               "Diğer oyuncular kaçtığında don",
           "Using the headset button": "Kulaklık düğmesini kullanarak",
           "@num minutes": "@num dakika",
-          "language": "Türk"
+          "language": "Türk",
+          "go to review": "İncelemeye Git",
+          "Share the app": "Uygulamayı paylaş",
         },
         "te": {
           "key": "te",
@@ -4580,7 +4706,9 @@ class Messages extends Translations {
               "ఇతర ఆటగాళ్ళు నడుస్తున్నప్పుడు స్తంభింప",
           "Using the headset button": "హెడ్సెట్ బటన్ ఉపయోగించి",
           "@num minutes": "@num నిమిషాలు",
-          "language": "తెలుగు"
+          "language": "తెలుగు",
+          "go to review": "సమీక్షించడానికి వెళ్ళండి",
+          "Share the app": "అనువర్తనాన్ని భాగస్వామ్యం చేయండి",
         },
         "pa": {
           "key": "pa",
@@ -4650,7 +4778,9 @@ class Messages extends Translations {
               "ਫ੍ਰੀਜ਼ ਕਰੋ ਜਦੋਂ ਹੋਰ ਖਿਡਾਰੀ ਚੱਲ ਰਹੇ ਹਨ",
           "Using the headset button": "ਹੈੱਡਸੈੱਟ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ",
           "@num minutes": "@num ਮਿੰਟ",
-          "language": "ਪੰਜਾਬੀ"
+          "language": "ਪੰਜਾਬੀ",
+          "go to review": "ਸਮੀਖਿਆ 'ਤੇ ਜਾਓ",
+          "Share the app": "ਐਪ ਨੂੰ ਸਾਂਝਾ ਕਰੋ",
         },
         "fa": {
           "key": "fa",
@@ -4722,7 +4852,9 @@ class Messages extends Translations {
               "زمانی که بازیکنان دیگر در حال اجرا هستند، یخ زده شوند",
           "Using the headset button": "با استفاده از دکمه هدست",
           "@num minutes": "num دقیقه",
-          "language": "فارسی"
+          "language": "فارسی",
+          "go to review": "برو به بررسی",
+          "Share the app": "به اشتراک گذاشتن برنامه",
         },
         "pt": {
           "key": "pt",
@@ -4797,7 +4929,9 @@ class Messages extends Translations {
               "Congelar quando outros jogadores estão funcionando",
           "Using the headset button": "Usando o botão de fone de ouvido",
           "@num minutes": "@num minutos.",
-          "language": "Português (Brasil)"
+          "language": "Português (Brasil)",
+          "go to review": "Vá para revisar",
+          "Share the app": "Compartilhe o aplicativo",
         },
         "pl": {
           "key": "pl",
@@ -4870,7 +5004,9 @@ class Messages extends Translations {
           "Using the headset button":
               "Korzystanie z przycisku zestawu słuchawkowego",
           "@num minutes": "@num minuty.",
-          "language": "Polskie"
+          "language": "Polskie",
+          "go to review": "przejdź do recenzji",
+          "Share the app": "Udostępnij aplikację",
         },
         "fr": {
           "key": "fr",
@@ -4945,7 +5081,9 @@ class Messages extends Translations {
               "Geler quand d'autres joueurs sont en cours d'exécution",
           "Using the headset button": "Utilisation du bouton de casque",
           "@num minutes": "@num minutes",
-          "language": "Français"
+          "language": "Français",
+          "go to review": "passer à revoir",
+          "Share the app": "Partager l'application",
         },
         "fi": {
           "key": "fi",
@@ -5015,7 +5153,9 @@ class Messages extends Translations {
               "Jäädyttää, kun muut pelaajat ovat käynnissä",
           "Using the headset button": "HF-painikkeen käyttäminen",
           "@num minutes": "@num minuuttia",
-          "language": "Suomalainen"
+          "language": "Suomalainen",
+          "go to review": "Siirry tarkistukseen",
+          "Share the app": "Jaa sovellus",
         },
         "fil": {
           "key": "fil",
@@ -5090,7 +5230,9 @@ class Messages extends Translations {
               "I-freeze kapag tumatakbo ang iba pang mga manlalaro",
           "Using the headset button": "Gamit ang pindutan ng headset",
           "@num minutes": "@num minuto",
-          "language": "Pilipinas"
+          "language": "Pilipinas",
+          "go to review": "pumunta sa pagsusuri",
+          "Share the app": "Ibahagi ang app",
         },
         "hu": {
           "key": "hu",
@@ -5162,7 +5304,9 @@ class Messages extends Translations {
               "Fagyassza le, ha más játékosok futnak",
           "Using the headset button": "A fülhallgató gomb segítségével",
           "@num minutes": "@num perc",
-          "language": "Magyar"
+          "language": "Magyar",
+          "go to review": "Ugrás a felülvizsgálatra",
+          "Share the app": "Ossza meg az alkalmazást",
         },
         "iw": {
           "key": "iw",
@@ -5231,7 +5375,9 @@ class Messages extends Translations {
               "להקפיא כאשר שחקנים אחרים פועלים",
           "Using the headset button": "באמצעות לחצן האוזניה",
           "@num minutes": "@num דקות",
-          "language": "עברית"
+          "language": "עברית",
+          "go to review": "עבור אל סקירה",
+          "Share the app": "שתף את האפליקציה",
         },
         "hi": {
           "key": "hi",
@@ -5302,7 +5448,9 @@ class Messages extends Translations {
               "फ्रीज जब अन्य खिलाड़ी चल रहे हैं",
           "Using the headset button": "हेडसेट बटन का उपयोग करना",
           "@num minutes": "@num मिनट",
-          "language": "हिंदी"
-        }
+          "language": "हिंदी",
+          "go to review": "समीक्षा पर जाएं",
+          "Share the app": "ऐप साझा करें",
+        },
       };
 }
