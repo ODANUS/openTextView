@@ -17,7 +17,7 @@ class LibraryPageCtl extends GetxController {
   RxList<String> delList = RxList<String>();
   RxString tmpDir = "".obs;
   RxBool reload = false.obs;
-  RxList<String> sortList = ["name", "size", "date"].obs;
+  RxList<String> sortList = ["name", "size", "date", "access"].obs;
   RxString sortTarget = "name".obs;
   RxBool asc = true.obs;
 
@@ -72,6 +72,8 @@ class LibraryPage extends GetView<GlobalController> {
                           Icon(Icons.arrow_drop_up)
                         else if (ctl.sortTarget.contains(e) && !ctl.asc.value)
                           Icon(Icons.arrow_drop_down)
+                        else
+                          SizedBox()
                       ]));
                 })
               ],
@@ -80,7 +82,7 @@ class LibraryPage extends GetView<GlobalController> {
         Expanded(
           child: Obx(() {
             Directory dir = Directory(ctl.tmpDir.value);
-            var fileList = dir.listSync(recursive: true);
+            var fileList = dir.listSync();
             if (ctl.sortTarget.contains("name")) {
               fileList.sort((e1, e2) {
                 String name1 = e1.path.split("/").last;
@@ -115,6 +117,17 @@ class LibraryPage extends GetView<GlobalController> {
                 }
               });
             }
+            if (ctl.sortTarget.contains("access")) {
+              fileList.sort((e1, e2) {
+                DateTime date1 = (e1 as File).lastAccessedSync();
+                DateTime date2 = (e2 as File).lastAccessedSync();
+                if (ctl.asc.value) {
+                  return date1.compareTo(date2);
+                } else {
+                  return date2.compareTo(date1);
+                }
+              });
+            }
             return RefreshIndicator(
                 onRefresh: () async {
                   ctl.tmpDir.refresh();
@@ -124,6 +137,9 @@ class LibraryPage extends GetView<GlobalController> {
                         left: 10, right: 10, top: 30, bottom: 150),
                     children: [
                       ...fileList.map((e) {
+                        if (e is Directory || e is Link) {
+                          return SizedBox();
+                        }
                         File file = e as File;
                         Widget delIcon = IconSlideAction(
                           caption: 'remove_from_library'.tr,

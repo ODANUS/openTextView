@@ -151,7 +151,12 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   }
 
   Future<void> openFile(File f) async {
+    if (scrollstat.value) {
+      await Future.delayed(300.milliseconds);
+      return openFile(f);
+    }
     if (f.path.split(".").last == "txt") {
+      f.setLastAccessedSync(DateTime.now());
       String contents = await Utils.readFile(f);
       String name = f.path.split("/").last;
       AudioPlay.stop();
