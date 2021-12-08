@@ -20,28 +20,34 @@ class MainPage extends GetView<GlobalController> {
             SettingPage()
           ])),
 
-      bottomNavigationBar: Obx(() => BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: controller.tabIndex.value,
-              onTap: (idx) => controller.tabIndex(idx),
-              items: [
-                BottomNavigationBarItem(
-                  label: "text_viewer".tr,
-                  icon: Icon(Icons.menu_book_outlined),
-                ),
-                // BottomNavigationBarItem(
-                //   label: "이미지 뷰어",
-                //   icon: Icon(Icons.image_outlined),
-                // ),
-                BottomNavigationBarItem(
-                  label: "my_library".tr,
-                  icon: Icon(Ionicons.library_outline),
-                ),
-                BottomNavigationBarItem(
-                  label: "Settings".tr,
-                  icon: Icon(Ionicons.settings_outline),
-                ),
-              ])),
+      bottomNavigationBar: Obx(() {
+        if (controller.bFullScreen.value) {
+          return SizedBox();
+        }
+
+        return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: controller.tabIndex.value,
+            onTap: (idx) => controller.tabIndex(idx),
+            items: [
+              BottomNavigationBarItem(
+                label: "text_viewer".tr,
+                icon: Icon(Icons.menu_book_outlined),
+              ),
+              // BottomNavigationBarItem(
+              //   label: "이미지 뷰어",
+              //   icon: Icon(Icons.image_outlined),
+              // ),
+              BottomNavigationBarItem(
+                label: "my_library".tr,
+                icon: Icon(Ionicons.library_outline),
+              ),
+              BottomNavigationBarItem(
+                label: "Settings".tr,
+                icon: Icon(Ionicons.settings_outline),
+              ),
+            ]);
+      }),
       // floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
       // floatingActionButton: FloatingButton(),
     );

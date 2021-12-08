@@ -36,6 +36,11 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     "ReadexPro",
     "Roboto",
   ];
+  final RxBool bFullScreen = false.obs;
+  final RxBool bScreenHelp = false.obs;
+
+  int min = 0;
+  int max = 0;
   // RxList
 
   @override
@@ -109,10 +114,15 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     }, time: 500.milliseconds);
     itemPosListener.itemPositions.addListener(() {
       scrollstat(true);
-      var min = itemPosListener.itemPositions.value
+      min = itemPosListener.itemPositions.value
           .where((ItemPosition position) => position.itemTrailingEdge > 0)
           .reduce((ItemPosition min, ItemPosition position) =>
               position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
+          .index;
+      max = itemPosListener.itemPositions.value
+          .where((ItemPosition position) => position.itemLeadingEdge < 1)
+          .reduce((ItemPosition max, ItemPosition position) =>
+              position.itemLeadingEdge > max.itemLeadingEdge ? position : max)
           .index;
       // if (lastData.value.pos < min) {
       //   isVisible(false);
@@ -126,6 +136,19 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     });
 
     super.onInit();
+  }
+
+  perPage() {
+    if (min > 0) {
+      itemScrollctl.scrollTo(
+          index: min + 4, duration: 100.milliseconds, alignment: 1.0);
+    }
+  }
+
+  nextPage() {
+    if (max > 0) {
+      itemScrollctl.scrollTo(index: max - 3, duration: 100.milliseconds);
+    }
   }
 
   loadconfig() async {
