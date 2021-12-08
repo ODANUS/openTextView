@@ -138,7 +138,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     super.onInit();
   }
 
-  perPage() {
+  backPage() {
     if (min > 0) {
       itemScrollctl.scrollTo(
           index: min + 4, duration: 100.milliseconds, alignment: 1.0);

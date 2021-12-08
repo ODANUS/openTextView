@@ -105,6 +105,7 @@ class ReadPage extends GetView<GlobalController> {
           Obx(() {
             var bhelp = controller.bScreenHelp.value;
             BoxDecoration? decoration = null;
+            TextStyle style = TextStyle(color: Colors.white);
             if (bhelp) {
               decoration = BoxDecoration(
                   color: Colors.black54,
@@ -113,6 +114,7 @@ class ReadPage extends GetView<GlobalController> {
                     color: Colors.white,
                   ));
             }
+
             return Row(
               children: [
                 Flexible(
@@ -122,9 +124,10 @@ class ReadPage extends GetView<GlobalController> {
                         alignment: Alignment.center,
                         child: GestureDetector(
                           onTap: () {
-                            controller.perPage();
+                            controller.backPage();
                           },
-                          child: bhelp ? Text("이전 페이지") : null,
+                          child:
+                              bhelp ? Text("Back page".tr, style: style) : null,
                         ))),
                 Flexible(
                     flex: 3,
@@ -135,9 +138,11 @@ class ReadPage extends GetView<GlobalController> {
                               decoration: decoration,
                               child: GestureDetector(
                                 onTap: () {
-                                  controller.perPage();
+                                  controller.backPage();
                                 },
-                                child: bhelp ? Text("이전 페이지") : null,
+                                child: bhelp
+                                    ? Text("Back page".tr, style: style)
+                                    : null,
                               ))),
                       Flexible(
                           child: Container(
@@ -148,7 +153,10 @@ class ReadPage extends GetView<GlobalController> {
                                   controller.bFullScreen(
                                       !controller.bFullScreen.value);
                                 },
-                                child: bhelp ? Text("더블 클릭 풀스크린") : null,
+                                child: bhelp
+                                    ? Text("Double click to full screen".tr,
+                                        style: style)
+                                    : null,
                               ))),
                       Flexible(
                         child: Container(
@@ -158,7 +166,9 @@ class ReadPage extends GetView<GlobalController> {
                               onTap: () {
                                 controller.nextPage();
                               },
-                              child: bhelp ? Text("다음 페이지") : null,
+                              child: bhelp
+                                  ? Text("next page".tr, style: style)
+                                  : null,
                             )),
                       ),
                     ])),
@@ -171,7 +181,8 @@ class ReadPage extends GetView<GlobalController> {
                           onTap: () {
                             controller.nextPage();
                           },
-                          child: bhelp ? Text("다음 페이지") : null,
+                          child:
+                              bhelp ? Text("next page".tr, style: style) : null,
                         ))),
               ],
             );

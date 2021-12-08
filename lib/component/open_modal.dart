@@ -194,7 +194,7 @@ class OpenModal {
     final modalCtl = Get.put(openSearchCtl());
 
     Get.dialog(AlertDialog(
-      title: Text("폰트 설정".tr),
+      title: Text("Font settings".tr),
       content: Container(
           constraints: BoxConstraints(maxHeight: 400),
           color: Colors.transparent,
@@ -206,7 +206,7 @@ class OpenModal {
               // mainAxisSize: MainAxisSize.min,
               children: [
                 // Size
-                Text("크기 설정".tr),
+                Text("font size setting".tr),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -228,7 +228,7 @@ class OpenModal {
                   ],
                 ),
                 // FontWeight
-                Text("굵기 설정".tr),
+                Text("font weight setting".tr),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -254,7 +254,7 @@ class OpenModal {
                   ],
                 ),
                 // Font
-                Text("폰트 설정".tr),
+                Text("Font settings".tr),
                 ...ctl.listFont.map((e) {
                   var ff = ctl.userData.value.ui.fontFamily ?? 'default';
                   return RadioListTile(
