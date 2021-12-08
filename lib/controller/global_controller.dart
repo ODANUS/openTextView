@@ -28,6 +28,14 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   final navBarController = ScrollController();
 
   final Rx<bool> scrollstat = false.obs;
+
+  final List<String> listFont = [
+    'default',
+    "NanumGothic",
+    "OpenSans",
+    "ReadexPro",
+    "Roboto",
+  ];
   // RxList
 
   @override

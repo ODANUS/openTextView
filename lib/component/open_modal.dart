@@ -194,32 +194,125 @@ class OpenModal {
     final modalCtl = Get.put(openSearchCtl());
 
     Get.dialog(AlertDialog(
-      title: Text("Font size setting".tr),
+      title: Text("폰트 설정".tr),
       content: Container(
-          constraints: BoxConstraints(maxHeight: 300),
+          constraints: BoxConstraints(maxHeight: 400),
           color: Colors.transparent,
           width: double.maxFinite,
           child: Obx(() {
             List<String> searchList = [];
-
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            return ListView(
+              shrinkWrap: true,
+              // mainAxisSize: MainAxisSize.min,
               children: [
-                IconButton(
-                    onPressed: () {
-                      ctl.userData.update((val) {
-                        val!.ui.fontSize += 1;
+                // Size
+                Text("크기 설정".tr),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          ctl.userData.update((val) {
+                            val!.ui.fontSize += 1;
+                          });
+                        },
+                        icon: Icon(Ionicons.add_outline)),
+                    Text("${ctl.userData.value.ui.fontSize}"),
+                    IconButton(
+                        onPressed: () {
+                          ctl.userData.update((val) {
+                            val!.ui.fontSize -= 1;
+                          });
+                        },
+                        icon: Icon(Ionicons.remove_outline)),
+                  ],
+                ),
+                // FontWeight
+                Text("굵기 설정".tr),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                        onPressed: ctl.userData.value.ui.fontWeight >= 8
+                            ? null
+                            : () {
+                                ctl.userData.update((val) {
+                                  val!.ui.fontWeight += 1;
+                                });
+                              },
+                        icon: Icon(Ionicons.add_outline)),
+                    Text("${ctl.userData.value.ui.fontWeight}"),
+                    IconButton(
+                        onPressed: ctl.userData.value.ui.fontWeight <= 0
+                            ? null
+                            : () {
+                                ctl.userData.update((val) {
+                                  val!.ui.fontWeight -= 1;
+                                });
+                              },
+                        icon: Icon(Ionicons.remove_outline)),
+                  ],
+                ),
+                // Font
+                Text("폰트 설정".tr),
+                ...ctl.listFont.map((e) {
+                  var ff = ctl.userData.value.ui.fontFamily ?? 'default';
+                  return RadioListTile(
+                      title: Text(e),
+                      value: e,
+                      groupValue: ff,
+                      onChanged: (f) {
+                        if (f == 'default') {
+                          ctl.userData.update((val) {
+                            val!.ui.fontFamily = null;
+                          });
+                        } else {
+                          ctl.userData.update((val) {
+                            val!.ui.fontFamily = f as String;
+                          });
+                        }
                       });
-                    },
-                    icon: Icon(Ionicons.add_outline)),
-                Text("${ctl.userData.value.ui.fontSize}"),
-                IconButton(
-                    onPressed: () {
-                      ctl.userData.update((val) {
-                        val!.ui.fontSize -= 1;
-                      });
-                    },
-                    icon: Icon(Ionicons.remove_outline)),
+                }).toList(),
+
+                // ListView(
+                //   // crossAxisCount: 2,
+                //   shrinkWrap: true,
+                //   // childAspectRatio: 4 / 1,
+                //   children: [
+                //     ...ctl.listFont.map((e) {
+                //       var ff = ctl.userData.value.ui.fontFamily ?? 'default';
+                //       return RadioListTile(
+                //           title: Text(e),
+                //           value: e,
+                //           groupValue: ff,
+                //           onChanged: (f) {
+                //             ctl.userData.update((val) {
+                //               val!.ui.fontFamily = f as String;
+                //             });
+                //           });
+                //     }).toList(),
+                //   ],
+                // )
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //   children: [
+                //     IconButton(
+                //         onPressed: () {
+                //           ctl.userData.update((val) {
+                //             val!.ui.fontSize += 1;
+                //           });
+                //         },
+                //         icon: Icon(Ionicons.add_outline)),
+                //     Text("${ctl.userData.value.ui.fontSize}"),
+                //     IconButton(
+                //         onPressed: () {
+                //           ctl.userData.update((val) {
+                //             val!.ui.fontSize -= 1;
+                //           });
+                //         },
+                //         icon: Icon(Ionicons.remove_outline)),
+                //   ],
+                // )
               ],
             );
           })),

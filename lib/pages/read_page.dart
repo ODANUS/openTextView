@@ -79,8 +79,17 @@ class ReadPage extends GetView<GlobalController> {
                               ? controller.contents[idx]
                               : "",
                           style: TextStyle(
-                              fontSize: controller.userData.value.ui.fontSize
-                                  .toDouble())),
+                            fontSize: controller.userData.value.ui.fontSize
+                                .toDouble(),
+                            fontWeight: FontWeight.values[
+                                controller.userData.value.ui.fontWeight],
+                            // fontFamily: controller.userData.value.ui.fontFamily,
+                            fontFamily:
+                                controller.userData.value.ui.fontFamily ==
+                                        'default'
+                                    ? null
+                                    : controller.userData.value.ui.fontFamily,
+                          )),
                     )),
               );
             }));

@@ -188,19 +188,27 @@ class Tts {
 class Ui {
   Ui({
     this.fontSize = 14,
+    this.fontWeight = 3,
+    this.fontFamily,
   });
 
   int fontSize;
+  int fontWeight;
+  String? fontFamily;
 
   factory Ui.fromJson(String str) => Ui.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory Ui.fromMap(Map<String, dynamic> json) => Ui(
-        fontSize: json["fontSize"] == null ? null : json["fontSize"],
+        fontSize: json["fontSize"] == null ? 14 : json["fontSize"],
+        fontWeight: json["fontWeight"] == null ? 3 : json["fontWeight"],
+        fontFamily: json["fontFamily"] == null ? "" : json["fontFamily"],
       );
 
   Map<String, dynamic> toMap() => {
-        "fontSize": fontSize == null ? null : fontSize,
+        "fontSize": fontSize,
+        "fontWeight": fontWeight,
+        "fontFamily": fontFamily,
       };
 }
