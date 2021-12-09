@@ -56,8 +56,10 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     await loadconfig();
     var tmplast = await Utils.loadLastData();
     if (tmplast != null) {
-      lastData(History.fromJson(tmplast));
-      await openFile(File(lastData.value.path));
+      try {
+        lastData(History.fromJson(tmplast));
+        await openFile(File(lastData.value.path));
+      } catch (e) {}
     }
 
     debounce(userData, (callback) {

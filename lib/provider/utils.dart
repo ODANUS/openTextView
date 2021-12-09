@@ -98,18 +98,22 @@ class Utils {
   }
 
   static Future<String> readFile(File f) async {
-    if (f.existsSync()) {
-      Uint8List bytes = f.readAsBytesSync();
-      String decodeContents = "";
-      try {
-        DecodingResult result = await CharsetDetector.autoDecode(bytes);
-        decodeContents = result.string;
-      } catch (e) {
-        decodeContents = (await CharsetConverter.decode('EUC-KR', bytes))!;
+    try {
+      if (f.existsSync()) {
+        Uint8List bytes = f.readAsBytesSync();
+        String decodeContents = "";
+        try {
+          DecodingResult result = await CharsetDetector.autoDecode(bytes);
+          decodeContents = result.string;
+        } catch (e) {
+          decodeContents = (await CharsetConverter.decode('EUC-KR', bytes))!;
+        }
+        return decodeContents;
       }
-      return decodeContents;
+      return "";
+    } catch (e) {
+      return "";
     }
-    return "";
   }
 
   static getList() {}

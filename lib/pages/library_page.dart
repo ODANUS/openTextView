@@ -81,6 +81,9 @@ class LibraryPage extends GetView<GlobalController> {
         Divider(),
         Expanded(
           child: Obx(() {
+            if (ctl.tmpDir.isEmpty) {
+              return SizedBox();
+            }
             Directory dir = Directory(ctl.tmpDir.value);
             var fileList = dir.listSync();
             if (ctl.sortTarget.contains("name")) {
