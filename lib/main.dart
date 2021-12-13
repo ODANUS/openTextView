@@ -10,6 +10,7 @@ import 'package:open_textview/provider/custom_theme.dart';
 import 'package:wakelock/wakelock.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Get.lazyPut(() => GlobalController());
   await AudioPlay.init();
   Wakelock.enable();

@@ -2,8 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/utils.dart';
@@ -38,9 +41,11 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
   ];
   final RxBool bFullScreen = false.obs;
   final RxBool bScreenHelp = false.obs;
+  final RxBool firstFullScreen = true.obs;
 
   int min = 0;
   int max = 0;
+
   // RxList
 
   @override
@@ -138,18 +143,46 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
     });
 
     super.onInit();
+
+    // await Future.delayed(500.milliseconds);
+    // OpenModal.openFocusModal();
+    HardwareKeyboard.instance.removeHandler(volumeControll);
+    HardwareKeyboard.instance.addHandler(volumeControll);
+  }
+
+  @override
+  void onClose() {
+    HardwareKeyboard.instance.removeHandler(volumeControll);
+    super.onClose();
+  }
+
+  bool volumeControll(KeyEvent event) {
+    bool result = false;
+    if (event is KeyDownEvent && tabIndex.value == 0) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp &&
+          !result &&
+          !AudioPlay.audioHandler!.playbackState.stream.value.playing) {
+        result = true;
+        backPage();
+      }
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown) {
+        result = true;
+        nextPage();
+      }
+    }
+    return true;
   }
 
   backPage() {
-    if (min > 0) {
+    if (min > 0 && contents.length > 0) {
       itemScrollctl.scrollTo(
-          index: min + 4, duration: 100.milliseconds, alignment: 1.0);
+          index: min + 4, duration: 150.milliseconds, alignment: 1.0);
     }
   }
 
   nextPage() {
-    if (max > 0) {
-      itemScrollctl.scrollTo(index: max - 3, duration: 100.milliseconds);
+    if (max > 0 && contents.length > 0) {
+      itemScrollctl.scrollTo(index: max - 3, duration: 150.milliseconds);
     }
   }
 

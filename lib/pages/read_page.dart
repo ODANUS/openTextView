@@ -2,6 +2,7 @@ import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/component/readpage_floating_button.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
@@ -17,6 +18,7 @@ class ReadPage extends GetView<GlobalController> {
   Widget build(BuildContext context) {
     final pageCtl = Get.put(ReadPageCtl());
     // TODO: implement build
+
     return Scaffold(
         appBar: AppBar(
             // centerTitle: true,
@@ -52,55 +54,58 @@ class ReadPage extends GetView<GlobalController> {
               return CircularProgressIndicator();
             }
 
-            return Obx(() => ScrollablePositionedList.builder(
-                padding:
-                    EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 150),
-                itemScrollController: controller.itemScrollctl,
-                itemPositionsListener: controller.itemPosListener,
-                itemCount: controller.contents.length,
-                itemBuilder: (BuildContext context, int idx) {
-                  bool bPlay = snapshot.data!.playing;
-                  int pos = controller.lastData.value.pos;
-                  int max = pos + controller.userData.value.tts.groupcnt;
-                  bool brange = bPlay && idx >= pos && idx < max;
-                  return InkWell(
-                    onLongPress: () {
-                      Clipboard.setData(
-                          ClipboardData(text: controller.contents[idx]));
-                      final snackBar = SnackBar(
-                        content: Text(
-                          '[${controller.contents[idx]}]\n${"Copied to clipboard".tr}.',
-                          style: Theme.of(context).textTheme.bodyText1,
-                        ),
-                        backgroundColor: Theme.of(context).backgroundColor,
-                        duration: Duration(milliseconds: 1000),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    },
-                    child: DecoratedBox(
-                        decoration: BoxDecoration(
-                            color: brange ? Colors.blue[100] : null),
-                        child: Obx(
-                          () => Text(
-                              // controller.contents[idx],
-                              idx <= controller.contents.length
-                                  ? controller.contents[idx]
-                                  : "",
-                              style: TextStyle(
-                                fontSize: controller.userData.value.ui.fontSize
-                                    .toDouble(),
-                                fontWeight: FontWeight.values[
-                                    controller.userData.value.ui.fontWeight],
-                                // fontFamily: controller.userData.value.ui.fontFamily,
-                                fontFamily: controller
-                                            .userData.value.ui.fontFamily ==
-                                        'default'
-                                    ? null
-                                    : controller.userData.value.ui.fontFamily,
-                              )),
-                        )),
-                  );
-                }));
+            return Obx(
+              () => ScrollablePositionedList.builder(
+                  padding: EdgeInsets.only(
+                      top: 20, left: 10, right: 10, bottom: 150),
+                  itemScrollController: controller.itemScrollctl,
+                  itemPositionsListener: controller.itemPosListener,
+                  itemCount: controller.contents.length,
+                  itemBuilder: (BuildContext context, int idx) {
+                    bool bPlay = snapshot.data!.playing;
+                    int pos = controller.lastData.value.pos;
+                    int max = pos + controller.userData.value.tts.groupcnt;
+                    bool brange = bPlay && idx >= pos && idx < max;
+                    return InkWell(
+                      onLongPress: () {
+                        Clipboard.setData(
+                            ClipboardData(text: controller.contents[idx]));
+                        final snackBar = SnackBar(
+                          content: Text(
+                            '[${controller.contents[idx]}]\n${"Copied to clipboard".tr}.',
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                          backgroundColor: Theme.of(context).backgroundColor,
+                          duration: Duration(milliseconds: 1000),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
+                      child: DecoratedBox(
+                          decoration: BoxDecoration(
+                              color: brange ? Colors.blue[100] : null),
+                          child: Obx(
+                            () => Text(
+                                // controller.contents[idx],
+                                idx <= controller.contents.length
+                                    ? controller.contents[idx]
+                                    : "",
+                                style: TextStyle(
+                                  fontSize: controller
+                                      .userData.value.ui.fontSize
+                                      .toDouble(),
+                                  fontWeight: FontWeight.values[
+                                      controller.userData.value.ui.fontWeight],
+                                  // fontFamily: controller.userData.value.ui.fontFamily,
+                                  fontFamily: controller
+                                              .userData.value.ui.fontFamily ==
+                                          'default'
+                                      ? null
+                                      : controller.userData.value.ui.fontFamily,
+                                )),
+                          )),
+                    );
+                  }),
+            );
           }),
           Obx(() {
             var bhelp = controller.bScreenHelp.value;
@@ -150,6 +155,10 @@ class ReadPage extends GetView<GlobalController> {
                               decoration: decoration,
                               child: GestureDetector(
                                 onDoubleTap: () {
+                                  if (controller.firstFullScreen.value) {
+                                    controller.firstFullScreen(false);
+                                    OpenModal.openFocusModal();
+                                  }
                                   controller.bFullScreen(
                                       !controller.bFullScreen.value);
                                 },
@@ -186,7 +195,7 @@ class ReadPage extends GetView<GlobalController> {
                         ))),
               ],
             );
-          })
+          }),
         ]),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Obx(

@@ -8,9 +8,19 @@ import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OpenModal {
+  static openFocusModal() async {
+    Get.dialog(AlertDialog(
+        content: TextField(
+      autofocus: true,
+      // keyboardType: TextInputType.none,
+      // focusNode: FirstDisabledFocusNode(),
+    )));
+    await Future.delayed(50.milliseconds);
+    Get.back();
+  }
+
   static openModalSelect({required String title}) {
     final Completer completer = Completer();
 
