@@ -99,7 +99,12 @@ class AudioHandler extends BaseAudioHandler
     if (!bInitTts) {
       bInitTts = true;
 
-      await tts.setEngine(await tts.getDefaultEngine);
+      tts.getDefaultEngine.then((engine) {
+        if (engine != null && engine.isNotEmpty) {
+          tts.setEngine(engine);
+        }
+      });
+      await Future.delayed(200.milliseconds);
     }
 
     setTts();
@@ -132,6 +137,7 @@ class AudioHandler extends BaseAudioHandler
   Future<void> play() async {
     playstat = STAT_PLAY;
     AudioService.androidForceEnableMediaButtons();
+
     if (this.session == null) {
       this.session = await AudioSession.instance;
       await this.session!.configure(AudioSessionConfiguration.speech());
@@ -160,7 +166,6 @@ class AudioHandler extends BaseAudioHandler
     }
 
     this.session!.setActive(true);
-
     await initTts();
 
     mediaItem.add(MediaItem(
@@ -348,6 +353,7 @@ class AudioPlay {
     _audioHandler!.pause();
   }
 
+  static AudioHandler? get audioHandler => _audioHandler;
   static builder(
       {required Widget Function(
               BuildContext context, AsyncSnapshot<PlaybackState> snapshot)
