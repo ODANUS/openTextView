@@ -135,7 +135,7 @@ class ReadPage extends GetView<GlobalController> {
                               bhelp ? Text("Back page".tr, style: style) : null,
                         ))),
                 Flexible(
-                    flex: 3,
+                    flex: 5,
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
                       Flexible(
                           child: Container(
