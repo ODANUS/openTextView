@@ -3,9 +3,12 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
+import 'package:epubx/epubx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:html/dom.dart' as dom;
+import 'package:html/parser.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/user_data.dart';
@@ -22,7 +25,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
 
   Rx<History> lastData = History().obs;
 
-  RxList<String> lastImageData = RxList<String>();
+  // RxList<String> lastImageData = RxList<String>();
 
   final itemScrollctl = ItemScrollController();
   final itemPosListener = ItemPositionsListener.create();
@@ -45,6 +48,8 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
 
   int min = 0;
   int max = 0;
+
+  final RxBool bConvLoading = false.obs;
 
   // RxList
 
@@ -221,6 +226,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
       await Future.delayed(300.milliseconds);
       return openFile(f);
     }
+
     if (f.path.split(".").last == "txt") {
       f.setLastAccessedSync(DateTime.now());
       String contents = await Utils.readFile(f);
@@ -247,13 +253,13 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
       tabIndex(0);
       return;
     }
-    Directory d = f.parent;
-    var files = await d.list().toList();
+    // Directory d = f.parent;
+    // var files = await d.list().toList();
 
-    var tmpList = files.map((e) {
-      return e.path;
-    }).toList();
-    lastImageData.assignAll(tmpList);
+    // var tmpList = files.map((e) {
+    //   return e.path;
+    // }).toList();
+    // lastImageData.assignAll(tmpList);
     // print(await d.list().toList());
     // lastImageData
   }
@@ -280,6 +286,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
 
     super.didChangeAppLifecycleState(state);
   }
+
   // selectLibrary() {}
 
   // loadLibrary() {}
