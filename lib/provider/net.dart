@@ -24,13 +24,7 @@ String covertStringToUnicode(String content) {
 
 class Net {
   static Dio dio = Dio();
-  static getImage() async {
-    // var u =
-    //     r"""https://encrypted-tbn0.gstatic.com/images?q\u003dtbn:ANd9GcTa35JHvwwNzFXJq8ytnuQRht00cEPpRZziQlnvsIKFhLQmAAs8\u0026usqp\u003dCAU""";
-    // print(covertStringToUnicode(u));
-    // print(Uri.decodeFull(u));
-    // return;
-    String keyword = "투자의 심리학";
+  static getImage(String keyword) async {
     var ss = await dio.get(
         "https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m",
         options: Options(headers: {
@@ -68,10 +62,5 @@ class Net {
     imageurls.forEach((element) {
       print(element);
     });
-    // print(imageurls);
-    // print(listData);
-    // var document = parse(ss.data);
-
-    // print(document.querySelectorAll('div.rg_meta'));
   }
 }
