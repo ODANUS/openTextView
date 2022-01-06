@@ -8,6 +8,7 @@ import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/model/user_data.dart';
+import 'package:open_textview/provider/net.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -211,6 +212,7 @@ class LibraryPage extends GetView<GlobalController> {
           var path = await Utils.selectFile();
 
           ctl.tmpDir.refresh();
+          // Net.getImage();
         },
         label: Text('Add_file'.tr),
         icon: Icon(Ionicons.add),

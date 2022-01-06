@@ -15,7 +15,7 @@ import 'package:intl/intl.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:pdf_text/pdf_text.dart';
+
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,14 +33,14 @@ class Utils {
     var selectedFiles = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowMultiple: true,
-        allowedExtensions: ['txt', 'epub', 'pdf']);
+        allowedExtensions: ['txt', 'epub']);
     if (selectedFiles == null) {
       return selectedFiles;
     }
 
     var gctl = Get.find<GlobalController>();
-    selectedFiles.files.forEach((PlatformFile e) async {
-      gctl.bConvLoading(true);
+    gctl.bConvLoading(true);
+    await Future.forEach(selectedFiles.files, (PlatformFile e) async {
       if (e.extension != null && e.extension == "epub") {
         File f = File(e.path!);
         List<int> bytes = await f.readAsBytes();
@@ -59,55 +59,9 @@ class Utils {
           f.delete();
         }
       }
-      if (e.extension != null && e.extension == "pdf") {
-        File f = File(e.path!);
-        PDFDoc doc = await PDFDoc.fromFile(f);
-        print("==========================conv============================");
-        print(doc.pages);
-        print(await doc.pages[5].text);
-        // doc.pages.forEach((PDFPage element) {
-        //   print(element.text);
-        // });
-
-        // String docText = await doc.text;
-        // print(docText);
-        // File saveFile = File(e.path!.replaceAll(RegExp("pdf\$"), "txt"));
-        // saveFile.writeAsStringSync(docText);
-        f.delete();
-      }
-
-      gctl.bConvLoading(false);
     });
-    // .map((e) async {
-    //   if (e is File) {
-    //     File f = e as File;
-    //     if (f.path.split(".").last == "epub") {
-    //       List<int> bytes = await f.readAsBytes();
-    //       EpubBook epubBook = await EpubReader.readBook(bytes);
+    gctl.bConvLoading(false);
 
-    //       if (epubBook.Content != null) {
-    //         EpubContent bookContent = epubBook.Content!;
-    //         var strContent =
-    //             bookContent.Html!.values.map((EpubTextContentFile value) {
-    //           String chapterHtmlContent = value.Content!;
-    //           var document = parse(chapterHtmlContent);
-    //           var saveData = bodyToText(document.body!);
-    //           saveData = saveData.replaceAll(RegExp(r"\n{3,}"), "\n\n");
-    //           return saveData;
-    //         }).join();
-    //         // strContent
-    //       }
-    //     }
-    //   }
-    //   return e;
-    // }).toList();
-
-    //   print(f.path);
-    // }
-    // if (selectedDirectory != null) {
-    //   return selectedDirectory;
-    // }
-    // return null;
     return selectedFiles;
   }
 
