@@ -20,7 +20,7 @@ class LibraryPageCtl extends GetxController {
   RxBool reload = false.obs;
   RxList<String> sortList = ["name", "size", "date", "access"].obs;
   RxString sortTarget = "access".obs;
-  RxBool asc = true.obs;
+  RxBool asc = false.obs;
 
   @override
   void onInit() async {
