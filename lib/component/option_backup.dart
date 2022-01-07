@@ -69,16 +69,20 @@ class OptionBackup extends GetView<GlobalController> {
                 ),
                 Divider(),
                 ...pageCtl.backupFiles.map((element) {
-                  Widget delIcon = IconSlideAction(
-                    caption: 'delete'.tr,
-                    color: Colors.red,
-                    icon: Icons.delete,
-                    onTap: () async {
-                      pageCtl.removeBackupFile(element.id!);
-                    },
-                  );
+                  ActionPane delIcon = ActionPane(
+                      motion: const ScrollMotion(),
+                      extentRatio: 0.3,
+                      children: [
+                        SlidableAction(
+                          label: 'delete'.tr,
+                          backgroundColor: Colors.red,
+                          icon: Icons.delete,
+                          onPressed: (c) async {
+                            pageCtl.removeBackupFile(element.id!);
+                          },
+                        )
+                      ]);
                   return Slidable(
-                    actionPane: SlidableDrawerActionPane(),
                     child: ListTile(
                         onTap: () async {
                           String str =
@@ -86,13 +90,8 @@ class OptionBackup extends GetView<GlobalController> {
                           controller.userData(UserData.fromJson(str));
                         },
                         title: Text(element.name!)),
-                    actionExtentRatio: 0.2,
-                    secondaryActions: [
-                      delIcon,
-                    ],
-                    actions: [
-                      delIcon,
-                    ],
+                    startActionPane: delIcon,
+                    endActionPane: delIcon,
                   );
                 }).toList()
                 // ListTile(

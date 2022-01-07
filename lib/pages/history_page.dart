@@ -1,27 +1,10 @@
-import 'dart:io';
-
-import 'package:audio_session/audio_session.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/Ads.dart';
-import 'package:open_textview/component/option_backup.dart';
-import 'package:open_textview/component/option_filter.dart';
-import 'package:open_textview/component/option_history.dart';
-import 'package:open_textview/component/option_osslicense.dart';
-import 'package:open_textview/component/option_popup_ads.dart';
-import 'package:open_textview/component/option_review.dart';
-import 'package:open_textview/component/option_theme.dart';
-import 'package:open_textview/component/option_tts.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/model/user_data.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HistoryPageCtl extends GetxController {
   RxString searchText = "".obs;

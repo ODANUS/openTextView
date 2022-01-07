@@ -1,6 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/controller/audio_play.dart';
@@ -15,9 +15,9 @@ void main() async {
   Get.lazyPut(() => GlobalController());
   await AudioPlay.init();
   Wakelock.enable();
-  FlutterDownloader.initialize(
-      debug: true // optional: set false to disable printing logs to console
-      );
+  // FlutterDownloader.initialize(
+  //     debug: true // optional: set false to disable printing logs to console
+  //     );
   runApp(ScreenUtilInit(
       //  BoxConstraints(
       //       maxWidth: MediaQuery.of(context).size.width,

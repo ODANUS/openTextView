@@ -154,15 +154,22 @@ class LibraryPage extends GetView<GlobalController> {
                             return SizedBox();
                           }
                           File file = e as File;
-                          Widget delIcon = IconSlideAction(
-                            caption: 'remove_from_library'.tr,
-                            color: Colors.red,
-                            icon: Icons.delete,
-                            onTap: () async {
-                              await file.delete();
-                              ctl.tmpDir.refresh();
-                            },
-                          );
+                          ActionPane actionPane = ActionPane(
+                              motion: const ScrollMotion(),
+                              extentRatio: 0.3,
+                              children: [
+                                SlidableAction(
+                                  label: 'remove_from_library'.tr,
+                                  backgroundColor: Colors.red,
+                                  icon: Icons.delete,
+                                  flex: 1,
+                                  onPressed: (c) async {
+                                    await file.delete();
+                                    ctl.tmpDir.refresh();
+                                  },
+                                )
+                              ]);
+
                           String ex = "";
                           var exList = file.path.split(".");
                           if (exList.isNotEmpty) {
@@ -175,10 +182,9 @@ class LibraryPage extends GetView<GlobalController> {
                           String size = Utils.getFileSize(file);
                           return Card(
                               child: Slidable(
-                                  actionPane: SlidableDrawerActionPane(),
-                                  // actionExtentRatio: 0.2,
-                                  secondaryActions: [delIcon],
-                                  actions: [delIcon],
+                                  key: UniqueKey(),
+                                  startActionPane: actionPane,
+                                  endActionPane: actionPane,
                                   child: ListTile(
                                     leading: Icon(Ionicons.document_outline),
                                     title: Text(name),

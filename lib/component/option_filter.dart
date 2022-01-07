@@ -151,29 +151,54 @@ class OptionFilter extends GetView<GlobalController> {
                 bool bedit = idx == pageCtl.idxeditTarget.value;
                 var tmpFilter = pageCtl.tmpEditFilter.value;
                 var rxFilter = pageCtl.tmpEditFilter;
-                Widget delIcon = IconSlideAction(
-                  caption: 'delete'.tr,
-                  color: Colors.red,
-                  icon: Icons.delete,
-                  onTap: () async {
-                    controller.userData.update((v) {
-                      filterList.remove(e);
-                    });
-                  },
-                );
-                Widget editIcon = IconSlideAction(
-                  caption: 'edit'.tr,
-                  color: Colors.green,
-                  icon: Icons.edit,
-                  onTap: () async {
-                    pageCtl.tmpEditFilter(Filter.fromMap(e.toMap()));
-                    pageCtl.idxeditTarget(idx);
-                  },
-                );
+                ActionPane actionPane = ActionPane(
+                    motion: const ScrollMotion(),
+                    extentRatio: 0.4,
+                    children: [
+                      SlidableAction(
+                        label: 'delete'.tr,
+                        backgroundColor: Colors.red,
+                        icon: Icons.delete,
+                        onPressed: (c) async {
+                          controller.userData.update((v) {
+                            filterList.remove(e);
+                          });
+                        },
+                      ),
+                      SlidableAction(
+                        label: 'edit'.tr,
+                        backgroundColor: Colors.green,
+                        icon: Icons.edit,
+                        onPressed: (c) async {
+                          pageCtl.tmpEditFilter(Filter.fromMap(e.toMap()));
+                          pageCtl.idxeditTarget(idx);
+                        },
+                      )
+                    ]);
+                // Widget delIcon = IconSlideAction(
+                //   caption: 'delete'.tr,
+                //   color: Colors.red,
+                //   icon: Icons.delete,
+                //   onTap: () async {
+                //     controller.userData.update((v) {
+                //       filterList.remove(e);
+                //     });
+                //   },
+                // );
+                // Widget editIcon = IconSlideAction(
+                //   caption: 'edit'.tr,
+                //   color: Colors.green,
+                //   icon: Icons.edit,
+                //   onTap: () async {
+                //     pageCtl.tmpEditFilter(Filter.fromMap(e.toMap()));
+                //     pageCtl.idxeditTarget(idx);
+                //   },
+                // );
 
                 return Card(
                     child: Slidable(
-                  actionPane: SlidableDrawerActionPane(),
+                  startActionPane: actionPane,
+                  endActionPane: actionPane,
                   child: ListTile(
                       title: bedit
                           ? TextFormField(
@@ -285,9 +310,6 @@ class OptionFilter extends GetView<GlobalController> {
                                   }),
                         ],
                       )),
-                  actionExtentRatio: 0.2,
-                  secondaryActions: [delIcon, editIcon],
-                  actions: [delIcon, editIcon],
                 ));
               }).toList(),
               ElevatedButton(
