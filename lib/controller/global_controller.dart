@@ -165,19 +165,20 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
 
   bool volumeControll(KeyEvent event) {
     bool result = false;
-    if (event is KeyDownEvent && tabIndex.value == 0) {
+    if (event is KeyDownEvent && tabIndex.value == 0 && bFullScreen.value) {
       if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp &&
           !result &&
           !AudioPlay.audioHandler!.playbackState.stream.value.playing) {
         result = true;
         backPage();
       }
-      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown &&
+          bFullScreen.value) {
         result = true;
         nextPage();
       }
     }
-    return true;
+    return result;
   }
 
   backPage() {

@@ -66,6 +66,7 @@ dependencies:
   epubx: ^3.0.0
   html: ^0.15.0
   dio: ^4.0.4
+  flutter_downloader: ^1.7.1
   # flutter_tesseract_ocr: ^0.4.17
   
 

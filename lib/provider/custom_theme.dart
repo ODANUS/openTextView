@@ -25,6 +25,8 @@ class CustomTheme {
         buttonTheme: ButtonThemeData(padding: EdgeInsets.all(1.0)),
         iconTheme: IconThemeData(size: 24.0.sp),
         primaryIconTheme: IconThemeData(size: 10.0.sp),
+        inputDecorationTheme:
+            const InputDecorationTheme(border: OutlineInputBorder()),
         floatingActionButtonTheme: FloatingActionButtonThemeData());
   }
 
@@ -51,6 +53,8 @@ class CustomTheme {
         buttonTheme: ButtonThemeData(padding: EdgeInsets.all(1.0)),
         iconTheme: IconThemeData(size: 24.0.sp),
         primaryIconTheme: IconThemeData(size: 10.0.sp),
+        inputDecorationTheme:
+            const InputDecorationTheme(border: OutlineInputBorder()),
         floatingActionButtonTheme: FloatingActionButtonThemeData());
   }
 }

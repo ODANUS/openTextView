@@ -43,7 +43,7 @@ class SettingPage extends GetView<GlobalController> {
           AdsComp(),
           SizedBox(height: 5),
           Card(child: OptionTheme()),
-          Card(child: OptionHistory()),
+          // Card(child: OptionHistory()),
           Card(child: OptionBackup()),
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
