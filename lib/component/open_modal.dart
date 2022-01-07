@@ -263,6 +263,36 @@ class OpenModal {
                         icon: Icon(Ionicons.remove_outline)),
                   ],
                 ),
+                // font height
+                Text("font height setting".tr),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                        onPressed: ctl.userData.value.ui.fontHeight >= 8
+                            ? null
+                            : () {
+                                ctl.userData.update((val) {
+                                  var fh = val!.ui.fontHeight += 0.1;
+                                  val.ui.fontHeight =
+                                      double.parse(fh.toStringAsFixed(1));
+                                });
+                              },
+                        icon: Icon(Ionicons.add_outline)),
+                    Text("${ctl.userData.value.ui.fontHeight}"),
+                    IconButton(
+                        onPressed: ctl.userData.value.ui.fontHeight <= 0
+                            ? null
+                            : () {
+                                ctl.userData.update((val) {
+                                  var fh = val!.ui.fontHeight -= 0.1;
+                                  val.ui.fontHeight =
+                                      double.parse(fh.toStringAsFixed(1));
+                                });
+                              },
+                        icon: Icon(Ionicons.remove_outline)),
+                  ],
+                ),
                 // Font
                 Text("Font settings".tr),
                 ...ctl.listFont.map((e) {

@@ -89,6 +89,7 @@ class History {
     this.name = "",
     this.path = "",
     this.length = 0,
+    this.customName = "",
   });
 
   String date;
@@ -96,6 +97,7 @@ class History {
   int length;
   String name;
   String path;
+  String customName;
 
   factory History.fromJson(String str) => History.fromMap(json.decode(str));
 
@@ -107,6 +109,7 @@ class History {
         length: json["length"] == null ? 0 : json["length"],
         name: json["name"] == null ? "" : json["name"],
         path: json["path"] == null ? "" : json["path"],
+        customName: json["customName"] == null ? "" : json["customName"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -115,6 +118,7 @@ class History {
         "length": length,
         "name": name,
         "path": path,
+        "customName": customName,
       };
 }
 
@@ -190,11 +194,13 @@ class Ui {
     this.fontSize = 14,
     this.fontWeight = 3,
     this.fontFamily,
+    this.fontHeight = 1.4,
   });
 
   int fontSize;
   int fontWeight;
   String? fontFamily;
+  double fontHeight;
 
   factory Ui.fromJson(String str) => Ui.fromMap(json.decode(str));
 
@@ -204,11 +210,13 @@ class Ui {
         fontSize: json["fontSize"] == null ? 14 : json["fontSize"],
         fontWeight: json["fontWeight"] == null ? 3 : json["fontWeight"],
         fontFamily: json["fontFamily"] == null ? "" : json["fontFamily"],
+        fontHeight: json["fontHeight"] == null ? 1.4 : json["fontHeight"],
       );
 
   Map<String, dynamic> toMap() => {
         "fontSize": fontSize,
         "fontWeight": fontWeight,
         "fontFamily": fontFamily,
+        "fontHeight": fontHeight,
       };
 }

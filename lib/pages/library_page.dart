@@ -19,7 +19,7 @@ class LibraryPageCtl extends GetxController {
   RxString tmpDir = "".obs;
   RxBool reload = false.obs;
   RxList<String> sortList = ["name", "size", "date", "access"].obs;
-  RxString sortTarget = "name".obs;
+  RxString sortTarget = "access".obs;
   RxBool asc = true.obs;
 
   @override
@@ -46,22 +46,24 @@ class LibraryPage extends GetView<GlobalController> {
     List<History> listHistory = controller.userData.value.history;
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        // centerTitle: true,
         title: Text("my_library".tr),
-      ),
-      body: Column(children: [
-        Container(
-            padding: EdgeInsets.only(top: 2, bottom: 2), child: AdsComp()),
-        Obx(() => Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ...ctl.sortList.map((e) {
-                  ButtonStyle? style =
-                      ElevatedButton.styleFrom(primary: Colors.grey);
-                  if (ctl.sortTarget == e) {
-                    style = null;
-                  }
-                  return ElevatedButton(
+        actions: [
+          Obx(
+            () => SizedBox(
+              width: Get.width * 0.7,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                reverse: true,
+
+                // ctl.sortList
+                children: ctl.sortList.reversed.map((e) {
+                  ButtonStyle? style = TextButton.styleFrom(
+                      padding: EdgeInsets.only(left: 5, right: 5),
+                      primary: Colors.white,
+                      minimumSize: Size.zero);
+                  return TextButton(
                       style: style,
                       onPressed: () {
                         ctl.sortTarget(e);
@@ -76,10 +78,15 @@ class LibraryPage extends GetView<GlobalController> {
                         else
                           SizedBox()
                       ]));
-                })
-              ],
-            )),
-        Divider(),
+                }).toList(),
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: Column(children: [
+        Container(
+            padding: EdgeInsets.only(top: 5, bottom: 3), child: AdsComp()),
         Expanded(
           child: Obx(() {
             if (ctl.tmpDir.isEmpty) {
@@ -140,7 +147,7 @@ class LibraryPage extends GetView<GlobalController> {
                   },
                   child: ListView(
                       padding: EdgeInsets.only(
-                          left: 10, right: 10, top: 30, bottom: 150),
+                          left: 10, right: 10, top: 10, bottom: 150),
                       children: [
                         ...fileList.map((e) {
                           if (e is Directory || e is Link) {

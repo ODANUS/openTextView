@@ -82,6 +82,7 @@ class Messages extends Translations {
           "next page": "next page",
           "Back page": "Back page",
           "Double click to full screen": "Double click to full screen",
+          "font height setting": "Font Height Setting",
         },
         "ko": {
           "key": "ko",
@@ -156,6 +157,7 @@ class Messages extends Translations {
           "next page": "다음 페이지",
           "Back page": "이전 페이지",
           "Double click to full screen": "더블 클릭 풀스크린",
+          "font height setting": "글꼴 높이 설정",
         },
         "gl": {
           "key": "gl",
@@ -238,6 +240,7 @@ class Messages extends Translations {
           "next page": "Páxina seguinte.",
           "Back page": "Páxina de volta.",
           "Double click to full screen": "Fai dobre clic en pantalla completa",
+          "font height setting": "Configuración de altura da fonte",
         },
         "gu": {
           "key": "gu",
@@ -317,6 +320,7 @@ class Messages extends Translations {
           "next page": "આગામી પાનું",
           "Back page": "પાછા પાનું",
           "Double click to full screen": "પૂર્ણ સ્ક્રીન પર ડબલ ક્લિક કરો",
+          "font height setting": "ફૉન્ટ ઊંચાઈ સેટિંગ",
         },
         "el": {
           "key": "el",
@@ -397,6 +401,7 @@ class Messages extends Translations {
           "next page": "επόμενη σελίδα",
           "Back page": "Πίσω σελίδα",
           "Double click to full screen": "Κάντε διπλό κλικ σε πλήρη οθόνη",
+          "font height setting": "Ρύθμιση ύψους γραμματοσειράς",
         },
         "nl": {
           "key": "nl",
@@ -475,6 +480,7 @@ class Messages extends Translations {
           "next page": "volgende bladzijde",
           "Back page": "Back-pagina",
           "Double click to full screen": "Dubbelklik op Volledig scherm",
+          "font height setting": "Lettertype-instelling",
         },
         "ne": {
           "key": "ne",
@@ -556,6 +562,7 @@ class Messages extends Translations {
           "next page": "अर्को पाना",
           "Back page": "खुजूर पृष्ठ",
           "Double click to full screen": "पूर्ण स्क्रिनमा डबल क्लिक गर्नुहोस्",
+          "font height setting": "फन्ट उचाई सेटिंग्स",
         },
         "no": {
           "key": "no",
@@ -634,6 +641,7 @@ class Messages extends Translations {
           "next page": "neste side",
           "Back page": "Tilbakesiden",
           "Double click to full screen": "Dobbeltklikk til full skjerm",
+          "font height setting": "Fonthøydeinnstilling",
         },
         "da": {
           "key": "da",
@@ -712,6 +720,7 @@ class Messages extends Translations {
           "next page": "Næste side",
           "Back page": "Tilbage side",
           "Double click to full screen": "Dobbeltklik for fuld skærm",
+          "font height setting": "Skrifttype højdeindstilling",
         },
         "de": {
           "key": "de",
@@ -792,6 +801,7 @@ class Messages extends Translations {
           "next page": "Nächste Seite",
           "Back page": "Rückseite",
           "Double click to full screen": "Doppelklicken Sie auf den Vollbild",
+          "font height setting": "Schrifthöheneinstellung",
         },
         "lo": {
           "key": "lo",
@@ -869,6 +879,7 @@ class Messages extends Translations {
           "next page": "ຫນ້າຕໍ່ໄປ",
           "Back page": "ຫນ້າຫຼັງ",
           "Double click to full screen": "ກົດສອງຄັ້ງຕໍ່ຫນ້າຈໍເຕັມ",
+          "font height setting": "ການຕັ້ງຄ່າຄວາມສູງຂອງຕົວອັກສອນ",
         },
         "lv": {
           "key": "lv",
@@ -952,6 +963,7 @@ class Messages extends Translations {
           "Back page": "Atpakaļ lappuse",
           "Double click to full screen":
               "Veiciet dubultklikšķi uz pilnekrāna režīma",
+          "font height setting": "Fonta augstuma iestatījums",
         },
         "ru": {
           "key": "ru",
@@ -1035,6 +1047,7 @@ class Messages extends Translations {
           "next page": "следущая страница",
           "Back page": "Задняя страница",
           "Double click to full screen": "Дважды щелкните до полного экрана",
+          "font height setting": "Установка высоты шрифта",
         },
         "ro": {
           "key": "ro",
@@ -1117,6 +1130,7 @@ class Messages extends Translations {
           "next page": "pagina următoare",
           "Back page": "Înapoi Pagina",
           "Double click to full screen": "Faceți dublu clic pe ecran complet",
+          "font height setting": "Setarea înălțimii fontului",
         },
         "lt": {
           "key": "lt",
@@ -1198,6 +1212,7 @@ class Messages extends Translations {
           "next page": "Kitas puslapis",
           "Back page": "Atgal Page.",
           "Double click to full screen": "Dukart spustelėkite į visą ekraną",
+          "font height setting": "Šrifto aukščio nustatymas",
         },
         "mr": {
           "key": "mr",
@@ -1277,6 +1292,7 @@ class Messages extends Translations {
           "next page": "पुढील पृष्ठ",
           "Back page": "परत पृष्ठ",
           "Double click to full screen": "पूर्ण स्क्रीनवर डबल क्लिक करा",
+          "font height setting": "फॉन्ट उंची सेटिंग",
         },
         "mk": {
           "key": "mk",
@@ -1358,6 +1374,7 @@ class Messages extends Translations {
           "next page": "Следна Страна",
           "Back page": "Назад страница",
           "Double click to full screen": "Двоен клик на цел екран",
+          "font height setting": "Поставување висина на фонтот",
         },
         "ml": {
           "key": "ml",
@@ -1442,6 +1459,7 @@ class Messages extends Translations {
           "Back page": "തിരികെ പേജ്",
           "Double click to full screen":
               "പൂർണ്ണ സ്ക്രീനിലേക്ക് ഇരട്ട ക്ലിക്കുചെയ്യുക",
+          "font height setting": "ഫോണ്ട് ഉയരം ക്രമീകരണം",
         },
         "ms": {
           "key": "ms",
@@ -1520,6 +1538,7 @@ class Messages extends Translations {
           "next page": "muka surat seterusnya",
           "Back page": "Page Page.",
           "Double click to full screen": "Klik dua kali untuk skrin penuh",
+          "font height setting": "Tetapan ketinggian fon.",
         },
         "ms": {
           "key": "ms",
@@ -1598,6 +1617,7 @@ class Messages extends Translations {
           "next page": "muka surat seterusnya",
           "Back page": "Page Page.",
           "Double click to full screen": "Klik dua kali untuk skrin penuh",
+          "font height setting": "Tetapan ketinggian fon.",
         },
         "mn": {
           "key": "mn",
@@ -1678,6 +1698,7 @@ class Messages extends Translations {
           "next page": "дараагийн хуудас",
           "Back page": "Sarkard хуудас",
           "Double click to full screen": "Бүрэн дэлгэц рүү хоёр товшино уу",
+          "font height setting": "Үсгийн өндөр тохируулга",
         },
         "eu": {
           "key": "eu",
@@ -1757,6 +1778,7 @@ class Messages extends Translations {
           "next page": "Hurrengo orria",
           "Back page": "Itzuli orria",
           "Double click to full screen": "Egin klik bikoitza pantaila osoan",
+          "font height setting": "Letra-altuera ezarpena",
         },
         "my": {
           "key": "my",
@@ -1839,6 +1861,7 @@ class Messages extends Translations {
           "next page": "နောက်စာမျက်နှာ",
           "Back page": "နောက်ကျောစာမျက်နှာ",
           "Double click to full screen": "မျက်နှာပြင်အပြည့်ကိုနှစ်ချက်နှိပ်ပါ",
+          "font height setting": "font height setting",
         },
         "vi": {
           "key": "vi",
@@ -1917,6 +1940,7 @@ class Messages extends Translations {
           "next page": "Trang tiếp theo",
           "Back page": "Trở lại trang",
           "Double click to full screen": "Nhấp đúp vào toàn màn hình",
+          "font height setting": "Cài đặt chiều cao phông chữ",
         },
         "be": {
           "key": "be",
@@ -1998,6 +2022,7 @@ class Messages extends Translations {
           "next page": "наступная старонка",
           "Back page": "Назад старонка",
           "Double click to full screen": "Двойчы пстрычка на поўны экран",
+          "font height setting": "Налада вышыні шрыфта",
         },
         "bn": {
           "key": "bn",
@@ -2077,6 +2102,7 @@ class Messages extends Translations {
           "next page": "পরবর্তী পৃষ্ঠা",
           "Back page": "ফিরে পৃষ্ঠা",
           "Double click to full screen": "পূর্ণ পর্দায় ডাবল ক্লিক করুন",
+          "font height setting": "ফন্ট উচ্চতা সেটিং",
         },
         "bg": {
           "key": "bg",
@@ -2159,6 +2185,7 @@ class Messages extends Translations {
           "next page": "Следваща страница",
           "Back page": "Задна страница.",
           "Double click to full screen": "Кликнете два пъти към цял екран",
+          "font height setting": "Настройка на височината на шрифта",
         },
         "sr": {
           "key": "sr",
@@ -2239,6 +2266,7 @@ class Messages extends Translations {
           "next page": "Следећа страна",
           "Back page": "Назад страну",
           "Double click to full screen": "Двапут кликните на цео екран",
+          "font height setting": "Подешавање висине фонта",
         },
         "sw": {
           "key": "sw",
@@ -2321,6 +2349,7 @@ class Messages extends Translations {
           "Back page": "Ukurasa wa nyuma.",
           "Double click to full screen":
               "Bonyeza mara mbili kwenye skrini kamili",
+          "font height setting": "Mpangilio wa urefu wa font.",
         },
         "sv": {
           "key": "sv",
@@ -2399,6 +2428,7 @@ class Messages extends Translations {
           "next page": "nästa sida",
           "Back page": "Baksida",
           "Double click to full screen": "Dubbelklicka på helskärm",
+          "font height setting": "Teckensnittshöjdinställning",
         },
         "es": {
           "key": "es",
@@ -2483,6 +2513,7 @@ class Messages extends Translations {
           "Back page": "Página posterior",
           "Double click to full screen":
               "Haga doble clic para pantalla completa",
+          "font height setting": "Ajuste de altura de fuente",
         },
         "sk": {
           "key": "sk",
@@ -2562,6 +2593,7 @@ class Messages extends Translations {
           "next page": "ďalšia strana",
           "Back page": "Stránka",
           "Double click to full screen": "Dvakrát kliknite na celú obrazovku",
+          "font height setting": "Nastavenie výšky písma",
         },
         "sl": {
           "key": "sl",
@@ -2641,6 +2673,7 @@ class Messages extends Translations {
           "next page": "Naslednja stran",
           "Back page": "Nazaj Page.",
           "Double click to full screen": "Dvokliknite na Full Screen",
+          "font height setting": "Nastavitev višine pisave",
         },
         "si": {
           "key": "si",
@@ -2719,6 +2752,7 @@ class Messages extends Translations {
           "next page": "ඊළඟ පිටුව",
           "Back page": "පසුපස පිටුව",
           "Double click to full screen": "සම්පූර්ණ තිරයට දෙවරක් ක්ලික් කරන්න",
+          "font height setting": "අකුරු උස සැකසුම",
         },
         "ar": {
           "key": "ar",
@@ -2797,6 +2831,7 @@ class Messages extends Translations {
           "next page": "الصفحة التالية",
           "Back page": "الصفحة الرئيسية",
           "Double click to full screen": "انقر نقرا مزدوجا على ملء الشاشة",
+          "font height setting": "إعداد ارتفاع الخط",
         },
         "hy": {
           "key": "hy",
@@ -2877,6 +2912,7 @@ class Messages extends Translations {
           "next page": "հաջորդ էջը",
           "Back page": "Վերադառնալ էջ",
           "Double click to full screen": "Կրկնակի կտտացրեք ամբողջ էկրանին",
+          "font height setting": "Տառատեսակի բարձրության կարգավորում",
         },
         "is": {
           "key": "is",
@@ -2957,6 +2993,7 @@ class Messages extends Translations {
           "next page": "næsta síða",
           "Back page": "Aftur á síðu.",
           "Double click to full screen": "Tvöfaldur smellur á fullan skjá",
+          "font height setting": "Leturhæð stilling",
         },
         "az": {
           "key": "az",
@@ -3036,6 +3073,7 @@ class Messages extends Translations {
           "next page": "növbəti səhifə",
           "Back page": "Arxa səhifə",
           "Double click to full screen": "Tam ekrana iki dəfə vurun",
+          "font height setting": "Şrift boyu qəbulu",
         },
         "af": {
           "key": "af",
@@ -3116,6 +3154,7 @@ class Messages extends Translations {
           "next page": "volgende bladsy",
           "Back page": "Terug bladsy",
           "Double click to full screen": "Dubbelklik op volle skerm",
+          "font height setting": "Font Hoogte-instelling",
         },
         "sq": {
           "key": "sq",
@@ -3198,6 +3237,7 @@ class Messages extends Translations {
           "next page": "Faqja tjetër",
           "Back page": "Back",
           "Double click to full screen": "Klikoni dy herë në ekran të plotë",
+          "font height setting": "Vendosja e lartësisë së fontit",
         },
         "am": {
           "key": "am",
@@ -3274,6 +3314,7 @@ class Messages extends Translations {
           "next page": "ቀጣይ ገጽ",
           "Back page": "ተመለስ ገጽ",
           "Double click to full screen": "ሙሉ ማያ ገጽ ላይ ሁለቴ ጠቅ ያድርጉ",
+          "font height setting": "የቅርጸ-ቁምፊ ቁመት ቅንጅት",
         },
         "et": {
           "key": "et",
@@ -3352,6 +3393,7 @@ class Messages extends Translations {
           "next page": "Järgmine lehekülg",
           "Back page": "Tagasi lehekülg",
           "Double click to full screen": "Topeltklõps täisekraanile",
+          "font height setting": "Fondi kõrgus",
         },
         "en": {
           "key": "en",
@@ -3432,6 +3474,7 @@ class Messages extends Translations {
           "next page": "next page",
           "Back page": "Back page",
           "Double click to full screen": "Double click to full screen",
+          "font height setting": "Font Height Setting",
         },
         "ur": {
           "key": "ur",
@@ -3511,6 +3554,7 @@ class Messages extends Translations {
           "next page": "اگلا صفحہ",
           "Back page": "واپس صفحہ",
           "Double click to full screen": "مکمل سکرین پر ڈبل کلک کریں",
+          "font height setting": "فونٹ اونچائی کی ترتیب",
         },
         "uk": {
           "key": "uk",
@@ -3593,6 +3637,7 @@ class Messages extends Translations {
           "next page": "Наступна сторінка",
           "Back page": "Назад",
           "Double click to full screen": "Двічі клацніть на повний екран",
+          "font height setting": "Налаштування висоти шрифту",
         },
         "it": {
           "key": "it",
@@ -3675,6 +3720,7 @@ class Messages extends Translations {
           "Back page": "Pagina posteriore",
           "Double click to full screen":
               "Fare doppio clic sullo schermo intero",
+          "font height setting": "Impostazione altezza del carattere",
         },
         "id": {
           "key": "id",
@@ -3754,6 +3800,7 @@ class Messages extends Translations {
           "next page": "halaman selanjutnya",
           "Back page": "Kembali halaman",
           "Double click to full screen": "Klik dua kali ke layar penuh",
+          "font height setting": "Pengaturan Tinggi Font.",
         },
         "ja": {
           "key": "ja",
@@ -3828,6 +3875,7 @@ class Messages extends Translations {
           "next page": "次のページ",
           "Back page": "バックページ",
           "Double click to full screen": "ダブルクリックしてフルスクリーン",
+          "font height setting": "フォントの高さ設定",
         },
         "ka": {
           "key": "ka",
@@ -3911,6 +3959,7 @@ class Messages extends Translations {
           "next page": "შემდეგი გვერდი",
           "Back page": "უკან გვერდი",
           "Double click to full screen": "ორმაგი დაწკაპუნება სრული ეკრანზე",
+          "font height setting": "შრიფტის სიმაღლე",
         },
         "zu": {
           "key": "zu",
@@ -3993,6 +4042,7 @@ class Messages extends Translations {
           "next page": "Ikhasi elilandelayo",
           "Back page": "Ikhasi elingemuva",
           "Double click to full screen": "Qhafaza kabili kusikrini esigcwele",
+          "font height setting": "Ifonti Height Setting",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -4066,6 +4116,7 @@ class Messages extends Translations {
           "next page": "下一页",
           "Back page": "回页面",
           "Double click to full screen": "双击全屏",
+          "font height setting": "字体高度设置",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -4139,6 +4190,7 @@ class Messages extends Translations {
           "next page": "下一頁",
           "Back page": "回頁面",
           "Double click to full screen": "雙擊全屏",
+          "font height setting": "字體高度設置",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -4212,6 +4264,7 @@ class Messages extends Translations {
           "next page": "下一頁",
           "Back page": "回頁面",
           "Double click to full screen": "雙擊全屏",
+          "font height setting": "字體高度設置",
         },
         "cs": {
           "key": "cs",
@@ -4291,6 +4344,7 @@ class Messages extends Translations {
           "next page": "další strana",
           "Back page": "Zadní strana",
           "Double click to full screen": "Dvakrát klikněte na celou obrazovku",
+          "font height setting": "Nastavení výšky písma.",
         },
         "kk": {
           "key": "kk",
@@ -4370,6 +4424,7 @@ class Messages extends Translations {
           "next page": "Келесі бет",
           "Back page": "Артқа беті",
           "Double click to full screen": "Толық экранға екі рет нұқыңыз",
+          "font height setting": "Шрифт биіктігі параметрі",
         },
         "ca": {
           "key": "ca",
@@ -4454,6 +4509,7 @@ class Messages extends Translations {
           "Back page": "Pàgina posterior",
           "Double click to full screen":
               "Feu doble clic a la pantalla completa",
+          "font height setting": "Configuració de l'altura de la font",
         },
         "kn": {
           "key": "kn",
@@ -4536,6 +4592,7 @@ class Messages extends Translations {
           "next page": "ಮುಂದಿನ ಪುಟ",
           "Back page": "ಮತ್ತೆ ಪುಟ",
           "Double click to full screen": "ಪೂರ್ಣ ಪರದೆಗೆ ಡಬಲ್ ಕ್ಲಿಕ್ ಮಾಡಿ",
+          "font height setting": "ಫಾಂಟ್ ಎತ್ತರ ಸೆಟ್ಟಿಂಗ್",
         },
         "hr": {
           "key": "hr",
@@ -4616,6 +4673,7 @@ class Messages extends Translations {
           "next page": "sljedeća stranica",
           "Back page": "Stražnja stranica",
           "Double click to full screen": "Dvaput kliknite na cijeli zaslon",
+          "font height setting": "Postavka visine fonta",
         },
         "km": {
           "key": "km",
@@ -4695,6 +4753,7 @@ class Messages extends Translations {
           "next page": "ទំ​ព​រ័​បន្ទាប់",
           "Back page": "ទំព័រខាងក្រោយ",
           "Double click to full screen": "ចុចទ្វេដងលើអេក្រង់ពេញ",
+          "font height setting": "ការកំណត់កម្ពស់ពុម្ពអក្សរ",
         },
         "ky": {
           "key": "ky",
@@ -4776,6 +4835,7 @@ class Messages extends Translations {
           "next page": "кийинки бет",
           "Back page": "Арткы бет",
           "Double click to full screen": "Толук экранга эки жолу чыкылдатыңыз",
+          "font height setting": "Шрифт бой бою",
         },
         "ta": {
           "key": "ta",
@@ -4858,6 +4918,7 @@ class Messages extends Translations {
           "next page": "அடுத்த பக்கம்",
           "Back page": "மீண்டும் பக்கம்",
           "Double click to full screen": "முழு திரையில் இரட்டை சொடுக்கவும்",
+          "font height setting": "எழுத்துரு உயரம் அமைப்பை",
         },
         "th": {
           "key": "th",
@@ -4937,6 +4998,7 @@ class Messages extends Translations {
           "next page": "หน้าต่อไป",
           "Back page": "หน้าย้อนกลับ",
           "Double click to full screen": "ดับเบิลคลิกเพื่อเต็มหน้าจอ",
+          "font height setting": "การตั้งค่าความสูงแบบอักษร",
         },
         "tr": {
           "key": "tr",
@@ -5018,6 +5080,7 @@ class Messages extends Translations {
           "next page": "sonraki Sayfa",
           "Back page": "Sırt sayfası",
           "Double click to full screen": "Tam Ekrana Çift Kişilik Tıklayın",
+          "font height setting": "Yazı Tipi Yükseklik Ayarı",
         },
         "te": {
           "key": "te",
@@ -5100,6 +5163,7 @@ class Messages extends Translations {
           "Back page": "తిరిగి పేజీ",
           "Double click to full screen":
               "పూర్తి స్క్రీన్కు డబుల్ క్లిక్ చేయండి",
+          "font height setting": "ఫాంట్ ఎత్తు సెట్టింగ్",
         },
         "pa": {
           "key": "pa",
@@ -5178,6 +5242,7 @@ class Messages extends Translations {
           "next page": "ਅਗਲਾ ਪੰਨਾ",
           "Back page": "ਪਿਛਲਾ ਪੰਨਾ",
           "Double click to full screen": "ਪੂਰੀ ਸਕ੍ਰੀਨ ਤੇ ਦੋ ਵਾਰ ਕਲਿੱਕ ਕਰੋ",
+          "font height setting": "ਫੋਂਟ ਕੱਦ ਦੀ ਸੈਟਿੰਗ",
         },
         "fa": {
           "key": "fa",
@@ -5258,6 +5323,7 @@ class Messages extends Translations {
           "next page": "صفحه بعد",
           "Back page": "صفحه برگشت",
           "Double click to full screen": "دوبار کلیک کنید تا تمام صفحه",
+          "font height setting": "تنظیم ارتفاع فونت",
         },
         "pt": {
           "key": "pt",
@@ -5341,6 +5407,7 @@ class Messages extends Translations {
           "next page": "próxima página",
           "Back page": "Página de volta",
           "Double click to full screen": "Clique duas vezes para tela cheia",
+          "font height setting": "Configuração da altura da fonte",
         },
         "pl": {
           "key": "pl",
@@ -5422,6 +5489,7 @@ class Messages extends Translations {
           "next page": "Następna strona",
           "Back page": "Strona tylna",
           "Double click to full screen": "Kliknij dwukrotnie, aby pełny ekran",
+          "font height setting": "Ustawienie wysokości czcionki",
         },
         "fr": {
           "key": "fr",
@@ -5505,6 +5573,7 @@ class Messages extends Translations {
           "next page": "page suivante",
           "Back page": "Back Page",
           "Double click to full screen": "Double-cliquez sur Plein écran",
+          "font height setting": "Réglage de la hauteur de la police",
         },
         "fi": {
           "key": "fi",
@@ -5583,6 +5652,7 @@ class Messages extends Translations {
           "next page": "seuraava sivu",
           "Back page": "Takaisin sivu",
           "Double click to full screen": "Kaksoisnapsauta koko näyttö",
+          "font height setting": "Fontin korkeusasetus",
         },
         "fil": {
           "key": "fil",
@@ -5666,6 +5736,7 @@ class Messages extends Translations {
           "next page": "Susunod na pahina",
           "Back page": "Bumalik na pahina",
           "Double click to full screen": "I-double click sa buong screen.",
+          "font height setting": "Pagtatakda ng taas ng font",
         },
         "hu": {
           "key": "hu",
@@ -5747,6 +5818,7 @@ class Messages extends Translations {
           "Back page": "Vissza oldal",
           "Double click to full screen":
               "Kattintson duplán a teljes képernyőre",
+          "font height setting": "Betűs magasság beállítás",
         },
         "iw": {
           "key": "iw",
@@ -5824,6 +5896,7 @@ class Messages extends Translations {
           "next page": "עמוד הבא",
           "Back page": "חזרה עמוד",
           "Double click to full screen": "לחץ לחיצה כפולה למסך מלא",
+          "font height setting": "גובה גובה הגדרת",
         },
         "hi": {
           "key": "hi",
@@ -5903,6 +5976,7 @@ class Messages extends Translations {
           "next page": "अगला पृष्ठ",
           "Back page": "पिछला पृष्ठ",
           "Double click to full screen": "पूर्ण स्क्रीन पर डबल क्लिक करें",
+          "font height setting": "फ़ॉन्ट ऊंचाई सेटिंग",
         },
       };
 }

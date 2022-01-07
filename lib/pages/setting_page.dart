@@ -10,8 +10,8 @@ import 'package:open_textview/component/option_backup.dart';
 import 'package:open_textview/component/option_filter.dart';
 import 'package:open_textview/component/option_history.dart';
 import 'package:open_textview/component/option_osslicense.dart';
+import 'package:open_textview/component/option_popup_ads.dart';
 import 'package:open_textview/component/option_review.dart';
-import 'package:open_textview/component/option_share.dart';
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
 import 'package:open_textview/controller/global_controller.dart';
@@ -25,23 +25,31 @@ class SettingPage extends GetView<GlobalController> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        // centerTitle: true,
         title: Text("Settings".tr),
+        actions: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OptionReview(),
+            ],
+          ),
+          OptionPopupAds(),
+        ],
       ),
       body: ListView(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 100),
         children: [
-          Card(child: OptionBackup()),
           AdsComp(),
+          SizedBox(height: 5),
+          Card(child: OptionTheme()),
+          Card(child: OptionHistory()),
+          Card(child: OptionBackup()),
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
-          Card(child: OptionHistory()),
 
-          Card(child: OptionTheme()),
           // Card(child: OptionCache()),
           // Card(child: OptionOcr()),
-          Card(child: OptionReview()),
-          Card(child: OptionShare()),
           Card(
             child: ListTile(
                 title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
@@ -67,6 +75,8 @@ class SettingPage extends GetView<GlobalController> {
                 child: Text("test")),
         ],
       ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //     onPressed: () {}, label: OptionReview()),
     );
   }
 }

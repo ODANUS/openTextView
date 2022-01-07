@@ -25,10 +25,15 @@ class ReadPage extends GetView<GlobalController> {
             toolbarHeight: 30,
             // elevation: 0,
             // backgroundColor: Colors.transparent,
-            title: Text(
-              controller.lastData.value.name,
-              style: TextStyle(
-                fontSize: 15,
+            title: InkWell(
+              onTap: () {
+                Get.dialog(AlertDialog());
+              },
+              child: Text(
+                controller.lastData.value.name.replaceAll(".txt", ""),
+                style: TextStyle(
+                  fontSize: 15,
+                ),
               ),
             ),
             actions: [
@@ -66,6 +71,7 @@ class ReadPage extends GetView<GlobalController> {
                     int pos = controller.lastData.value.pos;
                     int max = pos + controller.userData.value.tts.groupcnt;
                     bool brange = bPlay && idx >= pos && idx < max;
+
                     return InkWell(
                       onLongPress: () {
                         Clipboard.setData(
@@ -95,6 +101,8 @@ class ReadPage extends GetView<GlobalController> {
                                       .toDouble(),
                                   fontWeight: FontWeight.values[
                                       controller.userData.value.ui.fontWeight],
+                                  height:
+                                      controller.userData.value.ui.fontHeight,
                                   // fontFamily: controller.userData.value.ui.fontFamily,
                                   fontFamily: controller
                                               .userData.value.ui.fontFamily ==

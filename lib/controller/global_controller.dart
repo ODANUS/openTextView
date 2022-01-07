@@ -69,12 +69,14 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
       try {
         lastData(History.fromJson(tmplast));
         await openFile(File(lastData.value.path));
-      } catch (e) {}
+      } catch (e) {
+        print(e);
+      }
     }
 
     debounce(userData, (callback) {
       Utils.setUserData(userData.toJson());
-    }, time: 3.seconds);
+    }, time: 5.seconds);
 
     debounce(userData, (UserData callback) {
       AudioPlay.setConfig(
@@ -105,7 +107,7 @@ class GlobalController extends GetxController with WidgetsBindingObserver {
         val.history[idx].path = history.path;
         val.history[idx].date = history.date;
       });
-    }, time: 600.milliseconds);
+    }, time: 1.seconds);
 
     AudioPlay.lisen((e) {
       if (e.playing) {
