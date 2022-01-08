@@ -27,7 +27,7 @@ class ReadPage extends GetView<GlobalController> {
             // backgroundColor: Colors.transparent,
             title: InkWell(
               onTap: () {
-                Get.dialog(AlertDialog());
+                // Get.dialog(AlertDialog());
               },
               child: Text(
                 controller.lastData.value.name.replaceAll(".txt", ""),

@@ -1,15 +1,12 @@
 import 'dart:async';
-import 'dart:convert';
+
 import 'dart:math';
 import 'package:get/get.dart';
 import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:googleapis/chat/v1.dart';
-import 'package:googleapis/realtimebidding/v1.dart';
 import 'package:open_textview/model/user_data.dart';
-import 'package:open_textview/provider/utils.dart';
 
 class AudioHandler extends BaseAudioHandler
     with
@@ -52,15 +49,23 @@ class AudioHandler extends BaseAudioHandler
   List<Filter> filter = List.of([Filter()]);
   History lastData = History();
   List<String> contents = [];
+  int contentsLength = 0;
 
   AudioSession? session;
 
   // mix in default seek callback implementations
   PlaybackState baseState = PlaybackState(
     controls: [
+      // MediaControl.rewind,
       MediaControl.pause,
       MediaControl.stop,
+      // MediaControl.fastForward,
     ],
+    // systemActions: const {
+    //   MediaAction.seek,
+    //   MediaAction.skipToNext,
+    //   MediaAction.skipToPrevious,
+    // },
     // systemActions: const {
     //   MediaAction.pause,
     //   MediaAction.play,
@@ -94,6 +99,16 @@ class AudioHandler extends BaseAudioHandler
     await tts.setPitch(ttsOption.pitch);
     // await tts.awaitSpeakCompletion(true);
   }
+
+  // Future<void> skipToPrevious() {
+  //   dev.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+  //   return super.skipToPrevious();
+  // }
+
+  // Future<void> skipToNext() {
+  //   dev.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+  //   return super.skipToNext();
+  // }
 
   Future<void> initTts() async {
     if (!bInitTts) {
@@ -167,20 +182,16 @@ class AudioHandler extends BaseAudioHandler
 
     this.session!.setActive(true);
     await initTts();
-
     mediaItem.add(MediaItem(
       id: 'opentextView',
       album: '',
       title: '${lastData.name}',
-      duration: Duration(seconds: contents.length),
+      duration: Duration(seconds: contentsLength),
     ));
-    // int cnt = ttsOption.groupcnt;
-    for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
-      if (playstat != STAT_PLAY) break;
-      int end = min(i + ttsOption.groupcnt, contents.length);
 
-      String speakText = contents.getRange(i, end).join("\n");
-
+    while (contents.isNotEmpty) {
+      int end = min(ttsOption.groupcnt, contents.length);
+      String speakText = contents.getRange(0, end).join("\n");
       filter.forEach((e) {
         if (e.enable) {
           if (e.expr) {
@@ -205,22 +216,68 @@ class AudioHandler extends BaseAudioHandler
           }
         });
       }
-      playbackState
-          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
+      playbackState.add(baseState.copyWith(
+          updatePosition: Duration(seconds: contentsLength - contents.length)));
       bool bspeak = await speak(speakText);
-      lastData.pos = i;
-      await Utils.setLastData(lastData.toJson());
-
       if (!bspeak) {
         break;
       }
-
-      if (end >= contents.length) {
+      contents.removeRange(0, end);
+      if (contents.isEmpty) {
         stop();
         break;
       }
     }
+
+    // ====================================
+    // int cnt = ttsOption.groupcnt;
+    // for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
+    //   if (playstat != STAT_PLAY) break;
+    //   int end = min(i + ttsOption.groupcnt, contents.length);
+
+    //   String speakText = contents.getRange(i, end).join("\n");
+
+    //   filter.forEach((e) {
+    //     if (e.enable) {
+    //       if (e.expr) {
+    //         speakText =
+    //             speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+    //       } else {
+    //         speakText = speakText.replaceAll(e.filter, e.to);
+    //       }
+    //     }
+    //   });
+    //   if (this.autoExitDate != null) {
+    //     mediaItem.first.then((e) {
+    //       var now = DateTime.now();
+    //       if (autoExitDate!.isBefore(now)) {
+    //         autoExitDate = null;
+    //         this.stop();
+    //       } else {
+    //         var ss = autoExitDate!.difference(now);
+    //         mediaItem.add(e!.copyWith(
+    //             album: "Auto_shut_down_after_@min_minute"
+    //                 .trParams({"min": ss.inMinutes.toString()})));
+    //       }
+    //     });
+    //   }
+    //   playbackState
+    //       .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
+
+    //   bool bspeak = await speak(speakText);
+    //   lastData.pos = i;
+    //   await Utils.setLastData(lastData.toJson());
+
+    //   if (!bspeak) {
+    //     break;
+    //   }
+
+    //   if (end >= contents.length) {
+    //     stop();
+    //     break;
+    //   }
+    // }
   }
 
   Future<void> pause() async {
@@ -232,6 +289,7 @@ class AudioHandler extends BaseAudioHandler
             MediaControl.play,
             MediaControl.stop,
           ],
+          androidCompactActionIndices: const [0, 1],
           processingState: AudioProcessingState.completed,
           updatePosition: Duration(seconds: lastData.pos),
           playing: false,
@@ -258,10 +316,12 @@ class AudioHandler extends BaseAudioHandler
   Future<dynamic> customAction(String name,
       [Map<String, dynamic>? extras]) async {
     if (name == "init" && extras != null) {
-      this.contents = extras["contents"] as List<String>;
+      this.contents = List<String>.from(extras["contents"]);
+      this.contentsLength = this.contents.length;
       this.ttsOption = Tts.fromMap(extras["tts"]);
       this.filter = extras["filter"];
       this.lastData = History.fromMap(extras["lastData"]);
+      this.contents.removeRange(0, lastData.pos);
     }
     if (name == "config" && extras != null) {
       this.ttsOption = Tts.fromMap(extras["tts"]);

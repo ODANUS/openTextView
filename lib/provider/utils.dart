@@ -50,10 +50,13 @@ class Utils {
           var strContent =
               bookContent.Html!.values.map((EpubTextContentFile value) {
             var document = parse(value.Content!);
-            var saveData = bodyToText(document.body!);
+
+            var saveData = document.body!.text; //bodyToText(document.body!);
+            saveData = saveData.split("\n").map((e) => e.trim()).join("\n");
             saveData = saveData.replaceAll(RegExp(r"\n{3,}"), "\n\n");
             return saveData;
           }).join();
+
           File saveFile = File(e.path!.replaceAll(RegExp("epub\$"), "txt"));
           saveFile.writeAsStringSync(strContent);
           f.delete();
@@ -71,14 +74,17 @@ class Utils {
     if (e.children.length > 0) {
       rtn += e.children
           .map((v) {
+            if (v.localName?.toLowerCase() == "br") {
+              return "\n";
+            }
             if (v.localName?.toLowerCase() == "img") {
               return "";
             }
             return bodyToText(v);
           })
           .toList()
-          .join();
-      rtn += "\n";
+          .join("\n");
+      // rtn += "\n";
     }
     if (rtn.isEmpty) {
       return "";
