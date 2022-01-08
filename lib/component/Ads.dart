@@ -61,12 +61,12 @@ class AdsComp extends GetView<AdsCtl> {
     var ctl = Get.find<AdsCtl>();
 
     return LayoutBuilder(builder: (context, constraints) {
-      // ctl.widthSize.update((v) {
-      //   double w = constraints.maxWidth == double.infinity
-      //       ? context.width
-      //       : constraints.maxWidth;
-      //   ctl.widthSize.value = w;
-      // });
+      ctl.widthSize.update((v) {
+        double w = constraints.maxWidth == double.infinity
+            ? context.width
+            : constraints.maxWidth;
+        ctl.widthSize.value = w;
+      });
 
       return Obx(() {
         if (ctl.isLoadAd.value) {
