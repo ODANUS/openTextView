@@ -63,14 +63,31 @@ class SettingPage extends GetView<GlobalController> {
           if (kDebugMode)
             ElevatedButton(
                 onPressed: () async {
-                  var status = await Permission.storage.status;
+                  var d = await getLibraryDirectory();
+                  d.list().listen((event) {
+                    print(event.path);
+                    if (event is Directory) {
+                      print(">>>>>>>>>>>>>>>>>>>> ${event.listSync()}");
+                    }
+                    // try {
+                    //   var d1 = Directory(event.path);
+                    // } catch (e) {}
+                  });
 
-                  if (!status.isGranted) {
-                    await Permission.storage.request();
-                  }
-                  Directory d = Directory("${controller.libraryPaths[0]}/OCR");
-                  File("${d.path}/test_ocr.txt")
-                      .writeAsStringSync("testestestes");
+                  // var d1 = await getExternalCacheDirectories();
+                  // d1!.forEach((element) {
+                  //   element.list().listen((event) {
+                  //     print(event.path);
+                  //   });
+                  // });
+                  // var status = await Permission.storage.status;
+
+                  // if (!status.isGranted) {
+                  //   await Permission.storage.request();
+                  // }
+                  // Directory d = Directory("${controller.libraryPaths[0]}/OCR");
+                  // File("${d.path}/test_ocr.txt")
+                  //     .writeAsStringSync("testestestes");
                 },
                 child: Text("test")),
         ],

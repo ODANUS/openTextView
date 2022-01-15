@@ -22,6 +22,8 @@ class LibraryPageCtl extends GetxController {
   RxString sortTarget = "access".obs;
   RxBool asc = false.obs;
 
+  RxString searchText = "".obs;
+
   @override
   void onInit() async {
     loadtmpDir();
@@ -87,6 +89,16 @@ class LibraryPage extends GetView<GlobalController> {
       body: Column(children: [
         Container(
             padding: EdgeInsets.only(top: 5, bottom: 3), child: AdsComp()),
+        Container(
+            padding: EdgeInsets.only(top: 2, bottom: 2, left: 10, right: 10),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "Please enter a word/sentence to search for".tr,
+              ),
+              onChanged: (v) {
+                ctl.searchText(v);
+              },
+            )),
         Expanded(
           child: Obx(() {
             if (ctl.tmpDir.isEmpty) {
@@ -140,6 +152,16 @@ class LibraryPage extends GetView<GlobalController> {
                 }
               });
             }
+
+            fileList = fileList
+                .where((el) =>
+                    el.path
+                        .split("/")
+                        .last
+                        .toLowerCase()
+                        .indexOf(ctl.searchText.value.toLowerCase()) >=
+                    0)
+                .toList();
             return Stack(children: [
               RefreshIndicator(
                   onRefresh: () async {
