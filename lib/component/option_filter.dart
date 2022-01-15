@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
@@ -111,6 +112,12 @@ class OptionFilter extends GetView<GlobalController> {
     });
   }
 
+  Future<String> getClipboard() async {
+    Map<String, dynamic>? result =
+        await SystemChannels.platform.invokeMethod('Clipboard.getData');
+    return result != null ? result["text"] : "";
+  }
+
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionFilterCtl());
@@ -151,6 +158,9 @@ class OptionFilter extends GetView<GlobalController> {
                 bool bedit = idx == pageCtl.idxeditTarget.value;
                 var tmpFilter = pageCtl.tmpEditFilter.value;
                 var rxFilter = pageCtl.tmpEditFilter;
+                TextEditingController filterRulesCtl =
+                    TextEditingController(text: tmpFilter.filter);
+
                 ActionPane actionPane = ActionPane(
                     motion: const ScrollMotion(),
                     extentRatio: 0.4,
@@ -175,25 +185,6 @@ class OptionFilter extends GetView<GlobalController> {
                         },
                       )
                     ]);
-                // Widget delIcon = IconSlideAction(
-                //   caption: 'delete'.tr,
-                //   color: Colors.red,
-                //   icon: Icons.delete,
-                //   onTap: () async {
-                //     controller.userData.update((v) {
-                //       filterList.remove(e);
-                //     });
-                //   },
-                // );
-                // Widget editIcon = IconSlideAction(
-                //   caption: 'edit'.tr,
-                //   color: Colors.green,
-                //   icon: Icons.edit,
-                //   onTap: () async {
-                //     pageCtl.tmpEditFilter(Filter.fromMap(e.toMap()));
-                //     pageCtl.idxeditTarget(idx);
-                //   },
-                // );
 
                 return Card(
                     child: Slidable(
@@ -217,14 +208,36 @@ class OptionFilter extends GetView<GlobalController> {
                             bedit
                                 ? Column(children: [
                                     TextFormField(
-                                      decoration: InputDecoration(
-                                        labelText: "filter rules".tr,
-                                      ),
-                                      initialValue: tmpFilter.filter,
-                                      onChanged: (v) => rxFilter.update((val) {
-                                        tmpFilter.filter = v;
-                                      }),
-                                    ),
+                                        // key: Key("${idx}"),
+                                        controller: filterRulesCtl
+                                          ..text = tmpFilter.filter,
+                                        // ..text = tmpFilter.filter,
+                                        // controller: filterRulesCtl,
+                                        decoration: InputDecoration(
+                                            labelText: "filter rules".tr,
+                                            suffixIcon: IconButton(
+                                                onPressed: () async {
+                                                  String d =
+                                                      await getClipboard();
+                                                  filterRulesCtl..text = d;
+
+                                                  tmpFilter.filter = d;
+                                                },
+                                                icon: Icon(Icons.paste))),
+                                        // initialValue: tmpFilter.filter,
+                                        onEditingComplete: () {
+                                          rxFilter.refresh();
+                                        },
+                                        // onFieldSubmitted: (v) {},
+                                        onChanged: (v) {
+                                          tmpFilter.filter = v;
+                                        }
+                                        // => rxFilter.update((val) {
+                                        //   tmpFilter.filter = v;
+                                        //   filterRulesCtl.text = v;
+                                        // }
+                                        // ),
+                                        ),
                                     TextFormField(
                                       decoration: InputDecoration(
                                         labelText: "change text".tr,
