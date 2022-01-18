@@ -1,10 +1,15 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/model/user_data.dart';
+import 'package:path_provider/path_provider.dart';
 
 class HistoryPageCtl extends GetxController {
   RxString searchText = "".obs;
@@ -19,9 +24,30 @@ class HistoryPage extends GetView<GlobalController> {
       appBar: AppBar(
         // centerTitle: true,
         title: Text("history".tr),
-        // actions: [
-        //   IconButton(onPressed: () async {}, icon: Icon(Icons.download))
-        // ],
+        actions: [
+          IconButton(
+              onPressed: () async {
+                var tmpdir = await getTemporaryDirectory();
+                var tmpFile = File("${tmpdir.path}/openTextView.csv");
+
+                var userData = controller.userData.value;
+                var header = '제목,읽은 위치,일자';
+
+                var str = [
+                  header,
+                  ...userData.history.map((e) {
+                    return '"${e.name}","${e.pos}","${e.date}", ';
+                  })
+                ];
+                tmpFile.writeAsStringSync(str.join("\r\n"));
+
+                final params =
+                    SaveFileDialogParams(sourceFilePath: tmpFile.path);
+
+                await FlutterFileDialog.saveFile(params: params);
+              },
+              icon: Icon(Icons.download))
+        ],
       ),
       body: Obx(() {
         var historyList = controller.userData.value.history;
