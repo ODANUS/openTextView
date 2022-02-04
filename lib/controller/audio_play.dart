@@ -277,7 +277,7 @@ class AudioHandler extends BaseAudioHandler
 
       // bool bspeak = await speak(speakText);
       var bspeak = await tts.speak(speakText);
-      print(bspeak);
+
       try {
         store?.box<HistoryBox>().put(currentHistory);
       } catch (e) {}

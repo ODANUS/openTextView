@@ -21,7 +21,7 @@ class SettingPage extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    print(Get.locale);
+
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,

@@ -35,7 +35,7 @@ class ImageSearchPage extends GetView<BoxCtl> {
     final ctl = Get.put(ImageSearchPageCtl());
     String name = Get.arguments;
     name = name.split(".").first;
-    print(Get.arguments);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Book Image Search".tr),
