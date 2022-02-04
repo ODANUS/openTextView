@@ -1,11 +1,9 @@
-import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/audio_play.dart';
-import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/i18n.dart';
 import 'package:open_textview/pages/image_search_page.dart';
 import 'package:open_textview/pages/main_page.dart';

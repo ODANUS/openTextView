@@ -57,7 +57,7 @@ class SettingBox {
     this.audiosession = true,
     this.touchLayout = 0,
     this.useClipboard = true,
-    this.enablescroll = true,
+    this.enablescroll = false,
     this.theme = "light",
   });
   int id;
@@ -94,7 +94,7 @@ class SettingBox {
       groupcnt: json["groupcnt"] ?? 5,
       theme: json["theme"] ?? "light",
       headsetbutton: json["headsetbutton"] ?? false,
-      enablescroll: json["enablescroll"] ?? true,
+      enablescroll: json["enablescroll"] ?? false,
       audiosession: json["audiosession"] ?? true,
       touchLayout: json["touchLayout"] ?? 0,
       useClipboard: json["useClipboard"] ?? true,

@@ -169,7 +169,7 @@ class Messages extends Translations {
           "Book Image Search": "서적 이미지 검색",
           "Developer notes": "개발자 노트",
           "use Clipboard": "클립보드 사용",
-          "use Scroll": "스크롤 활성화",
+          "use Scroll": "전체 화면 스크롤",
         },
         "gl": {
           "key": "gl",
