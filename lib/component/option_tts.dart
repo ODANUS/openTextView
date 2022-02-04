@@ -3,22 +3,17 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:googleapis/drive/v3.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/utils.dart';
 
-class OptionTtsCtl extends GetxController {
-  // RxList<File> backupFiles = RxList<File>();
-  Rx<bool> isLoading = false.obs;
-}
-
-class OptionTts extends GetView<GlobalController> {
+class OptionTts extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
-    final pageCtl = Get.put(OptionTtsCtl());
-
     return Obx(() {
-      var tts = controller.userData.value.tts;
+      var tts = controller.setting.value;
+      var setting = controller.setting;
       return Stack(
         children: [
           ExpansionTile(
@@ -34,7 +29,7 @@ class OptionTts extends GetView<GlobalController> {
                       child: Row(children: [
                         IconButton(
                             onPressed: () {
-                              controller.userData.update((val) {
+                              setting.update((val) {
                                 tts.speechRate -= 0.01;
                               });
                             },
@@ -47,14 +42,14 @@ class OptionTts extends GetView<GlobalController> {
                           divisions: 50,
                           label: tts.speechRate.toStringAsFixed(2),
                           onChanged: (double v) {
-                            controller.userData.update((val) {
+                            setting.update((val) {
                               tts.speechRate = v;
                             });
                           },
                         )),
                         IconButton(
                             onPressed: () {
-                              controller.userData.update((val) {
+                              setting.update((val) {
                                 tts.speechRate += 0.01;
                               });
                             },
@@ -75,7 +70,7 @@ class OptionTts extends GetView<GlobalController> {
                           divisions: 10,
                           label: tts.volume.toStringAsFixed(1),
                           onChanged: (double v) {
-                            controller.userData.update((val) {
+                            setting.update((val) {
                               tts.volume = v;
                             });
                           },
@@ -90,7 +85,7 @@ class OptionTts extends GetView<GlobalController> {
                       child: Row(children: [
                         IconButton(
                             onPressed: () {
-                              controller.userData.update((val) {
+                              setting.update((val) {
                                 tts.pitch -= 0.1;
                               });
                             },
@@ -103,14 +98,14 @@ class OptionTts extends GetView<GlobalController> {
                           divisions: 15,
                           label: tts.pitch.toStringAsFixed(1),
                           onChanged: (double v) {
-                            controller.userData.update((val) {
+                            setting.update((val) {
                               tts.pitch = v;
                             });
                           },
                         )),
                         IconButton(
                             onPressed: () {
-                              controller.userData.update((val) {
+                              setting.update((val) {
                                 tts.pitch += 0.1;
                               });
                             },
@@ -125,7 +120,7 @@ class OptionTts extends GetView<GlobalController> {
                       child: Row(children: [
                         IconButton(
                             onPressed: () {
-                              controller.userData.update((val) {
+                              setting.update((val) {
                                 tts.groupcnt -= 1;
                               });
                             },
@@ -138,14 +133,14 @@ class OptionTts extends GetView<GlobalController> {
                           divisions: 40,
                           label: tts.groupcnt.toStringAsFixed(0),
                           onChanged: (double v) {
-                            controller.userData.update((val) {
+                            setting.update((val) {
                               tts.groupcnt = v.toInt();
                             });
                           },
                         )),
                         IconButton(
                             onPressed: () {
-                              controller.userData.update((val) {
+                              setting.update((val) {
                                 tts.groupcnt += 1;
                               });
                             },
@@ -158,7 +153,7 @@ class OptionTts extends GetView<GlobalController> {
                     title: Text("Freeze when other players are running".tr),
                     value: tts.audiosession,
                     onChanged: (b) {
-                      controller.userData.update((val) {
+                      setting.update((val) {
                         tts.audiosession = b!;
                       });
                     }),
@@ -170,20 +165,12 @@ class OptionTts extends GetView<GlobalController> {
                       title: Text('Using the headset button'.tr),
                       value: tts.headsetbutton,
                       onChanged: (b) {
-                        controller.userData.update((val) {
+                        setting.update((val) {
                           tts.headsetbutton = b!;
                         });
                       })),
             ],
           ),
-          if (pageCtl.isLoading.value)
-            Positioned.fill(
-              child: Container(
-                color: Colors.black12,
-                alignment: Alignment.center,
-                child: CircularProgressIndicator(),
-              ),
-            ),
         ],
       );
     });

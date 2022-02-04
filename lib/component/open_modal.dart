@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,70 +22,12 @@ class OpenModal {
     Get.back();
   }
 
-  static openModalSelect({required String title}) {
-    final Completer completer = Completer();
-
-    Get.dialog(AlertDialog(
-      content: Container(
-          width: double.maxFinite,
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              Text(title),
-            ],
-          )),
-      actions: [
-        ElevatedButton(
-            onPressed: () {
-              completer.complete(false);
-              Get.back();
-            },
-            child: Text("cancel".tr)),
-        ElevatedButton(
-            onPressed: () {
-              completer.complete(true);
-              Get.back();
-            },
-            child: Text("confirm".tr))
-      ],
-      actionsAlignment: MainAxisAlignment.spaceAround,
-    )).whenComplete(() {});
-
-    return completer.future;
-  }
-
-  static openModal({required String title}) {
-    final Completer completer = Completer();
-
-    Get.dialog(AlertDialog(
-      content: Container(
-          width: double.maxFinite,
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              Text(title),
-            ],
-          )),
-      actions: [
-        ElevatedButton(
-            onPressed: () {
-              Get.back();
-            },
-            child: Text("confirm".tr))
-      ],
-      actionsAlignment: MainAxisAlignment.spaceAround,
-    )).whenComplete(() {});
-
-    return completer.future;
-  }
-
-  static openJumpModal() {
-    final Completer completer = Completer();
-    final ctl = Get.find<GlobalController>();
+  static openJumpModal() async {
+    final ctl = Get.find<BoxCtl>();
     Timer? _timer;
     TextEditingController c = TextEditingController()
-      ..text = ctl.lastData.value.pos.toString();
-    Get.dialog(AlertDialog(
+      ..text = ctl.currentHistory.value.pos.toString();
+    return Get.dialog(AlertDialog(
       title: Text("move_location".tr),
       content: Container(
           width: double.maxFinite,
@@ -93,14 +36,14 @@ class OpenModal {
             children: [
               Obx(() => Center(
                     child: Text(
-                        "${"Current_location".tr} : ${ctl.lastData.value.pos}"),
+                        "${"Current_location".tr} : ${ctl.currentHistory.value.pos}"),
                   )),
               Obx(() => Slider(
-                  value: ctl.lastData.value.pos.toDouble(),
+                  value: ctl.currentHistory.value.pos.toDouble(),
                   min: 0,
                   max: ctl.contents.length.toDouble(),
                   divisions: ctl.contents.length,
-                  label: "${ctl.lastData.value.pos}",
+                  label: "${ctl.currentHistory.value.pos}",
                   onChanged: (double v) {
                     if (ctl.contents.length >= v.toInt() &&
                         !ctl.scrollstat.value) {
@@ -131,16 +74,13 @@ class OpenModal {
       ],
       actionsAlignment: MainAxisAlignment.spaceAround,
     )).whenComplete(() {});
-
-    return completer.future;
   }
 
   static openSearchModal() {
-    final Completer completer = Completer();
-    final ctl = Get.find<GlobalController>();
+    final ctl = Get.find<BoxCtl>();
     final modalCtl = Get.put(openSearchCtl());
 
-    Get.dialog(AlertDialog(
+    return Get.dialog(AlertDialog(
       title: Text("page_search".tr),
       content: Container(
           constraints: BoxConstraints(maxHeight: 500),
@@ -194,16 +134,13 @@ class OpenModal {
     )).whenComplete(() {
       modalCtl.text("");
     });
-
-    return completer.future;
   }
 
   static openFontSizeModal() {
-    final Completer completer = Completer();
-    final ctl = Get.find<GlobalController>();
+    final ctl = Get.find<BoxCtl>();
     final modalCtl = Get.put(openSearchCtl());
 
-    Get.dialog(AlertDialog(
+    return Get.dialog(AlertDialog(
       title: Text("Font settings".tr),
       content: Container(
           constraints: BoxConstraints(maxHeight: 400),
@@ -222,16 +159,16 @@ class OpenModal {
                   children: [
                     IconButton(
                         onPressed: () {
-                          ctl.userData.update((val) {
-                            val!.ui.fontSize += 1;
+                          ctl.setting.update((val) {
+                            val!.fontSize += 1;
                           });
                         },
                         icon: Icon(Ionicons.add_outline)),
-                    Text("${ctl.userData.value.ui.fontSize}"),
+                    Text("${ctl.setting.value.fontSize}"),
                     IconButton(
                         onPressed: () {
-                          ctl.userData.update((val) {
-                            val!.ui.fontSize -= 1;
+                          ctl.setting.update((val) {
+                            val!.fontSize -= 1;
                           });
                         },
                         icon: Icon(Ionicons.remove_outline)),
@@ -243,21 +180,21 @@ class OpenModal {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
-                        onPressed: ctl.userData.value.ui.fontWeight >= 8
+                        onPressed: ctl.setting.value.fontWeight >= 8
                             ? null
                             : () {
-                                ctl.userData.update((val) {
-                                  val!.ui.fontWeight += 1;
+                                ctl.setting.update((val) {
+                                  val!.fontWeight += 1;
                                 });
                               },
                         icon: Icon(Ionicons.add_outline)),
-                    Text("${ctl.userData.value.ui.fontWeight}"),
+                    Text("${ctl.setting.value.fontWeight}"),
                     IconButton(
-                        onPressed: ctl.userData.value.ui.fontWeight <= 0
+                        onPressed: ctl.setting.value.fontWeight <= 0
                             ? null
                             : () {
-                                ctl.userData.update((val) {
-                                  val!.ui.fontWeight -= 1;
+                                ctl.setting.update((val) {
+                                  val!.fontWeight -= 1;
                                 });
                               },
                         icon: Icon(Ionicons.remove_outline)),
@@ -269,24 +206,24 @@ class OpenModal {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
-                        onPressed: ctl.userData.value.ui.fontHeight >= 8
+                        onPressed: ctl.setting.value.fontHeight >= 8
                             ? null
                             : () {
-                                ctl.userData.update((val) {
-                                  var fh = val!.ui.fontHeight += 0.1;
-                                  val.ui.fontHeight =
+                                ctl.setting.update((val) {
+                                  var fh = val!.fontHeight += 0.1;
+                                  val.fontHeight =
                                       double.parse(fh.toStringAsFixed(1));
                                 });
                               },
                         icon: Icon(Ionicons.add_outline)),
-                    Text("${ctl.userData.value.ui.fontHeight}"),
+                    Text("${ctl.setting.value.fontHeight}"),
                     IconButton(
-                        onPressed: ctl.userData.value.ui.fontHeight <= 0
+                        onPressed: ctl.setting.value.fontHeight <= 0
                             ? null
                             : () {
-                                ctl.userData.update((val) {
-                                  var fh = val!.ui.fontHeight -= 0.1;
-                                  val.ui.fontHeight =
+                                ctl.setting.update((val) {
+                                  var fh = val!.fontHeight -= 0.1;
+                                  val.fontHeight =
                                       double.parse(fh.toStringAsFixed(1));
                                 });
                               },
@@ -296,19 +233,23 @@ class OpenModal {
                 // Font
                 Text("Font settings".tr),
                 ...ctl.listFont.map((e) {
-                  var ff = ctl.userData.value.ui.fontFamily ?? 'default';
+                  var ff = ctl.setting.value.fontFamily;
+                  if (ff.isEmpty) {
+                    ff = "default";
+                  }
+
                   return RadioListTile(
                       title: Text(e),
                       value: e,
                       groupValue: ff,
                       onChanged: (f) {
                         if (f == 'default') {
-                          ctl.userData.update((val) {
-                            val!.ui.fontFamily = null;
+                          ctl.setting.update((val) {
+                            val!.fontFamily = "";
                           });
                         } else {
-                          ctl.userData.update((val) {
-                            val!.ui.fontFamily = f as String;
+                          ctl.setting.update((val) {
+                            val!.fontFamily = f as String;
                           });
                         }
                       });
@@ -367,15 +308,12 @@ class OpenModal {
     )).whenComplete(() {
       modalCtl.text("");
     });
-
-    return completer.future;
   }
 
   static openAutoExitModal() {
-    final Completer completer = Completer();
     final modalCtl = Get.put(openSearchCtl());
 
-    Get.dialog(AlertDialog(
+    return Get.dialog(AlertDialog(
       title: Text("Auto shutdown settings".tr),
       content: Container(
           color: Colors.transparent,
@@ -404,13 +342,11 @@ class OpenModal {
         ElevatedButton(
             onPressed: () {
               Get.back();
-              completer.complete();
             },
             child: Text("cancel".tr)),
         ElevatedButton(
             onPressed: () {
-              Get.back();
-              completer.complete(modalCtl.autoexitValue.value.toInt());
+              Get.back(result: modalCtl.autoexitValue.value.toInt());
             },
             child: Text("confirm".tr))
       ],
@@ -419,8 +355,6 @@ class OpenModal {
       modalCtl.text("");
       modalCtl.autoexitValue(0.0);
     });
-
-    return completer.future;
   }
 }
 

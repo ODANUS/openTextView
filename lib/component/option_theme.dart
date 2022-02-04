@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/global_controller.dart';
 
 class OptionThemeCtl extends GetxController {
@@ -7,7 +8,7 @@ class OptionThemeCtl extends GetxController {
   Rx<bool> isLoading = false.obs;
 }
 
-class OptionTheme extends GetView<GlobalController> {
+class OptionTheme extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionThemeCtl());
@@ -20,10 +21,10 @@ class OptionTheme extends GetView<GlobalController> {
                 Row(
                   children: [
                     Radio(
-                        groupValue: controller.userData.value.theme,
+                        groupValue: controller.setting.value.theme,
                         value: "light",
                         onChanged: (v) {
-                          controller.userData.update((val) {
+                          controller.setting.update((val) {
                             val!.theme = "light";
                           });
                           Get.changeTheme(ThemeData.light());
@@ -33,10 +34,10 @@ class OptionTheme extends GetView<GlobalController> {
                 ),
                 Row(children: [
                   Radio(
-                      groupValue: controller.userData.value.theme,
+                      groupValue: controller.setting.value.theme,
                       value: "dark",
                       onChanged: (v) {
-                        controller.userData.update((val) {
+                        controller.setting.update((val) {
                           val!.theme = "dark";
                         });
                         Get.changeTheme(ThemeData.dark());

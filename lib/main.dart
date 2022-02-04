@@ -3,16 +3,21 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/i18n.dart';
+import 'package:open_textview/pages/image_search_page.dart';
 import 'package:open_textview/pages/main_page.dart';
 import 'package:open_textview/provider/custom_theme.dart';
 import 'package:wakelock/wakelock.dart';
 
+// !I/de.opentextvie, !DynamiteModule, !DynamitePackage, !Ads, !Codec, !audio, !Ad with id , !ExoPlayerImpl, !ReflectedParamUpdater, !OMXClient, !BufferPoolAccessor, !SurfaceUtils , !MetadataUtil, !BpHwBinder
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.lazyPut(() => GlobalController());
+  // Get.lazyPut(() => GlobalController());
+  Get.put(BoxCtl());
+
   await AudioPlay.init();
   Wakelock.enable();
   // FlutterDownloader.initialize(
@@ -36,6 +41,9 @@ void main() async {
             fallbackLocale: Locale('en'),
             debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.light,
-            getPages: [GetPage(name: '/', page: () => MainPage())]);
+            getPages: [
+              GetPage(name: '/', page: () => MainPage()),
+              GetPage(name: '/searchpage', page: () => ImageSearchPage()),
+            ]);
       }));
 }

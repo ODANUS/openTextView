@@ -24,7 +24,7 @@ String covertStringToUnicode(String content) {
 
 class Net {
   static Dio dio = Dio();
-  static getImage(String keyword) async {
+  static Future<List<String>> getImage(String keyword) async {
     var ss = await dio.get(
         "https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m",
         options: Options(headers: {
@@ -59,8 +59,9 @@ class Net {
       }
       return false;
     }).toList();
-    imageurls.forEach((element) {
-      print(element);
-    });
+    return imageurls;
+    // imageurls.forEach((element) {
+    //   print(element);
+    // });
   }
 }

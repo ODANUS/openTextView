@@ -3,14 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/user_data.dart';
-
-class OptionFilterCtl extends GetxController {
-  // RxList<File> backupFiles = RxList<File>();
-  final idxeditTarget = (-1).obs;
-  final tmpEditFilter = Filter().obs;
-}
+import 'package:open_textview/objectbox.g.dart';
 
 List<dynamic> DFFILTER = [
   {
@@ -101,15 +98,22 @@ List<dynamic> DFFILTER = [
   }
 ];
 
-class OptionFilter extends GetView<GlobalController> {
-  addFilter(Filter f) {
-    controller.userData.update((val) {
-      if (val!.filter.isEmpty) {
-        val.filter = [f];
-      } else {
-        val.filter.add(f);
-      }
-    });
+class OptionFilterCtl extends GetxController {
+  // RxList<File> backupFiles = RxList<File>();
+  final idxeditTarget = (-1).obs;
+  final tmpEditFilter = FilterBox().obs;
+}
+
+class OptionFilter extends GetView<BoxCtl> {
+  addFilter(FilterBox f) {
+    controller.filters.add(f);
+    // controller.userData.update((val) {
+    //   if (val!.filter.isEmpty) {
+    //     val.filter = [f];
+    //   } else {
+    //     val.filter.add(f);
+    //   }
+    // });
   }
 
   Future<String> getClipboard() async {
@@ -123,7 +127,7 @@ class OptionFilter extends GetView<GlobalController> {
     final pageCtl = Get.put(OptionFilterCtl());
 
     return Obx(() {
-      var filterList = controller.userData.value.filter;
+      // List<FilterBox> filterList = controller.filters();
       return Stack(
         children: [
           ExpansionTile(
@@ -133,14 +137,13 @@ class OptionFilter extends GetView<GlobalController> {
               Container(
                   width: double.infinity,
                   height: 100,
-                  // duration: const Duration(milliseconds: 300),
                   child: ListView(scrollDirection: Axis.horizontal, children: [
                     ...DFFILTER.map((e) {
                       return Card(
                           margin: EdgeInsets.all(10),
                           child: InkWell(
                               onTap: () {
-                                addFilter(Filter.fromMap(e)..enable = true);
+                                addFilter(FilterBox.fromMap(e)..enable = true);
                               },
                               child: Padding(
                                   padding: EdgeInsets.all(5),
@@ -153,8 +156,8 @@ class OptionFilter extends GetView<GlobalController> {
                                       ]))));
                     }).toList()
                   ])),
-              ...filterList.map((e) {
-                var idx = filterList.indexOf(e);
+              ...controller.filters.map((e) {
+                var idx = controller.filters.indexOf(e);
                 bool bedit = idx == pageCtl.idxeditTarget.value;
                 var tmpFilter = pageCtl.tmpEditFilter.value;
                 var rxFilter = pageCtl.tmpEditFilter;
@@ -170,9 +173,7 @@ class OptionFilter extends GetView<GlobalController> {
                         backgroundColor: Colors.red,
                         icon: Icons.delete,
                         onPressed: (c) async {
-                          controller.userData.update((v) {
-                            filterList.remove(e);
-                          });
+                          controller.removeFilter(e);
                         },
                       ),
                       SlidableAction(
@@ -180,7 +181,7 @@ class OptionFilter extends GetView<GlobalController> {
                         backgroundColor: Colors.green,
                         icon: Icons.edit,
                         onPressed: (c) async {
-                          pageCtl.tmpEditFilter(Filter.fromMap(e.toMap()));
+                          pageCtl.tmpEditFilter(FilterBox.fromMap(e.toMap()));
                           pageCtl.idxeditTarget(idx);
                         },
                       )
@@ -207,6 +208,7 @@ class OptionFilter extends GetView<GlobalController> {
                           children: [
                             bedit
                                 ? Column(children: [
+                                    SizedBox(height: 10),
                                     TextFormField(
                                         // key: Key("${idx}"),
                                         controller: filterRulesCtl
@@ -238,6 +240,7 @@ class OptionFilter extends GetView<GlobalController> {
                                         // }
                                         // ),
                                         ),
+                                    SizedBox(height: 10),
                                     TextFormField(
                                       decoration: InputDecoration(
                                         labelText: "change text".tr,
@@ -257,6 +260,7 @@ class OptionFilter extends GetView<GlobalController> {
                                       Text("${e.to == "" ? "none".tr : e.to}"),
                                     ],
                                   ),
+                            SizedBox(height: 10),
                             Row(
                               children: [
                                 Text("${"Use regular expressions".tr} : "),
@@ -272,9 +276,8 @@ class OptionFilter extends GetView<GlobalController> {
                                     : Checkbox(
                                         value: e.expr,
                                         onChanged: (b) {
-                                          controller.userData.update((v) {
-                                            e.expr = b!;
-                                          });
+                                          controller.filters[idx].expr = b!;
+                                          controller.filters.refresh();
                                         },
                                       )
                               ],
@@ -291,10 +294,11 @@ class OptionFilter extends GetView<GlobalController> {
                                       child: Text("cancel".tr)),
                                   ElevatedButton(
                                       onPressed: () {
-                                        controller.userData.update((val) {
-                                          filterList[idx] =
-                                              Filter.fromMap(tmpFilter.toMap());
-                                        });
+                                        var tmp = FilterBox.fromMap(
+                                            tmpFilter.toMap());
+                                        tmp.id = e.id;
+                                        controller.filters[idx] = tmp;
+                                        controller.filters.refresh();
                                         pageCtl.idxeditTarget(-1);
                                       },
                                       child: Text("confirm".tr)),
@@ -317,9 +321,8 @@ class OptionFilter extends GetView<GlobalController> {
                               : Checkbox(
                                   value: e.enable,
                                   onChanged: (b) {
-                                    controller.userData.update((v) {
-                                      e.enable = b!;
-                                    });
+                                    controller.filters[idx].enable = b!;
+                                    controller.filters.refresh();
                                   }),
                         ],
                       )),
@@ -327,9 +330,12 @@ class OptionFilter extends GetView<GlobalController> {
               }).toList(),
               ElevatedButton(
                   onPressed: () {
-                    controller.userData.update((val) {
-                      addFilter(Filter());
-                    });
+                    controller.filters.add(FilterBox());
+                    // controller.filters.refresh();
+                    // controller.addFilter(FilterBox());
+                    // controller.userData.update((val) {
+                    //   addFilter(Filter());
+                    // });
                   },
                   child: Icon(Ionicons.add)),
             ],

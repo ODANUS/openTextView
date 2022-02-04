@@ -12,7 +12,9 @@ import 'package:get/get.dart';
 import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -38,8 +40,8 @@ class Utils {
       return selectedFiles;
     }
 
-    var gctl = Get.find<GlobalController>();
-    gctl.bConvLoading(true);
+    var ctl = Get.find<BoxCtl>();
+    ctl.bConvLoading(true);
     await Future.forEach(selectedFiles.files, (PlatformFile e) async {
       if (e.extension != null && e.extension == "epub") {
         File f = File(e.path!);
@@ -63,7 +65,7 @@ class Utils {
         }
       }
     });
-    gctl.bConvLoading(false);
+    ctl.bConvLoading(false);
 
     return selectedFiles;
   }
@@ -92,23 +94,61 @@ class Utils {
     return rtn;
   }
 
-  static Future<List<FileSystemEntity>> getLibraryList(String path) async {
-    await Permission.storage.request();
-    Directory dir = Directory(path);
-    var listDir = await dir.list().toList();
-    return listDir;
-  }
+  // static Future<List<FileSystemEntity>> getLibraryList(String path) async {
+  //   await Permission.storage.request();
+  //   Directory dir = Directory(path);
+  //   var listDir = await dir.list().toList();
+  //   return listDir;
+  // }
 
-  static Future<List<String>?> loadLibraryPrefs() async {
-    SharedPreferences prefs = await _prefs;
-    prefs.reload();
-    return prefs.getStringList("libraryPaths");
-  }
+  // static Future<List<String>?> loadLibraryPrefs() async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.reload();
+  //   return prefs.getStringList("libraryPaths");
+  // }
 
-  static setLibraryPrefs(List<String> libraryPaths) async {
-    SharedPreferences prefs = await _prefs;
-    prefs.reload();
-    prefs.setStringList("libraryPaths", libraryPaths);
+  // static setLibraryPrefs(List<String> libraryPaths) async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.reload();
+  //   prefs.setStringList("libraryPaths", libraryPaths);
+  // }
+
+  static Future<String?> loadprefs() async {
+    var userData = await loadUserData();
+    if (userData != null) {
+      var ctl = Get.find<BoxCtl>();
+      var jsonData = json.decode(userData);
+      SettingBox settingData = SettingBox();
+      if (jsonData["tts"] != null && jsonData["ui"] != null) {
+        Map<String, dynamic> settingMap = {
+          ...jsonData["tts"] as Map,
+          ...jsonData["ui"] as Map,
+          "theme": jsonData["theme"]
+        };
+
+        settingData = SettingBox.fromMap(settingMap);
+        ctl.setSettingBox(settingData);
+
+        if (jsonData["filter"] is List<dynamic>) {
+          var jsonList = jsonData["filter"] as List<dynamic>;
+
+          var list = jsonList.map((e) => FilterBox.fromMap(e)).toList();
+
+          ctl.setFilterBox(list);
+        }
+
+        if (jsonData["history"] is List<dynamic>) {
+          var jsonList = jsonData["history"] as List<dynamic>;
+          var list = jsonList.map((e) {
+            List<String> tmparr = e["date"].split(" ");
+            var dateStr = "${tmparr[0]} ${tmparr[1].replaceAll("-", ":")}";
+            e["date"] = DateTime.parse(dateStr).millisecondsSinceEpoch;
+            return HistoryBox.fromMap(e);
+          }).toList();
+          ctl.setHistoryBox(list);
+        }
+      }
+    }
   }
 
   static Future<String?> loadUserData() async {
@@ -117,43 +157,43 @@ class Utils {
     return prefs.getString("userdata");
   }
 
-  static Future<void> setUserData(strjson) async {
-    SharedPreferences prefs = await _prefs;
-    prefs.setString("userdata", strjson);
-  }
+  // static Future<void> setUserData(strjson) async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.setString("userdata", strjson);
+  // }
 
-  static Future<void> clearUserData() async {
-    SharedPreferences prefs = await _prefs;
-    prefs.remove("userdata");
-  }
+  // static Future<void> clearUserData() async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.remove("userdata");
+  // }
 
-  static Future<String?> loadLastData() async {
-    SharedPreferences prefs = await _prefs;
-    prefs.reload();
-    return prefs.getString("lastdata");
-  }
+  // static Future<String?> loadLastData() async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.reload();
+  //   return prefs.getString("lastdata");
+  // }
 
-  static Future<void> setLastData(strjson) async {
-    SharedPreferences prefs = await _prefs;
-    prefs.setString("lastdata", strjson);
-  }
+  // static Future<void> setLastData(strjson) async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.setString("lastdata", strjson);
+  // }
 
-  static Future<void> clearLastData() async {
-    SharedPreferences prefs = await _prefs;
-    prefs.remove("lastdata");
-  }
+  // static Future<void> clearLastData() async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.remove("lastdata");
+  // }
 
-  static Future<String?> loadCurrentData() async {
-    SharedPreferences prefs = await _prefs;
-    prefs.reload();
-    return prefs.getString("currentdata");
-  }
+  // static Future<String?> loadCurrentData() async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.reload();
+  //   return prefs.getString("currentdata");
+  // }
 
-  static Future setCurrentData(strjson) async {
-    SharedPreferences prefs = await _prefs;
-    prefs.reload();
-    prefs.setString("currentdata", strjson);
-  }
+  // static Future setCurrentData(strjson) async {
+  //   SharedPreferences prefs = await _prefs;
+  //   prefs.reload();
+  //   prefs.setString("currentdata", strjson);
+  // }
 
   static Future<String> readFile(File f) async {
     try {

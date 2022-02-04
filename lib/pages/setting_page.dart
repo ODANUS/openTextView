@@ -1,28 +1,27 @@
-import 'dart:io';
-
-import 'package:audio_session/audio_session.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/component/option_backup.dart';
+import 'package:open_textview/component/option_clipboard.dart';
+import 'package:open_textview/component/option_developer_notes.dart';
 import 'package:open_textview/component/option_filter.dart';
-import 'package:open_textview/component/option_history.dart';
+import 'package:open_textview/component/option_layout.dart';
 import 'package:open_textview/component/option_osslicense.dart';
 import 'package:open_textview/component/option_popup_ads.dart';
 import 'package:open_textview/component/option_review.dart';
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
-import 'package:open_textview/controller/global_controller.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:open_textview/provider/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SettingPage extends GetView<GlobalController> {
+class SettingPage extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    print(Get.locale);
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,
@@ -47,6 +46,10 @@ class SettingPage extends GetView<GlobalController> {
           Card(child: OptionBackup()),
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
+          Card(child: OptionLayout()),
+          Card(child: OptionClipboard()),
+
+          Card(child: DeveloperNotes()),
 
           // Card(child: OptionCache()),
           // Card(child: OptionOcr()),
@@ -63,16 +66,18 @@ class SettingPage extends GetView<GlobalController> {
           if (kDebugMode)
             ElevatedButton(
                 onPressed: () async {
-                  var d = await getLibraryDirectory();
-                  d.list().listen((event) {
-                    print(event.path);
-                    if (event is Directory) {
-                      print(">>>>>>>>>>>>>>>>>>>> ${event.listSync()}");
-                    }
-                    // try {
-                    //   var d1 = Directory(event.path);
-                    // } catch (e) {}
-                  });
+                  Utils.loadprefs();
+                  // 15890496
+                  // var d = await getLibraryDirectory();
+                  // d.list().listen((event) {
+                  //   print(event.path);
+                  //   if (event is Directory) {
+                  //     print(">>>>>>>>>>>>>>>>>>>> ${event.listSync()}");
+                  //   }
+                  //   // try {
+                  //   //   var d1 = Directory(event.path);
+                  //   // } catch (e) {}
+                  // });
 
                   // var d1 = await getExternalCacheDirectories();
                   // d1!.forEach((element) {

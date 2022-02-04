@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/global_controller.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/net.dart';
 import 'package:open_textview/provider/utils.dart';
@@ -34,18 +36,18 @@ class LibraryPageCtl extends GetxController {
   void loadtmpDir() async {
     var tmp = await getTemporaryDirectory();
     var dir = Directory("${tmp.path}/file_picker");
-    if (dir.existsSync()) {
-      tmpDir(dir.path);
+    if (!dir.existsSync()) {
+      dir.createSync(recursive: true);
     }
+    tmpDir(dir.path);
   }
 }
 
-class LibraryPage extends GetView<GlobalController> {
+class LibraryPage extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
     final ctl = Get.put(LibraryPageCtl());
-    String path = controller.lastData.value.path;
-    List<History> listHistory = controller.userData.value.history;
+
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,
@@ -198,9 +200,17 @@ class LibraryPage extends GetView<GlobalController> {
                             ex = exList.last.toLowerCase();
                           }
                           String name = file.path.split("/").last;
-                          List<History> targetList = listHistory.where((e) {
+                          List<HistoryBox> targetList =
+                              controller.getHistorys().where((e) {
                             return e.name == name;
                           }).toList();
+                          if (targetList.isEmpty &&
+                              controller.currentHistory.value.name == name) {
+                            targetList = [controller.currentHistory.value];
+                          }
+                          // if (targetList.isNotEmpty) {
+                          //   print(targetList.first.toJson());
+                          // }
                           String size = Utils.getFileSize(file);
                           return Card(
                               child: Slidable(
@@ -208,17 +218,45 @@ class LibraryPage extends GetView<GlobalController> {
                                   startActionPane: actionPane,
                                   endActionPane: actionPane,
                                   child: ListTile(
-                                    leading: Icon(Ionicons.document_outline),
+                                    leading: targetList.isNotEmpty
+                                        ? targetList.first.imageUri.isEmpty
+                                            ? IconButton(
+                                                onPressed: () async {
+                                                  if (targetList.isEmpty) {
+                                                    return;
+                                                  }
+                                                  var result =
+                                                      await Get.toNamed(
+                                                          "/searchpage",
+                                                          arguments: name);
+                                                  // print(targetList.first
+                                                  //     .toJson());
+                                                  if (result != null) {
+                                                    var t = targetList.first;
+                                                    t.searchKeyWord =
+                                                        result["searchKeyWord"];
+                                                    t.imageUri =
+                                                        result["imageUri"];
+
+                                                    controller.editHistory(t);
+                                                    ctl.tmpDir.refresh();
+                                                  }
+                                                },
+                                                icon: Icon(
+                                                    Icons.image_search_sharp))
+                                            : Image.network(
+                                                targetList.first.imageUri)
+                                        : Icon(Ionicons.document),
                                     title: Text(name),
-                                    subtitle: targetList.isNotEmpty &&
-                                            targetList.first.length > 0 &&
-                                            ex == "txt"
+                                    subtitle: targetList.isNotEmpty
                                         ? Text(
                                             '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}%')
                                         : Text(''),
                                     trailing: Text("${size}"),
                                     onTap: () async {
-                                      controller.openFile(file);
+                                      var c = Get.find<BoxCtl>();
+                                      c.openFile(file);
+                                      // controller.openFile(file);
                                     },
                                   )));
                         })
@@ -243,11 +281,10 @@ class LibraryPage extends GetView<GlobalController> {
         ),
       ]),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: "library",
         onPressed: () async {
-          var path = await Utils.selectFile();
-
+          await Utils.selectFile();
           ctl.tmpDir.refresh();
-          // Net.getImage();
         },
         label: Text('Add_file'.tr),
         icon: Icon(Ionicons.add),

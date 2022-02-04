@@ -4,15 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 
 import 'package:get/get.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/audio_play.dart';
-import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/pages/history_page.dart';
 // import 'package:open_textview/pages/image_viewer_page.dart';
 import 'package:open_textview/pages/library_page.dart';
 import 'package:open_textview/pages/read_page.dart';
 import 'package:open_textview/pages/setting_page.dart';
 
-class MainPage extends GetView<GlobalController> {
+class MainPage extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

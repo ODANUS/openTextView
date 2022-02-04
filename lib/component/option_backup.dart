@@ -1,10 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:googleapis/drive/v3.dart';
-import 'package:open_textview/controller/global_controller.dart';
-import 'package:open_textview/model/user_data.dart';
+import 'package:open_textview/box_ctl.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/utils.dart';
 
@@ -44,31 +45,31 @@ class OptionBackupCtl extends GetxController {
   }
 }
 
-class OptionBackup extends GetView<GlobalController> {
+class OptionBackup extends GetView<BoxCtl> {
+  final ctl = Get.put(OptionBackupCtl());
   @override
   Widget build(BuildContext context) {
-    final pageCtl = Get.put(OptionBackupCtl());
-
     return Obx(() => Stack(
           children: [
             ExpansionTile(
               onExpansionChanged: (b) async {
                 if (b) {
                   await Gdrive.gdriveSignIn();
-                  await pageCtl.loadBackupFileList();
+                  await ctl.loadBackupFileList();
                 }
               },
               title: Text("Backup / Recovery".tr),
               children: [
                 ListTile(
                   onTap: () async {
-                    await pageCtl
-                        .createBackupFile(controller.userData.toJson());
+                    var backUpData = controller.data2Map();
+                    var backUpDatastr = json.encode(backUpData);
+                    await ctl.createBackupFile(backUpDatastr);
                   },
                   title: Text("google drive backup".tr),
                 ),
                 Divider(),
-                ...pageCtl.backupFiles.map((element) {
+                ...ctl.backupFiles.map((element) {
                   ActionPane delIcon = ActionPane(
                       motion: const ScrollMotion(),
                       extentRatio: 0.3,
@@ -78,16 +79,58 @@ class OptionBackup extends GetView<GlobalController> {
                           backgroundColor: Colors.red,
                           icon: Icons.delete,
                           onPressed: (c) async {
-                            pageCtl.removeBackupFile(element.id!);
+                            ctl.removeBackupFile(element.id!);
                           },
                         )
                       ]);
                   return Slidable(
                     child: ListTile(
                         onTap: () async {
-                          String str =
-                              await pageCtl.loadBackupFile(element.id!);
-                          controller.userData(UserData.fromJson(str));
+                          String str = await ctl.loadBackupFile(element.id!);
+                          SettingBox settingData = SettingBox();
+                          var jsonData = json.decode(str);
+                          if (jsonData["tts"] != null &&
+                              jsonData["ui"] != null) {
+                            Map<String, dynamic> settingMap = {
+                              ...jsonData["tts"] as Map,
+                              ...jsonData["ui"] as Map,
+                              "theme": jsonData["theme"]
+                            };
+                            // print(settingMap);
+
+                            settingData = SettingBox.fromMap(settingMap);
+                            controller.setSettingBox(settingData);
+
+                            if (jsonData["filter"] is List<dynamic>) {
+                              var jsonList =
+                                  jsonData["filter"] as List<dynamic>;
+
+                              var list = jsonList
+                                  .map((e) => FilterBox.fromMap(e))
+                                  .toList();
+
+                              controller.setFilterBox(list);
+                            }
+
+                            if (jsonData["history"] is List<dynamic>) {
+                              var jsonList =
+                                  jsonData["history"] as List<dynamic>;
+                              var list = jsonList.map((e) {
+                                List<String> tmparr = e["date"].split(" ");
+                                var dateStr =
+                                    "${tmparr[0]} ${tmparr[1].replaceAll("-", ":")}";
+                                e["date"] = DateTime.parse(dateStr)
+                                    .millisecondsSinceEpoch;
+                                return HistoryBox.fromMap(e);
+                              }).toList();
+                              controller.setHistoryBox(list);
+                            }
+                            // FilterBox()
+                            return;
+                          }
+                          controller.map2Data(jsonData);
+
+                          // controller.userData(UserData.fromJson(str));
                         },
                         title: Text(element.name!)),
                     startActionPane: delIcon,
@@ -99,7 +142,7 @@ class OptionBackup extends GetView<GlobalController> {
                 // )
               ],
             ),
-            if (pageCtl.isLoading.value)
+            if (ctl.isLoading.value)
               Positioned.fill(
                 child: Container(
                   color: Colors.black12,

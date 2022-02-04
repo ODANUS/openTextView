@@ -6,7 +6,10 @@ import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:open_textview/box_ctl.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/user_data.dart';
+import 'package:open_textview/objectbox.g.dart';
 
 class AudioHandler extends BaseAudioHandler
     with
@@ -45,11 +48,10 @@ class AudioHandler extends BaseAudioHandler
 
   FlutterTts tts = FlutterTts();
   bool bInitTts = false;
-  Tts ttsOption = Tts();
-  List<Filter> filter = List.of([Filter()]);
-  History lastData = History();
+  SettingBox setting = SettingBox();
+  List<FilterBox> filter = List.of([FilterBox()]);
+  HistoryBox currentHistory = HistoryBox();
   List<String> contents = [];
-  int contentsLength = 0;
 
   AudioSession? session;
 
@@ -94,9 +96,9 @@ class AudioHandler extends BaseAudioHandler
 
   Completer<bool> _completer = Completer<bool>();
   Future<void> setTts() async {
-    await tts.setSpeechRate(ttsOption.speechRate);
-    await tts.setVolume(ttsOption.volume);
-    await tts.setPitch(ttsOption.pitch);
+    await tts.setSpeechRate(setting.speechRate);
+    await tts.setVolume(setting.volume);
+    await tts.setPitch(setting.pitch);
     // await tts.awaitSpeakCompletion(true);
   }
 
@@ -119,23 +121,24 @@ class AudioHandler extends BaseAudioHandler
           tts.setEngine(engine);
         }
       });
-      await Future.delayed(200.milliseconds);
+      await Future.delayed(400.milliseconds);
     }
 
     setTts();
-    tts.setStartHandler(() {});
-    tts.setCompletionHandler(() {
-      _completer.complete(true);
-    });
-    tts.setProgressHandler(
-        (String text, int startOffset, int endOffset, String word) {});
-    tts.setErrorHandler((msg) {
-      playstat = STAT_STOP;
-      _completer.complete(false);
-    });
-    tts.setCancelHandler(() {
-      _completer.complete(false);
-    });
+    tts.awaitSpeakCompletion(true);
+    // tts.setStartHandler(() {});
+    // tts.setCompletionHandler(() {
+    //   _completer.complete(true);
+    // });
+    // tts.setProgressHandler(
+    //     (String text, int startOffset, int endOffset, String word) {});
+    // tts.setErrorHandler((msg) {
+    //   playstat = STAT_STOP;
+    //   _completer.complete(false);
+    // });
+    // tts.setCancelHandler(() {
+    //   _completer.complete(false);
+    // });
   }
 
   Future<bool> speak(String text) {
@@ -173,7 +176,7 @@ class AudioHandler extends BaseAudioHandler
           return;
         }
         if (event.begin && event.type == AudioInterruptionType.unknown) {
-          if (ttsOption.audiosession) {
+          if (setting.audiosession) {
             this.pause();
           } else {}
         }
@@ -185,59 +188,13 @@ class AudioHandler extends BaseAudioHandler
     mediaItem.add(MediaItem(
       id: 'opentextView',
       album: '',
-      title: '${lastData.name}',
-      duration: Duration(seconds: contentsLength),
+      title: '${currentHistory.name}',
+      duration: Duration(seconds: contents.length),
     ));
 
-    while (contents.isNotEmpty) {
-      int end = min(ttsOption.groupcnt, contents.length);
-      String speakText = contents.getRange(0, end).join("\n");
-      filter.forEach((e) {
-        if (e.enable) {
-          if (e.expr) {
-            speakText =
-                speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
-          } else {
-            speakText = speakText.replaceAll(e.filter, e.to);
-          }
-        }
-      });
-      if (this.autoExitDate != null) {
-        mediaItem.first.then((e) {
-          var now = DateTime.now();
-          if (autoExitDate!.isBefore(now)) {
-            autoExitDate = null;
-            this.stop();
-          } else {
-            var ss = autoExitDate!.difference(now);
-            mediaItem.add(e!.copyWith(
-                album: "Auto_shut_down_after_@min_minute"
-                    .trParams({"min": ss.inMinutes.toString()})));
-          }
-        });
-      }
-
-      playbackState.add(baseState.copyWith(
-          updatePosition: Duration(seconds: contentsLength - contents.length)));
-      bool bspeak = await speak(speakText);
-      if (!bspeak) {
-        break;
-      }
-      contents.removeRange(0, end);
-      if (contents.isEmpty) {
-        stop();
-        break;
-      }
-    }
-
-    // ====================================
-    // int cnt = ttsOption.groupcnt;
-    // for (var i = lastData.pos; i < contents.length; i += ttsOption.groupcnt) {
-    //   if (playstat != STAT_PLAY) break;
-    //   int end = min(i + ttsOption.groupcnt, contents.length);
-
-    //   String speakText = contents.getRange(i, end).join("\n");
-
+    // while (contents.isNotEmpty) {
+    //   int end = min(ttsOption.groupcnt, contents.length);
+    //   String speakText = contents.getRange(0, end).join("\n");
     //   filter.forEach((e) {
     //     if (e.enable) {
     //       if (e.expr) {
@@ -262,22 +219,81 @@ class AudioHandler extends BaseAudioHandler
     //       }
     //     });
     //   }
-    //   playbackState
-    //       .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
+    //   playbackState.add(baseState.copyWith(
+    //       updatePosition: Duration(seconds: contentsLength - contents.length)));
     //   bool bspeak = await speak(speakText);
-    //   lastData.pos = i;
-    //   await Utils.setLastData(lastData.toJson());
-
     //   if (!bspeak) {
     //     break;
     //   }
-
-    //   if (end >= contents.length) {
+    //   contents.removeRange(0, end);
+    //   if (contents.isEmpty) {
     //     stop();
     //     break;
     //   }
     // }
+
+    // ====================================
+
+    for (var i = currentHistory.pos;
+        i < contents.length;
+        i += setting.groupcnt) {
+      Store? store;
+      try {
+        store = await BoxCtl.createStore();
+      } catch (e) {}
+
+      if (playstat != STAT_PLAY) break;
+      int end = min(i + setting.groupcnt, contents.length);
+
+      String speakText = contents.getRange(i, end).join("\n");
+
+      filter.forEach((e) {
+        if (e.enable) {
+          if (e.expr) {
+            speakText =
+                speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+          } else {
+            speakText = speakText.replaceAll(e.filter, e.to);
+          }
+        }
+      });
+      if (this.autoExitDate != null) {
+        mediaItem.first.then((e) {
+          var now = DateTime.now();
+          if (autoExitDate!.isBefore(now)) {
+            autoExitDate = null;
+            this.stop();
+          } else {
+            var ss = autoExitDate!.difference(now);
+            mediaItem.add(e!.copyWith(
+                album: "Auto_shut_down_after_@min_minute"
+                    .trParams({"min": ss.inMinutes.toString()})));
+          }
+        });
+      }
+      playbackState
+          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
+
+      // bool bspeak = await speak(speakText);
+      var bspeak = await tts.speak(speakText);
+      print(bspeak);
+      try {
+        store?.box<HistoryBox>().put(currentHistory);
+      } catch (e) {}
+      currentHistory.pos = i;
+
+      // await Utils.setLastData(lastData.toJson());
+
+      // if (!bspeak) {
+      //   break;
+      // }
+
+      if (end >= contents.length) {
+        stop();
+        break;
+      }
+    }
   }
 
   Future<void> pause() async {
@@ -291,7 +307,7 @@ class AudioHandler extends BaseAudioHandler
           ],
           androidCompactActionIndices: const [0, 1],
           processingState: AudioProcessingState.completed,
-          updatePosition: Duration(seconds: lastData.pos),
+          updatePosition: Duration(seconds: currentHistory.pos),
           playing: false,
         ));
 
@@ -317,16 +333,20 @@ class AudioHandler extends BaseAudioHandler
       [Map<String, dynamic>? extras]) async {
     if (name == "init" && extras != null) {
       this.contents = List<String>.from(extras["contents"]);
-      this.contentsLength = this.contents.length;
-      this.ttsOption = Tts.fromMap(extras["tts"]);
-      this.filter = extras["filter"];
-      this.lastData = History.fromMap(extras["lastData"]);
-      this.contents.removeRange(0, lastData.pos);
+      this.setting = SettingBox.fromMap(extras["setting"]);
+      this.filter = (extras["filter"] as List<Map<String, dynamic>>)
+          .map((e) => FilterBox.fromMap(e))
+          .toList();
+      this.currentHistory = HistoryBox.fromMap(extras["currentHistory"]);
     }
-    if (name == "config" && extras != null) {
-      this.ttsOption = Tts.fromMap(extras["tts"]);
-      this.filter = extras["filter"];
+    if (name == "setting" && extras != null) {
+      this.setting = SettingBox.fromMap(extras["setting"]);
       setTts();
+    }
+    if (name == "filter" && extras != null) {
+      this.filter = (extras["filter"] as List<Map<String, dynamic>>)
+          .map((e) => FilterBox.fromMap(e))
+          .toList();
     }
     if (name == "autoExit" && extras != null) {
       this.autoExitDate = extras["autoExit"];
@@ -335,7 +355,7 @@ class AudioHandler extends BaseAudioHandler
 
   @override
   Future<void> click([MediaButton button = MediaButton.media]) async {
-    if (ttsOption.headsetbutton) {
+    if (setting.headsetbutton) {
       if (playstat == STAT_PLAY) {
         pause();
       } else if (playstat == STAT_PAUSE) {
@@ -375,13 +395,19 @@ class AudioPlay {
     lisenFunction.remove(fn);
   }
 
-  static setConfig({
-    required Map<String, dynamic> tts,
-    required List<dynamic> filter,
+  static setSetting({
+    required SettingBox setting,
   }) {
-    _audioHandler!.customAction("config", {
-      "tts": tts,
-      "filter": filter,
+    _audioHandler!.customAction("setting", {
+      "setting": setting.toMap(),
+    });
+  }
+
+  static setFilter({
+    required List<FilterBox> filter,
+  }) {
+    _audioHandler!.customAction("filter", {
+      "filter": filter.map((e) => e.toMap()).toList(),
     });
   }
 
@@ -391,16 +417,17 @@ class AudioPlay {
     });
   }
 
-  static play(
-      {required List<String> contents,
-      required Map<String, dynamic> tts,
-      required List<dynamic> filter,
-      required Map<String, dynamic> lastData}) {
+  static play({
+    required List<String> contents,
+    required List<FilterBox> filter,
+    required SettingBox setting,
+    required HistoryBox currentHistory,
+  }) {
     _audioHandler!.customAction("init", {
       "contents": contents,
-      "tts": tts,
-      "filter": filter,
-      "lastData": lastData,
+      "filter": filter.map((e) => e.toMap()).toList(),
+      "setting": setting.toMap(),
+      "currentHistory": currentHistory.toMap(),
     });
     _audioHandler!.play();
   }

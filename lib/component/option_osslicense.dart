@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import 'package:googleapis/drive/v3.dart';
-import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/oss_licenses.dart';
-import 'package:open_textview/provider/Gdrive.dart';
-import 'package:open_textview/provider/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OptionOsslicenseCtl extends GetxController {
@@ -14,7 +8,7 @@ class OptionOsslicenseCtl extends GetxController {
   Rx<bool> isLoading = false.obs;
 }
 
-class OptionOsslicense extends GetView<GlobalController> {
+class OptionOsslicense extends GetView {
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionOsslicenseCtl());

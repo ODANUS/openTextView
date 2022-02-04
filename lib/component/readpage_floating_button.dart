@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/controller/global_controller.dart';
@@ -12,7 +13,7 @@ class readPageFloatingButtonCtl extends GetxController {
   Rx<bool> bhide = false.obs;
 }
 
-class readPageFloatingButton extends GetView<GlobalController> {
+class readPageFloatingButton extends GetView<BoxCtl> {
   @override
   Widget build(BuildContext context) {
     final pageCtl = Get.put(readPageFloatingButtonCtl());
@@ -22,6 +23,7 @@ class readPageFloatingButton extends GetView<GlobalController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FloatingActionButton.extended(
+                heroTag: "option",
                 onPressed: () => pageCtl.bFind(!pageCtl.bFind.value),
                 label: AnimatedSwitcher(
                   duration: Duration(milliseconds: 200),
@@ -67,11 +69,13 @@ class readPageFloatingButton extends GetView<GlobalController> {
                         ),
                 )),
             FloatingActionButton.extended(
+                heroTag: "play",
                 onPressed: () => AudioPlay.play(
-                    contents: controller.contents,
-                    filter: controller.userData.value.filter.toList(),
-                    lastData: controller.lastData.value.toMap(),
-                    tts: controller.userData.value.tts.toMap()),
+                      contents: controller.contents,
+                      filter: controller.getFilter(),
+                      setting: controller.setting.value,
+                      currentHistory: controller.currentHistory.value,
+                    ),
                 label: AudioPlay.builder(builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();
@@ -127,14 +131,12 @@ class readPageFloatingButton extends GetView<GlobalController> {
                                 IconButton(
                                     onPressed: () {
                                       AudioPlay.play(
-                                          contents: controller.contents,
-                                          filter: controller
-                                              .userData.value.filter
-                                              .toList(),
-                                          lastData:
-                                              controller.lastData.value.toMap(),
-                                          tts: controller.userData.value.tts
-                                              .toMap());
+                                        contents: controller.contents,
+                                        filter: controller.getFilter(),
+                                        setting: controller.setting.value,
+                                        currentHistory:
+                                            controller.currentHistory.value,
+                                      );
                                     },
                                     icon: Icon(Ionicons.play)),
                             ],
