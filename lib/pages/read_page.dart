@@ -54,6 +54,9 @@ class ReadPage extends GetView<BoxCtl> {
 
             return Obx(
               () => ScrollablePositionedList.builder(
+                  physics: controller.setting.value.enablescroll
+                      ? null
+                      : NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.only(
                       top: 20, left: 10, right: 10, bottom: 150),
                   itemScrollController: controller.itemScrollctl,

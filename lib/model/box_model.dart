@@ -57,6 +57,7 @@ class SettingBox {
     this.audiosession = true,
     this.touchLayout = 0,
     this.useClipboard = true,
+    this.enablescroll = true,
     this.theme = "light",
   });
   int id;
@@ -72,6 +73,7 @@ class SettingBox {
   String theme;
   bool useClipboard;
   bool headsetbutton;
+  bool enablescroll;
   bool audiosession;
 
   factory SettingBox.fromJson(String str) =>
@@ -92,6 +94,7 @@ class SettingBox {
       groupcnt: json["groupcnt"] ?? 5,
       theme: json["theme"] ?? "light",
       headsetbutton: json["headsetbutton"] ?? false,
+      enablescroll: json["enablescroll"] ?? true,
       audiosession: json["audiosession"] ?? true,
       touchLayout: json["touchLayout"] ?? 0,
       useClipboard: json["useClipboard"] ?? true,
@@ -108,6 +111,7 @@ class SettingBox {
         "pitch": pitch,
         "groupcnt": groupcnt,
         "headsetbutton": headsetbutton,
+        "enablescroll": enablescroll,
         "audiosession": audiosession,
         "touchLayout": touchLayout,
         "useClipboard": useClipboard,

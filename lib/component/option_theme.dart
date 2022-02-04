@@ -13,9 +13,7 @@ class OptionTheme extends GetView<BoxCtl> {
   Widget build(BuildContext context) {
     final pageCtl = Get.put(OptionThemeCtl());
 
-    return Obx(() => Stack(
-          children: [
-            Row(
+    return Obx(() => Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Row(
@@ -46,37 +44,37 @@ class OptionTheme extends GetView<BoxCtl> {
                 ]),
               ],
             )
-            // ExpansionTile(
-            //   onExpansionChanged: (b) async {},
-            //   title: Text("Style Theme settings".tr),
-            //   children: [
-            //     ListTile(
-            //         title: Text('light theme'.tr),
-            //         onTap: () {
-            //           controller.userData.update((val) {
-            //             val!.theme = "light";
-            //           });
-            //           Get.changeTheme(ThemeData.light());
-            //         }),
-            //     ListTile(
-            //         title: Text('Dark theme'.tr),
-            //         onTap: () {
-            //           controller.userData.update((val) {
-            //             val!.theme = "dark";
-            //           });
-            //           Get.changeTheme(ThemeData.dark());
-            //         }),
-            //   ],
-            // ),
-            // if (pageCtl.isLoading.value)
-            //   Positioned.fill(
-            //     child: Container(
-            //       color: Colors.black12,
-            //       alignment: Alignment.center,
-            //       child: CircularProgressIndicator(),
-            //     ),
-            //   ),
-          ],
-        ));
+        // ExpansionTile(
+        //   onExpansionChanged: (b) async {},
+        //   title: Text("Style Theme settings".tr),
+        //   children: [
+        //     ListTile(
+        //         title: Text('light theme'.tr),
+        //         onTap: () {
+        //           controller.userData.update((val) {
+        //             val!.theme = "light";
+        //           });
+        //           Get.changeTheme(ThemeData.light());
+        //         }),
+        //     ListTile(
+        //         title: Text('Dark theme'.tr),
+        //         onTap: () {
+        //           controller.userData.update((val) {
+        //             val!.theme = "dark";
+        //           });
+        //           Get.changeTheme(ThemeData.dark());
+        //         }),
+        //   ],
+        // ),
+        // if (pageCtl.isLoading.value)
+        //   Positioned.fill(
+        //     child: Container(
+        //       color: Colors.black12,
+        //       alignment: Alignment.center,
+        //       child: CircularProgressIndicator(),
+        //     ),
+        //   ),
+
+        );
   }
 }

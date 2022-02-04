@@ -7,7 +7,7 @@ class DeveloperNotes extends GetView<BoxCtl> {
   final String content = """
 1. 페이지 이동 레이아웃을 설정 할 수 있도록 기능 을 추가 하였습니다. 
 
-2. 클립보드 기능을 켜고 끌 수 있도록 기능을 추가 하였습니다. 
+2. 클립보드/스크롤 을 켜고 끌 수 있도록 기능을 추가 하였습니다. 
 
 3. tts 성능이 개선 되었습니다. 
 

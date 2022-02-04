@@ -42,12 +42,12 @@ class SettingPage extends GetView<BoxCtl> {
           AdsComp(),
           SizedBox(height: 5),
           Card(child: OptionTheme()),
+          Card(child: OptionClipboard()),
           // Card(child: OptionHistory()),
           Card(child: OptionBackup()),
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
           Card(child: OptionLayout()),
-          Card(child: OptionClipboard()),
 
           Card(child: DeveloperNotes()),
 

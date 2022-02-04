@@ -87,6 +87,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Clipboard Settings",
           "Book Image Search": "Book Image Search",
           "Developer notes": "Developer notes",
+          "use Clipboard": "use Clipboard",
+          "use Scroll": "use Scroll",
         },
         "ko": {
           "key": "ko",
@@ -166,6 +168,8 @@ class Messages extends Translations {
           "Clipboard Settings": "클립보드 설정",
           "Book Image Search": "서적 이미지 검색",
           "Developer notes": "개발자 노트",
+          "use Clipboard": "클립보드 사용",
+          "use Scroll": "스크롤 활성화",
         },
         "gl": {
           "key": "gl",
@@ -253,6 +257,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Configuración do portapapeis",
           "Book Image Search": "Book Image Search.",
           "Developer notes": "Notas de desarrolladores",
+          "use Clipboard": "Usa o portapapeis",
+          "use Scroll": "Use Scroll.",
         },
         "gu": {
           "key": "gu",
@@ -337,6 +343,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ક્લિપબોર્ડ સેટિંગ્સ",
           "Book Image Search": "બુક ઇમેજ શોધ",
           "Developer notes": "વિકાસકર્તા નોંધો",
+          "use Clipboard": "ક્લિપબોર્ડનો ઉપયોગ કરો",
+          "use Scroll": "સ્ક્રોલનો ઉપયોગ કરો",
         },
         "el": {
           "key": "el",
@@ -422,6 +430,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Ρυθμίσεις πρόχειρου",
           "Book Image Search": "Αναζήτηση εικόνας βιβλίου",
           "Developer notes": "Σημειώσεις προγραμματιστών",
+          "use Clipboard": "Χρησιμοποιήστε το πρόχειρο",
+          "use Scroll": "χρησιμοποιήστε κύλιση",
         },
         "nl": {
           "key": "nl",
@@ -505,6 +515,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Klembordinstellingen",
           "Book Image Search": "Boek afbeelding zoeken",
           "Developer notes": "Ontwikkelaar opmerkingen",
+          "use Clipboard": "Gebruik het klembord",
+          "use Scroll": "gebruik scroll",
         },
         "ne": {
           "key": "ne",
@@ -591,6 +603,8 @@ class Messages extends Translations {
           "Clipboard Settings": "क्लिपबोर्ड सेटिंग्स",
           "Book Image Search": "पुस्तक छवि खोजी",
           "Developer notes": "विकासकर्ता नोटहरू",
+          "use Clipboard": "क्लिपबोर्ड प्रयोग गर्नुहोस्",
+          "use Scroll": "स्क्रोल प्रयोग गर्नुहोस्",
         },
         "no": {
           "key": "no",
@@ -674,6 +688,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Utklippstavleinnstillinger",
           "Book Image Search": "Bestill bildesøk",
           "Developer notes": "Utvikler notater",
+          "use Clipboard": "Bruk utklippstavlen",
+          "use Scroll": "Bruk rulle",
         },
         "da": {
           "key": "da",
@@ -757,6 +773,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Udklipsholderindstillinger",
           "Book Image Search": "Book Image Search",
           "Developer notes": "Udvikler noter.",
+          "use Clipboard": "Brug udklipsholder",
+          "use Scroll": "Brug Scroll",
         },
         "de": {
           "key": "de",
@@ -842,6 +860,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Zwischenablage-Einstellungen",
           "Book Image Search": "Bild buchen Suche.",
           "Developer notes": "Entwickler-Anmerkungen",
+          "use Clipboard": "Verwenden Sie die Zwischenablage",
+          "use Scroll": "Verwenden Sie Scroll.",
         },
         "lo": {
           "key": "lo",
@@ -924,6 +944,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ການຕັ້ງຄ່າ Clipboard",
           "Book Image Search": "ຊອກຫາຮູບພາບ",
           "Developer notes": "ບັນທຶກນັກພັດທະນາ",
+          "use Clipboard": "ໃຊ້ clipboard",
+          "use Scroll": "ໃຊ້ເລື່ອນ",
         },
         "lv": {
           "key": "lv",
@@ -1012,6 +1034,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Starpliktuves iestatījumi",
           "Book Image Search": "Grāmatu attēla meklēšana",
           "Developer notes": "Izstrādātāju piezīmes",
+          "use Clipboard": "Izmantojiet starpliktuvi",
+          "use Scroll": "izmantot ritināšanu",
         },
         "ru": {
           "key": "ru",
@@ -1100,6 +1124,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Настройки буфера обмена",
           "Book Image Search": "Поиск изображений книги",
           "Developer notes": "Заметки разработчика",
+          "use Clipboard": "Используйте буфер обмена",
+          "use Scroll": "Используйте прокрутку",
         },
         "ro": {
           "key": "ro",
@@ -1187,6 +1213,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Setări clipboard.",
           "Book Image Search": "Căutarea imaginilor de carte",
           "Developer notes": "Note de dezvoltator",
+          "use Clipboard": "Utilizați Clipboard.",
+          "use Scroll": "Utilizați Derulați",
         },
         "lt": {
           "key": "lt",
@@ -1273,6 +1301,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Iškarpinės nustatymai",
           "Book Image Search": "Užsakyti vaizdo paieška.",
           "Developer notes": "Kūrėjo Pastabos",
+          "use Clipboard": "Naudokite iškarpinę",
+          "use Scroll": "Naudokite slinkties",
         },
         "mr": {
           "key": "mr",
@@ -1357,6 +1387,8 @@ class Messages extends Translations {
           "Clipboard Settings": "क्लिपबोर्ड सेटिंग्ज",
           "Book Image Search": "प्रतिमा शोधा पुस्तक",
           "Developer notes": "विकसक नोट्स",
+          "use Clipboard": "क्लिपबोर्ड वापरा",
+          "use Scroll": "स्क्रोल वापरा",
         },
         "mk": {
           "key": "mk",
@@ -1443,6 +1475,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Поставки за таблата со исечоци",
           "Book Image Search": "Пребарување на сликата на книги",
           "Developer notes": "Изготвувателски белешки",
+          "use Clipboard": "Користете таблата со исечоци",
+          "use Scroll": "Користете скролувајте",
         },
         "ml": {
           "key": "ml",
@@ -1532,6 +1566,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ക്ലിപ്പ്ബോർഡ് ക്രമീകരണങ്ങൾ",
           "Book Image Search": "ഇമേജ് തിരയൽ ബുക്ക് ചെയ്യുക",
           "Developer notes": "ഡവലപ്പർ കുറിപ്പുകൾ",
+          "use Clipboard": "ക്ലിപ്പ്ബോർഡ് ഉപയോഗിക്കുക",
+          "use Scroll": "സ്ക്രോൾ ഉപയോഗിക്കുക",
         },
         "ms": {
           "key": "ms",
@@ -1615,6 +1651,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Tetapan Clipboard.",
           "Book Image Search": "Buku Carian Imej.",
           "Developer notes": "NOTA PEMBANGUNAN",
+          "use Clipboard": "Gunakan papan klip.",
+          "use Scroll": "Gunakan Scroll.",
         },
         "ms": {
           "key": "ms",
@@ -1698,6 +1736,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Tetapan Clipboard.",
           "Book Image Search": "Buku Carian Imej.",
           "Developer notes": "NOTA PEMBANGUNAN",
+          "use Clipboard": "Gunakan papan klip.",
+          "use Scroll": "Gunakan Scroll.",
         },
         "mn": {
           "key": "mn",
@@ -1783,6 +1823,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Хяналтын самбарын тохиргоо",
           "Book Image Search": "Номын зургийн хайлт",
           "Developer notes": "Хөгжүүлэгчийн тэмдэглэл",
+          "use Clipboard": "санах ой ашиглах",
+          "use Scroll": "гүйлгэх",
         },
         "eu": {
           "key": "eu",
@@ -1867,6 +1909,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Arbelaren ezarpenak",
           "Book Image Search": "Liburuaren irudiaren bilaketa",
           "Developer notes": "Garatzaileen oharrak",
+          "use Clipboard": "erabili arbela",
+          "use Scroll": "Erabili korritzea",
         },
         "my": {
           "key": "my",
@@ -1954,6 +1998,8 @@ class Messages extends Translations {
           "Clipboard Settings": "clipboard ဆက်တင်များ",
           "Book Image Search": "Book image Search",
           "Developer notes": "developer မှတ်စုများ",
+          "use Clipboard": "clipboard ကိုသုံးပါ",
+          "use Scroll": "Scroll ကိုသုံးပါ",
         },
         "vi": {
           "key": "vi",
@@ -2037,6 +2083,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Cài đặt clipboard.",
           "Book Image Search": "Tìm kiếm hình ảnh",
           "Developer notes": "GHI CHÚ PHÁT TRIỂN",
+          "use Clipboard": "Sử dụng Clipboard.",
+          "use Scroll": "Sử dụng cuộn",
         },
         "be": {
           "key": "be",
@@ -2123,6 +2171,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Налады буфера абмену",
           "Book Image Search": "Забраніраваць пошук малюнкаў",
           "Developer notes": "Заўвагі для распрацоўшчыкаў",
+          "use Clipboard": "Выкарыстанне буфера абмену",
+          "use Scroll": "выкарыстоўваць скрутак",
         },
         "bn": {
           "key": "bn",
@@ -2207,6 +2257,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ক্লিপবোর্ড সেটিংস",
           "Book Image Search": "বুক ইমেজ অনুসন্ধান",
           "Developer notes": "বিকাশকারী নোট",
+          "use Clipboard": "ক্লিপবোর্ড ব্যবহার করুন",
+          "use Scroll": "স্ক্রোল ব্যবহার করুন",
         },
         "bg": {
           "key": "bg",
@@ -2294,6 +2346,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Настройки на клипборда",
           "Book Image Search": "Резервирайте Търсене на изображения",
           "Developer notes": "Забележки за разработчиците",
+          "use Clipboard": "Използвайте клипборда",
+          "use Scroll": "Използвайте свитъка",
         },
         "sr": {
           "key": "sr",
@@ -2379,6 +2433,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Подешавања међуспремника",
           "Book Image Search": "Резервишите претрагу слика",
           "Developer notes": "Белешке о програмерима",
+          "use Clipboard": "Користите међуспремник",
+          "use Scroll": "Користите свитак",
         },
         "sw": {
           "key": "sw",
@@ -2466,6 +2522,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Mipangilio ya Clipboard.",
           "Book Image Search": "Tafuta picha ya picha",
           "Developer notes": "Vidokezo vya Developer.",
+          "use Clipboard": "Tumia clipboard.",
+          "use Scroll": "Tumia kitabu",
         },
         "sv": {
           "key": "sv",
@@ -2549,6 +2607,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Urklippsinställningar",
           "Book Image Search": "Boka bildsökning",
           "Developer notes": "Utvecklare anteckningar",
+          "use Clipboard": "Använd Urklipp",
+          "use Scroll": "Använd bläddring",
         },
         "es": {
           "key": "es",
@@ -2638,6 +2698,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Configuración del portapapeles",
           "Book Image Search": "Búsqueda de imágenes de libro",
           "Developer notes": "Notas de desarrollador",
+          "use Clipboard": "usar portapapeles",
+          "use Scroll": "usar desplazamiento",
         },
         "sk": {
           "key": "sk",
@@ -2722,6 +2784,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Nastavenia schránky",
           "Book Image Search": "Vyhľadávanie obrázkov",
           "Developer notes": "Vývojárske poznámky",
+          "use Clipboard": "Použite schránku",
+          "use Scroll": "zvitok",
         },
         "sl": {
           "key": "sl",
@@ -2806,6 +2870,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Nastavitve odložišča",
           "Book Image Search": "Iskanje slik",
           "Developer notes": "Razvijalec Notes.",
+          "use Clipboard": "Uporabite odložišče",
+          "use Scroll": "Uporabite pomikanje.",
         },
         "si": {
           "key": "si",
@@ -2889,6 +2955,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ක්ලිප්බෝඩ් සැකසුම්",
           "Book Image Search": "රූප සෙවීම පොත්පත් කරන්න",
           "Developer notes": "සංවර්ධක සටහන්",
+          "use Clipboard": "ක්ලිප් පුවරුව භාවිතා කරන්න",
+          "use Scroll": "අනුචලනය භාවිතා කරන්න",
         },
         "ar": {
           "key": "ar",
@@ -2972,6 +3040,8 @@ class Messages extends Translations {
           "Clipboard Settings": "إعدادات الحافظة",
           "Book Image Search": "كتاب البحث عن الصورة",
           "Developer notes": "ملاحظات المطور",
+          "use Clipboard": "استخدام الحافظة",
+          "use Scroll": "استخدام التمرير",
         },
         "hy": {
           "key": "hy",
@@ -3057,6 +3127,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Clipboard- ի պարամետրերը",
           "Book Image Search": "Գրքի պատկերի որոնում",
           "Developer notes": "Մշակողի նոտաներ",
+          "use Clipboard": "Օգտագործեք clipboard",
+          "use Scroll": "Օգտագործեք ոլորումը",
         },
         "is": {
           "key": "is",
@@ -3142,6 +3214,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Stillingar klemmuspjalds",
           "Book Image Search": "Bók mynd leit.",
           "Developer notes": "Hönnuður athugasemdir",
+          "use Clipboard": "Notaðu klemmuspjald",
+          "use Scroll": "Notaðu rolf",
         },
         "az": {
           "key": "az",
@@ -3226,6 +3300,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Panoya parametrləri",
           "Book Image Search": "Kitab görüntü axtarışı",
           "Developer notes": "Geliştirici qeydləri",
+          "use Clipboard": "paneli istifadə edin",
+          "use Scroll": "diyirləmək",
         },
         "af": {
           "key": "af",
@@ -3311,6 +3387,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Klembord instellings",
           "Book Image Search": "Boek Image Soek",
           "Developer notes": "Ontwikkelaar Notas",
+          "use Clipboard": "Gebruik knipbord",
+          "use Scroll": "Gebruik Scroll",
         },
         "sq": {
           "key": "sq",
@@ -3398,6 +3476,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Cilësimet e Clipboard",
           "Book Image Search": "Kërkimi i imazhit të librit",
           "Developer notes": "Shënimet e zhvilluesit",
+          "use Clipboard": "Përdorni Clipboard",
+          "use Scroll": "Përdorni rrotull",
         },
         "am": {
           "key": "am",
@@ -3479,6 +3559,8 @@ class Messages extends Translations {
           "Clipboard Settings": "የቅንጥብ ሰሌዳ ቅንጅቶች",
           "Book Image Search": "መጽሐፍ የምስል ፍለጋ",
           "Developer notes": "የገንቢ ማስታወሻዎች",
+          "use Clipboard": "ቅንጥብ ሰሌዳ ይጠቀሙ",
+          "use Scroll": "ጥቅልል ይጠቀሙ",
         },
         "et": {
           "key": "et",
@@ -3562,6 +3644,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Lõikelaua seaded",
           "Book Image Search": "Broneeri pildiotsing",
           "Developer notes": "Arendaja märkmed",
+          "use Clipboard": "Kasutage lõikelauale",
+          "use Scroll": "Kasutage kerimist",
         },
         "en": {
           "key": "en",
@@ -3647,6 +3731,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Clipboard Settings",
           "Book Image Search": "Book Image Search",
           "Developer notes": "Developer notes",
+          "use Clipboard": "use Clipboard",
+          "use Scroll": "use Scroll",
         },
         "ur": {
           "key": "ur",
@@ -3731,6 +3817,8 @@ class Messages extends Translations {
           "Clipboard Settings": "کلپ بورڈ کی ترتیبات",
           "Book Image Search": "کتاب تصویری تلاش",
           "Developer notes": "ڈویلپر نوٹ",
+          "use Clipboard": "کلپ بورڈ کا استعمال کریں",
+          "use Scroll": "سکرال کا استعمال کریں",
         },
         "uk": {
           "key": "uk",
@@ -3818,6 +3906,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Настройки буфера обміну",
           "Book Image Search": "Пошук зображень",
           "Developer notes": "Записники розробників",
+          "use Clipboard": "Використовуйте буфер обміну",
+          "use Scroll": "використовувати прокрутки",
         },
         "it": {
           "key": "it",
@@ -3905,6 +3995,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Impostazioni per appunti.",
           "Book Image Search": "Prenota un'immagine Ricerca.",
           "Developer notes": "Note degli sviluppatori",
+          "use Clipboard": "usa appunti.",
+          "use Scroll": "Usa lo scorrimento",
         },
         "id": {
           "key": "id",
@@ -3989,6 +4081,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Pengaturan Clipboard",
           "Book Image Search": "Pencarian Gambar Buku",
           "Developer notes": "Catatan Pengembang",
+          "use Clipboard": "gunakan clipboard",
+          "use Scroll": "Gunakan gulir",
         },
         "ja": {
           "key": "ja",
@@ -4068,6 +4162,8 @@ class Messages extends Translations {
           "Clipboard Settings": "クリップボードの設定",
           "Book Image Search": "ブック画像検索",
           "Developer notes": "開発者のノート",
+          "use Clipboard": "クリップボードを使用してください",
+          "use Scroll": "スクロールを使う",
         },
         "ka": {
           "key": "ka",
@@ -4156,6 +4252,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Clipboard პარამეტრები",
           "Book Image Search": "წიგნის სურათი ძიება",
           "Developer notes": "დეველოპერი შენიშვნები",
+          "use Clipboard": "გამოიყენეთ ბუფერში",
+          "use Scroll": "გამოიყენეთ გადახვევა",
         },
         "zu": {
           "key": "zu",
@@ -4243,6 +4341,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Izilungiselelo Zebhodi Yokunamathisela",
           "Book Image Search": "Ukucinga kwesithombe sencwadi",
           "Developer notes": "Amanothi kanjiniyela",
+          "use Clipboard": "Sebenzisa ibhodi yokunameka",
+          "use Scroll": "Sebenzisa umqulu",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -4321,6 +4421,8 @@ class Messages extends Translations {
           "Clipboard Settings": "剪贴板设置",
           "Book Image Search": "书籍图片搜索",
           "Developer notes": "开发人员说明",
+          "use Clipboard": "使用剪贴板",
+          "use Scroll": "使用卷轴",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -4399,6 +4501,8 @@ class Messages extends Translations {
           "Clipboard Settings": "剪貼板設置",
           "Book Image Search": "書籍圖片搜索",
           "Developer notes": "開發人員說明",
+          "use Clipboard": "使用剪貼板",
+          "use Scroll": "使用捲軸",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -4477,6 +4581,8 @@ class Messages extends Translations {
           "Clipboard Settings": "剪貼板設置",
           "Book Image Search": "書籍圖片搜索",
           "Developer notes": "開發人員說明",
+          "use Clipboard": "使用剪貼板",
+          "use Scroll": "使用捲軸",
         },
         "cs": {
           "key": "cs",
@@ -4561,6 +4667,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Nastavení schránky",
           "Book Image Search": "Zobrazení obrázku zobrazení",
           "Developer notes": "Vývojářské poznámky",
+          "use Clipboard": "Použijte schránky",
+          "use Scroll": "Použijte Scroll.",
         },
         "kk": {
           "key": "kk",
@@ -4645,6 +4753,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Алмасу буферінің параметрлері",
           "Book Image Search": "Кітап бейнесін іздеу",
           "Developer notes": "Әзірлеуші ​​жазбалары",
+          "use Clipboard": "Аралық сақтағышты пайдаланыңыз",
+          "use Scroll": "Айналдыруды қолданыңыз",
         },
         "ca": {
           "key": "ca",
@@ -4734,6 +4844,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Configuració del porta-retalls",
           "Book Image Search": "Cerca d'imatges de llibres",
           "Developer notes": "Notes de desenvolupadors",
+          "use Clipboard": "Utilitzeu el porta-retalls",
+          "use Scroll": "Utilitzeu el desplaçament",
         },
         "kn": {
           "key": "kn",
@@ -4821,6 +4933,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ಕ್ಲಿಪ್ಬೋರ್ಡ್ ಸೆಟ್ಟಿಂಗ್ಗಳು",
           "Book Image Search": "ಪುಸ್ತಕ ಚಿತ್ರ ಹುಡುಕಾಟ",
           "Developer notes": "ಡೆವಲಪರ್ ಟಿಪ್ಪಣಿಗಳು",
+          "use Clipboard": "ಕ್ಲಿಪ್ಬೋರ್ಡ್ ಬಳಸಿ",
+          "use Scroll": "ಸ್ಕ್ರಾಲ್ ಬಳಸಿ",
         },
         "hr": {
           "key": "hr",
@@ -4906,6 +5020,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Postavke međuspremnika",
           "Book Image Search": "Pretraživanje slika",
           "Developer notes": "Napomene o razvoju",
+          "use Clipboard": "koristite međuspremnik",
+          "use Scroll": "Upotrijebite pomicanje",
         },
         "km": {
           "key": "km",
@@ -4990,6 +5106,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ការកំណត់ក្តារតម្បៀតខ្ទាស់",
           "Book Image Search": "ស្វែងរករូបភាពសៀវភៅ",
           "Developer notes": "កំណត់ចំណាំអ្នកអភិវឌ្ឍន៍",
+          "use Clipboard": "ប្រើក្តារតម្បៀតខ្ទាស់",
+          "use Scroll": "ប្រើរមូរ",
         },
         "ky": {
           "key": "ky",
@@ -5076,6 +5194,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Алмашуу буфери",
           "Book Image Search": "Китеп сүрөт издөө",
           "Developer notes": "Иштеп чыгуучу белгилер",
+          "use Clipboard": "алмашуу буферин колдонуңуз",
+          "use Scroll": "Жылдыруу",
         },
         "ta": {
           "key": "ta",
@@ -5163,6 +5283,8 @@ class Messages extends Translations {
           "Clipboard Settings": "கிளிப்போர்டு அமைப்புகள்",
           "Book Image Search": "புத்தகம் பட தேடல்",
           "Developer notes": "டெவலப்பர் குறிப்புகள்",
+          "use Clipboard": "கிளிப்போர்டைப் பயன்படுத்தவும்",
+          "use Scroll": "உருள் பயன்படுத்தவும்",
         },
         "th": {
           "key": "th",
@@ -5247,6 +5369,8 @@ class Messages extends Translations {
           "Clipboard Settings": "การตั้งค่าคลิปบอร์ด",
           "Book Image Search": "ค้นหาภาพการค้นหา",
           "Developer notes": "หมายเหตุนักพัฒนา",
+          "use Clipboard": "ใช้คลิปบอร์ด",
+          "use Scroll": "ใช้ Scroll",
         },
         "tr": {
           "key": "tr",
@@ -5333,6 +5457,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Pano Ayarları",
           "Book Image Search": "Kitap Görüntü Arama",
           "Developer notes": "Geliştirici notları",
+          "use Clipboard": "Pano kullanın",
+          "use Scroll": "Kaydırma kullanın",
         },
         "te": {
           "key": "te",
@@ -5420,6 +5546,8 @@ class Messages extends Translations {
           "Clipboard Settings": "క్లిప్బోర్డ్ సెట్టింగులు",
           "Book Image Search": "పుస్తకం చిత్రం శోధన",
           "Developer notes": "డెవలపర్ నోట్స్",
+          "use Clipboard": "క్లిప్బోర్డ్ను ఉపయోగించండి",
+          "use Scroll": "స్క్రోల్ ఉపయోగించండి",
         },
         "pa": {
           "key": "pa",
@@ -5503,6 +5631,8 @@ class Messages extends Translations {
           "Clipboard Settings": "ਕਲਿੱਪਬੋਰਡ ਸੈਟਿੰਗਜ਼",
           "Book Image Search": "ਕਿਤਾਬ ਚਿੱਤਰ ਖੋਜ",
           "Developer notes": "ਡਿਵੈਲਪਰ ਨੋਟਸ",
+          "use Clipboard": "ਕਲਿੱਪਬੋਰਡ ਦੀ ਵਰਤੋਂ ਕਰੋ",
+          "use Scroll": "ਸਕ੍ਰੌਲ ਦੀ ਵਰਤੋਂ ਕਰੋ",
         },
         "fa": {
           "key": "fa",
@@ -5588,6 +5718,8 @@ class Messages extends Translations {
           "Clipboard Settings": "تنظیمات کلیپ بورد",
           "Book Image Search": "جستجوی تصویر",
           "Developer notes": "یادداشت های توسعه دهنده",
+          "use Clipboard": "از کلیپ بورد استفاده کنید",
+          "use Scroll": "استفاده از اسکرول",
         },
         "pt": {
           "key": "pt",
@@ -5676,6 +5808,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Configurações da Prancheta.",
           "Book Image Search": "Pesquisa de imagem de livro",
           "Developer notes": "Notas do desenvolvedor",
+          "use Clipboard": "Use a área de transferência",
+          "use Scroll": "use rolagem",
         },
         "pl": {
           "key": "pl",
@@ -5762,6 +5896,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Ustawienia schowka.",
           "Book Image Search": "Książka wyszukiwania",
           "Developer notes": "Notatki deweloperskie.",
+          "use Clipboard": "Użyj schowka",
+          "use Scroll": "Użyj przewijania",
         },
         "fr": {
           "key": "fr",
@@ -5850,6 +5986,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Paramètres du presse-papiers",
           "Book Image Search": "Réserver la recherche de l'image",
           "Developer notes": "Notes de développeur",
+          "use Clipboard": "presse-papiers",
+          "use Scroll": "faire défiler",
         },
         "fi": {
           "key": "fi",
@@ -5933,6 +6071,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Leikepöydän asetukset",
           "Book Image Search": "Varaa kuva haku",
           "Developer notes": "Kehittäjä Huomautuksia",
+          "use Clipboard": "Käytä leikepöydälle",
+          "use Scroll": "Käytä vieritystä",
         },
         "fil": {
           "key": "fil",
@@ -6021,6 +6161,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Mga setting ng clipboard.",
           "Book Image Search": "Paghahanap ng imahe ng libro",
           "Developer notes": "Mga Tala ng Developer.",
+          "use Clipboard": "Gamitin ang clipboard",
+          "use Scroll": "Gamitin ang scroll",
         },
         "hu": {
           "key": "hu",
@@ -6107,6 +6249,8 @@ class Messages extends Translations {
           "Clipboard Settings": "Vágólapok beállításai",
           "Book Image Search": "Könyv Képkeresés",
           "Developer notes": "Fejlesztői megjegyzések",
+          "use Clipboard": "használja a vágólapot",
+          "use Scroll": "lapozzon",
         },
         "iw": {
           "key": "iw",
@@ -6189,6 +6333,8 @@ class Messages extends Translations {
           "Clipboard Settings": "הגדרות הלוח",
           "Book Image Search": "חיפוש תמונה חיפוש",
           "Developer notes": "הערות מפתח",
+          "use Clipboard": "השתמש בלוח",
+          "use Scroll": "השתמש בגלול",
         },
         "hi": {
           "key": "hi",
@@ -6273,6 +6419,8 @@ class Messages extends Translations {
           "Clipboard Settings": "क्लिपबोर्ड सेटिंग्स",
           "Book Image Search": "पुस्तक छवि खोज",
           "Developer notes": "डेवलपर नोट्स",
+          "use Clipboard": "क्लिपबोर्ड का उपयोग करें",
+          "use Scroll": "स्क्रॉल का उपयोग करें",
         },
       };
 }

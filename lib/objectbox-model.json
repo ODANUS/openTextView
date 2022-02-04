@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:5860126872655072353",
-      "lastPropertyId": "12:1911845170971597191",
+      "lastPropertyId": "13:4599989439788869658",
       "name": "HistoryBox",
       "properties": [
         {
@@ -55,6 +55,11 @@
           "id": "12:1911845170971597191",
           "name": "memo",
           "type": 9
+        },
+        {
+          "id": "13:4599989439788869658",
+          "name": "searchKeyWord",
+          "type": 9
         }
       ],
       "relations": []
@@ -100,7 +105,7 @@
     },
     {
       "id": "3:1885558662605261282",
-      "lastPropertyId": "14:1463864747235604102",
+      "lastPropertyId": "15:5585479250256559482",
       "name": "SettingBox",
       "properties": [
         {
@@ -173,6 +178,11 @@
           "id": "14:1463864747235604102",
           "name": "theme",
           "type": 9
+        },
+        {
+          "id": "15:5585479250256559482",
+          "name": "enablescroll",
+          "type": 1
         }
       ],
       "relations": []

@@ -17,7 +17,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 5860126872655072353),
       name: 'HistoryBox',
-      lastPropertyId: const IdUid(12, 1911845170971597191),
+      lastPropertyId: const IdUid(13, 4599989439788869658),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -65,6 +65,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(12, 1911845170971597191),
             name: 'memo',
             type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 4599989439788869658),
+            name: 'searchKeyWord',
+            type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -111,7 +116,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(3, 1885558662605261282),
       name: 'SettingBox',
-      lastPropertyId: const IdUid(14, 1463864747235604102),
+      lastPropertyId: const IdUid(15, 5585479250256559482),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -183,6 +188,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(14, 1463864747235604102),
             name: 'theme',
             type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 5585479250256559482),
+            name: 'enablescroll',
+            type: 1,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -239,7 +249,8 @@ ModelDefinition getObjectBoxModel() {
           final customNameOffset = fbb.writeString(object.customName);
           final imageUriOffset = fbb.writeString(object.imageUri);
           final memoOffset = fbb.writeString(object.memo);
-          fbb.startTable(13);
+          final searchKeyWordOffset = fbb.writeString(object.searchKeyWord);
+          fbb.startTable(14);
           fbb.addInt64(0, object.id);
           fbb.addInt64(2, object.pos);
           fbb.addInt64(3, object.length);
@@ -249,6 +260,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(9, imageUriOffset);
           fbb.addInt64(10, object.contentsLen);
           fbb.addOffset(11, memoOffset);
+          fbb.addOffset(12, searchKeyWordOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -269,6 +281,8 @@ ModelDefinition getObjectBoxModel() {
                   const fb.StringReader().vTableGet(buffer, rootOffset, 16, ''),
               imageUri:
                   const fb.StringReader().vTableGet(buffer, rootOffset, 22, ''),
+              searchKeyWord:
+                  const fb.StringReader().vTableGet(buffer, rootOffset, 28, ''),
               contentsLen:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 24, 0),
               memo: const fb.StringReader()
@@ -327,7 +341,7 @@ ModelDefinition getObjectBoxModel() {
         objectToFB: (SettingBox object, fb.Builder fbb) {
           final fontFamilyOffset = fbb.writeString(object.fontFamily);
           final themeOffset = fbb.writeString(object.theme);
-          fbb.startTable(15);
+          fbb.startTable(16);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.fontSize);
           fbb.addInt64(2, object.fontWeight);
@@ -342,6 +356,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addBool(11, object.headsetbutton);
           fbb.addBool(12, object.audiosession);
           fbb.addOffset(13, themeOffset);
+          fbb.addBool(14, object.enablescroll);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -375,6 +390,8 @@ ModelDefinition getObjectBoxModel() {
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0),
               useClipboard: const fb.BoolReader()
                   .vTableGet(buffer, rootOffset, 24, false),
+              enablescroll: const fb.BoolReader()
+                  .vTableGet(buffer, rootOffset, 32, false),
               theme: const fb.StringReader()
                   .vTableGet(buffer, rootOffset, 30, ''));
 
@@ -422,6 +439,10 @@ class HistoryBox_ {
   /// see [HistoryBox.memo]
   static final memo =
       QueryStringProperty<HistoryBox>(_entities[0].properties[8]);
+
+  /// see [HistoryBox.searchKeyWord]
+  static final searchKeyWord =
+      QueryStringProperty<HistoryBox>(_entities[0].properties[9]);
 }
 
 /// [FilterBox] entity fields to define ObjectBox queries.
@@ -506,4 +527,8 @@ class SettingBox_ {
   /// see [SettingBox.theme]
   static final theme =
       QueryStringProperty<SettingBox>(_entities[2].properties[13]);
+
+  /// see [SettingBox.enablescroll]
+  static final enablescroll =
+      QueryBooleanProperty<SettingBox>(_entities[2].properties[14]);
 }
