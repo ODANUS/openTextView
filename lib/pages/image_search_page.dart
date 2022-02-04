@@ -30,9 +30,9 @@ class ImageSearchPageCtl extends GetxController {
 }
 
 class ImageSearchPage extends GetView<BoxCtl> {
+  final ctl = Get.put(ImageSearchPageCtl());
   @override
   Widget build(BuildContext context) {
-    final ctl = Get.put(ImageSearchPageCtl());
     String name = Get.arguments;
     name = name.split(".").first;
 
@@ -124,12 +124,24 @@ class ImageSearchPage extends GetView<BoxCtl> {
           ElevatedButton(
             onPressed: () {
               Get.back(result: {
+                "imageUri": "",
+                "searchKeyWord": "",
+              });
+            },
+            child: Text("delete".tr),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (ctl.selectImage.value.isEmpty || ctl.keyword.value.isEmpty) {
+                return;
+              }
+              Get.back(result: {
                 "imageUri": ctl.selectImage.value,
                 "searchKeyWord": ctl.keyword.value,
               });
             },
             child: Text("confirm".tr),
-          )
+          ),
         ],
       ),
     );

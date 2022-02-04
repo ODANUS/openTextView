@@ -118,6 +118,15 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     HardwareKeyboard.instance.addHandler(volumeControll);
 
     WidgetsBinding.instance!.addObserver(this);
+
+    // historyBox!.query().watch().listen((q) {
+    //   var datas = q.find();
+    //   datas.forEach((e) {
+    //     if (e.name == "십자군 기사로 살아가는 법 1-189화 완결.txt") {
+    //       print(">>>>>>>>>>>>>>> ${e.toJson()}");
+    //     }
+    //   });
+    // });
     super.onInit();
   }
 
@@ -230,6 +239,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     if (target != null) {
       currentHistory(target);
       target.date = DateTime.now();
+      print("openFileopenFileopenFileopenFileopenFileopenFile");
       historyBox!.put(target);
 
       WidgetsBinding.instance!.addPostFrameCallback((_) {
@@ -248,6 +258,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
         contentsLen: tmpStr.length);
 
     currentHistory(nowHistory);
+    print("openFileopenFileopenFileopenFileopenFileopenFile");
     historyBox!.put(nowHistory);
 
     WidgetsBinding.instance!.addPostFrameCallback((_) {
@@ -279,6 +290,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   setHistoryBox(List<HistoryBox> datas) {
+    print("setHistoryBoxsetHistoryBoxsetHistoryBox");
     historyBox!.removeAll();
     historyBox!.putMany(datas);
   }
@@ -288,7 +300,13 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   editHistory(HistoryBox v) {
-    historyBox!.put(v);
+    print("editHistoryeditHistoryeditHistoryeditHistoryeditHistoryeditHistory");
+    var idx = historyBox!.put(v);
+    // historyBox!.getAll().forEach((e) {
+    //   if (e.name == "십자군 기사로 살아가는 법 1-189화 완결.txt") {
+    //     print(e.toJson());
+    //   }
+    // });
   }
 
   Map<String, dynamic> data2Map() {

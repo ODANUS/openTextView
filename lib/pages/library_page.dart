@@ -44,10 +44,28 @@ class LibraryPageCtl extends GetxController {
 }
 
 class LibraryPage extends GetView<BoxCtl> {
+  final ctl = Get.put(LibraryPageCtl());
+  editImage(HistoryBox v) async {
+    String name = v.name.split("/").last;
+    var result = await Get.toNamed("/searchpage", arguments: name);
+    if (result != null) {
+      var cur = controller.currentHistory.value;
+
+      if (cur.id == v.id) {
+        cur.searchKeyWord = result["searchKeyWord"];
+        cur.imageUri = result["imageUri"];
+        controller.currentHistory.refresh();
+      }
+      v.searchKeyWord = result["searchKeyWord"];
+      v.imageUri = result["imageUri"];
+
+      controller.editHistory(v);
+      ctl.tmpDir.refresh();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final ctl = Get.put(LibraryPageCtl());
-
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,
@@ -219,33 +237,14 @@ class LibraryPage extends GetView<BoxCtl> {
                                   endActionPane: actionPane,
                                   child: ListTile(
                                     leading: targetList.isNotEmpty
-                                        ? targetList.first.imageUri.isEmpty
-                                            ? IconButton(
-                                                onPressed: () async {
-                                                  if (targetList.isEmpty) {
-                                                    return;
-                                                  }
-                                                  var result =
-                                                      await Get.toNamed(
-                                                          "/searchpage",
-                                                          arguments: name);
-                                                  // print(targetList.first
-                                                  //     .toJson());
-                                                  if (result != null) {
-                                                    var t = targetList.first;
-                                                    t.searchKeyWord =
-                                                        result["searchKeyWord"];
-                                                    t.imageUri =
-                                                        result["imageUri"];
-
-                                                    controller.editHistory(t);
-                                                    ctl.tmpDir.refresh();
-                                                  }
-                                                },
-                                                icon: Icon(
-                                                    Icons.image_search_sharp))
-                                            : Image.network(
-                                                targetList.first.imageUri)
+                                        ? InkWell(
+                                            onTap: () =>
+                                                editImage(targetList.first),
+                                            child: targetList
+                                                    .first.imageUri.isEmpty
+                                                ? Icon(Icons.image_search_sharp)
+                                                : Image.network(
+                                                    targetList.first.imageUri))
                                         : Icon(Ionicons.document),
                                     title: Text(name),
                                     subtitle: targetList.isNotEmpty
