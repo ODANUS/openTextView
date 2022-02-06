@@ -19,7 +19,7 @@ class DeveloperNotes extends GetView<BoxCtl> {
   final ctl = Get.put(DeveloperNotesCtl());
   final String content = """
 
-1.4.7 (2022 02 06) 패치내역 : 
+1.4.8 (2022 02 06) 패치내역 : 
 1. tts 재생중 다른 파일을 열경우 tts 가 중지 되도록 수정 . 
 
 2. 라이브러리 페이지에 이미지 주소를 추가 했지만. 어떤 이유로 해당 이미지 주소가 사라진 경우 새로 이미지를 추가 할수 없던 버그 수정. 
@@ -76,7 +76,7 @@ class DeveloperNotes extends GetView<BoxCtl> {
       onTap: () async {
         // 1.4.3
         await Get.dialog(AlertDialog(
-          title: Text("1.4.7 버전이 출시 되었습니다."),
+          title: Obx(() => Text("${ctl.version} 버전이 출시 되었습니다.")),
           content: SingleChildScrollView(
             child: Text(content),
           ),
