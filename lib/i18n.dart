@@ -89,6 +89,8 @@ class Messages extends Translations {
           "Developer notes": "Developer notes",
           "use Clipboard": "use Clipboard",
           "use Scroll": "use Scroll",
+          "books": "Books",
+          "memo": "Memo",
         },
         "ko": {
           "key": "ko",
@@ -170,6 +172,8 @@ class Messages extends Translations {
           "Developer notes": "개발자 노트",
           "use Clipboard": "클립보드 사용",
           "use Scroll": "전체 화면 스크롤",
+          "books": "권",
+          "memo": "메모",
         },
         "gl": {
           "key": "gl",
@@ -259,6 +263,8 @@ class Messages extends Translations {
           "Developer notes": "Notas de desarrolladores",
           "use Clipboard": "Usa o portapapeis",
           "use Scroll": "Use Scroll.",
+          "books": "Libros",
+          "memo": "Memo.",
         },
         "gu": {
           "key": "gu",
@@ -345,6 +351,8 @@ class Messages extends Translations {
           "Developer notes": "વિકાસકર્તા નોંધો",
           "use Clipboard": "ક્લિપબોર્ડનો ઉપયોગ કરો",
           "use Scroll": "સ્ક્રોલનો ઉપયોગ કરો",
+          "books": "પુસ્તો",
+          "memo": "યાદી",
         },
         "el": {
           "key": "el",
@@ -432,6 +440,8 @@ class Messages extends Translations {
           "Developer notes": "Σημειώσεις προγραμματιστών",
           "use Clipboard": "Χρησιμοποιήστε το πρόχειρο",
           "use Scroll": "χρησιμοποιήστε κύλιση",
+          "books": "Βιβλία",
+          "memo": "Σημείωμα",
         },
         "nl": {
           "key": "nl",
@@ -517,6 +527,8 @@ class Messages extends Translations {
           "Developer notes": "Ontwikkelaar opmerkingen",
           "use Clipboard": "Gebruik het klembord",
           "use Scroll": "gebruik scroll",
+          "books": "Boeken",
+          "memo": "Memo",
         },
         "ne": {
           "key": "ne",
@@ -605,6 +617,8 @@ class Messages extends Translations {
           "Developer notes": "विकासकर्ता नोटहरू",
           "use Clipboard": "क्लिपबोर्ड प्रयोग गर्नुहोस्",
           "use Scroll": "स्क्रोल प्रयोग गर्नुहोस्",
+          "books": "किताकस",
+          "memo": "मेष",
         },
         "no": {
           "key": "no",
@@ -690,6 +704,8 @@ class Messages extends Translations {
           "Developer notes": "Utvikler notater",
           "use Clipboard": "Bruk utklippstavlen",
           "use Scroll": "Bruk rulle",
+          "books": "Bøker",
+          "memo": "Notat",
         },
         "da": {
           "key": "da",
@@ -775,6 +791,8 @@ class Messages extends Translations {
           "Developer notes": "Udvikler noter.",
           "use Clipboard": "Brug udklipsholder",
           "use Scroll": "Brug Scroll",
+          "books": "Bøger",
+          "memo": "Memo.",
         },
         "de": {
           "key": "de",
@@ -862,6 +880,8 @@ class Messages extends Translations {
           "Developer notes": "Entwickler-Anmerkungen",
           "use Clipboard": "Verwenden Sie die Zwischenablage",
           "use Scroll": "Verwenden Sie Scroll.",
+          "books": "Bücher",
+          "memo": "Memo",
         },
         "lo": {
           "key": "lo",
@@ -946,6 +966,8 @@ class Messages extends Translations {
           "Developer notes": "ບັນທຶກນັກພັດທະນາ",
           "use Clipboard": "ໃຊ້ clipboard",
           "use Scroll": "ໃຊ້ເລື່ອນ",
+          "books": "ປື້ມ",
+          "memo": "ໂມເດັມ",
         },
         "lv": {
           "key": "lv",
@@ -1036,6 +1058,8 @@ class Messages extends Translations {
           "Developer notes": "Izstrādātāju piezīmes",
           "use Clipboard": "Izmantojiet starpliktuvi",
           "use Scroll": "izmantot ritināšanu",
+          "books": "Grāmatas",
+          "memo": "Piezīme",
         },
         "ru": {
           "key": "ru",
@@ -1126,6 +1150,8 @@ class Messages extends Translations {
           "Developer notes": "Заметки разработчика",
           "use Clipboard": "Используйте буфер обмена",
           "use Scroll": "Используйте прокрутку",
+          "books": "Книги",
+          "memo": "Памятка",
         },
         "ro": {
           "key": "ro",
@@ -1215,6 +1241,8 @@ class Messages extends Translations {
           "Developer notes": "Note de dezvoltator",
           "use Clipboard": "Utilizați Clipboard.",
           "use Scroll": "Utilizați Derulați",
+          "books": "Cărți",
+          "memo": "Notificare",
         },
         "lt": {
           "key": "lt",
@@ -1303,6 +1331,8 @@ class Messages extends Translations {
           "Developer notes": "Kūrėjo Pastabos",
           "use Clipboard": "Naudokite iškarpinę",
           "use Scroll": "Naudokite slinkties",
+          "books": "Knygos",
+          "memo": "MEMO.",
         },
         "mr": {
           "key": "mr",
@@ -1389,6 +1419,8 @@ class Messages extends Translations {
           "Developer notes": "विकसक नोट्स",
           "use Clipboard": "क्लिपबोर्ड वापरा",
           "use Scroll": "स्क्रोल वापरा",
+          "books": "पुस्तके",
+          "memo": "मेमो",
         },
         "mk": {
           "key": "mk",
@@ -1477,6 +1509,8 @@ class Messages extends Translations {
           "Developer notes": "Изготвувателски белешки",
           "use Clipboard": "Користете таблата со исечоци",
           "use Scroll": "Користете скролувајте",
+          "books": "Книги",
+          "memo": "Меморандум",
         },
         "ml": {
           "key": "ml",
@@ -1568,6 +1602,8 @@ class Messages extends Translations {
           "Developer notes": "ഡവലപ്പർ കുറിപ്പുകൾ",
           "use Clipboard": "ക്ലിപ്പ്ബോർഡ് ഉപയോഗിക്കുക",
           "use Scroll": "സ്ക്രോൾ ഉപയോഗിക്കുക",
+          "books": "പുസ്തകങ്ങള്",
+          "memo": "മെമ്മോ",
         },
         "ms": {
           "key": "ms",
@@ -1653,6 +1689,8 @@ class Messages extends Translations {
           "Developer notes": "NOTA PEMBANGUNAN",
           "use Clipboard": "Gunakan papan klip.",
           "use Scroll": "Gunakan Scroll.",
+          "books": "Buku",
+          "memo": "Memo",
         },
         "ms": {
           "key": "ms",
@@ -1738,6 +1776,8 @@ class Messages extends Translations {
           "Developer notes": "NOTA PEMBANGUNAN",
           "use Clipboard": "Gunakan papan klip.",
           "use Scroll": "Gunakan Scroll.",
+          "books": "Buku",
+          "memo": "Memo",
         },
         "mn": {
           "key": "mn",
@@ -1825,6 +1865,8 @@ class Messages extends Translations {
           "Developer notes": "Хөгжүүлэгчийн тэмдэглэл",
           "use Clipboard": "санах ой ашиглах",
           "use Scroll": "гүйлгэх",
+          "books": "Номоод ном",
+          "memo": "Чимэгсга",
         },
         "eu": {
           "key": "eu",
@@ -1911,6 +1953,8 @@ class Messages extends Translations {
           "Developer notes": "Garatzaileen oharrak",
           "use Clipboard": "erabili arbela",
           "use Scroll": "Erabili korritzea",
+          "books": "Liburu",
+          "memo": "Oharpen",
         },
         "my": {
           "key": "my",
@@ -2000,6 +2044,8 @@ class Messages extends Translations {
           "Developer notes": "developer မှတ်စုများ",
           "use Clipboard": "clipboard ကိုသုံးပါ",
           "use Scroll": "Scroll ကိုသုံးပါ",
+          "books": "စာအုပ်များ",
+          "memo": "မှတ်စုတို",
         },
         "vi": {
           "key": "vi",
@@ -2085,6 +2131,8 @@ class Messages extends Translations {
           "Developer notes": "GHI CHÚ PHÁT TRIỂN",
           "use Clipboard": "Sử dụng Clipboard.",
           "use Scroll": "Sử dụng cuộn",
+          "books": "Sách",
+          "memo": "Bản ghi nhớ",
         },
         "be": {
           "key": "be",
@@ -2173,6 +2221,8 @@ class Messages extends Translations {
           "Developer notes": "Заўвагі для распрацоўшчыкаў",
           "use Clipboard": "Выкарыстанне буфера абмену",
           "use Scroll": "выкарыстоўваць скрутак",
+          "books": "Кнігі",
+          "memo": "Мема",
         },
         "bn": {
           "key": "bn",
@@ -2259,6 +2309,8 @@ class Messages extends Translations {
           "Developer notes": "বিকাশকারী নোট",
           "use Clipboard": "ক্লিপবোর্ড ব্যবহার করুন",
           "use Scroll": "স্ক্রোল ব্যবহার করুন",
+          "books": "বই",
+          "memo": "মেমো",
         },
         "bg": {
           "key": "bg",
@@ -2348,6 +2400,8 @@ class Messages extends Translations {
           "Developer notes": "Забележки за разработчиците",
           "use Clipboard": "Използвайте клипборда",
           "use Scroll": "Използвайте свитъка",
+          "books": "Книги",
+          "memo": "Memo.",
         },
         "sr": {
           "key": "sr",
@@ -2435,6 +2489,8 @@ class Messages extends Translations {
           "Developer notes": "Белешке о програмерима",
           "use Clipboard": "Користите међуспремник",
           "use Scroll": "Користите свитак",
+          "books": "Књиге",
+          "memo": "Белешка",
         },
         "sw": {
           "key": "sw",
@@ -2524,6 +2580,8 @@ class Messages extends Translations {
           "Developer notes": "Vidokezo vya Developer.",
           "use Clipboard": "Tumia clipboard.",
           "use Scroll": "Tumia kitabu",
+          "books": "Vitabu",
+          "memo": "Memo",
         },
         "sv": {
           "key": "sv",
@@ -2609,6 +2667,8 @@ class Messages extends Translations {
           "Developer notes": "Utvecklare anteckningar",
           "use Clipboard": "Använd Urklipp",
           "use Scroll": "Använd bläddring",
+          "books": "Böcker",
+          "memo": "PM",
         },
         "es": {
           "key": "es",
@@ -2700,6 +2760,8 @@ class Messages extends Translations {
           "Developer notes": "Notas de desarrollador",
           "use Clipboard": "usar portapapeles",
           "use Scroll": "usar desplazamiento",
+          "books": "Libros",
+          "memo": "Memorándum",
         },
         "sk": {
           "key": "sk",
@@ -2786,6 +2848,8 @@ class Messages extends Translations {
           "Developer notes": "Vývojárske poznámky",
           "use Clipboard": "Použite schránku",
           "use Scroll": "zvitok",
+          "books": "Knihy",
+          "memo": "Poznámka",
         },
         "sl": {
           "key": "sl",
@@ -2872,6 +2936,8 @@ class Messages extends Translations {
           "Developer notes": "Razvijalec Notes.",
           "use Clipboard": "Uporabite odložišče",
           "use Scroll": "Uporabite pomikanje.",
+          "books": "Knjige.",
+          "memo": "MEMO.",
         },
         "si": {
           "key": "si",
@@ -2957,6 +3023,8 @@ class Messages extends Translations {
           "Developer notes": "සංවර්ධක සටහන්",
           "use Clipboard": "ක්ලිප් පුවරුව භාවිතා කරන්න",
           "use Scroll": "අනුචලනය භාවිතා කරන්න",
+          "books": "පොත්",
+          "memo": "මතක සටහන්",
         },
         "ar": {
           "key": "ar",
@@ -3042,6 +3110,8 @@ class Messages extends Translations {
           "Developer notes": "ملاحظات المطور",
           "use Clipboard": "استخدام الحافظة",
           "use Scroll": "استخدام التمرير",
+          "books": "كتب",
+          "memo": "مذكرة",
         },
         "hy": {
           "key": "hy",
@@ -3129,6 +3199,8 @@ class Messages extends Translations {
           "Developer notes": "Մշակողի նոտաներ",
           "use Clipboard": "Օգտագործեք clipboard",
           "use Scroll": "Օգտագործեք ոլորումը",
+          "books": "Գրքեր",
+          "memo": "Հուշեր",
         },
         "is": {
           "key": "is",
@@ -3216,6 +3288,8 @@ class Messages extends Translations {
           "Developer notes": "Hönnuður athugasemdir",
           "use Clipboard": "Notaðu klemmuspjald",
           "use Scroll": "Notaðu rolf",
+          "books": "Bækur",
+          "memo": "Minnispunktur",
         },
         "az": {
           "key": "az",
@@ -3302,6 +3376,8 @@ class Messages extends Translations {
           "Developer notes": "Geliştirici qeydləri",
           "use Clipboard": "paneli istifadə edin",
           "use Scroll": "diyirləmək",
+          "books": "Kitablar",
+          "memo": "Memo",
         },
         "af": {
           "key": "af",
@@ -3389,6 +3465,8 @@ class Messages extends Translations {
           "Developer notes": "Ontwikkelaar Notas",
           "use Clipboard": "Gebruik knipbord",
           "use Scroll": "Gebruik Scroll",
+          "books": "Boeke",
+          "memo": "Memo",
         },
         "sq": {
           "key": "sq",
@@ -3478,6 +3556,8 @@ class Messages extends Translations {
           "Developer notes": "Shënimet e zhvilluesit",
           "use Clipboard": "Përdorni Clipboard",
           "use Scroll": "Përdorni rrotull",
+          "books": "Libra",
+          "memo": "Memo",
         },
         "am": {
           "key": "am",
@@ -3561,6 +3641,8 @@ class Messages extends Translations {
           "Developer notes": "የገንቢ ማስታወሻዎች",
           "use Clipboard": "ቅንጥብ ሰሌዳ ይጠቀሙ",
           "use Scroll": "ጥቅልል ይጠቀሙ",
+          "books": "መጽሐፍት",
+          "memo": "ሜሞ",
         },
         "et": {
           "key": "et",
@@ -3646,6 +3728,8 @@ class Messages extends Translations {
           "Developer notes": "Arendaja märkmed",
           "use Clipboard": "Kasutage lõikelauale",
           "use Scroll": "Kasutage kerimist",
+          "books": "Raamatud",
+          "memo": "Memo",
         },
         "en": {
           "key": "en",
@@ -3733,6 +3817,8 @@ class Messages extends Translations {
           "Developer notes": "Developer notes",
           "use Clipboard": "use Clipboard",
           "use Scroll": "use Scroll",
+          "books": "Books",
+          "memo": "Memo",
         },
         "ur": {
           "key": "ur",
@@ -3819,6 +3905,8 @@ class Messages extends Translations {
           "Developer notes": "ڈویلپر نوٹ",
           "use Clipboard": "کلپ بورڈ کا استعمال کریں",
           "use Scroll": "سکرال کا استعمال کریں",
+          "books": "کتب",
+          "memo": "میمو",
         },
         "uk": {
           "key": "uk",
@@ -3908,6 +3996,8 @@ class Messages extends Translations {
           "Developer notes": "Записники розробників",
           "use Clipboard": "Використовуйте буфер обміну",
           "use Scroll": "використовувати прокрутки",
+          "books": "Книги",
+          "memo": "Пам'ятка",
         },
         "it": {
           "key": "it",
@@ -3997,6 +4087,8 @@ class Messages extends Translations {
           "Developer notes": "Note degli sviluppatori",
           "use Clipboard": "usa appunti.",
           "use Scroll": "Usa lo scorrimento",
+          "books": "Libri",
+          "memo": "Memo",
         },
         "id": {
           "key": "id",
@@ -4083,6 +4175,8 @@ class Messages extends Translations {
           "Developer notes": "Catatan Pengembang",
           "use Clipboard": "gunakan clipboard",
           "use Scroll": "Gunakan gulir",
+          "books": "Buku",
+          "memo": "Memo",
         },
         "ja": {
           "key": "ja",
@@ -4164,6 +4258,8 @@ class Messages extends Translations {
           "Developer notes": "開発者のノート",
           "use Clipboard": "クリップボードを使用してください",
           "use Scroll": "スクロールを使う",
+          "books": "本",
+          "memo": "メモ",
         },
         "ka": {
           "key": "ka",
@@ -4254,6 +4350,8 @@ class Messages extends Translations {
           "Developer notes": "დეველოპერი შენიშვნები",
           "use Clipboard": "გამოიყენეთ ბუფერში",
           "use Scroll": "გამოიყენეთ გადახვევა",
+          "books": "წიგნები",
+          "memo": "შენიშვნა",
         },
         "zu": {
           "key": "zu",
@@ -4343,6 +4441,8 @@ class Messages extends Translations {
           "Developer notes": "Amanothi kanjiniyela",
           "use Clipboard": "Sebenzisa ibhodi yokunameka",
           "use Scroll": "Sebenzisa umqulu",
+          "books": "Izincwadi",
+          "memo": "Imezwi",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -4423,6 +4523,8 @@ class Messages extends Translations {
           "Developer notes": "开发人员说明",
           "use Clipboard": "使用剪贴板",
           "use Scroll": "使用卷轴",
+          "books": "图书",
+          "memo": "备忘录",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -4503,6 +4605,8 @@ class Messages extends Translations {
           "Developer notes": "開發人員說明",
           "use Clipboard": "使用剪貼板",
           "use Scroll": "使用捲軸",
+          "books": "圖書",
+          "memo": "備忘錄",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -4583,6 +4687,8 @@ class Messages extends Translations {
           "Developer notes": "開發人員說明",
           "use Clipboard": "使用剪貼板",
           "use Scroll": "使用捲軸",
+          "books": "圖書",
+          "memo": "備忘錄",
         },
         "cs": {
           "key": "cs",
@@ -4669,6 +4775,8 @@ class Messages extends Translations {
           "Developer notes": "Vývojářské poznámky",
           "use Clipboard": "Použijte schránky",
           "use Scroll": "Použijte Scroll.",
+          "books": "Knihy",
+          "memo": "Memo.",
         },
         "kk": {
           "key": "kk",
@@ -4755,6 +4863,8 @@ class Messages extends Translations {
           "Developer notes": "Әзірлеуші ​​жазбалары",
           "use Clipboard": "Аралық сақтағышты пайдаланыңыз",
           "use Scroll": "Айналдыруды қолданыңыз",
+          "books": "Кітапхана",
+          "memo": "Жад",
         },
         "ca": {
           "key": "ca",
@@ -4846,6 +4956,8 @@ class Messages extends Translations {
           "Developer notes": "Notes de desenvolupadors",
           "use Clipboard": "Utilitzeu el porta-retalls",
           "use Scroll": "Utilitzeu el desplaçament",
+          "books": "Llibres",
+          "memo": "Memo",
         },
         "kn": {
           "key": "kn",
@@ -4935,6 +5047,8 @@ class Messages extends Translations {
           "Developer notes": "ಡೆವಲಪರ್ ಟಿಪ್ಪಣಿಗಳು",
           "use Clipboard": "ಕ್ಲಿಪ್ಬೋರ್ಡ್ ಬಳಸಿ",
           "use Scroll": "ಸ್ಕ್ರಾಲ್ ಬಳಸಿ",
+          "books": "ಪುಸ್ತಕಗಳು",
+          "memo": "ಮೆಮೊ",
         },
         "hr": {
           "key": "hr",
@@ -5022,6 +5136,8 @@ class Messages extends Translations {
           "Developer notes": "Napomene o razvoju",
           "use Clipboard": "koristite međuspremnik",
           "use Scroll": "Upotrijebite pomicanje",
+          "books": "Knjige",
+          "memo": "Podsjetnik",
         },
         "km": {
           "key": "km",
@@ -5108,6 +5224,8 @@ class Messages extends Translations {
           "Developer notes": "កំណត់ចំណាំអ្នកអភិវឌ្ឍន៍",
           "use Clipboard": "ប្រើក្តារតម្បៀតខ្ទាស់",
           "use Scroll": "ប្រើរមូរ",
+          "books": "សៀវភៅ",
+          "memo": "មេមាន់",
         },
         "ky": {
           "key": "ky",
@@ -5196,6 +5314,8 @@ class Messages extends Translations {
           "Developer notes": "Иштеп чыгуучу белгилер",
           "use Clipboard": "алмашуу буферин колдонуңуз",
           "use Scroll": "Жылдыруу",
+          "books": "Китептер",
+          "memo": "Memo",
         },
         "ta": {
           "key": "ta",
@@ -5285,6 +5405,8 @@ class Messages extends Translations {
           "Developer notes": "டெவலப்பர் குறிப்புகள்",
           "use Clipboard": "கிளிப்போர்டைப் பயன்படுத்தவும்",
           "use Scroll": "உருள் பயன்படுத்தவும்",
+          "books": "புத்தகங்கள்",
+          "memo": "மெமோ",
         },
         "th": {
           "key": "th",
@@ -5371,6 +5493,8 @@ class Messages extends Translations {
           "Developer notes": "หมายเหตุนักพัฒนา",
           "use Clipboard": "ใช้คลิปบอร์ด",
           "use Scroll": "ใช้ Scroll",
+          "books": "หนังสือ",
+          "memo": "บันทึก",
         },
         "tr": {
           "key": "tr",
@@ -5459,6 +5583,8 @@ class Messages extends Translations {
           "Developer notes": "Geliştirici notları",
           "use Clipboard": "Pano kullanın",
           "use Scroll": "Kaydırma kullanın",
+          "books": "Kitabın",
+          "memo": "Hafıza",
         },
         "te": {
           "key": "te",
@@ -5548,6 +5674,8 @@ class Messages extends Translations {
           "Developer notes": "డెవలపర్ నోట్స్",
           "use Clipboard": "క్లిప్బోర్డ్ను ఉపయోగించండి",
           "use Scroll": "స్క్రోల్ ఉపయోగించండి",
+          "books": "పుస్తకాలు",
+          "memo": "మెమో",
         },
         "pa": {
           "key": "pa",
@@ -5633,6 +5761,8 @@ class Messages extends Translations {
           "Developer notes": "ਡਿਵੈਲਪਰ ਨੋਟਸ",
           "use Clipboard": "ਕਲਿੱਪਬੋਰਡ ਦੀ ਵਰਤੋਂ ਕਰੋ",
           "use Scroll": "ਸਕ੍ਰੌਲ ਦੀ ਵਰਤੋਂ ਕਰੋ",
+          "books": "ਕਿਤਾਬਾਂ",
+          "memo": "ਮੀਮੋ",
         },
         "fa": {
           "key": "fa",
@@ -5720,6 +5850,8 @@ class Messages extends Translations {
           "Developer notes": "یادداشت های توسعه دهنده",
           "use Clipboard": "از کلیپ بورد استفاده کنید",
           "use Scroll": "استفاده از اسکرول",
+          "books": "کتاب",
+          "memo": "یادداشت",
         },
         "pt": {
           "key": "pt",
@@ -5810,6 +5942,8 @@ class Messages extends Translations {
           "Developer notes": "Notas do desenvolvedor",
           "use Clipboard": "Use a área de transferência",
           "use Scroll": "use rolagem",
+          "books": "Livros",
+          "memo": "Memorando",
         },
         "pl": {
           "key": "pl",
@@ -5898,6 +6032,8 @@ class Messages extends Translations {
           "Developer notes": "Notatki deweloperskie.",
           "use Clipboard": "Użyj schowka",
           "use Scroll": "Użyj przewijania",
+          "books": "Książki",
+          "memo": "Notatka",
         },
         "fr": {
           "key": "fr",
@@ -5988,6 +6124,8 @@ class Messages extends Translations {
           "Developer notes": "Notes de développeur",
           "use Clipboard": "presse-papiers",
           "use Scroll": "faire défiler",
+          "books": "Livres",
+          "memo": "Note",
         },
         "fi": {
           "key": "fi",
@@ -6073,6 +6211,8 @@ class Messages extends Translations {
           "Developer notes": "Kehittäjä Huomautuksia",
           "use Clipboard": "Käytä leikepöydälle",
           "use Scroll": "Käytä vieritystä",
+          "books": "Kirjat",
+          "memo": "Muistio",
         },
         "fil": {
           "key": "fil",
@@ -6163,6 +6303,8 @@ class Messages extends Translations {
           "Developer notes": "Mga Tala ng Developer.",
           "use Clipboard": "Gamitin ang clipboard",
           "use Scroll": "Gamitin ang scroll",
+          "books": "Mga Libro",
+          "memo": "Memo.",
         },
         "hu": {
           "key": "hu",
@@ -6251,6 +6393,8 @@ class Messages extends Translations {
           "Developer notes": "Fejlesztői megjegyzések",
           "use Clipboard": "használja a vágólapot",
           "use Scroll": "lapozzon",
+          "books": "Könyvek",
+          "memo": "Memo",
         },
         "iw": {
           "key": "iw",
@@ -6335,6 +6479,8 @@ class Messages extends Translations {
           "Developer notes": "הערות מפתח",
           "use Clipboard": "השתמש בלוח",
           "use Scroll": "השתמש בגלול",
+          "books": "ספרים",
+          "memo": "תַזכִּיר",
         },
         "hi": {
           "key": "hi",
@@ -6421,6 +6567,8 @@ class Messages extends Translations {
           "Developer notes": "डेवलपर नोट्स",
           "use Clipboard": "क्लिपबोर्ड का उपयोग करें",
           "use Scroll": "स्क्रॉल का उपयोग करें",
+          "books": "पुस्तकें",
+          "memo": "ज्ञापन",
         },
       };
 }

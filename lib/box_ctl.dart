@@ -42,6 +42,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   RxBool bConvLoading = false.obs;
   RxBool bScreenHelp = false.obs;
   RxBool firstFullScreen = true.obs;
+  RxBool bImageFullScreen = false.obs;
 
   int min = 0;
   int max = 0;
@@ -224,7 +225,13 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   openFile(File f) async {
+    AudioPlay.stop();
+    if (scrollstat.value) {
+      await Future.delayed(300.milliseconds);
+      return openFile(f);
+    }
     removeListen();
+
     contents.clear();
 
     var name = f.path.split("/").last;
@@ -239,7 +246,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     if (target != null) {
       currentHistory(target);
       target.date = DateTime.now();
-      print("openFileopenFileopenFileopenFileopenFileopenFile");
+      target.contentsLen = tmpStr.length;
       historyBox!.put(target);
 
       WidgetsBinding.instance!.addPostFrameCallback((_) {
@@ -258,7 +265,6 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
         contentsLen: tmpStr.length);
 
     currentHistory(nowHistory);
-    print("openFileopenFileopenFileopenFileopenFileopenFile");
     historyBox!.put(nowHistory);
 
     WidgetsBinding.instance!.addPostFrameCallback((_) {
@@ -290,7 +296,9 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   setHistoryBox(List<HistoryBox> datas) {
-    print("setHistoryBoxsetHistoryBoxsetHistoryBox");
+    datas.forEach((e) {
+      print(e.id);
+    });
     historyBox!.removeAll();
     historyBox!.putMany(datas);
   }
@@ -300,7 +308,6 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   editHistory(HistoryBox v) {
-    print("editHistoryeditHistoryeditHistoryeditHistoryeditHistoryeditHistory");
     var idx = historyBox!.put(v);
     // historyBox!.getAll().forEach((e) {
     //   if (e.name == "십자군 기사로 살아가는 법 1-189화 완결.txt") {
@@ -319,11 +326,12 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
   map2Data(Map<String, dynamic> jsonData) {
     var his = (jsonData["historys"] as List)
-        .map((e) => HistoryBox.fromMap(e))
+        .map((e) => HistoryBox.fromMap(e)..id = 0)
         .toList();
-    var filters =
-        (jsonData["filters"] as List).map((e) => FilterBox.fromMap(e)).toList();
-    var setting = SettingBox.fromMap(jsonData["setting"]);
+    var filters = (jsonData["filters"] as List)
+        .map((e) => FilterBox.fromMap(e)..id = 0)
+        .toList();
+    var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
     setHistoryBox(his);
     setFilterBox(filters);
     setSettingBox(setting);

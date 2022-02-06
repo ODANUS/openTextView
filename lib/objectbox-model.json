@@ -105,7 +105,7 @@
     },
     {
       "id": "3:1885558662605261282",
-      "lastPropertyId": "15:5585479250256559482",
+      "lastPropertyId": "16:1970679311239229061",
       "name": "SettingBox",
       "properties": [
         {
@@ -183,6 +183,11 @@
           "id": "15:5585479250256559482",
           "name": "enablescroll",
           "type": 1
+        },
+        {
+          "id": "16:1970679311239229061",
+          "name": "lastDevVersion",
+          "type": 9
         }
       ],
       "relations": []

@@ -1,5 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
@@ -7,43 +8,65 @@ import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/component/readpage_floating_button.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 import 'package:open_textview/controller/audio_play.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ReadPage extends GetView<BoxCtl> {
+  editImage() async {
+    String name = controller.currentHistory.value.name.split("/").last;
+    var result = await Get.toNamed("/searchpage", arguments: name);
+    if (result != null) {
+      controller.currentHistory.update((v) {
+        v!.searchKeyWord = result["searchKeyWord"];
+        v.imageUri = result["imageUri"];
+      });
+      controller.editHistory(controller.currentHistory.value);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            // centerTitle: true,
             toolbarHeight: 30,
-            // elevation: 0,
-            // backgroundColor: Colors.transparent,
             title: InkWell(
               onTap: () {
+                controller.bImageFullScreen(true);
+                controller.bFullScreen(true);
                 // Get.dialog(AlertDialog());
               },
-              child: Text(
-                controller.currentHistory.value.name.replaceAll(".txt", ""),
-                style: TextStyle(
-                  fontSize: 15,
-                ),
+              child: Obx(
+                () => controller.bImageFullScreen.value
+                    ? Text("")
+                    : Text(
+                        controller.currentHistory.value.name
+                            .replaceAll(".txt", ""),
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
               ),
             ),
             actions: [
-              if (controller.contents.isNotEmpty)
-                Align(
-                  alignment: Alignment.center,
-                  child: Padding(
-                      padding: EdgeInsets.only(right: 10),
-                      child: Obx(() => Text(
-                            "${(controller.currentHistory.value.pos / controller.contents.length * 100).toStringAsFixed(2)}%",
-                          ))),
-                ),
-              InkWell(
-                  onTap: () {
-                    controller.bScreenHelp(!controller.bScreenHelp.value);
-                  },
-                  child: Icon(Icons.help_outline)),
+              Obx(() => controller.contents.isNotEmpty
+                  ? Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: Obx(() => Text(
+                                "${(controller.currentHistory.value.pos / controller.contents.length * 100).toStringAsFixed(2)}%",
+                              ))),
+                    )
+                  : SizedBox()),
+              Obx(
+                () => controller.bImageFullScreen.value
+                    ? SizedBox()
+                    : InkWell(
+                        onTap: () {
+                          controller.bScreenHelp(!controller.bScreenHelp.value);
+                        },
+                        child: Icon(Icons.help_outline)),
+              ),
             ]),
         body: Stack(children: [
           AudioPlay.builder(builder:
@@ -128,6 +151,64 @@ class ReadPage extends GetView<BoxCtl> {
                 onNextpage: () {
                   controller.nextPage();
                 });
+          }),
+          Obx(() {
+            if (controller.bImageFullScreen.value) {
+              return InkWell(
+                  onTap: () {
+                    controller.bImageFullScreen(false);
+                    controller.bFullScreen(false);
+                  },
+                  child: Container(
+                      color: Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withOpacity(0.2),
+                      padding: EdgeInsets.all(10),
+                      // constraints: BoxConstraints(maxHeight: Get.height / 2),
+                      alignment: Alignment.topCenter,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                editImage();
+                              },
+                              child: Container(
+                                constraints: BoxConstraints(
+                                    maxHeight: Get.height * 0.8,
+                                    maxWidth: Get.width * 0.8),
+                                child: Image.network(
+                                  controller.currentHistory.value.imageUri,
+                                  // fit: BoxFit.fitHeight,
+                                  errorBuilder: (c, o, _) {
+                                    return Icon(
+                                      Icons.image_search_sharp,
+                                      size: 80,
+                                    );
+                                  },
+                                ),
+                              )),
+                          SizedBox(height: 10),
+                          // Container(
+                          //   padding: EdgeInsets.only(left: 10 , right: 10),
+                          //   color: Theme.of(context).scaffoldBackgroundColor,
+                          //   child: IntrinsicWidth(
+                          //       child: TextFormField(
+                          //     decoration:
+                          //         InputDecoration(border: InputBorder.none),
+                          //     textAlign: TextAlign.center,
+                          //     textAlignVertical: TextAlignVertical.center,
+                          //     initialValue: controller.currentHistory.value.name
+                          //         .replaceAll(".txt", ""),
+                          //     onEditingComplete: () {
+                          //       FocusScope.of(context).unfocus();
+                          //     },
+                          //   )),
+                          // ),
+                        ],
+                      )));
+            }
+            return SizedBox();
           })
           // Obx(() {
           //   var bhelp = controller.bScreenHelp.value;

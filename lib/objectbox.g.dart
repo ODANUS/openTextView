@@ -116,7 +116,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(3, 1885558662605261282),
       name: 'SettingBox',
-      lastPropertyId: const IdUid(15, 5585479250256559482),
+      lastPropertyId: const IdUid(16, 1970679311239229061),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -193,6 +193,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(15, 5585479250256559482),
             name: 'enablescroll',
             type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 1970679311239229061),
+            name: 'lastDevVersion',
+            type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -341,7 +346,8 @@ ModelDefinition getObjectBoxModel() {
         objectToFB: (SettingBox object, fb.Builder fbb) {
           final fontFamilyOffset = fbb.writeString(object.fontFamily);
           final themeOffset = fbb.writeString(object.theme);
-          fbb.startTable(16);
+          final lastDevVersionOffset = fbb.writeString(object.lastDevVersion);
+          fbb.startTable(17);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.fontSize);
           fbb.addInt64(2, object.fontWeight);
@@ -357,6 +363,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addBool(12, object.audiosession);
           fbb.addOffset(13, themeOffset);
           fbb.addBool(14, object.enablescroll);
+          fbb.addOffset(15, lastDevVersionOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -392,8 +399,10 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 24, false),
               enablescroll: const fb.BoolReader()
                   .vTableGet(buffer, rootOffset, 32, false),
-              theme: const fb.StringReader()
-                  .vTableGet(buffer, rootOffset, 30, ''));
+              theme:
+                  const fb.StringReader().vTableGet(buffer, rootOffset, 30, ''),
+              lastDevVersion: const fb.StringReader()
+                  .vTableGet(buffer, rootOffset, 34, ''));
 
           return object;
         })
@@ -531,4 +540,8 @@ class SettingBox_ {
   /// see [SettingBox.enablescroll]
   static final enablescroll =
       QueryBooleanProperty<SettingBox>(_entities[2].properties[14]);
+
+  /// see [SettingBox.lastDevVersion]
+  static final lastDevVersion =
+      QueryStringProperty<SettingBox>(_entities[2].properties[15]);
 }
