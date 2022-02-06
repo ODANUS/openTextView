@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/Ads.dart';
+import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -26,12 +27,50 @@ class HistoryPageCtl extends GetxController {
   }
 
   loadAllHistory() {
-    list(Get.find<BoxCtl>().getHistorys());
+    var tmp = Get.find<BoxCtl>().getHistorys();
+    tmp.sort((v1, v2) {
+      return v1.date.compareTo(v2.date);
+    });
+    list(tmp);
   }
 }
 
 class HistoryPage extends GetView<BoxCtl> {
   final ctl = Get.put(HistoryPageCtl());
+
+  editImage(HistoryBox v) async {
+    String name = v.name.split("/").last;
+    var result = await Get.toNamed("/searchpage", arguments: name);
+    if (result != null) {
+      var cur = controller.currentHistory.value;
+
+      if (cur.id == v.id) {
+        cur.searchKeyWord = result["searchKeyWord"];
+        cur.imageUri = result["imageUri"];
+        controller.currentHistory.refresh();
+      }
+      v.searchKeyWord = result["searchKeyWord"];
+      v.imageUri = result["imageUri"];
+
+      controller.editHistory(v);
+      ctl.loadAllHistory();
+    }
+  }
+
+  editMemo(HistoryBox v) async {
+    var result = await OpenModal.openMemoModal(v.memo);
+    if (result != null) {
+      var cur = controller.currentHistory.value;
+      if (cur.id == v.id) {
+        cur.memo = result;
+        controller.currentHistory.refresh();
+      }
+      v.memo = result;
+      controller.editHistory(v);
+      ctl.loadAllHistory();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -45,7 +84,7 @@ class HistoryPage extends GetView<BoxCtl> {
                 var tmpdir = await getTemporaryDirectory();
                 var tmpFile = File("${tmpdir.path}/openTextView.csv");
 
-                var header = '이미지,제목,읽은 위치,일자,읽은 퍼센트,총 권수';
+                var header = '이미지,제목,읽은 위치,일자,읽은 퍼센트,총 권수,메모';
 
                 var str = [
                   header,
@@ -62,7 +101,7 @@ class HistoryPage extends GetView<BoxCtl> {
                     if (e.contentsLen > 0) {
                       total_books = "${e.contentsLen ~/ 160000}권";
                     }
-                    return '$imageUri,"${e.name.split(".").first}","${e.pos}","${e.date}",$pos,$total_books';
+                    return '$imageUri,"${e.name.split(".").first}","${e.pos}","${e.date}",$pos,$total_books,${e.memo}';
                   })
                 ];
                 tmpFile.writeAsStringSync(str.join("\r\n"));
@@ -149,15 +188,45 @@ class HistoryPage extends GetView<BoxCtl> {
                         ),
                       ),
                       child: ListTile(
-                        onTap: () {},
-                        title: Text(e.name),
-                        subtitle: Row(
-                          children: [
-                            Text("${"last position".tr} : "),
-                            Text("${e.pos}")
-                          ],
-                        ),
-                      ),
+                          onTap: () {},
+                          onLongPress: () {
+                            editMemo(e);
+                          },
+                          leading: InkWell(
+                              onTap: () => editImage(e),
+                              child: e.imageUri.isEmpty
+                                  ? Icon(Icons.image_search_sharp, size: 38)
+                                  : Image.network(
+                                      e.imageUri,
+                                      errorBuilder: (c, o, s) {
+                                        return Container(
+                                          child: Text("Image\nNot\nfound"),
+                                        );
+                                      },
+                                    )),
+                          title: Text(e.name),
+                          isThreeLine: true,
+                          subtitle: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("${"last position".tr} : "),
+                                  Text("${e.pos}"),
+                                  if (e.contentsLen > 0)
+                                    Text(
+                                        " (${e.contentsLen ~/ 160000} ${"books".tr})"),
+                                ],
+                              ),
+                              Row(children: [
+                                Flexible(
+                                  child: Text(
+                                    "${"memo".tr} : ${e.memo}",
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ]),
+                            ],
+                          )),
                     ),
                   );
                 }).toList(),

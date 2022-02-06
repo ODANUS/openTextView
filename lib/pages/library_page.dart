@@ -64,6 +64,20 @@ class LibraryPage extends GetView<BoxCtl> {
     }
   }
 
+  editMemo(HistoryBox v) async {
+    var result = await OpenModal.openMemoModal(v.memo);
+    if (result != null) {
+      var cur = controller.currentHistory.value;
+      if (cur.id == v.id) {
+        cur.memo = result;
+        controller.currentHistory.refresh();
+      }
+      v.memo = result;
+      controller.editHistory(v);
+      ctl.tmpDir.refresh();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -244,18 +258,45 @@ class LibraryPage extends GetView<BoxCtl> {
                                                     .first.imageUri.isEmpty
                                                 ? Icon(Icons.image_search_sharp)
                                                 : Image.network(
-                                                    targetList.first.imageUri))
+                                                    targetList.first.imageUri,
+                                                    errorBuilder: (c, o, s) {
+                                                      return Container(
+                                                        child: Text(
+                                                            "Image\nNot\nfound"),
+                                                      );
+                                                    },
+                                                  ))
                                         : Icon(Ionicons.document),
                                     title: Text(name),
+                                    isThreeLine: true,
                                     subtitle: targetList.isNotEmpty
-                                        ? Text(
-                                            '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}%')
-                                        : Text(''),
+                                        ? Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                                Text(
+                                                    '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}%'),
+                                                Row(children: [
+                                                  Flexible(
+                                                    child: Text(
+                                                      "${"memo".tr} : ${targetList.first.memo}",
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                  ),
+                                                ]),
+                                              ])
+                                        : Text(""),
                                     trailing: Text("${size}"),
                                     onTap: () async {
                                       var c = Get.find<BoxCtl>();
                                       c.openFile(file);
                                       // controller.openFile(file);
+                                    },
+                                    onLongPress: () async {
+                                      if (targetList.isNotEmpty) {
+                                        editMemo(targetList.first);
+                                      }
                                     },
                                   )));
                         })

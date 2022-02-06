@@ -59,6 +59,7 @@ class SettingBox {
     this.useClipboard = true,
     this.enablescroll = false,
     this.theme = "light",
+    this.lastDevVersion = "",
   });
   int id;
   int fontSize;
@@ -75,6 +76,7 @@ class SettingBox {
   bool headsetbutton;
   bool enablescroll;
   bool audiosession;
+  String lastDevVersion;
 
   factory SettingBox.fromJson(String str) =>
       SettingBox.fromMap(json.decode(str));
@@ -98,6 +100,7 @@ class SettingBox {
       audiosession: json["audiosession"] ?? true,
       touchLayout: json["touchLayout"] ?? 0,
       useClipboard: json["useClipboard"] ?? true,
+      lastDevVersion: json["lastDevVersion"] ?? "",
     );
   }
 
@@ -115,6 +118,7 @@ class SettingBox {
         "audiosession": audiosession,
         "touchLayout": touchLayout,
         "useClipboard": useClipboard,
+        "lastDevVersion": lastDevVersion,
       };
 }
 

@@ -10,6 +10,18 @@ import 'package:open_textview/controller/global_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+class openSearchCtl extends GetxController {
+  final text = "".obs;
+  final autoexitValue = (0.0).obs;
+
+  @override
+  void onClose() {
+    text("");
+    // TODO: implement onClose
+    super.onClose();
+  }
+}
+
 class OpenModal {
   static openFocusModal() async {
     Get.dialog(AlertDialog(
@@ -356,16 +368,35 @@ class OpenModal {
       modalCtl.autoexitValue(0.0);
     });
   }
-}
 
-class openSearchCtl extends GetxController {
-  final text = "".obs;
-  final autoexitValue = (0.0).obs;
-
-  @override
-  void onClose() {
-    text("");
-    // TODO: implement onClose
-    super.onClose();
+  static openMemoModal(String initValue) {
+    var rtnText = initValue;
+    return Get.dialog(AlertDialog(
+      title: Text("MEMO".tr),
+      content: Container(
+          color: Colors.transparent,
+          width: double.maxFinite,
+          child: TextFormField(
+            initialValue: initValue,
+            maxLines: null,
+            keyboardType: TextInputType.multiline,
+            onChanged: (str) {
+              rtnText = str;
+            },
+          )),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: Text("cancel".tr)),
+        ElevatedButton(
+            onPressed: () {
+              Get.back(result: rtnText);
+            },
+            child: Text("confirm".tr))
+      ],
+      actionsAlignment: MainAxisAlignment.spaceAround,
+    )).whenComplete(() {});
   }
 }
