@@ -238,6 +238,8 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     var target =
         historyBox!.query(HistoryBox_.name.equals(name)).build().findFirst();
     String tmpStr = await Utils.readFile(f);
+    f.setLastAccessedSync(DateTime.now());
+
     var tmpcontents = tmpStr.replaceAll(RegExp(r'\n{3,}'), "\n");
     contents.assignAll(tmpcontents.split("\n"));
 
