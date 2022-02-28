@@ -15,38 +15,9 @@ class AudioHandler extends BaseAudioHandler
     with
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
-  AudioHandler() {
-    // AudioSession.instance.then((value) async {
-    //   this.session = value;
-    //   this.session!.configure(AudioSessionConfiguration.speech());
-    //   await this.session!.configure(AudioSessionConfiguration.speech());
+  AudioHandler() {}
 
-    //   session!.devicesChangedEventStream.listen((event) {
-    //     if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
-    //       stop();
-    //     }
-    //   });
-    //   this.session!.interruptionEventStream.listen((event) {
-    //     if (event.type == AudioInterruptionType.pause) {
-    //       if (event.begin) {
-    //         bool laststat = playstat == STAT_PLAY;
-    //         pause();
-    //         listenPlaying = laststat;
-    //       } else if (listenPlaying == true) {
-    //         play();
-    //       }
-    //       return;
-    //     }
-    //     if (event.begin && event.type == AudioInterruptionType.unknown) {
-    //       if (ttsOption.audiosession) {
-    //         pause();
-    //       } else {}
-    //     }
-    //   });
-    // });
-  }
-
-  FlutterTts tts = FlutterTts();
+  FlutterTts? tts;
   bool bInitTts = false;
   SettingBox setting = SettingBox();
   List<FilterBox> filter = List.of([FilterBox()]);
@@ -96,9 +67,9 @@ class AudioHandler extends BaseAudioHandler
 
   Completer<bool> _completer = Completer<bool>();
   Future<void> setTts() async {
-    await tts.setSpeechRate(setting.speechRate);
-    await tts.setVolume(setting.volume);
-    await tts.setPitch(setting.pitch);
+    await tts?.setSpeechRate(setting.speechRate);
+    await tts?.setVolume(setting.volume);
+    await tts?.setPitch(setting.pitch);
     // await tts.awaitSpeakCompletion(true);
   }
 
@@ -115,25 +86,16 @@ class AudioHandler extends BaseAudioHandler
   Future<void> initTts() async {
     if (!bInitTts) {
       bInitTts = true;
+      tts = FlutterTts();
 
-      var engine = await tts.getDefaultEngine;
-      await tts.setEngine(engine);
-      await Future.delayed(300.milliseconds);
-      // tts.getDefaultEngine.then((engine) {
-      //
-      //   if (engine != null && engine.isNotEmpty) {
-      //
-      //     try {
-      //       tts.setEngine(engine);
-      //     } catch (e) {}
-      //
-      //   }
-      // });
+      var engine = await tts?.getDefaultEngine;
+      await tts?.setEngine(engine);
+      await Future.delayed(900.milliseconds);
     }
 
     setTts();
 
-    tts.awaitSpeakCompletion(true);
+    tts?.awaitSpeakCompletion(true);
 
     // tts.setStartHandler(() {});
     // tts.setCompletionHandler(() {
@@ -153,7 +115,7 @@ class AudioHandler extends BaseAudioHandler
   Future<bool> speak(String text) {
     _completer = Completer<bool>();
     try {
-      tts.speak(text);
+      tts?.speak(text);
     } catch (e) {
       _completer.complete(false);
     }
@@ -287,7 +249,7 @@ class AudioHandler extends BaseAudioHandler
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
       // bool bspeak = await speak(speakText);
-      var bspeak = await tts.speak(speakText);
+      var bspeak = await tts?.speak(speakText);
 
       try {
         store?.box<HistoryBox>().put(currentHistory);
@@ -310,7 +272,7 @@ class AudioHandler extends BaseAudioHandler
   Future<void> pause() async {
     AudioService.androidForceEnableMediaButtons();
 
-    await tts.stop();
+    await tts?.stop();
     this.playbackState.add(baseState.copyWith(
           controls: [
             MediaControl.play,
@@ -331,7 +293,7 @@ class AudioHandler extends BaseAudioHandler
       session!.setActive(false);
     }
     // this.playbackState.close();
-    await tts.stop();
+    await tts?.stop();
     this.playbackState.add(PlaybackState());
     // await playbackState.firstWhere(
     //     (state) => state.processingState == AudioProcessingState.idle);
@@ -384,8 +346,8 @@ class AudioPlay {
     _audioHandler = await AudioService.init(
       builder: () => AudioHandler(),
       config: AudioServiceConfig(
-        androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
-        // androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
+        // androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
+        androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
         androidNotificationChannelName: 'tts',
         androidNotificationOngoing: true,
       ),
