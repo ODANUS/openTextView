@@ -18,6 +18,11 @@ class DeveloperNotesCtl extends GetxController {
 class DeveloperNotes extends GetView<BoxCtl> {
   final ctl = Get.put(DeveloperNotesCtl());
   final String content = """
+
+1.5.4 (2022 03 01) 패치내역 :
+1. 파일 열때 비정상 종료 현상 패치 
+ - flutter 버전을 최신 버전으로 올렸더니 해결 되었습니다. 이걸로 해결 안됐으면 멘붕 왔을꺼에요.
+
 1.5.2 (2022 02 28) 패치내역 :
 1. tts 재생시 가끔 비정상 적으로 종료 되는 현상 수정 
 2. tts 엔진 초기화 이후 바로 재생시 중얼 거리는 목소리로 출력 되는 현상 수정. 
