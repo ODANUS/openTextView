@@ -79,7 +79,14 @@ class ImageSearchPage extends GetView<BoxCtl> {
                         onTap: () {
                           ctl.selectImage(e);
                         },
-                        child: Image.network(e),
+                        child: Image.network(
+                          e,
+                          errorBuilder: (c, o, s) {
+                            return SizedBox(
+                              child: Text("image\nnot\nfound"),
+                            );
+                          },
+                        ),
                       ),
                       Radio(
                           value: e,

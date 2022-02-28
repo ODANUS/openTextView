@@ -19,6 +19,9 @@ class DeveloperNotes extends GetView<BoxCtl> {
   final ctl = Get.put(DeveloperNotesCtl());
   final String content = """
 
+1.5.1 (2022 02 28) 패치내역 :
+1. 30 초 광고 제거 
+
 1.4.8 (2022 02 06) 패치내역 : 
 1. tts 재생중 다른 파일을 열경우 tts 가 중지 되도록 수정 . 
 

@@ -33,7 +33,7 @@ class SettingPage extends GetView<BoxCtl> {
               OptionReview(),
             ],
           ),
-          OptionPopupAds(),
+          // OptionPopupAds(),
         ],
       ),
       body: ListView(

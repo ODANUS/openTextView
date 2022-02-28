@@ -25,6 +25,7 @@ String covertStringToUnicode(String content) {
 class Net {
   static Dio dio = Dio();
   static Future<List<String>> getImage(String keyword) async {
+    // log("https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m");
     var ss = await dio.get(
         "https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m",
         options: Options(headers: {
@@ -33,6 +34,7 @@ class Net {
         }));
 
     var data = ss.data.toString();
+    // log(data);
     data = data.split("// Google Inc.").last;
     List<String> listData = data.split("https://");
     listData.removeAt(0);
@@ -54,11 +56,13 @@ class Net {
           value.contains(".jpg") ||
           value.contains(".webp") ||
           value.contains("googleusercontent") ||
-          value.contains("jpeg")) {
+          value.contains("jpeg") ||
+          value.contains("&amp;s")) {
         return true;
       }
       return false;
     }).toList();
+
     return imageurls;
     // imageurls.forEach((element) {
     //   print(element);

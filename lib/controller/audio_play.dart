@@ -116,16 +116,25 @@ class AudioHandler extends BaseAudioHandler
     if (!bInitTts) {
       bInitTts = true;
 
-      tts.getDefaultEngine.then((engine) {
-        if (engine != null && engine.isNotEmpty) {
-          tts.setEngine(engine);
-        }
-      });
-      await Future.delayed(400.milliseconds);
+      var engine = await tts.getDefaultEngine;
+      await tts.setEngine(engine);
+      await Future.delayed(300.milliseconds);
+      // tts.getDefaultEngine.then((engine) {
+      //
+      //   if (engine != null && engine.isNotEmpty) {
+      //
+      //     try {
+      //       tts.setEngine(engine);
+      //     } catch (e) {}
+      //
+      //   }
+      // });
     }
 
     setTts();
+
     tts.awaitSpeakCompletion(true);
+
     // tts.setStartHandler(() {});
     // tts.setCompletionHandler(() {
     //   _completer.complete(true);
@@ -158,6 +167,7 @@ class AudioHandler extends BaseAudioHandler
 
     if (this.session == null) {
       this.session = await AudioSession.instance;
+
       await this.session!.configure(AudioSessionConfiguration.speech());
       session!.devicesChangedEventStream.listen((event) {
         if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
@@ -184,6 +194,7 @@ class AudioHandler extends BaseAudioHandler
     }
 
     this.session!.setActive(true);
+
     await initTts();
     mediaItem.add(MediaItem(
       id: 'opentextView',
@@ -423,21 +434,27 @@ class AudioPlay {
     required SettingBox setting,
     required HistoryBox currentHistory,
   }) {
-    _audioHandler!.customAction("init", {
-      "contents": contents,
-      "filter": filter.map((e) => e.toMap()).toList(),
-      "setting": setting.toMap(),
-      "currentHistory": currentHistory.toMap(),
-    });
-    _audioHandler!.play();
+    if (_audioHandler != null) {
+      _audioHandler!.customAction("init", {
+        "contents": contents,
+        "filter": filter.map((e) => e.toMap()).toList(),
+        "setting": setting.toMap(),
+        "currentHistory": currentHistory.toMap(),
+      });
+      _audioHandler!.play();
+    }
   }
 
   static stop() {
-    _audioHandler!.stop();
+    if (_audioHandler != null) {
+      _audioHandler!.stop();
+    }
   }
 
   static pause() {
-    _audioHandler!.pause();
+    if (_audioHandler != null) {
+      _audioHandler!.pause();
+    }
   }
 
   static AudioHandler? get audioHandler => _audioHandler;
