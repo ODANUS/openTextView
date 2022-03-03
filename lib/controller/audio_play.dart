@@ -137,7 +137,7 @@ class AudioHandler extends BaseAudioHandler
         }
       });
       this.session!.interruptionEventStream.listen((event) {
-        if (event.type == AudioInterruptionType.pause) {
+        if (event.type == AudioInterruptionType.pause && setting.audiosession) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
             this.pause();
@@ -249,12 +249,13 @@ class AudioHandler extends BaseAudioHandler
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
       // bool bspeak = await speak(speakText);
+      currentHistory.pos = i;
+
       var bspeak = await tts?.speak(speakText);
 
       try {
         store?.box<HistoryBox>().put(currentHistory);
       } catch (e) {}
-      currentHistory.pos = i;
 
       // await Utils.setLastData(lastData.toJson());
 

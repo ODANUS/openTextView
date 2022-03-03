@@ -14,6 +14,7 @@ class OptionTts extends GetView<BoxCtl> {
     return Obx(() {
       var tts = controller.setting.value;
       var setting = controller.setting;
+
       return Stack(
         children: [
           ExpansionTile(
@@ -121,13 +122,16 @@ class OptionTts extends GetView<BoxCtl> {
                         IconButton(
                             onPressed: () {
                               setting.update((val) {
+                                if (tts.groupcnt <= 1) {
+                                  return;
+                                }
                                 tts.groupcnt -= 1;
                               });
                             },
                             icon: Icon(Icons.navigate_before_sharp)),
                         Expanded(
                             child: Slider(
-                          value: tts.groupcnt.toDouble(),
+                          value: tts.groupcnt < 1 ? 1 : tts.groupcnt.toDouble(),
                           min: 1,
                           max: 40,
                           divisions: 40,
@@ -141,6 +145,9 @@ class OptionTts extends GetView<BoxCtl> {
                         IconButton(
                             onPressed: () {
                               setting.update((val) {
+                                if (tts.groupcnt >= 40) {
+                                  return;
+                                }
                                 tts.groupcnt += 1;
                               });
                             },
