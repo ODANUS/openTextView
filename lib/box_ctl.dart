@@ -152,13 +152,13 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   backPage() {
     if (min > 0 && contents.length > 0 && bFullScreen.value) {
       itemScrollctl.scrollTo(
-          index: min + 4, duration: 100.milliseconds, alignment: 1.0);
+          index: min, duration: 100.milliseconds, alignment: 1.0);
     }
   }
 
   nextPage() {
     if (max > 0 && contents.length > 0 && bFullScreen.value) {
-      itemScrollctl.scrollTo(index: max - 3, duration: 100.milliseconds);
+      itemScrollctl.scrollTo(index: max + 1, duration: 100.milliseconds);
     }
   }
 

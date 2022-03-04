@@ -81,6 +81,78 @@ class ReadpageOverlay extends GetView {
     );
   }
 
+  Widget layout4() {
+    return Row(
+      children: [
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(2),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(1),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(0),
+        ),
+      ],
+    );
+  }
+
+  Widget layout5() {
+    return Column(
+      children: [
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(2),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(1),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(0),
+        ),
+      ],
+    );
+  }
+
+  Widget layout6() {
+    return Column(
+      children: [
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(2),
+        ),
+        Flexible(
+            fit: FlexFit.tight,
+            flex: 2,
+            child: Row(
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: getText(2),
+                ),
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: getText(1),
+                ),
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: getText(0),
+                ),
+              ],
+            )),
+        Flexible(
+          fit: FlexFit.tight,
+          child: getText(0),
+        ),
+      ],
+    );
+  }
+
   Widget layout1() {
     return Column(
       children: [
@@ -149,6 +221,15 @@ class ReadpageOverlay extends GetView {
     }
     if (touchLayout == 3) {
       layout = layout3();
+    }
+    if (touchLayout == 4) {
+      layout = layout4();
+    }
+    if (touchLayout == 5) {
+      layout = layout5();
+    }
+    if (touchLayout == 6) {
+      layout = layout6();
     }
     return Container(
       width: double.infinity,

@@ -18,7 +18,7 @@ class OptionLayout extends GetView<BoxCtl> {
                   () => ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      ...[0, 1, 2, 3].map((e) {
+                      ...[0, 1, 2, 3, 4, 5, 6].map((e) {
                         return Padding(
                             padding: EdgeInsets.all(10),
                             child: Column(children: [

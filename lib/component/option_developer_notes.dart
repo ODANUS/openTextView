@@ -18,6 +18,18 @@ class DeveloperNotesCtl extends GetxController {
 class DeveloperNotes extends GetView<BoxCtl> {
   final ctl = Get.put(DeveloperNotesCtl());
   final String content = """
+1.5.6 (2022 03 04) 패치내역 :
+1. 전체 화면 터치 반전 레이아웃 추가.  
+2. x86 장치 에서 실행 되도록 빌드 옵션 추가. 
+3. 페이지 이동지 오프셋 없이 한페이지씩 이동하도록 수정. 
+
+추후 작업 해야할 부분 : 
+1. 배경색 , 배경 이미지 설정 옵션 . 
+2. 폰트 추가 / 적용 기능 
+3. 리모컨 기능 구현 가능 여부 확인. 
+4. 페이지 이동 오프셋 설정 가능하도록 옵션 구현. 
+
+---
 
 1.5.5 (2022 03 03) 패치내역 :
 1. 다른 플레이어 재생시 일지 정지 체크 해제 해도 일지 정지 되는 현상 수정. 
