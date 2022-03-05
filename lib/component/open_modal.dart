@@ -1,14 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/box_ctl.dart';
-import 'package:open_textview/controller/global_controller.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class openSearchCtl extends GetxController {
   final text = "".obs;

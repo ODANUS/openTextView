@@ -71,12 +71,15 @@ class ReadPage extends GetView<BoxCtl> {
         body: Stack(children: [
           AudioPlay.builder(builder:
               (BuildContext context, AsyncSnapshot<PlaybackState> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
+            if (snapshot.connectionState == ConnectionState.waiting &&
+                controller.contents.length > 0) {
               return CircularProgressIndicator();
             }
 
-            return Obx(
-              () => ScrollablePositionedList.builder(
+            return Obx(() {
+              return ScrollablePositionedList.builder(
+                  key: Key("readScroll${controller.currentHistory.value.name}"),
+                  initialScrollIndex: controller.currentHistory.value.pos,
                   physics: !controller.setting.value.enablescroll &&
                           controller.bFullScreen.value
                       ? NeverScrollableScrollPhysics()
@@ -131,8 +134,8 @@ class ReadPage extends GetView<BoxCtl> {
                                         : controller.setting.value.fontFamily,
                                   ))),
                         ));
-                  }),
-            );
+                  });
+            });
           }),
           Obx(() {
             return ReadpageOverlay(

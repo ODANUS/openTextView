@@ -25,7 +25,7 @@ class AdsCtl extends GetxController {
       // size: AdSize.banner,
       request: AdRequest(),
       adUnitId: kDebugMode
-          ? BannerAd.testAdUnitId
+          ? "ca-app-pub-3940256099942544/6300978111"
           : "ca-app-pub-6280862087797110/4612534059",
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {

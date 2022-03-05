@@ -220,9 +220,12 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
         .reduce((ItemPosition max, ItemPosition position) =>
             position.itemLeadingEdge > max.itemLeadingEdge ? position : max)
         .index;
-    currentHistory.update((val) {
-      val!.pos = min;
-    });
+
+    if (currentHistory.value.pos != min) {
+      currentHistory.update((val) {
+        val!.pos = min;
+      });
+    }
   }
 
   openFile(File f) async {
@@ -252,12 +255,12 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
       target.contentsLen = tmpStr.length;
       historyBox!.put(target);
 
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
-        if (this.contents.length >= target.pos) {
-          itemScrollctl.jumpTo(index: target.pos);
-          addListen();
-        }
-      });
+      addListen();
+      // WidgetsBinding.instance!.addPostFrameCallback((_) {
+      //   if (this.contents.length >= target.pos) {
+      //     itemScrollctl.jumpTo(index: target.pos);
+      //   }
+      // });
 
       return;
     }

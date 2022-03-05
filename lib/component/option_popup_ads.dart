@@ -50,8 +50,8 @@ class OptionPopupAdsCtl extends GetxController {
         },
         onAdImpression: (RewardedAd ad) {},
       );
-      rewardedAd.value!
-          .show(onUserEarnedReward: (RewardedAd ad, RewardItem rewardItem) {});
+      // rewardedAd.value!
+      //     .show(onUserEarnedReward: (RewardedAd ad, RewardItem rewardItem) {});
     }
   }
 
