@@ -247,21 +247,19 @@ class AudioHandler extends BaseAudioHandler
       }
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-
-      // bool bspeak = await speak(speakText);
       currentHistory.pos = i;
 
+      // bool bspeak = await speak(speakText);
       var bspeak = await tts?.speak(speakText);
+
+      if (bspeak == null) {
+        currentHistory.pos -= 1;
+        stop();
+      }
 
       try {
         store?.box<HistoryBox>().put(currentHistory);
       } catch (e) {}
-
-      // await Utils.setLastData(lastData.toJson());
-
-      // if (!bspeak) {
-      //   break;
-      // }
 
       if (end >= contents.length) {
         stop();

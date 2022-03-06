@@ -91,8 +91,10 @@ class ReadPage extends GetView<BoxCtl> {
                   itemCount: controller.contents.length,
                   itemBuilder: (BuildContext context, int idx) {
                     bool bPlay = snapshot.data!.playing;
-                    int pos = controller.currentHistory.value.pos;
-                    // int max = pos + controller.userData.value.tts.groupcnt;
+                    int pos = bPlay
+                        ? snapshot.data!.updatePosition.inSeconds
+                        : controller.currentHistory.value.pos;
+
                     int max = pos + controller.setting.value.groupcnt;
                     bool brange = bPlay && idx >= pos && idx < max;
                     String text = controller.contents[idx];
