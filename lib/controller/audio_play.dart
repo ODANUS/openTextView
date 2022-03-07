@@ -23,6 +23,7 @@ class AudioHandler extends BaseAudioHandler
   List<FilterBox> filter = List.of([FilterBox()]);
   HistoryBox currentHistory = HistoryBox();
   List<String> contents = [];
+  int lastProgrss = 0;
 
   AudioSession? session;
 
@@ -208,6 +209,14 @@ class AudioHandler extends BaseAudioHandler
 
     // ====================================
 
+    tts!.setProgressHandler((text, start, end, word) {
+      lastProgrss = start;
+    });
+    int errorCnt = 0;
+    Timer.periodic(Duration(milliseconds: 200), (timer) {
+      errorCnt = 0;
+    });
+
     for (var i = currentHistory.pos;
         i < contents.length;
         i += setting.groupcnt) {
@@ -247,15 +256,23 @@ class AudioHandler extends BaseAudioHandler
       }
       playbackState
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
-      currentHistory.pos = i;
 
+      currentHistory.pos = i;
+      if (lastProgrss > 1 && speakText.length > lastProgrss) {
+        speakText = speakText.substring(lastProgrss - 1);
+        lastProgrss = 0;
+      }
       // bool bspeak = await speak(speakText);
       var bspeak = await tts?.speak(speakText);
-
-      if (bspeak == null) {
-        currentHistory.pos -= 1;
+      errorCnt++;
+      if (errorCnt > 6) {
+        currentHistory.pos -= (errorCnt + 1) * setting.groupcnt;
         stop();
       }
+      if (bspeak == null) {
+        stop();
+      }
+      lastProgrss = 0;
 
       try {
         store?.box<HistoryBox>().put(currentHistory);

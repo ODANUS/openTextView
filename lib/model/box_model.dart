@@ -60,6 +60,8 @@ class SettingBox {
     this.enablescroll = false,
     this.theme = "light",
     this.lastDevVersion = "",
+    this.backgroundColor = 0x00FFFFFF,
+    this.fontColor,
   });
   int id;
   int fontSize;
@@ -77,6 +79,8 @@ class SettingBox {
   bool enablescroll;
   bool audiosession;
   String lastDevVersion;
+  int backgroundColor = 0x00FFFFFF;
+  int? fontColor;
 
   factory SettingBox.fromJson(String str) =>
       SettingBox.fromMap(json.decode(str));
@@ -101,6 +105,8 @@ class SettingBox {
       touchLayout: json["touchLayout"] ?? 0,
       useClipboard: json["useClipboard"] ?? true,
       lastDevVersion: json["lastDevVersion"] ?? "",
+      backgroundColor: json["backgroundColor"] ?? 0x00FFFFFF,
+      fontColor: json["fontColor"],
     );
   }
 
@@ -119,6 +125,9 @@ class SettingBox {
         "touchLayout": touchLayout,
         "useClipboard": useClipboard,
         "lastDevVersion": lastDevVersion,
+        "theme": theme,
+        "backgroundColor": backgroundColor,
+        "fontColor": fontColor,
       };
 }
 

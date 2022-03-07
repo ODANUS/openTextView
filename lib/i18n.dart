@@ -91,6 +91,9 @@ class Messages extends Translations {
           "use Scroll": "use Scroll",
           "books": "Books",
           "memo": "Memo",
+          "UI Settings": "UI Setting",
+          "Background Color": "Background Color",
+          "Font Color": "Font Color",
         },
         "ko": {
           "key": "ko",
@@ -174,6 +177,9 @@ class Messages extends Translations {
           "use Scroll": "전체 화면 스크롤",
           "books": "권",
           "memo": "메모",
+          "UI Settings": "UI 설정",
+          "Background Color": "배경색 설정",
+          "Font Color": "글꼴 색상 설정",
         },
         "gl": {
           "key": "gl",
@@ -265,6 +271,9 @@ class Messages extends Translations {
           "use Scroll": "Use Scroll.",
           "books": "Libros",
           "memo": "Memo.",
+          "UI Settings": "Configuración de UI.",
+          "Background Color": "Cor de fondo",
+          "Font Color": "Font Color.",
         },
         "gu": {
           "key": "gu",
@@ -353,6 +362,9 @@ class Messages extends Translations {
           "use Scroll": "સ્ક્રોલનો ઉપયોગ કરો",
           "books": "પુસ્તો",
           "memo": "યાદી",
+          "UI Settings": "યુઆઇ સેટિંગ",
+          "Background Color": "પૃષ્ઠભૂમિ રંગ",
+          "Font Color": "ફૉન્ટ રંગ",
         },
         "el": {
           "key": "el",
@@ -442,6 +454,9 @@ class Messages extends Translations {
           "use Scroll": "χρησιμοποιήστε κύλιση",
           "books": "Βιβλία",
           "memo": "Σημείωμα",
+          "UI Settings": "Ρύθμιση ui",
+          "Background Color": "Χρώμα του φόντου",
+          "Font Color": "Χρώμα γραμματοσειράς",
         },
         "nl": {
           "key": "nl",
@@ -529,6 +544,9 @@ class Messages extends Translations {
           "use Scroll": "gebruik scroll",
           "books": "Boeken",
           "memo": "Memo",
+          "UI Settings": "UI-instelling",
+          "Background Color": "Achtergrond kleur",
+          "Font Color": "Lettertypekleur",
         },
         "ne": {
           "key": "ne",
@@ -619,6 +637,9 @@ class Messages extends Translations {
           "use Scroll": "स्क्रोल प्रयोग गर्नुहोस्",
           "books": "किताकस",
           "memo": "मेष",
+          "UI Settings": "Ui सेटिंग",
+          "Background Color": "पृष्ठभूमि र color",
+          "Font Color": "फन्ट रंग",
         },
         "no": {
           "key": "no",
@@ -706,6 +727,9 @@ class Messages extends Translations {
           "use Scroll": "Bruk rulle",
           "books": "Bøker",
           "memo": "Notat",
+          "UI Settings": "UI-innstilling",
+          "Background Color": "Bakgrunnsfarge",
+          "Font Color": "Skriftfarge",
         },
         "da": {
           "key": "da",
@@ -793,6 +817,9 @@ class Messages extends Translations {
           "use Scroll": "Brug Scroll",
           "books": "Bøger",
           "memo": "Memo.",
+          "UI Settings": "UI indstilling",
+          "Background Color": "Baggrundsfarve",
+          "Font Color": "Skrift farve",
         },
         "de": {
           "key": "de",
@@ -882,6 +909,9 @@ class Messages extends Translations {
           "use Scroll": "Verwenden Sie Scroll.",
           "books": "Bücher",
           "memo": "Memo",
+          "UI Settings": "UI-Einstellung.",
+          "Background Color": "Hintergrundfarbe",
+          "Font Color": "Schriftfarbe",
         },
         "lo": {
           "key": "lo",
@@ -968,6 +998,9 @@ class Messages extends Translations {
           "use Scroll": "ໃຊ້ເລື່ອນ",
           "books": "ປື້ມ",
           "memo": "ໂມເດັມ",
+          "UI Settings": "ການຕັ້ງຄ່າ UI",
+          "Background Color": "ສີພື້ນຫລັງ",
+          "Font Color": "ສີຕົວອັກສອນ",
         },
         "lv": {
           "key": "lv",
@@ -1060,6 +1093,9 @@ class Messages extends Translations {
           "use Scroll": "izmantot ritināšanu",
           "books": "Grāmatas",
           "memo": "Piezīme",
+          "UI Settings": "Ui iestatījums",
+          "Background Color": "Fona krāsa",
+          "Font Color": "Fonta krāsa",
         },
         "ru": {
           "key": "ru",
@@ -1152,6 +1188,9 @@ class Messages extends Translations {
           "use Scroll": "Используйте прокрутку",
           "books": "Книги",
           "memo": "Памятка",
+          "UI Settings": "Установка пользовательского интерфейса",
+          "Background Color": "Фоновый цвет",
+          "Font Color": "Цвет шрифта",
         },
         "ro": {
           "key": "ro",
@@ -1243,6 +1282,9 @@ class Messages extends Translations {
           "use Scroll": "Utilizați Derulați",
           "books": "Cărți",
           "memo": "Notificare",
+          "UI Settings": "Setarea UI",
+          "Background Color": "Culoare de fundal",
+          "Font Color": "Font color",
         },
         "lt": {
           "key": "lt",
@@ -1333,6 +1375,9 @@ class Messages extends Translations {
           "use Scroll": "Naudokite slinkties",
           "books": "Knygos",
           "memo": "MEMO.",
+          "UI Settings": "Ui nustatymas",
+          "Background Color": "Fono spalva",
+          "Font Color": "Šrifto spalva",
         },
         "mr": {
           "key": "mr",
@@ -1421,6 +1466,9 @@ class Messages extends Translations {
           "use Scroll": "स्क्रोल वापरा",
           "books": "पुस्तके",
           "memo": "मेमो",
+          "UI Settings": "यूआय सेटिंग",
+          "Background Color": "पार्श्वभूमी रंग",
+          "Font Color": "फॉन्टचा रंग",
         },
         "mk": {
           "key": "mk",
@@ -1511,6 +1559,9 @@ class Messages extends Translations {
           "use Scroll": "Користете скролувајте",
           "books": "Книги",
           "memo": "Меморандум",
+          "UI Settings": "Поставување на UI.",
+          "Background Color": "Боја на позадина",
+          "Font Color": "Фонт боја",
         },
         "ml": {
           "key": "ml",
@@ -1604,6 +1655,9 @@ class Messages extends Translations {
           "use Scroll": "സ്ക്രോൾ ഉപയോഗിക്കുക",
           "books": "പുസ്തകങ്ങള്",
           "memo": "മെമ്മോ",
+          "UI Settings": "യുഐ ക്രമീകരണം",
+          "Background Color": "പശ്ചാത്തല നിറം",
+          "Font Color": "അക്ഷരത്തിന്റെ നിറം",
         },
         "ms": {
           "key": "ms",
@@ -1691,6 +1745,9 @@ class Messages extends Translations {
           "use Scroll": "Gunakan Scroll.",
           "books": "Buku",
           "memo": "Memo",
+          "UI Settings": "Tetapan UI.",
+          "Background Color": "Warna latar belakang",
+          "Font Color": "Warna Font.",
         },
         "ms": {
           "key": "ms",
@@ -1778,6 +1835,9 @@ class Messages extends Translations {
           "use Scroll": "Gunakan Scroll.",
           "books": "Buku",
           "memo": "Memo",
+          "UI Settings": "Tetapan UI.",
+          "Background Color": "Warna latar belakang",
+          "Font Color": "Warna Font.",
         },
         "mn": {
           "key": "mn",
@@ -1867,6 +1927,9 @@ class Messages extends Translations {
           "use Scroll": "гүйлгэх",
           "books": "Номоод ном",
           "memo": "Чимэгсга",
+          "UI Settings": "Ui тохиргоо",
+          "Background Color": "Дэвсгэр өнгө",
+          "Font Color": "Үсгийн өнгө",
         },
         "eu": {
           "key": "eu",
@@ -1955,6 +2018,9 @@ class Messages extends Translations {
           "use Scroll": "Erabili korritzea",
           "books": "Liburu",
           "memo": "Oharpen",
+          "UI Settings": "UI ezarpena",
+          "Background Color": "Atzeko planoaren kolorea",
+          "Font Color": "Letra-kolorea",
         },
         "my": {
           "key": "my",
@@ -2046,6 +2112,9 @@ class Messages extends Translations {
           "use Scroll": "Scroll ကိုသုံးပါ",
           "books": "စာအုပ်များ",
           "memo": "မှတ်စုတို",
+          "UI Settings": "ui setting ကို",
+          "Background Color": "နောက်ခံအရောင်",
+          "Font Color": "အရောင်",
         },
         "vi": {
           "key": "vi",
@@ -2133,6 +2202,9 @@ class Messages extends Translations {
           "use Scroll": "Sử dụng cuộn",
           "books": "Sách",
           "memo": "Bản ghi nhớ",
+          "UI Settings": "Thiết lập ui.",
+          "Background Color": "Màu nền",
+          "Font Color": "Màu phông chữ",
         },
         "be": {
           "key": "be",
@@ -2223,6 +2295,9 @@ class Messages extends Translations {
           "use Scroll": "выкарыстоўваць скрутак",
           "books": "Кнігі",
           "memo": "Мема",
+          "UI Settings": "Ўстаноўка UI",
+          "Background Color": "Колер фону",
+          "Font Color": "Колер шрыфта",
         },
         "bn": {
           "key": "bn",
@@ -2311,6 +2386,9 @@ class Messages extends Translations {
           "use Scroll": "স্ক্রোল ব্যবহার করুন",
           "books": "বই",
           "memo": "মেমো",
+          "UI Settings": "UI সেটিং",
+          "Background Color": "পেছনের রং",
+          "Font Color": "ফন্টের রঙ",
         },
         "bg": {
           "key": "bg",
@@ -2402,6 +2480,9 @@ class Messages extends Translations {
           "use Scroll": "Използвайте свитъка",
           "books": "Книги",
           "memo": "Memo.",
+          "UI Settings": "Настройка на потребителския интерфейс",
+          "Background Color": "Цвят на фона",
+          "Font Color": "Цвят на шрифта",
         },
         "sr": {
           "key": "sr",
@@ -2491,6 +2572,9 @@ class Messages extends Translations {
           "use Scroll": "Користите свитак",
           "books": "Књиге",
           "memo": "Белешка",
+          "UI Settings": "УИ подешавање",
+          "Background Color": "Боја позадине",
+          "Font Color": "Боја фонта",
         },
         "sw": {
           "key": "sw",
@@ -2582,6 +2666,9 @@ class Messages extends Translations {
           "use Scroll": "Tumia kitabu",
           "books": "Vitabu",
           "memo": "Memo",
+          "UI Settings": "UI kuweka",
+          "Background Color": "Rangi ya asili",
+          "Font Color": "Rangi ya font.",
         },
         "sv": {
           "key": "sv",
@@ -2669,6 +2756,9 @@ class Messages extends Translations {
           "use Scroll": "Använd bläddring",
           "books": "Böcker",
           "memo": "PM",
+          "UI Settings": "Ui-inställning",
+          "Background Color": "Bakgrundsfärg",
+          "Font Color": "Fontfärg",
         },
         "es": {
           "key": "es",
@@ -2762,6 +2852,9 @@ class Messages extends Translations {
           "use Scroll": "usar desplazamiento",
           "books": "Libros",
           "memo": "Memorándum",
+          "UI Settings": "Configuración de ui",
+          "Background Color": "Color de fondo",
+          "Font Color": "Color de fuente",
         },
         "sk": {
           "key": "sk",
@@ -2850,6 +2943,9 @@ class Messages extends Translations {
           "use Scroll": "zvitok",
           "books": "Knihy",
           "memo": "Poznámka",
+          "UI Settings": "Nastavenie UI",
+          "Background Color": "Farba pozadia",
+          "Font Color": "Farba písma",
         },
         "sl": {
           "key": "sl",
@@ -2938,6 +3034,9 @@ class Messages extends Translations {
           "use Scroll": "Uporabite pomikanje.",
           "books": "Knjige.",
           "memo": "MEMO.",
+          "UI Settings": "Nastavitev UI",
+          "Background Color": "Barva ozadja",
+          "Font Color": "Barva pisave",
         },
         "si": {
           "key": "si",
@@ -3025,6 +3124,9 @@ class Messages extends Translations {
           "use Scroll": "අනුචලනය භාවිතා කරන්න",
           "books": "පොත්",
           "memo": "මතක සටහන්",
+          "UI Settings": "UI සැකසුම",
+          "Background Color": "පසුබිම් වර්ණය",
+          "Font Color": "අකුරු වර්ණය",
         },
         "ar": {
           "key": "ar",
@@ -3112,6 +3214,9 @@ class Messages extends Translations {
           "use Scroll": "استخدام التمرير",
           "books": "كتب",
           "memo": "مذكرة",
+          "UI Settings": "واجهة المستخدم الإعداد",
+          "Background Color": "لون الخلفية",
+          "Font Color": "لون الخط",
         },
         "hy": {
           "key": "hy",
@@ -3201,6 +3306,9 @@ class Messages extends Translations {
           "use Scroll": "Օգտագործեք ոլորումը",
           "books": "Գրքեր",
           "memo": "Հուշեր",
+          "UI Settings": "UI- ի կարգավորում",
+          "Background Color": "Ֆոնի գույնը",
+          "Font Color": "Տառատեսակի գույնը",
         },
         "is": {
           "key": "is",
@@ -3290,6 +3398,9 @@ class Messages extends Translations {
           "use Scroll": "Notaðu rolf",
           "books": "Bækur",
           "memo": "Minnispunktur",
+          "UI Settings": "UI stilling",
+          "Background Color": "Bakgrunns litur",
+          "Font Color": "Leturgerð lit.",
         },
         "az": {
           "key": "az",
@@ -3378,6 +3489,9 @@ class Messages extends Translations {
           "use Scroll": "diyirləmək",
           "books": "Kitablar",
           "memo": "Memo",
+          "UI Settings": "Ui qəbulu",
+          "Background Color": "Fon rəngi",
+          "Font Color": "Şriftin",
         },
         "af": {
           "key": "af",
@@ -3467,6 +3581,9 @@ class Messages extends Translations {
           "use Scroll": "Gebruik Scroll",
           "books": "Boeke",
           "memo": "Memo",
+          "UI Settings": "UI-instelling",
+          "Background Color": "Agtergrondkleur",
+          "Font Color": "Font kleur",
         },
         "sq": {
           "key": "sq",
@@ -3558,6 +3675,9 @@ class Messages extends Translations {
           "use Scroll": "Përdorni rrotull",
           "books": "Libra",
           "memo": "Memo",
+          "UI Settings": "Vendosja e UI",
+          "Background Color": "Ngjyrë e sfondit",
+          "Font Color": "Ngjyra e shkronjave",
         },
         "am": {
           "key": "am",
@@ -3643,6 +3763,9 @@ class Messages extends Translations {
           "use Scroll": "ጥቅልል ይጠቀሙ",
           "books": "መጽሐፍት",
           "memo": "ሜሞ",
+          "UI Settings": "አዋጁ",
+          "Background Color": "የጀርባ ቀለም",
+          "Font Color": "የቅርጸ-ቁምፊ ቀለም",
         },
         "et": {
           "key": "et",
@@ -3730,6 +3853,9 @@ class Messages extends Translations {
           "use Scroll": "Kasutage kerimist",
           "books": "Raamatud",
           "memo": "Memo",
+          "UI Settings": "UI seadistus",
+          "Background Color": "Taustavärv",
+          "Font Color": "Fondi värv",
         },
         "en": {
           "key": "en",
@@ -3819,6 +3945,9 @@ class Messages extends Translations {
           "use Scroll": "use Scroll",
           "books": "Books",
           "memo": "Memo",
+          "UI Settings": "UI Setting",
+          "Background Color": "Background Color",
+          "Font Color": "Font Color",
         },
         "ur": {
           "key": "ur",
@@ -3907,6 +4036,9 @@ class Messages extends Translations {
           "use Scroll": "سکرال کا استعمال کریں",
           "books": "کتب",
           "memo": "میمو",
+          "UI Settings": "UI کی ترتیب",
+          "Background Color": "پس منظر کا رنگ",
+          "Font Color": "لکھائی کا رنگ",
         },
         "uk": {
           "key": "uk",
@@ -3998,6 +4130,9 @@ class Messages extends Translations {
           "use Scroll": "використовувати прокрутки",
           "books": "Книги",
           "memo": "Пам'ятка",
+          "UI Settings": "Налаштування інтерфейсу",
+          "Background Color": "Колір фону",
+          "Font Color": "Колір шрифту",
         },
         "it": {
           "key": "it",
@@ -4089,6 +4224,9 @@ class Messages extends Translations {
           "use Scroll": "Usa lo scorrimento",
           "books": "Libri",
           "memo": "Memo",
+          "UI Settings": "Impostazione UI.",
+          "Background Color": "Colore di sfondo",
+          "Font Color": "Colore del carattere",
         },
         "id": {
           "key": "id",
@@ -4177,6 +4315,9 @@ class Messages extends Translations {
           "use Scroll": "Gunakan gulir",
           "books": "Buku",
           "memo": "Memo",
+          "UI Settings": "Pengaturan UI.",
+          "Background Color": "Warna latar belakang",
+          "Font Color": "Warna huruf",
         },
         "ja": {
           "key": "ja",
@@ -4260,6 +4401,9 @@ class Messages extends Translations {
           "use Scroll": "スクロールを使う",
           "books": "本",
           "memo": "メモ",
+          "UI Settings": "UI設定",
+          "Background Color": "背景色",
+          "Font Color": "フォントカラー",
         },
         "ka": {
           "key": "ka",
@@ -4352,6 +4496,9 @@ class Messages extends Translations {
           "use Scroll": "გამოიყენეთ გადახვევა",
           "books": "წიგნები",
           "memo": "შენიშვნა",
+          "UI Settings": "UI გარემოში",
+          "Background Color": "Ფონის ფერი",
+          "Font Color": "Შრიფტის ფერი",
         },
         "zu": {
           "key": "zu",
@@ -4443,6 +4590,9 @@ class Messages extends Translations {
           "use Scroll": "Sebenzisa umqulu",
           "books": "Izincwadi",
           "memo": "Imezwi",
+          "UI Settings": "Ukuhlelwa kwe-UI",
+          "Background Color": "Umbala wangemuva",
+          "Font Color": "Umbala wefonti",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -4525,6 +4675,9 @@ class Messages extends Translations {
           "use Scroll": "使用卷轴",
           "books": "图书",
           "memo": "备忘录",
+          "UI Settings": "UI设置",
+          "Background Color": "背景颜色",
+          "Font Color": "字体颜色",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -4607,6 +4760,9 @@ class Messages extends Translations {
           "use Scroll": "使用捲軸",
           "books": "圖書",
           "memo": "備忘錄",
+          "UI Settings": "UI設置",
+          "Background Color": "背景顏色",
+          "Font Color": "字體顏色",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -4689,6 +4845,9 @@ class Messages extends Translations {
           "use Scroll": "使用捲軸",
           "books": "圖書",
           "memo": "備忘錄",
+          "UI Settings": "UI設置",
+          "Background Color": "背景顏色",
+          "Font Color": "字體顏色",
         },
         "cs": {
           "key": "cs",
@@ -4777,6 +4936,9 @@ class Messages extends Translations {
           "use Scroll": "Použijte Scroll.",
           "books": "Knihy",
           "memo": "Memo.",
+          "UI Settings": "UI Setting.",
+          "Background Color": "Barva pozadí",
+          "Font Color": "Barva fontu",
         },
         "kk": {
           "key": "kk",
@@ -4865,6 +5027,9 @@ class Messages extends Translations {
           "use Scroll": "Айналдыруды қолданыңыз",
           "books": "Кітапхана",
           "memo": "Жад",
+          "UI Settings": "Ui параметрі",
+          "Background Color": "Фон түсі",
+          "Font Color": "Қаріп түсі",
         },
         "ca": {
           "key": "ca",
@@ -4958,6 +5123,9 @@ class Messages extends Translations {
           "use Scroll": "Utilitzeu el desplaçament",
           "books": "Llibres",
           "memo": "Memo",
+          "UI Settings": "Configuració d'UI",
+          "Background Color": "Color de fons",
+          "Font Color": "Color de la lletra",
         },
         "kn": {
           "key": "kn",
@@ -5049,6 +5217,9 @@ class Messages extends Translations {
           "use Scroll": "ಸ್ಕ್ರಾಲ್ ಬಳಸಿ",
           "books": "ಪುಸ್ತಕಗಳು",
           "memo": "ಮೆಮೊ",
+          "UI Settings": "ಯುಐ ಸೆಟ್ಟಿಂಗ್",
+          "Background Color": "ಹಿನ್ನೆಲೆ ಬಣ್ಣ",
+          "Font Color": "ಫಾಂಟ್ ಬಣ್ಣ",
         },
         "hr": {
           "key": "hr",
@@ -5138,6 +5309,9 @@ class Messages extends Translations {
           "use Scroll": "Upotrijebite pomicanje",
           "books": "Knjige",
           "memo": "Podsjetnik",
+          "UI Settings": "UI postavljanje",
+          "Background Color": "Boja pozadine",
+          "Font Color": "Boja fonta",
         },
         "km": {
           "key": "km",
@@ -5226,6 +5400,9 @@ class Messages extends Translations {
           "use Scroll": "ប្រើរមូរ",
           "books": "សៀវភៅ",
           "memo": "មេមាន់",
+          "UI Settings": "ការកំណត់ UI",
+          "Background Color": "ពណ៌ផ្ទៃខាងក្រោយ",
+          "Font Color": "ពណ៌ពុម្ពអក្សរ",
         },
         "ky": {
           "key": "ky",
@@ -5316,6 +5493,9 @@ class Messages extends Translations {
           "use Scroll": "Жылдыруу",
           "books": "Китептер",
           "memo": "Memo",
+          "UI Settings": "UI жөндөө",
+          "Background Color": "Фон түсү",
+          "Font Color": "Арип түсү",
         },
         "ta": {
           "key": "ta",
@@ -5407,6 +5587,9 @@ class Messages extends Translations {
           "use Scroll": "உருள் பயன்படுத்தவும்",
           "books": "புத்தகங்கள்",
           "memo": "மெமோ",
+          "UI Settings": "UI அமைத்தல்",
+          "Background Color": "பின்னணி நிறம்",
+          "Font Color": "எழுத்துரு நிறம்",
         },
         "th": {
           "key": "th",
@@ -5495,6 +5678,9 @@ class Messages extends Translations {
           "use Scroll": "ใช้ Scroll",
           "books": "หนังสือ",
           "memo": "บันทึก",
+          "UI Settings": "การตั้งค่า UI",
+          "Background Color": "สีพื้นหลัง",
+          "Font Color": "สีตัวอักษร",
         },
         "tr": {
           "key": "tr",
@@ -5585,6 +5771,9 @@ class Messages extends Translations {
           "use Scroll": "Kaydırma kullanın",
           "books": "Kitabın",
           "memo": "Hafıza",
+          "UI Settings": "UI ayarı",
+          "Background Color": "Arka plan rengi",
+          "Font Color": "Yazı rengi",
         },
         "te": {
           "key": "te",
@@ -5676,6 +5865,9 @@ class Messages extends Translations {
           "use Scroll": "స్క్రోల్ ఉపయోగించండి",
           "books": "పుస్తకాలు",
           "memo": "మెమో",
+          "UI Settings": "UI సెట్టింగ్",
+          "Background Color": "నేపథ్య రంగు",
+          "Font Color": "ఫాంట్ రంగు",
         },
         "pa": {
           "key": "pa",
@@ -5763,6 +5955,9 @@ class Messages extends Translations {
           "use Scroll": "ਸਕ੍ਰੌਲ ਦੀ ਵਰਤੋਂ ਕਰੋ",
           "books": "ਕਿਤਾਬਾਂ",
           "memo": "ਮੀਮੋ",
+          "UI Settings": "UI ਸੈਟਿੰਗ",
+          "Background Color": "ਪਿਛੋਕੜ ਦਾ ਰੰਗ",
+          "Font Color": "ਫੋਂਟ ਰੰਗ",
         },
         "fa": {
           "key": "fa",
@@ -5852,6 +6047,9 @@ class Messages extends Translations {
           "use Scroll": "استفاده از اسکرول",
           "books": "کتاب",
           "memo": "یادداشت",
+          "UI Settings": "تنظیم UI",
+          "Background Color": "رنگ پس زمینه",
+          "Font Color": "رنگ فونت",
         },
         "pt": {
           "key": "pt",
@@ -5944,6 +6142,9 @@ class Messages extends Translations {
           "use Scroll": "use rolagem",
           "books": "Livros",
           "memo": "Memorando",
+          "UI Settings": "Configuração da interface do usuário",
+          "Background Color": "Cor de fundo",
+          "Font Color": "Cor da fonte",
         },
         "pl": {
           "key": "pl",
@@ -6034,6 +6235,9 @@ class Messages extends Translations {
           "use Scroll": "Użyj przewijania",
           "books": "Książki",
           "memo": "Notatka",
+          "UI Settings": "Ustawienie ui.",
+          "Background Color": "Kolor tła",
+          "Font Color": "Kolor czcionki",
         },
         "fr": {
           "key": "fr",
@@ -6126,6 +6330,9 @@ class Messages extends Translations {
           "use Scroll": "faire défiler",
           "books": "Livres",
           "memo": "Note",
+          "UI Settings": "Réglage de l'interface utilisateur",
+          "Background Color": "Couleur de l'arrière plan",
+          "Font Color": "Couleur de la police",
         },
         "fi": {
           "key": "fi",
@@ -6213,6 +6420,9 @@ class Messages extends Translations {
           "use Scroll": "Käytä vieritystä",
           "books": "Kirjat",
           "memo": "Muistio",
+          "UI Settings": "UI-asetus",
+          "Background Color": "Taustaväri",
+          "Font Color": "Fontin väri",
         },
         "fil": {
           "key": "fil",
@@ -6305,6 +6515,9 @@ class Messages extends Translations {
           "use Scroll": "Gamitin ang scroll",
           "books": "Mga Libro",
           "memo": "Memo.",
+          "UI Settings": "UI setting.",
+          "Background Color": "Kulay ng background",
+          "Font Color": "Kulay ng font",
         },
         "hu": {
           "key": "hu",
@@ -6395,6 +6608,9 @@ class Messages extends Translations {
           "use Scroll": "lapozzon",
           "books": "Könyvek",
           "memo": "Memo",
+          "UI Settings": "UI beállítás",
+          "Background Color": "Háttérszín",
+          "Font Color": "Betű szín",
         },
         "iw": {
           "key": "iw",
@@ -6481,6 +6697,9 @@ class Messages extends Translations {
           "use Scroll": "השתמש בגלול",
           "books": "ספרים",
           "memo": "תַזכִּיר",
+          "UI Settings": "הגדרת UI.",
+          "Background Color": "צבע רקע",
+          "Font Color": "צבע גופן",
         },
         "hi": {
           "key": "hi",
@@ -6569,6 +6788,9 @@ class Messages extends Translations {
           "use Scroll": "स्क्रॉल का उपयोग करें",
           "books": "पुस्तकें",
           "memo": "ज्ञापन",
+          "UI Settings": "यूआई सेटिंग",
+          "Background Color": "पृष्ठभूमि का रंग",
+          "Font Color": "लिपि का रंग",
         },
       };
 }

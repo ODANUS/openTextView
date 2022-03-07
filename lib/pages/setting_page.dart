@@ -14,6 +14,7 @@ import 'package:open_textview/component/option_popup_ads.dart';
 import 'package:open_textview/component/option_review.dart';
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
+import 'package:open_textview/component/option_ui.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -48,6 +49,7 @@ class SettingPage extends GetView<BoxCtl> {
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
           Card(child: OptionLayout()),
+          Card(child: OptionUI()),
 
           Card(child: DeveloperNotes()),
 

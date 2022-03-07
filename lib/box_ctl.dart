@@ -151,15 +151,30 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
   backPage() {
     if (min > 0 && contents.length > 0 && bFullScreen.value) {
-      itemScrollctl.scrollTo(
-          index: min, duration: 100.milliseconds, alignment: 1.0);
+      var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
+              ItemPosition position) =>
+          position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
+
+      // var offset = minPos.itemLeadingEdge.toStringAsFixed(2);
+      itemScrollctl.jumpTo(index: minPos.index, alignment: 1);
     }
   }
 
   nextPage() {
     if (max > 0 && contents.length > 0 && bFullScreen.value) {
-      itemScrollctl.scrollTo(
-          index: min, duration: 100.milliseconds, alignment: -1.0);
+      // var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
+      //         ItemPosition position) =>
+      //     position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
+      // itemScrollctl.jumpTo(index: minPos.index, alignment: 0);
+      var maxPos = itemPosListener.itemPositions.value
+          .where((ItemPosition position) => position.itemLeadingEdge < 1)
+          .reduce((ItemPosition max, ItemPosition position) =>
+              position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
+
+      var offset = maxPos.itemLeadingEdge.toStringAsFixed(1);
+
+      itemScrollctl.jumpTo(
+          index: maxPos.index, alignment: -1 + double.parse(offset));
     }
   }
 
@@ -302,9 +317,9 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   setHistoryBox(List<HistoryBox> datas) {
-    datas.forEach((e) {
-      print(e.id);
-    });
+    // datas.forEach((e) {
+    //   print(e.id);
+    // });
     historyBox!.removeAll();
     historyBox!.putMany(datas);
   }

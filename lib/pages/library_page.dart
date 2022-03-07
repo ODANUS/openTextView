@@ -210,21 +210,6 @@ class LibraryPage extends GetView<BoxCtl> {
                             return SizedBox();
                           }
                           File file = e as File;
-                          ActionPane actionPane = ActionPane(
-                              motion: const ScrollMotion(),
-                              extentRatio: 0.3,
-                              children: [
-                                SlidableAction(
-                                  label: 'remove_from_library'.tr,
-                                  backgroundColor: Colors.red,
-                                  icon: Icons.delete,
-                                  flex: 1,
-                                  onPressed: (c) async {
-                                    await file.delete();
-                                    ctl.tmpDir.refresh();
-                                  },
-                                )
-                              ]);
 
                           String ex = "";
                           var exList = file.path.split(".");
@@ -240,10 +225,32 @@ class LibraryPage extends GetView<BoxCtl> {
                               controller.currentHistory.value.name == name) {
                             targetList = [controller.currentHistory.value];
                           }
-                          // if (targetList.isNotEmpty) {
-                          //   print(targetList.first.toJson());
-                          // }
                           String size = Utils.getFileSize(file);
+                          ActionPane actionPane = ActionPane(
+                              motion: const ScrollMotion(),
+                              extentRatio: targetList.isNotEmpty ? 0.6 : 0.3,
+                              children: [
+                                SlidableAction(
+                                  label: 'remove_from_library'.tr,
+                                  backgroundColor: Colors.red,
+                                  icon: Icons.delete,
+                                  flex: 1,
+                                  onPressed: (c) async {
+                                    await file.delete();
+                                    ctl.tmpDir.refresh();
+                                  },
+                                ),
+                                if (targetList.isNotEmpty)
+                                  SlidableAction(
+                                    label: 'memo'.tr,
+                                    backgroundColor: Colors.green,
+                                    icon: Icons.edit,
+                                    flex: 1,
+                                    onPressed: (c) async {
+                                      editMemo(targetList.first);
+                                    },
+                                  )
+                              ]);
                           return Card(
                               child: Slidable(
                                   key: UniqueKey(),
@@ -294,9 +301,28 @@ class LibraryPage extends GetView<BoxCtl> {
                                       // controller.openFile(file);
                                     },
                                     onLongPress: () async {
-                                      if (targetList.isNotEmpty) {
-                                        editMemo(targetList.first);
-                                      }
+                                      Get.dialog(AlertDialog(
+                                        title: Text("Open Text Viewer"),
+                                        actionsAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        actions: [
+                                          if (targetList.isNotEmpty)
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  editMemo(targetList.first);
+                                                },
+                                                child: Text("memo".tr)),
+                                          ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  primary: Colors.red),
+                                              onPressed: () async {
+                                                await file.delete();
+                                                ctl.tmpDir.refresh();
+                                              },
+                                              child: Text(
+                                                  'remove_from_library'.tr))
+                                        ],
+                                      ));
                                     },
                                   )));
                         })
