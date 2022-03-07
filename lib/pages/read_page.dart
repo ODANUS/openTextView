@@ -119,6 +119,14 @@ class ReadPage extends GetView<BoxCtl> {
                             int max = pos + controller.setting.value.groupcnt;
                             bool brange = bPlay && idx >= pos && idx < max;
                             String text = controller.contents[idx];
+                            var textcolor = Color(
+                                controller.setting.value.fontColor == 0
+                                    ? Theme.of(Get.context!)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color!
+                                        .value
+                                    : controller.setting.value.fontColor);
 
                             return Obx(() => InkWell(
                                   onLongPress: controller
@@ -148,13 +156,7 @@ class ReadPage extends GetView<BoxCtl> {
                                               brange ? Colors.blue[100] : null),
                                       child: Text("$text",
                                           style: TextStyle(
-                                            color: Color(controller
-                                                    .setting.value.fontColor ??
-                                                Theme.of(Get.context!)
-                                                    .textTheme
-                                                    .bodyText1!
-                                                    .color!
-                                                    .value),
+                                            color: textcolor,
                                             fontSize: controller
                                                 .setting.value.fontSize
                                                 .toDouble(),

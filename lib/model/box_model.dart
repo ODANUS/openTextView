@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:googleapis/storagetransfer/v1.dart';
 import 'package:objectbox/objectbox.dart';
 
@@ -61,7 +62,7 @@ class SettingBox {
     this.theme = "light",
     this.lastDevVersion = "",
     this.backgroundColor = 0x00FFFFFF,
-    this.fontColor,
+    this.fontColor = 0,
   });
   int id;
   int fontSize;
@@ -80,7 +81,7 @@ class SettingBox {
   bool audiosession;
   String lastDevVersion;
   int backgroundColor = 0x00FFFFFF;
-  int? fontColor;
+  int fontColor;
 
   factory SettingBox.fromJson(String str) =>
       SettingBox.fromMap(json.decode(str));
@@ -106,7 +107,7 @@ class SettingBox {
       useClipboard: json["useClipboard"] ?? true,
       lastDevVersion: json["lastDevVersion"] ?? "",
       backgroundColor: json["backgroundColor"] ?? 0x00FFFFFF,
-      fontColor: json["fontColor"],
+      fontColor: json["fontColor"] ?? 0,
     );
   }
 

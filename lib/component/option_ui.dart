@@ -59,12 +59,13 @@ class OptionUI extends GetView<BoxCtl> {
             Obx(() => ListTile(
                   onTap: () {
                     openColorPicker(
-                        controller.setting.value.fontColor ??
-                            Theme.of(Get.context!)
+                        controller.setting.value.fontColor == 0
+                            ? Theme.of(Get.context!)
                                 .textTheme
                                 .bodyText1!
                                 .color!
-                                .value, (c) {
+                                .value
+                            : controller.setting.value.fontColor, (c) {
                       controller.setting.value.fontColor = c.value;
                       controller.setting.refresh();
                     });
@@ -72,16 +73,17 @@ class OptionUI extends GetView<BoxCtl> {
                   leading: Container(
                       width: 30,
                       height: 30,
-                      color: Color(controller.setting.value.fontColor ??
-                          Theme.of(Get.context!)
+                      color: Color(controller.setting.value.fontColor == 0
+                          ? Theme.of(Get.context!)
                               .textTheme
                               .bodyText1!
                               .color!
-                              .value)),
+                              .value
+                          : controller.setting.value.fontColor)),
                   title: Text("Font Color".tr),
                   trailing: ElevatedButton(
                       onPressed: () {
-                        controller.setting.value.fontColor = null;
+                        controller.setting.value.fontColor = 0;
                         controller.setting.refresh();
                       },
                       child: Text("delete".tr)),

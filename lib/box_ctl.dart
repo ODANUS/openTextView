@@ -120,14 +120,6 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
     WidgetsBinding.instance!.addObserver(this);
 
-    // historyBox!.query().watch().listen((q) {
-    //   var datas = q.find();
-    //   datas.forEach((e) {
-    //     if (e.name == "십자군 기사로 살아가는 법 1-189화 완결.txt") {
-    //       print(">>>>>>>>>>>>>>> ${e.toJson()}");
-    //     }
-    //   });
-    // });
     super.onInit();
   }
 
@@ -182,6 +174,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     var tmpSettings = settingBox?.getAll();
     if (tmpSettings != null && tmpSettings.isNotEmpty) {
       setting(tmpSettings.first);
+
       if (setting.value.theme == "dark") {
         Get.changeTheme(ThemeData.dark());
       }
@@ -330,11 +323,6 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
   editHistory(HistoryBox v) {
     var idx = historyBox!.put(v);
-    // historyBox!.getAll().forEach((e) {
-    //   if (e.name == "십자군 기사로 살아가는 법 1-189화 완결.txt") {
-    //     print(e.toJson());
-    //   }
-    // });
   }
 
   Map<String, dynamic> data2Map() {
@@ -353,6 +341,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
         .map((e) => FilterBox.fromMap(e)..id = 0)
         .toList();
     var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
+    print(jsonData["setting"]);
     setHistoryBox(his);
     setFilterBox(filters);
     setSettingBox(setting);
