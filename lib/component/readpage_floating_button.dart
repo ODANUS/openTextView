@@ -6,7 +6,6 @@ import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
-import 'package:open_textview/controller/global_controller.dart';
 
 class readPageFloatingButtonCtl extends GetxController {
   Rx<bool> bFind = false.obs;

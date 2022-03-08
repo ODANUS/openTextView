@@ -13,12 +13,10 @@ import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:open_textview/box_ctl.dart';
-import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/user_data.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utils {

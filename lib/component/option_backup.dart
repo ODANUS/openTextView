@@ -96,7 +96,6 @@ class OptionBackup extends GetView<BoxCtl> {
                               ...jsonData["ui"] as Map,
                               "theme": jsonData["theme"]
                             };
-                            // print(settingMap);
 
                             settingData = SettingBox.fromMap(settingMap);
                             controller.setSettingBox(settingData);

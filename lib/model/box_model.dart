@@ -63,6 +63,10 @@ class SettingBox {
     this.lastDevVersion = "",
     this.backgroundColor = 0x00FFFFFF,
     this.fontColor = 0,
+    this.paddingLeft = 10,
+    this.paddingRight = 10,
+    this.paddingTop = 10,
+    this.paddingBottom = 10,
   });
   int id;
   int fontSize;
@@ -82,6 +86,10 @@ class SettingBox {
   String lastDevVersion;
   int backgroundColor = 0x00FFFFFF;
   int fontColor;
+  double paddingLeft = 10;
+  double paddingRight = 10;
+  double paddingTop = 10;
+  double paddingBottom = 10;
 
   factory SettingBox.fromJson(String str) =>
       SettingBox.fromMap(json.decode(str));
@@ -108,6 +116,10 @@ class SettingBox {
       lastDevVersion: json["lastDevVersion"] ?? "",
       backgroundColor: json["backgroundColor"] ?? 0x00FFFFFF,
       fontColor: json["fontColor"] ?? 0,
+      paddingLeft: json["paddingLeft"] ?? 10,
+      paddingRight: json["paddingRight"] ?? 10,
+      paddingTop: json["paddingTop"] ?? 10,
+      paddingBottom: json["paddingBottom"] ?? 10,
     );
   }
 
@@ -129,6 +141,10 @@ class SettingBox {
         "theme": theme,
         "backgroundColor": backgroundColor,
         "fontColor": fontColor,
+        "paddingLeft": paddingLeft,
+        "paddingRight": paddingRight,
+        "paddingTop": paddingTop,
+        "paddingBottom": paddingBottom,
       };
 }
 

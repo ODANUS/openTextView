@@ -105,7 +105,7 @@
     },
     {
       "id": "3:1885558662605261282",
-      "lastPropertyId": "18:7502520301384290982",
+      "lastPropertyId": "22:8528881482135836602",
       "name": "SettingBox",
       "properties": [
         {
@@ -198,6 +198,26 @@
           "id": "18:7502520301384290982",
           "name": "fontColor",
           "type": 6
+        },
+        {
+          "id": "19:8641605772430565296",
+          "name": "paddingLeft",
+          "type": 8
+        },
+        {
+          "id": "20:1469021742076422069",
+          "name": "paddingRight",
+          "type": 8
+        },
+        {
+          "id": "21:1449055707866000740",
+          "name": "paddingTop",
+          "type": 8
+        },
+        {
+          "id": "22:8528881482135836602",
+          "name": "paddingBottom",
+          "type": 8
         }
       ],
       "relations": []

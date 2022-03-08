@@ -44,6 +44,8 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   RxBool firstFullScreen = true.obs;
   RxBool bImageFullScreen = false.obs;
 
+  Rx<bool> bTowDrage = false.obs;
+
   int min = 0;
   int max = 0;
 
@@ -146,9 +148,11 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
       var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
               ItemPosition position) =>
           position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
+      var offset = (minPos.itemLeadingEdge + 1).toStringAsFixed(1);
 
-      // var offset = minPos.itemLeadingEdge.toStringAsFixed(2);
-      itemScrollctl.jumpTo(index: minPos.index, alignment: 1);
+      itemScrollctl.jumpTo(
+          index: minPos.index, alignment: double.parse(offset));
+      // , alignment: 1 + double.parse(offset));
     }
   }
 
@@ -163,10 +167,14 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
           .reduce((ItemPosition max, ItemPosition position) =>
               position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
 
-      var offset = maxPos.itemLeadingEdge.toStringAsFixed(1);
+      var offset = (maxPos.itemLeadingEdge - 1).toStringAsFixed(1);
 
       itemScrollctl.jumpTo(
-          index: maxPos.index, alignment: -1 + double.parse(offset));
+          index: maxPos.index, alignment: double.parse(offset));
+      // itemScrollctl.jumpTo(
+      //     index: maxPos.index,
+      //     alignment:
+      //         double.parse((0 - double.parse(offset)).toStringAsFixed(1)));
     }
   }
 
@@ -310,9 +318,6 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   setHistoryBox(List<HistoryBox> datas) {
-    // datas.forEach((e) {
-    //   print(e.id);
-    // });
     historyBox!.removeAll();
     historyBox!.putMany(datas);
   }
@@ -341,7 +346,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
         .map((e) => FilterBox.fromMap(e)..id = 0)
         .toList();
     var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
-    print(jsonData["setting"]);
+
     setHistoryBox(his);
     setFilterBox(filters);
     setSettingBox(setting);
@@ -367,7 +372,9 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
     if (appLifecycleState.value == AppLifecycleState.inactive ||
         appLifecycleState.value == AppLifecycleState.resumed) {
-      itemScrollctl.jumpTo(index: currentHistory.value.pos);
+      if (itemScrollctl.isAttached) {
+        itemScrollctl.jumpTo(index: currentHistory.value.pos);
+      }
     }
 
     super.didChangeAppLifecycleState(state);

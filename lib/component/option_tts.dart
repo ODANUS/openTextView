@@ -4,7 +4,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:googleapis/drive/v3.dart';
 import 'package:open_textview/box_ctl.dart';
-import 'package:open_textview/controller/global_controller.dart';
 import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/utils.dart';
 

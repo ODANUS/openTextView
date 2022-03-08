@@ -1,6 +1,5 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
@@ -8,11 +7,11 @@ import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/component/readpage_floating_button.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 import 'package:open_textview/controller/audio_play.dart';
-import 'package:open_textview/model/box_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReadPage extends GetView<BoxCtl> {
+  Offset? startPos;
   editImage() async {
     String name = controller.currentHistory.value.name.split("/").last;
     var result = await Get.toNamed("/searchpage", arguments: name);
@@ -68,6 +67,15 @@ class ReadPage extends GetView<BoxCtl> {
                         },
                         child: Icon(Icons.help_outline)),
               ),
+              Obx(
+                () => controller.bImageFullScreen.value
+                    ? SizedBox()
+                    : InkWell(
+                        onTap: () {
+                          controller.bTowDrage(!controller.bTowDrage.value);
+                        },
+                        child: Icon(Icons.vertical_align_center_sharp)),
+              ),
             ]),
         body: SafeArea(
           child: Builder(builder: (ctx) {
@@ -79,105 +87,115 @@ class ReadPage extends GetView<BoxCtl> {
                   color: Color(controller.setting.value.backgroundColor),
                 );
               }),
-              AudioPlay.builder(builder: (BuildContext context,
-                  AsyncSnapshot<PlaybackState> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting &&
-                    controller.contents.length > 0) {
-                  return CircularProgressIndicator();
-                }
+              AudioPlay.builder(
+                builder: (BuildContext context,
+                    AsyncSnapshot<PlaybackState> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting &&
+                      controller.contents.length > 0) {
+                    return CircularProgressIndicator();
+                  }
 
-                return Obx(() {
-                  return Container(
-                      width: Get.width,
-                      padding: controller.bFullScreen.value
-                          ? EdgeInsets.only(
-                              top: controller.setting.value.fontSize.toDouble(),
-                              bottom: controller.setting.value.fontSize
-                                      .toDouble() +
-                                  (controller.setting.value.fontHeight.sp * 4))
-                          : null,
-                      child: ScrollablePositionedList.builder(
-                          key: Key(
-                              "readScroll${controller.currentHistory.value.name}"),
-                          initialScrollIndex:
-                              controller.currentHistory.value.pos,
-                          physics: !controller.setting.value.enablescroll &&
-                                  controller.bFullScreen.value
-                              ? NeverScrollableScrollPhysics()
-                              : null,
-                          padding: EdgeInsets.only(
-                              top: 20, left: 10, right: 10, bottom: 150),
-                          itemScrollController: controller.itemScrollctl,
-                          itemPositionsListener: controller.itemPosListener,
-                          itemCount: controller.contents.length,
-                          itemBuilder: (BuildContext context, int idx) {
-                            bool bPlay = snapshot.data!.playing;
-                            int pos = bPlay
-                                ? snapshot.data!.updatePosition.inSeconds
-                                : controller.currentHistory.value.pos;
+                  return Obx(() {
+                    return Container(
+                        width: Get.width,
+                        padding: EdgeInsets.only(
+                          left: controller.setting.value.paddingLeft,
+                          right: controller.setting.value.paddingRight,
+                          top: controller.setting.value.paddingTop,
+                          bottom: controller.setting.value.paddingBottom,
+                        ),
+                        // controller.bFullScreen.value
+                        //     ? EdgeInsets.only(
+                        //         top: controller.setting.value.fontSize
+                        //             .toDouble(),
+                        //         bottom: controller.setting.value.fontSize
+                        //                 .toDouble() +
+                        //             (controller.setting.value.fontHeight.sp *
+                        //                 4))
+                        //     : null,
+                        child: ScrollablePositionedList.builder(
+                            key: Key(
+                                "readScroll${controller.currentHistory.value.name}"),
+                            initialScrollIndex:
+                                controller.currentHistory.value.pos,
+                            physics: !controller.setting.value.enablescroll &&
+                                    controller.bFullScreen.value
+                                ? NeverScrollableScrollPhysics()
+                                : null,
+                            padding: EdgeInsets.only(bottom: 150),
+                            itemScrollController: controller.itemScrollctl,
+                            itemPositionsListener: controller.itemPosListener,
+                            itemCount: controller.contents.length,
+                            itemBuilder: (BuildContext context, int idx) {
+                              bool bPlay = snapshot.data!.playing;
+                              int pos = bPlay
+                                  ? snapshot.data!.updatePosition.inSeconds
+                                  : controller.currentHistory.value.pos;
 
-                            int max = pos + controller.setting.value.groupcnt;
-                            bool brange = bPlay && idx >= pos && idx < max;
-                            String text = controller.contents[idx];
-                            var textcolor = Color(
-                                controller.setting.value.fontColor == 0
-                                    ? Theme.of(Get.context!)
-                                        .textTheme
-                                        .bodyText1!
-                                        .color!
-                                        .value
-                                    : controller.setting.value.fontColor);
+                              int max = pos + controller.setting.value.groupcnt;
+                              bool brange = bPlay && idx >= pos && idx < max;
+                              String text = controller.contents[idx];
+                              var textcolor = Color(
+                                  controller.setting.value.fontColor == 0
+                                      ? Theme.of(Get.context!)
+                                          .textTheme
+                                          .bodyText1!
+                                          .color!
+                                          .value
+                                      : controller.setting.value.fontColor);
 
-                            return Obx(() => InkWell(
-                                  onLongPress: controller
-                                          .setting.value.useClipboard
-                                      ? () {
-                                          Clipboard.setData(ClipboardData(
-                                              text: controller.contents[idx]));
-                                          final snackBar = SnackBar(
-                                            content: Text(
-                                              '[$text]\n${"Copied to clipboard".tr}.',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1,
-                                            ),
-                                            backgroundColor: Theme.of(context)
-                                                .backgroundColor,
-                                            duration:
-                                                Duration(milliseconds: 1000),
-                                          );
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(snackBar);
-                                        }
-                                      : null,
-                                  child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                          color:
-                                              brange ? Colors.blue[100] : null),
-                                      child: Text("$text",
-                                          style: TextStyle(
-                                            color: textcolor,
-                                            fontSize: controller
-                                                .setting.value.fontSize
-                                                .toDouble(),
-                                            fontWeight: FontWeight.values[
-                                                controller
-                                                    .setting.value.fontWeight],
-                                            height: controller
-                                                .setting.value.fontHeight,
-                                            // fontFamily: controller.setting.value.fontFamily,
-                                            fontFamily: controller.setting.value
-                                                        .fontFamily ==
-                                                    'default'
-                                                ? null
-                                                : controller
-                                                    .setting.value.fontFamily,
-                                          ))),
-                                ));
-                          }));
-                });
-              }),
-
+                              return Obx(() => InkWell(
+                                    onLongPress: controller
+                                            .setting.value.useClipboard
+                                        ? () {
+                                            Clipboard.setData(ClipboardData(
+                                                text:
+                                                    controller.contents[idx]));
+                                            final snackBar = SnackBar(
+                                              content: Text(
+                                                '[$text]\n${"Copied to clipboard".tr}.',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1,
+                                              ),
+                                              backgroundColor: Theme.of(context)
+                                                  .backgroundColor,
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                            );
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(snackBar);
+                                          }
+                                        : null,
+                                    child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                            color: brange
+                                                ? Colors.blue[100]
+                                                : null),
+                                        child: Text("$text",
+                                            style: TextStyle(
+                                              color: textcolor,
+                                              fontSize: controller
+                                                  .setting.value.fontSize
+                                                  .toDouble(),
+                                              fontWeight: FontWeight.values[
+                                                  controller.setting.value
+                                                      .fontWeight],
+                                              height: controller
+                                                  .setting.value.fontHeight,
+                                              // fontFamily: controller.setting.value.fontFamily,
+                                              fontFamily: controller.setting
+                                                          .value.fontFamily ==
+                                                      'default'
+                                                  ? null
+                                                  : controller
+                                                      .setting.value.fontFamily,
+                                            ))),
+                                  ));
+                            }));
+                  });
+                },
+              ),
               Obx(() {
                 return ReadpageOverlay(
                     bScreenHelp: controller.bScreenHelp.value,
@@ -233,116 +251,248 @@ class ReadPage extends GetView<BoxCtl> {
                                     ),
                                   )),
                               SizedBox(height: 10),
-                              // Container(
-                              //   padding: EdgeInsets.only(left: 10 , right: 10),
-                              //   color: Theme.of(context).scaffoldBackgroundColor,
-                              //   child: IntrinsicWidth(
-                              //       child: TextFormField(
-                              //     decoration:
-                              //         InputDecoration(border: InputBorder.none),
-                              //     textAlign: TextAlign.center,
-                              //     textAlignVertical: TextAlignVertical.center,
-                              //     initialValue: controller.currentHistory.value.name
-                              //         .replaceAll(".txt", ""),
-                              //     onEditingComplete: () {
-                              //       FocusScope.of(context).unfocus();
-                              //     },
-                              //   )),
-                              // ),
                             ],
                           )));
                 }
                 return SizedBox();
+              }),
+              Obx(() {
+                if (controller.bTowDrage.value) {
+                  var boxdeco = BoxDecoration(
+                    color: Colors.black45,
+                    border: Border.all(color: Colors.white, width: 1),
+                  );
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onVerticalDragUpdate: (d) {
+                            var setting = controller.setting.value;
+                            if (setting.paddingTop < 0) {
+                              setting.paddingTop = 0;
+                            }
+                            if (d.delta.dy < 0 && setting.paddingTop > 0) {
+                              setting.paddingTop -= 0.1;
+                            }
+                            if (d.delta.dy > 0 && setting.paddingTop < 100) {
+                              setting.paddingTop += 0.1;
+                            }
+                            controller.setting.refresh();
+                          },
+                          child: Container(
+                            decoration: boxdeco,
+                            alignment: Alignment.center,
+                            child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text("Top Padding"),
+                                  Icon(Icons.swipe_vertical),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {
+                                            var setting =
+                                                controller.setting.value;
+                                            if (setting.paddingTop > 0) {
+                                              setting.paddingTop -= 0.1;
+                                            }
+                                            controller.setting.refresh();
+                                          },
+                                          icon: Icon(Icons.remove)),
+                                      Text(
+                                          "${controller.setting.value.paddingTop.toStringAsFixed(1)}"),
+                                      IconButton(
+                                          onPressed: () {
+                                            var setting =
+                                                controller.setting.value;
+                                            setting.paddingTop += 0.1;
+                                            controller.setting.refresh();
+                                          },
+                                          icon: Icon(Icons.add)),
+                                    ],
+                                  )
+                                ]),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                                child: GestureDetector(
+                                    onHorizontalDragUpdate: (d) {
+                                      var setting = controller.setting.value;
+                                      if (setting.paddingLeft < 0) {
+                                        setting.paddingLeft = 0;
+                                      }
+                                      if (d.delta.dx < 0 &&
+                                          setting.paddingLeft > 0) {
+                                        setting.paddingLeft -= 0.1;
+                                      }
+                                      if (d.delta.dx > 0 &&
+                                          setting.paddingLeft < 100) {
+                                        setting.paddingLeft += 0.1;
+                                      }
+                                      controller.setting.refresh();
+                                    },
+                                    child: Container(
+                                      decoration: boxdeco,
+                                      alignment: Alignment.center,
+                                      child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text("Left Padding"),
+                                            Icon(Icons.swipe),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                IconButton(
+                                                    onPressed: () {
+                                                      var setting = controller
+                                                          .setting.value;
+                                                      if (setting.paddingLeft >
+                                                          0) {
+                                                        setting.paddingLeft -=
+                                                            0.1;
+                                                      }
+                                                      controller.setting
+                                                          .refresh();
+                                                    },
+                                                    icon: Icon(Icons.remove)),
+                                                Text(
+                                                    "${controller.setting.value.paddingLeft.toStringAsFixed(1)}"),
+                                                IconButton(
+                                                    onPressed: () {
+                                                      var setting = controller
+                                                          .setting.value;
+                                                      setting.paddingLeft +=
+                                                          0.1;
+                                                      controller.setting
+                                                          .refresh();
+                                                    },
+                                                    icon: Icon(Icons.add)),
+                                              ],
+                                            )
+                                          ]),
+                                    ))),
+                            Expanded(
+                                child: GestureDetector(
+                                    onHorizontalDragUpdate: (d) {
+                                      var setting = controller.setting.value;
+                                      if (setting.paddingRight < 0) {
+                                        setting.paddingRight = 0;
+                                      }
+                                      if (d.delta.dx > 0 &&
+                                          setting.paddingRight > 0) {
+                                        setting.paddingRight -= 0.1;
+                                      }
+                                      if (d.delta.dx < 0 &&
+                                          setting.paddingRight < 100) {
+                                        setting.paddingRight += 0.1;
+                                      }
+                                      controller.setting.refresh();
+                                    },
+                                    child: Container(
+                                      decoration: boxdeco,
+                                      alignment: Alignment.center,
+                                      child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text("Right Padding"),
+                                            Icon(Icons.swipe),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                IconButton(
+                                                    onPressed: () {
+                                                      var setting = controller
+                                                          .setting.value;
+                                                      if (setting.paddingRight >
+                                                          0) {
+                                                        setting.paddingRight -=
+                                                            0.1;
+                                                      }
+                                                      controller.setting
+                                                          .refresh();
+                                                    },
+                                                    icon: Icon(Icons.remove)),
+                                                Text(
+                                                    "${controller.setting.value.paddingRight.toStringAsFixed(1)}"),
+                                                IconButton(
+                                                    onPressed: () {
+                                                      var setting = controller
+                                                          .setting.value;
+                                                      setting.paddingRight +=
+                                                          0.1;
+                                                      controller.setting
+                                                          .refresh();
+                                                    },
+                                                    icon: Icon(Icons.add)),
+                                              ],
+                                            )
+                                          ]),
+                                    )))
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                          child: GestureDetector(
+                        onVerticalDragUpdate: (d) {
+                          var setting = controller.setting.value;
+                          if (setting.paddingBottom < 0) {
+                            setting.paddingBottom = 0;
+                          }
+                          if (d.delta.dy > 0 && setting.paddingBottom > 0) {
+                            setting.paddingBottom -= 0.1;
+                          }
+                          if (d.delta.dy < 0 && setting.paddingBottom < 100) {
+                            setting.paddingBottom += 0.1;
+                          }
+                          controller.setting.refresh();
+                        },
+                        child: Container(
+                          decoration: boxdeco,
+                          alignment: Alignment.center,
+                          child:
+                              Column(mainAxisSize: MainAxisSize.min, children: [
+                            Text("Bottom Padding"),
+                            Icon(Icons.swipe_vertical),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      var setting = controller.setting.value;
+                                      if (setting.paddingBottom > 0) {
+                                        setting.paddingBottom -= 0.1;
+                                      }
+                                      controller.setting.refresh();
+                                    },
+                                    icon: Icon(Icons.remove)),
+                                Text(
+                                    "${controller.setting.value.paddingBottom.toStringAsFixed(1)}"),
+                                IconButton(
+                                    onPressed: () {
+                                      var setting = controller.setting.value;
+                                      setting.paddingBottom += 0.1;
+                                      controller.setting.refresh();
+                                    },
+                                    icon: Icon(Icons.add)),
+                              ],
+                            )
+                          ]),
+                        ),
+                      )),
+                    ],
+                  );
+                }
+                return SizedBox();
               })
-              // Obx(() {
-              //   var bhelp = controller.bScreenHelp.value;
-              //   BoxDecoration? decoration = null;
-              //   TextStyle style = TextStyle(color: Colors.white);
-              //   if (bhelp) {
-              //     decoration = BoxDecoration(
-              //         color: Colors.black54,
-              //         border: Border.all(
-              //           width: 1,
-              //           color: Colors.white,
-              //         ));
-              //   }
-
-              //   return Row(
-              //     children: [
-              //       Flexible(
-              //           flex: 2,
-              //           child: Container(
-              //               decoration: decoration,
-              //               alignment: Alignment.center,
-              //               child: GestureDetector(
-              //                 onTap: () {
-              //                   controller.backPage();
-              //                 },
-              //                 child:
-              //                     bhelp ? Text("Back page".tr, style: style) : null,
-              //               ))),
-              //       Flexible(
-              //           flex: 5,
-              //           child: Column(mainAxisSize: MainAxisSize.max, children: [
-              //             Flexible(
-              //                 child: Container(
-              //                     alignment: Alignment.center,
-              //                     decoration: decoration,
-              //                     child: GestureDetector(
-              //                       onTap: () {
-              //                         controller.backPage();
-              //                       },
-              //                       child: bhelp
-              //                           ? Text("Back page".tr, style: style)
-              //                           : null,
-              //                     ))),
-              //             Flexible(
-              //                 child: Container(
-              //                     alignment: Alignment.center,
-              //                     decoration: decoration,
-              //                     child: GestureDetector(
-              //                       onDoubleTap: () {
-              //                         if (controller.firstFullScreen.value) {
-              //                           controller.firstFullScreen(false);
-              //                           OpenModal.openFocusModal();
-              //                         }
-              //                         controller.bFullScreen(
-              //                             !controller.bFullScreen.value);
-              //                       },
-              //                       child: bhelp
-              //                           ? Text("Double click to full screen".tr,
-              //                               style: style)
-              //                           : null,
-              //                     ))),
-              //             Flexible(
-              //               child: Container(
-              //                   alignment: Alignment.center,
-              //                   decoration: decoration,
-              //                   child: GestureDetector(
-              //                     onTap: () {
-              //                       controller.nextPage();
-              //                     },
-              //                     child: bhelp
-              //                         ? Text("next page".tr, style: style)
-              //                         : null,
-              //                   )),
-              //             ),
-              //           ])),
-              //       Flexible(
-              //           flex: 2,
-              //           child: Container(
-              //               alignment: Alignment.center,
-              //               decoration: decoration,
-              //               child: GestureDetector(
-              //                 onTap: () {
-              //                   controller.nextPage();
-              //                 },
-              //                 child:
-              //                     bhelp ? Text("next page".tr, style: style) : null,
-              //               ))),
-              //     ],
-              //   );
-              // }),
             ]);
           }),
         ),

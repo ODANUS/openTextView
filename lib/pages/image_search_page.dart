@@ -1,21 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:googleapis/servicenetworking/v1.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/box_ctl.dart';
-import 'package:open_textview/component/Ads.dart';
-import 'package:open_textview/component/open_modal.dart';
-import 'package:open_textview/controller/global_controller.dart';
-import 'package:open_textview/model/box_model.dart';
-import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/provider/net.dart';
-import 'package:open_textview/provider/utils.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class ImageSearchPageCtl extends GetxController {
   RxString keyword = "".obs;

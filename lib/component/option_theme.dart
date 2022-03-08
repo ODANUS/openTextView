@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
-import 'package:open_textview/controller/global_controller.dart';
 
 class OptionThemeCtl extends GetxController {
   // RxList<File> backupFiles = RxList<File>();

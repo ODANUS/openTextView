@@ -116,7 +116,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(3, 1885558662605261282),
       name: 'SettingBox',
-      lastPropertyId: const IdUid(18, 7502520301384290982),
+      lastPropertyId: const IdUid(22, 8528881482135836602),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -208,6 +208,26 @@ final _entities = <ModelEntity>[
             id: const IdUid(18, 7502520301384290982),
             name: 'fontColor',
             type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 8641605772430565296),
+            name: 'paddingLeft',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 1469021742076422069),
+            name: 'paddingRight',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 1449055707866000740),
+            name: 'paddingTop',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 8528881482135836602),
+            name: 'paddingBottom',
+            type: 8,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -357,7 +377,7 @@ ModelDefinition getObjectBoxModel() {
           final fontFamilyOffset = fbb.writeString(object.fontFamily);
           final themeOffset = fbb.writeString(object.theme);
           final lastDevVersionOffset = fbb.writeString(object.lastDevVersion);
-          fbb.startTable(19);
+          fbb.startTable(23);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.fontSize);
           fbb.addInt64(2, object.fontWeight);
@@ -376,6 +396,10 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(15, lastDevVersionOffset);
           fbb.addInt64(16, object.backgroundColor);
           fbb.addInt64(17, object.fontColor);
+          fbb.addFloat64(18, object.paddingLeft);
+          fbb.addFloat64(19, object.paddingRight);
+          fbb.addFloat64(20, object.paddingTop);
+          fbb.addFloat64(21, object.paddingBottom);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -416,7 +440,11 @@ ModelDefinition getObjectBoxModel() {
               lastDevVersion:
                   const fb.StringReader().vTableGet(buffer, rootOffset, 34, ''),
               backgroundColor: const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0),
-              fontColor: const fb.Int64Reader().vTableGet(buffer, rootOffset, 38, 0));
+              fontColor: const fb.Int64Reader().vTableGet(buffer, rootOffset, 38, 0),
+              paddingLeft: const fb.Float64Reader().vTableGet(buffer, rootOffset, 40, 0),
+              paddingRight: const fb.Float64Reader().vTableGet(buffer, rootOffset, 42, 0),
+              paddingTop: const fb.Float64Reader().vTableGet(buffer, rootOffset, 44, 0),
+              paddingBottom: const fb.Float64Reader().vTableGet(buffer, rootOffset, 46, 0));
 
           return object;
         })
@@ -566,4 +594,20 @@ class SettingBox_ {
   /// see [SettingBox.fontColor]
   static final fontColor =
       QueryIntegerProperty<SettingBox>(_entities[2].properties[17]);
+
+  /// see [SettingBox.paddingLeft]
+  static final paddingLeft =
+      QueryDoubleProperty<SettingBox>(_entities[2].properties[18]);
+
+  /// see [SettingBox.paddingRight]
+  static final paddingRight =
+      QueryDoubleProperty<SettingBox>(_entities[2].properties[19]);
+
+  /// see [SettingBox.paddingTop]
+  static final paddingTop =
+      QueryDoubleProperty<SettingBox>(_entities[2].properties[20]);
+
+  /// see [SettingBox.paddingBottom]
+  static final paddingBottom =
+      QueryDoubleProperty<SettingBox>(_entities[2].properties[21]);
 }
