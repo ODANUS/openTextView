@@ -117,6 +117,16 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
       }
     });
 
+    ever(bFullScreen, (bool b) async {
+      if (b) {
+        if (firstFullScreen.value) {
+          await Future.delayed(1.seconds);
+        }
+        await Future.delayed(200.milliseconds);
+        itemScrollctl.jumpTo(index: min);
+      }
+    });
+
     HardwareKeyboard.instance.removeHandler(volumeControll);
     HardwareKeyboard.instance.addHandler(volumeControll);
 
@@ -148,10 +158,14 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
       var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
               ItemPosition position) =>
           position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
-      var offset = (minPos.itemLeadingEdge + 1).toStringAsFixed(1);
+      // var maxPos = itemPosListener.itemPositions.value
+      //     .where((ItemPosition position) => position.itemLeadingEdge < 1)
+      //     .reduce((ItemPosition max, ItemPosition position) =>
+      //         position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
+      // var offset = (minPos.itemLeadingEdge + 1).toStringAsFixed(1);
 
-      itemScrollctl.jumpTo(
-          index: minPos.index, alignment: double.parse(offset));
+      // max = minPos.index + 1;
+      itemScrollctl.jumpTo(index: minPos.index, alignment: 1);
       // , alignment: 1 + double.parse(offset));
     }
   }
@@ -168,9 +182,8 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
               position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
 
       var offset = (maxPos.itemLeadingEdge - 1).toStringAsFixed(1);
-
-      itemScrollctl.jumpTo(
-          index: maxPos.index, alignment: double.parse(offset));
+      max = maxPos.index;
+      itemScrollctl.jumpTo(index: maxPos.index, alignment: 0);
       // itemScrollctl.jumpTo(
       //     index: maxPos.index,
       //     alignment:

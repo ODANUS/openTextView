@@ -3,7 +3,6 @@ import 'package:get/state_manager.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:package_info/package_info.dart';
 import 'package:share/share.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
 
 class OptionReview extends GetView {

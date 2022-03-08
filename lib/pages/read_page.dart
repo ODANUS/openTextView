@@ -104,22 +104,12 @@ class ReadPage extends GetView<BoxCtl> {
                           top: controller.setting.value.paddingTop,
                           bottom: controller.setting.value.paddingBottom,
                         ),
-                        // controller.bFullScreen.value
-                        //     ? EdgeInsets.only(
-                        //         top: controller.setting.value.fontSize
-                        //             .toDouble(),
-                        //         bottom: controller.setting.value.fontSize
-                        //                 .toDouble() +
-                        //             (controller.setting.value.fontHeight.sp *
-                        //                 4))
-                        //     : null,
                         child: ScrollablePositionedList.builder(
                             key: Key(
                                 "readScroll${controller.currentHistory.value.name}"),
                             initialScrollIndex:
                                 controller.currentHistory.value.pos,
-                            physics: !controller.setting.value.enablescroll &&
-                                    controller.bFullScreen.value
+                            physics: controller.bFullScreen.value
                                 ? NeverScrollableScrollPhysics()
                                 : null,
                             padding: EdgeInsets.only(bottom: 150),
@@ -167,14 +157,18 @@ class ReadPage extends GetView<BoxCtl> {
                                                 .showSnackBar(snackBar);
                                           }
                                         : null,
-                                    child: DecoratedBox(
+                                    child: Container(
                                         decoration: BoxDecoration(
                                             color: brange
                                                 ? Colors.blue[100]
                                                 : null),
                                         child: Text("$text",
                                             style: TextStyle(
-                                              color: textcolor,
+                                              color: controller
+                                                          .bFullScreen.value &&
+                                                      controller.max <= idx
+                                                  ? Colors.transparent
+                                                  : textcolor,
                                               fontSize: controller
                                                   .setting.value.fontSize
                                                   .toDouble(),
@@ -201,11 +195,12 @@ class ReadPage extends GetView<BoxCtl> {
                     bScreenHelp: controller.bScreenHelp.value,
                     touchLayout: controller.setting.value.touchLayout,
                     onFullScreen: () {
+                      // 순서 중요
+                      controller.bFullScreen(!controller.bFullScreen.value);
                       if (controller.firstFullScreen.value) {
                         controller.firstFullScreen(false);
                         OpenModal.openFocusModal();
                       }
-                      controller.bFullScreen(!controller.bFullScreen.value);
                     },
                     onBackpage: () {
                       controller.backPage();

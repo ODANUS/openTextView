@@ -20,15 +20,15 @@ class OptionClipboard extends GetView<BoxCtl> {
                     }),
               ],
             ),
-            Row(children: [
-              Text('use Scroll'.tr),
-              Switch(
-                  value: controller.setting.value.enablescroll,
-                  onChanged: (e) {
-                    controller.setting.value.enablescroll = e;
-                    controller.setting.refresh();
-                  }),
-            ]),
+            // Row(children: [
+            //   Text('use Scroll'.tr),
+            //   Switch(
+            //       value: controller.setting.value.enablescroll,
+            //       onChanged: (e) {
+            //         controller.setting.value.enablescroll = e;
+            //         controller.setting.refresh();
+            //       }),
+            // ]),
           ],
         ));
     // Obx(() => SwitchListTile(
