@@ -5,7 +5,7 @@ import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 
 class OptionUI extends GetView<BoxCtl> {
-  openColorPicker(int colorData, Function(Color) fn) {
+  openColorPicker(int colorData, Function(Color) fn, {bool balpha = true}) {
     Get.dialog(
       AlertDialog(
         titlePadding: const EdgeInsets.all(0),
@@ -26,7 +26,7 @@ class OptionUI extends GetView<BoxCtl> {
             onColorChanged: (c) {
               fn(c);
             },
-            enableAlpha: true,
+            enableAlpha: balpha ,
             displayThumbColor: true,
           ),
         ),
@@ -68,7 +68,7 @@ class OptionUI extends GetView<BoxCtl> {
                             : controller.setting.value.fontColor, (c) {
                       controller.setting.value.fontColor = c.value;
                       controller.setting.refresh();
-                    });
+                    }, balpha : false);
                   },
                   leading: Container(
                       width: 30,

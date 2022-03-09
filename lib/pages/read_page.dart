@@ -166,9 +166,11 @@ class ReadPage extends GetView<BoxCtl> {
                                             style: TextStyle(
                                               color: controller
                                                           .bFullScreen.value &&
-                                                      controller.max <= idx
+                                                      controller.max <= idx&&
+                                                      controller.max+2 >= idx
+
                                                   ? Colors.transparent
-                                                  : textcolor,
+                                                  : textcolor.withOpacity(1),
                                               fontSize: controller
                                                   .setting.value.fontSize
                                                   .toDouble(),
