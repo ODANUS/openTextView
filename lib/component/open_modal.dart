@@ -237,6 +237,36 @@ class OpenModal {
                         icon: Icon(Ionicons.remove_outline)),
                   ],
                 ),
+
+                Text("letter_spacing".tr),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                        onPressed: ctl.setting.value.letterSpacing >= 3
+                            ? null
+                            : () {
+                                ctl.setting.update((val) {
+                                  var fh = val!.letterSpacing += 0.1;
+                                  val.letterSpacing =
+                                      double.parse(fh.toStringAsFixed(1));
+                                });
+                              },
+                        icon: Icon(Ionicons.add_outline)),
+                    Text("${ctl.setting.value.letterSpacing}"),
+                    IconButton(
+                        onPressed: ctl.setting.value.letterSpacing <= 0
+                            ? null
+                            : () {
+                                ctl.setting.update((val) {
+                                  var fh = val!.letterSpacing -= 0.1;
+                                  val.letterSpacing =
+                                      double.parse(fh.toStringAsFixed(1));
+                                });
+                              },
+                        icon: Icon(Ionicons.remove_outline)),
+                  ],
+                ),
                 // Font
                 Text("Font settings".tr),
                 ...ctl.listFont.map((e) {

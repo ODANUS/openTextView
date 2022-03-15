@@ -26,7 +26,7 @@ class OptionUI extends GetView<BoxCtl> {
             onColorChanged: (c) {
               fn(c);
             },
-            enableAlpha: balpha ,
+            enableAlpha: balpha,
             displayThumbColor: true,
           ),
         ),
@@ -42,21 +42,28 @@ class OptionUI extends GetView<BoxCtl> {
           onExpansionChanged: (b) async {},
           title: Text("UI Settings".tr),
           children: [
-            Obx(() => ListTile(
-                  onTap: () {
-                    openColorPicker(controller.setting.value.backgroundColor,
-                        (c) {
-                      controller.setting.value.backgroundColor = c.value;
-                      controller.setting.refresh();
-                    });
-                  },
-                  leading: Container(
-                      width: 30,
-                      height: 30,
-                      color: Color(controller.setting.value.backgroundColor)),
-                  title: Text("Background Color".tr),
-                )),
-            Obx(() => ListTile(
+            Obx(() => Card(
+                child: ListTile(
+                    onTap: () {
+                      openColorPicker(controller.setting.value.backgroundColor,
+                          (c) {
+                        controller.setting.value.backgroundColor = c.value;
+                        controller.setting.refresh();
+                      });
+                    },
+                    leading: Container(
+                        width: 30,
+                        height: 30,
+                        color: Color(controller.setting.value.backgroundColor)),
+                    title: Text("Background Color".tr),
+                    trailing: ElevatedButton(
+                        onPressed: () {
+                          controller.setting.value.backgroundColor = 0x00FFFFFF;
+                          controller.setting.refresh();
+                        },
+                        child: Text("delete".tr))))),
+            Obx(() => Card(
+                    child: ListTile(
                   onTap: () {
                     openColorPicker(
                         controller.setting.value.fontColor == 0
@@ -68,7 +75,7 @@ class OptionUI extends GetView<BoxCtl> {
                             : controller.setting.value.fontColor, (c) {
                       controller.setting.value.fontColor = c.value;
                       controller.setting.refresh();
-                    }, balpha : false);
+                    }, balpha: false);
                   },
                   leading: Container(
                       width: 30,
@@ -87,7 +94,7 @@ class OptionUI extends GetView<BoxCtl> {
                         controller.setting.refresh();
                       },
                       child: Text("delete".tr)),
-                )),
+                ))),
           ],
         ),
       ],

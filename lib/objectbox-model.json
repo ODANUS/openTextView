@@ -105,7 +105,7 @@
     },
     {
       "id": "3:1885558662605261282",
-      "lastPropertyId": "22:8528881482135836602",
+      "lastPropertyId": "25:2263105233079717582",
       "name": "SettingBox",
       "properties": [
         {
@@ -218,6 +218,21 @@
           "id": "22:8528881482135836602",
           "name": "paddingBottom",
           "type": 8
+        },
+        {
+          "id": "23:8702205165485161650",
+          "name": "customFont",
+          "type": 9
+        },
+        {
+          "id": "24:1370296468046115098",
+          "name": "letterSpacing",
+          "type": 8
+        },
+        {
+          "id": "25:2263105233079717582",
+          "name": "audioduck",
+          "type": 1
         }
       ],
       "relations": []

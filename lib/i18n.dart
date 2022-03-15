@@ -69,8 +69,6 @@ class Messages extends Translations {
           "pitch": "pitch",
           "Number of lines to read at a time":
               "Number of lines to read at a time",
-          "Freeze when other players are running":
-              "Freeze when other players are running",
           "Using the headset button": "Using the headset button",
           "@num minutes": "@num minutes",
           "language": "English (US)",
@@ -94,6 +92,15 @@ class Messages extends Translations {
           "UI Settings": "UI Setting",
           "Background Color": "Background Color",
           "Font Color": "Font Color",
+          "Freeze when other players are running":
+              "Freeze when other players are running",
+          "stop_audioduck": "Pause when running another alarm / voice guidance",
+          "letter_spacing": "Letter Spacing Setting",
+          "Are you sure you want to reset": "Are you sure you want to reset?",
+          "Reset": "Reset",
+          "Reset settings": "Long press to reset settings",
+          "history reset": "Long press to reset history",
+          "filter reset": "Long press to reset filter",
         },
         "ko": {
           "key": "ko",
@@ -156,7 +163,6 @@ class Messages extends Translations {
           "volume": "볼륨",
           "pitch": "피치",
           "Number of lines to read at a time": "한 번에 읽을 줄의 수",
-          "Freeze when other players are running": "다른 플레이어가 실행 중일 때 멈 춥니 다",
           "Using the headset button": "헤드셋 버튼을 사용합니다",
           "@num minutes": "@num 분",
           "language": "한국어",
@@ -180,6 +186,14 @@ class Messages extends Translations {
           "UI Settings": "UI 설정",
           "Background Color": "배경색 설정",
           "Font Color": "글꼴 색상 설정",
+          "Freeze when other players are running": "다른 플레이어 실행시 정지",
+          "stop_audioduck": "다른 알람 / 음성 안내 실행시 일시 정지",
+          "letter_spacing": "문자 간격 설정",
+          "Are you sure you want to reset": "정말로 초기화 하시겠습니까?",
+          "Reset": "초기화",
+          "Reset settings": "길게 눌러 설정 초기화",
+          "history reset": "길게 눌러 히스토리 초기화",
+          "filter reset": "길게 눌러 필터 초기화",
         },
         "gl": {
           "key": "gl",
@@ -249,8 +263,6 @@ class Messages extends Translations {
           "volume": "volume",
           "pitch": "Pitch.",
           "Number of lines to read at a time": "Número de liñas para ler á vez",
-          "Freeze when other players are running":
-              "Conxelar cando se executan outros xogadores",
           "Using the headset button": "Usando o botón de auriculares",
           "@num minutes": "minutos de @num",
           "language": "Galego",
@@ -274,6 +286,17 @@ class Messages extends Translations {
           "UI Settings": "Configuración de UI.",
           "Background Color": "Cor de fondo",
           "Font Color": "Font Color.",
+          "Freeze when other players are running":
+              "Conxelar cando se executan outros xogadores",
+          "stop_audioduck": "Pausa ao executar outra alma / orientación de voz",
+          "letter_spacing": "Configuración de espazamento de letras.",
+          "Are you sure you want to reset":
+              "Estás seguro de que queres restablecer?",
+          "Reset": "RESET.",
+          "Reset settings":
+              "Prema en resposta para restablecer a configuración",
+          "history reset": "Prema en reset para restablecer a historia",
+          "filter reset": "Prema en longa prema para restablecer o filtro",
         },
         "gu": {
           "key": "gu",
@@ -340,8 +363,6 @@ class Messages extends Translations {
           "pitch": "પિચ",
           "Number of lines to read at a time":
               "એક સમયે વાંચવા માટેની રેખાઓની સંખ્યા",
-          "Freeze when other players are running":
-              "જ્યારે અન્ય ખેલાડીઓ ચાલી રહ્યા હોય ત્યારે ફ્રીઝ કરો",
           "Using the headset button": "હેડસેટ બટનનો ઉપયોગ કરવો",
           "@num minutes": "@num નમ ​​મિનિટ",
           "language": "ગુજરાતી",
@@ -365,6 +386,16 @@ class Messages extends Translations {
           "UI Settings": "યુઆઇ સેટિંગ",
           "Background Color": "પૃષ્ઠભૂમિ રંગ",
           "Font Color": "ફૉન્ટ રંગ",
+          "Freeze when other players are running":
+              "જ્યારે અન્ય ખેલાડીઓ ચાલી રહ્યા હોય ત્યારે ફ્રીઝ કરો",
+          "stop_audioduck": "અન્ય એલાર્મ / વૉઇસ માર્ગદર્શિકા ચલાવતી વખતે થોભો",
+          "letter_spacing": "લેટર સ્પેસિંગ સેટિંગ",
+          "Are you sure you want to reset":
+              "શું તમે ખરેખર રીસેટ કરવા માંગો છો?",
+          "Reset": "ફરીથી સેટ કરવું",
+          "Reset settings": "સેટિંગ્સ ફરીથી સેટ કરવા માટે લાંબા પ્રેસ",
+          "history reset": "ઇતિહાસ ફરીથી સેટ કરવા માટે લાંબા પ્રેસ",
+          "filter reset": "ફિલ્ટર ફરીથી સેટ કરવા માટે લાંબા પ્રેસ",
         },
         "el": {
           "key": "el",
@@ -432,8 +463,6 @@ class Messages extends Translations {
           "pitch": "πίσσα",
           "Number of lines to read at a time":
               "Αριθμός γραμμών για να διαβάσετε κάθε φορά",
-          "Freeze when other players are running":
-              "Πάγωμα όταν εκτελούνται άλλοι παίκτες",
           "Using the headset button": "Χρησιμοποιώντας το κουμπί ακουστικών",
           "@num minutes": "@num λεπτά",
           "language": "Ελληνικά",
@@ -457,6 +486,17 @@ class Messages extends Translations {
           "UI Settings": "Ρύθμιση ui",
           "Background Color": "Χρώμα του φόντου",
           "Font Color": "Χρώμα γραμματοσειράς",
+          "Freeze when other players are running":
+              "Πάγωμα όταν εκτελούνται άλλοι παίκτες",
+          "stop_audioduck":
+              "Παύση κατά την εκτέλεση άλλου συναγερμού / φωνητικής καθοδήγησης",
+          "letter_spacing": "ΕΓΚΑΤΑΣΤΑΣΗ ΕΓΚΑΤΑΣΤΑΣΗΣ",
+          "Are you sure you want to reset":
+              "Είστε βέβαιοι ότι θέλετε να επαναφέρετε;",
+          "Reset": "Επαναφορά",
+          "Reset settings": "Πατήστε μακρά για να επαναφέρετε τις ρυθμίσεις",
+          "history reset": "Πατήστε το για να επαναφέρετε το ιστορικό",
+          "filter reset": "Πατήστε το για να επαναφέρετε το φίλτρο",
         },
         "nl": {
           "key": "nl",
@@ -522,8 +562,6 @@ class Messages extends Translations {
           "pitch": "toonhoogte",
           "Number of lines to read at a time":
               "Aantal lijnen om tegelijk te lezen",
-          "Freeze when other players are running":
-              "Bevriezen wanneer andere spelers lopen",
           "Using the headset button": "De hoofdtelefoonknop gebruiken",
           "@num minutes": "@num minuten",
           "language": "Nederlands",
@@ -547,6 +585,19 @@ class Messages extends Translations {
           "UI Settings": "UI-instelling",
           "Background Color": "Achtergrond kleur",
           "Font Color": "Lettertypekleur",
+          "Freeze when other players are running":
+              "Bevriezen wanneer andere spelers lopen",
+          "stop_audioduck":
+              "Pauzeer bij het uitvoeren van een ander alarm / stemgeleiding",
+          "letter_spacing": "Briefafstandsinstelling",
+          "Are you sure you want to reset":
+              "Weet je zeker dat je wilt resetten?",
+          "Reset": "Reset",
+          "Reset settings":
+              "Lang indrukken om instellingen opnieuw in te stellen",
+          "history reset":
+              "Lang indrukken om de geschiedenis opnieuw in te stellen",
+          "filter reset": "Lang indrukken om het filter opnieuw in te stellen",
         },
         "ne": {
           "key": "ne",
@@ -615,8 +666,6 @@ class Messages extends Translations {
           "pitch": "पिच",
           "Number of lines to read at a time":
               "एक पटकमा पढ्नको लागि लाइनहरूको संख्या",
-          "Freeze when other players are running":
-              "फ्रिज जब अन्य खेलाडीहरू चलिरहेका छन्",
           "Using the headset button": "हेडसेट बटन प्रयोग गर्दै",
           "@num minutes": "@num मिनेट",
           "language": "नेपाली",
@@ -640,6 +689,16 @@ class Messages extends Translations {
           "UI Settings": "Ui सेटिंग",
           "Background Color": "पृष्ठभूमि र color",
           "Font Color": "फन्ट रंग",
+          "Freeze when other players are running":
+              "फ्रिज जब अन्य खेलाडीहरू चलिरहेका छन्",
+          "stop_audioduck": "अर्को अलार्म / आवाज मार्गदर्शन चलाउँदा रोक्नुहोस्",
+          "letter_spacing": "अक्षर स्पीपिंग सेटिंग",
+          "Are you sure you want to reset":
+              "के तपाइँ पक्का हुनुहुन्छ कि तपाइँ रिसेट गर्न चाहानुहुन्छ?",
+          "Reset": "रिसेट गर्नुहोस्",
+          "Reset settings": "सेटिंग्स रिसेट गर्न लामो प्रेस",
+          "history reset": "ईतिहास रिसेट गर्न लामो प्रेस",
+          "filter reset": "फिल्टर रिसेट गर्न लामो प्रेस",
         },
         "no": {
           "key": "no",
@@ -705,8 +764,6 @@ class Messages extends Translations {
           "volume": "volum",
           "pitch": "tonehøyde",
           "Number of lines to read at a time": "Antall linjer å lese om gangen",
-          "Freeze when other players are running":
-              "Fryse når andre spillere kjører",
           "Using the headset button": "Bruke Headset-knappen",
           "@num minutes": "@num minutter",
           "language": "Norsk",
@@ -730,6 +787,17 @@ class Messages extends Translations {
           "UI Settings": "UI-innstilling",
           "Background Color": "Bakgrunnsfarge",
           "Font Color": "Skriftfarge",
+          "Freeze when other players are running":
+              "Fryse når andre spillere kjører",
+          "stop_audioduck":
+              "Pause når du kjører en annen alarm / stemmeveiledning",
+          "letter_spacing": "Brevavstandsinnstilling",
+          "Are you sure you want to reset":
+              "Er du sikker på at du vil tilbakestille?",
+          "Reset": "Nullstille",
+          "Reset settings": "Langt trykk for å tilbakestille innstillinger",
+          "history reset": "Langt trykk for å tilbakestille historien",
+          "filter reset": "Langt trykk for å tilbakestille filter",
         },
         "da": {
           "key": "da",
@@ -795,8 +863,6 @@ class Messages extends Translations {
           "pitch": "tonehøjde",
           "Number of lines to read at a time":
               "Antal linjer for at læse ad gangen",
-          "Freeze when other players are running":
-              "Fryser, når andre spillere kører",
           "Using the headset button": "Brug af headset-knappen",
           "@num minutes": "@num minutter",
           "language": "Dansk",
@@ -820,6 +886,17 @@ class Messages extends Translations {
           "UI Settings": "UI indstilling",
           "Background Color": "Baggrundsfarve",
           "Font Color": "Skrift farve",
+          "Freeze when other players are running":
+              "Fryser, når andre spillere kører",
+          "stop_audioduck":
+              "Pause, når du kører en anden alarm / stemmevejledning",
+          "letter_spacing": "Letter Spacing Setting.",
+          "Are you sure you want to reset":
+              "Er du sikker på, at du vil nulstille?",
+          "Reset": "Nulstil",
+          "Reset settings": "Langt tryk for at nulstille indstillinger",
+          "history reset": "Langt tryk for at nulstille historien",
+          "filter reset": "Langt tryk for at nulstille filter",
         },
         "de": {
           "key": "de",
@@ -887,8 +964,6 @@ class Messages extends Translations {
           "pitch": "Tonhöhe",
           "Number of lines to read at a time":
               "Anzahl der Zeilen zu einer Zeit",
-          "Freeze when other players are running":
-              "Einfrieren, wenn andere Spieler laufen",
           "Using the headset button": "Verwenden der Headset-Taste",
           "@num minutes": "@num Minuten",
           "language": "Deutsch",
@@ -912,6 +987,18 @@ class Messages extends Translations {
           "UI Settings": "UI-Einstellung.",
           "Background Color": "Hintergrundfarbe",
           "Font Color": "Schriftfarbe",
+          "Freeze when other players are running":
+              "Einfrieren, wenn andere Spieler laufen",
+          "stop_audioduck":
+              "Pause beim Ausführen einer anderen Alarm- / Sprachführung",
+          "letter_spacing": "Buchstabenabstandeinstellung.",
+          "Are you sure you want to reset":
+              "Bist du sicher, dass du zurücksetzen willst?",
+          "Reset": "Zurücksetzen",
+          "Reset settings":
+              "Lange Drücken, um die Einstellungen zurückzusetzen",
+          "history reset": "Lange Drücke, um den Historie zurückzusetzen",
+          "filter reset": "Lange Drücken, um den Filter zurückzusetzen",
         },
         "lo": {
           "key": "lo",
@@ -976,8 +1063,6 @@ class Messages extends Translations {
           "volume": "ປະລິມານ",
           "pitch": "ສະຫນາມ",
           "Number of lines to read at a time": "ຈໍານວນເສັ້ນທີ່ຈະອ່ານໃນເວລາ",
-          "Freeze when other players are running":
-              "freeze ໃນເວລາທີ່ຜູ້ນອື່ນໆກໍາລັງແລ່ນ",
           "Using the headset button": "ການໃຊ້ປຸ່ມຫູຟັງ",
           "@num minutes": "@num ນາທີ",
           "language": "ພາສາລາວ",
@@ -1001,6 +1086,17 @@ class Messages extends Translations {
           "UI Settings": "ການຕັ້ງຄ່າ UI",
           "Background Color": "ສີພື້ນຫລັງ",
           "Font Color": "ສີຕົວອັກສອນ",
+          "Freeze when other players are running":
+              "freeze ໃນເວລາທີ່ຜູ້ນອື່ນໆກໍາລັງແລ່ນ",
+          "stop_audioduck":
+              "ຢຸດຊົ່ວຄາວໃນເວລາທີ່ແລ່ນອີກຄັ້ງຫນຶ່ງທີ່ປຸກລະດັບ / ສຽງ",
+          "letter_spacing": "ການຕັ້ງຄ່າຕົວຫນັງສື",
+          "Are you sure you want to reset":
+              "ທ່ານແນ່ໃຈບໍ່ວ່າທ່ານຕ້ອງການທີ່ຈະຕັ້ງໃຫມ່?",
+          "Reset": "ຕັ້ງຄືນໃຫມ່",
+          "Reset settings": "ກົດຍາວເພື່ອປັບຄ່າການຕັ້ງຄ່າ",
+          "history reset": "ຂ່າວຍາວເພື່ອປັບປະຫວັດສາດ",
+          "filter reset": "ກົດຍາວເພື່ອປັບຕົວກອງໃຫມ່",
         },
         "lv": {
           "key": "lv",
@@ -1070,8 +1166,6 @@ class Messages extends Translations {
           "pitch": "piķis",
           "Number of lines to read at a time":
               "Līniju skaits, kas lasāms laikā",
-          "Freeze when other players are running":
-              "Iesaldēt, kad darbojas citi spēlētāji",
           "Using the headset button": "Izmantojot austiņu pogu",
           "@num minutes": "@num minūtes",
           "language": "Latviešu",
@@ -1096,6 +1190,17 @@ class Messages extends Translations {
           "UI Settings": "Ui iestatījums",
           "Background Color": "Fona krāsa",
           "Font Color": "Fonta krāsa",
+          "Freeze when other players are running":
+              "Iesaldēt, kad darbojas citi spēlētāji",
+          "stop_audioduck":
+              "Pauze, kad darbojas vēl viens trauksmes / balss vadlīnijas",
+          "letter_spacing": "Vēstules atstarpes iestatījums",
+          "Are you sure you want to reset":
+              "Vai esat pārliecināts, ka vēlaties atiestatīt?",
+          "Reset": "Atiestatīt",
+          "Reset settings": "Long nospiediet, lai atiestatītu iestatījumus",
+          "history reset": "Long nospiediet, lai atiestatītu vēsturi",
+          "filter reset": "Long nospiediet, lai atjaunotu filtru",
         },
         "ru": {
           "key": "ru",
@@ -1166,8 +1271,6 @@ class Messages extends Translations {
           "pitch": "подача",
           "Number of lines to read at a time":
               "Количество линий для чтения одновременно",
-          "Freeze when other players are running":
-              "Заморозить, когда другие игроки бегут",
           "Using the headset button": "Использование кнопки гарнитуры",
           "@num minutes": "@num минут",
           "language": "Русский",
@@ -1191,6 +1294,16 @@ class Messages extends Translations {
           "UI Settings": "Установка пользовательского интерфейса",
           "Background Color": "Фоновый цвет",
           "Font Color": "Цвет шрифта",
+          "Freeze when other players are running":
+              "Заморозить, когда другие игроки бегут",
+          "stop_audioduck":
+              "Пауза при запуске другого тревоги / голосового руководства",
+          "letter_spacing": "Настройка интервала письма",
+          "Are you sure you want to reset": "Вы уверены, что хотите сбросить?",
+          "Reset": "Сброс настроек",
+          "Reset settings": "Длительный Нажмите, чтобы сбросить настройки",
+          "history reset": "Длительный Нажмите, чтобы сбросить историю",
+          "filter reset": "Длинный Нажмите, чтобы сбросить фильтр",
         },
         "ro": {
           "key": "ro",
@@ -1260,8 +1373,6 @@ class Messages extends Translations {
           "pitch": "pas",
           "Number of lines to read at a time":
               "Numărul de linii de citit la un moment dat",
-          "Freeze when other players are running":
-              "Înghețați când se execută alți jucători",
           "Using the headset button": "Utilizarea butonului setului cu cască",
           "@num minutes": "Minutele @num.",
           "language": "Română",
@@ -1285,6 +1396,16 @@ class Messages extends Translations {
           "UI Settings": "Setarea UI",
           "Background Color": "Culoare de fundal",
           "Font Color": "Font color",
+          "Freeze when other players are running":
+              "Înghețați când se execută alți jucători",
+          "stop_audioduck":
+              "Întrerupeți când rulați o altă orientare de alarmă / voce",
+          "letter_spacing": "Suport pentru spațierea scrisorii",
+          "Are you sure you want to reset": "Sigur doriți să resetați?",
+          "Reset": "Resetare",
+          "Reset settings": "Apăsați lung pentru a reseta setările",
+          "history reset": "Apăsați lung pentru a reseta istoricul",
+          "filter reset": "Apăsați lung pentru a reseta filtrul",
         },
         "lt": {
           "key": "lt",
@@ -1353,8 +1474,6 @@ class Messages extends Translations {
           "pitch": "Pitch.",
           "Number of lines to read at a time":
               "Linijų skaičius, kurį norite skaityti vienu metu",
-          "Freeze when other players are running":
-              "Užšaldyti, kai veikia kiti žaidėjai",
           "Using the headset button": "Naudojant ausinių mygtuką",
           "@num minutes": "@num minutės",
           "language": "Lietuvių",
@@ -1378,6 +1497,18 @@ class Messages extends Translations {
           "UI Settings": "Ui nustatymas",
           "Background Color": "Fono spalva",
           "Font Color": "Šrifto spalva",
+          "Freeze when other players are running":
+              "Užšaldyti, kai veikia kiti žaidėjai",
+          "stop_audioduck":
+              "Pauzė, kai veikia kitas signalas / balso nurodymas",
+          "letter_spacing": "Laiško tarpai",
+          "Are you sure you want to reset":
+              "Ar tikrai norite iš naujo nustatyti?",
+          "Reset": "Atstatyti. \\ T",
+          "Reset settings": "Ilgi paspauskite, jei norite atkurti nustatymus",
+          "history reset": "Ilgas paspauskite, jei norite atkurti istoriją",
+          "filter reset":
+              "Ilgas paspauskite, jei norite iš naujo nustatyti filtrą",
         },
         "mr": {
           "key": "mr",
@@ -1444,8 +1575,6 @@ class Messages extends Translations {
           "pitch": "पिच",
           "Number of lines to read at a time":
               "एका वेळी वाचण्यासाठी ओळींची संख्या",
-          "Freeze when other players are running":
-              "इतर खेळाडू चालत असताना फ्रीझ करा",
           "Using the headset button": "हेडसेट बटण वापरणे",
           "@num minutes": "@num काही मिनिटे",
           "language": "महारो",
@@ -1469,6 +1598,17 @@ class Messages extends Translations {
           "UI Settings": "यूआय सेटिंग",
           "Background Color": "पार्श्वभूमी रंग",
           "Font Color": "फॉन्टचा रंग",
+          "Freeze when other players are running":
+              "इतर खेळाडू चालत असताना फ्रीझ करा",
+          "stop_audioduck":
+              "दुसर्या अलार्म / व्हॉईस मार्गदर्शन चालविताना विराम द्या",
+          "letter_spacing": "पत्र स्पेसिंग सेटिंग",
+          "Are you sure you want to reset":
+              "आपणास खात्री आहे की आपण रीसेट करू इच्छिता?",
+          "Reset": "रीसेट",
+          "Reset settings": "सेटिंग्ज रीसेट करण्यासाठी लांब दाबा",
+          "history reset": "इतिहास रीसेट करण्यासाठी लांब दाबा",
+          "filter reset": "फिल्टर रीसेट करण्यासाठी लांब दाबा",
         },
         "mk": {
           "key": "mk",
@@ -1537,8 +1677,6 @@ class Messages extends Translations {
           "pitch": "теренот",
           "Number of lines to read at a time":
               "Број на линии за читање во исто време",
-          "Freeze when other players are running":
-              "Замрзнување кога другите играчи работат",
           "Using the headset button": "Користење на копчето за слушалки",
           "@num minutes": "@num минути",
           "language": "Македонски",
@@ -1562,6 +1700,17 @@ class Messages extends Translations {
           "UI Settings": "Поставување на UI.",
           "Background Color": "Боја на позадина",
           "Font Color": "Фонт боја",
+          "Freeze when other players are running":
+              "Замрзнување кога другите играчи работат",
+          "stop_audioduck":
+              "Паузирајте кога работите со уште еден аларм / гласовно водство",
+          "letter_spacing": "Поставување на букви",
+          "Are you sure you want to reset":
+              "Дали сте сигурни дека сакате да ресетирате?",
+          "Reset": "Ресетирај",
+          "Reset settings": "Долго притиснете за ресетирање на поставките",
+          "history reset": "Долго притиснете за да ја ресетирате историјата",
+          "filter reset": "Долго притиснете за да го ресетирате филтерот",
         },
         "ml": {
           "key": "ml",
@@ -1632,8 +1781,6 @@ class Messages extends Translations {
           "pitch": "പിച്ച്",
           "Number of lines to read at a time":
               "ഒരു സമയം വായിക്കേണ്ട വരികളുടെ എണ്ണം",
-          "Freeze when other players are running":
-              "മറ്റ് കളിക്കാർ പ്രവർത്തിക്കുമ്പോൾ ഫ്രീസുചെയ്യുക",
           "Using the headset button": "ഹെഡ്സെറ്റ് ബട്ടൺ ഉപയോഗിക്കുന്നു",
           "@num minutes": "@num മിനിറ്റുകൾ",
           "language": "മലയാളം",
@@ -1658,6 +1805,18 @@ class Messages extends Translations {
           "UI Settings": "യുഐ ക്രമീകരണം",
           "Background Color": "പശ്ചാത്തല നിറം",
           "Font Color": "അക്ഷരത്തിന്റെ നിറം",
+          "Freeze when other players are running":
+              "മറ്റ് കളിക്കാർ പ്രവർത്തിക്കുമ്പോൾ ഫ്രീസുചെയ്യുക",
+          "stop_audioduck":
+              "മറ്റൊരു അലാറം / വോയ്സ് മാർഗ്ഗനിർദ്ദേശം പ്രവർത്തിപ്പിക്കുമ്പോൾ താൽക്കാലികമായി നിർത്തുക",
+          "letter_spacing": "അക്ഷര സ്പെയ്സിംഗ് ക്രമീകരണം",
+          "Are you sure you want to reset":
+              "പുന reset സജ്ജമാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?",
+          "Reset": "പുന .സജ്ജമാക്കുക",
+          "Reset settings":
+              "ക്രമീകരണങ്ങൾ പുന reset സജ്ജമാക്കാൻ ദീർഘനേരം അമർത്തുക",
+          "history reset": "ചരിത്രം പുന reset സജ്ജമാക്കാൻ നീളമുള്ള പ്രസ്സ്",
+          "filter reset": "ഫിൽറ്റർ പുന reset സജ്ജമാക്കാൻ നീളമുള്ള അമർത്തുക",
         },
         "ms": {
           "key": "ms",
@@ -1723,8 +1882,6 @@ class Messages extends Translations {
           "pitch": "padang",
           "Number of lines to read at a time":
               "Bilangan baris untuk dibaca pada satu masa",
-          "Freeze when other players are running":
-              "Membekukan apabila pemain lain sedang berjalan",
           "Using the headset button": "Menggunakan butang alat dengar",
           "@num minutes": "@num minit",
           "language": "Bahasa Melayu",
@@ -1748,6 +1905,17 @@ class Messages extends Translations {
           "UI Settings": "Tetapan UI.",
           "Background Color": "Warna latar belakang",
           "Font Color": "Warna Font.",
+          "Freeze when other players are running":
+              "Membekukan apabila pemain lain sedang berjalan",
+          "stop_audioduck":
+              "Jeda apabila menjalankan panduan penggera / suara lain",
+          "letter_spacing": "Senarai jarak huruf.",
+          "Are you sure you want to reset":
+              "Adakah anda pasti mahu menetapkan semula?",
+          "Reset": "Reset semula",
+          "Reset settings": "Tekan lama untuk menetapkan semula tetapan",
+          "history reset": "Tekan lama untuk menetapkan semula sejarah",
+          "filter reset": "Tekan lama untuk menetapkan semula penapis",
         },
         "ms": {
           "key": "ms",
@@ -1813,8 +1981,6 @@ class Messages extends Translations {
           "pitch": "padang",
           "Number of lines to read at a time":
               "Bilangan baris untuk dibaca pada satu masa",
-          "Freeze when other players are running":
-              "Membekukan apabila pemain lain sedang berjalan",
           "Using the headset button": "Menggunakan butang alat dengar",
           "@num minutes": "@num minit",
           "language": "Bahasa Melayu (Malaysia)",
@@ -1838,6 +2004,17 @@ class Messages extends Translations {
           "UI Settings": "Tetapan UI.",
           "Background Color": "Warna latar belakang",
           "Font Color": "Warna Font.",
+          "Freeze when other players are running":
+              "Membekukan apabila pemain lain sedang berjalan",
+          "stop_audioduck":
+              "Jeda apabila menjalankan panduan penggera / suara lain",
+          "letter_spacing": "Senarai jarak huruf.",
+          "Are you sure you want to reset":
+              "Adakah anda pasti mahu menetapkan semula?",
+          "Reset": "Reset semula",
+          "Reset settings": "Tekan lama untuk menetapkan semula tetapan",
+          "history reset": "Tekan lama untuk menetapkan semula sejarah",
+          "filter reset": "Tekan lama untuk menetapkan semula penapis",
         },
         "mn": {
           "key": "mn",
@@ -1905,8 +2082,6 @@ class Messages extends Translations {
           "volume": "хэмжээ",
           "pitch": "хавга",
           "Number of lines to read at a time": "Нэг удаад унших мөрүүдийн тоо",
-          "Freeze when other players are running":
-              "Бусад тоглогчид ажиллаж байх үед хөлдөөх",
           "Using the headset button": "Чихэвчийг ашиглан",
           "@num minutes": "@num минут",
           "language": "Монгол",
@@ -1930,6 +2105,18 @@ class Messages extends Translations {
           "UI Settings": "Ui тохиргоо",
           "Background Color": "Дэвсгэр өнгө",
           "Font Color": "Үсгийн өнгө",
+          "Freeze when other players are running":
+              "Бусад тоглогчид ажиллаж байх үед хөлдөөх",
+          "stop_audioduck":
+              "Өөр дохиолол / дуут удирдамжийг ажиллуулахдаа түр зогсоох",
+          "letter_spacing": "Захидлын зай хоорондын тохиргоо",
+          "Are you sure you want to reset":
+              "Та дахин тохируулахыг хүсч байна уу?",
+          "Reset": "Нөөц",
+          "Reset settings":
+              "Тохиргоог дахин тохируулахын тулд урт удаан дарна уу",
+          "history reset": "Түүхийг дахин тохируулахын тулд удаан дарна уу",
+          "filter reset": "Шүүлтүүрийг дахин тохируулахын тулд удаан дарна уу",
         },
         "eu": {
           "key": "eu",
@@ -1996,8 +2183,6 @@ class Messages extends Translations {
           "pitch": "lokatu",
           "Number of lines to read at a time":
               "Aldi berean irakurtzeko lerro kopurua",
-          "Freeze when other players are running":
-              "Izoztu beste jokalari batzuk martxan daudenean",
           "Using the headset button": "Entzungailuaren botoia erabiliz",
           "@num minutes": "@num minutu",
           "language": "Euskara",
@@ -2021,6 +2206,16 @@ class Messages extends Translations {
           "UI Settings": "UI ezarpena",
           "Background Color": "Atzeko planoaren kolorea",
           "Font Color": "Letra-kolorea",
+          "Freeze when other players are running":
+              "Izoztu beste jokalari batzuk martxan daudenean",
+          "stop_audioduck":
+              "Pausatu beste alarma / ahots bidezko orientazioa exekutatzean",
+          "letter_spacing": "Gutunen tartea ezarpena",
+          "Are you sure you want to reset": "Ziur berrezarri nahi duzula?",
+          "Reset": "Berrezarri",
+          "Reset settings": "Sakatu luze ezarpenak berrezartzeko",
+          "history reset": "Sakatu luzea historia berrezartzeko",
+          "filter reset": "Sakatu luze iragazkia berrezartzeko",
         },
         "my": {
           "key": "my",
@@ -2090,8 +2285,6 @@ class Messages extends Translations {
           "pitch": "အပါး",
           "Number of lines to read at a time":
               "တစ်ကြိမ်တွင်ဖတ်ရန်လိုင်းအရေအတွက်",
-          "Freeze when other players are running":
-              "အခြားကစားသမားများအပြေးသောအခါအေးခဲ",
           "Using the headset button": "နားကြပ်ခလုတ်ကိုအသုံးပြုခြင်း",
           "@num minutes": "@num မိနစ်",
           "language": "ဗမာ \\ t ဗမာ",
@@ -2115,6 +2308,17 @@ class Messages extends Translations {
           "UI Settings": "ui setting ကို",
           "Background Color": "နောက်ခံအရောင်",
           "Font Color": "အရောင်",
+          "Freeze when other players are running":
+              "အခြားကစားသမားများအပြေးသောအခါအေးခဲ",
+          "stop_audioduck":
+              "နောက်ထပ်နှိုးစက် / အသံလမ်းညွှန်မှုကို run သောအခါခေတ္တရပ်နားပါ",
+          "letter_spacing": "အက္ခရာ setting ကို spacing",
+          "Are you sure you want to reset": "သင်ပြန်လည်စတင်ချင်ပါသလား။",
+          "Reset": "ပြန်လည်တည်ဆောက်",
+          "Reset settings":
+              "ချိန်ညှိချက်များကိုပြန်လည်သတ်မှတ်ရန်ကြာမြင့်စွာနှိပ်ပါ",
+          "history reset": "သမိုင်းကိုပြန်လည်သတ်မှတ်ရန်ကြာမြင့်စွာနှိပ်ပါ",
+          "filter reset": "reset reset ရန်ရှည်လျားသောစာနယ်ဇင်း",
         },
         "vi": {
           "key": "vi",
@@ -2180,8 +2384,6 @@ class Messages extends Translations {
           "pitch": "độ cao",
           "Number of lines to read at a time":
               "Số dòng để đọc tại một thời điểm",
-          "Freeze when other players are running":
-              "Đóng băng khi những người chơi khác đang chạy",
           "Using the headset button": "Sử dụng nút tai nghe",
           "@num minutes": "@num phút",
           "language": "Tiếng Việt",
@@ -2205,6 +2407,16 @@ class Messages extends Translations {
           "UI Settings": "Thiết lập ui.",
           "Background Color": "Màu nền",
           "Font Color": "Màu phông chữ",
+          "Freeze when other players are running":
+              "Đóng băng khi những người chơi khác đang chạy",
+          "stop_audioduck":
+              "Tạm dừng khi chạy một hướng dẫn báo động / giọng nói khác",
+          "letter_spacing": "Thiết lập khoảng cách thư.",
+          "Are you sure you want to reset": "Bạn có chắc chắn muốn đặt lại?",
+          "Reset": "Cài lại",
+          "Reset settings": "Nhấn và nhấn lâu để thiết lập lại cài đặt",
+          "history reset": "Nhấn lâu để thiết lập lại lịch sử",
+          "filter reset": "Nhấn lâu để thiết lập lại bộ lọc",
         },
         "be": {
           "key": "be",
@@ -2273,8 +2485,6 @@ class Messages extends Translations {
           "pitch": "крок",
           "Number of lines to read at a time":
               "Колькасць ліній для чытання ў той час,",
-          "Freeze when other players are running":
-              "Замарожванне, калі іншыя гульцы працуюць",
           "Using the headset button": "Выкарыстанне кнопкі гарнітуры",
           "@num minutes": "@num хвілін",
           "language": "Беларускі",
@@ -2298,6 +2508,17 @@ class Messages extends Translations {
           "UI Settings": "Ўстаноўка UI",
           "Background Color": "Колер фону",
           "Font Color": "Колер шрыфта",
+          "Freeze when other players are running":
+              "Замарожванне, калі іншыя гульцы працуюць",
+          "stop_audioduck":
+              "Паўза пры запуску іншы сігналізацыі / галасавога кіраўніцтва",
+          "letter_spacing": "Разнос літаратуры",
+          "Are you sure you want to reset":
+              "Вы ўпэўненыя, што жадаеце скінуць?",
+          "Reset": "Скінуць",
+          "Reset settings": "Доўгі націск для скіду налад",
+          "history reset": "Доўгі націск для скіду гісторыі",
+          "filter reset": "Доўгі націск для скіду фільтра",
         },
         "bn": {
           "key": "bn",
@@ -2364,8 +2585,6 @@ class Messages extends Translations {
           "volume": "ভলিউম",
           "pitch": "পিচ",
           "Number of lines to read at a time": "একটি সময়ে পড়তে লাইন সংখ্যা",
-          "Freeze when other players are running":
-              "অন্যান্য খেলোয়াড় চলমান হয় যখন স্থির করা",
           "Using the headset button": "হেডসেট বাটন ব্যবহার করে",
           "@num minutes": "@num নাম মিনিট",
           "language": "বাংলা",
@@ -2389,6 +2608,15 @@ class Messages extends Translations {
           "UI Settings": "UI সেটিং",
           "Background Color": "পেছনের রং",
           "Font Color": "ফন্টের রঙ",
+          "Freeze when other players are running":
+              "অন্যান্য খেলোয়াড় চলমান হয় যখন স্থির করা",
+          "stop_audioduck": "অন্য এলার্ম / ভয়েস নির্দেশিকা চলমান যখন বিরতি",
+          "letter_spacing": "চিঠি স্পেসিং সেটিং",
+          "Are you sure you want to reset": "আপনি রিসেট করতে চান কি নিশ্চিত?",
+          "Reset": "রিসেট",
+          "Reset settings": "সেটিংস রিসেট করতে দীর্ঘ প্রেস",
+          "history reset": "ইতিহাস রিসেট করার জন্য দীর্ঘ প্রেস",
+          "filter reset": "ফিল্টার পুনরায় সেট করার জন্য দীর্ঘ প্রেস",
         },
         "bg": {
           "key": "bg",
@@ -2458,8 +2686,6 @@ class Messages extends Translations {
           "pitch": "наклон",
           "Number of lines to read at a time":
               "Брой линии за четене в даден момент",
-          "Freeze when other players are running":
-              "Замразяване, когато се изпълняват други играчи",
           "Using the headset button": "Използване на бутона за слушалки",
           "@num minutes": "@num минути",
           "language": "Български",
@@ -2483,6 +2709,17 @@ class Messages extends Translations {
           "UI Settings": "Настройка на потребителския интерфейс",
           "Background Color": "Цвят на фона",
           "Font Color": "Цвят на шрифта",
+          "Freeze when other players are running":
+              "Замразяване, когато се изпълняват други играчи",
+          "stop_audioduck":
+              "Пауза при работа с още една аларма / гласово ръководство",
+          "letter_spacing": "Разстояние между разстоянието",
+          "Are you sure you want to reset":
+              "Сигурни ли сте, че искате да нулирате?",
+          "Reset": "Нулиране",
+          "Reset settings": "Дълго натиснете, за да нулирате настройките",
+          "history reset": "Дълго натискане, за да нулирате историята",
+          "filter reset": "Дълго натиснете, за да нулирате филтъра",
         },
         "sr": {
           "key": "sr",
@@ -2550,8 +2787,6 @@ class Messages extends Translations {
           "pitch": "висина тона",
           "Number of lines to read at a time":
               "Број линија за читање истовремено",
-          "Freeze when other players are running":
-              "Замрзавање када се други играчи покрећу",
           "Using the headset button": "Коришћење дугмета за слушалице",
           "@num minutes": "@num ни минута",
           "language": "Српски",
@@ -2575,6 +2810,17 @@ class Messages extends Translations {
           "UI Settings": "УИ подешавање",
           "Background Color": "Боја позадине",
           "Font Color": "Боја фонта",
+          "Freeze when other players are running":
+              "Замрзавање када се други играчи покрећу",
+          "stop_audioduck":
+              "Пауза када користите још један алармни / гласовни упутство",
+          "letter_spacing": "Подешавање размака слова",
+          "Are you sure you want to reset":
+              "Јесте ли сигурни да желите да ресетујете?",
+          "Reset": "Ресетовање",
+          "Reset settings": "Дуго притисните да ресетујете подешавања",
+          "history reset": "Дуга притисните да бисте ресетовали историју",
+          "filter reset": "Дуго притисните да ресетујете филтер",
         },
         "sw": {
           "key": "sw",
@@ -2643,8 +2889,6 @@ class Messages extends Translations {
           "pitch": "lami",
           "Number of lines to read at a time":
               "Idadi ya mistari ya kusoma kwa wakati",
-          "Freeze when other players are running":
-              "Kufungia wakati wachezaji wengine wanaendesha",
           "Using the headset button": "Kutumia kifungo cha kichwa cha kichwa",
           "@num minutes": "@num Dakika.",
           "language": "Kiswahili",
@@ -2669,6 +2913,18 @@ class Messages extends Translations {
           "UI Settings": "UI kuweka",
           "Background Color": "Rangi ya asili",
           "Font Color": "Rangi ya font.",
+          "Freeze when other players are running":
+              "Kufungia wakati wachezaji wengine wanaendesha",
+          "stop_audioduck":
+              "Pumzika wakati unapoendesha mwongozo mwingine wa kengele / sauti.",
+          "letter_spacing": "Kuweka nafasi ya nafasi",
+          "Are you sure you want to reset": "Una uhakika unataka kuweka upya?",
+          "Reset": "Rekebisha",
+          "Reset settings":
+              "Waandishi wa habari wa muda mrefu wa kuweka upya mipangilio",
+          "history reset":
+              "Waandishi wa habari wa muda mrefu ili upya historia",
+          "filter reset": "Waandishi wa habari wa muda mrefu ili upya upya",
         },
         "sv": {
           "key": "sv",
@@ -2734,8 +2990,6 @@ class Messages extends Translations {
           "volume": "volym",
           "pitch": "tonhöjd",
           "Number of lines to read at a time": "Antal linjer att läsa i taget",
-          "Freeze when other players are running":
-              "Frys när andra spelare körs",
           "Using the headset button": "Använda headsetknappen",
           "@num minutes": "@num minuter",
           "language": "Svenska",
@@ -2759,6 +3013,16 @@ class Messages extends Translations {
           "UI Settings": "Ui-inställning",
           "Background Color": "Bakgrundsfärg",
           "Font Color": "Fontfärg",
+          "Freeze when other players are running":
+              "Frys när andra spelare körs",
+          "stop_audioduck": "Pausa när du kör ett annat larm / röstvägledning",
+          "letter_spacing": "Brevavståndsinställning",
+          "Are you sure you want to reset":
+              "Är du säker på att du vill återställa?",
+          "Reset": "Återställa",
+          "Reset settings": "Långt tryck på för att återställa inställningar",
+          "history reset": "Långt tryck för att återställa historiken",
+          "filter reset": "Långt tryck för att återställa filtret",
         },
         "es": {
           "key": "es",
@@ -2829,8 +3093,6 @@ class Messages extends Translations {
           "pitch": "terreno de juego",
           "Number of lines to read at a time":
               "Número de líneas para leer a la vez.",
-          "Freeze when other players are running":
-              "Congelar cuando otros jugadores corren",
           "Using the headset button": "Usando el botón Auricular",
           "@num minutes": "@num minutos",
           "language": "Español",
@@ -2855,6 +3117,17 @@ class Messages extends Translations {
           "UI Settings": "Configuración de ui",
           "Background Color": "Color de fondo",
           "Font Color": "Color de fuente",
+          "Freeze when other players are running":
+              "Congelar cuando otros jugadores corren",
+          "stop_audioduck":
+              "Pausa al ejecutar otra orientación de alarma / voz",
+          "letter_spacing": "Configuración de espaciados de letras",
+          "Are you sure you want to reset":
+              "¿Está seguro que quiere reiniciar?",
+          "Reset": "Reiniciar",
+          "Reset settings": "Pulsación larga para restablecer la configuración",
+          "history reset": "Pulsación larga para restablecer el historial",
+          "filter reset": "Pulsación larga para restablecer el filtro",
         },
         "sk": {
           "key": "sk",
@@ -2921,8 +3194,6 @@ class Messages extends Translations {
           "volume": "objem",
           "pitch": "rozteč",
           "Number of lines to read at a time": "Počet riadkov na čítanie naraz",
-          "Freeze when other players are running":
-              "Zmraziť, keď sú spustení ostatní hráči",
           "Using the headset button": "Pomocou tlačidla headsetu",
           "@num minutes": "@num minút",
           "language": "Slovensky",
@@ -2946,6 +3217,16 @@ class Messages extends Translations {
           "UI Settings": "Nastavenie UI",
           "Background Color": "Farba pozadia",
           "Font Color": "Farba písma",
+          "Freeze when other players are running":
+              "Zmraziť, keď sú spustení ostatní hráči",
+          "stop_audioduck":
+              "Pozastavenie pri spustení iného alarmu / hlasového poradenstva",
+          "letter_spacing": "Nastavenie medzery",
+          "Are you sure you want to reset": "Ste si istý, že chcete resetovať?",
+          "Reset": "Resetovať",
+          "Reset settings": "Dlhé stlačenie obnovíte nastavenia",
+          "history reset": "Dlhé stlačenie obnovíte históriu",
+          "filter reset": "Dlhé stlačenie obnovíte filter",
         },
         "sl": {
           "key": "sl",
@@ -3012,8 +3293,6 @@ class Messages extends Translations {
           "pitch": "višina tona",
           "Number of lines to read at a time":
               "Število vrstic za branje naenkrat",
-          "Freeze when other players are running":
-              "Zamrznite, ko potekajo drugi igralci",
           "Using the headset button": "Uporaba gumba slušalk",
           "@num minutes": "@num minut",
           "language": "Slovenščina",
@@ -3037,6 +3316,17 @@ class Messages extends Translations {
           "UI Settings": "Nastavitev UI",
           "Background Color": "Barva ozadja",
           "Font Color": "Barva pisave",
+          "Freeze when other players are running":
+              "Zamrznite, ko potekajo drugi igralci",
+          "stop_audioduck":
+              "Premor pri zagonu drugega alarma / glasovnega vodenja",
+          "letter_spacing": "Nastavitev razminjanja črk",
+          "Are you sure you want to reset":
+              "Ste prepričani, da želite ponastaviti?",
+          "Reset": "Ponastaviti",
+          "Reset settings": "Dolga pritisnite za ponastavitev nastavitev",
+          "history reset": "Dolg pritisk, da ponastavite zgodovino",
+          "filter reset": "Dolg pritisk, da ponastavite filter",
         },
         "si": {
           "key": "si",
@@ -3102,8 +3392,6 @@ class Messages extends Translations {
           "volume": "පරිමාව",
           "pitch": "තණතීරුව",
           "Number of lines to read at a time": "වරකට කියවීමට පේළි ගණන",
-          "Freeze when other players are running":
-              "අනෙක් ක්රීඩකයන් ක්රියාත්මක වන විට කැටි කරන්න",
           "Using the headset button": "හෙඩ්සෙට් බොත්තම භාවිතා කිරීම",
           "@num minutes": "@num මිනිත්තු",
           "language": "සිංගලා",
@@ -3127,6 +3415,17 @@ class Messages extends Translations {
           "UI Settings": "UI සැකසුම",
           "Background Color": "පසුබිම් වර්ණය",
           "Font Color": "අකුරු වර්ණය",
+          "Freeze when other players are running":
+              "අනෙක් ක්රීඩකයන් ක්රියාත්මක වන විට කැටි කරන්න",
+          "stop_audioduck":
+              "තවත් අනතුරු ඇඟවීමක් / හ voice මඟ පෙන්වීමක් ලබා ගැනීමේදී විරාමයක් තබන්න",
+          "letter_spacing": "ලිපි පරතරය සැකසුම",
+          "Are you sure you want to reset":
+              "ඔබට නැවත සැකසීමට අවශ්ය බව ඔබට විශ්වාසද?",
+          "Reset": "නැවත සකසන්න",
+          "Reset settings": "සැකසුම් නැවත සැකසීමට දිගු ඔබන්න",
+          "history reset": "ඉතිහාසය නැවත සැකසීමට දිගු ඔබන්න",
+          "filter reset": "පෙරණය නැවත සැකසීමට දිගු ඔබන්න",
         },
         "ar": {
           "key": "ar",
@@ -3192,8 +3491,6 @@ class Messages extends Translations {
           "volume": "الصوت",
           "pitch": "ملعب كورة قدم",
           "Number of lines to read at a time": "عدد الخطوط لقراءة في وقت واحد",
-          "Freeze when other players are running":
-              "تجميد عندما يعمل اللاعبون الآخرون",
           "Using the headset button": "باستخدام زر سماعة الرأس",
           "@num minutes": "@num دقيقة",
           "language": "عربي",
@@ -3217,6 +3514,16 @@ class Messages extends Translations {
           "UI Settings": "واجهة المستخدم الإعداد",
           "Background Color": "لون الخلفية",
           "Font Color": "لون الخط",
+          "Freeze when other players are running":
+              "تجميد عندما يعمل اللاعبون الآخرون",
+          "stop_audioduck": "وقفة عند تشغيل إرشادات صوتية / صوتية أخرى",
+          "letter_spacing": "إعداد إلكتروني المباعدة",
+          "Are you sure you want to reset":
+              "هل أنت متأكد أنك تريد إعادة تعيين؟",
+          "Reset": "إعادة ضبط",
+          "Reset settings": "اضغط لفترة طويلة لإعادة ضبط الإعدادات",
+          "history reset": "اضغط لفترة طويلة لإعادة تعيين التاريخ",
+          "filter reset": "اضغط لفترة طويلة لإعادة ضبط مرشح",
         },
         "hy": {
           "key": "hy",
@@ -3284,8 +3591,6 @@ class Messages extends Translations {
           "pitch": "նետել",
           "Number of lines to read at a time":
               "Միանգամից կարդալու տողերի քանակը",
-          "Freeze when other players are running":
-              "Սառեցնել, երբ մյուս խաղացողներն աշխատում են",
           "Using the headset button": "Օգտագործելով ականջակալների կոճակը",
           "@num minutes": "@num րոպե",
           "language": "Հայերեն",
@@ -3309,6 +3614,17 @@ class Messages extends Translations {
           "UI Settings": "UI- ի կարգավորում",
           "Background Color": "Ֆոնի գույնը",
           "Font Color": "Տառատեսակի գույնը",
+          "Freeze when other players are running":
+              "Սառեցնել, երբ մյուս խաղացողներն աշխատում են",
+          "stop_audioduck":
+              "Դադարեցրեք մեկ այլ ահազանգ / Ձայնի առաջնորդություն",
+          "letter_spacing": "Նամակների տարածության պարամետր",
+          "Are you sure you want to reset":
+              "Համոզված եք, որ ցանկանում եք վերափոխել:",
+          "Reset": "Վերականգնել",
+          "Reset settings": "Long Press, պարամետրերը վերակայելու համար",
+          "history reset": "Երկար մամուլը պատմությունը վերականգնելու համար",
+          "filter reset": "Filter վերականգնելու համար երկար սեղմում",
         },
         "is": {
           "key": "is",
@@ -3376,8 +3692,6 @@ class Messages extends Translations {
           "pitch": "vellinum",
           "Number of lines to read at a time":
               "Fjöldi línanna til að lesa í einu",
-          "Freeze when other players are running":
-              "Frysta þegar aðrir leikmenn eru í gangi",
           "Using the headset button": "Notkun höfuðtól hnappinn",
           "@num minutes": "@um mínútur",
           "language": "Íslenska",
@@ -3401,6 +3715,17 @@ class Messages extends Translations {
           "UI Settings": "UI stilling",
           "Background Color": "Bakgrunns litur",
           "Font Color": "Leturgerð lit.",
+          "Freeze when other players are running":
+              "Frysta þegar aðrir leikmenn eru í gangi",
+          "stop_audioduck":
+              "Hlé þegar þú ert að keyra aðra viðvörun / raddleiðsögn",
+          "letter_spacing": "Stillingar bréfs",
+          "Are you sure you want to reset":
+              "Ertu viss um að þú viljir endurstilla?",
+          "Reset": "Endurstilla",
+          "Reset settings": "Langt stutt til að endurstilla stillingar",
+          "history reset": "Langt stutt til að endurstilla sögu",
+          "filter reset": "Langt stutt til að endurstilla síu",
         },
         "az": {
           "key": "az",
@@ -3467,8 +3792,6 @@ class Messages extends Translations {
           "pitch": "qatmaq",
           "Number of lines to read at a time":
               "Bir anda oxumaq üçün xətlərin sayı",
-          "Freeze when other players are running":
-              "Digər oyunçuların işlədikdə dondurun",
           "Using the headset button": "Qulaqlıq düyməsini istifadə edərək",
           "@num minutes": "@num Tumlu dəqiqə",
           "language": "Azərbaycan",
@@ -3492,6 +3815,17 @@ class Messages extends Translations {
           "UI Settings": "Ui qəbulu",
           "Background Color": "Fon rəngi",
           "Font Color": "Şriftin",
+          "Freeze when other players are running":
+              "Digər oyunçuların işlədikdə dondurun",
+          "stop_audioduck":
+              "Başqa bir həyəcan / səs rəhbərliyi işləyərkən fasilə verin",
+          "letter_spacing": "Məktub boşluğu qəbulu",
+          "Are you sure you want to reset":
+              "Yenidən qurmaq istədiyinizə əminsiniz?",
+          "Reset": "Sıfırlamaq",
+          "Reset settings": "Parametrləri yenidən qurmaq üçün uzun basın",
+          "history reset": "Tarixi yenidən qurmaq üçün uzun basın",
+          "filter reset": "Süzgəci yenidən qurmaq üçün uzun basın",
         },
         "af": {
           "key": "af",
@@ -3559,8 +3893,6 @@ class Messages extends Translations {
           "pitch": "paal",
           "Number of lines to read at a time":
               "Aantal lyne om op 'n slag te lees",
-          "Freeze when other players are running":
-              "Vries wanneer ander spelers hardloop",
           "Using the headset button": "Gebruik die Headset-knoppie",
           "@num minutes": "@num minute",
           "language": "Afrika",
@@ -3584,6 +3916,16 @@ class Messages extends Translations {
           "UI Settings": "UI-instelling",
           "Background Color": "Agtergrondkleur",
           "Font Color": "Font kleur",
+          "Freeze when other players are running":
+              "Vries wanneer ander spelers hardloop",
+          "stop_audioduck":
+              "Pouse wanneer jy nog 'n alarm / stemvoorligting bestuur",
+          "letter_spacing": "Brief spasiëring instelling",
+          "Are you sure you want to reset": "Is jy seker jy wil herstel?",
+          "Reset": "Reset",
+          "Reset settings": "Lang druk om instellings te herstel",
+          "history reset": "Lang druk om die geskiedenis te herstel",
+          "filter reset": "Lang druk om die filter te herstel",
         },
         "sq": {
           "key": "sq",
@@ -3653,8 +3995,6 @@ class Messages extends Translations {
           "pitch": "katran",
           "Number of lines to read at a time":
               "Numri i linjave për të lexuar në një kohë",
-          "Freeze when other players are running":
-              "Ngrijë kur lojtarët e tjerë po konkurrojnë",
           "Using the headset button": "Duke përdorur butonin e kufjeve",
           "@num minutes": "Minuta @num",
           "language": "Shqip",
@@ -3678,6 +4018,17 @@ class Messages extends Translations {
           "UI Settings": "Vendosja e UI",
           "Background Color": "Ngjyrë e sfondit",
           "Font Color": "Ngjyra e shkronjave",
+          "Freeze when other players are running":
+              "Ngrijë kur lojtarët e tjerë po konkurrojnë",
+          "stop_audioduck":
+              "Ndaloni kur të keni një tjetër udhëzime alarmi / zëri",
+          "letter_spacing": "Vendosja e spacing letrës",
+          "Are you sure you want to reset":
+              "Jeni i sigurt se doni të rivendosni?",
+          "Reset": "Rivendos",
+          "Reset settings": "Shtypni gjatë për të rivendosur cilësimet",
+          "history reset": "Shtypni gjatë për të rivendosur historinë",
+          "filter reset": "Shtypni gjatë për të rivendosur filtrin",
         },
         "am": {
           "key": "am",
@@ -3742,7 +4093,6 @@ class Messages extends Translations {
           "volume": "ድምጽ",
           "pitch": "ምሰሶ",
           "Number of lines to read at a time": "በአንድ ጊዜ ለማንበብ የሚረዱ የመስመሮች ብዛት",
-          "Freeze when other players are running": "ሌሎች ተጫዋቾች በሚሰሩበት ጊዜ ቀዝቅዙ",
           "Using the headset button": "የጆሮ ማዳመጫውን ቁልፍ በመጠቀም",
           "@num minutes": "@num ደቂቃዎች",
           "language": "አማርኛ",
@@ -3766,6 +4116,14 @@ class Messages extends Translations {
           "UI Settings": "አዋጁ",
           "Background Color": "የጀርባ ቀለም",
           "Font Color": "የቅርጸ-ቁምፊ ቀለም",
+          "Freeze when other players are running": "ሌሎች ተጫዋቾች በሚሰሩበት ጊዜ ቀዝቅዙ",
+          "stop_audioduck": "ሌላ ማንቂያ / የድምፅ መመሪያ ሲሮጥ ለአፍታ አቁም",
+          "letter_spacing": "የመልእክት ክፍፍል መቼት",
+          "Are you sure you want to reset": "እርግጠኛ ነዎት ዳግም ማስጀመር ይፈልጋሉ?",
+          "Reset": "ዳግም አስጀምር",
+          "Reset settings": "ቅንብሮችን ዳግም ለማስጀመር ረዥም ፕሬስ",
+          "history reset": "ታሪክን እንደገና ለማስጀመር ረዥም ፕሬስ",
+          "filter reset": "ማጣሪያ ለማስጀመር ረዥም ፕሬስ",
         },
         "et": {
           "key": "et",
@@ -3831,8 +4189,6 @@ class Messages extends Translations {
           "volume": "maht",
           "pitch": "pigi",
           "Number of lines to read at a time": "Radide arv lugeda korraga",
-          "Freeze when other players are running":
-              "Külmutada, kui teised mängijad töötavad",
           "Using the headset button": "Peakomplekti nupu kasutamine",
           "@num minutes": "@num minutit",
           "language": "Eesti keel",
@@ -3856,6 +4212,16 @@ class Messages extends Translations {
           "UI Settings": "UI seadistus",
           "Background Color": "Taustavärv",
           "Font Color": "Fondi värv",
+          "Freeze when other players are running":
+              "Külmutada, kui teised mängijad töötavad",
+          "stop_audioduck": "Paus töötab teise häire / hääljuhiste käitamisel",
+          "letter_spacing": "Kiri vahekaugus",
+          "Are you sure you want to reset":
+              "Kas olete kindel, et soovite lähtestada?",
+          "Reset": "Lähtestama",
+          "Reset settings": "Pikad vajutage seadete lähtestamiseks",
+          "history reset": "Pikk ajaloo taastamiseks vajutage",
+          "filter reset": "Pikad vajutage filtri lähtestamiseks",
         },
         "en": {
           "key": "en",
@@ -3923,8 +4289,6 @@ class Messages extends Translations {
           "pitch": "pitch",
           "Number of lines to read at a time":
               "Number of lines to read at a time",
-          "Freeze when other players are running":
-              "Freeze when other players are running",
           "Using the headset button": "Using the headset button",
           "@num minutes": "@num minutes",
           "language": "English",
@@ -3948,6 +4312,15 @@ class Messages extends Translations {
           "UI Settings": "UI Setting",
           "Background Color": "Background Color",
           "Font Color": "Font Color",
+          "Freeze when other players are running":
+              "Freeze when other players are running",
+          "stop_audioduck": "Pause when running another alarm / voice guidance",
+          "letter_spacing": "Letter Spacing Setting",
+          "Are you sure you want to reset": "Are you sure you want to reset?",
+          "Reset": "Reset",
+          "Reset settings": "Long press to reset settings",
+          "history reset": "Long press to reset history",
+          "filter reset": "Long press to reset filter",
         },
         "ur": {
           "key": "ur",
@@ -4014,8 +4387,6 @@ class Messages extends Translations {
           "pitch": "پچ",
           "Number of lines to read at a time":
               "ایک وقت میں پڑھنے کے لئے لائنوں کی تعداد",
-          "Freeze when other players are running":
-              "جب دیگر کھلاڑی چل رہے ہیں تو منجمد",
           "Using the headset button": "ہیڈسیٹ بٹن کا استعمال کرتے ہوئے",
           "@num minutes": "num منٹ",
           "language": "اردو",
@@ -4039,6 +4410,17 @@ class Messages extends Translations {
           "UI Settings": "UI کی ترتیب",
           "Background Color": "پس منظر کا رنگ",
           "Font Color": "لکھائی کا رنگ",
+          "Freeze when other players are running":
+              "جب دیگر کھلاڑی چل رہے ہیں تو منجمد",
+          "stop_audioduck":
+              "کسی اور الارم / آواز کی رہنمائی کو چلانے پر روک دیں",
+          "letter_spacing": "خط وقفہ کاری کی ترتیب",
+          "Are you sure you want to reset":
+              "کیا آپ واقعی ری سیٹ کرنا چاہتے ہیں؟",
+          "Reset": "ری سیٹ کریں",
+          "Reset settings": "ترتیبات کو دوبارہ ترتیب دینے کے لئے طویل دبائیں",
+          "history reset": "تاریخ کو دوبارہ ترتیب دینے کے لئے طویل دبائیں",
+          "filter reset": "فلٹر ری سیٹ کرنے کے لئے طویل دبائیں",
         },
         "uk": {
           "key": "uk",
@@ -4108,8 +4490,6 @@ class Messages extends Translations {
           "pitch": "пожертвувати",
           "Number of lines to read at a time":
               "Кількість ліній для читання за раз",
-          "Freeze when other players are running":
-              "Заморозити, коли інші гравці працюють",
           "Using the headset button": "Використання кнопки гарнітури",
           "@num minutes": "@num хвилин",
           "language": "Українська",
@@ -4133,6 +4513,16 @@ class Messages extends Translations {
           "UI Settings": "Налаштування інтерфейсу",
           "Background Color": "Колір фону",
           "Font Color": "Колір шрифту",
+          "Freeze when other players are running":
+              "Заморозити, коли інші гравці працюють",
+          "stop_audioduck":
+              "Пауза при запуску іншої сигналізації / голосового керівництва",
+          "letter_spacing": "Налаштування букв",
+          "Are you sure you want to reset": "Ви впевнені, що хочете скинути?",
+          "Reset": "Скидання",
+          "Reset settings": "Довгий натисніть, щоб скинути налаштування",
+          "history reset": "Довгий час Натисніть, щоб скинути історію",
+          "filter reset": "Довгий натисніть, щоб скинути фільтр",
         },
         "it": {
           "key": "it",
@@ -4201,8 +4591,6 @@ class Messages extends Translations {
           "pitch": "pece",
           "Number of lines to read at a time":
               "Numero di linee da leggere alla volta",
-          "Freeze when other players are running":
-              "Congelare quando altri giocatori sono in esecuzione",
           "Using the headset button": "Usando il pulsante della cuffia",
           "@num minutes": "@num minuti.",
           "language": "Italiano",
@@ -4227,6 +4615,16 @@ class Messages extends Translations {
           "UI Settings": "Impostazione UI.",
           "Background Color": "Colore di sfondo",
           "Font Color": "Colore del carattere",
+          "Freeze when other players are running":
+              "Congelare quando altri giocatori sono in esecuzione",
+          "stop_audioduck":
+              "Pausa quando si esegue un altro allarme / guida vocale",
+          "letter_spacing": "Impostazione della spaziatura delle lettere",
+          "Are you sure you want to reset": "Sei sicuro di voler resettare?",
+          "Reset": "Ripristina",
+          "Reset settings": "Premere a lungo per ripristinare le impostazioni",
+          "history reset": "Premere a lungo per ripristinare la cronologia",
+          "filter reset": "Premere a lungo per ripristinare il filtro",
         },
         "id": {
           "key": "id",
@@ -4293,8 +4691,6 @@ class Messages extends Translations {
           "pitch": "melempar",
           "Number of lines to read at a time":
               "Jumlah garis untuk dibaca pada suatu waktu",
-          "Freeze when other players are running":
-              "Membekukan ketika pemain lain berjalan",
           "Using the headset button": "Menggunakan tombol headset",
           "@num minutes": "@num menit.",
           "language": "Bahasa Indonesia",
@@ -4318,6 +4714,16 @@ class Messages extends Translations {
           "UI Settings": "Pengaturan UI.",
           "Background Color": "Warna latar belakang",
           "Font Color": "Warna huruf",
+          "Freeze when other players are running":
+              "Membekukan ketika pemain lain berjalan",
+          "stop_audioduck": "Jeda saat menjalankan panduan alarm / suara lain",
+          "letter_spacing": "Pengaturan spasi surat",
+          "Are you sure you want to reset":
+              "Apakah Anda yakin ingin mengatur ulang?",
+          "Reset": "Mengatur ulang",
+          "Reset settings": "Tekan lama untuk mengatur ulang pengaturan",
+          "history reset": "Tekan lama untuk mengatur ulang riwayat",
+          "filter reset": "Tekan lama untuk mengatur ulang filter",
         },
         "ja": {
           "key": "ja",
@@ -4380,7 +4786,6 @@ class Messages extends Translations {
           "volume": "音量",
           "pitch": "ピッチ",
           "Number of lines to read at a time": "一度に読む行数",
-          "Freeze when other players are running": "他のプレイヤーが稼働しているときに凍結してください",
           "Using the headset button": "ヘッドセットボタンを使う",
           "@num minutes": "@num議事録",
           "language": "日本語",
@@ -4404,6 +4809,14 @@ class Messages extends Translations {
           "UI Settings": "UI設定",
           "Background Color": "背景色",
           "Font Color": "フォントカラー",
+          "Freeze when other players are running": "他のプレイヤーが稼働しているときに凍結してください",
+          "stop_audioduck": "別のアラーム/音声ガイダンスを実行するときに一時停止します",
+          "letter_spacing": "文字間隔の設定",
+          "Are you sure you want to reset": "リセットしてよろしいですか？",
+          "Reset": "リセットする",
+          "Reset settings": "設定をリセットするために長押しします",
+          "history reset": "履歴をリセットするための長い押す",
+          "filter reset": "フィルタをリセットするための長押し",
         },
         "ka": {
           "key": "ka",
@@ -4474,8 +4887,6 @@ class Messages extends Translations {
           "pitch": "სძინავს",
           "Number of lines to read at a time":
               "ხაზების რაოდენობა წაკითხვის დროს",
-          "Freeze when other players are running":
-              "გაყინვა, როდესაც სხვა მოთამაშეები გაშვებულია",
           "Using the headset button": "გამოყენებით headset ღილაკს",
           "@num minutes": "@num nin minutes",
           "language": "ქართული",
@@ -4499,6 +4910,17 @@ class Messages extends Translations {
           "UI Settings": "UI გარემოში",
           "Background Color": "Ფონის ფერი",
           "Font Color": "Შრიფტის ფერი",
+          "Freeze when other players are running":
+              "გაყინვა, როდესაც სხვა მოთამაშეები გაშვებულია",
+          "stop_audioduck":
+              "პაუზა როდესაც სხვა სიგნალი / ხმოვანი ხელმძღვანელობის გაშვება",
+          "letter_spacing": "წერილი ინტერვალი პარამეტრი",
+          "Are you sure you want to reset":
+              "დარწმუნებული ხართ, რომ გსურთ გადატვირთვა?",
+          "Reset": "ხელახლა აღდგენა",
+          "Reset settings": "ხანგრძლივი პრესის პარამეტრების გადატვირთვა",
+          "history reset": "ხანგრძლივი პრესისთვის ისტორიის გადატვირთვა",
+          "filter reset": "ხანგრძლივი პრესის გადატვირთვის ფილტრი",
         },
         "zu": {
           "key": "zu",
@@ -4568,8 +4990,6 @@ class Messages extends Translations {
           "pitch": "iphimbo",
           "Number of lines to read at a time":
               "Inani lemigqa okufanele lifunde ngesikhathi",
-          "Freeze when other players are running":
-              "Uqhwa lapho abanye abadlali besebenza",
           "Using the headset button": "Kusetshenziswa inkinobho ye-Headset",
           "@num minutes": "@num imizuzu",
           "language": "Zulur",
@@ -4593,6 +5013,18 @@ class Messages extends Translations {
           "UI Settings": "Ukuhlelwa kwe-UI",
           "Background Color": "Umbala wangemuva",
           "Font Color": "Umbala wefonti",
+          "Freeze when other players are running":
+              "Uqhwa lapho abanye abadlali besebenza",
+          "stop_audioduck":
+              "Misa okwesikhashana lapho usebenzisa enye i-alamu / ukuholwa kwezwi",
+          "letter_spacing": "Ukuhlelwa Kwezincwadi Zezincwadi",
+          "Are you sure you want to reset":
+              "Uqinisekile ukuthi ufuna ukusetha kabusha?",
+          "Reset": "Setha kabusha",
+          "Reset settings":
+              "Cindezela isikhathi eside ukuze usethe kabusha izilungiselelo",
+          "history reset": "Cindezela isikhathi eside ukusetha kabusha umlando",
+          "filter reset": "Umshini omude wokusetha kabusha isihlungi",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -4654,7 +5086,6 @@ class Messages extends Translations {
           "volume": "体积",
           "pitch": "沥青",
           "Number of lines to read at a time": "一次阅读的行数",
-          "Freeze when other players are running": "当其他玩家正在运行时冻结",
           "Using the headset button": "使用耳机按钮",
           "@num minutes": "@num钟",
           "language": "简体中文",
@@ -4678,6 +5109,14 @@ class Messages extends Translations {
           "UI Settings": "UI设置",
           "Background Color": "背景颜色",
           "Font Color": "字体颜色",
+          "Freeze when other players are running": "当其他玩家正在运行时冻结",
+          "stop_audioduck": "运行另一个警报/语音指导时暂停",
+          "letter_spacing": "字母间距设置",
+          "Are you sure you want to reset": "你确定要重置吗？",
+          "Reset": "重置",
+          "Reset settings": "长按可重置设置",
+          "history reset": "长按可重置历史",
+          "filter reset": "长按可重置过滤器",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -4739,7 +5178,6 @@ class Messages extends Translations {
           "volume": "體積",
           "pitch": "瀝青",
           "Number of lines to read at a time": "一次閱讀的行數",
-          "Freeze when other players are running": "當其他玩家正在運行時凍結",
           "Using the headset button": "使用耳機按鈕",
           "@num minutes": "@num鐘",
           "language": "繁體中文",
@@ -4763,6 +5201,14 @@ class Messages extends Translations {
           "UI Settings": "UI設置",
           "Background Color": "背景顏色",
           "Font Color": "字體顏色",
+          "Freeze when other players are running": "當其他玩家正在運行時凍結",
+          "stop_audioduck": "運行另一個警報/語音指導時暫停",
+          "letter_spacing": "字母間距設置",
+          "Are you sure you want to reset": "你確定要重置嗎？",
+          "Reset": "重置",
+          "Reset settings": "長按可重置設置",
+          "history reset": "長按可重置歷史",
+          "filter reset": "長按可重置過濾器",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -4824,7 +5270,6 @@ class Messages extends Translations {
           "volume": "體積",
           "pitch": "瀝青",
           "Number of lines to read at a time": "一次閱讀的行數",
-          "Freeze when other players are running": "當其他玩家正在運行時凍結",
           "Using the headset button": "使用耳機按鈕",
           "@num minutes": "@num鐘",
           "language": "中文（香港）",
@@ -4848,6 +5293,14 @@ class Messages extends Translations {
           "UI Settings": "UI設置",
           "Background Color": "背景顏色",
           "Font Color": "字體顏色",
+          "Freeze when other players are running": "當其他玩家正在運行時凍結",
+          "stop_audioduck": "運行另一個警報/語音指導時暫停",
+          "letter_spacing": "字母間距設置",
+          "Are you sure you want to reset": "你確定要重置嗎？",
+          "Reset": "重置",
+          "Reset settings": "長按可重置設置",
+          "history reset": "長按可重置歷史",
+          "filter reset": "長按可重置過濾器",
         },
         "cs": {
           "key": "cs",
@@ -4914,8 +5367,6 @@ class Messages extends Translations {
           "volume": "objem",
           "pitch": "rozteč",
           "Number of lines to read at a time": "Počet řádků pro čtení najednou",
-          "Freeze when other players are running":
-              "Zamrznout, když běží ostatní hráči",
           "Using the headset button": "Pomocí tlačítka headsetu",
           "@num minutes": "@num minut",
           "language": "Čeština",
@@ -4939,6 +5390,15 @@ class Messages extends Translations {
           "UI Settings": "UI Setting.",
           "Background Color": "Barva pozadí",
           "Font Color": "Barva fontu",
+          "Freeze when other players are running":
+              "Zamrznout, když běží ostatní hráči",
+          "stop_audioduck": "Pauza při běhu jiného alarmu / hlasových pokynů",
+          "letter_spacing": "Nastavení vzdáleného vzdálenosti",
+          "Are you sure you want to reset": "Opravdu chcete resetovat?",
+          "Reset": "Resetovat",
+          "Reset settings": "Dlouhý Stiskněte pro resetování nastavení",
+          "history reset": "Dlouhý Stiskněte pro resetování historie",
+          "filter reset": "Dlouhý Stiskněte pro resetování filtru",
         },
         "kk": {
           "key": "kk",
@@ -5005,8 +5465,6 @@ class Messages extends Translations {
           "pitch": "шықтық",
           "Number of lines to read at a time":
               "Бір уақытта оқу үшін сызықтар саны",
-          "Freeze when other players are running":
-              "Басқа ойыншылар жұмыс істеп тұрған кезде қатып қалады",
           "Using the headset button": "Гарнитураның батырмасын пайдалану",
           "@num minutes": "@num минуттары",
           "language": "Қазақстан",
@@ -5030,6 +5488,16 @@ class Messages extends Translations {
           "UI Settings": "Ui параметрі",
           "Background Color": "Фон түсі",
           "Font Color": "Қаріп түсі",
+          "Freeze when other players are running":
+              "Басқа ойыншылар жұмыс істеп тұрған кезде қатып қалады",
+          "stop_audioduck":
+              "Басқа дабыл / дауыстық нұсқаулық болған кезде кідірту",
+          "letter_spacing": "Хат аралығы параметрі",
+          "Are you sure you want to reset": "Қалпына келтіргіңіз келе ме?",
+          "Reset": "Ысыру",
+          "Reset settings": "Параметрлерді қалпына келтіру үшін ұзақ басыңыз",
+          "history reset": "Тарихты қалпына келтіру үшін ұзақ басыңыз",
+          "filter reset": "Сүзгіні қалпына келтіру үшін ұзақ басыңыз",
         },
         "ca": {
           "key": "ca",
@@ -5100,8 +5568,6 @@ class Messages extends Translations {
           "pitch": "Brea",
           "Number of lines to read at a time":
               "Nombre de línies per llegir a la vegada",
-          "Freeze when other players are running":
-              "Congelar quan s'executen altres jugadors",
           "Using the headset button": "Utilitzant el botó Healtet",
           "@num minutes": "@num minuts",
           "language": "Català",
@@ -5126,6 +5592,16 @@ class Messages extends Translations {
           "UI Settings": "Configuració d'UI",
           "Background Color": "Color de fons",
           "Font Color": "Color de la lletra",
+          "Freeze when other players are running":
+              "Congelar quan s'executen altres jugadors",
+          "stop_audioduck":
+              "Pausa en executar una altra orientació d'alarma / veu",
+          "letter_spacing": "Estacionament d'espaiat de lletres",
+          "Are you sure you want to reset": "Esteu segur que voleu restablir?",
+          "Reset": "Reiniciar",
+          "Reset settings": "Premsa llarga per restablir la configuració",
+          "history reset": "Premsa llarga per restablir la història",
+          "filter reset": "Premsa llarga per restablir el filtre",
         },
         "kn": {
           "key": "kn",
@@ -5195,8 +5671,6 @@ class Messages extends Translations {
           "pitch": "ಪಿಚ್",
           "Number of lines to read at a time":
               "ಒಂದು ಸಮಯದಲ್ಲಿ ಓದಲು ಸಾಲುಗಳ ಸಂಖ್ಯೆ",
-          "Freeze when other players are running":
-              "ಇತರ ಆಟಗಾರರು ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಫ್ರೀಜ್ ಮಾಡಿ",
           "Using the headset button": "ಹೆಡ್ಸೆಟ್ ಬಟನ್ ಬಳಸಿ",
           "@num minutes": "@num ನಿಮಿಷಗಳು",
           "language": "ಕಾನ್ನಾ ಡಯಾ",
@@ -5220,6 +5694,16 @@ class Messages extends Translations {
           "UI Settings": "ಯುಐ ಸೆಟ್ಟಿಂಗ್",
           "Background Color": "ಹಿನ್ನೆಲೆ ಬಣ್ಣ",
           "Font Color": "ಫಾಂಟ್ ಬಣ್ಣ",
+          "Freeze when other players are running":
+              "ಇತರ ಆಟಗಾರರು ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಫ್ರೀಜ್ ಮಾಡಿ",
+          "stop_audioduck":
+              "ಮತ್ತೊಂದು ಅಲಾರ್ಮ್ / ವಾಯ್ಸ್ ಮಾರ್ಗದರ್ಶನವನ್ನು ಚಾಲನೆ ಮಾಡುವಾಗ ವಿರಾಮಗೊಳಿಸಿ",
+          "letter_spacing": "ಲೆಟರ್ ಸ್ಪೇಸಿಂಗ್ ಸೆಟ್ಟಿಂಗ್",
+          "Are you sure you want to reset": "ನೀವು ಮರುಹೊಂದಿಸಲು ಬಯಸುವಿರಾ?",
+          "Reset": "ಮರುಹೊಂದಿಸು",
+          "Reset settings": "ಸೆಟ್ಟಿಂಗ್ಗಳನ್ನು ಮರುಹೊಂದಿಸಲು ಲಾಂಗ್ ಪ್ರೆಸ್",
+          "history reset": "ಇತಿಹಾಸವನ್ನು ಮರುಹೊಂದಿಸಲು ಲಾಂಗ್ ಪ್ರೆಸ್",
+          "filter reset": "ಫಿಲ್ಟರ್ ಮರುಹೊಂದಿಸಲು ಲಾಂಗ್ ಪ್ರೆಸ್",
         },
         "hr": {
           "key": "hr",
@@ -5287,8 +5771,6 @@ class Messages extends Translations {
           "pitch": "nagib",
           "Number of lines to read at a time":
               "Broj linija za čitanje u isto vrijeme",
-          "Freeze when other players are running":
-              "Zamrznuti kada drugi igrači trče",
           "Using the headset button": "Pomoću gumba slušalice",
           "@num minutes": "@num minute",
           "language": "Hrvatski",
@@ -5312,6 +5794,17 @@ class Messages extends Translations {
           "UI Settings": "UI postavljanje",
           "Background Color": "Boja pozadine",
           "Font Color": "Boja fonta",
+          "Freeze when other players are running":
+              "Zamrznuti kada drugi igrači trče",
+          "stop_audioduck":
+              "Pauza Kada pokrenete još jedan alarm / glasovno vodstvo",
+          "letter_spacing": "Postavka razmaka slova",
+          "Are you sure you want to reset":
+              "Jeste li sigurni da želite resetirati?",
+          "Reset": "Resetirati",
+          "Reset settings": "Dugo pritisnite za poništavanje postavki",
+          "history reset": "Dugo pritisnite za poništavanje povijesti",
+          "filter reset": "Dugo pritisnite za resetiranje filtra",
         },
         "km": {
           "key": "km",
@@ -5378,8 +5871,6 @@ class Messages extends Translations {
           "pitch": "រនាមកល់",
           "Number of lines to read at a time":
               "ចំនួនបន្ទាត់ដែលត្រូវអានក្នុងពេលតែមួយ",
-          "Freeze when other players are running":
-              "បង្កកនៅពេលដែលអ្នកលេងផ្សេងទៀតកំពុងដំណើរការ",
           "Using the headset button": "ដោយប្រើប៊ូតុងកាស",
           "@num minutes": "នាទី @num",
           "language": "ខ្មែរ",
@@ -5403,6 +5894,16 @@ class Messages extends Translations {
           "UI Settings": "ការកំណត់ UI",
           "Background Color": "ពណ៌ផ្ទៃខាងក្រោយ",
           "Font Color": "ពណ៌ពុម្ពអក្សរ",
+          "Freeze when other players are running":
+              "បង្កកនៅពេលដែលអ្នកលេងផ្សេងទៀតកំពុងដំណើរការ",
+          "stop_audioduck":
+              "ផ្អាកនៅពេលដំណើរការការណែនាំសំឡេងរោទិ៍ / សំឡេងមួយផ្សេងទៀត",
+          "letter_spacing": "ការកំណត់គំលំអក្សរ",
+          "Are you sure you want to reset": "តើអ្នកពិតជាចង់កំណត់ឡើងវិញឬ?",
+          "Reset": "កំណត់ឡើងវិញ",
+          "Reset settings": "ចុចយូរឱ្យកំណត់ការកំណត់កំណត់ឡើងវិញ",
+          "history reset": "ចុចយូរឱ្យកំណត់ប្រវត្តិសាស្រ្តឡើងវិញ",
+          "filter reset": "ចុចយូរឱ្យកំណត់តម្រងឡើងវិញ",
         },
         "ky": {
           "key": "ky",
@@ -5471,8 +5972,6 @@ class Messages extends Translations {
           "pitch": "тон",
           "Number of lines to read at a time":
               "Бир убакта окуу үчүн саптардын саны",
-          "Freeze when other players are running":
-              "Башка оюнчулар иштеп жатканда тоңдургула",
           "Using the headset button": "Гарнитура баскычын колдонуу",
           "@num minutes": "@num мүнөт",
           "language": "Кыргызча",
@@ -5496,6 +5995,17 @@ class Messages extends Translations {
           "UI Settings": "UI жөндөө",
           "Background Color": "Фон түсү",
           "Font Color": "Арип түсү",
+          "Freeze when other players are running":
+              "Башка оюнчулар иштеп жатканда тоңдургула",
+          "stop_audioduck": "Дагы бир ойготкуч / үн жетектөөдө тыным жасаңыз",
+          "letter_spacing": "Катын аралаштыруу",
+          "Are you sure you want to reset":
+              "Сиз баштапкы абалга келүүнү каалайсызбы?",
+          "Reset": "Баштапкы абалга келтирүү",
+          "Reset settings":
+              "Жөндөөлөрдү баштапкы абалга келтирүү үчүн узак басыңыз",
+          "history reset": "Тарыхты калыбына келтирүү үчүн узак басма сөз",
+          "filter reset": "Чыпканы баштапкы абалга келтирүү үчүн узак басыңыз",
         },
         "ta": {
           "key": "ta",
@@ -5565,8 +6075,6 @@ class Messages extends Translations {
           "pitch": "பிட்ச்",
           "Number of lines to read at a time":
               "ஒரு நேரத்தில் படிக்க வரிகளின் எண்ணிக்கை",
-          "Freeze when other players are running":
-              "மற்ற வீரர்கள் இயங்கும் போது முடக்கம்",
           "Using the headset button": "ஹெட்செட் பட்டன் பயன்படுத்தி",
           "@num minutes": "@num நிமிடங்கள்",
           "language": "தமிழ்",
@@ -5590,6 +6098,17 @@ class Messages extends Translations {
           "UI Settings": "UI அமைத்தல்",
           "Background Color": "பின்னணி நிறம்",
           "Font Color": "எழுத்துரு நிறம்",
+          "Freeze when other players are running":
+              "மற்ற வீரர்கள் இயங்கும் போது முடக்கம்",
+          "stop_audioduck":
+              "மற்றொரு எச்சரிக்கை / குரல் வழிகாட்டல் இயங்கும் போது இடைநிறுத்தம்",
+          "letter_spacing": "கடிதம் இடைவெளி அமைப்பை",
+          "Are you sure you want to reset":
+              "நீங்கள் மீட்டமைக்க விரும்புகிறீர்களா?",
+          "Reset": "மீட்டமைக்க",
+          "Reset settings": "அமைப்புகளை மீட்டமைக்க நீண்ட செய்தி",
+          "history reset": "வரலாற்றை மீட்டமைக்க நீண்ட செய்தி",
+          "filter reset": "வடிகட்டி மீட்டமைக்க நீண்ட செய்தி",
         },
         "th": {
           "key": "th",
@@ -5656,8 +6175,6 @@ class Messages extends Translations {
           "pitch": "ขว้าง",
           "Number of lines to read at a time":
               "จำนวนบรรทัดที่จะอ่านในแต่ละครั้ง",
-          "Freeze when other players are running":
-              "ตรึงเมื่อผู้เล่นคนอื่นกำลังทำงานอยู่",
           "Using the headset button": "ใช้ปุ่มชุดหูฟัง",
           "@num minutes": "@num นาทีนาที",
           "language": "ไทย",
@@ -5681,6 +6198,16 @@ class Messages extends Translations {
           "UI Settings": "การตั้งค่า UI",
           "Background Color": "สีพื้นหลัง",
           "Font Color": "สีตัวอักษร",
+          "Freeze when other players are running":
+              "ตรึงเมื่อผู้เล่นคนอื่นกำลังทำงานอยู่",
+          "stop_audioduck":
+              "หยุดชั่วคราวเมื่อเรียกใช้คำแนะนำการเตือนภัย / เสียงอื่น",
+          "letter_spacing": "การตั้งค่าการเว้นวรรคจดหมาย",
+          "Are you sure you want to reset": "คุณแน่ใจหรือว่าต้องการรีเซ็ต?",
+          "Reset": "รีเซ็ต",
+          "Reset settings": "กดยาวเพื่อรีเซ็ตการตั้งค่า",
+          "history reset": "กดยาวเพื่อรีเซ็ตประวัติ",
+          "filter reset": "กดแบบยาวเพื่อรีเซ็ตตัวกรอง",
         },
         "tr": {
           "key": "tr",
@@ -5749,8 +6276,6 @@ class Messages extends Translations {
           "pitch": "saha",
           "Number of lines to read at a time":
               "Bir seferde okunacak satır sayısı",
-          "Freeze when other players are running":
-              "Diğer oyuncular kaçtığında don",
           "Using the headset button": "Kulaklık düğmesini kullanarak",
           "@num minutes": "@num dakika",
           "language": "Türk",
@@ -5774,6 +6299,17 @@ class Messages extends Translations {
           "UI Settings": "UI ayarı",
           "Background Color": "Arka plan rengi",
           "Font Color": "Yazı rengi",
+          "Freeze when other players are running":
+              "Diğer oyuncular kaçtığında don",
+          "stop_audioduck":
+              "Başka bir alarm / sesli rehberlik çalıştırırken duraklatma",
+          "letter_spacing": "Mektup aralığı ayarı",
+          "Are you sure you want to reset":
+              "Sıfırlamak istediğinize emin misiniz?",
+          "Reset": "Sıfırla",
+          "Reset settings": "Ayarları sıfırlamak için uzun basın",
+          "history reset": "Geçmişi sıfırlamak için uzun basın",
+          "filter reset": "Filtreyi sıfırlamak için uzun basın",
         },
         "te": {
           "key": "te",
@@ -5842,8 +6378,6 @@ class Messages extends Translations {
           "pitch": "పిచ్",
           "Number of lines to read at a time":
               "ఒక సమయంలో చదవడానికి పంక్తుల సంఖ్య",
-          "Freeze when other players are running":
-              "ఇతర ఆటగాళ్ళు నడుస్తున్నప్పుడు స్తంభింప",
           "Using the headset button": "హెడ్సెట్ బటన్ ఉపయోగించి",
           "@num minutes": "@num నిమిషాలు",
           "language": "తెలుగు",
@@ -5868,6 +6402,16 @@ class Messages extends Translations {
           "UI Settings": "UI సెట్టింగ్",
           "Background Color": "నేపథ్య రంగు",
           "Font Color": "ఫాంట్ రంగు",
+          "Freeze when other players are running":
+              "ఇతర ఆటగాళ్ళు నడుస్తున్నప్పుడు స్తంభింప",
+          "stop_audioduck":
+              "మరొక అలారం / వాయిస్ మార్గదర్శకత్వం నడుస్తున్నప్పుడు పాజ్ చేయండి",
+          "letter_spacing": "లెటర్ అంతరాన్ని సెట్టింగ్",
+          "Are you sure you want to reset": "మీరు రీసెట్ చేయాలనుకుంటున్నారా?",
+          "Reset": "రీసెట్ చేయండి",
+          "Reset settings": "సెట్టింగులను రీసెట్ చేయడానికి లాంగ్ ప్రెస్",
+          "history reset": "చరిత్రను రీసెట్ చేయడానికి లాంగ్ ప్రెస్",
+          "filter reset": "ఫిల్టర్ను రీసెట్ చేయడానికి లాంగ్ ప్రెస్",
         },
         "pa": {
           "key": "pa",
@@ -5933,8 +6477,6 @@ class Messages extends Translations {
           "pitch": "ਪਿੱਚ",
           "Number of lines to read at a time":
               "ਇਕ ਸਮੇਂ ਪੜ੍ਹਨ ਲਈ ਲਾਈਨਾਂ ਦੀ ਗਿਣਤੀ",
-          "Freeze when other players are running":
-              "ਫ੍ਰੀਜ਼ ਕਰੋ ਜਦੋਂ ਹੋਰ ਖਿਡਾਰੀ ਚੱਲ ਰਹੇ ਹਨ",
           "Using the headset button": "ਹੈੱਡਸੈੱਟ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ",
           "@num minutes": "@num ਮਿੰਟ",
           "language": "ਪੰਜਾਬੀ",
@@ -5958,6 +6500,16 @@ class Messages extends Translations {
           "UI Settings": "UI ਸੈਟਿੰਗ",
           "Background Color": "ਪਿਛੋਕੜ ਦਾ ਰੰਗ",
           "Font Color": "ਫੋਂਟ ਰੰਗ",
+          "Freeze when other players are running":
+              "ਫ੍ਰੀਜ਼ ਕਰੋ ਜਦੋਂ ਹੋਰ ਖਿਡਾਰੀ ਚੱਲ ਰਹੇ ਹਨ",
+          "stop_audioduck": "ਇਕ ਹੋਰ ਅਲਾਰਮ / ਅਵਾਜ਼ ਦੀ ਸੇਧ ਚਲਾਉਣ ਵੇਲੇ ਰੋਕੋ",
+          "letter_spacing": "ਪੱਤਰ ਦੀ ਦੂਰੀ ਸੈਟਿੰਗ",
+          "Are you sure you want to reset":
+              "ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ ਕਿ ਤੁਸੀਂ ਰੀਸੈਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+          "Reset": "ਰੀਸੈੱਟ",
+          "Reset settings": "ਸੈਟਿੰਗਜ਼ ਰੀਸੈਟ ਕਰਨ ਲਈ ਲੰਮੇ ਦਬਾਓ",
+          "history reset": "ਇਤਿਹਾਸ ਨੂੰ ਰੀਸੈਟ ਕਰਨ ਲਈ ਲੰਬੇ ਪ੍ਰੈਸ",
+          "filter reset": "ਫਿਲਟਰ ਰੀਸੈਟ ਕਰਨ ਲਈ ਲੰਮੇ ਦਬਾਓ",
         },
         "fa": {
           "key": "fa",
@@ -6025,8 +6577,6 @@ class Messages extends Translations {
           "pitch": "گام صدا",
           "Number of lines to read at a time":
               "تعداد خطوط برای خواندن در یک زمان",
-          "Freeze when other players are running":
-              "زمانی که بازیکنان دیگر در حال اجرا هستند، یخ زده شوند",
           "Using the headset button": "با استفاده از دکمه هدست",
           "@num minutes": "num دقیقه",
           "language": "فارسی",
@@ -6050,6 +6600,16 @@ class Messages extends Translations {
           "UI Settings": "تنظیم UI",
           "Background Color": "رنگ پس زمینه",
           "Font Color": "رنگ فونت",
+          "Freeze when other players are running":
+              "زمانی که بازیکنان دیگر در حال اجرا هستند، یخ زده شوند",
+          "stop_audioduck": "مکث را هنگام اجرای راهنمایی هشدار / صدای دیگر",
+          "letter_spacing": "تنظیم فاصله نامه",
+          "Are you sure you want to reset":
+              "آیا مطمئن هستید که میخواهید تنظیم مجدد کنید؟",
+          "Reset": "بازنشانی کردن",
+          "Reset settings": "فشار طولانی برای تنظیم مجدد تنظیمات",
+          "history reset": "مطبوعات طولانی برای تنظیم مجدد تاریخ",
+          "filter reset": "فشار طولانی برای تنظیم مجدد فیلتر",
         },
         "pt": {
           "key": "pt",
@@ -6120,8 +6680,6 @@ class Messages extends Translations {
           "pitch": "tom",
           "Number of lines to read at a time":
               "Número de linhas para ler de cada vez",
-          "Freeze when other players are running":
-              "Congelar quando outros jogadores estão funcionando",
           "Using the headset button": "Usando o botão de fone de ouvido",
           "@num minutes": "@num minutos.",
           "language": "Português (Brasil)",
@@ -6145,6 +6703,17 @@ class Messages extends Translations {
           "UI Settings": "Configuração da interface do usuário",
           "Background Color": "Cor de fundo",
           "Font Color": "Cor da fonte",
+          "Freeze when other players are running":
+              "Congelar quando outros jogadores estão funcionando",
+          "stop_audioduck":
+              "Pausa ao executar outra orientação de alarme / voz",
+          "letter_spacing": "Configuração de espaçamento de carta.",
+          "Are you sure you want to reset":
+              "Tem certeza de que deseja redefinir?",
+          "Reset": "Redefinir",
+          "Reset settings": "Pressione longa para redefinir as configurações",
+          "history reset": "Pressione longa para redefinir o histórico",
+          "filter reset": "Pressione longa para redefinir o filtro",
         },
         "pl": {
           "key": "pl",
@@ -6212,8 +6781,6 @@ class Messages extends Translations {
           "pitch": "poziom",
           "Number of lines to read at a time":
               "Liczba linii do czytania na raz",
-          "Freeze when other players are running":
-              "Zamrażać, gdy biegają innych graczy",
           "Using the headset button":
               "Korzystanie z przycisku zestawu słuchawkowego",
           "@num minutes": "@num minuty.",
@@ -6238,6 +6805,16 @@ class Messages extends Translations {
           "UI Settings": "Ustawienie ui.",
           "Background Color": "Kolor tła",
           "Font Color": "Kolor czcionki",
+          "Freeze when other players are running":
+              "Zamrażać, gdy biegają innych graczy",
+          "stop_audioduck":
+              "Pauza podczas uruchamiania innego alarmu / poradnictwa głosowego",
+          "letter_spacing": "Ustawienie odstępu",
+          "Are you sure you want to reset": "Czy na pewno chcesz zresetować?",
+          "Reset": "Resetowanie",
+          "Reset settings": "Długie naciśnij, aby zresetować ustawienia",
+          "history reset": "Długie naciśnięcie, aby zresetować historię",
+          "filter reset": "Długie naciśnięcie, aby zresetować filtr",
         },
         "fr": {
           "key": "fr",
@@ -6308,8 +6885,6 @@ class Messages extends Translations {
           "pitch": "terrain",
           "Number of lines to read at a time":
               "Nombre de lignes à lire à la fois",
-          "Freeze when other players are running":
-              "Geler quand d'autres joueurs sont en cours d'exécution",
           "Using the headset button": "Utilisation du bouton de casque",
           "@num minutes": "@num minutes",
           "language": "Français",
@@ -6333,6 +6908,18 @@ class Messages extends Translations {
           "UI Settings": "Réglage de l'interface utilisateur",
           "Background Color": "Couleur de l'arrière plan",
           "Font Color": "Couleur de la police",
+          "Freeze when other players are running":
+              "Geler quand d'autres joueurs sont en cours d'exécution",
+          "stop_audioduck":
+              "Pause lors de l'exécution d'une autre guidage d'alarme / voix",
+          "letter_spacing": "Cadre d'espacement des lettres",
+          "Are you sure you want to reset":
+              "Êtes-vous sûr de vouloir réinitialiser?",
+          "Reset": "Réinitialiser",
+          "Reset settings":
+              "Appuyez longuement pour réinitialiser les paramètres",
+          "history reset": "Appuyez longuement pour réinitialiser l'historique",
+          "filter reset": "Appuyez longuement pour réinitialiser le filtre",
         },
         "fi": {
           "key": "fi",
@@ -6398,8 +6985,6 @@ class Messages extends Translations {
           "pitch": "piki",
           "Number of lines to read at a time":
               "Linjojen lukumäärä lukemaan kerrallaan",
-          "Freeze when other players are running":
-              "Jäädyttää, kun muut pelaajat ovat käynnissä",
           "Using the headset button": "HF-painikkeen käyttäminen",
           "@num minutes": "@num minuuttia",
           "language": "Suomalainen",
@@ -6423,6 +7008,16 @@ class Messages extends Translations {
           "UI Settings": "UI-asetus",
           "Background Color": "Taustaväri",
           "Font Color": "Fontin väri",
+          "Freeze when other players are running":
+              "Jäädyttää, kun muut pelaajat ovat käynnissä",
+          "stop_audioduck":
+              "Keskeytä, kun käytät toista hälytystä / ääniohjausta",
+          "letter_spacing": "Kirjepakkausasetus",
+          "Are you sure you want to reset": "Haluatko varmasti nollata?",
+          "Reset": "Nollata",
+          "Reset settings": "Pitkä painallusasetusten nollaaminen",
+          "history reset": "Pitkä painallus palauttaa historia",
+          "filter reset": "Pitkä painallus palauttaa suodatin",
         },
         "fil": {
           "key": "fil",
@@ -6493,8 +7088,6 @@ class Messages extends Translations {
           "pitch": "Pitch.",
           "Number of lines to read at a time":
               "Bilang ng mga linya na basahin sa isang pagkakataon",
-          "Freeze when other players are running":
-              "I-freeze kapag tumatakbo ang iba pang mga manlalaro",
           "Using the headset button": "Gamit ang pindutan ng headset",
           "@num minutes": "@num minuto",
           "language": "Pilipinas",
@@ -6518,6 +7111,17 @@ class Messages extends Translations {
           "UI Settings": "UI setting.",
           "Background Color": "Kulay ng background",
           "Font Color": "Kulay ng font",
+          "Freeze when other players are running":
+              "I-freeze kapag tumatakbo ang iba pang mga manlalaro",
+          "stop_audioduck":
+              "I-pause kapag tumatakbo ang isa pang alarma / gabay ng boses",
+          "letter_spacing": "Letter Spacing Setting.",
+          "Are you sure you want to reset":
+              "Sigurado ka bang gusto mong i-reset?",
+          "Reset": "Reset.",
+          "Reset settings": "Long pindutin upang i-reset ang mga setting",
+          "history reset": "Long pindutin upang i-reset ang kasaysayan",
+          "filter reset": "Long pindutin upang i-reset ang filter",
         },
         "hu": {
           "key": "hu",
@@ -6585,8 +7189,6 @@ class Messages extends Translations {
           "volume": "hangerő",
           "pitch": "hangmagasság",
           "Number of lines to read at a time": "A sorok száma egyszerre",
-          "Freeze when other players are running":
-              "Fagyassza le, ha más játékosok futnak",
           "Using the headset button": "A fülhallgató gomb segítségével",
           "@num minutes": "@num perc",
           "language": "Magyar",
@@ -6611,6 +7213,16 @@ class Messages extends Translations {
           "UI Settings": "UI beállítás",
           "Background Color": "Háttérszín",
           "Font Color": "Betű szín",
+          "Freeze when other players are running":
+              "Fagyassza le, ha más játékosok futnak",
+          "stop_audioduck":
+              "Egy másik riasztás / hangutasítás futása esetén szünetel",
+          "letter_spacing": "Levéltávolság-beállítás",
+          "Are you sure you want to reset": "Biztosan vissza akar állítani?",
+          "Reset": "Visszaállítás",
+          "Reset settings": "Hosszú gombot a beállítások visszaállításához",
+          "history reset": "Hosszú nyomja meg a történelem visszaállításához",
+          "filter reset": "Hosszú nyomja meg a szűrő visszaállításához",
         },
         "iw": {
           "key": "iw",
@@ -6675,8 +7287,6 @@ class Messages extends Translations {
           "volume": "כרך",
           "pitch": "גובה הצליל",
           "Number of lines to read at a time": "מספר שורות לקריאה בכל פעם",
-          "Freeze when other players are running":
-              "להקפיא כאשר שחקנים אחרים פועלים",
           "Using the headset button": "באמצעות לחצן האוזניה",
           "@num minutes": "@num דקות",
           "language": "עברית",
@@ -6700,6 +7310,15 @@ class Messages extends Translations {
           "UI Settings": "הגדרת UI.",
           "Background Color": "צבע רקע",
           "Font Color": "צבע גופן",
+          "Freeze when other players are running":
+              "להקפיא כאשר שחקנים אחרים פועלים",
+          "stop_audioduck": "השהה בעת הפעלת הדרכה אחרת של אזעקה / קול",
+          "letter_spacing": "הגדרת ריווח אותיות",
+          "Are you sure you want to reset": "האם אתה בטוח שברצונך לאפס?",
+          "Reset": "אִתחוּל",
+          "Reset settings": "לחץ על כדי לאפס הגדרות",
+          "history reset": "לחץ ארוך לאפס את ההיסטוריה",
+          "filter reset": "לחץ על כדי לאפס את המסנן",
         },
         "hi": {
           "key": "hi",
@@ -6766,8 +7385,6 @@ class Messages extends Translations {
           "pitch": "आवाज़ का उतार - चढ़ाव",
           "Number of lines to read at a time":
               "एक समय में पढ़ने के लिए लाइनों की संख्या",
-          "Freeze when other players are running":
-              "फ्रीज जब अन्य खिलाड़ी चल रहे हैं",
           "Using the headset button": "हेडसेट बटन का उपयोग करना",
           "@num minutes": "@num मिनट",
           "language": "हिंदी",
@@ -6791,6 +7408,16 @@ class Messages extends Translations {
           "UI Settings": "यूआई सेटिंग",
           "Background Color": "पृष्ठभूमि का रंग",
           "Font Color": "लिपि का रंग",
+          "Freeze when other players are running":
+              "फ्रीज जब अन्य खिलाड़ी चल रहे हैं",
+          "stop_audioduck": "एक और अलार्म / आवाज मार्गदर्शन चलाते समय रोकें",
+          "letter_spacing": "पत्र रिक्ति सेटिंग",
+          "Are you sure you want to reset":
+              "क्या आप वाकई रीसेट करना चाहते हैं?",
+          "Reset": "रीसेट",
+          "Reset settings": "सेटिंग्स को रीसेट करने के लिए लंबे समय तक दबाएं",
+          "history reset": "इतिहास को रीसेट करने के लिए लंबे समय तक प्रेस",
+          "filter reset": "फ़िल्टर रीसेट करने के लिए लंबे समय तक दबाएं",
         },
       };
 }

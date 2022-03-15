@@ -209,9 +209,10 @@ class HistoryPage extends GetView<BoxCtl> {
                           subtitle: Column(
                             children: [
                               Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text("${"last position".tr} : "),
-                                  Text("${e.pos}"),
+                                  Text(
+                                      "${(e.pos / e.length * 100).toStringAsFixed(2)}% : ${e.pos}/${e.length}"),
                                   if (e.contentsLen > 0)
                                     Text(
                                         " (${e.contentsLen ~/ 160000} ${"books".tr})"),

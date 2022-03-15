@@ -247,6 +247,7 @@ class LibraryPage extends GetView<BoxCtl> {
                                     },
                                   )
                               ]);
+
                           return Card(
                               child: Slidable(
                                   key: UniqueKey(),
@@ -278,7 +279,7 @@ class LibraryPage extends GetView<BoxCtl> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                                 Text(
-                                                    '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}%'),
+                                                    '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}% : ${targetList.first.pos}/${targetList.first.length}'),
                                                 Row(children: [
                                                   Flexible(
                                                     child: Text(

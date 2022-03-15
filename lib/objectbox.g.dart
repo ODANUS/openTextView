@@ -116,7 +116,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(3, 1885558662605261282),
       name: 'SettingBox',
-      lastPropertyId: const IdUid(22, 8528881482135836602),
+      lastPropertyId: const IdUid(25, 2263105233079717582),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -228,6 +228,21 @@ final _entities = <ModelEntity>[
             id: const IdUid(22, 8528881482135836602),
             name: 'paddingBottom',
             type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(23, 8702205165485161650),
+            name: 'customFont',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(24, 1370296468046115098),
+            name: 'letterSpacing',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 2263105233079717582),
+            name: 'audioduck',
+            type: 1,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -377,7 +392,10 @@ ModelDefinition getObjectBoxModel() {
           final fontFamilyOffset = fbb.writeString(object.fontFamily);
           final themeOffset = fbb.writeString(object.theme);
           final lastDevVersionOffset = fbb.writeString(object.lastDevVersion);
-          fbb.startTable(23);
+          final customFontOffset = object.customFont == null
+              ? null
+              : fbb.writeString(object.customFont!);
+          fbb.startTable(26);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.fontSize);
           fbb.addInt64(2, object.fontWeight);
@@ -400,6 +418,9 @@ ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(19, object.paddingRight);
           fbb.addFloat64(20, object.paddingTop);
           fbb.addFloat64(21, object.paddingBottom);
+          fbb.addOffset(22, customFontOffset);
+          fbb.addFloat64(23, object.letterSpacing);
+          fbb.addBool(24, object.audioduck);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -415,8 +436,12 @@ ModelDefinition getObjectBoxModel() {
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0),
               fontFamily:
                   const fb.StringReader().vTableGet(buffer, rootOffset, 10, ''),
+              customFont: const fb.StringReader()
+                  .vTableGetNullable(buffer, rootOffset, 48),
               fontHeight:
                   const fb.Float64Reader().vTableGet(buffer, rootOffset, 12, 0),
+              letterSpacing:
+                  const fb.Float64Reader().vTableGet(buffer, rootOffset, 50, 0),
               speechRate:
                   const fb.Float64Reader().vTableGet(buffer, rootOffset, 14, 0),
               volume:
@@ -429,16 +454,15 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 26, false),
               audiosession: const fb.BoolReader()
                   .vTableGet(buffer, rootOffset, 28, false),
+              audioduck: const fb.BoolReader()
+                  .vTableGet(buffer, rootOffset, 52, false),
               touchLayout:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0),
-              useClipboard: const fb.BoolReader()
-                  .vTableGet(buffer, rootOffset, 24, false),
-              enablescroll: const fb.BoolReader()
-                  .vTableGet(buffer, rootOffset, 32, false),
-              theme:
-                  const fb.StringReader().vTableGet(buffer, rootOffset, 30, ''),
-              lastDevVersion:
-                  const fb.StringReader().vTableGet(buffer, rootOffset, 34, ''),
+              useClipboard:
+                  const fb.BoolReader().vTableGet(buffer, rootOffset, 24, false),
+              enablescroll: const fb.BoolReader().vTableGet(buffer, rootOffset, 32, false),
+              theme: const fb.StringReader().vTableGet(buffer, rootOffset, 30, ''),
+              lastDevVersion: const fb.StringReader().vTableGet(buffer, rootOffset, 34, ''),
               backgroundColor: const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0),
               fontColor: const fb.Int64Reader().vTableGet(buffer, rootOffset, 38, 0),
               paddingLeft: const fb.Float64Reader().vTableGet(buffer, rootOffset, 40, 0),
@@ -610,4 +634,16 @@ class SettingBox_ {
   /// see [SettingBox.paddingBottom]
   static final paddingBottom =
       QueryDoubleProperty<SettingBox>(_entities[2].properties[21]);
+
+  /// see [SettingBox.customFont]
+  static final customFont =
+      QueryStringProperty<SettingBox>(_entities[2].properties[22]);
+
+  /// see [SettingBox.letterSpacing]
+  static final letterSpacing =
+      QueryDoubleProperty<SettingBox>(_entities[2].properties[23]);
+
+  /// see [SettingBox.audioduck]
+  static final audioduck =
+      QueryBooleanProperty<SettingBox>(_entities[2].properties[24]);
 }

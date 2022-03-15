@@ -24,10 +24,8 @@ class AudioHandler extends BaseAudioHandler
   HistoryBox currentHistory = HistoryBox();
   List<String> contents = [];
   int lastProgrss = 0;
-
   AudioSession? session;
 
-  // mix in default seek callback implementations
   PlaybackState baseState = PlaybackState(
     controls: [
       // MediaControl.rewind,
@@ -64,25 +62,16 @@ class AudioHandler extends BaseAudioHandler
 
   int playstat = 0;
   bool listenPlaying = false;
+  bool listenPlayingduck = false;
   DateTime? autoExitDate;
+  var lastLine = 0;
 
   Completer<bool> _completer = Completer<bool>();
   Future<void> setTts() async {
     await tts?.setSpeechRate(setting.speechRate);
     await tts?.setVolume(setting.volume);
     await tts?.setPitch(setting.pitch);
-    // await tts.awaitSpeakCompletion(true);
   }
-
-  // Future<void> skipToPrevious() {
-  //   dev.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-  //   return super.skipToPrevious();
-  // }
-
-  // Future<void> skipToNext() {
-  //   dev.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-  //   return super.skipToNext();
-  // }
 
   Future<void> initTts() async {
     if (!bInitTts) {
@@ -97,20 +86,6 @@ class AudioHandler extends BaseAudioHandler
     setTts();
 
     tts?.awaitSpeakCompletion(true);
-
-    // tts.setStartHandler(() {});
-    // tts.setCompletionHandler(() {
-    //   _completer.complete(true);
-    // });
-    // tts.setProgressHandler(
-    //     (String text, int startOffset, int endOffset, String word) {});
-    // tts.setErrorHandler((msg) {
-    //   playstat = STAT_STOP;
-    //   _completer.complete(false);
-    // });
-    // tts.setCancelHandler(() {
-    //   _completer.complete(false);
-    // });
   }
 
   Future<bool> speak(String text) {
@@ -131,13 +106,24 @@ class AudioHandler extends BaseAudioHandler
     if (this.session == null) {
       this.session = await AudioSession.instance;
 
-      await this.session!.configure(AudioSessionConfiguration.speech());
+      await this.session!.configure(AudioSessionConfiguration.music());
       session!.devicesChangedEventStream.listen((event) {
         if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
           this.stop();
         }
       });
-      this.session!.interruptionEventStream.listen((event) {
+
+      session!.interruptionEventStream.listen((event) {
+        if (event.type == AudioInterruptionType.duck && setting.audioduck) {
+          if (event.begin) {
+            bool laststat = playstat == STAT_PLAY;
+            this.pause();
+            listenPlayingduck = laststat;
+          } else if (listenPlayingduck == true) {
+            this.play();
+          }
+          return;
+        }
         if (event.type == AudioInterruptionType.pause && setting.audiosession) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
@@ -148,6 +134,7 @@ class AudioHandler extends BaseAudioHandler
           }
           return;
         }
+
         if (event.begin && event.type == AudioInterruptionType.unknown) {
           if (setting.audiosession) {
             this.pause();
@@ -156,7 +143,11 @@ class AudioHandler extends BaseAudioHandler
       });
     }
 
-    this.session!.setActive(true);
+    this.session?.setActive(true,
+        androidWillPauseWhenDucked: true,
+        androidAudioAttributes: AndroidAudioAttributes(
+          contentType: AndroidAudioContentType.music,
+        ));
 
     await initTts();
     mediaItem.add(MediaItem(
@@ -258,10 +249,11 @@ class AudioHandler extends BaseAudioHandler
           .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
       currentHistory.pos = i;
-      if (lastProgrss > 1 && speakText.length > lastProgrss) {
+      if (lastProgrss > 1 && speakText.length > lastProgrss && lastLine == i) {
         speakText = speakText.substring(lastProgrss - 1);
         lastProgrss = 0;
       }
+      lastLine = i;
       // bool bspeak = await speak(speakText);
       var bspeak = await tts?.speak(speakText);
       errorCnt++;

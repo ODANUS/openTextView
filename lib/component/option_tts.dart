@@ -156,6 +156,18 @@ class OptionTts extends GetView<BoxCtl> {
                 padding: EdgeInsets.only(left: 20, right: 20),
                 child: CheckboxListTile(
                     contentPadding: EdgeInsets.all(0),
+                    title: Text("stop_audioduck".tr),
+                    value: tts.audioduck,
+                    onChanged: (b) {
+                      setting.update((val) {
+                        tts.audioduck = b!;
+                      });
+                    }),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: CheckboxListTile(
+                    contentPadding: EdgeInsets.all(0),
                     title: Text("Freeze when other players are running".tr),
                     value: tts.audiosession,
                     onChanged: (b) {

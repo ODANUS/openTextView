@@ -49,13 +49,16 @@ class SettingBox {
     this.fontSize = 14,
     this.fontWeight = 3,
     this.fontFamily = "",
+    this.customFont,
     this.fontHeight = 1.4,
+    this.letterSpacing = 0,
     this.speechRate = 1,
     this.volume = 1.0,
     this.pitch = 1.0,
     this.groupcnt = 5,
     this.headsetbutton = false,
     this.audiosession = true,
+    this.audioduck = true,
     this.touchLayout = 0,
     this.useClipboard = true,
     this.enablescroll = false,
@@ -72,7 +75,9 @@ class SettingBox {
   int fontSize;
   int fontWeight;
   String fontFamily;
+  String? customFont;
   double fontHeight;
+  double letterSpacing;
   double speechRate;
   double volume;
   double pitch;
@@ -83,6 +88,7 @@ class SettingBox {
   bool headsetbutton;
   bool enablescroll;
   bool audiosession;
+  bool audioduck;
   String lastDevVersion;
   int backgroundColor = 0x00FFFFFF;
   int fontColor;
@@ -102,6 +108,8 @@ class SettingBox {
       fontWeight: json["fontWeight"] ?? 3,
       fontFamily: json["fontFamily"] ?? "",
       fontHeight: json["fontHeight"] ?? 1.4,
+      letterSpacing: json["letterSpacing"] ?? 0,
+      customFont: json["customFont"] ?? null,
       speechRate:
           json["speechRate"] == null ? 1 : json["speechRate"].toDouble(),
       volume: json["volume"] ?? 1,
@@ -111,6 +119,7 @@ class SettingBox {
       headsetbutton: json["headsetbutton"] ?? false,
       enablescroll: json["enablescroll"] ?? false,
       audiosession: json["audiosession"] ?? true,
+      audioduck: json["audioduck"] ?? true,
       touchLayout: json["touchLayout"] ?? 0,
       useClipboard: json["useClipboard"] ?? true,
       lastDevVersion: json["lastDevVersion"] ?? "",
@@ -124,10 +133,12 @@ class SettingBox {
   }
 
   Map<String, dynamic> toMap() => {
+        "customFont": customFont,
         "fontSize": fontSize,
         "fontWeight": fontWeight,
         "fontFamily": fontFamily,
         "fontHeight": fontHeight,
+        "letterSpacing": letterSpacing,
         "speechRate": speechRate,
         "volume": volume,
         "pitch": pitch,
@@ -135,6 +146,7 @@ class SettingBox {
         "headsetbutton": headsetbutton,
         "enablescroll": enablescroll,
         "audiosession": audiosession,
+        "audioduck": audioduck,
         "touchLayout": touchLayout,
         "useClipboard": useClipboard,
         "lastDevVersion": lastDevVersion,

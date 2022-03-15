@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io'; // for exit();
 import 'dart:async';
 
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:googleapis/calendar/v3.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/user_data.dart';
@@ -341,6 +343,21 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
   editHistory(HistoryBox v) {
     var idx = historyBox!.put(v);
+  }
+
+  resetHistory() {
+    historyBox!.removeAll();
+  }
+
+  resetSetting() {
+    settingBox!.removeAll();
+    settingBox!.put(SettingBox());
+    initValue();
+  }
+
+  resetFilter() {
+    filterBox!.removeAll();
+    initValue();
   }
 
   Map<String, dynamic> data2Map() {

@@ -11,6 +11,7 @@ import 'package:open_textview/component/option_filter.dart';
 import 'package:open_textview/component/option_layout.dart';
 import 'package:open_textview/component/option_osslicense.dart';
 import 'package:open_textview/component/option_popup_ads.dart';
+import 'package:open_textview/component/option_reset.dart';
 import 'package:open_textview/component/option_review.dart';
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
@@ -64,6 +65,8 @@ class SettingPage extends GetView<BoxCtl> {
                 }),
           ),
           Card(child: OptionOsslicense()),
+          Card(child: OptionReset()),
+
           Divider(),
           if (kDebugMode)
             ElevatedButton(
