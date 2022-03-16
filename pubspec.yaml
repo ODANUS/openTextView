@@ -125,22 +125,23 @@ flutter:
   fonts:
     - family: NanumGothic
       fonts:
-        - asset: assets/fonts/NanumGothic-Regular.ttf
+        - asset: assets/fonts/NanumGothic.otf
+
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans-Medium.ttf
-        - asset: assets/fonts/OpenSans-Bold.ttf
-          weight: 700
+
     - family: ReadexPro
       fonts:
         - asset: assets/fonts/ReadexPro-Medium.ttf
-        - asset: assets/fonts/ReadexPro-Bold.ttf
-          weight: 700
+
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Medium.ttf
-        - asset: assets/fonts/Roboto-Bold.ttf
-          weight: 700
+    
+    - family: NanumMyeongjo
+      fonts:
+        - asset: assets/fonts/NanumMyeongjo.otf
     
     
   #

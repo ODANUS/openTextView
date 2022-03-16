@@ -22,6 +22,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     "OpenSans",
     "ReadexPro",
     "Roboto",
+    "NanumMyeongjo",
   ];
 
   static Store? store;

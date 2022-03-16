@@ -99,7 +99,7 @@ class HistoryPage extends GetView<BoxCtl> {
                     }
                     String total_books = "";
                     if (e.contentsLen > 0) {
-                      total_books = "${e.contentsLen ~/ 160000}권";
+                      total_books = "${e.contentsLen ~/ 160000}${"books".tr}";
                     }
                     return '$imageUri,"${e.name.split(".").first}","${e.pos}","${e.date}",$pos,$total_books,${e.memo}';
                   })

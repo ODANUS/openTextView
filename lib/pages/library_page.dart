@@ -279,7 +279,7 @@ class LibraryPage extends GetView<BoxCtl> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                                 Text(
-                                                    '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}% : ${targetList.first.pos}/${targetList.first.length}'),
+                                                    '${(targetList.first.pos / targetList.first.length * 100).toStringAsFixed(2)}% (${targetList.first.contentsLen ~/ 160000}${"books".tr})'),
                                                 Row(children: [
                                                   Flexible(
                                                     child: Text(
