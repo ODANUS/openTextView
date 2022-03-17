@@ -134,6 +134,12 @@ class ReadPage extends GetView<BoxCtl> {
                                           .value
                                       : controller.setting.value.fontColor);
 
+                              bool bHide = false;
+                              if (controller.bFullScreen.value &&
+                                  controller.max != controller.min &&
+                                  controller.max == idx) {
+                                bHide = true;
+                              }
                               return Obx(() => InkWell(
                                     onLongPress: controller
                                             .setting.value.useClipboard
@@ -164,10 +170,7 @@ class ReadPage extends GetView<BoxCtl> {
                                                 : null),
                                         child: Text("$text",
                                             style: TextStyle(
-                                              color: controller
-                                                          .bFullScreen.value &&
-                                                      controller.max <= idx &&
-                                                      controller.max + 2 >= idx
+                                              color: bHide
                                                   ? Colors.transparent
                                                   : textcolor.withOpacity(1),
                                               fontSize: controller

@@ -161,36 +161,35 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
       var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
               ItemPosition position) =>
           position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
-      // var maxPos = itemPosListener.itemPositions.value
-      //     .where((ItemPosition position) => position.itemLeadingEdge < 1)
-      //     .reduce((ItemPosition max, ItemPosition position) =>
-      //         position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
-      // var offset = (minPos.itemLeadingEdge + 1).toStringAsFixed(1);
 
-      // max = minPos.index + 1;
-      itemScrollctl.jumpTo(index: minPos.index, alignment: 1);
+      itemScrollctl.jumpTo(
+        index: minPos.index,
+        alignment: minPos.itemLeadingEdge + 1,
+      );
+
+      // itemScrollctl.jumpTo(
+      //     index: minPos.index, alignment: minPos.itemTrailingEdge + 1);
       // , alignment: 1 + double.parse(offset));
     }
   }
 
   nextPage() {
     if (max > 0 && contents.length > 0 && bFullScreen.value) {
-      // var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
-      //         ItemPosition position) =>
-      //     position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
-      // itemScrollctl.jumpTo(index: minPos.index, alignment: 0);
       var maxPos = itemPosListener.itemPositions.value
           .where((ItemPosition position) => position.itemLeadingEdge < 1)
           .reduce((ItemPosition max, ItemPosition position) =>
               position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
 
-      var offset = (maxPos.itemLeadingEdge - 1).toStringAsFixed(1);
+      if (max - 1 < min) {
+        double tPos = maxPos.itemLeadingEdge - 0.98;
+        itemScrollctl.jumpTo(
+          index: maxPos.index,
+          alignment: tPos,
+        );
+        return;
+      }
       max = maxPos.index;
-      itemScrollctl.jumpTo(index: maxPos.index, alignment: 0);
-      // itemScrollctl.jumpTo(
-      //     index: maxPos.index,
-      //     alignment:
-      //         double.parse((0 - double.parse(offset)).toStringAsFixed(1)));
+      itemScrollctl.jumpTo(index: maxPos.index);
     }
   }
 
