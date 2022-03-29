@@ -1,63 +1,89 @@
-import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 
 import 'package:get/get.dart';
-import 'package:open_textview/box_ctl.dart';
-import 'package:open_textview/controller/audio_play.dart';
+import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/pages/history_page.dart';
-// import 'package:open_textview/pages/image_viewer_page.dart';
 import 'package:open_textview/pages/library_page.dart';
 import 'package:open_textview/pages/read_page.dart';
 import 'package:open_textview/pages/setting_page.dart';
 
-class MainPage extends GetView<BoxCtl> {
+class MainPage extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => IndexedStack(index: controller.tabIndex.value, children: [
+      body: Obx(() => IndexedStack(index: IsarCtl.tabIndex.value, children: [
             ReadPage(),
-            // ImageViewerPage(),
             LibraryPage(),
             SettingPage(),
             HistoryPage(),
           ])),
 
-      bottomNavigationBar: Obx(() {
-        if (controller.bFullScreen.value) {
-          return SizedBox();
-        }
+      bottomNavigationBar: Obx(
+        () => AnimatedContainer(
+          key: Key("bottombar"),
+          color: Colors.transparent,
+          duration: const Duration(milliseconds: 300),
+          height: IsarCtl.bfullScreen.value ? 0 : 60,
+          // transform: Matrix4.translationValues(
+          //     0, IsarCtl.bfullScreen.value ? 60 : 0, 0),
+          // onEnd: () => v(IsarCtl.bfullScreen.value),
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              BottomNavigationBar(
 
-        return BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: controller.tabIndex.value,
-            onTap: (idx) => controller.tabIndex(idx),
-            items: [
-              BottomNavigationBarItem(
-                label: "text_viewer".tr,
-                icon: Icon(Icons.menu_book_outlined),
-              ),
-              // BottomNavigationBarItem(
-              //   label: "이미지 뷰어",
-              //   icon: Icon(Icons.image_outlined),
-              // ),
-              BottomNavigationBarItem(
-                label: "my_library".tr,
-                icon: Icon(Ionicons.library_outline),
-              ),
-              BottomNavigationBarItem(
-                label: "Settings".tr,
-                icon: Icon(Ionicons.settings_outline),
-              ),
-              BottomNavigationBarItem(
-                label: "history".tr,
-                icon: Icon(Icons.history),
-              ),
-            ]);
-      }),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
-      // floatingActionButton: FloatingButton(),
+                  // backgroundColor: Colors.red,
+                  type: BottomNavigationBarType.fixed,
+                  currentIndex: IsarCtl.tabIndex.value,
+                  onTap: IsarCtl.tabIndex,
+                  items: [
+                    BottomNavigationBarItem(
+                      label: "text_viewer".tr,
+                      icon: Icon(Icons.menu_book_outlined),
+                    ),
+                    BottomNavigationBarItem(
+                      label: "my_library".tr,
+                      icon: Icon(Ionicons.library_outline),
+                    ),
+                    BottomNavigationBarItem(
+                      label: "Settings".tr,
+                      icon: Icon(Ionicons.settings_outline),
+                    ),
+                    BottomNavigationBarItem(
+                      label: "history".tr,
+                      icon: Icon(Icons.history),
+                    ),
+                  ]),
+            ],
+          ),
+        ),
+      ),
+
+      // Obx(() => IsarCtl.bfullScreen.value
+      //     ? SizedBox()
+      //     : BottomNavigationBar(
+      //         type: BottomNavigationBarType.fixed,
+      //         currentIndex: IsarCtl.tabIndex.value,
+      //         onTap: IsarCtl.tabIndex,
+      //         items: [
+      //             BottomNavigationBarItem(
+      //               label: "text_viewer".tr,
+      //               icon: Icon(Icons.menu_book_outlined),
+      //             ),
+      //             BottomNavigationBarItem(
+      //               label: "my_library".tr,
+      //               icon: Icon(Ionicons.library_outline),
+      //             ),
+      //             BottomNavigationBarItem(
+      //               label: "Settings".tr,
+      //               icon: Icon(Ionicons.settings_outline),
+      //             ),
+      //             BottomNavigationBarItem(
+      //               label: "history".tr,
+      //               icon: Icon(Icons.history),
+      //             ),
+      //           ])),
     );
   }
 }

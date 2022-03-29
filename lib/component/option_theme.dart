@@ -2,78 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
 
-class OptionThemeCtl extends GetxController {
-  // RxList<File> backupFiles = RxList<File>();
-  Rx<bool> isLoading = false.obs;
-}
-
-class OptionTheme extends GetView<BoxCtl> {
+class OptionTheme extends GetView {
+  OptionTheme({
+    required this.value,
+    required this.onChanged,
+  });
+  String value;
+  Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
-    final pageCtl = Get.put(OptionThemeCtl());
-
-    return Obx(() => Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Row(
-                  children: [
-                    Radio(
-                        groupValue: controller.setting.value.theme,
-                        value: "light",
-                        onChanged: (v) {
-                          controller.setting.update((val) {
-                            val!.theme = "light";
-                          });
-                          Get.changeTheme(ThemeData.light());
-                        }),
-                    Text('light theme'.tr),
-                  ],
-                ),
-                Row(children: [
-                  Radio(
-                      groupValue: controller.setting.value.theme,
-                      value: "dark",
-                      onChanged: (v) {
-                        controller.setting.update((val) {
-                          val!.theme = "dark";
-                        });
-                        Get.changeTheme(ThemeData.dark());
-                      }),
-                  Text('Dark theme'.tr),
-                ]),
-              ],
-            )
-        // ExpansionTile(
-        //   onExpansionChanged: (b) async {},
-        //   title: Text("Style Theme settings".tr),
-        //   children: [
-        //     ListTile(
-        //         title: Text('light theme'.tr),
-        //         onTap: () {
-        //           controller.userData.update((val) {
-        //             val!.theme = "light";
-        //           });
-        //           Get.changeTheme(ThemeData.light());
-        //         }),
-        //     ListTile(
-        //         title: Text('Dark theme'.tr),
-        //         onTap: () {
-        //           controller.userData.update((val) {
-        //             val!.theme = "dark";
-        //           });
-        //           Get.changeTheme(ThemeData.dark());
-        //         }),
-        //   ],
-        // ),
-        // if (pageCtl.isLoading.value)
-        //   Positioned.fill(
-        //     child: Container(
-        //       color: Colors.black12,
-        //       alignment: Alignment.center,
-        //       child: CircularProgressIndicator(),
-        //     ),
-        //   ),
-
-        );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Row(
+          children: [
+            Radio<String>(
+                groupValue: value,
+                value: "light",
+                onChanged: (String? v) {
+                  onChanged("light");
+                }),
+            Text('light theme'.tr),
+          ],
+        ),
+        Row(children: [
+          Radio(
+              groupValue: value,
+              value: "dark",
+              onChanged: (v) {
+                onChanged("dark");
+              }),
+          Text('Dark theme'.tr),
+        ]),
+      ],
+    );
   }
 }

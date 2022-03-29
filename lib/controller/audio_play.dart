@@ -6,56 +6,86 @@ import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:isar/isar.dart';
 import 'package:open_textview/box_ctl.dart';
+import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/box_model.dart';
-import 'package:open_textview/model/user_data.dart';
+import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/objectbox.g.dart';
+import 'package:path_provider/path_provider.dart';
 
 class AudioHandler extends BaseAudioHandler
     with
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
-  AudioHandler() {}
+  AudioHandler() {
+    AudioSession.instance.then((session) async {
+      this.session = session;
+      await this.session!.configure(AudioSessionConfiguration.music());
+      this.session!.devicesChangedEventStream.listen((event) {
+        if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
+          this.stop();
+        }
+      });
+
+      this.session!.interruptionEventStream.listen((event) {
+        if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
+          if (event.begin) {
+            bool laststat = playstat == STAT_PLAY;
+            this.pause();
+            listenPlayingduck = laststat;
+          } else if (listenPlayingduck == true) {
+            this.play();
+          }
+          return;
+        }
+        if (event.type == AudioInterruptionType.pause && (IsarCtl.setting?.audiosession ?? true)) {
+          if (event.begin) {
+            bool laststat = playstat == STAT_PLAY;
+            this.pause();
+            listenPlaying = laststat;
+          } else if (listenPlaying == true) {
+            this.play();
+          }
+          return;
+        }
+
+        if (event.begin && event.type == AudioInterruptionType.unknown) {
+          if (IsarCtl.setting?.audiosession ?? true) {
+            this.pause();
+          } else {}
+        }
+      });
+    });
+
+    IsarCtl.streamSetting.listen((event) {
+      if (tts != null) {
+        setTts();
+      }
+    });
+  }
 
   FlutterTts? tts;
   bool bInitTts = false;
-  SettingBox setting = SettingBox();
-  List<FilterBox> filter = List.of([FilterBox()]);
-  HistoryBox currentHistory = HistoryBox();
-  List<String> contents = [];
+  // SettingBox setting = SettingBox();
+  // List<FilterBox> filter = List.of([FilterBox()]);
+  // HistoryBox currentHistory = HistoryBox();
+  // List<String> contents = [];
   int lastProgrss = 0;
   AudioSession? session;
 
   PlaybackState baseState = PlaybackState(
     controls: [
-      // MediaControl.rewind,
       MediaControl.pause,
       MediaControl.stop,
-      // MediaControl.fastForward,
     ],
-    // systemActions: const {
-    //   MediaAction.seek,
-    //   MediaAction.skipToNext,
-    //   MediaAction.skipToPrevious,
-    // },
-    // systemActions: const {
-    //   MediaAction.pause,
-    //   MediaAction.play,
-    //   MediaAction.stop,
-    // },
-
     androidCompactActionIndices: const [0, 1],
     processingState: AudioProcessingState.ready,
     playing: true,
     speed: 0,
   );
 
-  MediaItem baseItem = MediaItem(
-      id: 'tts',
-      album: 'tts',
-      title: '',
-      artist: '',
-      duration: const Duration(milliseconds: 1000000));
+  MediaItem baseItem = MediaItem(id: 'tts', album: 'tts', title: '', artist: '', duration: const Duration(milliseconds: 1000000));
   final int STAT_STOP = 0;
   final int STAT_PLAY = 1;
   final int STAT_PAUSE = 2;
@@ -66,11 +96,10 @@ class AudioHandler extends BaseAudioHandler
   DateTime? autoExitDate;
   var lastLine = 0;
 
-  Completer<bool> _completer = Completer<bool>();
   Future<void> setTts() async {
-    await tts?.setSpeechRate(setting.speechRate);
-    await tts?.setVolume(setting.volume);
-    await tts?.setPitch(setting.pitch);
+    await tts?.setSpeechRate(IsarCtl.setting?.speechRate ?? 1);
+    await tts?.setVolume(IsarCtl.setting?.volume ?? 1);
+    await tts?.setPitch(IsarCtl.setting?.pitch ?? 1.0);
   }
 
   Future<void> initTts() async {
@@ -88,118 +117,36 @@ class AudioHandler extends BaseAudioHandler
     tts?.awaitSpeakCompletion(true);
   }
 
-  Future<bool> speak(String text) {
-    _completer = Completer<bool>();
-    try {
-      tts?.speak(text);
-    } catch (e) {
-      _completer.complete(false);
-    }
-    return _completer.future;
-  }
-
   // onplay
   Future<void> play() async {
     playstat = STAT_PLAY;
     AudioService.androidForceEnableMediaButtons();
-
-    if (this.session == null) {
-      this.session = await AudioSession.instance;
-
-      await this.session!.configure(AudioSessionConfiguration.music());
-      session!.devicesChangedEventStream.listen((event) {
-        if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
-          this.stop();
-        }
-      });
-
-      session!.interruptionEventStream.listen((event) {
-        if (event.type == AudioInterruptionType.duck && setting.audioduck) {
-          if (event.begin) {
-            bool laststat = playstat == STAT_PLAY;
-            this.pause();
-            listenPlayingduck = laststat;
-          } else if (listenPlayingduck == true) {
-            this.play();
-          }
-          return;
-        }
-        if (event.type == AudioInterruptionType.pause && setting.audiosession) {
-          if (event.begin) {
-            bool laststat = playstat == STAT_PLAY;
-            this.pause();
-            listenPlaying = laststat;
-          } else if (listenPlaying == true) {
-            this.play();
-          }
-          return;
-        }
-
-        if (event.begin && event.type == AudioInterruptionType.unknown) {
-          if (setting.audiosession) {
-            this.pause();
-          } else {}
-        }
-      });
-    }
 
     this.session?.setActive(true,
         androidWillPauseWhenDucked: true,
         androidAudioAttributes: AndroidAudioAttributes(
           contentType: AndroidAudioContentType.music,
         ));
+    mediaItem.add(MediaItem(
+      id: 'opentextView',
+      album: '',
+      title: 'testestes',
+      duration: Duration(seconds: 10000),
+    ));
+    playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: 100)));
+
+    int pos = IsarCtl.tctl.pos;
+    List<String> contents = IsarCtl.contents.map((e) => e.text).toList();
+    HistoryIsar history = IsarCtl.lastHistory!;
+    SettingIsar setting = IsarCtl.setting!;
 
     await initTts();
     mediaItem.add(MediaItem(
       id: 'opentextView',
       album: '',
-      title: '${currentHistory.name}',
+      title: '${history.name}',
       duration: Duration(seconds: contents.length),
     ));
-
-    // while (contents.isNotEmpty) {
-    //   int end = min(ttsOption.groupcnt, contents.length);
-    //   String speakText = contents.getRange(0, end).join("\n");
-    //   filter.forEach((e) {
-    //     if (e.enable) {
-    //       if (e.expr) {
-    //         speakText =
-    //             speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
-    //       } else {
-    //         speakText = speakText.replaceAll(e.filter, e.to);
-    //       }
-    //     }
-    //   });
-    //   if (this.autoExitDate != null) {
-    //     mediaItem.first.then((e) {
-    //       var now = DateTime.now();
-    //       if (autoExitDate!.isBefore(now)) {
-    //         autoExitDate = null;
-    //         this.stop();
-    //       } else {
-    //         var ss = autoExitDate!.difference(now);
-    //         mediaItem.add(e!.copyWith(
-    //             album: "Auto_shut_down_after_@min_minute"
-    //                 .trParams({"min": ss.inMinutes.toString()})));
-    //       }
-    //     });
-    //   }
-
-    //   playbackState.add(baseState.copyWith(
-    //       updatePosition: Duration(seconds: contentsLength - contents.length)));
-    //   bool bspeak = await speak(speakText);
-    //   if (!bspeak) {
-    //     break;
-    //   }
-    //   contents.removeRange(0, end);
-    //   if (contents.isEmpty) {
-    //     stop();
-    //     break;
-    //   }
-    // }
-
-    // ====================================
-
     tts!.setProgressHandler((text, start, end, word) {
       lastProgrss = start;
     });
@@ -208,9 +155,7 @@ class AudioHandler extends BaseAudioHandler
       errorCnt = 0;
     });
 
-    for (var i = currentHistory.pos;
-        i < contents.length;
-        i += setting.groupcnt) {
+    for (var i = pos; i < contents.length; i += setting.groupcnt) {
       Store? store;
       try {
         store = await BoxCtl.createStore();
@@ -221,11 +166,10 @@ class AudioHandler extends BaseAudioHandler
 
       String speakText = contents.getRange(i, end).join("\n");
 
-      filter.forEach((e) {
+      IsarCtl.filters.forEach((e) {
         if (e.enable) {
           if (e.expr) {
-            speakText =
-                speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+            speakText = speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
           } else {
             speakText = speakText.replaceAll(e.filter, e.to);
           }
@@ -239,36 +183,35 @@ class AudioHandler extends BaseAudioHandler
             this.stop();
           } else {
             var ss = autoExitDate!.difference(now);
-            mediaItem.add(e!.copyWith(
-                album: "Auto_shut_down_after_@min_minute"
-                    .trParams({"min": ss.inMinutes.toString()})));
+            mediaItem.add(e!.copyWith(album: "Auto_shut_down_after_@min_minute".trParams({"min": ss.inMinutes.toString()})));
           }
         });
       }
-      playbackState
-          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
+      playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
-      currentHistory.pos = i;
+      IsarCtl.pos = i;
+      try {
+        IsarCtl.tctl.offsetY = 0;
+        IsarCtl.tctl.bHighlight = true;
+        IsarCtl.tctl.highlightPos = i;
+        IsarCtl.tctl.highlightCnt = setting.groupcnt;
+      } catch (e) {}
       if (lastProgrss > 1 && speakText.length > lastProgrss && lastLine == i) {
         speakText = speakText.substring(lastProgrss - 1);
         lastProgrss = 0;
       }
       lastLine = i;
-      // bool bspeak = await speak(speakText);
+
       var bspeak = await tts?.speak(speakText);
       errorCnt++;
       if (errorCnt > 6) {
-        currentHistory.pos -= (errorCnt + 1) * setting.groupcnt;
+        IsarCtl.pos -= (errorCnt + 1) * setting.groupcnt;
         stop();
       }
       if (bspeak == null) {
         stop();
       }
       lastProgrss = 0;
-
-      try {
-        store?.box<HistoryBox>().put(currentHistory);
-      } catch (e) {}
 
       if (end >= contents.length) {
         stop();
@@ -288,11 +231,14 @@ class AudioHandler extends BaseAudioHandler
           ],
           androidCompactActionIndices: const [0, 1],
           processingState: AudioProcessingState.completed,
-          updatePosition: Duration(seconds: currentHistory.pos),
+          updatePosition: Duration(seconds: IsarCtl.pos),
           playing: false,
         ));
 
     playstat = STAT_PAUSE;
+    try {
+      IsarCtl.tctl.bHighlight = false;
+    } catch (e) {}
     super.pause();
   }
 
@@ -306,29 +252,14 @@ class AudioHandler extends BaseAudioHandler
     // await playbackState.firstWhere(
     //     (state) => state.processingState == AudioProcessingState.idle);
     playstat = STAT_STOP;
+    try {
+      IsarCtl.tctl.bHighlight = false;
+    } catch (e) {}
     super.stop();
   }
 
   @override
-  Future<dynamic> customAction(String name,
-      [Map<String, dynamic>? extras]) async {
-    if (name == "init" && extras != null) {
-      this.contents = List<String>.from(extras["contents"]);
-      this.setting = SettingBox.fromMap(extras["setting"]);
-      this.filter = (extras["filter"] as List<Map<String, dynamic>>)
-          .map((e) => FilterBox.fromMap(e))
-          .toList();
-      this.currentHistory = HistoryBox.fromMap(extras["currentHistory"]);
-    }
-    if (name == "setting" && extras != null) {
-      this.setting = SettingBox.fromMap(extras["setting"]);
-      setTts();
-    }
-    if (name == "filter" && extras != null) {
-      this.filter = (extras["filter"] as List<Map<String, dynamic>>)
-          .map((e) => FilterBox.fromMap(e))
-          .toList();
-    }
+  Future<dynamic> customAction(String name, [Map<String, dynamic>? extras]) async {
     if (name == "autoExit" && extras != null) {
       this.autoExitDate = extras["autoExit"];
     }
@@ -336,7 +267,7 @@ class AudioHandler extends BaseAudioHandler
 
   @override
   Future<void> click([MediaButton button = MediaButton.media]) async {
-    if (setting.headsetbutton) {
+    if (IsarCtl.setting?.headsetbutton ?? false) {
       if (playstat == STAT_PLAY) {
         pause();
       } else if (playstat == STAT_PAUSE) {
@@ -368,28 +299,28 @@ class AudioPlay {
     return _audioHandler;
   }
 
-  static lisen(Function(PlaybackState) fn) {
-    lisenFunction.add(fn);
-  }
+  // static lisen(Function(PlaybackState) fn) {
+  //   lisenFunction.add(fn);
+  // }
 
-  static removeLisen(Function(PlaybackState) fn) {
-    lisenFunction.remove(fn);
-  }
+  // static removeLisen(Function(PlaybackState) fn) {
+  //   lisenFunction.remove(fn);
+  // }
 
-  static setSetting({
-    required SettingBox setting,
-  }) {
-    _audioHandler!.customAction("setting", {
-      "setting": setting.toMap(),
-    });
-  }
+  // static setSetting({
+  //   required SettingBox setting,
+  // }) {
+  //   // _audioHandler!.customAction("setting", {
+  //   //   "setting": setting.toMap(),
+  //   // });
+  // }
 
   static setFilter({
     required List<FilterBox> filter,
   }) {
-    _audioHandler!.customAction("filter", {
-      "filter": filter.map((e) => e.toMap()).toList(),
-    });
+    // _audioHandler!.customAction("filter", {
+    //   "filter": filter.map((e) => e.toMap()).toList(),
+    // });
   }
 
   static setAutoExit({required DateTime t}) {
@@ -398,22 +329,27 @@ class AudioPlay {
     });
   }
 
-  static play({
-    required List<String> contents,
-    required List<FilterBox> filter,
-    required SettingBox setting,
-    required HistoryBox currentHistory,
-  }) {
+  static play() {
     if (_audioHandler != null) {
-      _audioHandler!.customAction("init", {
-        "contents": contents,
-        "filter": filter.map((e) => e.toMap()).toList(),
-        "setting": setting.toMap(),
-        "currentHistory": currentHistory.toMap(),
-      });
       _audioHandler!.play();
     }
   }
+  // static play({
+  //   required List<String> contents,
+  //   required List<FilterBox> filter,
+  //   required SettingBox setting,
+  //   required HistoryBox currentHistory,
+  // }) {
+  //   if (_audioHandler != null) {
+  //     _audioHandler!.customAction("init", {
+  //       "contents": contents,
+  //       "filter": filter.map((e) => e.toMap()).toList(),
+  //       "setting": setting.toMap(),
+  //       "currentHistory": currentHistory.toMap(),
+  //     });
+  //     _audioHandler!.play();
+  //   }
+  // }
 
   static stop() {
     if (_audioHandler != null) {
@@ -428,10 +364,7 @@ class AudioPlay {
   }
 
   static AudioHandler? get audioHandler => _audioHandler;
-  static builder(
-      {required Widget Function(
-              BuildContext context, AsyncSnapshot<PlaybackState> snapshot)
-          builder}) {
+  static builder({required Widget Function(BuildContext context, AsyncSnapshot<PlaybackState> snapshot) builder}) {
     return StreamBuilder<PlaybackState>(
       stream: _audioHandler!.playbackState,
       builder: (context, snapshot) {

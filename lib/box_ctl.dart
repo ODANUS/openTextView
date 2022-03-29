@@ -9,7 +9,6 @@ import 'package:get/get.dart';
 import 'package:googleapis/calendar/v3.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/box_model.dart';
-import 'package:open_textview/model/user_data.dart';
 import 'package:open_textview/objectbox.g.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
@@ -68,67 +67,69 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   static init() async {
+    return;
     await createStore();
     await _initBox();
   }
 
   @override
   void onInit() async {
+    return;
     await init();
     await initLastHistoryBox();
     addListen();
     initValue();
 
-    if (filterBox!.count() == 0 &&
-        settingBox!.count() == 0 &&
-        historyBox!.count() == 0) {
-      await Utils.loadprefs();
-    }
+    // if (filterBox!.count() == 0 &&
+    //     settingBox!.count() == 0 &&
+    //     historyBox!.count() == 0) {
+    //   await Utils.loadprefs();
+    // }
 
-    debounce(filters, (List<FilterBox> v) {
-      filterBox!.putMany(v);
-      AudioPlay.setFilter(filter: v);
-    }, time: 100.milliseconds);
+    // debounce(filters, (List<FilterBox> v) {
+    //   filterBox!.putMany(v);
+    //   AudioPlay.setFilter(filter: v);
+    // }, time: 100.milliseconds);
 
-    debounce(setting, (SettingBox v) {
-      settingBox!.put(v);
-      AudioPlay.setSetting(setting: v);
-    }, time: 100.milliseconds);
+    // debounce(setting, (SettingBox v) {
+    //   settingBox!.put(v);
+    //   AudioPlay.setSetting(setting: v);
+    // }, time: 100.milliseconds);
 
-    debounce(currentHistory, (HistoryBox v) {
-      if (v.name.isNotEmpty) {
-        historyBox!.put(currentHistory.value);
-      }
-    }, time: 1.seconds);
+    // debounce(currentHistory, (HistoryBox v) {
+    //   if (v.name.isNotEmpty) {
+    //     historyBox!.put(currentHistory.value);
+    //   }
+    // }, time: 1.seconds);
 
-    debounce(scrollstat, (bool b) {
-      scrollstat(false);
-    }, time: 500.milliseconds);
+    // debounce(scrollstat, (bool b) {
+    //   scrollstat(false);
+    // }, time: 500.milliseconds);
 
-    AudioPlay.lisen((e) {
-      if (e.playing) {
-        currentHistory.update((val) {
-          val!.pos = e.updatePosition.inSeconds;
-        });
-        if (appLifecycleState.value == AppLifecycleState.inactive ||
-            appLifecycleState.value == AppLifecycleState.resumed) {
-          if (contents.length >= e.updatePosition.inSeconds &&
-              !scrollstat.value) {
-            itemScrollctl.jumpTo(index: e.updatePosition.inSeconds);
-          }
-        }
-      }
-    });
+    // AudioPlay.lisen((e) {
+    //   if (e.playing) {
+    //     currentHistory.update((val) {
+    //       val!.pos = e.updatePosition.inSeconds;
+    //     });
+    //     if (appLifecycleState.value == AppLifecycleState.inactive ||
+    //         appLifecycleState.value == AppLifecycleState.resumed) {
+    //       if (contents.length >= e.updatePosition.inSeconds &&
+    //           !scrollstat.value) {
+    //         // itemScrollctl.jumpTo(index: e.updatePosition.inSeconds);
+    //       }
+    //     }
+    //   }
+    // });
 
-    ever(bFullScreen, (bool b) async {
-      if (b) {
-        if (firstFullScreen.value) {
-          await Future.delayed(1.seconds);
-        }
-        await Future.delayed(200.milliseconds);
-        itemScrollctl.jumpTo(index: min);
-      }
-    });
+    // ever(bFullScreen, (bool b) async {
+    //   if (b) {
+    //     if (firstFullScreen.value) {
+    //       await Future.delayed(1.seconds);
+    //     }
+    //     await Future.delayed(200.milliseconds);
+    //     // itemScrollctl.jumpTo(index: min);
+    //   }
+    // });
 
     HardwareKeyboard.instance.removeHandler(volumeControll);
     HardwareKeyboard.instance.addHandler(volumeControll);
@@ -141,16 +142,13 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   bool volumeControll(KeyEvent event) {
     bool result = false;
     if (event is KeyDownEvent && tabIndex.value == 0 && bFullScreen.value) {
-      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp &&
-          !result &&
-          !AudioPlay.audioHandler!.playbackState.stream.value.playing) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp && !result && !AudioPlay.audioHandler!.playbackState.stream.value.playing) {
         result = true;
-        backPage();
+        // backPage();
       }
-      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown &&
-          bFullScreen.value) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown && bFullScreen.value) {
         result = true;
-        nextPage();
+        // nextPage();
       }
     }
     return result;
@@ -158,39 +156,14 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
 
   backPage() {
     if (min > 0 && contents.length > 0 && bFullScreen.value) {
-      var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min,
-              ItemPosition position) =>
-          position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
-
-      itemScrollctl.jumpTo(
-        index: minPos.index,
-        alignment: minPos.itemLeadingEdge + 1,
-      );
-
-      // itemScrollctl.jumpTo(
-      //     index: minPos.index, alignment: minPos.itemTrailingEdge + 1);
-      // , alignment: 1 + double.parse(offset));
+      var minPos = itemPosListener.itemPositions.value.reduce((ItemPosition min, ItemPosition position) => position.itemTrailingEdge < min.itemTrailingEdge ? position : min);
     }
   }
 
-  nextPage() {
-    if (max > 0 && contents.length > 0 && bFullScreen.value) {
-      var maxPos = itemPosListener.itemPositions.value
-          .where((ItemPosition position) => position.itemLeadingEdge < 1)
-          .reduce((ItemPosition max, ItemPosition position) =>
-              position.itemLeadingEdge > max.itemLeadingEdge ? position : max);
-
-      if (max - 1 < min) {
-        double tPos = maxPos.itemLeadingEdge - 0.98;
-        itemScrollctl.jumpTo(
-          index: maxPos.index,
-          alignment: tPos,
-        );
-        return;
-      }
-      max = maxPos.index;
-      itemScrollctl.jumpTo(index: maxPos.index);
-    }
+  nextPage(int nextIdx) {
+    currentHistory.update((val) {
+      currentHistory.value.pos = nextIdx;
+    });
   }
 
   initValue() {
@@ -213,8 +186,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   initLastHistoryBox() async {
-    var q = historyBox!.query()
-      ..order(HistoryBox_.date, flags: Order.descending);
+    var q = historyBox!.query()..order(HistoryBox_.date, flags: Order.descending);
     var lastHistorybox = q.build().findFirst();
     if (lastHistorybox != null) {
       var tmp = await getTemporaryDirectory();
@@ -243,13 +215,11 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     if (contents.isEmpty) return;
     min = itemPosListener.itemPositions.value
         .where((ItemPosition position) => position.itemTrailingEdge > 0)
-        .reduce((ItemPosition min, ItemPosition position) =>
-            position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
+        .reduce((ItemPosition min, ItemPosition position) => position.itemTrailingEdge < min.itemTrailingEdge ? position : min)
         .index;
     max = itemPosListener.itemPositions.value
         .where((ItemPosition position) => position.itemLeadingEdge < 1)
-        .reduce((ItemPosition max, ItemPosition position) =>
-            position.itemLeadingEdge > max.itemLeadingEdge ? position : max)
+        .reduce((ItemPosition max, ItemPosition position) => position.itemLeadingEdge > max.itemLeadingEdge ? position : max)
         .index;
 
     if (currentHistory.value.pos != min) {
@@ -270,8 +240,7 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
     contents.clear();
 
     var name = f.path.split("/").last;
-    var target =
-        historyBox!.query(HistoryBox_.name.equals(name)).build().findFirst();
+    var target = historyBox!.query(HistoryBox_.name.equals(name)).build().findFirst();
     String tmpStr = await Utils.readFile(f);
     f.setLastAccessedSync(DateTime.now());
 
@@ -289,37 +258,35 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
       addListen();
       // WidgetsBinding.instance!.addPostFrameCallback((_) {
       //   if (this.contents.length >= target.pos) {
-      //     itemScrollctl.jumpTo(index: target.pos);
+      itemScrollctl.jumpTo(index: target.pos);
       //   }
       // });
 
       return;
     }
-    HistoryBox nowHistory = HistoryBox(
-        date: DateTime.now(),
-        name: name,
-        length: contents.length,
-        contentsLen: tmpStr.length);
+    HistoryBox nowHistory = HistoryBox(date: DateTime.now(), name: name, length: contents.length, contentsLen: tmpStr.length);
 
     currentHistory(nowHistory);
     historyBox!.put(nowHistory);
 
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      itemScrollctl.jumpTo(index: 0);
+      // itemScrollctl.jumpTo(index: 0);
       addListen();
     });
   }
 
   List<HistoryBox> getHistorys() {
-    return historyBox!.getAll();
+    return []; //historyBox!.getAll();
   }
 
   List<FilterBox> getFilter() {
-    return filterBox!.getAll();
+    return [];
+    //filterBox!.getAll();
   }
 
   SettingBox getSetting() {
-    return settingBox!.getAll().first;
+    return SettingBox();
+    // settingBox!.getAll().first;
   }
 
   setSettingBox(SettingBox data) {
@@ -369,12 +336,8 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   }
 
   map2Data(Map<String, dynamic> jsonData) {
-    var his = (jsonData["historys"] as List)
-        .map((e) => HistoryBox.fromMap(e)..id = 0)
-        .toList();
-    var filters = (jsonData["filters"] as List)
-        .map((e) => FilterBox.fromMap(e)..id = 0)
-        .toList();
+    var his = (jsonData["historys"] as List).map((e) => HistoryBox.fromMap(e)..id = 0).toList();
+    var filters = (jsonData["filters"] as List).map((e) => FilterBox.fromMap(e)..id = 0).toList();
     var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
 
     setHistoryBox(his);
@@ -400,10 +363,9 @@ class BoxCtl extends GetxController with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     appLifecycleState(state);
 
-    if (appLifecycleState.value == AppLifecycleState.inactive ||
-        appLifecycleState.value == AppLifecycleState.resumed) {
+    if (appLifecycleState.value == AppLifecycleState.inactive || appLifecycleState.value == AppLifecycleState.resumed) {
       if (itemScrollctl.isAttached) {
-        itemScrollctl.jumpTo(index: currentHistory.value.pos);
+        // itemScrollctl.jumpTo(index: currentHistory.value.pos);
       }
     }
 

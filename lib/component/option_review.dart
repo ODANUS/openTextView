@@ -8,8 +8,6 @@ import 'package:get/get.dart';
 class OptionReview extends GetView {
   @override
   Widget build(BuildContext context) {
-    // final pageCtl = Get.put(OptionOsslicenseCtl());
-
     return Row(
       children: [
         IconButton(
@@ -23,8 +21,7 @@ class OptionReview extends GetView {
         IconButton(
             onPressed: () async {
               PackageInfo packageInfo = await PackageInfo.fromPlatform();
-              Share.share(
-                  'https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+              Share.share('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
             },
             icon: Icon(Icons.share)),
       ],

@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
+import 'package:open_textview/isar_ctl.dart';
 import 'package:package_info/package_info.dart';
 
-class DeveloperNotesCtl extends GetxController {
-  RxString version = "".obs;
-  @override
-  void onInit() async {
-    PackageInfo info = await PackageInfo.fromPlatform();
-    version(info.version);
-    // TODO: implement onInit
-    super.onInit();
-  }
-}
-
 class DeveloperNotes extends GetView<BoxCtl> {
-  final ctl = Get.put(DeveloperNotesCtl());
   final String content = """
 ---
 1.6.8 (2022 03 17) 패치내역 :
@@ -126,42 +115,46 @@ class DeveloperNotes extends GetView<BoxCtl> {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () async {
-        // 1.4.3
-        await Get.dialog(AlertDialog(
-          title: Obx(() => Text("${ctl.version} 버전이 출시 되었습니다.")),
-          content: SingleChildScrollView(
-            child: Text(content),
-          ),
-          actions: [
-            ElevatedButton(
-                onPressed: () {
-                  Get.back();
-                },
-                child: Text("confirm".tr))
-          ],
-        ));
-        controller.setting.update((val) {
-          val!.lastDevVersion = ctl.version.value;
-        });
-        ctl.update();
-      },
-      title: Row(
-        children: [
-          Text("Developer notes".tr),
-          SizedBox(width: 10),
-          Obx(() {
-            if (ctl.version.value == controller.setting.value.lastDevVersion) {
-              return SizedBox();
-            }
-            return Icon(
-              Icons.fiber_new,
-              color: Colors.orange,
-            );
-          }),
-        ],
-      ),
-    );
+    return IsarCtl.rxSetting((ctx, setting) {
+      return StreamBuilder<PackageInfo>(
+        stream: PackageInfo.fromPlatform().asStream(),
+        builder: ((context, snapshot) {
+          if (snapshot.data == null) return SizedBox();
+
+          return ListTile(
+            onTap: () async {
+              // 1.4.3
+              await Get.dialog(AlertDialog(
+                title: Text("${snapshot.data!.version} 버전이 출시 되었습니다."),
+                content: SingleChildScrollView(
+                  child: Text(content),
+                ),
+                actions: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text("confirm".tr))
+                ],
+              ));
+
+              IsarCtl.putSetting(setting..lastDevVersion = snapshot.data!.version);
+            },
+            title: Row(
+              children: [
+                Text("Developer notes".tr),
+                SizedBox(width: 10),
+                snapshot.data!.version == setting.lastDevVersion
+                    ? SizedBox()
+                    : Icon(
+                        Icons.fiber_new,
+                        color: Colors.orange,
+                      ),
+              ],
+            ),
+          );
+        }),
+      );
+    });
   }
 }

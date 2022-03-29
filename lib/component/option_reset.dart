@@ -3,8 +3,9 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
+import 'package:open_textview/isar_ctl.dart';
 
-class OptionReset extends GetView<BoxCtl> {
+class OptionReset extends GetView {
   openResetdialog() async {
     return await Get.dialog(
       AlertDialog(
@@ -40,9 +41,10 @@ class OptionReset extends GetView<BoxCtl> {
                 child: ListTile(
               onLongPress: () async {
                 bool rtn = await openResetdialog();
-                print(rtn);
+                // print(rtn);
                 if (rtn) {
-                  controller.resetSetting();
+                  IsarCtl.resetSetting();
+                  // controller.resetSetting();
                 }
               },
               title: Text("Reset settings".tr),
@@ -52,7 +54,8 @@ class OptionReset extends GetView<BoxCtl> {
               onLongPress: () async {
                 bool rtn = await openResetdialog();
                 if (rtn) {
-                  controller.resetHistory();
+                  IsarCtl.resetHistory();
+                  // controller.resetHistory();
                 }
               },
               title: Text("history reset".tr),
@@ -62,7 +65,8 @@ class OptionReset extends GetView<BoxCtl> {
               onLongPress: () async {
                 bool rtn = await openResetdialog();
                 if (rtn) {
-                  controller.resetFilter();
+                  IsarCtl.resetFilter();
+                  // controller.resetFilter();
                 }
               },
               title: Text("filter reset".tr),

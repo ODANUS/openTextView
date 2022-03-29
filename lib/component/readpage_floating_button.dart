@@ -1,89 +1,30 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
 
-class readPageFloatingButtonCtl extends GetxController {
-  Rx<bool> bFind = false.obs;
-  Rx<bool> bhide = false.obs;
-}
-
-class readPageFloatingButton extends GetView<BoxCtl> {
+class readPageFloatingButton extends GetView {
   @override
   Widget build(BuildContext context) {
-    final pageCtl = Get.put(readPageFloatingButtonCtl());
-    return Obx(() => Padding(
+    // final pageCtl = Get.put(readPageFloatingButtonCtl());
+    return Padding(
         padding: EdgeInsets.only(left: 10, right: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton.extended(
-                heroTag: "option",
-                onPressed: () => pageCtl.bFind(!pageCtl.bFind.value),
-                label: AnimatedSwitcher(
-                  duration: Duration(milliseconds: 200),
-                  transitionBuilder:
-                      (Widget child, Animation<double> animation) =>
-                          FadeTransition(
-                    opacity: animation,
-                    child: SizeTransition(
-                      child: child,
-                      sizeFactor: animation,
-                      axis: Axis.horizontal,
-                    ),
-                  ),
-                  child: !pageCtl.bFind.value
-                      ? Icon(Ionicons.chevron_forward_outline)
-                      : Row(
-                          children: [
-                            IconButton(
-                                onPressed: () {
-                                  pageCtl.bFind(!pageCtl.bFind.value);
-                                },
-                                icon: Icon(Ionicons.chevron_back_outline)),
-                            if (pageCtl.bFind.value)
-                              IconButton(
-                                  onPressed: () {
-                                    OpenModal.openSearchModal();
-                                  },
-                                  icon: Icon(Icons.find_in_page_outlined)),
-                            if (pageCtl.bFind.value)
-                              IconButton(
-                                  onPressed: () {
-                                    OpenModal.openJumpModal();
-                                  },
-                                  icon: Icon(Icons.low_priority)),
-                            if (pageCtl.bFind.value)
-                              IconButton(
-                                  onPressed: () {
-                                    OpenModal.openFontSizeModal();
-                                    // OpenModal.openJumpModal();
-                                  },
-                                  icon: Icon(Ionicons.text_outline))
-                          ],
-                        ),
-                )),
-            FloatingActionButton.extended(
                 heroTag: "play",
-                onPressed: () => AudioPlay.play(
-                      contents: controller.contents,
-                      filter: controller.getFilter(),
-                      setting: controller.setting.value,
-                      currentHistory: controller.currentHistory.value,
-                    ),
+                onPressed: () => AudioPlay.play(),
                 label: AudioPlay.builder(builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();
                   }
                   return AnimatedSwitcher(
                     duration: Duration(milliseconds: 200),
-                    transitionBuilder:
-                        (Widget child, Animation<double> animation) =>
-                            FadeTransition(
+                    transitionBuilder: (Widget child, Animation<double> animation) => FadeTransition(
                       opacity: animation,
                       child: SizeTransition(
                         child: child,
@@ -91,30 +32,22 @@ class readPageFloatingButton extends GetView<BoxCtl> {
                         axis: Axis.horizontal,
                       ),
                     ),
-                    child: !snapshot.data!.playing &&
-                            snapshot.data!.processingState !=
-                                AudioProcessingState.completed
+                    child: !snapshot.data!.playing && snapshot.data!.processingState != AudioProcessingState.completed
                         ? Icon(Ionicons.play)
                         : Row(
                             children: [
-                              if (snapshot.data!.playing ||
-                                  snapshot.data!.processingState ==
-                                      AudioProcessingState.completed)
+                              if (snapshot.data!.playing || snapshot.data!.processingState == AudioProcessingState.completed)
                                 IconButton(
                                     onPressed: () async {
-                                      var t =
-                                          await OpenModal.openAutoExitModal();
+                                      var t = await OpenModal.openAutoExitModal();
                                       if (t != null) {
                                         DateTime now = DateTime.now();
-                                        DateTime exitTime =
-                                            now.add(Duration(minutes: t));
+                                        DateTime exitTime = now.add(Duration(minutes: t));
                                         AudioPlay.setAutoExit(t: exitTime);
                                       }
                                     },
                                     icon: Icon(Ionicons.moon_outline)),
-                              if (snapshot.data!.playing ||
-                                  snapshot.data!.processingState ==
-                                      AudioProcessingState.completed)
+                              if (snapshot.data!.playing || snapshot.data!.processingState == AudioProcessingState.completed)
                                 IconButton(
                                     onPressed: () {
                                       AudioPlay.stop();
@@ -129,13 +62,7 @@ class readPageFloatingButton extends GetView<BoxCtl> {
                               if (!snapshot.data!.playing)
                                 IconButton(
                                     onPressed: () {
-                                      AudioPlay.play(
-                                        contents: controller.contents,
-                                        filter: controller.getFilter(),
-                                        setting: controller.setting.value,
-                                        currentHistory:
-                                            controller.currentHistory.value,
-                                      );
+                                      AudioPlay.play();
                                     },
                                     icon: Icon(Ionicons.play)),
                             ],
@@ -143,6 +70,6 @@ class readPageFloatingButton extends GetView<BoxCtl> {
                   );
                 })),
           ],
-        )));
+        ));
   }
 }

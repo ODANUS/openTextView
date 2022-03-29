@@ -5,18 +5,13 @@ import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/component/option_backup.dart';
-import 'package:open_textview/component/option_clipboard.dart';
+
 import 'package:open_textview/component/option_developer_notes.dart';
 import 'package:open_textview/component/option_filter.dart';
-import 'package:open_textview/component/option_layout.dart';
 import 'package:open_textview/component/option_osslicense.dart';
-import 'package:open_textview/component/option_popup_ads.dart';
 import 'package:open_textview/component/option_reset.dart';
 import 'package:open_textview/component/option_review.dart';
-import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/option_tts.dart';
-import 'package:open_textview/component/option_ui.dart';
-import 'package:open_textview/provider/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends GetView<BoxCtl> {
@@ -37,41 +32,33 @@ class SettingPage extends GetView<BoxCtl> {
           ),
           // OptionPopupAds(),
         ],
+        bottom: PreferredSize(
+          preferredSize: Size(Get.width, 50),
+          child: AdsComp(),
+        ),
       ),
       body: ListView(
         padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 100),
         children: [
-          AdsComp(),
           SizedBox(height: 5),
-          Card(child: OptionTheme()),
-          Card(child: OptionClipboard()),
-          // Card(child: OptionHistory()),
           Card(child: OptionBackup()),
           Card(child: OptionTts()),
           Card(child: OptionFilter()),
-          Card(child: OptionLayout()),
-          Card(child: OptionUI()),
-
           Card(child: DeveloperNotes()),
-
-          // Card(child: OptionCache()),
-          // Card(child: OptionOcr()),
           Card(
             child: ListTile(
                 title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
                 onTap: () {
-                  launch(
-                      "https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
+                  launch("https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
                 }),
           ),
           Card(child: OptionOsslicense()),
           Card(child: OptionReset()),
-
           Divider(),
           if (kDebugMode)
             ElevatedButton(
                 onPressed: () async {
-                  Utils.loadprefs();
+                  // Utils.loadprefs();
                   // 15890496
                   // var d = await getLibraryDirectory();
                   // d.list().listen((event) {

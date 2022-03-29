@@ -3,43 +3,29 @@ import 'package:get/get.dart';
 import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 
-class OptionClipboard extends GetView<BoxCtl> {
+class OptionClipboard extends GetView {
+  OptionClipboard({
+    required this.value,
+    required this.onChanged,
+  });
+  bool value;
+  Function(bool) onChanged;
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Row(
           children: [
-            Row(
-              children: [
-                Text('use Clipboard'.tr),
-                Switch(
-                    value: controller.setting.value.useClipboard,
-                    onChanged: (e) {
-                      controller.setting.value.useClipboard = e;
-                      controller.setting.refresh();
-                    }),
-              ],
-            ),
-            // Row(children: [
-            //   Text('use Scroll'.tr),
-            //   Switch(
-            //       value: controller.setting.value.enablescroll,
-            //       onChanged: (e) {
-            //         controller.setting.value.enablescroll = e;
-            //         controller.setting.refresh();
-            //       }),
-            // ]),
+            Text('use Clipboard'.tr),
+            Switch(
+                value: value,
+                onChanged: (e) {
+                  onChanged(e);
+                }),
           ],
-        ));
-    // Obx(() => SwitchListTile(
-    //       value: controller.setting.value.useClipboard,
-    //       onChanged: (e) {
-    //         controller.setting.value.useClipboard = e;
-    //         controller.setting.refresh();
-    //       },
-    //       title: Text("Clipboard Settings".tr),
-    //     ));
-    // onExpansionChanged: (b) async {},
-    // title: Text("Clipboard Settings".tr),
+        ),
+      ],
+    );
   }
 }

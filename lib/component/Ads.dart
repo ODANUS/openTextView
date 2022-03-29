@@ -11,6 +11,7 @@ class AdsCtl extends GetxController {
   final widthSize = 350.0.obs;
   @override
   void onInit() {
+    // return;
     ever(widthSize, (double width) {
       _createAnchoredBanner(width);
     });
@@ -58,6 +59,9 @@ class AdsComp extends GetView<AdsCtl> {
 
   @override
   Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+    );
     var ctl = Get.find<AdsCtl>();
 
     return LayoutBuilder(builder: (context, constraints) {
