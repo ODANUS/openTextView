@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/i18n.dart';
 import 'package:open_textview/isar_ctl.dart';
-import 'package:open_textview/pages/image_search_page.dart';
 import 'package:open_textview/pages/main_page.dart';
 import 'package:open_textview/provider/custom_theme.dart';
 import 'package:wakelock/wakelock.dart';
@@ -15,7 +13,7 @@ import 'package:wakelock/wakelock.dart';
 
 Future<void> initCtl() async {
   // await Get.putAsync<IsarCtl>(() => IsarCtl().init());
-  Get.put(BoxCtl());
+  // Get.put(BoxCtl());
 }
 
 void main() async {
@@ -44,7 +42,6 @@ void main() async {
             themeMode: ThemeMode.light,
             getPages: [
               GetPage(name: '/', page: () => MainPage()),
-              // GetPage(name: '/searchpage', page: () => ImageSearchPage()),
             ]);
       }));
 }

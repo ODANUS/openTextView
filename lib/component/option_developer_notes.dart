@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:package_info/package_info.dart';
 
-class DeveloperNotes extends GetView<BoxCtl> {
+class DeveloperNotes extends GetView {
   final String content = """
 ---
 1.6.8 (2022 03 17) 패치내역 :
@@ -138,7 +137,8 @@ class DeveloperNotes extends GetView<BoxCtl> {
                 ],
               ));
 
-              IsarCtl.putSetting(setting..lastDevVersion = snapshot.data!.version);
+              IsarCtl.putSetting(
+                  setting..lastDevVersion = snapshot.data!.version);
             },
             title: Row(
               children: [

@@ -6,13 +6,11 @@ import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:isar/isar.dart';
-import 'package:open_textview/box_ctl.dart';
+
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/objectbox.g.dart';
-import 'package:path_provider/path_provider.dart';
 
 class AudioHandler extends BaseAudioHandler
     with
@@ -29,7 +27,8 @@ class AudioHandler extends BaseAudioHandler
       });
 
       this.session!.interruptionEventStream.listen((event) {
-        if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
+        if (event.type == AudioInterruptionType.duck &&
+            (IsarCtl.setting?.audioduck ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
             this.pause();
@@ -39,7 +38,8 @@ class AudioHandler extends BaseAudioHandler
           }
           return;
         }
-        if (event.type == AudioInterruptionType.pause && (IsarCtl.setting?.audiosession ?? true)) {
+        if (event.type == AudioInterruptionType.pause &&
+            (IsarCtl.setting?.audiosession ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
             this.pause();
@@ -85,7 +85,12 @@ class AudioHandler extends BaseAudioHandler
     speed: 0,
   );
 
-  MediaItem baseItem = MediaItem(id: 'tts', album: 'tts', title: '', artist: '', duration: const Duration(milliseconds: 1000000));
+  MediaItem baseItem = MediaItem(
+      id: 'tts',
+      album: 'tts',
+      title: '',
+      artist: '',
+      duration: const Duration(milliseconds: 1000000));
   final int STAT_STOP = 0;
   final int STAT_PLAY = 1;
   final int STAT_PAUSE = 2;
@@ -133,7 +138,8 @@ class AudioHandler extends BaseAudioHandler
       title: 'testestes',
       duration: Duration(seconds: 10000),
     ));
-    playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: 100)));
+    playbackState
+        .add(baseState.copyWith(updatePosition: Duration(seconds: 100)));
 
     int pos = IsarCtl.tctl.pos;
     List<String> contents = IsarCtl.contents.map((e) => e.text).toList();
@@ -156,11 +162,6 @@ class AudioHandler extends BaseAudioHandler
     });
 
     for (var i = pos; i < contents.length; i += setting.groupcnt) {
-      Store? store;
-      try {
-        store = await BoxCtl.createStore();
-      } catch (e) {}
-
       if (playstat != STAT_PLAY) break;
       int end = min(i + setting.groupcnt, contents.length);
 
@@ -169,7 +170,8 @@ class AudioHandler extends BaseAudioHandler
       IsarCtl.filters.forEach((e) {
         if (e.enable) {
           if (e.expr) {
-            speakText = speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+            speakText =
+                speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
           } else {
             speakText = speakText.replaceAll(e.filter, e.to);
           }
@@ -183,11 +185,14 @@ class AudioHandler extends BaseAudioHandler
             this.stop();
           } else {
             var ss = autoExitDate!.difference(now);
-            mediaItem.add(e!.copyWith(album: "Auto_shut_down_after_@min_minute".trParams({"min": ss.inMinutes.toString()})));
+            mediaItem.add(e!.copyWith(
+                album: "Auto_shut_down_after_@min_minute"
+                    .trParams({"min": ss.inMinutes.toString()})));
           }
         });
       }
-      playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: i)));
+      playbackState
+          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
       IsarCtl.pos = i;
       try {
@@ -259,7 +264,8 @@ class AudioHandler extends BaseAudioHandler
   }
 
   @override
-  Future<dynamic> customAction(String name, [Map<String, dynamic>? extras]) async {
+  Future<dynamic> customAction(String name,
+      [Map<String, dynamic>? extras]) async {
     if (name == "autoExit" && extras != null) {
       this.autoExitDate = extras["autoExit"];
     }
@@ -364,7 +370,10 @@ class AudioPlay {
   }
 
   static AudioHandler? get audioHandler => _audioHandler;
-  static builder({required Widget Function(BuildContext context, AsyncSnapshot<PlaybackState> snapshot) builder}) {
+  static builder(
+      {required Widget Function(
+              BuildContext context, AsyncSnapshot<PlaybackState> snapshot)
+          builder}) {
     return StreamBuilder<PlaybackState>(
       stream: _audioHandler!.playbackState,
       builder: (context, snapshot) {

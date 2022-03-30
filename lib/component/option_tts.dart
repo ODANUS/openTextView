@@ -1,16 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import 'package:googleapis/drive/v3.dart';
-import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
-import 'package:open_textview/provider/Gdrive.dart';
-import 'package:open_textview/provider/utils.dart';
 
-class OptionTts extends GetView<BoxCtl> {
+class OptionTts extends GetView {
   @override
   Widget build(BuildContext context) {
     return IsarCtl.rxSetting((ctx, setting) {
@@ -19,14 +13,16 @@ class OptionTts extends GetView<BoxCtl> {
         title: Text("TTS settings".tr),
         children: [
           ListTile(
-              title: Text('${"speed".tr} : ${setting.speechRate.toStringAsFixed(2)}'),
+              title: Text(
+                  '${"speed".tr} : ${setting.speechRate.toStringAsFixed(2)}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,
                   child: Row(children: [
                     IconButton(
                         onPressed: () {
-                          var p = double.parse((setting.speechRate - 0.01).toStringAsFixed(2));
+                          var p = double.parse(
+                              (setting.speechRate - 0.01).toStringAsFixed(2));
                           setting.speechRate = max(p, 0);
                           IsarCtl.putSetting(setting);
                         },
@@ -44,14 +40,16 @@ class OptionTts extends GetView<BoxCtl> {
                     )),
                     IconButton(
                         onPressed: () {
-                          var p = double.parse((setting.speechRate + 0.01).toStringAsFixed(2));
+                          var p = double.parse(
+                              (setting.speechRate + 0.01).toStringAsFixed(2));
                           setting.speechRate = min(p, 5);
                           IsarCtl.putSetting(setting);
                         },
                         icon: Icon(Icons.navigate_next_sharp)),
                   ]))),
           ListTile(
-              title: Text('${"volume".tr} : ${setting.volume.toStringAsFixed(1)}'),
+              title:
+                  Text('${"volume".tr} : ${setting.volume.toStringAsFixed(1)}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,
@@ -69,14 +67,16 @@ class OptionTts extends GetView<BoxCtl> {
                     )),
                   ]))),
           ListTile(
-              title: Text('${"pitch".tr} : ${setting.pitch.toStringAsFixed(1)}'),
+              title:
+                  Text('${"pitch".tr} : ${setting.pitch.toStringAsFixed(1)}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,
                   child: Row(children: [
                     IconButton(
                         onPressed: () {
-                          var p = double.parse((setting.pitch - 0.01).toStringAsFixed(2));
+                          var p = double.parse(
+                              (setting.pitch - 0.01).toStringAsFixed(2));
                           setting.pitch = max(p, 0.5);
                           IsarCtl.putSetting(setting);
                         },
@@ -94,14 +94,16 @@ class OptionTts extends GetView<BoxCtl> {
                     )),
                     IconButton(
                         onPressed: () {
-                          var p = double.parse((setting.pitch + 0.01).toStringAsFixed(2));
+                          var p = double.parse(
+                              (setting.pitch + 0.01).toStringAsFixed(2));
                           setting.pitch = min(p, 2);
                           IsarCtl.putSetting(setting);
                         },
                         icon: Icon(Icons.navigate_next_sharp)),
                   ]))),
           ListTile(
-              title: Text('${"Number of lines to read at a time".tr}  : ${setting.groupcnt}'),
+              title: Text(
+                  '${"Number of lines to read at a time".tr}  : ${setting.groupcnt}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,
@@ -114,7 +116,9 @@ class OptionTts extends GetView<BoxCtl> {
                         icon: Icon(Icons.navigate_before_sharp)),
                     Expanded(
                         child: Slider(
-                      value: setting.groupcnt < 1 ? 1 : setting.groupcnt.toDouble(),
+                      value: setting.groupcnt < 1
+                          ? 1
+                          : setting.groupcnt.toDouble(),
                       min: 1,
                       max: 40,
                       divisions: 40,

@@ -1,9 +1,5 @@
-import 'dart:collection';
-import 'dart:developer';
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -12,13 +8,11 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:isar/isar.dart';
-import 'package:open_textview/component/option_clipboard.dart';
+
 import 'package:open_textview/component/option_theme.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
-import 'package:open_textview/provider/utils.dart';
-import 'package:scroll_bottom_navigation_bar/scroll_bottom_navigation_bar.dart';
 
 class CompUiSetting extends GetView {
   CompUiSetting({
@@ -41,15 +35,31 @@ class CompUiSetting extends GetView {
           bottom: TabBar(
             isScrollable: true,
             tabs: [
-              Tab(height: 51.h, iconMargin: EdgeInsets.zero, icon: Icon(Icons.find_in_page_outlined), text: "page_search".tr),
-              Tab(height: 51.h, iconMargin: EdgeInsets.zero, icon: Icon(Icons.low_priority), text: "move_location".tr),
-              Tab(height: 51.h, iconMargin: EdgeInsets.zero, icon: Icon(Icons.aspect_ratio), text: "UI Settings".tr),
+              Tab(
+                  height: 51.h,
+                  iconMargin: EdgeInsets.zero,
+                  icon: Icon(Icons.find_in_page_outlined),
+                  text: "page_search".tr),
+              Tab(
+                  height: 51.h,
+                  iconMargin: EdgeInsets.zero,
+                  icon: Icon(Icons.low_priority),
+                  text: "move_location".tr),
+              Tab(
+                  height: 51.h,
+                  iconMargin: EdgeInsets.zero,
+                  icon: Icon(Icons.aspect_ratio),
+                  text: "UI Settings".tr),
               // Tab(
               //     height: 51.h,
               //     iconMargin: EdgeInsets.zero,
               //     icon: Icon(Icons.sort_by_alpha),
               //     text: "Font settings".tr),
-              Tab(height: 51.h, iconMargin: EdgeInsets.zero, icon: Icon(Icons.space_dashboard), text: "layout Setting".tr),
+              Tab(
+                  height: 51.h,
+                  iconMargin: EdgeInsets.zero,
+                  icon: Icon(Icons.space_dashboard),
+                  text: "layout Setting".tr),
             ],
           ),
         ),
@@ -79,12 +89,13 @@ class UiSetting extends GetView {
         titlePadding: const EdgeInsets.all(0),
         contentPadding: const EdgeInsets.all(0),
         shape: RoundedRectangleBorder(
-          borderRadius: MediaQuery.of(Get.context!).orientation == Orientation.portrait
-              ? const BorderRadius.vertical(
-                  top: Radius.circular(500),
-                  bottom: Radius.circular(100),
-                )
-              : const BorderRadius.horizontal(right: Radius.circular(500)),
+          borderRadius:
+              MediaQuery.of(Get.context!).orientation == Orientation.portrait
+                  ? const BorderRadius.vertical(
+                      top: Radius.circular(500),
+                      bottom: Radius.circular(100),
+                    )
+                  : const BorderRadius.horizontal(right: Radius.circular(500)),
         ),
         content: SingleChildScrollView(
           child: HueRingPicker(
@@ -139,117 +150,144 @@ class UiSetting extends GetView {
                   Card(
                       child: ListTile(
                     title: Text("padding".tr),
-                    subtitle: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                      Row(children: [
-                        IconButton(
-                            padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
-                            onPressed: () {
-                              double p = min(50, setting.paddingLeft + 1).round().toDouble();
-                              IsarCtl.putSetting(setting..paddingLeft = p);
-                            },
-                            icon: Text("+")),
-                        Text("${setting.paddingLeft}"),
-                        IconButton(
-                            padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
-                            onPressed: () {
-                              double p = max(0, setting.paddingLeft - 1).round().toDouble();
-
-                              IsarCtl.putSetting(setting..paddingLeft = p);
-                            },
-                            icon: Text("-")),
-                      ]),
-                      Column(
+                    subtitle: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
-                              onPressed: () {
-                                double p = min(50, setting.paddingTop + 1);
-                                IsarCtl.putSetting(setting..paddingTop = p);
-                              },
-                              icon: Text("+")),
-                          Text("${setting.paddingTop}"),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
-                              onPressed: () {
-                                double p = max(0, setting.paddingTop - 1);
-                                IsarCtl.putSetting(setting..paddingTop = p);
-                              },
-                              icon: Text("-")),
-                          Divider(),
-                          Icon(Icons.phone_android_outlined),
-                          Divider(),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
-                              onPressed: () {
-                                double p = max(0, setting.paddingBottom - 1).round().toDouble();
+                          Row(children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {
+                                  double p = min(50, setting.paddingLeft + 1)
+                                      .round()
+                                      .toDouble();
+                                  IsarCtl.putSetting(setting..paddingLeft = p);
+                                },
+                                icon: Text("+")),
+                            Text("${setting.paddingLeft}"),
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {
+                                  double p = max(0, setting.paddingLeft - 1)
+                                      .round()
+                                      .toDouble();
 
-                                IsarCtl.putSetting(setting..paddingBottom = p);
-                              },
-                              icon: Text("-")),
-                          Text("${setting.paddingBottom}"),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
-                              onPressed: () {
-                                double p = min(50, setting.paddingBottom + 1).round().toDouble();
+                                  IsarCtl.putSetting(setting..paddingLeft = p);
+                                },
+                                icon: Text("-")),
+                          ]),
+                          Column(
+                            children: [
+                              IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    double p = min(50, setting.paddingTop + 1);
+                                    IsarCtl.putSetting(setting..paddingTop = p);
+                                  },
+                                  icon: Text("+")),
+                              Text("${setting.paddingTop}"),
+                              IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    double p = max(0, setting.paddingTop - 1);
+                                    IsarCtl.putSetting(setting..paddingTop = p);
+                                  },
+                                  icon: Text("-")),
+                              Divider(),
+                              Icon(Icons.phone_android_outlined),
+                              Divider(),
+                              IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    double p = max(0, setting.paddingBottom - 1)
+                                        .round()
+                                        .toDouble();
 
-                                IsarCtl.putSetting(setting..paddingBottom = p);
-                              },
-                              icon: Text("+")),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
-                              onPressed: () {
-                                double p = max(0, setting.paddingRight - 1).round().toDouble();
+                                    IsarCtl.putSetting(
+                                        setting..paddingBottom = p);
+                                  },
+                                  icon: Text("-")),
+                              Text("${setting.paddingBottom}"),
+                              IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    double p =
+                                        min(50, setting.paddingBottom + 1)
+                                            .round()
+                                            .toDouble();
 
-                                IsarCtl.putSetting(setting..paddingRight = p);
-                              },
-                              icon: Text("-")),
-                          Text("${setting.paddingRight}"),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
-                              onPressed: () {
-                                double p = min(50, setting.paddingRight + 1).round().toDouble();
+                                    IsarCtl.putSetting(
+                                        setting..paddingBottom = p);
+                                  },
+                                  icon: Text("+")),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    double p = max(0, setting.paddingRight - 1)
+                                        .round()
+                                        .toDouble();
 
-                                IsarCtl.putSetting(setting..paddingRight = p);
-                              },
-                              icon: Text("+")),
-                        ],
-                      )
-                    ]),
+                                    IsarCtl.putSetting(
+                                        setting..paddingRight = p);
+                                  },
+                                  icon: Text("-")),
+                              Text("${setting.paddingRight}"),
+                              IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    double p = min(50, setting.paddingRight + 1)
+                                        .round()
+                                        .toDouble();
+
+                                    IsarCtl.putSetting(
+                                        setting..paddingRight = p);
+                                  },
+                                  icon: Text("+")),
+                            ],
+                          )
+                        ]),
                   )),
                   // 색상 설정 부분
                   Card(
                     child: ListTile(
-                      leading: Container(width: 30, height: 30, color: Color(setting.backgroundColor)),
+                      leading: Container(
+                          width: 30,
+                          height: 30,
+                          color: Color(setting.backgroundColor)),
                       title: Text("Background Color".tr),
                       trailing: ElevatedButton(
                           onPressed: () {
-                            IsarCtl.putSetting(setting..backgroundColor = 0x00FFFFFF);
+                            IsarCtl.putSetting(
+                                setting..backgroundColor = 0x00FFFFFF);
                           },
                           child: Text("delete".tr)),
                       onTap: () {
                         var c = setting.backgroundColor;
 
                         openColorPicker(c, (c) {
-                          IsarCtl.putSetting(setting..backgroundColor = c.value);
+                          IsarCtl.putSetting(
+                              setting..backgroundColor = c.value);
                         }, balpha: true);
                       },
                     ),
                   ),
                   Card(
                     child: ListTile(
-                      leading: Container(width: 30, height: 30, color: Color(setting.fontColor)),
+                      leading: Container(
+                          width: 30,
+                          height: 30,
+                          color: Color(setting.fontColor)),
                       title: Text("Font Color".tr),
                       trailing: ElevatedButton(
                           onPressed: () {
@@ -257,8 +295,11 @@ class UiSetting extends GetView {
                           },
                           child: Text("delete".tr)),
                       onTap: () {
-                        var themeTextColor = Theme.of(context).textTheme.bodyText1!.color!.value;
-                        var c = setting.fontColor == 0 ? themeTextColor : setting.fontColor;
+                        var themeTextColor =
+                            Theme.of(context).textTheme.bodyText1!.color!.value;
+                        var c = setting.fontColor == 0
+                            ? themeTextColor
+                            : setting.fontColor;
 
                         openColorPicker(c, (c) {
                           IsarCtl.putSetting(setting..fontColor = c.value);
@@ -279,13 +320,17 @@ class UiSetting extends GetView {
                             children: [
                               IconButton(
                                   onPressed: () {
-                                    IsarCtl.putSetting(setting..fontSize = max(setting.fontSize - 1, 10));
+                                    IsarCtl.putSetting(setting
+                                      ..fontSize =
+                                          max(setting.fontSize - 1, 10));
                                   },
                                   icon: Icon(Ionicons.remove_outline)),
                               Text("${setting.fontSize}"),
                               IconButton(
                                   onPressed: () {
-                                    IsarCtl.putSetting(setting..fontSize = min(setting.fontSize + 1, 20));
+                                    IsarCtl.putSetting(setting
+                                      ..fontSize =
+                                          min(setting.fontSize + 1, 20));
                                   },
                                   icon: Icon(Ionicons.add_outline)),
                             ],
@@ -300,13 +345,17 @@ class UiSetting extends GetView {
                             children: [
                               IconButton(
                                   onPressed: () {
-                                    IsarCtl.putSetting(setting..fontWeight = max(setting.fontWeight - 1, 0));
+                                    IsarCtl.putSetting(setting
+                                      ..fontWeight =
+                                          max(setting.fontWeight - 1, 0));
                                   },
                                   icon: Icon(Ionicons.remove_outline)),
                               Text("${setting.fontWeight}"),
                               IconButton(
                                   onPressed: () {
-                                    IsarCtl.putSetting(setting..fontWeight = min(setting.fontWeight + 1, 8));
+                                    IsarCtl.putSetting(setting
+                                      ..fontWeight =
+                                          min(setting.fontWeight + 1, 8));
                                   },
                                   icon: Icon(Ionicons.add_outline)),
                             ],
@@ -321,14 +370,18 @@ class UiSetting extends GetView {
                             children: [
                               IconButton(
                                   onPressed: () {
-                                    var t = double.parse((setting.fontHeight - 0.1).toStringAsFixed(1));
+                                    var t = double.parse(
+                                        (setting.fontHeight - 0.1)
+                                            .toStringAsFixed(1));
                                     IsarCtl.putSetting(setting..fontHeight = t);
                                   },
                                   icon: Icon(Ionicons.remove_outline)),
                               Text("${setting.fontHeight}"),
                               IconButton(
                                   onPressed: () {
-                                    var t = double.parse((setting.fontHeight + 0.1).toStringAsFixed(1));
+                                    var t = double.parse(
+                                        (setting.fontHeight + 0.1)
+                                            .toStringAsFixed(1));
                                     IsarCtl.putSetting(setting..fontHeight = t);
                                   },
                                   icon: Icon(Ionicons.add_outline)),
@@ -344,15 +397,21 @@ class UiSetting extends GetView {
                             children: [
                               IconButton(
                                   onPressed: () {
-                                    var t = double.parse((setting.letterSpacing - 0.1).toStringAsFixed(1));
-                                    IsarCtl.putSetting(setting..letterSpacing = t);
+                                    var t = double.parse(
+                                        (setting.letterSpacing - 0.1)
+                                            .toStringAsFixed(1));
+                                    IsarCtl.putSetting(
+                                        setting..letterSpacing = t);
                                   },
                                   icon: Icon(Ionicons.remove_outline)),
                               Text("${setting.letterSpacing}"),
                               IconButton(
                                   onPressed: () {
-                                    var t = double.parse((setting.letterSpacing + 0.1).toStringAsFixed(1));
-                                    IsarCtl.putSetting(setting..letterSpacing = t);
+                                    var t = double.parse(
+                                        (setting.letterSpacing + 0.1)
+                                            .toStringAsFixed(1));
+                                    IsarCtl.putSetting(
+                                        setting..letterSpacing = t);
                                   },
                                   icon: Icon(Ionicons.add_outline)),
                             ],
@@ -375,9 +434,11 @@ class UiSetting extends GetView {
                                     groupValue: ff,
                                     onChanged: (String? f) {
                                       if (f == 'default') {
-                                        IsarCtl.putSetting(setting..fontFamily = "");
+                                        IsarCtl.putSetting(
+                                            setting..fontFamily = "");
                                       } else {
-                                        IsarCtl.putSetting(setting..fontFamily = f!);
+                                        IsarCtl.putSetting(
+                                            setting..fontFamily = f!);
                                       }
                                     });
                               }).toList(),
@@ -422,25 +483,29 @@ class LayoutSetting extends GetView {
                   return Card(
                     child: Padding(
                         padding: EdgeInsets.all(10),
-                        child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                          InkWell(
-                            onTap: () {
-                              IsarCtl.putSetting(setting..touchLayout = idx);
-                            },
-                            child: Container(
-                                height: 100,
-                                child: ReadpageOverlay(
-                                  bScreenHelp: true,
-                                  touchLayout: idx,
-                                )),
-                          ),
-                          Radio(
-                              value: idx,
-                              groupValue: setting.touchLayout,
-                              onChanged: (_) {
-                                IsarCtl.putSetting(setting..touchLayout = idx);
-                              })
-                        ])),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  IsarCtl.putSetting(
+                                      setting..touchLayout = idx);
+                                },
+                                child: Container(
+                                    height: 100,
+                                    child: ReadpageOverlay(
+                                      bScreenHelp: true,
+                                      touchLayout: idx,
+                                    )),
+                              ),
+                              Radio(
+                                  value: idx,
+                                  groupValue: setting.touchLayout,
+                                  onChanged: (_) {
+                                    IsarCtl.putSetting(
+                                        setting..touchLayout = idx);
+                                  })
+                            ])),
                   );
                 },
               ),
@@ -459,14 +524,16 @@ class MoveLocation extends GetView {
         alignment: Alignment.center,
         // color: Colors.black26,
         child: ObxValue((RxInt position) {
-          TextEditingController c = TextEditingController()..text = position.toString();
+          TextEditingController c = TextEditingController()
+            ..text = position.toString();
           return Card(
             child: Container(
               padding: EdgeInsets.all(10),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("${"Current_location".tr} : $position / ${IsarCtl.contents.length}"),
+                  Text(
+                      "${"Current_location".tr} : $position / ${IsarCtl.contents.length}"),
                   Slider(
                       value: position.toDouble(),
                       min: 0,
@@ -511,7 +578,11 @@ class PageSearch extends GetView {
         child: ObxValue((RxString keyword) {
           List<ContentsIsar> findDatas = [];
           if (keyword.isNotEmpty) {
-            findDatas = IsarCtl.isar.contentsIsars.where().filter().textContains(keyword.value).findAllSync();
+            findDatas = IsarCtl.isar.contentsIsars
+                .where()
+                .filter()
+                .textContains(keyword.value)
+                .findAllSync();
           }
           return Column(
             children: [

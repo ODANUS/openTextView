@@ -13,7 +13,7 @@ import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 
-class LibraryPage extends GetView<BoxCtl> {
+class LibraryPage extends GetView {
   List<String> sortList = ["name", "size", "date", "access"];
   RxString sortStr = "access".obs;
   RxString searchText = "".obs;
@@ -29,13 +29,22 @@ class LibraryPage extends GetView<BoxCtl> {
               actions: [
                 ...sortList.map((e) {
                   return Obx(() => TextButton(
-                        style: TextButton.styleFrom(padding: EdgeInsets.only(left: 10), minimumSize: Size.zero, primary: Colors.white),
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.only(left: 10),
+                            minimumSize: Size.zero,
+                            primary: Colors.white),
                         onPressed: () {
                           sortStr(e);
                           asc(!asc.value);
                         },
                         child: Row(
-                          children: [Text(e), if (e == sortStr.value && asc.value) Icon(Icons.arrow_drop_up) else if (e == sortStr.value && !asc.value) Icon(Icons.arrow_drop_down)],
+                          children: [
+                            Text(e),
+                            if (e == sortStr.value && asc.value)
+                              Icon(Icons.arrow_drop_up)
+                            else if (e == sortStr.value && !asc.value)
+                              Icon(Icons.arrow_drop_down)
+                          ],
                         ),
                       ));
                 }).toList(),
@@ -51,13 +60,17 @@ class LibraryPage extends GetView<BoxCtl> {
                 builder: (context, snapshot) {
                   if (snapshot.data == null) return SizedBox();
                   var dir = Directory("${snapshot.data!.path}/file_picker");
+                  if (!dir.existsSync()) {
+                    dir.createSync(recursive: true);
+                  }
                   var refFiles = dir.listSync();
 
                   return IsarCtl.rxHistory((p0, p1) {
                     return Column(
                       children: [
                         Container(
-                            padding: EdgeInsets.only(top: 2, bottom: 2, left: 10, right: 10),
+                            padding: EdgeInsets.only(
+                                top: 2, bottom: 2, left: 10, right: 10),
                             child: TextField(
                               decoration: InputDecoration(
                                 labelText: "Please enter word".tr,
@@ -68,7 +81,12 @@ class LibraryPage extends GetView<BoxCtl> {
                           child: RefreshIndicator(
                             onRefresh: () async => reloadFn(reloadValue),
                             child: Obx(() {
-                              var files = refFiles.where((e) => e.path.split("/").last.contains(searchText)).toList();
+                              var files = refFiles
+                                  .where((e) => e.path
+                                      .split("/")
+                                      .last
+                                      .contains(searchText))
+                                  .toList();
                               if (sortStr.contains("name")) {
                                 files.sort((e1, e2) {
                                   String name1 = e1.path.split("/").last;
@@ -94,8 +112,10 @@ class LibraryPage extends GetView<BoxCtl> {
                               }
                               if (sortStr.contains("date")) {
                                 files.sort((e1, e2) {
-                                  DateTime date1 = (e1 as File).lastModifiedSync();
-                                  DateTime date2 = (e2 as File).lastModifiedSync();
+                                  DateTime date1 =
+                                      (e1 as File).lastModifiedSync();
+                                  DateTime date2 =
+                                      (e2 as File).lastModifiedSync();
                                   if (asc.value) {
                                     return date1.compareTo(date2);
                                   } else {
@@ -105,8 +125,10 @@ class LibraryPage extends GetView<BoxCtl> {
                               }
                               if (sortStr.contains("access")) {
                                 files.sort((e1, e2) {
-                                  DateTime date1 = (e1 as File).lastAccessedSync();
-                                  DateTime date2 = (e2 as File).lastAccessedSync();
+                                  DateTime date1 =
+                                      (e1 as File).lastAccessedSync();
+                                  DateTime date2 =
+                                      (e2 as File).lastAccessedSync();
                                   if (asc.value) {
                                     return date1.compareTo(date2);
                                   } else {
@@ -116,12 +138,17 @@ class LibraryPage extends GetView<BoxCtl> {
                               }
 
                               return ListView.builder(
-                                  padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 100),
+                                  padding: EdgeInsets.only(
+                                      left: 10,
+                                      top: 10,
+                                      right: 10,
+                                      bottom: 100),
                                   itemCount: files.length,
                                   itemBuilder: (ctx, idx) {
                                     File file = files[idx] as File;
                                     String name = file.path.split("/").last;
-                                    HistoryIsar? history = IsarCtl.historyByName(name);
+                                    HistoryIsar? history =
+                                        IsarCtl.historyByName(name);
                                     String size = Utils.getFileSize(file);
                                     return Card(
                                       child: ExpansionTile(
@@ -129,14 +156,17 @@ class LibraryPage extends GetView<BoxCtl> {
                                         subtitle: history == null
                                             ? SizedBox()
                                             : Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                  Text("${(history.pos / history.length * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
+                                                  Text(
+                                                      "${(history.pos / history.length * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
                                                   Row(children: [
                                                     Flexible(
                                                       child: Text(
                                                         "${"memo".tr} : ${history.memo}",
-                                                        overflow: TextOverflow.ellipsis,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
                                                       ),
                                                     ),
                                                   ]),
@@ -147,21 +177,29 @@ class LibraryPage extends GetView<BoxCtl> {
                                           ObxValue<RxBool>((bMemo) {
                                             return Column(
                                               children: [
-                                                if (bMemo.value && history != null)
+                                                if (bMemo.value &&
+                                                    history != null)
                                                   Container(
                                                     padding: EdgeInsets.all(10),
                                                     child: TextFormField(
-                                                      initialValue: history.memo,
+                                                      initialValue:
+                                                          history.memo,
                                                       onFieldSubmitted: (v) {
-                                                        IsarCtl.putHistory(history..memo = v);
+                                                        IsarCtl.putHistory(
+                                                            history..memo = v);
                                                       },
                                                     ),
                                                   ),
                                                 Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
                                                   children: [
                                                     ElevatedButton(
-                                                      style: ElevatedButton.styleFrom(primary: Colors.red),
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                              primary:
+                                                                  Colors.red),
                                                       onPressed: () {
                                                         file.deleteSync();
                                                         reloadFn(reloadValue);
@@ -170,7 +208,10 @@ class LibraryPage extends GetView<BoxCtl> {
                                                     ),
                                                     if (history != null)
                                                       ElevatedButton(
-                                                        style: ElevatedButton.styleFrom(primary: Colors.green),
+                                                        style: ElevatedButton
+                                                            .styleFrom(
+                                                                primary: Colors
+                                                                    .green),
                                                         onPressed: () {
                                                           bMemo(!bMemo.value);
                                                         },

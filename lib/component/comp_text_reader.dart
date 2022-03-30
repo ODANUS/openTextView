@@ -1,19 +1,12 @@
 import 'dart:collection';
-import 'dart:developer';
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:isar/isar.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
-import 'package:open_textview/provider/utils.dart';
-import 'package:scroll_bottom_navigation_bar/scroll_bottom_navigation_bar.dart';
 
 class CompTextReader extends GetView {
   CompTextReader({
@@ -195,9 +188,10 @@ class TextViewerPainter extends CustomPainter {
     var ctl = textViewerController;
     double offsetY = ctl.offsetY;
     int pos = ctl.pos;
+    print("111111111111111111${DateTime.now()}");
     var perMap = perTextRender(contentsMap, pos, size);
     var nextMap = nextTextRender(contentsMap, pos, size);
-
+    print("22222222222222222${DateTime.now()}");
     var mergeData = {...perMap, ...nextMap};
 
     var startOffset = offsetY - (perMap.isEmpty ? 0 : perMap.values.map((e) => e.height).reduce((v1, v2) => v1 + v2));
@@ -221,10 +215,11 @@ class TextViewerPainter extends CustomPainter {
     if (cur == ctl.maxPos) {
       ctl.maxPos++;
     }
-
+    print("33333333333333333333${DateTime.now()}");
     if (pos != cur && mergeData[cur] != null) {
       if (pos < cur) {
-        setData(cur, 0);
+        // print(ctl.offsetY + mergeData[cur - 1]!.height);
+        setData(cur, 0); //ctl.offsetY - mergeData[cur]!.height);
       } else {
         double tmpOffset = -mergeData[cur]!.height + 2;
         if (cur == 0) {
@@ -281,10 +276,12 @@ class TextViewerPainter extends CustomPainter {
     Map<int, TextPainter> rtn = {};
     double tmpHeight = 0;
     for (int i = pos; i < m.length; i++) {
-      var p = TextPainter(
-        text: TextSpan(text: "${m[i]}", style: style),
-        textDirection: TextDirection.ltr,
-      )..layout(maxWidth: size.width);
+      var p = textViewerController.cache[i] != null
+          ? textViewerController.cache[i]
+          : (TextPainter(
+              text: TextSpan(text: "${m[i]}", style: style),
+              textDirection: TextDirection.ltr,
+            )..layout(maxWidth: size.width));
       if (p.height > size.height) {
         TextPainter resizeP = TextPainter();
         for (var fs = 1; fs < 20; fs += 1) {

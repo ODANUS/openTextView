@@ -5,11 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:get/get.dart';
 import 'package:isar/isar.dart';
 import 'package:open_textview/controller/audio_play.dart';
+import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
+import 'package:open_textview/objectbox.g.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -59,8 +60,11 @@ class IsarCtl {
   static Future<void> initData() async {
     var dir = await getApplicationSupportDirectory();
     isar = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dir.path);
+
+    // isar.writeTxnSync((isar) => isar.contentsIsars.clearSync());
+    // isar.writeTxnSync((isar) => isar.filterIsars.clearSync());
     // isar.writeTxnSync((isar) => isar.historyIsars.clearSync());
-    // isar.writeTxnSync((isar) => isar.settingIsars.clearSync());
+    isar.writeTxnSync((isar) => isar.settingIsars.clearSync());
 
     // LocalSettingIsar? localSettingIsar =
     //     isar.localSettingIsars.where().findFirstSync();
@@ -71,9 +75,26 @@ class IsarCtl {
     // }
     SettingIsar? settingIsar = isar.settingIsars.where().findFirstSync();
     if (settingIsar == null) {
-      isar.writeTxnSync((isar) {
-        isar.settingIsars.putSync(SettingIsar());
-      });
+      var store = await openStore();
+      var settingbox = store.box<SettingBox>();
+      var filterbox = store.box<FilterBox>();
+      var historyBox = store.box<HistoryBox>();
+
+      var tmps = settingbox.getAll().map((e) => SettingIsar.fromMap(e.toMap())).toList();
+      var tmpf = filterbox.getAll().map((e) => FilterIsar.fromMap(e.toMap())).toList();
+      var tmph = historyBox.getAll().map((e) => HistoryIsar.fromMap(e.toMap())).toList();
+      if (tmps.isNotEmpty) {
+        isar.writeTxnSync((isar) {
+          isar.settingIsars.putAllSync(tmps);
+          isar.filterIsars.putAllSync(tmpf);
+          isar.historyIsars.putAllSync(tmph);
+        });
+      } else {
+        isar.writeTxnSync((isar) {
+          isar.settingIsars.putSync(SettingIsar());
+        });
+      }
+      store.close();
       settingIsar = isar.settingIsars.where().findFirstSync();
     }
     if (settingIsar != null) {
@@ -439,6 +460,24 @@ class IsarCtl {
     setSetting(setting);
   }
 
+  static map2Box(Map<String, dynamic> jsonData) async {
+    var store = await openStore();
+    var settingbox = store.box<SettingBox>();
+    var filterbox = store.box<FilterBox>();
+    var historybox = store.box<HistoryBox>();
+    var his = (jsonData["historys"] as List).map((e) => HistoryBox.fromMap(e)..id = 0).toList();
+    var filters = (jsonData["filters"] as List).map((e) => FilterBox.fromMap(e)..id = 0).toList();
+    var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
+
+    historybox.removeAll();
+    historybox.putMany(his);
+    filterbox.removeAll();
+    filterbox.putMany(filters);
+    settingbox.removeAll();
+    settingbox.put(setting);
+    store.close();
+  }
+
   static openFile(File f) async {
     AudioPlay.stop();
 
@@ -486,6 +525,8 @@ class TextViewerController extends ChangeNotifier {
   bool bHighlight = false;
   int highlightPos = 0;
   int highlightCnt = 0;
+
+  Map<int, TextPainter> cache = {};
 
   Function(int)? onChange;
 

@@ -14,7 +14,7 @@ import 'package:open_textview/component/option_review.dart';
 import 'package:open_textview/component/option_tts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SettingPage extends GetView<BoxCtl> {
+class SettingPage extends GetView {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -49,7 +49,8 @@ class SettingPage extends GetView<BoxCtl> {
             child: ListTile(
                 title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
                 onTap: () {
-                  launch("https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
+                  launch(
+                      "https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
                 }),
           ),
           Card(child: OptionOsslicense()),
