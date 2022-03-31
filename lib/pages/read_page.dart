@@ -43,32 +43,32 @@ class ReadPage extends GetView {
               ),
               InkWell(onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value), child: Icon(Icons.settings_outlined)),
               SizedBox(width: 5),
-              InkWell(
-                onLongPress: () {},
-                onTap: () async {
-                  Get.dialog(AlertDialog(
-                      content: TextField(
-                    keyboardType: TextInputType.number,
-                    autofocus: true,
-                  )));
-                  await Future.delayed(50.milliseconds);
-                  Get.back();
-                  IsarCtl.enableVolumeButton(true);
-                },
-                child: Tooltip(
-                  message: "enable volume keys".tr,
-                  triggerMode: TooltipTriggerMode.longPress,
-                  child: Icon(Icons.stay_primary_portrait),
-                ), //Icon(IsarCtl.enableVolumeButton.value ? Icons.stay_primary_portrait : Icons.phonelink_erase),
-              )
+              // InkWell(
+              //   onLongPress: () {},
+              //   onTap: () async {
+              //     Get.dialog(AlertDialog(
+              //         content: TextField(
+              //       keyboardType: TextInputType.number,
+              //       autofocus: true,
+              //     )));
+              //     await Future.delayed(50.milliseconds);
+              //     Get.back();
+              //     IsarCtl.enableVolumeButton(true);
+              //   },
+              //   child: Tooltip(
+              //     message: "enable volume keys".tr,
+              //     triggerMode: TooltipTriggerMode.longPress,
+              //     child: Icon(Icons.stay_primary_portrait),
+              //   ), //Icon(IsarCtl.enableVolumeButton.value ? Icons.stay_primary_portrait : Icons.phonelink_erase),
+              // )
             ]),
         body: Builder(builder: (ctx) {
           return Stack(children: [
-            IsarCtl.rxSetting((_, data) {
+            IsarCtl.rxSetting((_, setting) {
               return Container(
                 width: Get.width,
                 height: Get.height,
-                color: Color(data.backgroundColor),
+                color: Color(setting.backgroundColor),
               );
             }),
             AudioPlay.builder(builder: (BuildContext context, AsyncSnapshot<PlaybackState> snapshot) {
@@ -77,6 +77,7 @@ class ReadPage extends GetView {
               }
 
               // return SizedBox();
+
               return IsarCtl.rxSetting((_, setting) {
                 return Container(
                     width: Get.width,

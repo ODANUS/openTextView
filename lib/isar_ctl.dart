@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:isolate';
 import 'dart:math' as math;
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,6 +15,22 @@ import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/objectbox.g.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
+
+// Isar? isarIsolate;
+// String dbPath = "";
+// void isolateFunction(int idx) async {
+//   if (isarIsolate == null) {
+//     isarIsolate = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dbPath);
+//   }
+//   isarIsolate?.writeTxn((isar) async {
+//     var curHistory = await isar.historyIsars.where().sortByDateDesc().findFirst();
+//     if (curHistory != null) {
+//       curHistory.cntntPstn = idx;
+//       curHistory.date = DateTime.now();
+//       isar.historyIsars.put(curHistory);
+//     }
+//   });
+// }
 
 class IsarCtl {
   static final List<String> listFont = [
@@ -60,12 +77,13 @@ class IsarCtl {
 
   static Future<void> initData() async {
     var dir = await getApplicationSupportDirectory();
+    // dbPath = dir.path;
     isar = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dir.path);
 
     // isar.writeTxnSync((isar) => isar.contentsIsars.clearSync());
     // isar.writeTxnSync((isar) => isar.filterIsars.clearSync());
     // isar.writeTxnSync((isar) => isar.historyIsars.clearSync());
-    isar.writeTxnSync((isar) => isar.settingIsars.clearSync());
+    // isar.writeTxnSync((isar) => isar.settingIsars.clearSync());
 
     // LocalSettingIsar? localSettingIsar =
     //     isar.localSettingIsars.where().findFirstSync();
@@ -75,7 +93,8 @@ class IsarCtl {
     //   });
     // }
     SettingIsar? settingIsar = isar.settingIsars.where().findFirstSync();
-    if (settingIsar == null) {
+    List<HistoryIsar> historys = isar.historyIsars.where().findAllSync();
+    if (settingIsar == null || historys.isEmpty) {
       var store = await openStore();
       var settingbox = store.box<SettingBox>();
       var filterbox = store.box<FilterBox>();
@@ -85,11 +104,13 @@ class IsarCtl {
       var tmpf = filterbox.getAll().map((e) => FilterIsar.fromMap(e.toMap())).toList();
       var tmph = historyBox.getAll().map((e) => HistoryIsar.fromMap(e.toMap())).toList();
       if (tmps.isNotEmpty) {
-        isar.writeTxnSync((isar) {
-          isar.settingIsars.putAllSync(tmps);
-          isar.filterIsars.putAllSync(tmpf);
-          isar.historyIsars.putAllSync(tmph);
-        });
+        try {
+          isar.writeTxnSync((isar) {
+            isar.settingIsars.putAllSync(tmps);
+            isar.filterIsars.putAllSync(tmpf);
+            isar.historyIsars.putAllSync(tmph);
+          });
+        } catch (e) {}
       } else {
         isar.writeTxnSync((isar) {
           isar.settingIsars.putSync(SettingIsar());
@@ -106,7 +127,8 @@ class IsarCtl {
         Get.changeTheme(ThemeData.dark());
       }
     }
-    // var historys = isar.historyIsars.where().findAllSync();
+    // var historyst = isar.historyIsars.where().findAllSync();
+    // print(historyst.length);
     // historys.forEach((e) {
     //   if (e.cntntPstn < 0) {
     //     if (e.contentsLen <= 0) {
@@ -210,6 +232,38 @@ class IsarCtl {
     tmp?.date = DateTime.now();
     lastHistory = tmp;
   }
+
+  static cntntPstnAsync(int idx) async {
+    isar.historyIsars.where().sortByDateDesc().findFirst().then((curHistory) {
+      if (curHistory != null) {
+        curHistory.cntntPstn = idx;
+        curHistory.date = DateTime.now();
+        isar.writeTxn((isar) async {
+          isar.historyIsars.put(curHistory);
+        });
+      }
+    });
+    // Isolate.spawn(isolateFunction, idx);
+
+    // HistoryIsar? tmp = lastHistory;
+    // tmp?.cntntPstn = idx;
+    // tmp?.date = DateTime.now();
+    // lastHistory = tmp;
+  }
+
+  // static void isolateFunction(int idx) async {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   var dir = await getApplicationSupportDirectory();
+  //   var isar = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dir.path);
+  //   isar.writeTxn((isar) async {
+  //     var curHistory = await isar.historyIsars.where().sortByDateDesc().findFirst();
+  //     // if (curHistory != null) {
+  //     //   curHistory.cntntPstn = idx;
+  //     //   curHistory.date = DateTime.now();
+  //     //   isar.historyIsars.put(curHistory);
+  //     // }
+  //   });
+  // }
 
   // static int get pos {
   //   return lastHistory?.pos ?? 0;
@@ -502,7 +556,7 @@ class IsarCtl {
 
   static openFile(File f) async {
     AudioPlay.stop();
-
+    f.setLastAccessedSync(DateTime.now());
     var tmpName = f.path.split("/").last;
 
     String tmpStr = await Utils.readFile(f);
@@ -510,7 +564,6 @@ class IsarCtl {
     tmpcontents = tmpcontents.replaceAll("\r\n", "\n");
 
     ContentsIsar contentsisar = ContentsIsar(text: tmpcontents);
-    print(tmpcontents);
 
     // List<ContentsIsar> contentsList = targetList.asMap().map((k, e) => MapEntry(k, ContentsIsar(idx: k, text: e))).values.toList();
 
@@ -537,6 +590,7 @@ class IsarCtl {
       lastHistory = history;
       // putHistory(history);
     }
+
     contents = contentsisar;
 
     tabIndex(0);

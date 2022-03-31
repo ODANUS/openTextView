@@ -6,6 +6,7 @@ import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/Ads.dart';
+import 'package:open_textview/controller/ad_ctl.dart';
 
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/provider/utils.dart';
@@ -20,6 +21,9 @@ class HistoryPage extends GetView {
         // centerTitle: true,
         title: Text("history".tr),
         actions: [
+          IsarCtl.rxHistory((ctx, history) {
+            return Center(child: Text("Total : ${history.length}"));
+          }),
           IconButton(
               onPressed: () async {
                 var tmpdir = await getTemporaryDirectory();
@@ -49,11 +53,32 @@ class HistoryPage extends GetView {
 
                 await FlutterFileDialog.saveFile(params: params);
               },
-              icon: Icon(Icons.download))
+              icon: Icon(Icons.download)),
+          IconButton(
+              onPressed: () {
+                if (AdCtl.hasOpenInterstitialAd()) {
+                  AdCtl.openInterstitialAd();
+                }
+                // hasOpenInterstitialAd
+              },
+              icon: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Icon(Icons.smart_display),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      "AD",
+                    ),
+                  ),
+                ],
+              ))
         ],
         bottom: PreferredSize(
           preferredSize: Size(Get.width, 50),
-          child: AdsComp(),
+          child: AdBanner(key: Key("history")),
         ),
       ),
       body: IsarCtl.rxHistory((p0, p1) {

@@ -236,6 +236,8 @@ class HistoryIsar {
   });
 
   int id = Isar.autoIncrement;
+
+  @Index(unique: true)
   String name;
 
   DateTime date;

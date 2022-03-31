@@ -47,7 +47,7 @@ class CompTextReader extends GetView {
               return;
             }
 
-            IsarCtl.tctl.offsetY += d.delta.dy * 0.5;
+            IsarCtl.tctl.offsetY += d.delta.dy * 0.9;
           },
           child: SizedBox(
             width: double.infinity,
@@ -59,8 +59,9 @@ class CompTextReader extends GetView {
                 textViewerController: IsarCtl.tctl
                   ..cntntPstn = IsarCtl.cntntPstn
                   ..contents = contens.text
-                  ..onChange = (idx) {
-                    IsarCtl.cntntPstn = idx;
+                  ..onChange = (idx) async {
+                    IsarCtl.cntntPstnAsync(idx);
+                    // IsarCtl.cntntPstn = idx;
                   },
                 style: IsarCtl.textStyle,
               ),
@@ -70,7 +71,17 @@ class CompTextReader extends GetView {
         ReadpageOverlay(
             bScreenHelp: false,
             touchLayout: setting.touchLayout,
-            onFullScreen: () {
+            onFullScreen: () async {
+              if (!IsarCtl.enableVolumeButton.value) {
+                Get.dialog(AlertDialog(
+                    content: TextField(
+                  keyboardType: TextInputType.number,
+                  autofocus: true,
+                )));
+                await Future.delayed(50.milliseconds);
+                Get.back();
+                IsarCtl.enableVolumeButton(true);
+              }
               IsarCtl.bfullScreen(!IsarCtl.bfullScreen.value);
             },
             onBackpage: () {
@@ -114,9 +125,12 @@ class TextViewerPainter extends CustomPainter {
     var perLines = pPer.computeLineMetrics();
     var maxPerHeight = pPer.height - size.height;
     double perHeight = 0.0;
+    // if (perLines.length == 1) {
+    //   maxPerHeight = 0;
+    // }
     for (var line in perLines) {
       if (line.baseline > maxPerHeight) {
-        var startPos = pPer.getPositionForOffset(Offset(line.left, line.baseline + line.descent)).offset;
+        var startPos = pPer.getPositionForOffset(Offset(line.left, line.baseline)).offset;
         perText = perText.substring(startPos, perText.length);
         pPer = TextPainter(
           text: TextSpan(text: perText, style: style),
@@ -143,9 +157,22 @@ class TextViewerPainter extends CustomPainter {
         break;
       }
     }
+    // if (ctl.highlightPos - pos >= 0) {
+    //   print(ctl.highlightPos);
+    //   print(pos);
+    //   var top = p.getWordBoundary(TextPosition(offset: ctl.highlightPos - pos));
+    //   var bottom = p.getWordBoundary(TextPosition(offset: pos - ctl.highlightPos + ctl.highlightCnt));
+    //   print(top);
+    //   print(bottom);
+    //   canvas.drawRect(Rect.fromLTWH(0, top.end.toDouble(), size.width, bottom.end.toDouble()), highlight);
 
-    p.paint(canvas, Offset(0, offsetY));
+    //   // print(p.getLineBoundary(TextPosition(offset: ctl.highlightPos - pos)));
+    //   // print(p.getLineBoundary(TextPosition(offset: ctl.highlightPos - pos + ctl.highlightCnt)));
+    //   // print(bottom);
+    // }
+
     pPer.paint(canvas, Offset(0, offsetY - perHeight));
+    p.paint(canvas, Offset(0, offsetY));
 
     var perPos = pPer.text!.toPlainText().length;
 
@@ -159,11 +186,14 @@ class TextViewerPainter extends CustomPainter {
     if (pos != po) {
       var l = p.computeLineMetrics();
       ctl.setCntntPstn(po, offsetY: offsetY + l.first.height);
+
+      // ctl.setCntntPstn(po);
     } else if (pos != perPo) {
       var l = pPer.computeLineMetrics();
       var tmppos = pos - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(0, pPer.height - (offsetY))).offset);
 
       ctl.setCntntPstn(tmppos, offsetY: offsetY - (l.last.height));
+      // ctl.setCntntPstn(tmppos);
     }
   }
 
@@ -201,20 +231,22 @@ class TextViewerController extends ChangeNotifier {
 
   set cntntPstn(int v) {
     _cntntPstn = v;
-    _offsetY = 0;
-    if (onChange != null) {
-      onChange!(v);
-    }
+    // _offsetY = 0;
+    // if (onChange != null) {
+    //   onChange!(v);
+    // }
     // notifyListeners();
   }
 
   int get cntntPstn => _cntntPstn;
 
-  setCntntPstn(int v, {double offsetY = 0}) {
+  setCntntPstn(int v, {double offsetY = 0}) async {
     cntntPstn = v;
     _offsetY = offsetY;
     if (onChange != null) {
       onChange!(v);
+      // Future.delayed(Duration(milliseconds: 500), () async {
+      // });
     }
   }
 
@@ -240,12 +272,15 @@ class TextViewerController extends ChangeNotifier {
   back() {
     offsetY = 0;
     cntntPstn = perPos;
+    onChange!(perPos);
   }
 
   next() {
     if (maxPos < contents.length - 1) {
       offsetY = 0;
+
       cntntPstn = maxPos;
+      onChange!(maxPos);
     }
     // print(maxPos);
   }

@@ -97,6 +97,9 @@ class Messages extends Translations {
           "padding": "padding",
           "open": "Open",
           "enable volume keys": "Activating the page movement function with the volume keys.",
+          "Copy content": "Copy content",
+          "for adding filters": "Displays some of the text you are currently viewing so that you can copy it. (for adding filters)",
+          "Would you like to see an ad": "Would you like to see an ad?\nAn interstitial ad of 0 to 10 seconds is displayed.",
         },
         "ko": {
           "key": "ko",
@@ -192,6 +195,9 @@ class Messages extends Translations {
           "padding": "여백",
           "open": "열기",
           "enable volume keys": "볼륨키 로 페이지 이동 기능 활성화",
+          "Copy content": "텍스트 복사",
+          "for adding filters": "현재 보고 있는 텍스트중 일부를 복사 할 수 있도록 표시합니다. (필터 추가용)",
+          "Would you like to see an ad": "광고를 보시겠습니까? \n0~10 초 정도의 전면광고가 표시됩니다.",
         },
         "gl": {
           "key": "gl",
@@ -287,6 +293,9 @@ class Messages extends Translations {
           "padding": "padding.",
           "open": "Open.",
           "enable volume keys": "Activar a función de movemento da páxina coas teclas de volume.",
+          "Copy content": "Copiar o contido",
+          "for adding filters": "Mostra algúns dos textos que está a ver para que poida copialo. (para engadir filtros)",
+          "Would you like to see an ad": "¿Quere ver un anuncio?\nAparece un anuncio intersticial de 0 a 10 segundos.",
         },
         "gu": {
           "key": "gu",
@@ -382,6 +391,9 @@ class Messages extends Translations {
           "padding": "ગાદી",
           "open": "ખુલ્લા",
           "enable volume keys": "વોલ્યુમ કીઓ સાથે પૃષ્ઠ ચળવળ કાર્ય સક્રિય કરી રહ્યું છે.",
+          "Copy content": "કૉપિ કરો",
+          "for adding filters": "તમે હાલમાં જોઈ રહ્યાં છો તે કેટલાક ટેક્સ્ટને પ્રદર્શિત કરે છે જેથી તમે તેને કૉપિ કરી શકો. (ફિલ્ટર્સ ઉમેરવા માટે)",
+          "Would you like to see an ad": "શું તમે જાહેરાત જોવા માંગો છો?\n0 થી 10 સેકંડની એક આંતરરાજ્ય જાહેરાત પ્રદર્શિત થાય છે.",
         },
         "el": {
           "key": "el",
@@ -477,6 +489,9 @@ class Messages extends Translations {
           "padding": "υλικό παραγεμίσματος",
           "open": "Ανοιξε",
           "enable volume keys": "Ενεργοποίηση της λειτουργίας κίνησης σελίδας με τα πλήκτρα έντασης.",
+          "Copy content": "Αντιγραφή περιεχομένου",
+          "for adding filters": "Εμφανίζει κάποιο από το κείμενο που βλέπετε αυτήν τη στιγμή, ώστε να μπορείτε να το αντιγράψετε. (για την προσθήκη φίλτρων)",
+          "Would you like to see an ad": "Θα θέλατε να δείτε μια διαφήμιση;\nΕμφανίζεται μια διάμεση διαφήμιση 0 έως 10 δευτερόλεπτα.",
         },
         "nl": {
           "key": "nl",
@@ -572,6 +587,9 @@ class Messages extends Translations {
           "padding": "vulling",
           "open": "Open",
           "enable volume keys": "De pagina Movement-functie activeren met de volumetoetsen.",
+          "Copy content": "Copy-inhoud",
+          "for adding filters": "Geeft een deel van de tekst weer die u momenteel bekijkt, zodat u het kunt kopiëren. (voor het toevoegen van filters)",
+          "Would you like to see an ad": "Wilt u een advertentie zien?\nEen interstitiële advertentie van 0 tot 10 seconden wordt weergegeven.",
         },
         "ne": {
           "key": "ne",
@@ -667,6 +685,9 @@ class Messages extends Translations {
           "padding": "प्याडडि .्वन",
           "open": "खोल्नु",
           "enable volume keys": "भोल्यूम कुञ्जीहरूको साथ पृष्ठ आन्दोलन प्रकार्य सक्रिय गर्दै।",
+          "Copy content": "सामग्री प्रतिलिपि गर्नुहोस्",
+          "for adding filters": "केहि पाठ प्रदर्शन गर्दछ जुन तपाईं हाल हेर्नुहुन्छ ताकि तपाईं यसलाई प्रतिलिपि गर्न सक्नुहुनेछ। (फिल्टरहरू थप्नको लागि)",
+          "Would you like to see an ad": "के तपाई एक विज्ञापन हेर्न चाहानुहुन्छ?\n0 देखि 10 सेकेन्डको एक अन्तर्राष्ट्रिय विज्ञापन प्रदर्शित छ।",
         },
         "no": {
           "key": "no",
@@ -762,6 +783,9 @@ class Messages extends Translations {
           "padding": "polstring",
           "open": "Åpen",
           "enable volume keys": "Aktivere sidebevegelsesfunksjonen med volumtastene.",
+          "Copy content": "Kopier innhold",
+          "for adding filters": "Viser noe av teksten du ser på, slik at du kan kopiere den. (for å legge til filtre)",
+          "Would you like to see an ad": "Vil du se en annonse?\nEn interstitial-annonse på 0 til 10 sekunder vises.",
         },
         "da": {
           "key": "da",
@@ -857,6 +881,9 @@ class Messages extends Translations {
           "padding": "polstring.",
           "open": "Åben",
           "enable volume keys": "Aktivering af sidebevægelsesfunktionen med lydstyrketasterne.",
+          "Copy content": "Kopier indhold",
+          "for adding filters": "Viser en del af teksten, du i øjeblikket ser, så du kan kopiere den. (for at tilføje filtre)",
+          "Would you like to see an ad": "Vil du gerne se en annonce?\nEn interstitiel annonce på 0 til 10 sekunder vises.",
         },
         "de": {
           "key": "de",
@@ -952,6 +979,9 @@ class Messages extends Translations {
           "padding": "Polsterung",
           "open": "Offen",
           "enable volume keys": "Aktivieren der Seitenbewegungsfunktion mit den Lautstärketasten.",
+          "Copy content": "Inhalt kopieren",
+          "for adding filters": "Zeigt einen Teil des Textes an, den Sie gerade anzeigen, damit Sie es kopieren können. (Zum Hinzufügen von Filtern)",
+          "Would you like to see an ad": "Möchten Sie eine Anzeige sehen?\nEine interstitielle Anzeige von 0 bis 10 Sekunden wird angezeigt.",
         },
         "lo": {
           "key": "lo",
@@ -1047,6 +1077,9 @@ class Messages extends Translations {
           "padding": "ຜ້າປູ",
           "open": "ເປີດ",
           "enable volume keys": "ເປີດໃຊ້ຫນ້າທີ່ການເຄື່ອນໄຫວຂອງຫນ້າທີ່ມີລະຫັດປະລິມານ.",
+          "Copy content": "ສໍາເນົາເນື້ອຫາ",
+          "for adding filters": "ສະແດງຂໍ້ຄວາມບາງຢ່າງທີ່ທ່ານກໍາລັງເບິ່ງໃນປະຈຸບັນເພື່ອໃຫ້ທ່ານສາມາດຄັດລອກມັນໄດ້. (ສໍາລັບການເພີ່ມການກັ່ນຕອງ)",
+          "Would you like to see an ad": "ເຈົ້າຢາກເຫັນ AD ບໍ?\nການໂຄສະນາທີ່ວ່ອງໄວຂອງ 0 ເຖິງ 10 ວິນາທີແມ່ນສະແດງ.",
         },
         "lv": {
           "key": "lv",
@@ -1142,6 +1175,9 @@ class Messages extends Translations {
           "padding": "polsterējums",
           "open": "Atvērt",
           "enable volume keys": "Lapas kustības funkcijas aktivizēšana ar skaļuma taustiņiem.",
+          "Copy content": "Kopēt saturu",
+          "for adding filters": "Parāda kādu no teksta jūs pašlaik skatāties, lai jūs varētu to kopēt. (Filtru pievienošanai)",
+          "Would you like to see an ad": "Vai vēlaties redzēt reklāmu?\nTiek parādīta intersticiāla reklāma no 0 līdz 10 sekundēm.",
         },
         "ru": {
           "key": "ru",
@@ -1237,6 +1273,9 @@ class Messages extends Translations {
           "padding": "прокладка",
           "open": "Открыть",
           "enable volume keys": "Активация функции движения страницы с помощью клавиш громкости.",
+          "Copy content": "Скопировать содержимое",
+          "for adding filters": "Отображает некоторый текст, который вы просматриваете в настоящее время, чтобы вы могли скопировать его. (для добавления фильтров)",
+          "Would you like to see an ad": "Хотите увидеть объявление?\nОтображается интерстициальная реклама от 0 до 10 секунд.",
         },
         "ro": {
           "key": "ro",
@@ -1332,6 +1371,9 @@ class Messages extends Translations {
           "padding": "padding.",
           "open": "Deschis",
           "enable volume keys": "Activarea funcției de mișcare a paginii cu tastele de volum.",
+          "Copy content": "Copiați conținutul.",
+          "for adding filters": "Afișează unele dintre text pe care îl vizualizați în prezent, astfel încât să îl puteți copia. (pentru adăugarea filtrelor)",
+          "Would you like to see an ad": "Doriți să vedeți un anunț?\nEste afișat un anunț interstițial de 0 până la 10 secunde.",
         },
         "lt": {
           "key": "lt",
@@ -1427,6 +1469,9 @@ class Messages extends Translations {
           "padding": "Padding.",
           "open": "Atviras",
           "enable volume keys": "Puslapio judėjimo funkcijos sujungimas su garsumo klavišais.",
+          "Copy content": "Kopijuoti turinį",
+          "for adding filters": "Rodo kai kuriuos tekstus, kuriuos šiuo metu žiūrite, kad galėtumėte jį nukopijuoti. (Pridedant filtrus)",
+          "Would you like to see an ad": "Ar norėtumėte pamatyti skelbimą?\nRodomas intersticinis skelbimas nuo 0 iki 10 sekundžių.",
         },
         "mr": {
           "key": "mr",
@@ -1522,6 +1567,9 @@ class Messages extends Translations {
           "padding": "पॅडिंग",
           "open": "उघडा",
           "enable volume keys": "व्हॉल्यूम की सह पृष्ठ हालचाली कार्य सक्रिय.",
+          "Copy content": "सामग्री कॉपी करा",
+          "for adding filters": "आपण सध्या पहात असलेल्या काही मजकुरास प्रदर्शित करते जेणेकरून आपण ते कॉपी करू शकता. (फिल्टर जोडण्यासाठी)",
+          "Would you like to see an ad": "आपण जाहिरात पाहू इच्छिता?\n0 ते 10 सेकंदांचे एक संवादात्मक जाहिरात प्रदर्शित होते.",
         },
         "mk": {
           "key": "mk",
@@ -1617,6 +1665,9 @@ class Messages extends Translations {
           "padding": "Облека",
           "open": "Отворен",
           "enable volume keys": "Активирање на функцијата за движење на страницата со копчињата за јачина на звук.",
+          "Copy content": "Копирај содржина",
+          "for adding filters": "Прикажува дел од текстот што го гледате за да можете да го копирате. (за додавање филтри)",
+          "Would you like to see an ad": "Дали сакате да видите реклама?\nСе прикажува интерстицијална реклама од 0 до 10 секунди.",
         },
         "ml": {
           "key": "ml",
@@ -1712,6 +1763,9 @@ class Messages extends Translations {
           "padding": "പാടിംഗ്",
           "open": "തുറക്കുക",
           "enable volume keys": "വോളിയം കീകൾ ഉപയോഗിച്ച് പേജ് പ്രസ്ഥാന പ്രവർത്തനം സജീവമാക്കുന്നു.",
+          "Copy content": "ഉള്ളടക്കം പകർത്തുക",
+          "for adding filters": "നിങ്ങൾ ഇപ്പോൾ കാണുന്ന ചില വാചകം പ്രദർശിപ്പിക്കുന്നു, അതിനാൽ നിങ്ങൾക്ക് അത് പകർത്താൻ കഴിയും. (ഫിൽട്ടറുകൾ ചേർക്കുന്നതിന്)",
+          "Would you like to see an ad": "ഒരു പരസ്യം കാണാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?\n0 മുതൽ 10 സെക്കൻഡ് വരെ ഇന്റർസ്റ്റീഷ്യൽ പരസ്യം പ്രദർശിപ്പിക്കും.",
         },
         "ms": {
           "key": "ms",
@@ -1807,6 +1861,9 @@ class Messages extends Translations {
           "padding": "padding.",
           "open": "Buka",
           "enable volume keys": "Mengaktifkan fungsi pergerakan halaman dengan kekunci kelantangan.",
+          "Copy content": "Salin kandungan",
+          "for adding filters": "Memaparkan beberapa teks yang sedang anda lihat supaya anda boleh menyalinnya. (untuk menambah penapis)",
+          "Would you like to see an ad": "Adakah anda ingin melihat iklan?\nIklan interstisial 0 hingga 10 saat dipaparkan.",
         },
         "ms": {
           "key": "ms",
@@ -1902,6 +1959,9 @@ class Messages extends Translations {
           "padding": "padding.",
           "open": "Buka",
           "enable volume keys": "Mengaktifkan fungsi pergerakan halaman dengan kekunci kelantangan.",
+          "Copy content": "Salin kandungan",
+          "for adding filters": "Memaparkan beberapa teks yang sedang anda lihat supaya anda boleh menyalinnya. (untuk menambah penapis)",
+          "Would you like to see an ad": "Adakah anda ingin melihat iklan?\nIklan interstisial 0 hingga 10 saat dipaparkan.",
         },
         "mn": {
           "key": "mn",
@@ -1997,6 +2057,9 @@ class Messages extends Translations {
           "padding": "дэвсгэр",
           "open": "Нээлттэй",
           "enable volume keys": "Хуудасны хөдөлгөөний функцийг эзэлхүүнийн түлхүүрээр идэвхжүүлнэ.",
+          "Copy content": "Агуулгыг хуулбарлах",
+          "for adding filters": "Та одоо харж байгаа текстийн заримыг харуулж байна. (Шүүлтүүр нэмэхийн тулд)",
+          "Would you like to see an ad": "Зар харахыг хүсч байна уу?\n0-ээс 10 секундын хоорондын зарыг харуулна.",
         },
         "eu": {
           "key": "eu",
@@ -2092,6 +2155,9 @@ class Messages extends Translations {
           "padding": "betegarri",
           "open": "Ireki",
           "enable volume keys": "Orriaren mugimendu funtzioa aktibatzea bolumen teklekin.",
+          "Copy content": "Kopiatu edukia",
+          "for adding filters": "Orain ikusten ari zaren testu batzuk bistaratzen ditu, kopiatu ahal izateko. (Iragazkiak gehitzeko)",
+          "Would you like to see an ad": "Iragarki bat ikustea gustatuko litzaizuke?\n0 eta 10 segundo arteko iragarki interstizialak bistaratzen dira.",
         },
         "my": {
           "key": "my",
@@ -2187,6 +2253,9 @@ class Messages extends Translations {
           "padding": "padding",
           "open": "ဖွင့်လှစ်",
           "enable volume keys": "Page Movement ကို volume keys နှင့်အတူစာမျက်နှာလှုပ်ရှားမှုလုပ်ဆောင်ခြင်း။",
+          "Copy content": "အကြောင်းအရာကိုကူးယူပါ",
+          "for adding filters": "သင်ကြည့်ရှုနိုင်အောင်သင်ကြည့်ရှုနေသည့်စာသားအချို့ကိုပြသသည်။ (filter များထည့်သွင်းရန်)",
+          "Would you like to see an ad": "ကြော်ငြာတစ်ခုကြည့်ချင်ပါသလား\n0 မှ 10 စက္ကန့်အထိ interstitial ကြော်ငြာကိုပြသထားသည်။",
         },
         "vi": {
           "key": "vi",
@@ -2282,6 +2351,9 @@ class Messages extends Translations {
           "padding": "đệm",
           "open": "Mở",
           "enable volume keys": "Kích hoạt chức năng chuyển động trang với các phím âm lượng.",
+          "Copy content": "Sao chép nội dung.",
+          "for adding filters": "Hiển thị một số văn bản bạn đang xem để bạn có thể sao chép nó. (Để thêm bộ lọc)",
+          "Would you like to see an ad": "Bạn có muốn xem một quảng cáo?\nMột quảng cáo xen kẽ từ 0 đến 10 giây được hiển thị.",
         },
         "be": {
           "key": "be",
@@ -2377,6 +2449,9 @@ class Messages extends Translations {
           "padding": "абіўка",
           "open": "Адкрываць",
           "enable volume keys": "Актывацыя функцыі руху старонкі з дапамогай кнопак гучнасці.",
+          "Copy content": "Змест капіявання",
+          "for adding filters": "Адлюстроўвае некаторыя тэксту вы ў цяперашні час праглядалі так, што вы можаце скапіяваць яго. (Для дадання фільтраў)",
+          "Would you like to see an ad": "Вы хацелі б бачыць аб'яву?\nАдлюстроўваецца міжтканкавай ад 0 да 10 секунд.",
         },
         "bn": {
           "key": "bn",
@@ -2472,6 +2547,9 @@ class Messages extends Translations {
           "padding": "প্যাডিং",
           "open": "ওপেন",
           "enable volume keys": "ভলিউম কী দিয়ে পৃষ্ঠা আন্দোলন ফাংশন সক্রিয় করে।",
+          "Copy content": "কন্টেন্ট কপি",
+          "for adding filters": "আপনি বর্তমানে দেখছেন এমন কিছু পাঠ্য প্রদর্শন করে যাতে আপনি এটি অনুলিপি করতে পারেন। (ফিল্টার যোগ করার জন্য)",
+          "Would you like to see an ad": "আপনি একটি বিজ্ঞাপন দেখতে চান?\n0 থেকে 10 সেকেন্ডের একটি অন্তর্বর্তী বিজ্ঞাপন প্রদর্শিত হয়।",
         },
         "bg": {
           "key": "bg",
@@ -2567,6 +2645,9 @@ class Messages extends Translations {
           "padding": "подложка",
           "open": "Отворен",
           "enable volume keys": "Активиране на функцията за движение на страницата с клавишите за сила на звука.",
+          "Copy content": "Копиране на съдържание",
+          "for adding filters": "Показва някои от текста, който в момента гледате, за да го копирате. (за добавяне на филтри)",
+          "Would you like to see an ad": "Искате ли да видите реклама?\nПоказва се интерстициална реклама от 0 до 10 секунди.",
         },
         "sr": {
           "key": "sr",
@@ -2662,6 +2743,9 @@ class Messages extends Translations {
           "padding": "подлокнути",
           "open": "Отворен",
           "enable volume keys": "Активирање функције покрета странице са тастерима за јачину звука.",
+          "Copy content": "Копирајте садржај",
+          "for adding filters": "Приказује неке од текста који тренутно гледате да га можете копирати. (за додавање филтера)",
+          "Would you like to see an ad": "Да ли бисте желели да видите оглас?\nПриказује се интерстицијски оглас од 0 до 10 секунди.",
         },
         "sw": {
           "key": "sw",
@@ -2757,6 +2841,9 @@ class Messages extends Translations {
           "padding": "Padding.",
           "open": "Fungua",
           "enable volume keys": "Kuamsha kazi ya harakati ya ukurasa na funguo za kiasi.",
+          "Copy content": "Nakili maudhui.",
+          "for adding filters": "Inaonyesha baadhi ya maandishi unayoangalia sasa ili uweze kuipakia. (kwa kuongeza filters)",
+          "Would you like to see an ad": "Ungependa kuona tangazo?\nAD ya interstitial ya sekunde 0 hadi 10 inaonyeshwa.",
         },
         "sv": {
           "key": "sv",
@@ -2852,6 +2939,9 @@ class Messages extends Translations {
           "padding": "stoppning",
           "open": "Öppet",
           "enable volume keys": "Aktivera sidrörelsens funktion med volymknapparna.",
+          "Copy content": "Kopiera innehåll",
+          "for adding filters": "Visar en del av texten du tittar på så att du kan kopiera den. (För att lägga till filter)",
+          "Would you like to see an ad": "Vill du se en annons?\nEn interstitiell annons på 0 till 10 sekunder visas.",
         },
         "es": {
           "key": "es",
@@ -2947,6 +3037,9 @@ class Messages extends Translations {
           "padding": "relleno",
           "open": "Abierto",
           "enable volume keys": "Activación de la función de movimiento de la página con las teclas de volumen.",
+          "Copy content": "Copiar contenido",
+          "for adding filters": "Muestra parte del texto que está viendo actualmente para que pueda copiarlo. (para agregar filtros)",
+          "Would you like to see an ad": "¿Te gustaría ver un anuncio?\nSe muestra un anuncio intersticial de 0 a 10 segundos.",
         },
         "sk": {
           "key": "sk",
@@ -3042,6 +3135,9 @@ class Messages extends Translations {
           "padding": "vypchávka",
           "open": "Otvorené",
           "enable volume keys": "Aktivácia funkcie pohybu stránky s tlačidlami hlasitosti.",
+          "Copy content": "Kopírovať obsah",
+          "for adding filters": "Zobrazí niektoré z textu, ktorý práve prezeráte, aby ste ho mohli skopírovať. (Pri pridávaní filtrov)",
+          "Would you like to see an ad": "Chcete vidieť reklamu?\nZobrazí sa intersticiálna reklama 0 až 10 sekúnd.",
         },
         "sl": {
           "key": "sl",
@@ -3137,6 +3233,9 @@ class Messages extends Translations {
           "padding": "Oblazinjenje",
           "open": "Odprto",
           "enable volume keys": "Aktiviranje funkcije gibanja strani s tipkami za glasnost.",
+          "Copy content": "Kopirajte vsebino",
+          "for adding filters": "Prikaže nekaj besedila, ki ga trenutno gledate, da ga lahko kopirate. (za dodajanje filtrov)",
+          "Would you like to see an ad": "Želite videti oglas?\nPrikaže se intersticijski oglas od 0 do 10 sekund.",
         },
         "si": {
           "key": "si",
@@ -3232,6 +3331,9 @@ class Messages extends Translations {
           "padding": "පෑඩින් කිරීම",
           "open": "විවෘත",
           "enable volume keys": "වෙළුම් යතුරු සමඟ පිටු චලන ක්රියා සක්රිය කිරීම.",
+          "Copy content": "අන්තර්ගතය පිටපත් කරන්න",
+          "for adding filters": "ඔබ දැනට බලන සමහර පා text ය පෙන්වන්නේ එවිට ඔබට එය පිටපත් කළ හැකිය. (පෙරහන් එකතු කිරීම සඳහා)",
+          "Would you like to see an ad": "දැන්වීමක් දැකීමට ඔබ කැමතිද?\nතත්පර 0 සිට 10 දක්වා අන්තර් හිතකාමී දැන්වීමක් දර්ශනය වේ.",
         },
         "ar": {
           "key": "ar",
@@ -3327,6 +3429,9 @@ class Messages extends Translations {
           "padding": "حشوة",
           "open": "افتح",
           "enable volume keys": "تنشيط وظيفة حركة الصفحة مع مفاتيح وحدة التخزين.",
+          "Copy content": "نسخ المحتوى",
+          "for adding filters": "يعرض بعض النص الذي تعرضه حاليا حتى تتمكن من نسخه. (لإضافة مرشحات)",
+          "Would you like to see an ad": "هل ترغب في رؤية إعلان؟\nيتم عرض إعلان الخلالي من 0 إلى 10 ثوان.",
         },
         "hy": {
           "key": "hy",
@@ -3422,6 +3527,9 @@ class Messages extends Translations {
           "padding": "լիցք",
           "open": "Բաց անել",
           "enable volume keys": "Էջի շարժման գործառույթը ակտիվացնելով հատորի ստեղներով:",
+          "Copy content": "Պատճենել բովանդակությունը",
+          "for adding filters": "Dis ուցադրում է այն տեքստի մի մասը, որը ներկայումս դիտում է, որպեսզի այն պատճենեք: (ֆիլտրերի ավելացման համար)",
+          "Would you like to see an ad": "Կցանկանայիք գովազդ տեսնել:\nDisplayed ուցադրվում է 0-ից 10 վայրկյան միջպետական ​​գովազդ:",
         },
         "is": {
           "key": "is",
@@ -3517,6 +3625,9 @@ class Messages extends Translations {
           "padding": "padding.",
           "open": "Opinn",
           "enable volume keys": "Virkja síðu hreyfingar virka með hljóðstyrkstakkana.",
+          "Copy content": "Afritaðu efni",
+          "for adding filters": "Sýnir nokkrar af textanum sem þú ert að skoða þannig að þú getur afritað það. (til að bæta við síum)",
+          "Would you like to see an ad": "Viltu sjá auglýsingu?\nVartanlegt auglýsing af 0 til 10 sekúndum birtist.",
         },
         "az": {
           "key": "az",
@@ -3612,6 +3723,9 @@ class Messages extends Translations {
           "padding": "paddend",
           "open": "Açıq-saçıq",
           "enable volume keys": "Səs düymələri ilə səhifə hərəkəti funksiyasını aktivləşdirmək.",
+          "Copy content": "Məzmunu kopyalayın",
+          "for adding filters": "Hazırda görüntüləndiyiniz mətni göstərir ki, onu kopyalayın. (Filtrlər əlavə etmək üçün)",
+          "Would you like to see an ad": "Bir reklam görmək istərdinizmi?\n0 ilə 10 saniyə arasında bir interstitial reklam göstərilir.",
         },
         "af": {
           "key": "af",
@@ -3707,6 +3821,9 @@ class Messages extends Translations {
           "padding": "vulgoed",
           "open": "Oopmaak",
           "enable volume keys": "Aktiveer die bladsybewegingsfunksie met die volume sleutels.",
+          "Copy content": "Kopieer inhoud",
+          "for adding filters": "Wys sommige van die teks wat u tans besig is om te sien sodat u dit kan kopieer. (Vir die byvoeg van filters)",
+          "Would you like to see an ad": "Wil jy 'n advertensie sien?\n'N Interstitiële advertensie van 0 tot 10 sekondes word vertoon.",
         },
         "sq": {
           "key": "sq",
@@ -3802,6 +3919,9 @@ class Messages extends Translations {
           "padding": "mbushje",
           "open": "I hapur",
           "enable volume keys": "Aktivizimi i funksionit të lëvizjes së faqes me çelësat e volumit.",
+          "Copy content": "Kopjoni përmbajtjen",
+          "for adding filters": "Shfaq disa nga teksti që po shihni aktualisht në mënyrë që ta kopjoni atë. (për shtimin e filtrave)",
+          "Would you like to see an ad": "Doni të shihni një reklamë?\nShfaqet një reklamë intersticiale prej 0 deri në 10 sekonda.",
         },
         "am": {
           "key": "am",
@@ -3897,6 +4017,9 @@ class Messages extends Translations {
           "padding": "ፓድ",
           "open": "ክፈት",
           "enable volume keys": "የገጽ እንቅስቃሴን እንቅስቃሴን በማግበር ተግባሩን በድምጽ ቁልፎች አማካኝነት.",
+          "Copy content": "ይዘትን ይቅዱ",
+          "for adding filters": "እሱን መገልበጥ እንዲችሉ በአሁኑ ጊዜ የሚመለከታቸው አንዳንድ ጽሑፎችን ያሳያል. (ማጣሪያዎችን ለማከል)",
+          "Would you like to see an ad": "ማስታወቂያ ማየት ይፈልጋሉ?\nየ 0 እስከ 10 ሰከንዶች የ 0 በርተረን ማስታወቂያ ይታያል.",
         },
         "et": {
           "key": "et",
@@ -3992,6 +4115,9 @@ class Messages extends Translations {
           "padding": "polsterdus",
           "open": "Avama",
           "enable volume keys": "Lehe liikumise funktsiooni aktiveerimine helitugevusklahvidega.",
+          "Copy content": "Sisu kopeerimine",
+          "for adding filters": "Kuvab mõnda teksti, mida te praegu vaatate, et saaksite selle kopeerida. (Filtrite lisamiseks)",
+          "Would you like to see an ad": "Kas soovite näha reklaami?\nKuvatakse interstitsiaalne reklaam 0 kuni 10 sekundit.",
         },
         "en": {
           "key": "en",
@@ -4087,6 +4213,9 @@ class Messages extends Translations {
           "padding": "padding",
           "open": "Open",
           "enable volume keys": "Activating the page movement function with the volume keys.",
+          "Copy content": "Copy content",
+          "for adding filters": "Displays some of the text you are currently viewing so that you can copy it. (for adding filters)",
+          "Would you like to see an ad": "Would you like to see an ad?\nAn interstitial ad of 0 to 10 seconds is displayed.",
         },
         "ur": {
           "key": "ur",
@@ -4182,6 +4311,9 @@ class Messages extends Translations {
           "padding": "Padding.",
           "open": "کھولیں",
           "enable volume keys": "حجم کی چابیاں کے ساتھ صفحہ تحریک کی تقریب کو چالو کرنا.",
+          "Copy content": "کاپی مواد",
+          "for adding filters": "کچھ متن دکھاتا ہے جو آپ فی الحال دیکھ رہے ہیں تاکہ آپ اسے کاپی کرسکیں. (فلٹر شامل کرنے کے لئے)",
+          "Would you like to see an ad": "کیا آپ ایک اشتھار کو دیکھنا چاہتے ہیں؟\n0 سے 10 سیکنڈ کا ایک انٹرسٹنٹ اشتھار ظاہر ہوتا ہے.",
         },
         "uk": {
           "key": "uk",
@@ -4277,6 +4409,9 @@ class Messages extends Translations {
           "padding": "підкладка",
           "open": "відчинено",
           "enable volume keys": "Активація функції руху сторінки за допомогою клавіш гучності.",
+          "Copy content": "Копіювати вміст",
+          "for adding filters": "Відображає якийсь текст, який ви зараз переглядаєте, щоб ви могли скопіювати його. (для додавання фільтрів)",
+          "Would you like to see an ad": "Хочете побачити оголошення?\nВідображається інтерстиціальна об'ява від 0 до 10 секунд.",
         },
         "it": {
           "key": "it",
@@ -4372,6 +4507,9 @@ class Messages extends Translations {
           "padding": "imbottitura",
           "open": "Aprire",
           "enable volume keys": "Attivazione della funzione di movimento della pagina con i tasti del volume.",
+          "Copy content": "Copia il contenuto",
+          "for adding filters": "Visualizza parte del testo che stai visualizzando in modo da poterlo copiare. (per aggiungere filtri)",
+          "Would you like to see an ad": "Ti piacerebbe vedere un annuncio?\nViene visualizzato un annuncio interstiziale da 0 a 10 secondi.",
         },
         "id": {
           "key": "id",
@@ -4467,6 +4605,9 @@ class Messages extends Translations {
           "padding": "lapisan",
           "open": "Membuka",
           "enable volume keys": "Mengaktifkan fungsi gerakan halaman dengan tombol volume.",
+          "Copy content": "Salin konten",
+          "for adding filters": "Menampilkan beberapa teks yang saat ini Anda lihat sehingga Anda dapat menyalinnya. (untuk menambahkan filter)",
+          "Would you like to see an ad": "Apakah Anda ingin melihat iklan?\nIklan interstitial 0 hingga 10 detik ditampilkan.",
         },
         "ja": {
           "key": "ja",
@@ -4562,6 +4703,9 @@ class Messages extends Translations {
           "padding": "パディング",
           "open": "開ける",
           "enable volume keys": "ボリュームキーでページ移動機能を有効にします。",
+          "Copy content": "コンテンツをコピーする",
+          "for adding filters": "あなたがそれをコピーできるように、現在表示しているテキストのいくつかを表示します。 （フィルタを追加するため）",
+          "Would you like to see an ad": "広告を見たいですか？\n0~10秒の間引きADが表示されます。",
         },
         "ka": {
           "key": "ka",
@@ -4657,6 +4801,9 @@ class Messages extends Translations {
           "padding": "padding",
           "open": "ღია",
           "enable volume keys": "გააქტიურეთ გვერდი მოძრაობის ფუნქცია მოცულობის გასაღებით.",
+          "Copy content": "ასლის შინაარსი",
+          "for adding filters": "აჩვენებს რამდენიმე ტექსტს, რომელიც ამჟამად ნახულობთ ისე, რომ თქვენ შეგიძლიათ კოპირება. (ფილტრების დასამატებლად)",
+          "Would you like to see an ad": "გსურთ რეკლამის ნახვა?\nნაჩვენებია 0-დან 10 წამის ინტერსტიტუციური რეკლამა.",
         },
         "zu": {
           "key": "zu",
@@ -4752,6 +4899,9 @@ class Messages extends Translations {
           "padding": "idilidi",
           "open": "Vula",
           "enable volume keys": "Ukwenza kusebenze umsebenzi wokunyakaza kwekhasi ngezinkinobho zevolumu.",
+          "Copy content": "Kopisha okuqukethwe",
+          "for adding filters": "Ibonisa eminye imibhalo oyibukwa njengamanje ukuze uyikopishe. (Ngokungeza izihlungi)",
+          "Would you like to see an ad": "Ungathanda ukubona isikhangiso?\nIsikhangiso esiphakathi kwemizuzwana engu-0 kuye ku-10 siyakhonjiswa.",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -4847,6 +4997,9 @@ class Messages extends Translations {
           "padding": "填充",
           "open": "打开",
           "enable volume keys": "使用卷键激活页面移动功能。",
+          "Copy content": "复制内容",
+          "for adding filters": "显示您当前正在查看的一些文本，以便您可以复制它。 （用于添加过滤器）",
+          "Would you like to see an ad": "你想看看广告吗？\n显示0到10秒的间隙广告。",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -4942,6 +5095,9 @@ class Messages extends Translations {
           "padding": "填充",
           "open": "打開",
           "enable volume keys": "使用卷鍵激活頁面移動功能。",
+          "Copy content": "複製內容",
+          "for adding filters": "顯示您當前正在查看的一些文本，以便您可以復制它。 （用於添加過濾器）",
+          "Would you like to see an ad": "你想看看廣告嗎？\n顯示0到10秒的間隙廣告。",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -5037,6 +5193,9 @@ class Messages extends Translations {
           "padding": "填充",
           "open": "打開",
           "enable volume keys": "使用卷鍵激活頁面移動功能。",
+          "Copy content": "複製內容",
+          "for adding filters": "顯示您當前正在查看的一些文本，以便您可以復制它。 （用於添加過濾器）",
+          "Would you like to see an ad": "你想看看廣告嗎？\n顯示0到10秒的間隙廣告。",
         },
         "cs": {
           "key": "cs",
@@ -5132,6 +5291,9 @@ class Messages extends Translations {
           "padding": "polstrování",
           "open": "Otevřeno",
           "enable volume keys": "Aktivace funkce pohybu stránky pomocí tlačítek hlasitosti.",
+          "Copy content": "Obsah kopírování",
+          "for adding filters": "Zobrazí některé z textu, které právě prohlížíte, takže jej můžete zkopírovat. (pro přidání filtrů)",
+          "Would you like to see an ad": "Chcete vidět reklamu?\nZobrazí se intersticiální reklama 0 až 10 sekund.",
         },
         "kk": {
           "key": "kk",
@@ -5227,6 +5389,9 @@ class Messages extends Translations {
           "padding": "тасып",
           "open": "Ашу",
           "enable volume keys": "Дыбыс деңгейі түймелерімен бет қозғалыс функциясын іске қосу.",
+          "Copy content": "Мазмұн көшірмесі",
+          "for adding filters": "Сіз қазір көре алатындай етіп көрген кейбір мәтінді көрсетеді. (Сүзгілерді қосу үшін)",
+          "Would you like to see an ad": "Сіз жарнаманы көргіңіз келе ме?\n0-ден 10 секундқа дейінгі интерстициалды жарнамалар көрсетіледі.",
         },
         "ca": {
           "key": "ca",
@@ -5322,6 +5487,9 @@ class Messages extends Translations {
           "padding": "farmit",
           "open": "Obert",
           "enable volume keys": "Activació de la funció de moviment de pàgina amb les tecles de volum.",
+          "Copy content": "Copieu el contingut",
+          "for adding filters": "Mostra part del text que esteu visualitzant de manera que podeu copiar-la. (per afegir filtres)",
+          "Would you like to see an ad": "Voleu veure un anunci?\nEs mostra un anunci intersticial de 0 a 10 segons.",
         },
         "kn": {
           "key": "kn",
@@ -5417,6 +5585,9 @@ class Messages extends Translations {
           "padding": "ಪ್ಯಾಡಿಂಗ್",
           "open": "ತೆರೆ",
           "enable volume keys": "ಪರಿಮಾಣ ಕೀಲಿಯೊಂದಿಗೆ ಪುಟ ಚಲನೆ ಕಾರ್ಯವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ.",
+          "Copy content": "ವಿಷಯ ನಕಲಿಸಿ",
+          "for adding filters": "ನೀವು ಪ್ರಸ್ತುತ ವೀಕ್ಷಿಸುತ್ತಿರುವ ಕೆಲವು ಪಠ್ಯವನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ ಆದ್ದರಿಂದ ನೀವು ಅದನ್ನು ನಕಲಿಸಬಹುದು. (ಶೋಧಕಗಳನ್ನು ಸೇರಿಸಲು)",
+          "Would you like to see an ad": "ನೀವು ಜಾಹೀರಾತನ್ನು ನೋಡಲು ಬಯಸುವಿರಾ?\n0 ರಿಂದ 10 ಸೆಕೆಂಡುಗಳ ತೆರಪನ್ನು ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ.",
         },
         "hr": {
           "key": "hr",
@@ -5512,6 +5683,9 @@ class Messages extends Translations {
           "padding": "padding",
           "open": "Otvorena",
           "enable volume keys": "Aktiviranje funkcije kretanja stranice s tipkama za glasnoću.",
+          "Copy content": "Kopiraj sadržaj",
+          "for adding filters": "Prikazuje neke od teksta koje trenutno gledate tako da ga možete kopirati. (za dodavanje filtera)",
+          "Would you like to see an ad": "Želite li vidjeti oglas?\nPrikazuje se intersticijski oglas od 0 do 10 sekundi.",
         },
         "km": {
           "key": "km",
@@ -5607,6 +5781,9 @@ class Messages extends Translations {
           "padding": "រតត្រ",
           "open": "ដេលចមហរ",
           "enable volume keys": "ធ្វើឱ្យមុខងារចលនាទំព័រសកម្មជាមួយនឹងគ្រាប់ចុចកម្រិតសំឡេង។",
+          "Copy content": "ចម្លងមាតិកា",
+          "for adding filters": "បង្ហាញអត្ថបទមួយចំនួនដែលអ្នកកំពុងមើលដូច្នេះអ្នកអាចថតចម្លងវាបាន។ (សម្រាប់បន្ថែមតម្រង)",
+          "Would you like to see an ad": "តើអ្នកចង់ឃើញការផ្សាយពាណិជ្ជកម្មទេ?\nការផ្សាយពាណិជ្ជកម្មអន្តរក្រសួងនៃ 0 ទៅ 10 វិនាទីត្រូវបានបង្ហាញ។",
         },
         "ky": {
           "key": "ky",
@@ -5702,6 +5879,9 @@ class Messages extends Translations {
           "padding": "толтуруу",
           "open": "Ачык",
           "enable volume keys": "Барак кыймылын үн баскычтары менен активдештирүү.",
+          "Copy content": "Мазмун көчүрүү",
+          "for adding filters": "Учурда сиз аны карап тургандай, сиз аны карап жаткан нерсени байкап тургандай көрсөтөт. (Чыпкалар кошуу үчүн)",
+          "Would you like to see an ad": "Жарнаманы көргүңүз келеби?\n0дөн 10 секундага чейин интерфралдуу адам көрсөтүлөт.",
         },
         "ta": {
           "key": "ta",
@@ -5797,6 +5977,9 @@ class Messages extends Translations {
           "padding": "திணிப்பு",
           "open": "திறந்த",
           "enable volume keys": "தொகுதி விசைகளுடன் பக்க இயக்கம் செயல்பாட்டை செயல்படுத்துகிறது.",
+          "Copy content": "உள்ளடக்க நகல்",
+          "for adding filters": "நீங்கள் தற்போது பார்க்கும் சில உரைகளில் சிலவற்றை நீங்கள் நகலெடுக்க முடியும். (வடிகட்டிகளை சேர்ப்பதற்கு)",
+          "Would you like to see an ad": "விளம்பரம் பார்க்க விரும்புகிறீர்களா?\n0 முதல் 10 விநாடிகளில் ஒரு இடைவெளி விளம்பரம் காட்டப்படுகிறது.",
         },
         "th": {
           "key": "th",
@@ -5892,6 +6075,9 @@ class Messages extends Translations {
           "padding": "การขยายความ",
           "open": "เปิด",
           "enable volume keys": "การเปิดใช้งานฟังก์ชั่นการเคลื่อนไหวของหน้าด้วยปุ่มปรับระดับเสียง",
+          "Copy content": "คัดลอกเนื้อหา",
+          "for adding filters": "แสดงข้อความบางอย่างที่คุณกำลังดูอยู่ในขณะนี้เพื่อให้คุณสามารถคัดลอกได้ (สำหรับการเพิ่มฟิลเตอร์)",
+          "Would you like to see an ad": "คุณต้องการที่จะเห็นโฆษณาหรือไม่\nโฆษณาคั่นระหว่างหน้า 0 ถึง 10 วินาทีจะปรากฏขึ้น",
         },
         "tr": {
           "key": "tr",
@@ -5987,6 +6173,9 @@ class Messages extends Translations {
           "padding": "dolgu malzemesi",
           "open": "Açık",
           "enable volume keys": "Sayfa hareketi işlevini ses seviyesi tuşlarıyla etkinleştirin.",
+          "Copy content": "İçeriği kopyala",
+          "for adding filters": "Görüntülenebileceğiniz bazı metni görüntüler, böylece kopyalayabilirsiniz. (Filtre eklemek için)",
+          "Would you like to see an ad": "Bir reklam görmek ister misiniz?\n0 ila 10 saniyelik bir interstisyal reklam görüntülenir.",
         },
         "te": {
           "key": "te",
@@ -6082,6 +6271,9 @@ class Messages extends Translations {
           "padding": "పాడింగ్",
           "open": "తెరవండి",
           "enable volume keys": "వాల్యూమ్ కీలు తో పేజీ ఉద్యమం ఫంక్షన్ సక్రియం.",
+          "Copy content": "కంటెంట్ను కాపీ చేయండి",
+          "for adding filters": "మీరు దీనిని చూస్తున్న టెక్స్ట్లో కొన్నింటిని ప్రదర్శిస్తుంది, తద్వారా మీరు దానిని కాపీ చేయవచ్చు. (ఫిల్టర్లను జోడించడం కోసం)",
+          "Would you like to see an ad": "మీరు ప్రకటనను చూడాలనుకుంటున్నారా?\n0 నుండి 10 సెకన్ల మధ్యంతర ప్రకటన ప్రదర్శించబడుతుంది.",
         },
         "pa": {
           "key": "pa",
@@ -6177,6 +6369,9 @@ class Messages extends Translations {
           "padding": "ਪੈਡਿੰਗ",
           "open": "ਖੁੱਲਾ",
           "enable volume keys": "ਵਾਲੀਅਮ ਕੁੰਜੀਆਂ ਨਾਲ ਪੇਜ ਅੰਦੋਲਨ ਕਾਰਜ ਨੂੰ ਸਰਗਰਮ ਕਰਨਾ.",
+          "Copy content": "ਸਮੱਗਰੀ ਨੂੰ ਕਾਪੀ ਕਰੋ",
+          "for adding filters": "ਕੁਝ ਟੈਕਸਟ ਪ੍ਰਦਰਸ਼ਿਤ ਕਰਦਾ ਹੈ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਦੇਖ ਰਹੇ ਹੋ ਤਾਂ ਜੋ ਤੁਸੀਂ ਇਸ ਦੀ ਨਕਲ ਕਰ ਸਕੋ. (ਫਿਲਟਰ ਜੋੜਨ ਲਈ)",
+          "Would you like to see an ad": "ਕੀ ਤੁਸੀਂ ਕੋਈ ਇਸ਼ਤਿਹਾਰ ਵੇਖਣਾ ਚਾਹੋਗੇ?\n0 ਤੋਂ 10 ਸਕਿੰਟ ਦਾ ਇੱਕ ਅੰਤਰਾਲੀਆ ਵਿਗਿਆਪਨ ਪ੍ਰਦਰਸ਼ਤ ਕੀਤਾ ਗਿਆ ਹੈ.",
         },
         "fa": {
           "key": "fa",
@@ -6272,6 +6467,9 @@ class Messages extends Translations {
           "padding": "لایه گذاری",
           "open": "باز کن",
           "enable volume keys": "فعال کردن عملکرد حرکت صفحه با کلید های حجم.",
+          "Copy content": "محتوای کپی",
+          "for adding filters": "نمایش برخی از متن شما در حال مشاهده است به طوری که شما می توانید آن را کپی کنید. (برای اضافه کردن فیلترها)",
+          "Would you like to see an ad": "آیا می خواهید یک آگهی را ببینید؟\nیک آگهی بینابینی از 0 تا 10 ثانیه نمایش داده می شود.",
         },
         "pt": {
           "key": "pt",
@@ -6367,6 +6565,9 @@ class Messages extends Translations {
           "padding": "preenchimento",
           "open": "Abrir",
           "enable volume keys": "Ativando a função de movimento da página com as teclas de volume.",
+          "Copy content": "Copiar conteúdo",
+          "for adding filters": "Exibe alguns dos textos que você está visualizando atualmente para que você possa copiá-lo. (para adicionar filtros)",
+          "Would you like to see an ad": "Você gostaria de ver um anúncio?\nUm anúncio intersticial de 0 a 10 segundos é exibido.",
         },
         "pl": {
           "key": "pl",
@@ -6462,6 +6663,9 @@ class Messages extends Translations {
           "padding": "wyściółka",
           "open": "otwarty",
           "enable volume keys": "Aktywacja funkcji ruchu strony za pomocą kluczy głośności.",
+          "Copy content": "Kopiuj zawartość",
+          "for adding filters": "Wyświetla niektóre z aktualnie wyświetlanego tekstu, który możesz skopiować. (do dodawania filtrów)",
+          "Would you like to see an ad": "Chcesz zobaczyć reklamę?\nWyświetlana jest śródmiążna reklama od 0 do 10 sekund.",
         },
         "fr": {
           "key": "fr",
@@ -6557,6 +6761,9 @@ class Messages extends Translations {
           "padding": "rembourrage",
           "open": "Ouvrir",
           "enable volume keys": "Activation de la fonction de déplacement de la page avec les touches de volume.",
+          "Copy content": "Copier le contenu",
+          "for adding filters": "Affiche une partie du texte que vous visualisez actuellement pour que vous puissiez le copier. (pour ajouter des filtres)",
+          "Would you like to see an ad": "Voulez-vous voir une annonce?\nUne annonce interstitielle de 0 à 10 secondes est affichée.",
         },
         "fi": {
           "key": "fi",
@@ -6652,6 +6859,9 @@ class Messages extends Translations {
           "padding": "pehmuste",
           "open": "Avata",
           "enable volume keys": "Sivun liikkeen aktivointi Toiminto äänenvoimakkuusnäppäimillä.",
+          "Copy content": "Kopioi sisältö",
+          "for adding filters": "Näyttää joitain tekstistä, joita katselet, jotta voit kopioida sen. (Suodattimien lisääminen)",
+          "Would you like to see an ad": "Haluatko nähdä mainoksen?\nNäyttöön tulee interstitiaalinen mainoksen 0-10 sekuntia.",
         },
         "fil": {
           "key": "fil",
@@ -6747,6 +6957,9 @@ class Messages extends Translations {
           "padding": "padding",
           "open": "Bukas",
           "enable volume keys": "Pag-activate ng function ng paggalaw ng pahina gamit ang mga volume key.",
+          "Copy content": "Kopyahin ang nilalaman",
+          "for adding filters": "Nagpapakita ng ilan sa mga teksto na kasalukuyang tinitingnan mo upang maaari mong kopyahin ito. (para sa pagdaragdag ng mga filter)",
+          "Would you like to see an ad": "Gusto mo bang makita ang isang ad?\nAng isang interstitial ad na 0 hanggang 10 segundo ay ipinapakita.",
         },
         "hu": {
           "key": "hu",
@@ -6842,6 +7055,9 @@ class Messages extends Translations {
           "padding": "párnázás",
           "open": "Nyisd ki",
           "enable volume keys": "Az oldalmozgás funkció aktiválása a hangerőgombokkal.",
+          "Copy content": "Tartalom másolása",
+          "for adding filters": "Megjeleníti a jelenleg megtekintett szöveget, hogy másolhatja. (Szűrők hozzáadásához)",
+          "Would you like to see an ad": "Szeretne egy hirdetést látni?\nMegjelenik egy 4-10 másodperces intersticiális hirdetés.",
         },
         "iw": {
           "key": "iw",
@@ -6937,6 +7153,9 @@ class Messages extends Translations {
           "padding": "ריפוד",
           "open": "לִפְתוֹחַ",
           "enable volume keys": "הפעלת פונקציית התנועה לדף עם מקשי עוצמת הקול.",
+          "Copy content": "העתק תוכן",
+          "for adding filters": "מציג חלק מהטקסט שאתה מציג כעת, כך שתוכל להעתיק אותו. (להוספת מסננים)",
+          "Would you like to see an ad": "האם ברצונך לראות מודעה?\nמודעה interstitial של 0 עד 10 שניות מוצגת.",
         },
         "hi": {
           "key": "hi",
@@ -7032,6 +7251,9 @@ class Messages extends Translations {
           "padding": "गद्दी",
           "open": "खुला हुआ",
           "enable volume keys": "वॉल्यूम कुंजियों के साथ पृष्ठ आंदोलन फ़ंक्शन को सक्रिय करना।",
+          "Copy content": "प्रतिलिपि सामग्री",
+          "for adding filters": "वर्तमान में आप देख रहे हैं कि कुछ पाठ प्रदर्शित करता है ताकि आप इसे कॉपी कर सकें। (फ़िल्टर जोड़ने के लिए)",
+          "Would you like to see an ad": "क्या आप एक विज्ञापन देखना चाहेंगे?\n0 से 10 सेकंड का एक इंटरस्टिशियल विज्ञापन प्रदर्शित होता है।",
         },
       };
 }

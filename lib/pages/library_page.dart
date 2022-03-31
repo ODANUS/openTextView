@@ -1,9 +1,10 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:open_textview/component/Ads.dart';
+import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/provider/utils.dart';
@@ -13,7 +14,7 @@ class LibraryPage extends GetView {
   List<String> sortList = ["name", "size", "date", "access"];
   RxString sortStr = "access".obs;
   RxString searchText = "".obs;
-  RxBool asc = true.obs;
+  RxBool asc = false.obs;
   @override
   Widget build(BuildContext context) {
     return ValueBuilder<bool?>(
@@ -35,11 +36,33 @@ class LibraryPage extends GetView {
                         ),
                       ));
                 }).toList(),
-                SizedBox(width: 10),
+                SizedBox(width: 1),
+                IconButton(
+                    onPressed: () {
+                      if (AdCtl.hasOpenInterstitialAd()) {
+                        AdCtl.openInterstitialAd();
+                      }
+                    },
+                    icon: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Icon(Icons.smart_display),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "AD",
+                          ),
+                        ),
+                      ],
+                    ))
               ],
               bottom: PreferredSize(
                 preferredSize: Size(Get.width, 50),
-                child: AdsComp(),
+                child: AdBanner(
+                  key: Key("library"),
+                ),
               ),
             ),
             body: StreamBuilder<Directory>(
@@ -65,7 +88,7 @@ class LibraryPage extends GetView {
                             )),
                         Expanded(
                           child: RefreshIndicator(
-                            onRefresh: () async => reloadFn(reloadValue),
+                            onRefresh: () async => reloadFn(!reloadValue!),
                             child: Obx(() {
                               var files = refFiles.where((e) => e.path.split("/").last.contains(searchText)).toList();
                               if (sortStr.contains("name")) {
@@ -124,24 +147,24 @@ class LibraryPage extends GetView {
                                     String size = Utils.getFileSize(file);
                                     return Card(
                                       child: ExpansionTile(
+                                        key: Key("a${Random().nextInt(100000)}"),
                                         title: Text(name),
-                                        subtitle: history == null
-                                            ? SizedBox()
-                                            : Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
-                                                  Row(children: [
-                                                    Flexible(
-                                                      child: Text(
-                                                        "${"memo".tr} : ${history.memo}",
-                                                        overflow: TextOverflow.ellipsis,
-                                                      ),
-                                                    ),
-                                                  ]),
-                                                  Text("${size}"),
-                                                ],
-                                              ),
+                                        subtitle: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            if (history != null) Text("${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
+                                            if (history != null)
+                                              Row(children: [
+                                                Flexible(
+                                                  child: Text(
+                                                    "${"memo".tr} : ${history.memo}",
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                                ),
+                                              ]),
+                                            Text("${size}"),
+                                          ],
+                                        ),
                                         children: [
                                           ObxValue<RxBool>((bMemo) {
                                             return Column(
@@ -163,7 +186,7 @@ class LibraryPage extends GetView {
                                                       style: ElevatedButton.styleFrom(primary: Colors.red),
                                                       onPressed: () {
                                                         file.deleteSync();
-                                                        reloadFn(reloadValue);
+                                                        reloadFn(!reloadValue!);
                                                       },
                                                       child: Text("delete".tr),
                                                     ),
@@ -176,8 +199,9 @@ class LibraryPage extends GetView {
                                                         child: Text("memo".tr),
                                                       ),
                                                     ElevatedButton(
-                                                      onPressed: () {
-                                                        IsarCtl.openFile(file);
+                                                      onPressed: () async {
+                                                        await IsarCtl.openFile(file);
+                                                        reloadFn(!reloadValue!);
                                                       },
                                                       child: Text("open".tr),
                                                     ),
@@ -205,7 +229,7 @@ class LibraryPage extends GetView {
               heroTag: "library",
               onPressed: () async {
                 await Utils.selectFile();
-                reloadFn(reloadValue);
+                reloadFn(!reloadValue!);
               },
               label: Text('Add_file'.tr),
               icon: Icon(Ionicons.add),

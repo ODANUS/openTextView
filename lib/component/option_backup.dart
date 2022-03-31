@@ -16,9 +16,7 @@ class OptionBackup extends GetView {
   Future<void> createBackupFile(str) async {
     isLoading(true);
     DateTime now = DateTime.now();
-    await Gdrive.createFile(
-        name: "opentextView_${Utils.DF(now, f: "yyyy-MM-dd hh:mm")}.json",
-        data: str);
+    await Gdrive.createFile(name: "opentextView_${Utils.DF(now, f: "yyyy-MM-dd hh:mm")}.json", data: str);
     await loadBackupFileList();
     isLoading(false);
   }
@@ -67,61 +65,47 @@ class OptionBackup extends GetView {
                 ),
                 Divider(),
                 ...backupFiles.map((element) {
-                  ActionPane delIcon = ActionPane(
-                      motion: const ScrollMotion(),
-                      extentRatio: 0.3,
-                      children: [
-                        SlidableAction(
-                          label: 'delete'.tr,
-                          backgroundColor: Colors.red,
-                          icon: Icons.delete,
-                          onPressed: (c) async {
-                            removeBackupFile(element.id!);
-                          },
-                        )
-                      ]);
+                  ActionPane delIcon = ActionPane(motion: const ScrollMotion(), extentRatio: 0.3, children: [
+                    SlidableAction(
+                      label: 'delete'.tr,
+                      backgroundColor: Colors.red,
+                      icon: Icons.delete,
+                      onPressed: (c) async {
+                        removeBackupFile(element.id!);
+                      },
+                    )
+                  ]);
                   return Slidable(
                     child: ListTile(
                         onTap: () async {
                           String str = await loadBackupFile(element.id!);
                           SettingIsar settingData = SettingIsar();
                           var jsonData = json.decode(str);
-                          if (jsonData["tts"] != null &&
-                              jsonData["ui"] != null) {
-                            Map<String, dynamic> settingMap = {
-                              ...jsonData["tts"] as Map,
-                              ...jsonData["ui"] as Map,
-                              "theme": jsonData["theme"]
-                            };
+                          if (jsonData["tts"] != null && jsonData["ui"] != null) {
+                            Map<String, dynamic> settingMap = {...jsonData["tts"] as Map, ...jsonData["ui"] as Map, "theme": jsonData["theme"]};
                             settingData = SettingIsar.fromMap(settingMap);
                             IsarCtl.setSetting(settingData);
 
                             if (jsonData["filter"] is List<dynamic>) {
-                              var jsonList =
-                                  jsonData["filter"] as List<dynamic>;
-                              var list = jsonList
-                                  .map((e) => FilterIsar.fromMap(e))
-                                  .toList();
+                              var jsonList = jsonData["filter"] as List<dynamic>;
+                              var list = jsonList.map((e) => FilterIsar.fromMap(e)).toList();
                               IsarCtl.setFilter(list);
                             }
 
                             if (jsonData["history"] is List<dynamic>) {
-                              var jsonList =
-                                  jsonData["history"] as List<dynamic>;
+                              var jsonList = jsonData["history"] as List<dynamic>;
                               var list = jsonList.map((e) {
                                 List<String> tmparr = e["date"].split(" ");
-                                var dateStr =
-                                    "${tmparr[0]} ${tmparr[1].replaceAll("-", ":")}";
-                                e["date"] = DateTime.parse(dateStr)
-                                    .millisecondsSinceEpoch;
+                                var dateStr = "${tmparr[0]} ${tmparr[1].replaceAll("-", ":")}";
+                                e["date"] = DateTime.parse(dateStr).millisecondsSinceEpoch;
                                 return HistoryIsar.fromMap(e);
                               }).toList();
                               IsarCtl.setHistory(list);
                             }
                             return;
                           }
-                          // IsarCtl.map2Data(jsonData);
-                          IsarCtl.map2Box(jsonData);
+                          IsarCtl.map2Data(jsonData);
+                          // IsarCtl.map2Box(jsonData);
 
                           // controller.userData(UserData.fromJson(str));
                         },

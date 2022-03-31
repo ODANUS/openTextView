@@ -10,7 +10,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
-import 'package:open_textview/objectbox.g.dart';
+import 'package:open_textview/provider/utils.dart';
 
 class AudioHandler extends BaseAudioHandler
     with
@@ -92,7 +92,7 @@ class AudioHandler extends BaseAudioHandler
   bool listenPlaying = false;
   bool listenPlayingduck = false;
   DateTime? autoExitDate;
-  var lastLine = 0;
+  var lastPos = 0;
 
   Future<void> setTts() async {
     await tts?.setSpeechRate(IsarCtl.setting?.speechRate ?? 1);
@@ -154,12 +154,18 @@ class AudioHandler extends BaseAudioHandler
       errorCnt = 0;
     });
 
-    for (var i = pos; i < contents.length; i += setting.groupcnt) {
+    for (var i = pos; i < contents.length;) {
       if (playstat != STAT_PLAY) break;
-      int end = min(i + setting.groupcnt, contents.length);
+      var listContents = contents.substring(i, min(i + 5000, contents.length)).split("\n");
 
-      String speakText = contents.substring(i, end);
+      int end = min(setting.groupcnt, listContents.length);
+      String speakText = listContents.getRange(0, end).join("\n");
+      int nextPos = speakText.length;
+      // print(nextPos);
+      // contents.substring(i, end);
+
       // .join("\n");
+      // print(speakText);
 
       IsarCtl.filters.forEach((e) {
         if (e.enable) {
@@ -189,18 +195,19 @@ class AudioHandler extends BaseAudioHandler
         IsarCtl.tctl.offsetY = 0;
         IsarCtl.tctl.bHighlight = true;
         IsarCtl.tctl.highlightPos = i;
-        IsarCtl.tctl.highlightCnt = setting.groupcnt;
+        IsarCtl.tctl.highlightCnt = nextPos;
       } catch (e) {}
-      if (lastProgrss > 1 && speakText.length > lastProgrss && lastLine == i) {
+      if (lastProgrss > 1 && speakText.length > lastProgrss && lastPos == i) {
         speakText = speakText.substring(lastProgrss - 1);
         lastProgrss = 0;
       }
-      lastLine = i;
+      lastPos = i;
 
       var bspeak = await tts?.speak(speakText);
+      i += nextPos;
       errorCnt++;
       if (errorCnt > 6) {
-        IsarCtl.cntntPstn -= (errorCnt + 1) * setting.groupcnt;
+        IsarCtl.cntntPstn -= i;
         stop();
       }
       if (bspeak == null) {
@@ -208,7 +215,7 @@ class AudioHandler extends BaseAudioHandler
       }
       lastProgrss = 0;
 
-      if (end >= contents.length) {
+      if (i >= contents.length) {
         stop();
         break;
       }

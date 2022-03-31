@@ -25,7 +25,7 @@ class CompUiSetting extends GetView {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         backgroundColor: Colors.black38,
         appBar: AppBar(
@@ -44,6 +44,7 @@ class CompUiSetting extends GetView {
               //     icon: Icon(Icons.sort_by_alpha),
               //     text: "Font settings".tr),
               Tab(height: 51.h, iconMargin: EdgeInsets.zero, icon: Icon(Icons.space_dashboard), text: "layout Setting".tr),
+              Tab(height: 51.h, iconMargin: EdgeInsets.zero, icon: Icon(Icons.content_copy_outlined), text: "Copy content".tr),
             ],
           ),
         ),
@@ -55,10 +56,73 @@ class CompUiSetting extends GetView {
             // Tab(icon: Icon(Icons.directions_bike)),
             // Tab(icon: Icon(Icons.directions_bike)),
             LayoutSetting(setting: setting),
+            CopyText(
+              history: IsarCtl.lastHistory,
+              contents: IsarCtl.contents,
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class CopyText extends GetView {
+  CopyText({
+    this.history,
+    this.contents,
+  });
+  HistoryIsar? history;
+  ContentsIsar? contents;
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    if (history == null || contents == null) {
+      return SizedBox();
+    }
+    int startPos = history!.cntntPstn;
+    return Container(
+        padding: EdgeInsets.all(10.w),
+        color: Colors.black26,
+        child: ObxValue((RxString keyword) {
+          List<ContentsIsar> findDatas = [];
+          if (keyword.isNotEmpty) {
+            findDatas = IsarCtl.isar.contentsIsars.where().filter().textContains(keyword.value).findAllSync();
+          }
+          return Column(
+            children: [
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Container(
+                    width: double.infinity,
+                    child: Text("for adding filters".tr, softWrap: true, maxLines: 3),
+                  ),
+                ),
+              ),
+              Divider(),
+              Expanded(
+                child: Card(
+                    child: ListView(
+                  padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 100),
+                  children: [
+                    SelectableText(contents!.text.substring(startPos, min(contents!.text.length, startPos + 1000))),
+                    // ...findDatas.map((e) {
+                    //   return Card(
+                    //     child: ListTile(
+                    //         onTap: () {
+                    //           IsarCtl.tctl.cntntPstn = e.idx;
+                    //         },
+                    //         leading: Text("${e.idx}"),
+                    //         title: Text(e.text)),
+                    //   );
+                    // }).toList(),
+                  ],
+                )),
+              )
+            ],
+          );
+        }, "".obs));
   }
 }
 
@@ -129,7 +193,7 @@ class UiSetting extends GetView {
                   //     IsarCtl.putSetting(setting..useClipboard = v);
                   //   },
                   // )),
-
+                  // 여백
                   Card(
                       child: ListTile(
                     title: Text("padding".tr),
@@ -143,7 +207,7 @@ class UiSetting extends GetView {
                               IsarCtl.putSetting(setting..paddingLeft = p);
                             },
                             icon: Text("+")),
-                        Text("${setting.paddingLeft}"),
+                        Text("${setting.paddingLeft.toInt()}"),
                         IconButton(
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
@@ -164,7 +228,7 @@ class UiSetting extends GetView {
                                 IsarCtl.putSetting(setting..paddingTop = p);
                               },
                               icon: Text("+")),
-                          Text("${setting.paddingTop}"),
+                          Text("${setting.paddingTop.toInt()}"),
                           IconButton(
                               padding: EdgeInsets.zero,
                               constraints: BoxConstraints(),
@@ -185,7 +249,7 @@ class UiSetting extends GetView {
                                 IsarCtl.putSetting(setting..paddingBottom = p);
                               },
                               icon: Text("-")),
-                          Text("${setting.paddingBottom}"),
+                          Text("${setting.paddingBottom.toInt()}"),
                           IconButton(
                               padding: EdgeInsets.zero,
                               constraints: BoxConstraints(),
@@ -204,11 +268,10 @@ class UiSetting extends GetView {
                               constraints: BoxConstraints(),
                               onPressed: () {
                                 double p = max(0, setting.paddingRight - 1).round().toDouble();
-
                                 IsarCtl.putSetting(setting..paddingRight = p);
                               },
                               icon: Text("-")),
-                          Text("${setting.paddingRight}"),
+                          Text("${setting.paddingRight.toInt()}"),
                           IconButton(
                               padding: EdgeInsets.zero,
                               constraints: BoxConstraints(),
@@ -469,6 +532,7 @@ class MoveLocation extends GetView {
                       label: "${position.toInt()}",
                       onChanged: (double v) {
                         IsarCtl.tctl.cntntPstn = v.toInt();
+                        IsarCtl.tctl.notifyListeners();
                         position(v.toInt());
                       }),
                   TextFormField(
@@ -483,6 +547,7 @@ class MoveLocation extends GetView {
                       int tidx = int.parse(v);
                       if (tidx < IsarCtl.contents.text.length) {
                         IsarCtl.tctl.cntntPstn = tidx;
+                        IsarCtl.tctl.notifyListeners();
                         position(tidx);
                       }
                     },
@@ -503,9 +568,16 @@ class PageSearch extends GetView {
         padding: EdgeInsets.all(10.w),
         color: Colors.black26,
         child: ObxValue((RxString keyword) {
-          List<ContentsIsar> findDatas = [];
+          Map<int, String> findDatas = {};
           if (keyword.isNotEmpty) {
-            findDatas = IsarCtl.isar.contentsIsars.where().filter().textContains(keyword.value).findAllSync();
+            var textList = IsarCtl.contents.text.split("\n");
+            textList.asMap().forEach((k, e) {
+              if (e.contains(keyword)) {
+                var idx = textList.getRange(0, k).join("\n").length;
+                findDatas[idx] = e;
+              }
+            });
+            // findDatas = ;
           }
           return Column(
             children: [
@@ -529,16 +601,22 @@ class PageSearch extends GetView {
               Expanded(
                 child: ListView(
                   children: [
-                    ...findDatas.map((e) {
-                      return Card(
-                        child: ListTile(
-                            onTap: () {
-                              IsarCtl.tctl.cntntPstn = e.idx;
-                            },
-                            leading: Text("${e.idx}"),
-                            title: Text(e.text)),
-                      );
-                    }).toList(),
+                    ...findDatas
+                        .map((k, e) {
+                          return MapEntry(
+                              k,
+                              Card(
+                                child: ListTile(
+                                    onTap: () {
+                                      IsarCtl.tctl.cntntPstn = k;
+                                      IsarCtl.tctl.notifyListeners();
+                                    },
+                                    // leading: Text("${e}"),
+                                    title: Text(e)),
+                              ));
+                        })
+                        .values
+                        .toList(),
                   ],
                 ),
               )

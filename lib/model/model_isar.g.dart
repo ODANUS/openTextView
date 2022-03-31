@@ -4200,7 +4200,7 @@ extension GetHistoryIsarCollection on Isar {
 final HistoryIsarSchema = CollectionSchema(
   name: 'HistoryIsar',
   schema:
-      '{"name":"HistoryIsar","idName":"id","properties":[{"name":"cntntPstn","type":"Long"},{"name":"contentsLen","type":"Long"},{"name":"customName","type":"String"},{"name":"date","type":"Long"},{"name":"imageUri","type":"String"},{"name":"length","type":"Long"},{"name":"memo","type":"String"},{"name":"name","type":"String"},{"name":"pos","type":"Long"},{"name":"searchKeyWord","type":"String"}],"indexes":[],"links":[]}',
+      '{"name":"HistoryIsar","idName":"id","properties":[{"name":"cntntPstn","type":"Long"},{"name":"contentsLen","type":"Long"},{"name":"customName","type":"String"},{"name":"date","type":"Long"},{"name":"imageUri","type":"String"},{"name":"length","type":"Long"},{"name":"memo","type":"String"},{"name":"name","type":"String"},{"name":"pos","type":"Long"},{"name":"searchKeyWord","type":"String"}],"indexes":[{"name":"name","unique":true,"properties":[{"name":"name","type":"Hash","caseSensitive":true}]}],"links":[]}',
   nativeAdapter: const _HistoryIsarNativeAdapter(),
   webAdapter: const _HistoryIsarWebAdapter(),
   idName: 'id',
@@ -4217,8 +4217,12 @@ final HistoryIsarSchema = CollectionSchema(
     'searchKeyWord': 9
   },
   listProperties: {},
-  indexIds: {},
-  indexTypes: {},
+  indexIds: {'name': 0},
+  indexTypes: {
+    'name': [
+      NativeIndexType.stringHash,
+    ]
+  },
   linkIds: {},
   backlinkIds: {},
   linkedCollections: [],
@@ -4435,10 +4439,52 @@ class _HistoryIsarNativeAdapter extends IsarNativeTypeAdapter<HistoryIsar> {
   void attachLinks(Isar isar, int id, HistoryIsar object) {}
 }
 
+extension HistoryIsarByIndex on IsarCollection<HistoryIsar> {
+  Future<HistoryIsar?> getByName(String name) {
+    return getByIndex('name', [name]);
+  }
+
+  HistoryIsar? getByNameSync(String name) {
+    return getByIndexSync('name', [name]);
+  }
+
+  Future<bool> deleteByName(String name) {
+    return deleteByIndex('name', [name]);
+  }
+
+  bool deleteByNameSync(String name) {
+    return deleteByIndexSync('name', [name]);
+  }
+
+  Future<List<HistoryIsar?>> getAllByName(List<String> nameValues) {
+    final values = nameValues.map((e) => [e]).toList();
+    return getAllByIndex('name', values);
+  }
+
+  List<HistoryIsar?> getAllByNameSync(List<String> nameValues) {
+    final values = nameValues.map((e) => [e]).toList();
+    return getAllByIndexSync('name', values);
+  }
+
+  Future<int> deleteAllByName(List<String> nameValues) {
+    final values = nameValues.map((e) => [e]).toList();
+    return deleteAllByIndex('name', values);
+  }
+
+  int deleteAllByNameSync(List<String> nameValues) {
+    final values = nameValues.map((e) => [e]).toList();
+    return deleteAllByIndexSync('name', values);
+  }
+}
+
 extension HistoryIsarQueryWhereSort
     on QueryBuilder<HistoryIsar, HistoryIsar, QWhere> {
   QueryBuilder<HistoryIsar, HistoryIsar, QAfterWhere> anyId() {
     return addWhereClauseInternal(const WhereClause(indexName: null));
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterWhere> anyName() {
+    return addWhereClauseInternal(const WhereClause(indexName: 'name'));
   }
 }
 
@@ -4514,6 +4560,42 @@ extension HistoryIsarQueryWhere
       upper: [upperId],
       includeUpper: includeUpper,
     ));
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterWhereClause> nameEqualTo(
+      String name) {
+    return addWhereClauseInternal(WhereClause(
+      indexName: 'name',
+      lower: [name],
+      includeLower: true,
+      upper: [name],
+      includeUpper: true,
+    ));
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterWhereClause> nameNotEqualTo(
+      String name) {
+    if (whereSortInternal == Sort.asc) {
+      return addWhereClauseInternal(WhereClause(
+        indexName: 'name',
+        upper: [name],
+        includeUpper: false,
+      )).addWhereClauseInternal(WhereClause(
+        indexName: 'name',
+        lower: [name],
+        includeLower: false,
+      ));
+    } else {
+      return addWhereClauseInternal(WhereClause(
+        indexName: 'name',
+        lower: [name],
+        includeLower: false,
+      )).addWhereClauseInternal(WhereClause(
+        indexName: 'name',
+        upper: [name],
+        includeUpper: false,
+      ));
+    }
   }
 }
 
