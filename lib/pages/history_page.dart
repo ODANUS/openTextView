@@ -8,6 +8,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:open_textview/component/Ads.dart';
 
 import 'package:open_textview/isar_ctl.dart';
+import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 
 class HistoryPage extends GetView {
@@ -25,7 +26,7 @@ class HistoryPage extends GetView {
                 var tmpFile = File("${tmpdir.path}/openTextView.csv");
 
                 // var header = '이미지,제목,읽은 위치,일자,읽은 퍼센트,총 권수,메모';
-                var header = '제목,읽은 위치,일자,읽은 퍼센트,총 권수,메모';
+                var header = '제목,일자,읽은 퍼센트,총 권수,메모';
 
                 var str = [
                   header,
@@ -35,20 +36,16 @@ class HistoryPage extends GetView {
                     //   imageUri = "=IMAGE(\"${e.imageUri}\")";
                     // }
                     String pos = "";
-                    if (e.pos > 0 && e.length > 0) {
-                      pos = (e.pos / e.length * 100).toStringAsFixed(2) + "%";
-                    }
+                    pos = Utils.rdgPos(e);
                     String total_books = "";
-                    if (e.contentsLen > 0) {
-                      total_books = "${e.contentsLen ~/ 160000}${"books".tr}";
-                    }
-                    return '"${e.name.split(".").first}","${e.pos}","${e.date}",$pos,$total_books,${e.memo}';
+                    total_books = Utils.rdgPos(e, bpercent: false, bBooks: true);
+
+                    return '"${e.name.split(".").first}","${e.date}",$pos,$total_books,"${e.memo}"';
                   })
                 ];
                 tmpFile.writeAsStringSync(str.join("\r\n"));
 
-                final params =
-                    SaveFileDialogParams(sourceFilePath: tmpFile.path);
+                final params = SaveFileDialogParams(sourceFilePath: tmpFile.path);
 
                 await FlutterFileDialog.saveFile(params: params);
               },
@@ -94,8 +91,7 @@ class HistoryPage extends GetView {
                   )),
               Expanded(
                 child: ListView(
-                  padding: EdgeInsets.only(
-                      left: 10, right: 10, top: 10, bottom: 100),
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 100),
                   children: historyList.map((e) {
                     Widget delwidget = Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -128,11 +124,7 @@ class HistoryPage extends GetView {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(
-                                      "${(e.pos / e.length * 100).toStringAsFixed(2)}% : ${e.pos}/${e.length}"),
-                                  if (e.contentsLen > 0)
-                                    Text(
-                                        " (${e.contentsLen ~/ 160000} ${"books".tr})"),
+                                  Text("${Utils.rdgPos(e, bnumber: true, bBooks: true)}"),
                                 ],
                               ),
                               Row(children: [
@@ -160,20 +152,17 @@ class HistoryPage extends GetView {
                                       ),
                                     ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            primary: Colors.red),
+                                        style: ElevatedButton.styleFrom(primary: Colors.red),
                                         onPressed: () {
                                           IsarCtl.deleteHistory(e);
                                         },
                                         child: Text("delete".tr),
                                       ),
                                       ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            primary: Colors.green),
+                                        style: ElevatedButton.styleFrom(primary: Colors.green),
                                         onPressed: () {
                                           bMemo(!bMemo.value);
                                         },

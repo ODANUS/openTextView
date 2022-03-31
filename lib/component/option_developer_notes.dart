@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:package_info/package_info.dart';
 
+// 9223372036854775807/160000
+// 57646075230342.35
 class DeveloperNotes extends GetView {
   final String content = """
 ---
@@ -137,8 +139,7 @@ class DeveloperNotes extends GetView {
                 ],
               ));
 
-              IsarCtl.putSetting(
-                  setting..lastDevVersion = snapshot.data!.version);
+              IsarCtl.putSetting(setting..lastDevVersion = snapshot.data!.version);
             },
             title: Row(
               children: [

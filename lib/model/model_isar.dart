@@ -225,6 +225,7 @@ class HistoryIsar {
   HistoryIsar({
     required this.date,
     this.pos = 0,
+    this.cntntPstn = 0,
     this.name = "",
     this.length = 0,
     this.customName = "",
@@ -240,6 +241,7 @@ class HistoryIsar {
   DateTime date;
 
   int pos;
+  int cntntPstn;
   int length;
   int contentsLen;
   String customName;
@@ -254,6 +256,7 @@ class HistoryIsar {
   factory HistoryIsar.fromMap(Map<String, dynamic> json) => HistoryIsar(
         date: json["date"] == null ? DateTime.now() : DateTime.fromMillisecondsSinceEpoch(json["date"]),
         pos: json["pos"] ?? 0,
+        cntntPstn: json["cntntPstn"] ?? 0,
         length: json["length"] ?? 0,
         name: json["name"] ?? "",
         customName: json["customName"] ?? "",
@@ -265,6 +268,7 @@ class HistoryIsar {
   Map<String, dynamic> toMap() => {
         "date": date.millisecondsSinceEpoch,
         "pos": pos,
+        "cntntPstn": cntntPstn,
         "length": length,
         "name": name,
         "customName": customName,

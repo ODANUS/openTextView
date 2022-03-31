@@ -11,6 +11,7 @@ import 'package:charset_converter/charset_converter.dart';
 import 'package:epubx/epubx.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
+import 'package:get/get.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:open_textview/model/model_isar.dart';
@@ -24,14 +25,6 @@ extension Iterables<E> on Iterable<E> {
 }
 
 class Utils {
-  // static Future<String?> selectLibrary() async {
-  //   String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
-  //   if (selectedDirectory != null) {
-  //     return selectedDirectory;
-  //   }
-  //   return null;
-  // }
-
   static Future<FilePickerResult?> selectFile() async {
     var selectedFiles = await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub']);
     if (selectedFiles == null) {
@@ -64,6 +57,66 @@ class Utils {
     return selectedFiles;
   }
 
+  static Future<String> readFile(File f) async {
+    try {
+      if (f.existsSync()) {
+        Uint8List bytes = f.readAsBytesSync();
+        String decodeContents = "";
+        try {
+          DecodingResult result = await CharsetDetector.autoDecode(bytes);
+          decodeContents = result.string;
+        } catch (e) {
+          decodeContents = (await CharsetConverter.decode('EUC-KR', bytes))!;
+        }
+        return decodeContents;
+      }
+      return "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  static String getFileSize(File f) {
+    int bytes = f.lengthSync();
+    String size = "0 B";
+    if (bytes > 0) {
+      const suffixes = ['B', 'KB', 'MB', 'GB'];
+      var i = (log(bytes) / log(1024)).floor();
+      size = ((bytes / pow(1024, i)).toStringAsFixed(2)) + ' ' + suffixes[i];
+    }
+    return size;
+  }
+
+  static String DF(DateTime d, {String f: "yyyy-MM-dd", int add = 0}) {
+    DateFormat dateFormat = DateFormat(f);
+    d = d.add(Duration(days: add));
+    return dateFormat.format(d);
+  }
+
+  static String rdgPos(HistoryIsar history, {bBooks = false, bnumber = false, bpercent = true}) {
+    String rtn = "";
+    if (history.cntntPstn <= 0 && history.pos > 0) {
+      if (bpercent) {
+        rtn = "${(history.pos / history.length * 100).toStringAsFixed(2)}% ";
+      }
+      if (bnumber) {
+        rtn += "${history.pos}/${history.length}";
+      }
+    } else {
+      if (bpercent) {
+        rtn = "${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% ";
+      }
+      if (bnumber) {
+        rtn += "${history.cntntPstn}/${history.contentsLen}";
+      }
+    }
+    if (bBooks && history.contentsLen > 0) {
+      rtn += " (${history.contentsLen ~/ 160000} ${"books".tr})";
+    }
+    return rtn;
+  }
+}
+
   // static Size calword(String s, style) {
   //   TextPainter textPainter = TextPainter(
   //     text: TextSpan(text: s, style: style),
@@ -74,156 +127,156 @@ class Utils {
   //   return textPainter;
   // }
 
-  static Size calcTextSize(String text, TextStyle style, double width, double scheight) {
-    final List<String> _pageTexts = [];
-    TextPainter textPainter = TextPainter(
-      text: TextSpan(text: text, style: style),
-      textDirection: TextDirection.ltr,
-      textWidthBasis: TextWidthBasis.longestLine,
-    )..layout(maxWidth: width);
-    List<LineMetrics> lines = textPainter.computeLineMetrics();
-    double currentPageBottom = scheight;
-    int currentPageStartIndex = 0;
-    int currentPageEndIndex = 0;
+  // static Size calcTextSize(String text, TextStyle style, double width, double scheight) {
+  //   final List<String> _pageTexts = [];
+  //   TextPainter textPainter = TextPainter(
+  //     text: TextSpan(text: text, style: style),
+  //     textDirection: TextDirection.ltr,
+  //     textWidthBasis: TextWidthBasis.longestLine,
+  //   )..layout(maxWidth: width);
+  //   List<LineMetrics> lines = textPainter.computeLineMetrics();
+  //   double currentPageBottom = scheight;
+  //   int currentPageStartIndex = 0;
+  //   int currentPageEndIndex = 0;
 
-    for (int i = 0; i < lines.length; i++) {
-      final line = lines[i];
+  //   for (int i = 0; i < lines.length; i++) {
+  //     final line = lines[i];
 
-      final left = line.left;
-      final top = line.baseline - line.ascent;
-      final bottom = line.baseline + line.descent;
+  //     final left = line.left;
+  //     final top = line.baseline - line.ascent;
+  //     final bottom = line.baseline + line.descent;
 
-      // Current line overflow page
-      if (currentPageBottom < bottom) {
-        // https://stackoverflow.com/questions/56943994/how-to-get-the-raw-text-from-a-flutter-textbox/56943995#56943995
-        currentPageEndIndex = textPainter.getPositionForOffset(Offset(left, top)).offset;
-        final pageText = text.substring(currentPageStartIndex, currentPageEndIndex);
-        _pageTexts.add(pageText);
+  //     // Current line overflow page
+  //     if (currentPageBottom < bottom) {
+  //       // https://stackoverflow.com/questions/56943994/how-to-get-the-raw-text-from-a-flutter-textbox/56943995#56943995
+  //       currentPageEndIndex = textPainter.getPositionForOffset(Offset(left, top)).offset;
+  //       final pageText = text.substring(currentPageStartIndex, currentPageEndIndex);
+  //       _pageTexts.add(pageText);
 
-        currentPageStartIndex = currentPageEndIndex;
-        currentPageBottom = top + scheight;
-      }
-    }
+  //       currentPageStartIndex = currentPageEndIndex;
+  //       currentPageBottom = top + scheight;
+  //     }
+  //   }
 
-    final lastPageText = text.substring(currentPageStartIndex);
-    _pageTexts.add(lastPageText);
-    // _pageTexts.forEach((e) {
-    //   print("------------------------------------");
-    //   print(e);
-    // });
+  //   final lastPageText = text.substring(currentPageStartIndex);
+  //   _pageTexts.add(lastPageText);
+  //   // _pageTexts.forEach((e) {
+  //   //   print("------------------------------------");
+  //   //   print(e);
+  //   // });
 
-    return textPainter.size;
-  }
+  //   return textPainter.size;
+  // }
 
-  static double clContensSize(List<String> texts, TextStyle style, double width, double height) {
-    Map<int, double> cache = {};
-    List<ContentsIsar> rtnList = [];
-    double totleHeight = 0;
-    for (var i = 0; i < texts.length; i++) {
-      String text = texts[i];
-      if (cache[text.length] == null) {
-        TextPainter textPainter = TextPainter(
-          text: TextSpan(text: "${text}\n", style: style),
-          textDirection: TextDirection.ltr,
-          textWidthBasis: TextWidthBasis.longestLine,
-        )..layout(maxWidth: width);
-        // textPainter.text = TextSpan(text: text, style: style);
-        cache[text.length] = textPainter.height.h;
-      }
-      totleHeight += cache[text.length]!;
-    }
+  // static double clContensSize(List<String> texts, TextStyle style, double width, double height) {
+  //   Map<int, double> cache = {};
+  //   List<ContentsIsar> rtnList = [];
+  //   double totleHeight = 0;
+  //   for (var i = 0; i < texts.length; i++) {
+  //     String text = texts[i];
+  //     if (cache[text.length] == null) {
+  //       TextPainter textPainter = TextPainter(
+  //         text: TextSpan(text: "${text}\n", style: style),
+  //         textDirection: TextDirection.ltr,
+  //         textWidthBasis: TextWidthBasis.longestLine,
+  //       )..layout(maxWidth: width);
+  //       // textPainter.text = TextSpan(text: text, style: style);
+  //       cache[text.length] = textPainter.height.h;
+  //     }
+  //     totleHeight += cache[text.length]!;
+  //   }
 
-    // if (cache[text.length]! > height) {
-    //   var tmplist = getTextList(text, style, width, height);
-    //   rtnList.addAll(tmplist
-    //       .asMap()
-    //       .map((idx, t) {
-    //         return MapEntry(
-    //             idx,
-    //             ContentsIsar(
-    //               height: height,
-    //               text: t,
-    //               idx: rtnList.length + idx,
-    //             ));
-    //       })
-    //       .values
-    //       .toList());
-    // } else {
-    //   rtnList.add(ContentsIsar(
-    //     height: cache[text.length]!,
-    //     text: text,
-    //     idx: rtnList.length,
-    //   ));
-    // }
-    // }
-    return totleHeight;
-  }
+  //   // if (cache[text.length]! > height) {
+  //   //   var tmplist = getTextList(text, style, width, height);
+  //   //   rtnList.addAll(tmplist
+  //   //       .asMap()
+  //   //       .map((idx, t) {
+  //   //         return MapEntry(
+  //   //             idx,
+  //   //             ContentsIsar(
+  //   //               height: height,
+  //   //               text: t,
+  //   //               idx: rtnList.length + idx,
+  //   //             ));
+  //   //       })
+  //   //       .values
+  //   //       .toList());
+  //   // } else {
+  //   //   rtnList.add(ContentsIsar(
+  //   //     height: cache[text.length]!,
+  //   //     text: text,
+  //   //     idx: rtnList.length,
+  //   //   ));
+  //   // }
+  //   // }
+  //   return totleHeight;
+  // }
 
-  static List<String> getTextPages(List<String> texts, TextStyle style, double width, double scheight) {
-    // var list = texts.map((e) => TextSpan(text: "$e\n", style: style)).toList();
+  // static List<String> getTextPages(List<String> texts, TextStyle style, double width, double scheight) {
+  //   // var list = texts.map((e) => TextSpan(text: "$e\n", style: style)).toList();
 
-    List<String> textList = [];
-    for (var i = 0; i < texts.length; i++) {
-      textList.add(texts[i]);
-      TextPainter textPainter = TextPainter(
-        text: TextSpan(children: textList.map((e) => TextSpan(text: "$e\n", style: style)).toList(), style: style),
-        textDirection: TextDirection.ltr,
-        textWidthBasis: TextWidthBasis.longestLine,
-      )..layout(maxWidth: width);
+  //   List<String> textList = [];
+  //   for (var i = 0; i < texts.length; i++) {
+  //     textList.add(texts[i]);
+  //     TextPainter textPainter = TextPainter(
+  //       text: TextSpan(children: textList.map((e) => TextSpan(text: "$e\n", style: style)).toList(), style: style),
+  //       textDirection: TextDirection.ltr,
+  //       textWidthBasis: TextWidthBasis.longestLine,
+  //     )..layout(maxWidth: width);
 
-      List<LineMetrics> lines = textPainter.computeLineMetrics();
-      if (lines.last.baseline > scheight) {
-        if (textList.length == 1) {
-          // print("$i > ${lines.last.baseline}");
-          return getTextList(texts[i], style, width, scheight);
-        }
-        textList.remove(texts[i]);
-        break;
-      }
-      // print(lines.last.baseline);
-      // print(lines.last.descent);
-    }
-    return textList;
-  }
+  //     List<LineMetrics> lines = textPainter.computeLineMetrics();
+  //     if (lines.last.baseline > scheight) {
+  //       if (textList.length == 1) {
+  //         // print("$i > ${lines.last.baseline}");
+  //         return getTextList(texts[i], style, width, scheight);
+  //       }
+  //       textList.remove(texts[i]);
+  //       break;
+  //     }
+  //     // print(lines.last.baseline);
+  //     // print(lines.last.descent);
+  //   }
+  //   return textList;
+  // }
 
-  static List<String> getTextList(String text, TextStyle style, double width, double scheight) {
-    // https://gist.github.com/ltvu93/36b249d1b5b5861a5ef58d958a50ad98
-    final List<String> _pageTexts = [];
-    TextPainter textPainter = TextPainter(
-      text: TextSpan(text: text, style: style),
-      textDirection: TextDirection.ltr,
-      // textScaleFactor: 1.sp,
-      textWidthBasis: TextWidthBasis.longestLine,
-    )..layout(maxWidth: width);
+  // static List<String> getTextList(String text, TextStyle style, double width, double scheight) {
+  //   // https://gist.github.com/ltvu93/36b249d1b5b5861a5ef58d958a50ad98
+  //   final List<String> _pageTexts = [];
+  //   TextPainter textPainter = TextPainter(
+  //     text: TextSpan(text: text, style: style),
+  //     textDirection: TextDirection.ltr,
+  //     // textScaleFactor: 1.sp,
+  //     textWidthBasis: TextWidthBasis.longestLine,
+  //   )..layout(maxWidth: width);
 
-    List<LineMetrics> lines = textPainter.computeLineMetrics();
+  //   List<LineMetrics> lines = textPainter.computeLineMetrics();
 
-    double currentPageBottom = scheight;
-    int currentPageStartIndex = 0;
-    int currentPageEndIndex = 0;
+  //   double currentPageBottom = scheight;
+  //   int currentPageStartIndex = 0;
+  //   int currentPageEndIndex = 0;
 
-    for (int i = 0; i < lines.length; i++) {
-      final line = lines[i];
+  //   for (int i = 0; i < lines.length; i++) {
+  //     final line = lines[i];
 
-      final left = line.left;
-      final top = line.baseline - line.ascent;
-      final bottom = line.baseline + line.descent;
-      if (currentPageBottom < bottom) {
-        currentPageEndIndex = textPainter.getPositionForOffset(Offset(left, top)).offset;
+  //     final left = line.left;
+  //     final top = line.baseline - line.ascent;
+  //     final bottom = line.baseline + line.descent;
+  //     if (currentPageBottom < bottom) {
+  //       currentPageEndIndex = textPainter.getPositionForOffset(Offset(left, top)).offset;
 
-        final pageText = text.substring(currentPageStartIndex, currentPageEndIndex);
-        _pageTexts.add(pageText);
+  //       final pageText = text.substring(currentPageStartIndex, currentPageEndIndex);
+  //       _pageTexts.add(pageText);
 
-        currentPageStartIndex = currentPageEndIndex;
-        currentPageBottom = top + scheight;
-      }
-    }
+  //       currentPageStartIndex = currentPageEndIndex;
+  //       currentPageBottom = top + scheight;
+  //     }
+  //   }
 
-    final lastPageText = text.substring(currentPageStartIndex);
-    _pageTexts.add(lastPageText);
+  //   final lastPageText = text.substring(currentPageStartIndex);
+  //   _pageTexts.add(lastPageText);
 
-    return _pageTexts;
-  }
+  //   return _pageTexts;
+  // }
 
   // static List<ContentsIsar> parseSizeList(
   //     List<String> contents,
@@ -413,89 +466,3 @@ class Utils {
   //   prefs.reload();
   //   prefs.setString("currentdata", strjson);
   // }
-
-  static Future<String> readFile(File f) async {
-    try {
-      if (f.existsSync()) {
-        Uint8List bytes = f.readAsBytesSync();
-        String decodeContents = "";
-        try {
-          DecodingResult result = await CharsetDetector.autoDecode(bytes);
-          decodeContents = result.string;
-        } catch (e) {
-          decodeContents = (await CharsetConverter.decode('EUC-KR', bytes))!;
-        }
-        return decodeContents;
-      }
-      return "";
-    } catch (e) {
-      return "";
-    }
-  }
-
-  static getList() {}
-
-  static String getFileSize(File f) {
-    int bytes = f.lengthSync();
-    String size = "0 B";
-    if (bytes > 0) {
-      const suffixes = ['B', 'KB', 'MB', 'GB'];
-      var i = (log(bytes) / log(1024)).floor();
-      size = ((bytes / pow(1024, i)).toStringAsFixed(2)) + ' ' + suffixes[i];
-    }
-    return size;
-  }
-
-  static String DF(DateTime d, {String f: "yyyy-MM-dd", int add = 0}) {
-    DateFormat dateFormat = DateFormat(f);
-    d = d.add(Duration(days: add));
-    return dateFormat.format(d);
-  }
-
-  // 기존 데이터 마이그레이션을 위해 한동안 유지후 삭제 해야함.
-  // static Future<bool> isLocalStorage() async {
-  //   Directory appdir = await getApplicationDocumentsDirectory();
-  //   File f = File(appdir.path + "/opentextview");
-  //   return f.existsSync();
-  // }
-
-  // static Future<String> getLocalStorage() async {
-  //   Directory appdir = await getApplicationDocumentsDirectory();
-  //   File f = File(appdir.path + "/opentextview");
-  //   return f.readAsStringSync();
-  // }
-
-  // static Future<void> delLocalStorage() async {
-  //   Directory appdir = await getApplicationDocumentsDirectory();
-  //   File f = File(appdir.path + "/opentextview");
-  //   f.deleteSync();
-  // }
-
-  // static Future<UserData?> localStorageToUserData() async {
-  //   if (await Utils.isLocalStorage()) {
-  //     String strlocaljson = await Utils.getLocalStorage();
-  //     dynamic localjson = json.decode(strlocaljson);
-  //     UserData tmpuserData = UserData();
-  //     if (localjson['config'] != null) {
-  //       if (localjson['config']['tts'] != null) {
-  //         tmpuserData.tts = Tts.fromMap(localjson['config']['tts']);
-  //       }
-  //       if (localjson['config']['filter'] != null) {
-  //         tmpuserData.filter = (localjson['config']['filter'] as List)
-  //             .map((e) => Filter.fromMap(e))
-  //             .toList();
-  //       }
-  //       if (localjson['config']['ocr'] != null) {
-  //         tmpuserData.ocr = Ocr.fromMap(localjson['config']['ocr']);
-  //       }
-  //     }
-  //     if (localjson['history'] != null) {
-  //       tmpuserData.history = (localjson['history'] as List)
-  //           .map((e) => History.fromMap(e))
-  //           .toList();
-  //     }
-  //     return tmpuserData;
-  //   }
-  //   return null;
-  // }
-}

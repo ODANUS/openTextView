@@ -27,8 +27,7 @@ class AudioHandler extends BaseAudioHandler
       });
 
       this.session!.interruptionEventStream.listen((event) {
-        if (event.type == AudioInterruptionType.duck &&
-            (IsarCtl.setting?.audioduck ?? true)) {
+        if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
             this.pause();
@@ -38,8 +37,7 @@ class AudioHandler extends BaseAudioHandler
           }
           return;
         }
-        if (event.type == AudioInterruptionType.pause &&
-            (IsarCtl.setting?.audiosession ?? true)) {
+        if (event.type == AudioInterruptionType.pause && (IsarCtl.setting?.audiosession ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
             this.pause();
@@ -85,12 +83,7 @@ class AudioHandler extends BaseAudioHandler
     speed: 0,
   );
 
-  MediaItem baseItem = MediaItem(
-      id: 'tts',
-      album: 'tts',
-      title: '',
-      artist: '',
-      duration: const Duration(milliseconds: 1000000));
+  MediaItem baseItem = MediaItem(id: 'tts', album: 'tts', title: '', artist: '', duration: const Duration(milliseconds: 1000000));
   final int STAT_STOP = 0;
   final int STAT_PLAY = 1;
   final int STAT_PAUSE = 2;
@@ -138,11 +131,11 @@ class AudioHandler extends BaseAudioHandler
       title: 'testestes',
       duration: Duration(seconds: 10000),
     ));
-    playbackState
-        .add(baseState.copyWith(updatePosition: Duration(seconds: 100)));
+    playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: 100)));
 
-    int pos = IsarCtl.tctl.pos;
-    List<String> contents = IsarCtl.contents.map((e) => e.text).toList();
+    // ---------------------------------------------------
+    int pos = IsarCtl.tctl.cntntPstn;
+    String contents = IsarCtl.contents.text;
     HistoryIsar history = IsarCtl.lastHistory!;
     SettingIsar setting = IsarCtl.setting!;
 
@@ -165,13 +158,13 @@ class AudioHandler extends BaseAudioHandler
       if (playstat != STAT_PLAY) break;
       int end = min(i + setting.groupcnt, contents.length);
 
-      String speakText = contents.getRange(i, end).join("\n");
+      String speakText = contents.substring(i, end);
+      // .join("\n");
 
       IsarCtl.filters.forEach((e) {
         if (e.enable) {
           if (e.expr) {
-            speakText =
-                speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+            speakText = speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
           } else {
             speakText = speakText.replaceAll(e.filter, e.to);
           }
@@ -185,16 +178,13 @@ class AudioHandler extends BaseAudioHandler
             this.stop();
           } else {
             var ss = autoExitDate!.difference(now);
-            mediaItem.add(e!.copyWith(
-                album: "Auto_shut_down_after_@min_minute"
-                    .trParams({"min": ss.inMinutes.toString()})));
+            mediaItem.add(e!.copyWith(album: "Auto_shut_down_after_@min_minute".trParams({"min": ss.inMinutes.toString()})));
           }
         });
       }
-      playbackState
-          .add(baseState.copyWith(updatePosition: Duration(seconds: i)));
+      playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
-      IsarCtl.pos = i;
+      IsarCtl.cntntPstn = i;
       try {
         IsarCtl.tctl.offsetY = 0;
         IsarCtl.tctl.bHighlight = true;
@@ -210,7 +200,7 @@ class AudioHandler extends BaseAudioHandler
       var bspeak = await tts?.speak(speakText);
       errorCnt++;
       if (errorCnt > 6) {
-        IsarCtl.pos -= (errorCnt + 1) * setting.groupcnt;
+        IsarCtl.cntntPstn -= (errorCnt + 1) * setting.groupcnt;
         stop();
       }
       if (bspeak == null) {
@@ -236,7 +226,7 @@ class AudioHandler extends BaseAudioHandler
           ],
           androidCompactActionIndices: const [0, 1],
           processingState: AudioProcessingState.completed,
-          updatePosition: Duration(seconds: IsarCtl.pos),
+          updatePosition: Duration(seconds: IsarCtl.cntntPstn),
           playing: false,
         ));
 
@@ -264,8 +254,7 @@ class AudioHandler extends BaseAudioHandler
   }
 
   @override
-  Future<dynamic> customAction(String name,
-      [Map<String, dynamic>? extras]) async {
+  Future<dynamic> customAction(String name, [Map<String, dynamic>? extras]) async {
     if (name == "autoExit" && extras != null) {
       this.autoExitDate = extras["autoExit"];
     }
@@ -370,10 +359,7 @@ class AudioPlay {
   }
 
   static AudioHandler? get audioHandler => _audioHandler;
-  static builder(
-      {required Widget Function(
-              BuildContext context, AsyncSnapshot<PlaybackState> snapshot)
-          builder}) {
+  static builder({required Widget Function(BuildContext context, AsyncSnapshot<PlaybackState> snapshot) builder}) {
     return StreamBuilder<PlaybackState>(
       stream: _audioHandler!.playbackState,
       builder: (context, snapshot) {

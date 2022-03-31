@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:isar/isar.dart';
+import 'package:open_textview/component/comp_text_reader.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
@@ -105,6 +106,16 @@ class IsarCtl {
         Get.changeTheme(ThemeData.dark());
       }
     }
+    // var historys = isar.historyIsars.where().findAllSync();
+    // historys.forEach((e) {
+    //   if (e.cntntPstn < 0) {
+    //     if (e.contentsLen <= 0) {
+    //       e.cntntPstn = 0;
+    //     } else {
+    //       print(e.toJson());
+    //     }
+    //   }
+    // });
 
     // Worker? w;
     // Future.delayed(Duration(milliseconds: 400), () async {
@@ -136,14 +147,14 @@ class IsarCtl {
     return (360 - s.paddingLeft - s.paddingRight).w;
   }
 
-  static List<ContentsIsar> get contents {
-    return IsarCtl.isar.contentsIsars.where().findAllSync();
+  static ContentsIsar get contents {
+    return IsarCtl.isar.contentsIsars.where().findFirstSync() ?? ContentsIsar(text: "");
   }
 
-  static set contents(List<ContentsIsar> list) {
+  static set contents(ContentsIsar contents) {
     isar.writeTxnSync((isar) {
       isar.contentsIsars.clearSync();
-      isar.contentsIsars.putAllSync(list);
+      isar.contentsIsars.putSync(contents);
     });
   }
 
@@ -189,16 +200,27 @@ class IsarCtl {
     return isar.settingIsars.where().findFirstSync();
   }
 
-  static int get pos {
-    return lastHistory?.pos ?? 0;
+  static int get cntntPstn {
+    return lastHistory?.cntntPstn ?? 0;
   }
 
-  static set pos(int idx) {
+  static set cntntPstn(int idx) {
     HistoryIsar? tmp = lastHistory;
-    tmp?.pos = idx;
+    tmp?.cntntPstn = idx;
     tmp?.date = DateTime.now();
     lastHistory = tmp;
   }
+
+  // static int get pos {
+  //   return lastHistory?.pos ?? 0;
+  // }
+
+  // static set pos(int idx) {
+  //   HistoryIsar? tmp = lastHistory;
+  //   tmp?.pos = idx;
+  //   tmp?.date = DateTime.now();
+  //   lastHistory = tmp;
+  // }
 
   static TextStyle get textStyle {
     SettingIsar? s = isar.settingIsars.where().findFirstSync();
@@ -321,12 +343,12 @@ class IsarCtl {
         }));
   }
 
-  static StreamBuilder<List<ContentsIsar>> rxContents(Widget Function(BuildContext, List<ContentsIsar>) builder) {
+  static StreamBuilder<List<ContentsIsar>> rxContents(Widget Function(BuildContext, ContentsIsar) builder) {
     return StreamBuilder<List<ContentsIsar>>(
         stream: streamContents,
         builder: ((context, snapshot) {
           if (snapshot.data != null && snapshot.data!.isNotEmpty) {
-            return builder(context, snapshot.data!);
+            return builder(context, snapshot.data!.first);
           }
           return SizedBox();
         }));
@@ -485,104 +507,39 @@ class IsarCtl {
 
     String tmpStr = await Utils.readFile(f);
     var tmpcontents = tmpStr.replaceAll(RegExp(r'\n{3,}'), "\n");
+    tmpcontents = tmpcontents.replaceAll("\r\n", "\n");
 
-    var targetList = tmpcontents.split("\n"); //.getRange(2, 4);
+    ContentsIsar contentsisar = ContentsIsar(text: tmpcontents);
+    print(tmpcontents);
 
-    List<ContentsIsar> contentsList = targetList.asMap().map((k, e) => MapEntry(k, ContentsIsar(idx: k, text: e))).values.toList();
+    // List<ContentsIsar> contentsList = targetList.asMap().map((k, e) => MapEntry(k, ContentsIsar(idx: k, text: e))).values.toList();
 
     var history = isar.historyIsars.filter().nameEqualTo(tmpName).findFirstSync();
+
     if (history == null) {
       lastHistory = HistoryIsar(
         name: tmpName,
         date: DateTime.now(),
-        contentsLen: tmpStr.length,
+        contentsLen: tmpcontents.length,
         pos: 0,
-        length: contentsList.length,
+        cntntPstn: 0,
       );
     } else {
+      if (history.cntntPstn < 0) {
+        var targetList = tmpcontents.split("\n");
+        if (targetList.length > history.pos) {
+          var range = targetList.getRange(0, history.pos + 1);
+          history.cntntPstn = range.join("\n").length;
+        }
+      }
       history.date = DateTime.now();
-      history.contentsLen = tmpStr.length;
-      history.length = contentsList.length;
+      history.contentsLen = tmpcontents.length;
       lastHistory = history;
       // putHistory(history);
     }
-    contents = contentsList;
+    contents = contentsisar;
+
     tabIndex(0);
     // bOpen(false);
   }
-}
-
-class TextViewerController extends ChangeNotifier {
-  double _offsetY = 0;
-  int _pos = 0;
-
-  int _per = 0;
-  int _min = 0;
-  int _max = 0;
-
-  int contentsMax = 0;
-
-  bool bHighlight = false;
-  int highlightPos = 0;
-  int highlightCnt = 0;
-
-  Map<int, TextPainter> cache = {};
-
-  Function(int)? onChange;
-
-  set pos(int v) {
-    _pos = v;
-    if (onChange != null) {
-      onChange!(v);
-    }
-    notifyListeners();
-  }
-
-  int get pos => _pos;
-
-  set offsetY(double v) {
-    _offsetY = v;
-    notifyListeners();
-  }
-
-  double get offsetY => _offsetY;
-
-  set minPos(int v) {
-    if (v < 0) {
-      v = 0;
-    }
-    _min = v;
-  }
-
-  int get minPos => _min;
-
-  set maxPos(int v) {
-    if (v > contentsMax) {
-      v = contentsMax;
-    }
-    _max = v;
-  }
-
-  int get maxPos => _max;
-
-  set perPos(int v) => _per = v;
-  int get perPos => _per;
-
-  back() {
-    offsetY = 0;
-    pos = perPos;
-  }
-
-  next() {
-    if (maxPos < contentsMax - 1) {
-      offsetY = 0;
-      pos = maxPos;
-    }
-    // print(maxPos);
-  }
-
-  // void clearItems() {
-  //   items.clear();
-  //   notifyListeners();
-  // }
 }

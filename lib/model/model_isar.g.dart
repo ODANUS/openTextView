@@ -4200,20 +4200,21 @@ extension GetHistoryIsarCollection on Isar {
 final HistoryIsarSchema = CollectionSchema(
   name: 'HistoryIsar',
   schema:
-      '{"name":"HistoryIsar","idName":"id","properties":[{"name":"contentsLen","type":"Long"},{"name":"customName","type":"String"},{"name":"date","type":"Long"},{"name":"imageUri","type":"String"},{"name":"length","type":"Long"},{"name":"memo","type":"String"},{"name":"name","type":"String"},{"name":"pos","type":"Long"},{"name":"searchKeyWord","type":"String"}],"indexes":[],"links":[]}',
+      '{"name":"HistoryIsar","idName":"id","properties":[{"name":"cntntPstn","type":"Long"},{"name":"contentsLen","type":"Long"},{"name":"customName","type":"String"},{"name":"date","type":"Long"},{"name":"imageUri","type":"String"},{"name":"length","type":"Long"},{"name":"memo","type":"String"},{"name":"name","type":"String"},{"name":"pos","type":"Long"},{"name":"searchKeyWord","type":"String"}],"indexes":[],"links":[]}',
   nativeAdapter: const _HistoryIsarNativeAdapter(),
   webAdapter: const _HistoryIsarWebAdapter(),
   idName: 'id',
   propertyIds: {
-    'contentsLen': 0,
-    'customName': 1,
-    'date': 2,
-    'imageUri': 3,
-    'length': 4,
-    'memo': 5,
-    'name': 6,
-    'pos': 7,
-    'searchKeyWord': 8
+    'cntntPstn': 0,
+    'contentsLen': 1,
+    'customName': 2,
+    'date': 3,
+    'imageUri': 4,
+    'length': 5,
+    'memo': 6,
+    'name': 7,
+    'pos': 8,
+    'searchKeyWord': 9
   },
   listProperties: {},
   indexIds: {},
@@ -4239,6 +4240,7 @@ class _HistoryIsarWebAdapter extends IsarWebTypeAdapter<HistoryIsar> {
   @override
   Object serialize(IsarCollection<HistoryIsar> collection, HistoryIsar object) {
     final jsObj = IsarNative.newJsObject();
+    IsarNative.jsObjectSet(jsObj, 'cntntPstn', object.cntntPstn);
     IsarNative.jsObjectSet(jsObj, 'contentsLen', object.contentsLen);
     IsarNative.jsObjectSet(jsObj, 'customName', object.customName);
     IsarNative.jsObjectSet(
@@ -4257,6 +4259,8 @@ class _HistoryIsarWebAdapter extends IsarWebTypeAdapter<HistoryIsar> {
   HistoryIsar deserialize(
       IsarCollection<HistoryIsar> collection, dynamic jsObj) {
     final object = HistoryIsar(
+      cntntPstn:
+          IsarNative.jsObjectGet(jsObj, 'cntntPstn') ?? double.negativeInfinity,
       contentsLen: IsarNative.jsObjectGet(jsObj, 'contentsLen') ??
           double.negativeInfinity,
       customName: IsarNative.jsObjectGet(jsObj, 'customName') ?? '',
@@ -4281,6 +4285,9 @@ class _HistoryIsarWebAdapter extends IsarWebTypeAdapter<HistoryIsar> {
   @override
   P deserializeProperty<P>(Object jsObj, String propertyName) {
     switch (propertyName) {
+      case 'cntntPstn':
+        return (IsarNative.jsObjectGet(jsObj, 'cntntPstn') ??
+            double.negativeInfinity) as P;
       case 'contentsLen':
         return (IsarNative.jsObjectGet(jsObj, 'contentsLen') ??
             double.negativeInfinity) as P;
@@ -4331,28 +4338,30 @@ class _HistoryIsarNativeAdapter extends IsarNativeTypeAdapter<HistoryIsar> {
       List<int> offsets,
       AdapterAlloc alloc) {
     var dynamicSize = 0;
-    final value0 = object.contentsLen;
-    final _contentsLen = value0;
-    final value1 = object.customName;
-    final _customName = IsarBinaryWriter.utf8Encoder.convert(value1);
+    final value0 = object.cntntPstn;
+    final _cntntPstn = value0;
+    final value1 = object.contentsLen;
+    final _contentsLen = value1;
+    final value2 = object.customName;
+    final _customName = IsarBinaryWriter.utf8Encoder.convert(value2);
     dynamicSize += (_customName.length) as int;
-    final value2 = object.date;
-    final _date = value2;
-    final value3 = object.imageUri;
-    final _imageUri = IsarBinaryWriter.utf8Encoder.convert(value3);
+    final value3 = object.date;
+    final _date = value3;
+    final value4 = object.imageUri;
+    final _imageUri = IsarBinaryWriter.utf8Encoder.convert(value4);
     dynamicSize += (_imageUri.length) as int;
-    final value4 = object.length;
-    final _length = value4;
-    final value5 = object.memo;
-    final _memo = IsarBinaryWriter.utf8Encoder.convert(value5);
+    final value5 = object.length;
+    final _length = value5;
+    final value6 = object.memo;
+    final _memo = IsarBinaryWriter.utf8Encoder.convert(value6);
     dynamicSize += (_memo.length) as int;
-    final value6 = object.name;
-    final _name = IsarBinaryWriter.utf8Encoder.convert(value6);
+    final value7 = object.name;
+    final _name = IsarBinaryWriter.utf8Encoder.convert(value7);
     dynamicSize += (_name.length) as int;
-    final value7 = object.pos;
-    final _pos = value7;
-    final value8 = object.searchKeyWord;
-    final _searchKeyWord = IsarBinaryWriter.utf8Encoder.convert(value8);
+    final value8 = object.pos;
+    final _pos = value8;
+    final value9 = object.searchKeyWord;
+    final _searchKeyWord = IsarBinaryWriter.utf8Encoder.convert(value9);
     dynamicSize += (_searchKeyWord.length) as int;
     final size = staticSize + dynamicSize;
 
@@ -4360,30 +4369,32 @@ class _HistoryIsarNativeAdapter extends IsarNativeTypeAdapter<HistoryIsar> {
     rawObj.buffer_length = size;
     final buffer = IsarNative.bufAsBytes(rawObj.buffer, size);
     final writer = IsarBinaryWriter(buffer, staticSize);
-    writer.writeLong(offsets[0], _contentsLen);
-    writer.writeBytes(offsets[1], _customName);
-    writer.writeDateTime(offsets[2], _date);
-    writer.writeBytes(offsets[3], _imageUri);
-    writer.writeLong(offsets[4], _length);
-    writer.writeBytes(offsets[5], _memo);
-    writer.writeBytes(offsets[6], _name);
-    writer.writeLong(offsets[7], _pos);
-    writer.writeBytes(offsets[8], _searchKeyWord);
+    writer.writeLong(offsets[0], _cntntPstn);
+    writer.writeLong(offsets[1], _contentsLen);
+    writer.writeBytes(offsets[2], _customName);
+    writer.writeDateTime(offsets[3], _date);
+    writer.writeBytes(offsets[4], _imageUri);
+    writer.writeLong(offsets[5], _length);
+    writer.writeBytes(offsets[6], _memo);
+    writer.writeBytes(offsets[7], _name);
+    writer.writeLong(offsets[8], _pos);
+    writer.writeBytes(offsets[9], _searchKeyWord);
   }
 
   @override
   HistoryIsar deserialize(IsarCollection<HistoryIsar> collection, int id,
       IsarBinaryReader reader, List<int> offsets) {
     final object = HistoryIsar(
-      contentsLen: reader.readLong(offsets[0]),
-      customName: reader.readString(offsets[1]),
-      date: reader.readDateTime(offsets[2]),
-      imageUri: reader.readString(offsets[3]),
-      length: reader.readLong(offsets[4]),
-      memo: reader.readString(offsets[5]),
-      name: reader.readString(offsets[6]),
-      pos: reader.readLong(offsets[7]),
-      searchKeyWord: reader.readString(offsets[8]),
+      cntntPstn: reader.readLong(offsets[0]),
+      contentsLen: reader.readLong(offsets[1]),
+      customName: reader.readString(offsets[2]),
+      date: reader.readDateTime(offsets[3]),
+      imageUri: reader.readString(offsets[4]),
+      length: reader.readLong(offsets[5]),
+      memo: reader.readString(offsets[6]),
+      name: reader.readString(offsets[7]),
+      pos: reader.readLong(offsets[8]),
+      searchKeyWord: reader.readString(offsets[9]),
     );
     object.id = id;
     return object;
@@ -4398,20 +4409,22 @@ class _HistoryIsarNativeAdapter extends IsarNativeTypeAdapter<HistoryIsar> {
       case 0:
         return (reader.readLong(offset)) as P;
       case 1:
-        return (reader.readString(offset)) as P;
-      case 2:
-        return (reader.readDateTime(offset)) as P;
-      case 3:
-        return (reader.readString(offset)) as P;
-      case 4:
         return (reader.readLong(offset)) as P;
-      case 5:
+      case 2:
         return (reader.readString(offset)) as P;
+      case 3:
+        return (reader.readDateTime(offset)) as P;
+      case 4:
+        return (reader.readString(offset)) as P;
+      case 5:
+        return (reader.readLong(offset)) as P;
       case 6:
         return (reader.readString(offset)) as P;
       case 7:
-        return (reader.readLong(offset)) as P;
+        return (reader.readString(offset)) as P;
       case 8:
+        return (reader.readLong(offset)) as P;
+      case 9:
         return (reader.readString(offset)) as P;
       default:
         throw 'Illegal propertyIndex';
@@ -4506,6 +4519,57 @@ extension HistoryIsarQueryWhere
 
 extension HistoryIsarQueryFilter
     on QueryBuilder<HistoryIsar, HistoryIsar, QFilterCondition> {
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterFilterCondition>
+      cntntPstnEqualTo(int value) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.eq,
+      property: 'cntntPstn',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterFilterCondition>
+      cntntPstnGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.gt,
+      include: include,
+      property: 'cntntPstn',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterFilterCondition>
+      cntntPstnLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.lt,
+      include: include,
+      property: 'cntntPstn',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterFilterCondition>
+      cntntPstnBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return addFilterConditionInternal(FilterCondition.between(
+      property: 'cntntPstn',
+      lower: lower,
+      includeLower: includeLower,
+      upper: upper,
+      includeUpper: includeUpper,
+    ));
+  }
+
   QueryBuilder<HistoryIsar, HistoryIsar, QAfterFilterCondition>
       contentsLenEqualTo(int value) {
     return addFilterConditionInternal(FilterCondition(
@@ -5282,6 +5346,14 @@ extension HistoryIsarQueryLinks
 
 extension HistoryIsarQueryWhereSortBy
     on QueryBuilder<HistoryIsar, HistoryIsar, QSortBy> {
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterSortBy> sortByCntntPstn() {
+    return addSortByInternal('cntntPstn', Sort.asc);
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterSortBy> sortByCntntPstnDesc() {
+    return addSortByInternal('cntntPstn', Sort.desc);
+  }
+
   QueryBuilder<HistoryIsar, HistoryIsar, QAfterSortBy> sortByContentsLen() {
     return addSortByInternal('contentsLen', Sort.asc);
   }
@@ -5366,6 +5438,14 @@ extension HistoryIsarQueryWhereSortBy
 
 extension HistoryIsarQueryWhereSortThenBy
     on QueryBuilder<HistoryIsar, HistoryIsar, QSortThenBy> {
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterSortBy> thenByCntntPstn() {
+    return addSortByInternal('cntntPstn', Sort.asc);
+  }
+
+  QueryBuilder<HistoryIsar, HistoryIsar, QAfterSortBy> thenByCntntPstnDesc() {
+    return addSortByInternal('cntntPstn', Sort.desc);
+  }
+
   QueryBuilder<HistoryIsar, HistoryIsar, QAfterSortBy> thenByContentsLen() {
     return addSortByInternal('contentsLen', Sort.asc);
   }
@@ -5450,6 +5530,10 @@ extension HistoryIsarQueryWhereSortThenBy
 
 extension HistoryIsarQueryWhereDistinct
     on QueryBuilder<HistoryIsar, HistoryIsar, QDistinct> {
+  QueryBuilder<HistoryIsar, HistoryIsar, QDistinct> distinctByCntntPstn() {
+    return addDistinctByInternal('cntntPstn');
+  }
+
   QueryBuilder<HistoryIsar, HistoryIsar, QDistinct> distinctByContentsLen() {
     return addDistinctByInternal('contentsLen');
   }
@@ -5498,6 +5582,10 @@ extension HistoryIsarQueryWhereDistinct
 
 extension HistoryIsarQueryProperty
     on QueryBuilder<HistoryIsar, HistoryIsar, QQueryProperty> {
+  QueryBuilder<HistoryIsar, int, QQueryOperations> cntntPstnProperty() {
+    return addPropertyNameInternal('cntntPstn');
+  }
+
   QueryBuilder<HistoryIsar, int, QQueryOperations> contentsLenProperty() {
     return addPropertyNameInternal('contentsLen');
   }
