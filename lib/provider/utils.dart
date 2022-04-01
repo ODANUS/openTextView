@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:archive/archive_io.dart';
 import 'package:charset_converter/charset_converter.dart';
 import 'package:epubx/epubx.dart';
 import 'package:file_picker/file_picker.dart';
@@ -29,23 +30,71 @@ class Utils {
     await Future.forEach(selectedFiles.files, (PlatformFile e) async {
       if (e.extension != null && e.extension == "epub") {
         File f = File(e.path!);
-        List<int> bytes = await f.readAsBytes();
-        EpubBook epubBook = await EpubReader.readBook(bytes);
-        if (epubBook.Content != null) {
-          EpubContent bookContent = epubBook.Content!;
-          var strContent = bookContent.Html!.values.map((EpubTextContentFile value) {
-            var document = parse(value.Content!);
+        List<String?> hrefs = [];
+        Map<String, String> listXhtml = {};
+        String cssString = "";
 
-            var saveData = document.body!.text; //bodyToText(document.body!);
-            saveData = saveData.split("\n").map((e) => e.trim()).join("\n");
-            saveData = saveData.replaceAll(RegExp(r"\n{3,}"), "\n\n");
-            return saveData;
-          }).join();
-
-          File saveFile = File(e.path!.replaceAll(RegExp("epub\$"), "txt"));
-          saveFile.writeAsStringSync(strContent);
-          f.delete();
+        String strContents = "";
+        final bytes = f.readAsBytesSync();
+        final archive = ZipDecoder().decodeBytes(bytes);
+        for (final file in archive) {
+          final filename = file.name;
+          if (file.isFile) {
+            final intdatas = file.content as List<int>;
+            if (file.name.contains("content.opf")) {
+              var data = String.fromCharCodes(intdatas);
+              var htmlData = parse(data);
+              var items = htmlData.querySelector("manifest")?.querySelectorAll("item[media-type*=xml]");
+              if (items != null) {
+                hrefs = items.map((e) => e.attributes['href']).toList();
+              }
+            }
+            if (file.name.contains(".css")) {
+              var data = String.fromCharCodes(intdatas);
+              cssString += data;
+            }
+            if (file.name.contains("html")) {
+              var ctn = String.fromCharCodes(intdatas);
+              var decodeData = await CharsetDetector.autoDecode(file.content);
+              listXhtml[file.name.split("/").skip(1).join("/")] = decodeData.string;
+            }
+          } else {
+            // Directory('out/' + filename).create(recursive: true);
+          }
         }
+
+        hrefs.forEach((href) {
+          if (listXhtml[href] != null) {
+            var htmlData = parse(listXhtml[href]);
+            var bodytext = htmlData.body?.text ?? "";
+            if (Get.locale?.languageCode.contains("ko") != null) {
+              // bodytext = bodytext.split("\n").join();
+              bodytext = bodytext.split("\n").map((e) => e.trim()).join("\n");
+              bodytext = bodytext.split("다. ").map((e) => e.trim()).join("다. \n\n");
+              bodytext = bodytext.split("\" ").map((e) => e.trim()).join("\" \n");
+              bodytext = bodytext.split("” ").map((e) => e.trim()).join("\”\n");
+            }
+            strContents += bodytext;
+          }
+        });
+        // List<int> bytes = await f.readAsBytes();
+        // EpubBook epubBook = await EpubReader.readBook(bytes);
+        // if (epubBook.Content != null) {
+        //   EpubContent bookContent = epubBook.Content!;
+        //   var strContent = bookContent.Html!.values.map((EpubTextContentFile value) {
+        //     var document = parse(value.Content!);
+
+        //     var saveData = document.body!.text; //bodyToText(document.body!);
+        //     saveData = saveData.split("\n").map((e) => e.trim()).join("\n");
+
+        //     saveData = saveData.replaceAll(RegExp(r"\n{3,}"), "\n\n");
+        //     return saveData;
+        //   }).join();
+
+        // }
+        File saveFile = File(e.path!.replaceAll(RegExp("epub\$"), "txt"));
+        saveFile.writeAsStringSync(strContents);
+        f.delete();
       }
     });
 

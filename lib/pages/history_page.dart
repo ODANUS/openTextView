@@ -81,9 +81,10 @@ class HistoryPage extends GetView {
           child: AdBanner(key: Key("history")),
         ),
       ),
-      body: IsarCtl.rxHistory((p0, p1) {
-        return ObxValue<RxString>((keyword) {
-          var historyList = IsarCtl.historyListByName(keyword.value);
+      body: ObxValue<RxString>((rxkeyword) {
+        var keyword = rxkeyword.value;
+        return IsarCtl.rxHistory((p0, p1) {
+          var historyList = IsarCtl.historyListByName(keyword);
 
           historyList.sort((a, b) {
             return b.date.compareTo(a.date);
@@ -100,7 +101,7 @@ class HistoryPage extends GetView {
                             labelText: "Please enter word".tr,
                           ),
                           onChanged: (v) {
-                            keyword(v);
+                            rxkeyword(v);
                           },
                         ),
                       ),
@@ -207,8 +208,8 @@ class HistoryPage extends GetView {
               )
             ],
           );
-        }, "".obs);
-      }),
+        });
+      }, "".obs),
       // floatingActionButton: FloatingActionButton.extended(
       //     onPressed: () {}, label: OptionReview()),
     );
