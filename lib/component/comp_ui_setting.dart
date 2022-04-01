@@ -17,9 +17,7 @@ import 'package:open_textview/model/model_isar.dart';
 class CompUiSetting extends GetView {
   CompUiSetting({
     required this.setting,
-  }) {
-    // print("----------->>>>>>>>----------");
-  }
+  }) {}
   SettingIsar setting;
 
   @override
@@ -60,6 +58,16 @@ class CompUiSetting extends GetView {
               history: IsarCtl.lastHistory,
               contents: IsarCtl.contents,
             ),
+          ],
+        ),
+        bottomNavigationBar: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  IsarCtl.bSetting(false);
+                },
+                child: Text("close".tr)),
           ],
         ),
       ),
@@ -552,11 +560,6 @@ class MoveLocation extends GetView {
                       }
                     },
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        IsarCtl.bSetting(false);
-                      },
-                      child: Text("close".tr))
                 ],
               ),
             ),

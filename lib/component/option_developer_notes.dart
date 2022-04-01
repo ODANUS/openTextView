@@ -8,6 +8,13 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+1.6.11 (2022 04 01) 패치내역 :
+1. tts 재생시 하이라이트 위치값이 실제 음성과 상이 했던 문제 수정. 
+2. ui 설정 하단에 닫기 버튼 추가. 
+3. 스크롤 버벅임 현상 조금더 완화 했습니다. 
+  
+
+
 1.6.10 (2022 04 01) 패치내역 :
 1. 업데이트후 전 버전에서 읽은 파일의 퍼센트가 초기화되는 현상 수정. 
 2. 검색 알고리즘 개선. 

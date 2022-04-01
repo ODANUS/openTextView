@@ -27,8 +27,6 @@ class AudioHandler extends BaseAudioHandler
       });
 
       this.session!.interruptionEventStream.listen((event) {
-        print("audioduck : ${IsarCtl.setting?.audioduck}");
-        print("audiosession : ${IsarCtl.setting?.audiosession}");
         if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
@@ -144,7 +142,6 @@ class AudioHandler extends BaseAudioHandler
     String contents = IsarCtl.contents.text;
     HistoryIsar history = IsarCtl.lastHistory!;
     SettingIsar setting = IsarCtl.setting!;
-    print("loadPos ============== ${pos}");
 
     await initTts();
     mediaItem.add(MediaItem(
@@ -159,15 +156,16 @@ class AudioHandler extends BaseAudioHandler
 
     for (var i = pos; i < contents.length;) {
       if (playstat != STAT_PLAY) break;
-      var listContents = contents.substring(i, min(i + 5000, contents.length)).split("\n");
+      var listContents = contents.substring(i, min(i + 3000, contents.length)).split("\n");
 
       int end = min(setting.groupcnt, listContents.length);
       String speakText = listContents.getRange(0, end).join("\n");
       int nextPos = speakText.length;
       if (speakText.isEmpty) {
         nextPos += 1;
+        continue;
       }
-      print("i +++++++++++++++++++++++++++++ ${i} ${IsarCtl.cntntPstn}");
+
       // contents.substring(i, end);
 
       // .join("\n");

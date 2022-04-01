@@ -41,7 +41,7 @@ class OptionReset extends GetView {
                 child: ListTile(
               onLongPress: () async {
                 bool rtn = await openResetdialog();
-                // print(rtn);
+
                 if (rtn) {
                   IsarCtl.resetSetting();
                   // controller.resetSetting();

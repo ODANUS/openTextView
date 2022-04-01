@@ -3,6 +3,7 @@ import 'dart:developer' as d;
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -61,7 +62,6 @@ class CompTextReader extends GetView {
                   ..contents = contens.text
                   ..onChange = (idx) async {
                     IsarCtl.cntntPstnAsync(idx);
-                    // IsarCtl.cntntPstn = idx;
                   },
                 style: IsarCtl.textStyle,
               ),
@@ -158,14 +158,18 @@ class TextViewerPainter extends CustomPainter {
       }
     }
     if (ctl.bHighlight && ctl.highlightPos - pos >= 0) {
-      var top = p.getWordBoundary(TextPosition(offset: ctl.highlightPos - pos));
-      var bottom = p.getWordBoundary(TextPosition(offset: pos - ctl.highlightPos + ctl.highlightCnt));
-      canvas.drawRect(Rect.fromLTWH(0, top.end.toDouble(), size.width, bottom.end.toDouble()), highlight);
+      var curHighlightPos = ctl.highlightPos - pos;
+      var tb = p.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightPos + ctl.highlightCnt));
+      tb.forEach((e) {
+        var r = e.toRect();
+        var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
+        canvas.drawRect(rect, highlight);
+      });
     }
 
     pPer.paint(canvas, Offset(0, offsetY - perHeight));
     p.paint(canvas, Offset(0, offsetY));
-
+    // ctl.test(pPer, p);
     var perPos = pPer.text!.toPlainText().length;
 
     var maxPos = p.text!.toPlainText().length;
@@ -178,14 +182,10 @@ class TextViewerPainter extends CustomPainter {
     if (pos != po) {
       var l = p.computeLineMetrics();
       ctl.setCntntPstn(po, offsetY: offsetY + l.first.height);
-
-      // ctl.setCntntPstn(po);
     } else if (pos != perPo) {
       var l = pPer.computeLineMetrics();
       var tmppos = pos - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(0, pPer.height - (offsetY))).offset);
-
       ctl.setCntntPstn(tmppos, offsetY: offsetY - (l.last.height));
-      // ctl.setCntntPstn(tmppos);
     }
   }
 
@@ -223,11 +223,6 @@ class TextViewerController extends ChangeNotifier {
 
   set cntntPstn(int v) {
     _cntntPstn = v;
-    // _offsetY = 0;
-    // if (onChange != null) {
-    //   onChange!(v);
-    // }
-    // notifyListeners();
   }
 
   int get cntntPstn => _cntntPstn;
@@ -237,8 +232,26 @@ class TextViewerController extends ChangeNotifier {
     _offsetY = offsetY;
     if (onChange != null) {
       onChange!(v);
-      // Future.delayed(Duration(milliseconds: 500), () async {
-      // });
+    }
+  }
+
+  test(TextPainter pPer, TextPainter p) async {
+    var perPos = pPer.text!.toPlainText().length;
+
+    var maxPos = p.text!.toPlainText().length;
+    perPos = _cntntPstn - perPos;
+    maxPos = _cntntPstn + maxPos;
+
+    var po = _cntntPstn + p.getPositionForOffset(Offset(0, -offsetY)).offset;
+    var perPo = _cntntPstn - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(pPer.width, pPer.height - (offsetY))).offset);
+
+    if (_cntntPstn != po) {
+      var l = p.computeLineMetrics();
+      setCntntPstn(po, offsetY: offsetY + l.first.height);
+    } else if (_cntntPstn != perPo) {
+      var l = pPer.computeLineMetrics();
+      var tmppos = _cntntPstn - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(0, pPer.height - (offsetY))).offset);
+      setCntntPstn(tmppos, offsetY: offsetY - (l.last.height));
     }
   }
 

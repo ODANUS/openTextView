@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:isolate';
 import 'dart:math' as math;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,12 +23,14 @@ import 'package:path_provider/path_provider.dart';
 //   if (isarIsolate == null) {
 //     isarIsolate = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dbPath);
 //   }
-//   isarIsolate?.writeTxn((isar) async {
-//     var curHistory = await isar.historyIsars.where().sortByDateDesc().findFirst();
+//   isarIsolate!.writeTxnSync((isar) {
+//     print("[[[[[[[[[[ , ${isarIsolate}");
+
+//     var curHistory = isar.historyIsars.where().sortByDateDesc().findFirstSync();
 //     if (curHistory != null) {
 //       curHistory.cntntPstn = idx;
 //       curHistory.date = DateTime.now();
-//       isar.historyIsars.put(curHistory);
+//       isar.historyIsars.putSync(curHistory);
 //     }
 //   });
 // }
@@ -228,28 +231,16 @@ class IsarCtl {
 
   static set cntntPstn(int idx) {
     HistoryIsar? tmp = lastHistory;
-    print(tmp);
     tmp?.cntntPstn = idx;
     tmp?.date = DateTime.now();
     lastHistory = tmp;
   }
 
+  // static bool debounce = false;
   static cntntPstnAsync(int idx) async {
-    isar.historyIsars.where().sortByDateDesc().findFirst().then((curHistory) {
-      if (curHistory != null) {
-        curHistory.cntntPstn = idx;
-        curHistory.date = DateTime.now();
-        isar.writeTxn((isar) async {
-          isar.historyIsars.put(curHistory);
-        });
-      }
-    });
-    // Isolate.spawn(isolateFunction, idx);
-
-    // HistoryIsar? tmp = lastHistory;
-    // tmp?.cntntPstn = idx;
-    // tmp?.date = DateTime.now();
-    // lastHistory = tmp;
+    IsarCtl.lastHistory = IsarCtl.lastHistory!
+      ..cntntPstn = idx
+      ..date = DateTime.now();
   }
 
   // static void isolateFunction(int idx) async {

@@ -147,7 +147,7 @@ class LibraryPage extends GetView {
                                     String size = Utils.getFileSize(file);
                                     return Card(
                                       child: ExpansionTile(
-                                        // key: Key("a${Random().nextInt(100000)}"),
+                                        key: Key("a${Random().nextInt(100000)}"),
                                         title: Text(name),
                                         subtitle: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,

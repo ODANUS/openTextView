@@ -41,7 +41,10 @@ class ReadPage extends GetView {
                           )));
                 },
               ),
-              InkWell(onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value), child: Icon(Icons.settings_outlined)),
+              Obx(
+                () => InkWell(onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value), child: Icon(IsarCtl.bSetting.value ? Icons.cancel : Icons.settings_outlined)),
+              ),
+
               SizedBox(width: 5),
               // InkWell(
               //   onLongPress: () {},
@@ -108,6 +111,10 @@ class ReadPage extends GetView {
         }),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Obx(() => AnimatedContainer(
-            key: Key("bottombar"), duration: const Duration(milliseconds: 300), transform: Matrix4.translationValues(0, IsarCtl.bfullScreen.value ? 130 : 0, 0), child: readPageFloatingButton())));
+              key: Key("bottombar"),
+              duration: const Duration(milliseconds: 300),
+              transform: Matrix4.translationValues(0, IsarCtl.bfullScreen.value || IsarCtl.bSetting.value ? 130 : 0, 0),
+              child: readPageFloatingButton(),
+            )));
   }
 }
