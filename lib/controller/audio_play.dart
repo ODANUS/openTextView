@@ -27,6 +27,8 @@ class AudioHandler extends BaseAudioHandler
       });
 
       this.session!.interruptionEventStream.listen((event) {
+        print("audioduck : ${IsarCtl.setting?.audioduck}");
+        print("audiosession : ${IsarCtl.setting?.audiosession}");
         if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
@@ -61,6 +63,9 @@ class AudioHandler extends BaseAudioHandler
         setTts();
       }
     });
+    Timer.periodic(Duration(milliseconds: 200), (timer) {
+      errorCnt = 0;
+    });
   }
 
   FlutterTts? tts;
@@ -93,6 +98,7 @@ class AudioHandler extends BaseAudioHandler
   bool listenPlayingduck = false;
   DateTime? autoExitDate;
   var lastPos = 0;
+  int errorCnt = 0;
 
   Future<void> setTts() async {
     await tts?.setSpeechRate(IsarCtl.setting?.speechRate ?? 1);
@@ -129,15 +135,16 @@ class AudioHandler extends BaseAudioHandler
       id: 'opentextView',
       album: '',
       title: 'testestes',
-      duration: Duration(seconds: 10000),
+      duration: Duration(milliseconds: 10000),
     ));
-    playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: 100)));
+    playbackState.add(baseState.copyWith(updatePosition: Duration(milliseconds: 100)));
 
     // ---------------------------------------------------
-    int pos = IsarCtl.tctl.cntntPstn;
+    int pos = IsarCtl.cntntPstn;
     String contents = IsarCtl.contents.text;
     HistoryIsar history = IsarCtl.lastHistory!;
     SettingIsar setting = IsarCtl.setting!;
+    print("loadPos ============== ${pos}");
 
     await initTts();
     mediaItem.add(MediaItem(
@@ -149,10 +156,6 @@ class AudioHandler extends BaseAudioHandler
     tts!.setProgressHandler((text, start, end, word) {
       lastProgrss = start;
     });
-    int errorCnt = 0;
-    Timer.periodic(Duration(milliseconds: 200), (timer) {
-      errorCnt = 0;
-    });
 
     for (var i = pos; i < contents.length;) {
       if (playstat != STAT_PLAY) break;
@@ -161,7 +164,10 @@ class AudioHandler extends BaseAudioHandler
       int end = min(setting.groupcnt, listContents.length);
       String speakText = listContents.getRange(0, end).join("\n");
       int nextPos = speakText.length;
-      // print(nextPos);
+      if (speakText.isEmpty) {
+        nextPos += 1;
+      }
+      print("i +++++++++++++++++++++++++++++ ${i} ${IsarCtl.cntntPstn}");
       // contents.substring(i, end);
 
       // .join("\n");
@@ -233,7 +239,7 @@ class AudioHandler extends BaseAudioHandler
           ],
           androidCompactActionIndices: const [0, 1],
           processingState: AudioProcessingState.completed,
-          updatePosition: Duration(seconds: IsarCtl.cntntPstn),
+          updatePosition: Duration(milliseconds: IsarCtl.cntntPstn),
           playing: false,
         ));
 

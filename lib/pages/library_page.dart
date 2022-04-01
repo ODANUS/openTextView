@@ -147,12 +147,13 @@ class LibraryPage extends GetView {
                                     String size = Utils.getFileSize(file);
                                     return Card(
                                       child: ExpansionTile(
-                                        key: Key("a${Random().nextInt(100000)}"),
+                                        // key: Key("a${Random().nextInt(100000)}"),
                                         title: Text(name),
                                         subtitle: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            if (history != null) Text("${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
+                                            if (history != null) Text("${Utils.rdgPos(history)}"),
+                                            // Text("${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
                                             if (history != null)
                                               Row(children: [
                                                 Flexible(

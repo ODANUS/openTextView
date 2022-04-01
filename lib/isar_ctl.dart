@@ -228,6 +228,7 @@ class IsarCtl {
 
   static set cntntPstn(int idx) {
     HistoryIsar? tmp = lastHistory;
+    print(tmp);
     tmp?.cntntPstn = idx;
     tmp?.date = DateTime.now();
     lastHistory = tmp;
@@ -578,17 +579,17 @@ class IsarCtl {
         cntntPstn: 0,
       );
     } else {
-      if (history.cntntPstn < 0) {
+      if (history.cntntPstn <= 0 && history.pos > 0) {
         var targetList = tmpcontents.split("\n");
         if (targetList.length > history.pos) {
           var range = targetList.getRange(0, history.pos + 1);
           history.cntntPstn = range.join("\n").length;
         }
       }
+
       history.date = DateTime.now();
       history.contentsLen = tmpcontents.length;
       lastHistory = history;
-      // putHistory(history);
     }
 
     contents = contentsisar;

@@ -551,7 +551,12 @@ class MoveLocation extends GetView {
                         position(tidx);
                       }
                     },
-                  )
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        IsarCtl.bSetting(false);
+                      },
+                      child: Text("close".tr))
                 ],
               ),
             ),
@@ -569,14 +574,26 @@ class PageSearch extends GetView {
         color: Colors.black26,
         child: ObxValue((RxString keyword) {
           Map<int, String> findDatas = {};
-          if (keyword.isNotEmpty) {
-            var textList = IsarCtl.contents.text.split("\n");
-            textList.asMap().forEach((k, e) {
-              if (e.contains(keyword)) {
-                var idx = textList.getRange(0, k).join("\n").length;
-                findDatas[idx] = e;
+          if (keyword.isNotEmpty && keyword.value.length >= 2) {
+            var contents = IsarCtl.contents.text;
+
+            int lastIdx = 0;
+            for (var i = 0; i < 30; i++) {
+              int idx = contents.indexOf(keyword);
+              if (idx < 0) {
+                break;
               }
-            });
+              findDatas[lastIdx + idx] = contents.substring(max(idx - 5, 0), min(idx + 20, contents.length - 1));
+              contents = contents.substring(min(idx + 20, contents.length - 1));
+              lastIdx += idx;
+            }
+            // var textList = IsarCtl.contents.text.split("\n");
+            // textList.asMap().forEach((k, e) {
+            //   if (e.contains(keyword)) {
+            //     var idx = textList.getRange(0, k).join("\n").length;
+            //     findDatas[idx] = e;
+            //   }
+            // });
             // findDatas = ;
           }
           return Column(
@@ -588,9 +605,9 @@ class PageSearch extends GetView {
                     decoration: InputDecoration(
                       labelText: "Please enter word".tr,
                     ),
-                    onChanged: (v) {
-                      keyword(v);
-                    },
+                    // onChanged: (v) {
+                    //   keyword(v);
+                    // },
                     onSubmitted: (v) {
                       keyword(v);
                     },

@@ -157,19 +157,11 @@ class TextViewerPainter extends CustomPainter {
         break;
       }
     }
-    // if (ctl.highlightPos - pos >= 0) {
-    //   print(ctl.highlightPos);
-    //   print(pos);
-    //   var top = p.getWordBoundary(TextPosition(offset: ctl.highlightPos - pos));
-    //   var bottom = p.getWordBoundary(TextPosition(offset: pos - ctl.highlightPos + ctl.highlightCnt));
-    //   print(top);
-    //   print(bottom);
-    //   canvas.drawRect(Rect.fromLTWH(0, top.end.toDouble(), size.width, bottom.end.toDouble()), highlight);
-
-    //   // print(p.getLineBoundary(TextPosition(offset: ctl.highlightPos - pos)));
-    //   // print(p.getLineBoundary(TextPosition(offset: ctl.highlightPos - pos + ctl.highlightCnt)));
-    //   // print(bottom);
-    // }
+    if (ctl.bHighlight && ctl.highlightPos - pos >= 0) {
+      var top = p.getWordBoundary(TextPosition(offset: ctl.highlightPos - pos));
+      var bottom = p.getWordBoundary(TextPosition(offset: pos - ctl.highlightPos + ctl.highlightCnt));
+      canvas.drawRect(Rect.fromLTWH(0, top.end.toDouble(), size.width, bottom.end.toDouble()), highlight);
+    }
 
     pPer.paint(canvas, Offset(0, offsetY - perHeight));
     p.paint(canvas, Offset(0, offsetY));

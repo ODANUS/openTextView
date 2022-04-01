@@ -118,7 +118,7 @@ class Messages extends Translations {
           "confirm": "확인",
           "delete": "삭제",
           "edit": "편집",
-          "close": "닫다",
+          "close": "닫기",
           "move_location": "위치 이동",
           "Current_location": "현재 위치",
           "page_search": "페이지 검색",
