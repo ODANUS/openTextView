@@ -73,6 +73,8 @@ class IsarCtl {
 
   static late Isar isar;
   static final Map<int, GlobalKey> keys = {};
+
+  static RxInt asyncPos = 0.obs;
   // static final scrollController = ScrollController();
   // static final carouselController = CarouselController();
 
@@ -146,17 +148,14 @@ class IsarCtl {
     //   }
     // });
 
-    // Worker? w;
-    // Future.delayed(Duration(milliseconds: 400), () async {
-    //   Get.dialog(AlertDialog(
-    //       content: TextField(
-    //     keyboardType: TextInputType.number,
-    //     autofocus: true,
-    //   )));
-    //   await Future.delayed(50.milliseconds);
-    //   Get.back();
-    // });
-    // w = ever(bfullScreen, (bool b) async {});
+    debounce(asyncPos, (int v) {
+      if (v > 0) {
+        IsarCtl.lastHistory = IsarCtl.lastHistory!
+          ..cntntPstn = v
+          ..date = DateTime.now();
+      }
+    }, time: 400.milliseconds);
+
     HardwareKeyboard.instance.removeHandler(volumeControll);
     HardwareKeyboard.instance.addHandler(volumeControll);
 
@@ -242,9 +241,7 @@ class IsarCtl {
 
   // static bool debounce = false;
   static cntntPstnAsync(int idx) async {
-    IsarCtl.lastHistory = IsarCtl.lastHistory!
-      ..cntntPstn = idx
-      ..date = DateTime.now();
+    asyncPos(idx);
   }
 
   // static void isolateFunction(int idx) async {
