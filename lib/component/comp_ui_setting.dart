@@ -539,8 +539,10 @@ class MoveLocation extends GetView {
                       divisions: IsarCtl.contents.text.length,
                       label: "${position.toInt()}",
                       onChanged: (double v) {
-                        IsarCtl.tctl.cntntPstn = v.toInt();
-                        IsarCtl.tctl.notifyListeners();
+                        IsarCtl.tctl.setCntntPstn(v.toInt(), offsetY: 0.0);
+                        // IsarCtl.tctl.cntntPstn = v.toInt();
+                        // IsarCtl.tctl.offsetY = 0;
+                        // IsarCtl.tctl.notifyListeners();
                         position(v.toInt());
                       }),
                   TextFormField(
@@ -628,8 +630,7 @@ class PageSearch extends GetView {
                               Card(
                                 child: ListTile(
                                     onTap: () {
-                                      IsarCtl.tctl.cntntPstn = k;
-                                      IsarCtl.tctl.notifyListeners();
+                                      IsarCtl.tctl.setCntntPstn(k, offsetY: 0.0);
                                     },
                                     // leading: Text("${e}"),
                                     title: Text(e)),
