@@ -163,7 +163,6 @@ class AudioHandler extends BaseAudioHandler
       int nextPos = speakText.length;
       if (speakText.isEmpty) {
         nextPos += 1;
-        continue;
       }
 
       // contents.substring(i, end);
