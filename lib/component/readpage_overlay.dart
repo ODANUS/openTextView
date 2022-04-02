@@ -44,15 +44,26 @@ class ReadpageOverlay extends GetView {
         decoration: decoration,
         alignment: Alignment.center,
         child: GestureDetector(
+            onTapUp: (c) {
+              if ((type == 0 || type == 2) && fn != null) {
+                fn();
+              }
+            },
+            onLongPressDown: (v) {
+              // print("onLongPressDown");
+            },
+            onLongPressUp: () {
+              // print("onLongPressUp");
+            },
             onDoubleTap: () {
               if (type == 1 && fn != null) {
                 fn();
               }
             },
             onTap: () {
-              if ((type == 0 || type == 2) && fn != null) {
-                fn();
-              }
+              // if ((type == 0 || type == 2) && fn != null) {
+              //   fn();
+              // }
             },
             child: this.bScreenHelp
                 ? Text(

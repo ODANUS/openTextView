@@ -27,6 +27,29 @@ class CompTextReader extends GetView {
     return Stack(
       children: [
         GestureDetector(
+          onVerticalDragUpdate: (d) {
+            var curPos = IsarCtl.tctl.cntntPstn;
+            // print(curPos);
+
+            if (curPos <= 0 && d.delta.dy > 0 && IsarCtl.tctl.offsetY > 50) {
+              return;
+            }
+
+            if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
+              return;
+            }
+            var dy = d.delta.dy;
+            var cnt = 1;
+            if (d.delta.dy < 0 && d.delta.dy < -6) {
+              dy = -6;
+            }
+            if (d.delta.dy > 0 && d.delta.dy > 6) {
+              dy = 6;
+            }
+            for (var i = 0; i < cnt; i++) {
+              IsarCtl.tctl.offsetY += dy;
+            }
+          },
           onPanUpdate: (d) {
             // if (!IsarCtl.bfullScreen.value && d.delta.dy < 0) {
             //   IsarCtl.bfullScreen(true);
@@ -38,17 +61,18 @@ class CompTextReader extends GetView {
             //   IsarCtl.tctl.offsetY = 0;
             //   return;
             // }
-            var curPos = IsarCtl.cntntPstn;
-            // print(curPos);
-            if (curPos <= 0 && d.delta.dy > 0) {
-              return;
-            }
+            // var curPos = IsarCtl.tctl.cntntPstn;
+            // // print(curPos);
+            // if (curPos <= 0 && d.delta.dy > 0) {
+            //   return;
+            // }
 
-            if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
-              return;
-            }
+            // if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
+            //   return;
+            // }
+            // print(d.delta.dy);
 
-            IsarCtl.tctl.offsetY += d.delta.dy * 0.9;
+            // IsarCtl.tctl.offsetY += d.delta.dy;
           },
           child: SizedBox(
             width: double.infinity,
@@ -147,7 +171,7 @@ class TextViewerPainter extends CustomPainter {
     )..layout(maxWidth: size.width);
     List<LineMetrics> lines = p.computeLineMetrics();
     for (var line in lines) {
-      if (size.height < line.baseline + line.descent) {
+      if (size.height - (style.fontSize!) < line.baseline + line.descent) {
         var currentPageEndIndex = p.getPositionForOffset(Offset(line.left, line.baseline - line.ascent)).offset;
         p = TextPainter(
           text: TextSpan(text: nextText.substring(0, currentPageEndIndex), style: style),
@@ -235,26 +259,6 @@ class TextViewerController extends ChangeNotifier {
     }
   }
 
-  test(TextPainter pPer, TextPainter p) async {
-    var perPos = pPer.text!.toPlainText().length;
-
-    var maxPos = p.text!.toPlainText().length;
-    perPos = _cntntPstn - perPos;
-    maxPos = _cntntPstn + maxPos;
-
-    var po = _cntntPstn + p.getPositionForOffset(Offset(0, -offsetY)).offset;
-    var perPo = _cntntPstn - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(pPer.width, pPer.height - (offsetY))).offset);
-
-    if (_cntntPstn != po) {
-      var l = p.computeLineMetrics();
-      setCntntPstn(po, offsetY: offsetY + l.first.height);
-    } else if (_cntntPstn != perPo) {
-      var l = pPer.computeLineMetrics();
-      var tmppos = _cntntPstn - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(0, pPer.height - (offsetY))).offset);
-      setCntntPstn(tmppos, offsetY: offsetY - (l.last.height));
-    }
-  }
-
   set offsetY(double v) {
     _offsetY = v;
     notifyListeners();
@@ -283,7 +287,6 @@ class TextViewerController extends ChangeNotifier {
   next() {
     if (maxPos < contents.length - 1) {
       offsetY = 0;
-
       cntntPstn = maxPos;
       onChange!(maxPos);
     }
