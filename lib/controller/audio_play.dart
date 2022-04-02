@@ -193,7 +193,10 @@ class AudioHandler extends BaseAudioHandler
       }
       playbackState.add(baseState.copyWith(updatePosition: Duration(seconds: i)));
 
-      IsarCtl.cntntPstn = i;
+      history.cntntPstn = i;
+      history.date = DateTime.now();
+      IsarCtl.putHistory(history);
+      // IsarCtl.cntntPstn = i;
       try {
         IsarCtl.tctl.offsetY = 0;
         IsarCtl.tctl.bHighlight = true;
