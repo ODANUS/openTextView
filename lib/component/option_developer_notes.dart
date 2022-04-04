@@ -7,6 +7,9 @@ import 'package:package_info/package_info.dart';
 // 57646075230342.35
 class DeveloperNotes extends GetView {
   final String content = """
+1.7.6 (2022 04 04) 패치내역 :
+1. 폰트 사이즈를 최대 40 까지 키울 수 있게 수정 하였습니다. 
+
 ---
 1.7.5 (2022 04 02) 패치내역 :
 1. 한번에 읽을 라인수 가 1 일경우 무한 루프 가 발생하는 현상 수정. 
