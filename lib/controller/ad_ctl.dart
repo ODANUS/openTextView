@@ -58,7 +58,7 @@ class AdCtl {
     });
     // MobileAds.instance.setAppVolume(0);
     // 5559A4CF00EDA5E61AC931F9D8F9742D
-    MobileAds.instance.updateRequestConfiguration(RequestConfiguration(testDeviceIds: ["5559A4CF00EDA5E61AC931F9D8F9742D"]));
+    // MobileAds.instance.updateRequestConfiguration(RequestConfiguration(testDeviceIds: ["5559A4CF00EDA5E61AC931F9D8F9742D"]));
     initInterstitialAd();
     initRewardedAd();
     // initBannerAd();

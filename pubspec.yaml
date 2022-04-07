@@ -79,6 +79,7 @@ dependencies:
   google_ml_kit:
      git:
       url: https://github.com/khjde1207/Google-Ml-Kit-plugin
+  fluttertoast: ^8.0.9
   
   # flutter_downloader: ^1.7.1
   # flutter_tesseract_ocr: ^0.4.17
