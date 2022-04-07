@@ -338,29 +338,6 @@ class LibraryPage extends GetView {
                                               ObxValue<RxBool>((bMemo) {
                                                 return Column(
                                                   children: [
-                                                    Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                      children: [
-                                                        ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                          onPressed: () async {
-                                                            if (await newLineTheorem(file)) {
-                                                              reloadFn(!reloadValue!);
-                                                            }
-                                                            // reloadFn(!reloadValue!);
-                                                          },
-                                                          child: Text("newline theorem".tr),
-                                                        ),
-                                                        ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                          onPressed: () {
-                                                            saveAs(file);
-                                                            // reloadFn(!reloadValue!);
-                                                          },
-                                                          child: Text("save as".tr),
-                                                        ),
-                                                      ],
-                                                    ),
                                                     if (bMemo.value && history != null)
                                                       Container(
                                                         padding: EdgeInsets.all(10),
@@ -396,6 +373,27 @@ class LibraryPage extends GetView {
                                                             reloadFn(!reloadValue!);
                                                           },
                                                           child: Text("open".tr),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                      children: [
+                                                        ElevatedButton(
+                                                          style: ElevatedButton.styleFrom(primary: Colors.blue),
+                                                          onPressed: () async {
+                                                            if (await newLineTheorem(file)) {
+                                                              reloadFn(!reloadValue!);
+                                                            }
+                                                          },
+                                                          child: Text("newline theorem".tr),
+                                                        ),
+                                                        ElevatedButton(
+                                                          style: ElevatedButton.styleFrom(primary: Colors.blue),
+                                                          onPressed: () {
+                                                            saveAs(file);
+                                                          },
+                                                          child: Text("save as".tr),
                                                         ),
                                                       ],
                                                     ),
