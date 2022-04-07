@@ -1,17 +1,10 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
-import 'dart:isolate';
-import 'dart:math' as math;
-import 'package:archive/archive_io.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:html/parser.dart';
 import 'package:isar/isar.dart';
 import 'package:open_textview/component/comp_text_reader.dart';
 import 'package:open_textview/controller/audio_play.dart';
@@ -65,6 +58,8 @@ class IsarCtl {
   static RxBool bfullScreen = false.obs;
 
   // static RxDouble maxHeight = RxDouble(0);
+  static RxInt unzipTotal = 0.obs;
+  static RxInt unzipCurrent = 0.obs;
 
   static RxBool bConvLoading = false.obs;
   static RxBool enableVolumeButton = false.obs;
@@ -149,7 +144,7 @@ class IsarCtl {
     // });
 
     debounce(asyncPos, (int v) {
-      if (v > 0) {
+      if (v >= 0) {
         IsarCtl.lastHistory = IsarCtl.lastHistory!
           ..cntntPstn = v
           ..date = DateTime.now();
