@@ -53,6 +53,7 @@ class Utils {
     var endSpecialCon3 = RegExp(" {0,}▤▤▤&&& {0,}\"");
     var endSpecialCon4 = RegExp("\\? {0,}▤▤▤&&& {0,}\"");
     var endSpecialCon5 = RegExp("\\! {0,}▤▤▤&&& {0,}\"");
+    var endSpecialCon6 = RegExp(" {0,}▤▤▤&&& {0,}\\\]");
 
     strList.forEach((v) {
       v = v.trim();
@@ -64,8 +65,9 @@ class Utils {
 
       // v = v.replaceAllMapped(startCon1, (match) => "▤▤▤&&&‘");
       v = v.replaceAllMapped(startCon2, (match) => "▤▤▤&&&-");
-      v = v.replaceAllMapped(startCon3, (match) => "▤▤▤&&&“");
+      v = v.replaceAllMapped(startCon3, (match) => "&&&▤▤▤“");
       v = v.replaceAllMapped(startCon4, (match) => "&&&▤▤▤\"");
+
       if (!v.contains("&&&▤▤▤") && Get.locale?.languageCode == "ko") {
         v = v.replaceAllMapped(endLine, (match) => "다.▤▤▤&&&");
       } else if (Get.locale?.languageCode != "ko") {
@@ -82,10 +84,12 @@ class Utils {
       v = v.replaceAllMapped(endSpecialCon3, (match) => "\"▤▤▤&&&");
       v = v.replaceAllMapped(endSpecialCon4, (match) => "\\?▤▤▤&&&");
       v = v.replaceAllMapped(endSpecialCon5, (match) => "\\!▤▤▤&&&");
+      v = v.replaceAllMapped(endSpecialCon6, (match) => "\]▤▤▤&&&");
 
       v = v.trim();
-      v = v.replaceAll("▤▤▤&&&", "\n\n");
+
       v = v.replaceAll("&&&▤▤▤", "\n\n");
+      v = v.replaceAll("▤▤▤&&&", "\n\n");
 
       rtnStr.add(v);
     });

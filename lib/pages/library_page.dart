@@ -86,32 +86,30 @@ class LibraryPage extends GetView {
     tmpDir.createSync(recursive: true);
 
     if (archive.length > 510) {
+      AdCtl.startInterstitialAd();
       IsarCtl.unzipTotal(archive.length);
-      await Future.delayed(10.milliseconds);
       var idx = 0;
       var cnt = 0;
+      var total = 0;
       ZipFileEncoder encoder = ZipFileEncoder();
       try {
         for (var file in archive) {
           if (cnt == 0) {
             if (idx > 0) {
-              IsarCtl.unzipCurrent(500 * idx);
-              await Future.delayed(100.milliseconds);
               encoder.close();
-              // break;
             }
             encoder.create("${rootTmpDir.path}/file_picker/div_${"${++idx}".padLeft(2, "0")}_${fileName}.zip");
           }
           final filename = file.name;
           if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
             final data = file.content as List<int>;
-            encoder.addFile(File("${tmpDir.path}/$filename")
-              ..createSync(recursive: true)
-              ..writeAsBytesSync(data));
-          } else {
-            Directory("${tmpDir.path}/$filename").create(recursive: true);
+            var tmpFile = File("${tmpDir.path}/$filename");
+            await tmpFile.create(recursive: true);
+            await tmpFile.writeAsBytes(data);
+            IsarCtl.unzipCurrent(total);
+            encoder.addFile(tmpFile);
           }
-
+          total++;
           if (cnt++ >= 499) {
             cnt = 0;
           }
@@ -122,16 +120,15 @@ class LibraryPage extends GetView {
       tmpDir.deleteSync(recursive: true);
     } else {
       IsarCtl.unzipTotal(archive.length);
-      await Future.delayed(10.milliseconds);
       var idx = 0;
       for (final file in archive) {
         final filename = file.name;
-        IsarCtl.unzipCurrent(idx++);
         if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
           final data = file.content as List<int>;
-          File("${tmpDir.path}/$filename")
-            ..createSync(recursive: true)
-            ..writeAsBytesSync(data);
+          var tmpFile = File("${tmpDir.path}/$filename");
+          await tmpFile.create(recursive: true);
+          await tmpFile.writeAsBytes(data);
+          IsarCtl.unzipCurrent(idx++);
         } else {
           Directory("${tmpDir.path}/$filename").create(recursive: true);
         }
@@ -301,7 +298,7 @@ class LibraryPage extends GetView {
                                               Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
-                                                  if (kDebugMode) ElevatedButton(onPressed: () => saveAs(file), child: Text("aa")),
+                                                  if (kDebugMode) ElevatedButton(onPressed: () => saveAs(file), child: Text("save as")),
                                                   ElevatedButton(
                                                     style: ElevatedButton.styleFrom(primary: Colors.red),
                                                     onPressed: () {
@@ -481,7 +478,7 @@ class LibraryPage extends GetView {
                           ],
                         ));
                   }
-                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value < 500) {
+                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value <= 510) {
                     return Container(
                         width: double.infinity,
                         height: double.infinity,

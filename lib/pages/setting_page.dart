@@ -75,38 +75,7 @@ class SettingPage extends GetView {
           Card(child: OptionOsslicense()),
           Card(child: OptionReset()),
           Divider(),
-          if (kDebugMode)
-            ElevatedButton(
-                onPressed: () async {
-                  // Utils.loadprefs();
-                  // 15890496
-                  // var d = await getLibraryDirectory();
-                  // d.list().listen((event) {
-                  //   print(event.path);
-                  //   if (event is Directory) {
-                  //     print(">>>>>>>>>>>>>>>>>>>> ${event.listSync()}");
-                  //   }
-                  //   // try {
-                  //   //   var d1 = Directory(event.path);
-                  //   // } catch (e) {}
-                  // });
-
-                  // var d1 = await getExternalCacheDirectories();
-                  // d1!.forEach((element) {
-                  //   element.list().listen((event) {
-                  //     print(event.path);
-                  //   });
-                  // });
-                  // var status = await Permission.storage.status;
-
-                  // if (!status.isGranted) {
-                  //   await Permission.storage.request();
-                  // }
-                  // Directory d = Directory("${controller.libraryPaths[0]}/OCR");
-                  // File("${d.path}/test_ocr.txt")
-                  //     .writeAsStringSync("testestestes");
-                },
-                child: Text("test")),
+          if (kDebugMode) ElevatedButton(onPressed: () async {}, child: Text("test")),
         ],
       ),
       // floatingActionButton: FloatingActionButton.extended(

@@ -602,7 +602,7 @@ class IsarCtl {
     var tmpName = f.path.split("/").last;
 
     String tmpStr = await Utils.readFile(f);
-    var tmpcontents = tmpStr.replaceAll(RegExp(r'\n{3,}'), "\n");
+    var tmpcontents = tmpStr.replaceAll(RegExp(r'\n{3,}'), "\n\n");
     tmpcontents = tmpcontents.replaceAll("\r\n", "\n");
 
     ContentsIsar contentsisar = ContentsIsar(text: tmpcontents);

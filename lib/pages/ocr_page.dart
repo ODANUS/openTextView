@@ -142,7 +142,7 @@ class OcrPage extends GetView {
                                 var inputImage = InputImage.fromFile(file);
                                 final recognisedText = await textDetector.processImage(inputImage, script: langCode);
                                 recognisedText.blocks.forEach((e) {
-                                  tmpList.add(e.text);
+                                  tmpList.add("${e.text} ");
                                 });
                                 current(idx);
                               }

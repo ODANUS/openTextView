@@ -5,7 +5,6 @@ import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:open_textview/component/Ads.dart';
 import 'package:open_textview/controller/ad_ctl.dart';
 
 import 'package:open_textview/isar_ctl.dart';

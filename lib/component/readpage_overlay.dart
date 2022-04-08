@@ -49,12 +49,8 @@ class ReadpageOverlay extends GetView {
                 fn();
               }
             },
-            onLongPressDown: (v) {
-              // print("onLongPressDown");
-            },
-            onLongPressUp: () {
-              // print("onLongPressUp");
-            },
+            onLongPressDown: (v) {},
+            onLongPressUp: () {},
             onDoubleTap: () {
               if (type == 1 && fn != null) {
                 fn();
