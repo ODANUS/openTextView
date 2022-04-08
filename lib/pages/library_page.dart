@@ -23,11 +23,9 @@ class LibraryPage extends GetView {
   RxBool asc = false.obs;
 
   Future<bool> newLineTheorem(File f) async {
-    if (!AdCtl.hasOpenInterstitialAd() && !kDebugMode) {
-      return await Get.dialog(AlertDialog(title: Text("개행정리"), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-    }
-    if (await AdCtl.openInterstitialAdNewLine()) {
-      f.setLastAccessedSync(DateTime.now());
+    var rtn = await AdCtl.openInterstitialAdNewLine();
+    // var rtn = true;
+    if (rtn) {
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
@@ -57,8 +55,8 @@ class LibraryPage extends GetView {
 
   Future<bool> epubConv(File f) async {
     var rtn = await AdCtl.openInterstitialAdEpubConv();
+    // var rtn = true;
     if (rtn) {
-      f.setLastAccessedSync(DateTime.now());
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
@@ -69,7 +67,7 @@ class LibraryPage extends GetView {
       outputFile.setLastAccessedSync(DateTime.now());
       return true;
     }
-    return true;
+    return false;
   }
 
   Future<bool> ocrZipFile(File f) async {
@@ -100,13 +98,13 @@ class LibraryPage extends GetView {
       }
     }
     IsarCtl.unzipTotal(0);
-    var len = tmpDir.listSync().length;
-    if (len <= 60 && !AdCtl.hasOpenInterstitialAd()) {
-      return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-    }
-    if (len > 60 && !AdCtl.hasOpenRewardedAd()) {
-      return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-    }
+    // var len = tmpDir.listSync().length;
+    // if (len <= 60 && !AdCtl.hasOpenInterstitialAd()) {
+    //   return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    // }
+    // if (len > 60 && !AdCtl.hasOpenRewardedAd()) {
+    //   return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    // }
     var rtn = await Get.toNamed("/ocr");
     if (rtn != null) {
       File outputFile = File("$path/ocr_$fileName(${Utils.DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
@@ -142,9 +140,9 @@ class LibraryPage extends GetView {
                 SizedBox(width: 1),
                 IconButton(
                     onPressed: () {
-                      if (AdCtl.hasOpenInterstitialAd()) {
-                        AdCtl.openInterstitialAd();
-                      }
+                      // if (AdCtl.hasOpenInterstitialAd()) {
+                      AdCtl.openInterstitialAd();
+                      // }
                     },
                     icon: Stack(
                       children: [
@@ -183,6 +181,9 @@ class LibraryPage extends GetView {
                       return IsarCtl.rxHistory((p0, p1) {
                         return Column(
                           children: [
+                            Card(
+                              child: Container(padding: EdgeInsets.all(5), width: double.infinity, alignment: Alignment.center, child: Text("Support image(zip) -> text , epub -> text")),
+                            ),
                             Container(
                                 padding: EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 20),
                                 child: TextField(

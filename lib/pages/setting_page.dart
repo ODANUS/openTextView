@@ -32,9 +32,9 @@ class SettingPage extends GetView {
           // OptionPopupAds(),
           IconButton(
               onPressed: () {
-                if (AdCtl.hasOpenInterstitialAd()) {
-                  AdCtl.openInterstitialAd();
-                }
+                // if (AdCtl.hasOpenInterstitialAd()) {
+                AdCtl.openInterstitialAd();
+                // }
                 // hasOpenInterstitialAd
               },
               icon: Stack(

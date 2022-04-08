@@ -56,9 +56,9 @@ class HistoryPage extends GetView {
               icon: Icon(Icons.download)),
           IconButton(
               onPressed: () {
-                if (AdCtl.hasOpenInterstitialAd()) {
-                  AdCtl.openInterstitialAd();
-                }
+                // if (AdCtl.hasOpenInterstitialAd()) {
+                AdCtl.openInterstitialAd();
+                // }
                 // hasOpenInterstitialAd
               },
               icon: Stack(

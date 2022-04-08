@@ -24,7 +24,7 @@ extension Iterables<E> on Iterable<E> {
 class Utils {
   static String newLineTheoremStr(String tmpStr) {
     var strList = tmpStr.split("\n");
-    // strList = strList.getRange(0, 100).toList();
+    strList = strList.getRange(0, 100).toList();
 
     List<String> rtnStr = [];
 
@@ -40,6 +40,7 @@ class Utils {
     // var startCon1 = RegExp("‘");
     var startCon2 = RegExp("\^-");
     var startCon3 = RegExp("“");
+    var startCon4 = RegExp("\^\"");
 
     var endCon0 = RegExp(" {0,}’ {1,}");
     var endCon1 = RegExp(" {0,}”");
@@ -64,8 +65,12 @@ class Utils {
       // v = v.replaceAllMapped(startCon1, (match) => "▤▤▤&&&‘");
       v = v.replaceAllMapped(startCon2, (match) => "▤▤▤&&&-");
       v = v.replaceAllMapped(startCon3, (match) => "▤▤▤&&&“");
-
-      v = v.replaceAllMapped(endLine, (match) => "다.▤▤▤&&&");
+      v = v.replaceAllMapped(startCon4, (match) => "&&&▤▤▤\"");
+      if (!v.contains("&&&▤▤▤") && Get.locale?.languageCode == "ko") {
+        v = v.replaceAllMapped(endLine, (match) => "다.▤▤▤&&&");
+      } else if (Get.locale?.languageCode != "ko") {
+        v = v.replaceAllMapped(endLine, (match) => ".▤▤▤&&&");
+      }
       v = v.replaceAllMapped(endCon0, (match) => "\’▤▤▤&&&");
       v = v.replaceAllMapped(endCon1, (match) => "\”▤▤▤&&&");
       v = v.replaceAllMapped(endCon2, (match) => "\"▤▤▤&&&");
@@ -80,6 +85,8 @@ class Utils {
 
       v = v.trim();
       v = v.replaceAll("▤▤▤&&&", "\n\n");
+      v = v.replaceAll("&&&▤▤▤", "\n\n");
+
       rtnStr.add(v);
     });
     // d.log(rtnStr.join(""));

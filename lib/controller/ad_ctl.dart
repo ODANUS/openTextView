@@ -57,103 +57,110 @@ class AdCtl {
     // MobileAds.instance.setAppVolume(0);
     // 5559A4CF00EDA5E61AC931F9D8F9742D
     // MobileAds.instance.updateRequestConfiguration(RequestConfiguration(testDeviceIds: ["5559A4CF00EDA5E61AC931F9D8F9742D"]));
-    initInterstitialAd();
-    initRewardedAd();
+    // initInterstitialAd();
+    // initRewardedAd();
     // initBannerAd();
   }
 
-  static initInterstitialAd() {
+  static initInterstitialAd() async {
+    Completer<bool> c = Completer<bool>();
     AdManagerInterstitialAd.load(
         adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/1033173712' : 'ca-app-pub-6280862087797110/4526743229',
         request: AdManagerAdRequest(),
         adLoadCallback: AdManagerInterstitialAdLoadCallback(
           onAdLoaded: (AdManagerInterstitialAd ad) {
             _interstitialAd = ad;
+            c.complete(true);
           },
           onAdFailedToLoad: (LoadAdError error) {
             _interstitialAd = null;
+            c.complete(false);
           },
         ));
+    return c.future;
   }
 
   static initRewardedAd() {
+    Completer<bool> c = Completer<bool>();
     RewardedAd.load(
         adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/5354046379' : 'ca-app-pub-6280862087797110/1667025028',
         request: AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd ad) {
             _rewardedAd = ad;
+            c.complete(true);
           },
           onAdFailedToLoad: (LoadAdError error) {
             _rewardedAd = null;
             print('RewardedAd failed to load: $error');
+            c.complete(false);
           },
         ));
-  }
-
-  static bool hasOpenRewardedAd() {
-    if (_rewardedAd == null) {
-      initRewardedAd();
-    }
-    return _rewardedAd != null;
-  }
-
-  static bool hasOpenInterstitialAd() {
-    if (_interstitialAd == null) {
-      initInterstitialAd();
-    }
-    return _interstitialAd != null;
-  }
-
-  static Future<bool> openSaveAsAd() async {
-    Completer<bool> c = Completer<bool>();
-    await Get.dialog(AlertDialog(
-      title: Text("save as".tr),
-      actionsAlignment: MainAxisAlignment.spaceAround,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("You can export".tr),
-        ],
-      ),
-      actions: [
-        ElevatedButton(
-            onPressed: () {
-              c.complete(false);
-              Get.back();
-            },
-            child: Text("Cancel")),
-        ElevatedButton(
-            onPressed: () {
-              Get.back();
-              _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
-                  onAdShowedFullScreenContent: (RewardedAd ad) {},
-                  onAdDismissedFullScreenContent: (RewardedAd ad) async {
-                    await ad.dispose();
-
-                    c.complete(true);
-                    initInterstitialAd();
-                  },
-                  onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
-                    await ad.dispose();
-                    c.complete(true);
-                    initInterstitialAd();
-                  },
-                  onAdImpression: (RewardedAd ad) {
-                    print("onAdImpression");
-                  });
-              _interstitialAd?.show();
-            },
-            child: Text("Confirm")),
-      ],
-    ));
-
     return c.future;
   }
 
+  // static bool hasOpenRewardedAd() {
+  //   if (_rewardedAd == null) {
+  //     initRewardedAd();
+  //   }
+  //   return _rewardedAd != null;
+  // }
+
+  // static bool hasOpenInterstitialAd() {
+  //   if (_interstitialAd == null) {
+  //     initInterstitialAd();
+  //   }
+  //   return _interstitialAd != null;
+  // }
+
+  // static Future<bool> openSaveAsAd() async {
+  //   Completer<bool> c = Completer<bool>();
+  //   await Get.dialog(AlertDialog(
+  //     title: Text("save as".tr),
+  //     actionsAlignment: MainAxisAlignment.spaceAround,
+  //     content: Column(
+  //       mainAxisSize: MainAxisSize.min,
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text("You can export".tr),
+  //       ],
+  //     ),
+  //     actions: [
+  //       ElevatedButton(
+  //           onPressed: () {
+  //             c.complete(false);
+  //             Get.back();
+  //           },
+  //           child: Text("Cancel")),
+  //       ElevatedButton(
+  //           onPressed: () {
+  //             Get.back();
+  //             _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+  //                 onAdShowedFullScreenContent: (RewardedAd ad) {},
+  //                 onAdDismissedFullScreenContent: (RewardedAd ad) async {
+  //                   await ad.dispose();
+
+  //                   c.complete(true);
+  //                   initInterstitialAd();
+  //                 },
+  //                 onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
+  //                   await ad.dispose();
+  //                   c.complete(true);
+  //                   initInterstitialAd();
+  //                 },
+  //                 onAdImpression: (RewardedAd ad) {
+  //                   print("onAdImpression");
+  //                 });
+  //             _interstitialAd?.show();
+  //           },
+  //           child: Text("Confirm")),
+  //     ],
+  //   ));
+
+  //   return c.future;
+  // }
+
   static void openInterstitialAd() {
-    // Completer<bool> c = Completer<bool>();
     Get.dialog(AlertDialog(
       content: Text("Would you like to see an ad".tr),
       actionsAlignment: MainAxisAlignment.spaceAround,
@@ -165,68 +172,70 @@ class AdCtl {
             },
             child: Text("Cancel")),
         ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
+              if (await initInterstitialAd()) {
+                _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+                    onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
+                    onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdImpression: (AdManagerInterstitialAd ad) {});
+                _interstitialAd?.show();
+              } else {
+                Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+              }
               Get.back();
-              _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
-                  onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
-                  onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
-                    await ad.dispose();
-                    initInterstitialAd();
-                    // c.complete(true);
-                  },
-                  onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
-                    await ad.dispose();
-                    initInterstitialAd();
-                    // c.complete(true);
-                  },
-                  onAdImpression: (AdManagerInterstitialAd ad) {});
-              _interstitialAd?.show();
             },
             child: Text("Confirm")),
       ],
     ));
-
-    // return c.future;
   }
 
-  static void startInterstitialAd() {
-    _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
-        onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
-        onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
-          await ad.dispose();
-          Future.delayed(Duration(seconds: 5), () {
-            initInterstitialAd();
-          });
-          // c.complete(true);
-        },
-        onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
-          await ad.dispose();
-          Future.delayed(Duration(seconds: 5), () {
-            initInterstitialAd();
-          });
-          // c.complete(true);
-        },
-        onAdImpression: (AdManagerInterstitialAd ad) {});
-    _interstitialAd?.show();
+  static Future<bool> startInterstitialAd() async {
+    if (await initInterstitialAd()) {
+      _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+          onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
+          onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+            await ad.dispose();
+            _interstitialAd = null;
+          },
+          onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+            await ad.dispose();
+            _interstitialAd = null;
+          },
+          onAdImpression: (AdManagerInterstitialAd ad) {});
+      _interstitialAd?.show();
+      return true;
+    } else {
+      Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+      return false;
+    }
   }
 
-  static void startRewardedAd() {
-    _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
-      onAdDismissedFullScreenContent: (RewardedAd ad) async {
-        await ad.dispose();
-        Future.delayed(Duration(seconds: 5), () {
-          initRewardedAd();
-        });
-      },
-      onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
-        await ad.dispose();
-        Future.delayed(Duration(seconds: 5), () {
-          initRewardedAd();
-        });
-      },
-    );
+  static Future<bool> startRewardedAd() async {
+    if (await initRewardedAd()) {
+      _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (RewardedAd ad) async {
+          await ad.dispose();
+          _rewardedAd = null;
+        },
+        onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
+          await ad.dispose();
+          _rewardedAd = null;
+        },
+      );
 
-    _rewardedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {});
+      _rewardedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {});
+      return true;
+    } else {
+      Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+      return false;
+    }
   }
 
   static Future<bool> openInterstitialAdNewLine() async {
@@ -253,22 +262,25 @@ class AdCtl {
             },
             child: Text("Cancel")),
         ElevatedButton(
-            onPressed: () {
-              Get.back(result: true);
-              _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
-                  onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
-                  onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
-                    await ad.dispose();
-                    initInterstitialAd();
-                    // c.complete(true);
-                  },
-                  onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
-                    await ad.dispose();
-                    initInterstitialAd();
-                    // c.complete(true);
-                  },
-                  onAdImpression: (AdManagerInterstitialAd ad) {});
-              _interstitialAd?.show();
+            onPressed: () async {
+              if (await initInterstitialAd()) {
+                _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+                    onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
+                    onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdImpression: (AdManagerInterstitialAd ad) {});
+                _interstitialAd?.show();
+                Get.back(result: true);
+              } else {
+                Get.back(result: false);
+                Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+              }
             },
             child: Text("Confirm")),
       ],
@@ -300,22 +312,25 @@ class AdCtl {
             },
             child: Text("Cancel")),
         ElevatedButton(
-            onPressed: () {
-              Get.back(result: true);
-              _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
-                  onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
-                  onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
-                    await ad.dispose();
-                    initInterstitialAd();
-                    // c.complete(true);
-                  },
-                  onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
-                    await ad.dispose();
-                    initInterstitialAd();
-                    // c.complete(true);
-                  },
-                  onAdImpression: (AdManagerInterstitialAd ad) {});
-              _interstitialAd?.show();
+            onPressed: () async {
+              if (await initInterstitialAd()) {
+                _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+                    onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
+                    onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdImpression: (AdManagerInterstitialAd ad) {});
+                _interstitialAd?.show();
+                Get.back(result: true);
+              } else {
+                Get.back(result: false);
+                Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+              }
             },
             child: Text("Confirm")),
       ],
