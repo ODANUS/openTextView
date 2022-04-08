@@ -41,17 +41,17 @@ class LibraryPage extends GetView {
     return false;
   }
 
-  // Future<bool> saveAs(File f) async {
-  //   if (!AdCtl.hasOpenRewardedInterstitialAd()) {
-  //     return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-  //   }
-  //   var rtn = await AdCtl.openSaveAsAd();
-  //   if (rtn) {
-  //     final params = SaveFileDialogParams(sourceFilePath: f.path);
-  //     await FlutterFileDialog.saveFile(params: params);
-  //   }
-  //   return true;
-  // }
+  Future<bool> saveAs(File f) async {
+    // if (!AdCtl.hasOpenRewardedInterstitialAd()) {
+    //   return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    // }
+    // var rtn = await AdCtl.openSaveAsAd();
+    // if (rtn) {
+    final params = SaveFileDialogParams(sourceFilePath: f.path);
+    await FlutterFileDialog.saveFile(params: params);
+    // }
+    return true;
+  }
 
   Future<bool> epubConv(File f) async {
     var rtn = await AdCtl.openInterstitialAdEpubConv();
@@ -71,6 +71,7 @@ class LibraryPage extends GetView {
   }
 
   Future<bool> ocrZipFile(File f) async {
+    print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
     var pathList = f.path.split("/");
     var path = pathList.sublist(0, pathList.length - 1).join("/");
     var fileName = pathList.last.split(".").first;
@@ -78,26 +79,73 @@ class LibraryPage extends GetView {
     final bytes = f.readAsBytesSync();
     final archive = ZipDecoder().decodeBytes(bytes);
     // archive.
-    var tmpDir = await getTemporaryDirectory();
-    tmpDir = Directory("${tmpDir.path}/ocr");
-    if (!tmpDir.existsSync()) {
-      tmpDir.createSync(recursive: true);
+    var rootTmpDir = await getTemporaryDirectory();
+    var tmpDir = Directory("${rootTmpDir.path}/ocr");
+    if (tmpDir.existsSync()) {
+      tmpDir.deleteSync(recursive: true);
     }
-    IsarCtl.unzipTotal(archive.length);
-    var idx = 0;
-    for (final file in archive) {
-      final filename = file.name;
-      IsarCtl.unzipCurrent(idx++);
-      if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
-        final data = file.content as List<int>;
-        File("${tmpDir.path}/$filename")
-          ..createSync(recursive: true)
-          ..writeAsBytesSync(data);
-      } else {
-        Directory("${tmpDir.path}/$filename").create(recursive: true);
+    tmpDir.createSync(recursive: true);
+
+    if (archive.length > 510) {
+      IsarCtl.unzipTotal(archive.length);
+      await Future.delayed(10.milliseconds);
+      var idx = 0;
+      var cnt = 0;
+      ZipFileEncoder encoder = ZipFileEncoder();
+      try {
+        for (var file in archive) {
+          if (cnt == 0) {
+            if (idx > 0) {
+              IsarCtl.unzipCurrent(500 * idx);
+              await Future.delayed(100.milliseconds);
+              encoder.close();
+              // break;
+            }
+            encoder.create("${rootTmpDir.path}/file_picker/div_${"${++idx}".padLeft(2, "0")}_${fileName}.zip");
+          }
+          final filename = file.name;
+          if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
+            final data = file.content as List<int>;
+            encoder.addFile(File("${tmpDir.path}/$filename")
+              ..createSync(recursive: true)
+              ..writeAsBytesSync(data));
+          } else {
+            Directory("${tmpDir.path}/$filename").create(recursive: true);
+          }
+
+          if (cnt++ >= 499) {
+            cnt = 0;
+          }
+        }
+        encoder.close();
+      } catch (e) {}
+      IsarCtl.unzipTotal(0);
+      tmpDir.deleteSync(recursive: true);
+    } else {
+      IsarCtl.unzipTotal(archive.length);
+      await Future.delayed(10.milliseconds);
+      var idx = 0;
+      for (final file in archive) {
+        final filename = file.name;
+        IsarCtl.unzipCurrent(idx++);
+        if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
+          final data = file.content as List<int>;
+          File("${tmpDir.path}/$filename")
+            ..createSync(recursive: true)
+            ..writeAsBytesSync(data);
+        } else {
+          Directory("${tmpDir.path}/$filename").create(recursive: true);
+        }
+      }
+      IsarCtl.unzipTotal(0);
+      var rtn = await Get.toNamed("/ocr");
+      if (rtn != null) {
+        File outputFile = File("$path/ocr_$fileName(${Utils.DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
+        outputFile.createSync();
+        outputFile.writeAsStringSync(rtn);
+        outputFile.setLastAccessedSync(DateTime.now());
       }
     }
-    IsarCtl.unzipTotal(0);
     // var len = tmpDir.listSync().length;
     // if (len <= 60 && !AdCtl.hasOpenInterstitialAd()) {
     //   return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
@@ -105,13 +153,6 @@ class LibraryPage extends GetView {
     // if (len > 60 && !AdCtl.hasOpenRewardedAd()) {
     //   return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
     // }
-    var rtn = await Get.toNamed("/ocr");
-    if (rtn != null) {
-      File outputFile = File("$path/ocr_$fileName(${Utils.DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
-      outputFile.createSync();
-      outputFile.writeAsStringSync(rtn);
-      outputFile.setLastAccessedSync(DateTime.now());
-    }
 
     return true;
   }
@@ -261,6 +302,7 @@ class LibraryPage extends GetView {
                                               Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
+                                                  if (kDebugMode) ElevatedButton(onPressed: () => saveAs(file), child: Text("aa")),
                                                   ElevatedButton(
                                                     style: ElevatedButton.styleFrom(primary: Colors.red),
                                                     onPressed: () {
@@ -316,7 +358,7 @@ class LibraryPage extends GetView {
                                         }
                                         return Card(
                                           child: ExpansionTile(
-                                            key: Key("file${Random().nextInt(100000)}"),
+                                            key: Key("file_${Random().nextInt(1000000)}"),
                                             title: Text(name),
                                             subtitle: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -422,20 +464,41 @@ class LibraryPage extends GetView {
                         );
                       });
                     }),
-                if (IsarCtl.unzipTotal > 0)
-                  Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      color: Colors.black54,
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          CircularProgressIndicator(),
-                          SizedBox(height: 10),
-                          Text("${IsarCtl.unzipCurrent}/${IsarCtl.unzipTotal}"),
-                        ],
-                      ))
+                Obx(() {
+                  // if (true) {
+                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value > 500) {
+                    return Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Colors.black54,
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircularProgressIndicator(),
+                            SizedBox(height: 10),
+                            Text("Creating split compressed file".tr),
+                            Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
+                          ],
+                        ));
+                  }
+                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value < 500) {
+                    return Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Colors.black54,
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircularProgressIndicator(),
+                            SizedBox(height: 10),
+                            Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
+                          ],
+                        ));
+                  }
+                  return SizedBox();
+                })
               ],
             ),
             floatingActionButton: FloatingActionButton.extended(

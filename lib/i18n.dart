@@ -112,6 +112,7 @@ class Messages extends Translations {
               "(If the number of pages is less than 60, an interstitial [0-7 seconds] advertisement is output. For more than 60 pages, a 30-second advertisement is output. [Average is processed about 6 pages per second])",
           "You can export": "You can export the current file to another location. When exporting a file, an interstitial advertisement (0~5 seconds) is played.",
           "Press once more to close": "Press once more to close.",
+          "Creating split compressed file": "Creating split compressed file...",
         },
         "ko": {
           "key": "ko",
@@ -221,6 +222,7 @@ class Messages extends Translations {
           "If the number of pages": "(60장 미만일 경우 전면[0~7초] 광고가 출력됩니다. 60 장 이상은 30 초 광고가 출력 됩니다. )",
           "You can export": "현재 파일을 다른 곳으로 내보내기를 할 수 있습니다. \n파일 내보내기 시 전면 광고 (0~5초) 가 재생 됩니다.",
           "Press once more to close": "한번더 눌러 닫습니다.",
+          "Creating split compressed file": "분할 압축 파일 생성중...",
         },
         "gl": {
           "key": "gl",
@@ -331,6 +333,7 @@ class Messages extends Translations {
               "(Se o número de páxinas é inferior a 60, unha publicidade intersticial [0-7 segundos] é a saída. Por máis de 60 páxinas, é a saída de 30 segundos. [A media é procesada preto de 6 páxinas por segundo]))",
           "You can export": "Pode exportar o ficheiro actual a outro lugar. Ao exportar un ficheiro, reprodúcese un anuncio intersticial (0 ~ 5 segundos).",
           "Press once more to close": "Prema unha vez máis para pechar.",
+          "Creating split compressed file": "Creación de ficheiro comprimido dividido ...",
         },
         "gu": {
           "key": "gu",
@@ -441,6 +444,7 @@ class Messages extends Translations {
               "(જો પૃષ્ઠોની સંખ્યા 60 કરતા ઓછી હોય, તો ઇન્ટરસ્ટિશલ [0-7 સેકંડ] જાહેરાત આઉટપુટ છે. 60 થી વધુ પૃષ્ઠો માટે, 30-સેકંડની જાહેરાત આઉટપુટ છે. [સરેરાશની સરેરાશથી બીજા 6 પૃષ્ઠો))",
           "You can export": "તમે વર્તમાન ફાઇલને બીજા સ્થાન પર નિકાસ કરી શકો છો. જ્યારે ફાઇલ નિકાસ કરતી વખતે, ઇન્ટરસ્ટિશલ જાહેરાત (0 ~ 5 સેકંડ) રમાય છે.",
           "Press once more to close": "એકવાર વધુ નજીકમાં દબાવો.",
+          "Creating split compressed file": "સ્પ્લિટ કમ્પ્રેસ્ડ ફાઇલ બનાવવી ...",
         },
         "el": {
           "key": "el",
@@ -551,6 +555,7 @@ class Messages extends Translations {
               "(Εάν ο αριθμός των σελίδων είναι μικρότερος από 60, μια διάμεση διαφήμιση [0-7 δευτερόλεπτα] εξάγεται διαφήμιση. Για περισσότερες από 60 σελίδες, εξάγεται μια διαφήμιση 30 δευτερολέπτων. [Μέσος όρος επεξεργάζεται περίπου 6 σελίδες ανά δευτερόλεπτο])",
           "You can export": "Μπορείτε να εξάγετε το τρέχον αρχείο σε άλλη τοποθεσία. Κατά την εξαγωγή ενός αρχείου, αναπαράγεται μια διάμεση διαφήμιση (0 ~ 5 δευτερόλεπτα).",
           "Press once more to close": "Πατήστε για άλλη μια φορά για να κλείσετε.",
+          "Creating split compressed file": "Δημιουργία διαχωρισμένου συμπιεσμένου αρχείου ...",
         },
         "nl": {
           "key": "nl",
@@ -661,6 +666,7 @@ class Messages extends Translations {
               "(Als het aantal pagina's minder dan 60 is, wordt een interstitial [0-7 seconden] -advertentie uitgevoerd. Voor meer dan 60 pagina's wordt een advertentie van 30 seconden uitgevoerd. [Gemiddeld wordt ongeveer 6 pagina's per seconde verwerkt])",
           "You can export": "U kunt het huidige bestand naar een andere locatie exporteren. Bij het exporteren van een bestand wordt een interstitiële advertentie (0 ~ 5 seconden) gespeeld.",
           "Press once more to close": "Druk nogmaals om te sluiten.",
+          "Creating split compressed file": "Split-gecomprimeerd bestand maken ...",
         },
         "ne": {
           "key": "ne",
@@ -770,6 +776,7 @@ class Messages extends Translations {
           "If the number of pages": "(यदि पृष्ठहरूको संख्या 600 भन्दा कम छ भने, एक अन्तर्राष्ट्रिय [0-7 सेकेन्ड] विज्ञापन आउटपुट हो। (300 पृष्ठ भन्दा बढी विज्ञापन आउटपुट हुन्छ)",
           "You can export": "तपाईं वर्तमान फाईललाई अर्को स्थानमा निर्यात गर्न सक्नुहुन्छ। जब फाईल निर्यात गर्दा, एक अन्तर्निहित विज्ञापन (0 ~ seconds सेकेन्ड) खेल्दछ।",
           "Press once more to close": "बन्द गर्न फेरि थिच्नुहोस्।",
+          "Creating split compressed file": "स्प्लिट संकुचित फाइल सिर्जना गर्दै ...",
         },
         "no": {
           "key": "no",
@@ -880,6 +887,7 @@ class Messages extends Translations {
               "(Hvis antall sider er mindre enn 60, blir en interstitial [0-7 sekunder] annonse sendes ut. For mer enn 60 sider, sendes en 30-sekunders reklame. [Gjennomsnittet behandles ca. 6 sider per sekund])",
           "You can export": "Du kan eksportere gjeldende fil til et annet sted. Når du eksporterer en fil, spilles en interstitial reklame (0 ~ 5 sekunder).",
           "Press once more to close": "Trykk en gang til for å lukke.",
+          "Creating split compressed file": "Opprette Split-komprimert fil ...",
         },
         "da": {
           "key": "da",
@@ -990,6 +998,7 @@ class Messages extends Translations {
               "(Hvis antallet af sider er mindre end 60, er en interstitiel [0-7 sekunder] annonce output. For mere end 60 sider udsendes en 30-sekunders annonce. [Gennemsnit er behandlet ca. 6 sider pr. Sekund])",
           "You can export": "Du kan eksportere den aktuelle fil til et andet sted. Når du eksporterer en fil, afspilles en interstitiel reklame (0 ~ 5 sekunder).",
           "Press once more to close": "Tryk endnu en gang for at lukke.",
+          "Creating split compressed file": "Oprettelse af split komprimeret fil ...",
         },
         "de": {
           "key": "de",
@@ -1100,6 +1109,7 @@ class Messages extends Translations {
               "(Wenn die Anzahl der Seiten weniger als 60 beträgt, wird eine interstitielle [0-7 Sekunden] Werbung ausgegeben. Für mehr als 60 Seiten wird eine 30-Sekunden-Werbung ausgegeben. [Durchschnitt wird ungefähr 6 Seiten pro Sekunde verarbeitet])",
           "You can export": "Sie können die aktuelle Datei an einen anderen Ort exportieren. Wenn Sie eine Datei exportieren, wird eine interstitielle Werbung (0 ~ 5 Sekunden) abgespielt.",
           "Press once more to close": "Drücken Sie noch einmal, um zu schließen.",
+          "Creating split compressed file": "Erstellen von geteilten komprimierten Datei ...",
         },
         "lo": {
           "key": "lo",
@@ -1209,6 +1219,7 @@ class Messages extends Translations {
           "If the number of pages": "(ຖ້າຈໍານວນຂອງຫນ້າເວັບຕ່ໍາກວ່າ 60-7 ວິນາທີ] ຜົນຜະລິດ. ສໍາລັບການໂຄສະນາຫຼາຍກ່ວາ 60 ຫນ້າ",
           "You can export": "ທ່ານສາມາດສົ່ງອອກເອກະສານປະຈຸບັນໄປບ່ອນອື່ນ. ໃນເວລາທີ່ສົ່ງອອກເອກະສານ, ການໂຄສະນາແບບລະອຽດ (0 ~ 5 ວິນາທີ) ຖືກຫຼີ້ນ.",
           "Press once more to close": "ກົດອີກຄັ້ງຫນຶ່ງເພື່ອປິດ.",
+          "Creating split compressed file": "ສ້າງເອກະສານທີ່ມີການແບ່ງປັນການແບ່ງປັນ ...",
         },
         "lv": {
           "key": "lv",
@@ -1319,6 +1330,7 @@ class Messages extends Translations {
               "(Ja lapu skaits ir mazāks par 60, reklāma [0-7 sekundes] reklāma ir jauda. Vairāk nekā 60 lappuses, 30 sekunžu reklāma ir izeja. [Vidējais tiek apstrādāts aptuveni 6 lappuses sekundē]))",
           "You can export": "Jūs varat eksportēt pašreizējo failu uz citu vietu. Eksportējot failu, tiek atskaņots intersticiāla reklāma (0 ~ 5 sekundes).",
           "Press once more to close": "Vēlreiz nospiediet, lai aizvērtu.",
+          "Creating split compressed file": "Izveidojot sadalīt saspiestu failu ...",
         },
         "ru": {
           "key": "ru",
@@ -1429,6 +1441,7 @@ class Messages extends Translations {
               "(Если количество страниц составляет менее 60, вывод рекламы [0-7 секунд]. Для более 60 страниц выводится 30-секундная реклама. [Среднее обрабатывается около 6 страниц в секунду]))",
           "You can export": "Вы можете экспортировать текущий файл в другое место. При экспорте файла воспроизводится интерстициальная реклама (0 ~ 5 секунд).",
           "Press once more to close": "Нажмите еще раз, чтобы закрыть.",
+          "Creating split compressed file": "Создание разделенного сжатого файла ...",
         },
         "ro": {
           "key": "ro",
@@ -1539,6 +1552,7 @@ class Messages extends Translations {
               "(Dacă numărul de pagini este mai mic de 60, este de ieșire o publicitate interstițială [0-7 secunde]. Pentru mai mult de 60 de pagini, este de ieșire o reclamă de 30 de secunde. [Media este procesată aproximativ 6 pagini pe secundă])",
           "You can export": "Puteți exporta fișierul curent într-o altă locație. Atunci când exportați un fișier, este redat o publicitate interstițială (0 ~ 5 secunde).",
           "Press once more to close": "Apăsați încă o dată pentru a închide.",
+          "Creating split compressed file": "Crearea fișierului comprimat divizat ...",
         },
         "lt": {
           "key": "lt",
@@ -1649,6 +1663,7 @@ class Messages extends Translations {
               "(Jei puslapių skaičius yra mažesnis nei 60, intersticinis [0-7 sekundės] reklama yra produkcija. Daugiau nei 60 puslapių, 30 sekundžių reklama yra išvestis. [Vidutinis apdorojamas apie 6 puslapius per sekundę])",
           "You can export": "Galite eksportuoti dabartinį failą į kitą vietą. Eksportuojant failą, grojama intersticinė reklama (0 ~ 5 sekundės).",
           "Press once more to close": "Dar kartą paspauskite.",
+          "Creating split compressed file": "Splito suspausto failo kūrimas ...",
         },
         "mr": {
           "key": "mr",
@@ -1759,6 +1774,7 @@ class Messages extends Translations {
               "(जर पृष्ठांची संख्या 60 पेक्षा कमी असेल तर, एक इंटरस्टिशियल [0-7 सेकंद] जाहिरात आउटपुट आहे. 60 पेक्षा जास्त पृष्ठांसाठी, 30-सेकंद जाहिरात आउटपुट आहे. [सरासरी प्रति सेकंद सुमारे 6 पृष्ठांवर प्रक्रिया केली जाते])",
           "You can export": "आपण वर्तमान फाइल दुसर्या स्थानावर निर्यात करू शकता. एखादी फाइल निर्यात करताना, एक आंतरराष्ट्रिय जाहिरात (0 ~ 5 सेकंद) खेळली जाते.",
           "Press once more to close": "बंद करण्यासाठी एकदा दाबा.",
+          "Creating split compressed file": "संकुचित फाइल तयार करणे ...",
         },
         "mk": {
           "key": "mk",
@@ -1869,6 +1885,7 @@ class Messages extends Translations {
               "(Ако бројот на страници е помал од 60, интерстицијални [0-7 секунди] реклама е излез. За повеќе од 60 страници, излез од 30 секунди. [Просекот се обработува околу 6 страници во секунда]))",
           "You can export": "Можете да ја извезете тековната датотека на друга локација. Кога извоз на датотека, се игра интерстицијална реклама (0 ~ 5 секунди).",
           "Press once more to close": "Притиснете уште еднаш за да се затвори.",
+          "Creating split compressed file": "Креирање на сплит компресирана датотека ...",
         },
         "ml": {
           "key": "ml",
@@ -1978,6 +1995,7 @@ class Messages extends Translations {
           "If the number of pages": ".",
           "You can export": "നിങ്ങൾക്ക് നിലവിലെ ഫയൽ മറ്റൊരു സ്ഥലത്തേക്ക് കയറ്റുമതി ചെയ്യാൻ കഴിയും. ഒരു ഫയൽ കയറ്റുമതി ചെയ്യുമ്പോൾ, ഒരു ഇന്റർസ്റ്റീഷ്യൽ പരസ്യം (0 ~ 5 സെക്കൻഡ്) പ്ലേ ചെയ്യുന്നു.",
           "Press once more to close": "അടയ്ക്കുന്നതിന് ഒരിക്കൽ കൂടി അമർത്തുക.",
+          "Creating split compressed file": "സ്പ്ലിറ്റ് കംപ്രസ് ചെയ്ത ഫയൽ സൃഷ്ടിക്കുന്നു ...",
         },
         "ms": {
           "key": "ms",
@@ -2088,6 +2106,7 @@ class Messages extends Translations {
               "(Jika bilangan halaman kurang daripada 60, iklan interstitial [0-7 saat] output. Untuk lebih daripada 60 muka surat, iklan 30 saat adalah output. [Purata diproses kira-kira 6 muka surat sesaat])",
           "You can export": "Anda boleh mengeksport fail semasa ke lokasi lain. Apabila mengeksport fail, iklan interstitial (0 ~ 5 saat) dimainkan.",
           "Press once more to close": "Tekan sekali lagi untuk ditutup.",
+          "Creating split compressed file": "Membuat fail termampat Split ...",
         },
         "ms": {
           "key": "ms",
@@ -2198,6 +2217,7 @@ class Messages extends Translations {
               "(Jika bilangan halaman kurang daripada 60, iklan interstitial [0-7 saat] output. Untuk lebih daripada 60 muka surat, iklan 30 saat adalah output. [Purata diproses kira-kira 6 muka surat sesaat])",
           "You can export": "Anda boleh mengeksport fail semasa ke lokasi lain. Apabila mengeksport fail, iklan interstitial (0 ~ 5 saat) dimainkan.",
           "Press once more to close": "Tekan sekali lagi untuk ditutup.",
+          "Creating split compressed file": "Membuat fail termampat Split ...",
         },
         "mn": {
           "key": "mn",
@@ -2307,6 +2327,7 @@ class Messages extends Translations {
           "If the number of pages": "(Хэрэв хуудасны тоо 60-аас бага бол 30 секундын хугацаатай бол. 60-аас дээш хуудас зарна.",
           "You can export": "Та одоогийн файлыг өөр байршил руу экспортлох боломжтой. Файлыг экспортлох үед, интерциталь сурталчилгаа (0 ~ 5 секунд) тоглодог.",
           "Press once more to close": "Хаахын тулд дахиад нэг дарж дарна уу.",
+          "Creating split compressed file": "Хуваах шахсан файлыг бий болгох ...",
         },
         "eu": {
           "key": "eu",
@@ -2416,6 +2437,7 @@ class Messages extends Translations {
           "If the number of pages": "(Orrialde kopurua 60 baino txikiagoa bada, interstitial [0-7 segundo] iragarkia da irteera. 60 orrialde baino gehiago daramatza, 30 segundoko iragarkia da.",
           "You can export": "Uneko fitxategia beste kokapen batera esportatu dezakezu. Fitxategia esportatzerakoan, interstitial iragarkia (0 ~ 5 segundo) erreproduzitzen da.",
           "Press once more to close": "Sakatu berriro ixteko.",
+          "Creating split compressed file": "Konprimitutako fitxategi zatitua sortzen ...",
         },
         "my": {
           "key": "my",
@@ -2525,6 +2547,7 @@ class Messages extends Translations {
           "If the number of pages": "(စာမျက်နှာအရေအတွက် -0 ထက်နည်းလျှင် interstitial (0-7 စက္ကန့်] ကြော်ငြာသည် output ကိုဖြစ်သည်။ (တစ်စက္ကန့်လျှင် 6 ခုခန့်)",
           "You can export": "သင်သည်လက်ရှိဖိုင်ကိုအခြားနေရာတစ်ခုသို့တင်ပို့နိုင်သည်။ ဖိုင်တစ်ခုကိုတင်ပို့သည့်အခါ interstitial ကြော်ငြာ (0 5 စက္ကန့်) ကိုဖွင့်ထားသည်။",
           "Press once more to close": "နီးကပ်ရန်တစ်ကြိမ်နှိပ်ပါ။",
+          "Creating split compressed file": "split compressed file ကိုဖန်တီး ...",
         },
         "vi": {
           "key": "vi",
@@ -2635,6 +2658,7 @@ class Messages extends Translations {
               "(Nếu số lượng trang nhỏ hơn 60, quảng cáo [0-7 giây] xen kẽ là đầu ra. Trong hơn 60 trang, quảng cáo 30 giây là đầu ra. [Trung bình được xử lý khoảng 6 trang mỗi giây])",
           "You can export": "Bạn có thể xuất tệp hiện tại sang một vị trí khác. Khi xuất tệp, một quảng cáo xen kẽ (0 ~ 5 giây) được phát.",
           "Press once more to close": "Nhấn một lần nữa để đóng.",
+          "Creating split compressed file": "Tạo tệp nén chia ...",
         },
         "be": {
           "key": "be",
@@ -2745,6 +2769,7 @@ class Messages extends Translations {
               "(Калі лік старонак складае менш за 60, міжтканка [0-7 секунд] рэклама з'яўляецца выхад. На працягу больш за 60 старонак, 30-секундная рэклама з'яўляецца выхад. [Сярэдні апрацоўваецца каля 6 старонак у секунду])",
           "You can export": "Вы можаце экспартаваць бягучы файл у іншае месца. Пры экспарце файл, міжтканкавы рэкламу (0 ~ 5 секунд) гуляецца.",
           "Press once more to close": "Націсніце яшчэ раз, каб закрыць.",
+          "Creating split compressed file": "Стварэнне расколу сціснутага файла ...",
         },
         "bn": {
           "key": "bn",
@@ -2855,6 +2880,7 @@ class Messages extends Translations {
               "(যদি পৃষ্ঠাগুলির সংখ্যা 60 এর কম হয় তবে একটি অন্তর্বর্তী [0-7 সেকেন্ড] বিজ্ঞাপন আউটপুট। 60 টিরও বেশি পৃষ্ঠার জন্য 30-সেকেন্ডের বিজ্ঞাপন আউটপুট। [গড় প্রতি সেকেন্ডে 6 পৃষ্ঠা প্রক্রিয়া করা হয়])",
           "You can export": "আপনি বর্তমান ফাইলটি অন্য অবস্থানে রপ্তানি করতে পারেন। একটি ফাইল এক্সপোর্ট করার সময়, একটি অন্তর্বর্তী বিজ্ঞাপনের (0 ~ 5 সেকেন্ড) খেলেছে।",
           "Press once more to close": "বন্ধ করার জন্য আরো একবার চাপুন।",
+          "Creating split compressed file": "বিভক্ত সংকুচিত ফাইল তৈরি করা হচ্ছে ...",
         },
         "bg": {
           "key": "bg",
@@ -2965,6 +2991,7 @@ class Messages extends Translations {
               "(Ако броят на страниците е по-малък от 60, интерстициалната [0-7 секунди] реклама е изведена. За повече от 60 страници е изведена 30-секундна реклама. [Средно се обработва около 6 страници в секунда]",
           "You can export": "Можете да експортирате текущия файл на друго място. Когато експортирате файл, се играе интерстициална реклама (0 ~ 5 секунди).",
           "Press once more to close": "Натиснете още веднъж, за да затворите.",
+          "Creating split compressed file": "Създаване на разделен компресиран файл ...",
         },
         "sr": {
           "key": "sr",
@@ -3075,6 +3102,7 @@ class Messages extends Translations {
               "(Ако је број страница мањи од 60, интерстицијално [0-7 секунди] Реклама је излаз. За више од 60 страница је излазна реклама од 30 секунди. [Просек се обрађује око 6 страница у секунди])",
           "You can export": "Тренутна датотека можете извозити на другу локацију. Када извозите датотеку, репродукује се интерстицијска реклама (0 ~ 5 секунди).",
           "Press once more to close": "Притисните још једном да бисте се затворили.",
+          "Creating split compressed file": "Стварање сплитске компримоване датотеке ...",
         },
         "sw": {
           "key": "sw",
@@ -3185,6 +3213,7 @@ class Messages extends Translations {
               "(Ikiwa idadi ya kurasa ni chini ya 60, sekunde ya sekunde 0-7] ni pato. Kwa zaidi ya kurasa 60, tangazo la pili la pili ni pato. [Wastani ni kusindika kuhusu kurasa 6 kwa pili])",
           "You can export": "Unaweza kuuza nje faili ya sasa kwenye eneo lingine. Wakati wa kusafirisha faili, matangazo ya interstitial (sekunde 0 ~ 5) inachezwa.",
           "Press once more to close": "Bonyeza mara moja tena kufungwa.",
+          "Creating split compressed file": "Kujenga faili iliyopasuliwa ya mgawanyiko ...",
         },
         "sv": {
           "key": "sv",
@@ -3295,6 +3324,7 @@ class Messages extends Translations {
               "(Om antalet sidor är mindre än 60, är ​​en interstitiell [0-7 sekunder] annonsering utmatning. För mer än 60 sidor är en 30-sekunders annons produktion. [Genomsnittet behandlas ca 6 sidor per sekund])",
           "You can export": "Du kan exportera den aktuella filen till en annan plats. Vid export av en fil spelas en interstitiell annons (0 ~ 5 sekunder).",
           "Press once more to close": "Tryck en gång till för att stänga.",
+          "Creating split compressed file": "Skapa split-komprimerad fil ...",
         },
         "es": {
           "key": "es",
@@ -3405,6 +3435,7 @@ class Messages extends Translations {
               "(Si el número de páginas es inferior a 60, se emite un anuncio intersticial [0-7 segundos]. Para más de 60 páginas, se emite un anuncio de 30 segundos. [El promedio se procesa alrededor de 6 páginas por segundo])",
           "You can export": "Puede exportar el archivo actual a otra ubicación. Al exportar un archivo, se reproduce un anuncio intersticial (0 ~ 5 segundos).",
           "Press once more to close": "Presione una vez más para cerrar.",
+          "Creating split compressed file": "Creación de archivos comprimidos divididos ...",
         },
         "sk": {
           "key": "sk",
@@ -3515,6 +3546,7 @@ class Messages extends Translations {
               "(Ak je počet strán menej ako 60, intersticiálna reklama je na výstupe. Pre viac ako 60 strán je 30-sekundová reklama. [Priemer sa spracováva približne 6 strán za sekundu])",
           "You can export": "Aktuálny súbor môžete exportovať na iné miesto. Pri exporte súboru sa hrá intersticiálna reklama (0 ~ 5 sekúnd).",
           "Press once more to close": "Stlačte ešte raz.",
+          "Creating split compressed file": "Vytvorenie rozdeleného komprimovaného súboru ...",
         },
         "sl": {
           "key": "sl",
@@ -3625,6 +3657,7 @@ class Messages extends Translations {
               "(Če je število strani manjše od 60, je intersticijska [0-7 sekund] oglas izhoda. Za več kot 60 strani je izhod 30-sekundni oglas. [Povprečje obdelamo približno 6 strani na sekundo])",
           "You can export": "Trenutno datoteko lahko izvozite na drugo mesto. Pri izvozu datoteke se predvaja interstitni oglas (0 ~ 5 sekund).",
           "Press once more to close": "Pritisnite še enkrat, da se zaprete.",
+          "Creating split compressed file": "Ustvarjanje Split stisnjene datoteke ...",
         },
         "si": {
           "key": "si",
@@ -3734,6 +3767,7 @@ class Messages extends Translations {
           "If the number of pages": ".",
           "You can export": "ඔබට වත්මන් ගොනුව වෙනත් ස්ථානයකට අපනයනය කළ හැකිය. ගොනුවක් අපනයනය කිරීමේදී, අන්තර් හිතකාමී දැන්වීමක් (තත්පර 0 ~ 5) වාදනය වේ.",
           "Press once more to close": "සමීප වීමට නැවත වරක් ඔබන්න.",
+          "Creating split compressed file": "බෙදී ගිය සම්පීඩිත ගොනුවක් නිර්මාණය කිරීම ...",
         },
         "ar": {
           "key": "ar",
@@ -3844,6 +3878,7 @@ class Messages extends Translations {
               "(إذا كان عدد الصفحات أقل من 60 عاما، فإن الإنازل [0-7 ثوان] هو الإخراج. لأكثر من 60 صفحة، يكون الإعلان 30 ثانية هو الإخراج. [يعالج المتوسط ​​حوالي 6 صفحات في الثانية])",
           "You can export": "يمكنك تصدير الملف الحالي إلى موقع آخر. عند تصدير ملف، يتم تشغيل الإعلان الخلالي (0 ~ 5 ثوان).",
           "Press once more to close": "اضغط مرة أخرى لإغلاق.",
+          "Creating split compressed file": "إنشاء ملف مضغوط سبليت ...",
         },
         "hy": {
           "key": "hy",
@@ -3953,6 +3988,7 @@ class Messages extends Translations {
           "If the number of pages": "(Եթե էջերի քանակը 60-ից պակաս է, միջպետական ​​[0-7 վայրկյան] գովազդը արդյունքն է: Ավելի քան 60 էջ, 30 վայրկյան գովազդի համար]",
           "You can export": "Դուք կարող եք ընթացիկ ֆայլը արտահանել մեկ այլ վայր: Ֆայլ արտահանելիս խաղարկվում է միջաստղային գովազդ (0 ~ 5 վայրկյան):",
           "Press once more to close": "Մեկ անգամ եւս սեղմել փակվել:",
+          "Creating split compressed file": "Պառակտված սեղմված ֆայլի ստեղծում ...",
         },
         "is": {
           "key": "is",
@@ -4063,6 +4099,7 @@ class Messages extends Translations {
               "(Ef fjöldi síðna er minna en 60, er millivefsláttur [0-7 sekúndur] auglýsing framleiðsla. Í meira en 60 síður er 30 sekúndna auglýsing framleiðsla. [Meðaltal er unnin um 6 síður á sekúndu])",
           "You can export": "Þú getur flutt núverandi skrá á annan stað. Þegar útflutningur er útflutningur er alþjóðlegt auglýsing (0 ~ 5 sekúndur) spilað.",
           "Press once more to close": "Ýttu einu sinni á að loka.",
+          "Creating split compressed file": "Búa til skipta þjappað skrá ...",
         },
         "az": {
           "key": "az",
@@ -4172,6 +4209,7 @@ class Messages extends Translations {
           "If the number of pages": "(Səhifələrin sayı 60-dan azdırsa, bir interstitial [0-7 saniyə] reklamdır. 60-dan çox səhifə üçün 30 saniyəlik reklam çıxdı. [Orta saniyədə təxminən 6 səhifə))",
           "You can export": "Cari faylı başqa yerə ixrac edə bilərsiniz. Bir fayl ixrac edərkən, bir interstitial reklam (0 ~ 5 saniyə) səslənir.",
           "Press once more to close": "Bağlamaq üçün bir daha basın.",
+          "Creating split compressed file": "Split sıxılmış fayl yaratmaq ...",
         },
         "af": {
           "key": "af",
@@ -4282,6 +4320,7 @@ class Messages extends Translations {
               "(As die aantal bladsye minder as 60 is, is 'n interstisiële [0-7 sekondes] advertensie uitset. Vir meer as 60 bladsye is 'n 30-sekonde-advertensie uitset. [Gemiddelde word ongeveer 6 bladsye per sekonde verwerk])",
           "You can export": "U kan die huidige lêer na 'n ander plek uitvoer. By die uitvoer van 'n lêer word 'n interstitiële advertensie (0 ~ 5 sekondes) gespeel.",
           "Press once more to close": "Druk weer om te sluit.",
+          "Creating split compressed file": "Skepping van gesplete saamgeperste lêer ...",
         },
         "sq": {
           "key": "sq",
@@ -4392,6 +4431,7 @@ class Messages extends Translations {
               "(Nëse numri i faqeve është më pak se 60, një reklamë intersticial [0-7 sekonda] është prodhimi. Për më shumë se 60 faqe, një reklamë prej 30 sekondash është prodhuar. [Mesatarja përpunohet rreth 6 faqe për sekondë])",
           "You can export": "Ju mund të eksportoni skedarin aktual në një vend tjetër. Kur eksportohet një skedar, luhet një reklamë intersticiale (0 ~ 5 sekonda).",
           "Press once more to close": "Shtypni një herë më shumë për të mbyllur.",
+          "Creating split compressed file": "Krijimi i skedarit të ngjeshur të ndarë ...",
         },
         "am": {
           "key": "am",
@@ -4501,6 +4541,7 @@ class Messages extends Translations {
           "If the number of pages": "(ገጾች ብዛት ከ 60 በታች ከሆነ የእርሳስ 0-7 ሰከንዶች] ማስታወቂያ ከ 60 በላይ ገጾች ነው. ከ 60 በላይ ገጾች",
           "You can export": "የአሁኑን ፋይል ወደ ሌላ ቦታ ወደ ውጭ መላክ ይችላሉ. አንድ ፋይል ሲላኩ, የመብረተሪያ ማስታወቂያ (0 ~ 5 ሰከንዶች) ይጫወታል.",
           "Press once more to close": "ለመዝጋት አንዴ አንዴ ተጫን.",
+          "Creating split compressed file": "የተከፋፈለ ፋይልን መፍጠር ...",
         },
         "et": {
           "key": "et",
@@ -4611,6 +4652,7 @@ class Messages extends Translations {
               "(Kui lehekülgede arv on väiksem kui 60, interstitsiaalne [0-7 sekundit] reklaam on väljund. Rohkem kui 60 lehekülge on 30-sekundiline reklaam väljund. [Keskmine töödeldakse umbes 6 lehekülge sekundis])",
           "You can export": "Praeguse faili saate eksportida teise asukohta. Faili eksportimisel mängitakse interstitsiaalne reklaam (0 ~ 5 sekundit).",
           "Press once more to close": "Sulgemiseks vajutage veel kord.",
+          "Creating split compressed file": "Splipressitud faili loomine ...",
         },
         "en": {
           "key": "en",
@@ -4721,6 +4763,7 @@ class Messages extends Translations {
               "(If the number of pages is less than 60, an interstitial [0-7 seconds] advertisement is output. For more than 60 pages, a 30-second advertisement is output. [Average is processed about 6 pages per second])",
           "You can export": "You can export the current file to another location. When exporting a file, an interstitial advertisement (0~5 seconds) is played.",
           "Press once more to close": "Press once more to close.",
+          "Creating split compressed file": "Creating split compressed file...",
         },
         "ur": {
           "key": "ur",
@@ -4831,6 +4874,7 @@ class Messages extends Translations {
               "(اگر صفحات کی تعداد 60 سے کم ہے، تو ایک انٹرسٹنٹ [0-7 سیکنڈ] اشتہار ہے. 60 سے زائد صفحات کے لئے، ایک 30 سیکنڈ اشتہار پیداوار ہے. [اوسط تقریبا 6 صفحات فی سیکنڈ پر عملدرآمد کیا جاتا ہے)",
           "You can export": "آپ موجودہ فائل کو کسی دوسرے مقام پر برآمد کرسکتے ہیں. ایک فائل کو برآمد کرتے وقت، ایک انٹرسٹائل اشتہار (0 ~ 5 سیکنڈ) کھیلا جاتا ہے.",
           "Press once more to close": "بند کرنے کے لئے مزید ایک بار دبائیں.",
+          "Creating split compressed file": "تقسیم شدہ کمپریسڈ فائل بنانا ...",
         },
         "uk": {
           "key": "uk",
@@ -4941,6 +4985,7 @@ class Messages extends Translations {
               "(Якщо кількість сторінок становить менше 60, то проміжня реклама - більше 60 сторінок, 30-секундна реклама виводиться. [Середня обробляється близько 6 сторінок на секунду])",
           "You can export": "Ви можете експортувати поточний файл в інше місце. При експорті файлу відтворюється інтерстиціальна реклама (0 ~ 5 секунд).",
           "Press once more to close": "Натисніть ще раз, щоб закрити.",
+          "Creating split compressed file": "Створення розщепленого стисненого файлу ...",
         },
         "it": {
           "key": "it",
@@ -5051,6 +5096,7 @@ class Messages extends Translations {
               "(Se il numero di pagine è inferiore a 60, viene emesso un annuncio interstiziale [0-7 secondi]. Per più di 60 pagine viene emessa una pubblicità di 30 secondi. [La media viene elaborata circa 6 pagine al secondo])",
           "You can export": "È possibile esportare il file corrente in un'altra posizione. Quando si esporta un file, viene riprodotto un annuncio interstiziale (0 ~ 5 secondi).",
           "Press once more to close": "Premere ancora una volta per chiudere.",
+          "Creating split compressed file": "Creazione di file divisa compressa ...",
         },
         "id": {
           "key": "id",
@@ -5161,6 +5207,7 @@ class Messages extends Translations {
               "(Jika jumlah halaman kurang dari 60, iklan interstitial [0-7 detik] adalah output. Untuk lebih dari 60 halaman, iklan 30 detik adalah output. [Rata-rata diproses sekitar 6 halaman per detik])",
           "You can export": "Anda dapat mengekspor file saat ini ke lokasi lain. Saat mengekspor file, iklan interstitial (0 ~ 5 detik) dimainkan.",
           "Press once more to close": "Tekan sekali lagi untuk menutup.",
+          "Creating split compressed file": "Membuat File Terkompresi Split ...",
         },
         "ja": {
           "key": "ja",
@@ -5270,6 +5317,7 @@ class Messages extends Translations {
           "If the number of pages": "（ページ数が60未満の場合は、広告が出力されます。60ページ以上にわたり、30秒の広告が出力されます。[平均が1秒あたり約6ページ処理されます]）",
           "You can export": "現在のファイルを別の場所にエクスポートできます。ファイルをエクスポートするときは、間違い広告（0~5秒）が再生されます。",
           "Press once more to close": "もう一度閉じるにはかかります。",
+          "Creating split compressed file": "分割圧縮ファイルを作成する...",
         },
         "ka": {
           "key": "ka",
@@ -5379,6 +5427,7 @@ class Messages extends Translations {
           "If the number of pages": "(თუ გვერდების რაოდენობა 60-ზე ნაკლებია, ინტერსტიციტური [0-7 წამი] რეკლამა. 60-ზე მეტი გვერდისთვის, 30-წამიანი რეკლამა გამომავალია.",
           "You can export": "თქვენ შეგიძლიათ ექსპორტის მიმდინარე ფაილი სხვა ადგილას. ფაილის ექსპორტისას, ინტერსტიციული რეკლამა (0 ~ 5 წამი) ითამაშა.",
           "Press once more to close": "დააჭირეთ კიდევ ერთხელ დახუროს.",
+          "Creating split compressed file": "შექმნა გაყოფილი შეკუმშული ფაილი ...",
         },
         "zu": {
           "key": "zu",
@@ -5488,6 +5537,7 @@ class Messages extends Translations {
           "If the number of pages": ".",
           "You can export": "Ungathumela ifayili lamanje kwenye indawo. Lapho uthumela ifayili, ukukhangiswa okuphakathi (0 ~ 5 imizuzwana) kudlalwa.",
           "Press once more to close": "Cindezela futhi ukuvala.",
+          "Creating split compressed file": "Ukwakha ifayela elihlanganisiwe ...",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -5597,6 +5647,7 @@ class Messages extends Translations {
           "If the number of pages": "（如果页数小于60，则输出口交性[0-7秒]广告。超过60页，输出30秒的广告。[平均处理每秒约6页]）",
           "You can export": "您可以将当前文件导出到另一个位置。导出文件时，播放了夸大广告（0〜5秒）。",
           "Press once more to close": "再按一次以关闭。",
+          "Creating split compressed file": "创建拆分压缩文件...",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -5706,6 +5757,7 @@ class Messages extends Translations {
           "If the number of pages": "（如果頁數小於60，則輸出口交性[0-7秒]廣告。超過60頁，輸出30秒的廣告。[平均處理每秒約6頁]）",
           "You can export": "您可以將當前文件導出到另一個位置。導出文件時，播放了誇大廣告（0〜5秒）。",
           "Press once more to close": "再按一次以關閉。",
+          "Creating split compressed file": "創建拆分壓縮文件...",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -5815,6 +5867,7 @@ class Messages extends Translations {
           "If the number of pages": "（如果頁數小於60，則輸出口交性[0-7秒]廣告。超過60頁，輸出30秒的廣告。[平均處理每秒約6頁]）",
           "You can export": "您可以將當前文件導出到另一個位置。導出文件時，播放了誇大廣告（0〜5秒）。",
           "Press once more to close": "再按一次以關閉。",
+          "Creating split compressed file": "創建拆分壓縮文件...",
         },
         "cs": {
           "key": "cs",
@@ -5925,6 +5978,7 @@ class Messages extends Translations {
               "(Pokud je počet stran nižší než 60, intersticiální intersticiální [0-7 sekund] inzerce je výstup. Pro více než 60 stran je výstup 30 sekund. [Průměr se zpracovává asi 6 stran za sekundu])",
           "You can export": "Současný soubor můžete exportovat do jiného umístění. Při exportu souboru se hraje intersticiální reklama (0 ~ 5 sekund).",
           "Press once more to close": "Ještě jednou stiskněte.",
+          "Creating split compressed file": "Vytvoření rozděleného komprimovaného souboru ...",
         },
         "kk": {
           "key": "kk",
@@ -6035,6 +6089,7 @@ class Messages extends Translations {
               "(Егер парақтардың саны 60-тан аз болса, интерстициалды [0-7 секунд] жарнама шығарады. 60-тан астам беттен тұрады. 60-тан астам беттен тұрады, 30 секундтық жарнамалар.",
           "You can export": "Ағымдағы файлды басқа жерге экспорттауға болады. Файлды экспорттау кезінде интерстициалды жарнама (0 ~ 5 секунд) ойнатылады.",
           "Press once more to close": "Жабу үшін тағы бір рет басыңыз.",
+          "Creating split compressed file": "Бөлінген сығылған файлды құру ...",
         },
         "ca": {
           "key": "ca",
@@ -6145,6 +6200,7 @@ class Messages extends Translations {
               "(Si el nombre de pàgines és inferior a 60, un anunci intersticial [0-7 segons] és la sortida. Per a més de 60 pàgines, es produeix una publicitat de 30 segons. [La mitjana es processa aproximadament 6 pàgines per segon])",
           "You can export": "Podeu exportar el fitxer actual a un altre lloc. En exportar un fitxer, es reprodueix un anunci intersticial (0 ~ 5 segons).",
           "Press once more to close": "Premeu una vegada més per tancar.",
+          "Creating split compressed file": "Creació de fitxers comprimits dividits ...",
         },
         "kn": {
           "key": "kn",
@@ -6255,6 +6311,7 @@ class Messages extends Translations {
               "(ಪುಟಗಳ ಸಂಖ್ಯೆ 60 ಕ್ಕಿಂತ ಕಡಿಮೆಯಿದ್ದರೆ, ಒಂದು ತೆರಪಿನ [0-7 ಸೆಕೆಂಡುಗಳು] ಜಾಹೀರಾತು ಔಟ್ಪುಟ್ ಆಗಿದೆ. 60 ಕ್ಕಿಂತಲೂ ಹೆಚ್ಚು ಪುಟಗಳಿಗಾಗಿ, 30-ಸೆಕೆಂಡ್ ಜಾಹೀರಾತು ಔಟ್ಪುಟ್ ಆಗಿದೆ. [ಸರಾಸರಿ ಪ್ರತಿ ಸೆಕೆಂಡಿಗೆ 6 ಪುಟಗಳು])",
           "You can export": "ನೀವು ಪ್ರಸ್ತುತ ಫೈಲ್ ಅನ್ನು ಮತ್ತೊಂದು ಸ್ಥಳಕ್ಕೆ ರಫ್ತು ಮಾಡಬಹುದು. ಫೈಲ್ ಅನ್ನು ರಫ್ತು ಮಾಡುವಾಗ, ತೆರಪಿನ ಜಾಹೀರಾತು (0 ~ 5 ಸೆಕೆಂಡುಗಳು) ಆಡಲಾಗುತ್ತದೆ.",
           "Press once more to close": "ಮುಚ್ಚಲು ಮತ್ತೊಮ್ಮೆ ಒತ್ತಿರಿ.",
+          "Creating split compressed file": "ಸ್ಪ್ಲಿಟ್ ಸಂಕುಚಿತ ಫೈಲ್ ರಚಿಸಲಾಗುತ್ತಿದೆ ...",
         },
         "hr": {
           "key": "hr",
@@ -6365,6 +6422,7 @@ class Messages extends Translations {
               "(Ako je broj stranica manji od 60, a intersticijalni oglas je izlaz. Za više od 60 stranica, oglas za 30 sekundi je izlaz. [Prosječno se obrađuje oko 6 stranica u sekundi])",
           "You can export": "Možete izvesti trenutnu datoteku na drugo mjesto. Prilikom izvoza datoteke se reproducira intersticijska reklama (0 ~ 5 sekundi).",
           "Press once more to close": "Pritisnite još jednom za zatvaranje.",
+          "Creating split compressed file": "Stvaranje split komprimirane datoteke ...",
         },
         "km": {
           "key": "km",
@@ -6475,6 +6533,7 @@ class Messages extends Translations {
               "(ប្រសិនបើចំនួនទំព័រមានតិចជាង 60 ដែលជាការផ្សាយពាណិជ្ជកម្ម (0-7 វិនាទី] ការផ្សាយពាណិជ្ជកម្មគឺជាលទ្ធផល។ សម្រាប់ជាង 60 ទំព័រការផ្សាយពាណិជ្ជកម្មរយៈពេល 30 វិនាទីគឺជាលទ្ធផល។ [មធ្យមត្រូវបានដំណើរការប្រហែល 6 ទំព័រក្នុងមួយវិនាទី])",
           "You can export": "អ្នកអាចនាំចេញឯកសារបច្ចុប្បន្នទៅទីតាំងមួយផ្សេងទៀត។ នៅពេលនាំចេញឯកសារការផ្សាយពាណិជ្ជកម្ម interisement (0 ~ 5 វិនាទី) ត្រូវបានលេង។",
           "Press once more to close": "ចុចម្តងទៀតដើម្បីបិទ។",
+          "Creating split compressed file": "ការបង្កើតឯកសារដែលបានបង្ហាប់បំបែក ...",
         },
         "ky": {
           "key": "ky",
@@ -6585,6 +6644,7 @@ class Messages extends Translations {
               "(Эгерде барактардын саны 60тан ашпаса, анда ал эми интерстиктик бирмет болсо, анда алакам, жарнама чыгарылат. 60тан ашуун 60тан ашык, 30 секунддук жарнама, бир секундасына 6 беттен турат]",
           "You can export": "Учурдагы файлды башка жерге экспорттой аласыз. Файлды экспорттоодо интерстикалык жарнама (0 ~ 5 секунда) ойнолот.",
           "Press once more to close": "Дагы бир жолу басыңыз.",
+          "Creating split compressed file": "Бөлүнгөн кысылган файлды түзүү ...",
         },
         "ta": {
           "key": "ta",
@@ -6695,6 +6755,7 @@ class Messages extends Translations {
               "(பக்கங்களின் எண்ணிக்கை 60 க்கும் குறைவாக இருந்தால், ஒரு இடைவெளி [0-7 விநாடிகள்] விளம்பரம் வெளியீடு ஆகும். 60 க்கும் மேற்பட்ட பக்கங்கள், ஒரு 30-இரண்டாவது விளம்பரம் வெளியீடு ஆகும். [சராசரியாக 6 பக்கங்களுக்கு சராசரியாக செயல்படுத்தப்படுகிறது]",
           "You can export": "தற்போதைய கோப்பை மற்றொரு இடத்திற்கு ஏற்றுமதி செய்யலாம். ஒரு கோப்பை ஏற்றுமதி செய்யும் போது, ​​ஒரு இடைநிலை விளம்பரம் (0 ~ 5 விநாடிகள்) விளையாடியது.",
           "Press once more to close": "மூடுவதற்கு ஒருமுறை அழுத்தவும்.",
+          "Creating split compressed file": "பிளவு சுருக்கப்பட்ட கோப்பை உருவாக்குதல் ...",
         },
         "th": {
           "key": "th",
@@ -6805,6 +6866,7 @@ class Messages extends Translations {
               "(หากจำนวนหน้าน้อยกว่า 60 โฆษณาคั่นระหว่างหน้า [0-7 วินาที] เป็นเอาต์พุตเป็นเวลามากกว่า 60 หน้าโฆษณา 30 วินาทีจะถูกส่งออก [ค่าเฉลี่ยจะดำเนินการประมาณ 6 หน้าต่อวินาที])",
           "You can export": "คุณสามารถส่งออกไฟล์ปัจจุบันไปยังตำแหน่งอื่น เมื่อส่งออกไฟล์โฆษณาคั่นระหว่างคั่นระหว่าง (0 ~ 5 วินาที) เล่น",
           "Press once more to close": "กดอีกครั้งเพื่อปิด",
+          "Creating split compressed file": "การสร้างไฟล์บีบอัดแยก ...",
         },
         "tr": {
           "key": "tr",
@@ -6915,6 +6977,7 @@ class Messages extends Translations {
               "(Sayfa sayısı 60'tan azsa, bir interstisyal [0-7 saniye] reklam verilir. 60'tan fazla sayfa için, 30 saniyelik bir reklam çıktıdır. [Ortalama saniyede yaklaşık 6 sayfa işlenir])",
           "You can export": "Mevcut dosyayı başka bir yere verebilirsiniz. Bir dosyayı dışa aktarırken, interstisyel bir reklam (0 ~ 5 saniye) oynatılır.",
           "Press once more to close": "Kapatmak için bir kez daha basın.",
+          "Creating split compressed file": "Split Sıkıştırılmış Dosya Oluşturma ...",
         },
         "te": {
           "key": "te",
@@ -7025,6 +7088,7 @@ class Messages extends Translations {
               "(పేజీల సంఖ్య 60 కంటే తక్కువగా ఉంటే, ఒక మధ్యంతర [0-7 సెకన్లు] అవుట్పుట్ అవుట్పుట్ అవుతుంది. 60 కంటే ఎక్కువ పేజీల కోసం, ఒక 30-సెకనుల ప్రకటన అవుట్పుట్. [సగటున 6 పేజీల గురించి సగటున]",
           "You can export": "మీరు ప్రస్తుత ఫైల్ను మరొక స్థానానికి ఎగుమతి చేయవచ్చు. ఒక ఫైల్ ఎగుమతి చేసినప్పుడు, ఒక మధ్యంతర ప్రకటన (0 ~ 5 సెకన్లు) ఆడతారు.",
           "Press once more to close": "మూసివేయడానికి మరోసారి నొక్కండి.",
+          "Creating split compressed file": "స్ప్లిట్ కంప్రెస్డ్ ఫైల్ను సృష్టిస్తోంది ...",
         },
         "pa": {
           "key": "pa",
@@ -7134,6 +7198,7 @@ class Messages extends Translations {
           "If the number of pages": "(ਜੇ ਪੇਜਾਂ ਦੀ ਗਿਣਤੀ 60 ਤੋਂ ਘੱਟ, ਇਕ ਇੰਟਰਸਟੀਸ਼ੀਅਲ [0-7 ਸਕਿੰਟ] ਆਉਟਪੁੱਟ ਹੁੰਦੀ ਹੈ. 60 ਤੋਂ ਵੱਧ ਪੰਨਿਆਂ ਲਈ, 30 ਸਕਿੰਟ ਇਸ਼ਤਿਹਾਰਬਾਜ਼ੀ ਪ੍ਰਤੀ ਸਕਿੰਟ 'ਤੇ ਕਾਰਵਾਈ ਕੀਤੀ ਜਾਂਦੀ ਹੈ])",
           "You can export": "ਤੁਸੀਂ ਮੌਜੂਦਾ ਫਾਇਲ ਨੂੰ ਕਿਸੇ ਹੋਰ ਥਾਂ ਤੇ ਨਿਰਯਾਤ ਕਰ ਸਕਦੇ ਹੋ. ਜਦੋਂ ਇੱਕ ਫਾਈਲ ਨਿਰਯਾਤ ਕਰਦੇ ਹੋ, ਇੱਕ ਇੰਟਰਸਟੀਸ਼ੀਅਲ ਇਸ਼ਤਿਹਾਰਬਾਜ਼ੀ (0 ~ 5 ਸਕਿੰਟ) ਖੇਡੀ ਜਾਂਦੀ ਹੈ.",
           "Press once more to close": "ਇਕ ਵਾਰ ਫਿਰ ਬੰਦ ਕਰਨ ਲਈ ਦਬਾਓ.",
+          "Creating split compressed file": "ਸਪਲਿਟ ਸੰਕੁਚਿਤ ਫਾਈਲ ਬਣਾਉਣਾ ...",
         },
         "fa": {
           "key": "fa",
@@ -7244,6 +7309,7 @@ class Messages extends Translations {
               "(اگر تعداد صفحات کمتر از 60 باشد، تبلیغات بینابینی [0-7 ثانیه] خروجی است. برای بیش از 60 صفحه، یک تبلیغ 30 ثانیه خروجی است. [میانگین حدود 6 صفحه در هر ثانیه پردازش می شود])",
           "You can export": "شما می توانید فایل فعلی را به مکان دیگری صادر کنید. هنگام صادرات یک فایل، یک تبلیغات بینابینی (0 تا 5 ثانیه) پخش می شود.",
           "Press once more to close": "یک بار دیگر را فشار دهید تا نزدیک شود",
+          "Creating split compressed file": "ایجاد فایل فشرده تقسیم شده ...",
         },
         "pt": {
           "key": "pt",
@@ -7354,6 +7420,7 @@ class Messages extends Translations {
               "(Se o número de páginas for inferior a 60, um anúncio intersticial [0-7 segundos] é emitido. Para mais de 60 páginas, um anúncio de 30 segundos é a saída. [Média é processada cerca de 6 páginas por segundo])",
           "You can export": "Você pode exportar o arquivo atual para outro local. Ao exportar um arquivo, um anúncio intersticial (0 ~ 5 segundos) é reproduzido.",
           "Press once more to close": "Pressione mais uma vez para fechar.",
+          "Creating split compressed file": "Criando um arquivo compactado dividido ...",
         },
         "pl": {
           "key": "pl",
@@ -7463,6 +7530,7 @@ class Messages extends Translations {
           "If the number of pages": "(Jeśli liczba stron jest mniejsza niż 60, reklama śródmiąższowa [0-7 sekund] jest wysyłana.",
           "You can export": "Możesz wyeksportować bieżący plik do innej lokalizacji. Podczas eksportowania pliku rozgrywana jest reklama śródmiążna (0 ~ 5 sekund).",
           "Press once more to close": "Naciśnij jeszcze raz, aby się zamknąć.",
+          "Creating split compressed file": "Tworzenie podziałowego pliku sprężonego ...",
         },
         "fr": {
           "key": "fr",
@@ -7573,6 +7641,7 @@ class Messages extends Translations {
               "(Si le nombre de pages est inférieur à 60, une publicité interstitielle [0-7 secondes] est sortie. Pour plus de 60 pages, une publicité de 30 secondes est sortie. [La moyenne est traitée environ 6 pages par seconde])",
           "You can export": "Vous pouvez exporter le fichier actuel vers un autre emplacement. Lors de l'exportation d'un fichier, une publicité interstitielle (0 ~ 5 secondes) est jouée.",
           "Press once more to close": "Appuyez une fois de plus pour fermer.",
+          "Creating split compressed file": "Créer un fichier compressé divisé ...",
         },
         "fi": {
           "key": "fi",
@@ -7682,6 +7751,7 @@ class Messages extends Translations {
           "If the number of pages": "#VALUE!",
           "You can export": "Voit viedä nykyisen tiedoston toiseen paikkaan. Tiedoston vientiä, interstitiaalinen mainos (0 ~ 5 sekuntia) toistetaan.",
           "Press once more to close": "Paina vielä kerran sulkeaksesi.",
+          "Creating split compressed file": "Split-pakatun tiedoston luominen ...",
         },
         "fil": {
           "key": "fil",
@@ -7792,6 +7862,7 @@ class Messages extends Translations {
               "(Kung ang bilang ng mga pahina ay mas mababa sa 60, isang interstitial [0-7 segundo] Ang advertisement ay output. Para sa higit sa 60 mga pahina, ang isang 30-ikalawang advertisement ay output. [Average ay naproseso tungkol sa 6 na pahina bawat segundo])",
           "You can export": "Maaari mong i-export ang kasalukuyang file sa ibang lokasyon. Kapag nag-export ng isang file, ang isang interstitial advertisement (0 ~ 5 segundo) ay nilalaro.",
           "Press once more to close": "Pindutin ang isang beses pa upang isara.",
+          "Creating split compressed file": "Paglikha ng Split Compressed File ...",
         },
         "hu": {
           "key": "hu",
@@ -7902,6 +7973,7 @@ class Messages extends Translations {
               "(Ha az oldalak száma 60-nál kisebb, akkor az interstitialis [0-7 másodperc] reklám kimenet. Több mint 60 oldal, egy 30 másodperces hirdetés a kimenet. [Az átlagot körülbelül 6 oldal / másodpercenként feldolgozzák)",
           "You can export": "Az aktuális fájlt egy másik helyre exportálhatja. Fájl exportálásakor az intersticiális hirdetés (0 ~ 5 másodperc) lejátszásra kerül.",
           "Press once more to close": "Nyomja meg egyszer a bezárás gombot.",
+          "Creating split compressed file": "Split tömörített fájl létrehozása ...",
         },
         "iw": {
           "key": "iw",
@@ -8011,6 +8083,7 @@ class Messages extends Translations {
           "If the number of pages": "(אם מספר הדפים הוא פחות מ -60, פרסומת [0-7 שניות] היא פלט. במשך יותר מ -60 עמודים, פרסומת של 30 שניות היא פלט. [ממוצע מעובד על 6 עמודים לשנייה])",
           "You can export": "ניתן לייצא את הקובץ הנוכחי למיקום אחר. בעת ייצוא קובץ, פרסומת interstitial (0 ~ 5 שניות) הוא שיחק.",
           "Press once more to close": "לחץ שוב כדי לסגור.",
+          "Creating split compressed file": "יצירת פיצול קובץ דחוס ...",
         },
         "hi": {
           "key": "hi",
@@ -8121,6 +8194,7 @@ class Messages extends Translations {
               "(यदि पृष्ठों की संख्या 60 से कम है, तो इंटरस्टिशियल [0-7 सेकंड] विज्ञापन आउटपुट है। 60 से अधिक पृष्ठों के लिए, 30-सेकंड का विज्ञापन आउटपुट है। [औसत प्रति सेकंड 6 पृष्ठों के बारे में संसाधित किया जाता है])",
           "You can export": "आप वर्तमान फ़ाइल को किसी अन्य स्थान पर निर्यात कर सकते हैं। एक फ़ाइल निर्यात करते समय, एक इंटरस्टिशियल विज्ञापन (0 ~ 5 सेकंड) खेला जाता है।",
           "Press once more to close": "बंद करने के लिए एक बार और दबाएं।",
+          "Creating split compressed file": "विभाजित संपीड़ित फ़ाइल बनाना ...",
         },
       };
 }

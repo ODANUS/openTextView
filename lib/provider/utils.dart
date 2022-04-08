@@ -24,7 +24,7 @@ extension Iterables<E> on Iterable<E> {
 class Utils {
   static String newLineTheoremStr(String tmpStr) {
     var strList = tmpStr.split("\n");
-    strList = strList.getRange(0, 100).toList();
+    // strList = strList.getRange(0, 100).toList();
 
     List<String> rtnStr = [];
 

@@ -126,17 +126,17 @@ class OcrPage extends GetView {
                               total(fileList.length);
                               if (fileList.length <= 60) {
                                 if (!await AdCtl.startInterstitialAd()) {
-                                  total(0);
-                                  return;
+                                  // total(0);
+                                  // return;
                                 }
                               }
                               if (fileList.length > 60) {
                                 if (!await AdCtl.startRewardedAd()) {
-                                  total(0);
-                                  return;
+                                  // total(0);
+                                  // return;
                                 }
                               }
-
+                              print(DateTime.now());
                               for (var file in fileList) {
                                 var idx = fileList.indexOf(file);
                                 var inputImage = InputImage.fromFile(file);
@@ -159,6 +159,7 @@ class OcrPage extends GetView {
                               if (tmpDir.existsSync()) {
                                 tmpDir.deleteSync(recursive: true);
                               }
+                              print(DateTime.now());
 
                               Get.back(result: rtnStr);
                             },
