@@ -136,7 +136,7 @@ class OcrPage extends GetView {
                                   // return;
                                 }
                               }
-                              print(DateTime.now());
+
                               for (var file in fileList) {
                                 var idx = fileList.indexOf(file);
                                 var inputImage = InputImage.fromFile(file);
@@ -159,7 +159,6 @@ class OcrPage extends GetView {
                               if (tmpDir.existsSync()) {
                                 tmpDir.deleteSync(recursive: true);
                               }
-                              print(DateTime.now());
 
                               Get.back(result: rtnStr);
                             },

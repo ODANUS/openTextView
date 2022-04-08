@@ -71,7 +71,6 @@ class LibraryPage extends GetView {
   }
 
   Future<bool> ocrZipFile(File f) async {
-    print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
     var pathList = f.path.split("/");
     var path = pathList.sublist(0, pathList.length - 1).join("/");
     var fileName = pathList.last.split(".").first;
