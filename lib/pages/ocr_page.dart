@@ -127,15 +127,15 @@ class OcrPage extends GetView {
                               if (fileList.length <= 60) {
                                 AdCtl.startInterstitialAd();
                                 // if (!await AdCtl.startInterstitialAd()) {
-                                //   total(0);
-                                //   return;
+                                //   //   total(0);
+                                //   //   return;
                                 // }
                               }
                               if (fileList.length > 60) {
                                 AdCtl.startRewardedAd();
                                 // if (!await AdCtl.startRewardedAd()) {
-                                //   total(0);
-                                //   return;
+                                //   //   total(0);
+                                //   //   return;
                                 // }
                               }
 

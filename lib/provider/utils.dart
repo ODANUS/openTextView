@@ -65,10 +65,10 @@ class Utils {
 
       // v = v.replaceAllMapped(startCon1, (match) => "▤▤▤&&&‘");
       v = v.replaceAllMapped(startCon2, (match) => "▤▤▤&&&-");
-      v = v.replaceAllMapped(startCon3, (match) => "&&&▤▤▤“");
-      v = v.replaceAllMapped(startCon4, (match) => "&&&▤▤▤\"");
+      v = v.replaceAllMapped(startCon3, (match) => "&&&▒▒▒“");
+      v = v.replaceAllMapped(startCon4, (match) => "&&&▒▒▒\"");
 
-      if (!v.contains("&&&▤▤▤") && Get.locale?.languageCode == "ko") {
+      if (!v.contains("&&&▒▒▒") && Get.locale?.languageCode == "ko") {
         v = v.replaceAllMapped(endLine, (match) => "다.▤▤▤&&&");
       } else if (Get.locale?.languageCode != "ko") {
         v = v.replaceAllMapped(endLine, (match) => ".▤▤▤&&&");
@@ -88,8 +88,8 @@ class Utils {
 
       v = v.trim();
 
-      v = v.replaceAll("&&&▤▤▤", "\n\n");
       v = v.replaceAll("▤▤▤&&&", "\n\n");
+      v = v.replaceAll("&&&▒▒▒", "\n\n");
 
       rtnStr.add(v);
     });
