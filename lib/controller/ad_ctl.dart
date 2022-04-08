@@ -83,7 +83,7 @@ class AdCtl {
   static initRewardedAd() {
     Completer<bool> c = Completer<bool>();
     RewardedAd.load(
-        adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/5354046379' : 'ca-app-pub-6280862087797110/1667025028',
+        adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/5224354917' : 'ca-app-pub-6280862087797110/1667025028',
         request: AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd ad) {
