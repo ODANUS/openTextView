@@ -33,7 +33,15 @@ class OcrPage extends GetView {
           return Future(() => false);
         },
         child: Scaffold(
-          appBar: AppBar(leadingWidth: 0, leading: Text(""), title: Text("OCR")),
+          appBar: AppBar(
+            leadingWidth: 0,
+            leading: Text(""),
+            title: Text("OCR"),
+            bottom: PreferredSize(
+              preferredSize: Size(Get.width, 50),
+              child: AdBanner(key: Key("history")),
+            ),
+          ),
           body: Stack(
             children: [
               Obx(() {

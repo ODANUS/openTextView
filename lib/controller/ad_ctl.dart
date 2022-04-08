@@ -31,8 +31,6 @@ class AdBanner extends GetView {
   Widget build(BuildContext context) {
     // print(">>>>>>>>>>>>>>>>>>>>>>>>>");
     return Obx(() {
-      // print("create = =======================");
-
       if (_bannerAd.value != null) {
         return Container(
           width: Get.width,
@@ -50,7 +48,7 @@ class AdBanner extends GetView {
 
 class AdCtl {
   static AdManagerInterstitialAd? _interstitialAd;
-  static RewardedInterstitialAd? _rewardedAd;
+  static RewardedAd? _rewardedAd;
 
   static init() {
     MobileAds.instance.initialize().then((value) {
@@ -79,11 +77,11 @@ class AdCtl {
   }
 
   static initRewardedAd() {
-    RewardedInterstitialAd.load(
-        adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/5354046379' : 'ca-app-pub-6280862087797110/1717575038',
+    RewardedAd.load(
+        adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/5354046379' : 'ca-app-pub-6280862087797110/1667025028',
         request: AdRequest(),
-        rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
-          onAdLoaded: (RewardedInterstitialAd ad) {
+        rewardedAdLoadCallback: RewardedAdLoadCallback(
+          onAdLoaded: (RewardedAd ad) {
             _rewardedAd = ad;
           },
           onAdFailedToLoad: (LoadAdError error) {
@@ -101,6 +99,9 @@ class AdCtl {
   }
 
   static bool hasOpenInterstitialAd() {
+    if (_interstitialAd == null) {
+      initInterstitialAd();
+    }
     return _interstitialAd != null;
   }
 
@@ -126,20 +127,20 @@ class AdCtl {
         ElevatedButton(
             onPressed: () {
               Get.back();
-              _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
-                  onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
-                  onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+              _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+                  onAdShowedFullScreenContent: (RewardedAd ad) {},
+                  onAdDismissedFullScreenContent: (RewardedAd ad) async {
                     await ad.dispose();
 
                     c.complete(true);
                     initInterstitialAd();
                   },
-                  onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+                  onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
                     await ad.dispose();
                     c.complete(true);
                     initInterstitialAd();
                   },
-                  onAdImpression: (AdManagerInterstitialAd ad) {
+                  onAdImpression: (RewardedAd ad) {
                     print("onAdImpression");
                   });
               _interstitialAd?.show();
@@ -193,12 +194,16 @@ class AdCtl {
         onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
         onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
           await ad.dispose();
-          initInterstitialAd();
+          Future.delayed(Duration(seconds: 5), () {
+            initInterstitialAd();
+          });
           // c.complete(true);
         },
         onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
           await ad.dispose();
-          initInterstitialAd();
+          Future.delayed(Duration(seconds: 5), () {
+            initInterstitialAd();
+          });
           // c.complete(true);
         },
         onAdImpression: (AdManagerInterstitialAd ad) {});
@@ -207,13 +212,13 @@ class AdCtl {
 
   static void startRewardedAd() {
     _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
-      onAdDismissedFullScreenContent: (RewardedInterstitialAd ad) async {
+      onAdDismissedFullScreenContent: (RewardedAd ad) async {
         await ad.dispose();
         Future.delayed(Duration(seconds: 5), () {
           initRewardedAd();
         });
       },
-      onAdFailedToShowFullScreenContent: (RewardedInterstitialAd ad, AdError error) async {
+      onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
         await ad.dispose();
         Future.delayed(Duration(seconds: 5), () {
           initRewardedAd();

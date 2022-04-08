@@ -79,7 +79,7 @@ class Utils {
       v = v.replaceAllMapped(endSpecialCon5, (match) => "\\!▤▤▤&&&");
 
       v = v.trim();
-      v = v.replaceAll("▤▤▤&&&", "\n");
+      v = v.replaceAll("▤▤▤&&&", "\n\n");
       rtnStr.add(v);
     });
     // d.log(rtnStr.join(""));

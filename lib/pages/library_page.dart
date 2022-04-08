@@ -43,17 +43,17 @@ class LibraryPage extends GetView {
     return false;
   }
 
-  Future<bool> saveAs(File f) async {
-    if (!AdCtl.hasOpenInterstitialAd()) {
-      return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-    }
-    var rtn = await AdCtl.openSaveAsAd();
-    if (rtn) {
-      final params = SaveFileDialogParams(sourceFilePath: f.path);
-      await FlutterFileDialog.saveFile(params: params);
-    }
-    return true;
-  }
+  // Future<bool> saveAs(File f) async {
+  //   if (!AdCtl.hasOpenRewardedInterstitialAd()) {
+  //     return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+  //   }
+  //   var rtn = await AdCtl.openSaveAsAd();
+  //   if (rtn) {
+  //     final params = SaveFileDialogParams(sourceFilePath: f.path);
+  //     await FlutterFileDialog.saveFile(params: params);
+  //   }
+  //   return true;
+  // }
 
   Future<bool> epubConv(File f) async {
     var rtn = await AdCtl.openInterstitialAdEpubConv();
@@ -315,7 +315,7 @@ class LibraryPage extends GetView {
                                         }
                                         return Card(
                                           child: ExpansionTile(
-                                            key: Key("a${Random().nextInt(100000)}"),
+                                            key: Key("file${Random().nextInt(100000)}"),
                                             title: Text(name),
                                             subtitle: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -352,6 +352,15 @@ class LibraryPage extends GetView {
                                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                       children: [
                                                         ElevatedButton(
+                                                          style: ElevatedButton.styleFrom(primary: Colors.blue, padding: EdgeInsets.all(1)),
+                                                          onPressed: () async {
+                                                            if (await newLineTheorem(file)) {
+                                                              reloadFn(!reloadValue!);
+                                                            }
+                                                          },
+                                                          child: Text("newline theorem".tr, style: TextStyle(fontSize: 13)),
+                                                        ),
+                                                        ElevatedButton(
                                                           style: ElevatedButton.styleFrom(primary: Colors.red),
                                                           onPressed: () {
                                                             file.deleteSync();
@@ -376,27 +385,27 @@ class LibraryPage extends GetView {
                                                         ),
                                                       ],
                                                     ),
-                                                    Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                      children: [
-                                                        ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                          onPressed: () async {
-                                                            if (await newLineTheorem(file)) {
-                                                              reloadFn(!reloadValue!);
-                                                            }
-                                                          },
-                                                          child: Text("newline theorem".tr),
-                                                        ),
-                                                        ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                          onPressed: () {
-                                                            saveAs(file);
-                                                          },
-                                                          child: Text("save as".tr),
-                                                        ),
-                                                      ],
-                                                    ),
+                                                    // Row(
+                                                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                    //   children: [
+                                                    //     ElevatedButton(
+                                                    //       style: ElevatedButton.styleFrom(primary: Colors.blue),
+                                                    //       onPressed: () async {
+                                                    //         if (await newLineTheorem(file)) {
+                                                    //           reloadFn(!reloadValue!);
+                                                    //         }
+                                                    //       },
+                                                    //       child: Text("newline theorem".tr),
+                                                    //     ),
+                                                    //     // ElevatedButton(
+                                                    //     //   style: ElevatedButton.styleFrom(primary: Colors.blue),
+                                                    //     //   onPressed: () {
+                                                    //     //     saveAs(file);
+                                                    //     //   },
+                                                    //     //   child: Text("save as".tr),
+                                                    //     // ),
+                                                    //   ],
+                                                    // ),
                                                     // if (Get.locale?.languageCode == "ko")
                                                   ],
                                                 );
