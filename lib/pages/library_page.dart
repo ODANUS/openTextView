@@ -17,7 +17,7 @@ import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;
 
-final MAXOCRCNT = 1000;
+const int MAXOCRCNT = 1000;
 
 class LibraryPage extends GetView {
   List<String> sortList = ["name", "size", "date", "access"];
@@ -119,7 +119,7 @@ class LibraryPage extends GetView {
             encoder.addFile(tmpFile);
           }
           total++;
-          if (cnt++ >= MAXOCRCNT - 1) {
+          if (cnt++ >= MAXOCRCNT) {
             cnt = 0;
           }
         }
