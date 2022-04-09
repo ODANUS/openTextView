@@ -7,6 +7,7 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:collection/collection.dart' show compareNatural;
 
 class OcrPage extends GetView {
   OcrPage() {
@@ -18,7 +19,13 @@ class OcrPage extends GetView {
           fileList.add(e);
         }
       });
+      fileList.sort((a, b) {
+        var aName = a.path.split("ocr/").last;
+        var bName = b.path.split("ocr/").last;
+        return compareNatural(aName, bName);
+      });
     });
+    // return compareNatural(a.name, b.name);
   }
   RxList<File> fileList = RxList<File>();
   Rx<int> lang = 4.obs;
@@ -45,6 +52,9 @@ class OcrPage extends GetView {
           body: Stack(
             children: [
               Obx(() {
+                // fileList.forEach((e) {
+                //   print(e.path);
+                // });
                 return Column(children: [
                   Card(
                       child: ListTile(

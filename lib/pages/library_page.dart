@@ -15,6 +15,7 @@ import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:collection/collection.dart' show compareNatural;
 
 class LibraryPage extends GetView {
   List<String> sortList = ["name", "size", "date", "access"];
@@ -85,6 +86,10 @@ class LibraryPage extends GetView {
     }
     tmpDir.createSync(recursive: true);
 
+    archive.files.sort((a, b) {
+      return compareNatural(a.name, b.name);
+    });
+
     if (archive.length > 510) {
       AdCtl.startInterstitialAd();
       IsarCtl.unzipTotal(archive.length);
@@ -92,6 +97,7 @@ class LibraryPage extends GetView {
       var cnt = 0;
       var total = 0;
       ZipFileEncoder encoder = ZipFileEncoder();
+
       try {
         for (var file in archive) {
           if (cnt == 0) {
