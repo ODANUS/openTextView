@@ -119,7 +119,7 @@ class LibraryPage extends GetView {
             encoder.addFile(tmpFile);
           }
           total++;
-          if (cnt++ >= MAXOCRCNT) {
+          if (cnt++ >= MAXOCRCNT - 1) {
             cnt = 0;
           }
         }
@@ -220,6 +220,21 @@ class LibraryPage extends GetView {
             ),
             body: Stack(
               children: [
+                IsarCtl.rxSetting((_, setting) {
+                  return Container(
+                    width: Get.width,
+                    height: Get.height,
+                    decoration: BoxDecoration(
+                      image: setting.bgIdx <= 0
+                          ? null
+                          : DecorationImage(
+                              fit: BoxFit.cover,
+                              colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
+                              image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+                            ),
+                    ),
+                  );
+                }),
                 StreamBuilder<Directory>(
                     stream: getTemporaryDirectory().asStream(),
                     builder: (context, snapshot) {

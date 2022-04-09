@@ -132,6 +132,8 @@ class SettingIsar {
     this.paddingRight = 10,
     this.paddingTop = 10,
     this.paddingBottom = 10,
+    this.bgIdx = 0,
+    this.bgFilter = 0x00FFFFFF,
   });
   int id = Isar.autoIncrement;
   int fontWeight;
@@ -158,6 +160,8 @@ class SettingIsar {
   double paddingRight = 10;
   double paddingTop = 10;
   double paddingBottom = 10;
+  int bgIdx = 0;
+  int bgFilter = 0x00FFFFFF;
 
   factory SettingIsar.fromJson(String str) => SettingIsar.fromMap(json.decode(str));
 
@@ -189,6 +193,8 @@ class SettingIsar {
       paddingRight: json["paddingRight"] ?? 10,
       paddingTop: json["paddingTop"] ?? 10,
       paddingBottom: json["paddingBottom"] ?? 10,
+      bgIdx: json["bgIdx"] ?? 0,
+      bgFilter: json["bgFilter"] ?? 0x00FFFFFF,
     );
   }
 
@@ -217,6 +223,8 @@ class SettingIsar {
         "paddingRight": paddingRight,
         "paddingTop": paddingTop,
         "paddingBottom": paddingBottom,
+        "bgIdx": bgIdx,
+        "bgFilter": bgFilter,
       };
 }
 

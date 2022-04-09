@@ -193,7 +193,7 @@ class TextViewerPainter extends CustomPainter {
 
     pPer.paint(canvas, Offset(0, offsetY - perHeight));
     p.paint(canvas, Offset(0, offsetY));
-    // ctl.test(pPer, p);
+
     var perPos = pPer.text!.toPlainText().length;
 
     var maxPos = p.text!.toPlainText().length;
@@ -201,15 +201,15 @@ class TextViewerPainter extends CustomPainter {
     ctl.maxPos = pos + maxPos;
 
     var po = pos + p.getPositionForOffset(Offset(0, -offsetY)).offset;
-    var perPo = pos - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(pPer.width, pPer.height - (offsetY))).offset);
+    var perPo = pos - (perText.length - pPer.getPositionForOffset(Offset(pPer.width, pPer.height - (offsetY))).offset);
 
     if (pos != po) {
       var l = p.computeLineMetrics();
       ctl.setCntntPstn(po, offsetY: offsetY + l.first.height);
-    } else if (pos != perPo) {
+    } else if (pos != perPo && (po - perPo).abs() > 1) {
       var l = pPer.computeLineMetrics();
       var tmppos = pos - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(0, pPer.height - (offsetY))).offset);
-      ctl.setCntntPstn(tmppos, offsetY: offsetY - (l.last.height));
+      ctl.setCntntPstn(tmppos, offsetY: offsetY - (l.last.height * 2));
     }
   }
 

@@ -14,6 +14,8 @@ class ReadPage extends GetView {
     return Scaffold(
         appBar: AppBar(
             toolbarHeight: 30.h,
+            // backgroundColor: Colors.transparent,
+            // elevation: 0,
             title: InkWell(
               onTap: () {},
               child: IsarCtl.rxLastHistory(
@@ -42,7 +44,9 @@ class ReadPage extends GetView {
                 },
               ),
               Obx(
-                () => InkWell(onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value), child: Icon(IsarCtl.bSetting.value ? Icons.cancel : Icons.settings_outlined)),
+                () => InkWell(
+                    onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value),
+                    child: Icon(IsarCtl.bSetting.value ? Icons.cancel : Icons.settings_outlined)),
               ),
 
               SizedBox(width: 5),
@@ -85,7 +89,17 @@ class ReadPage extends GetView {
                 return Container(
                     width: Get.width,
                     height: Get.height,
-                    color: Color(setting.backgroundColor),
+                    // color: Color(setting.backgroundColor),
+                    decoration: BoxDecoration(
+                      color: Color(setting.backgroundColor),
+                      image: setting.bgIdx <= 0
+                          ? null
+                          : DecorationImage(
+                              fit: BoxFit.cover,
+                              colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
+                              image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+                            ),
+                    ),
                     padding: EdgeInsets.only(
                       left: setting.paddingLeft,
                       right: setting.paddingRight,

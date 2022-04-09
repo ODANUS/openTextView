@@ -1972,7 +1972,7 @@ extension GetSettingIsarCollection on Isar {
 final SettingIsarSchema = CollectionSchema(
   name: 'SettingIsar',
   schema:
-      '{"name":"SettingIsar","idName":"id","properties":[{"name":"audioduck","type":"Bool"},{"name":"audiosession","type":"Bool"},{"name":"backgroundColor","type":"Long"},{"name":"customFont","type":"String"},{"name":"enablescroll","type":"Bool"},{"name":"fontColor","type":"Long"},{"name":"fontFamily","type":"String"},{"name":"fontHeight","type":"Double"},{"name":"fontSize","type":"Double"},{"name":"fontWeight","type":"Long"},{"name":"groupcnt","type":"Long"},{"name":"headsetbutton","type":"Bool"},{"name":"lastDevVersion","type":"String"},{"name":"letterSpacing","type":"Double"},{"name":"paddingBottom","type":"Double"},{"name":"paddingLeft","type":"Double"},{"name":"paddingRight","type":"Double"},{"name":"paddingTop","type":"Double"},{"name":"pitch","type":"Double"},{"name":"speechRate","type":"Double"},{"name":"theme","type":"String"},{"name":"touchLayout","type":"Long"},{"name":"useClipboard","type":"Bool"},{"name":"volume","type":"Double"}],"indexes":[],"links":[]}',
+      '{"name":"SettingIsar","idName":"id","properties":[{"name":"audioduck","type":"Bool"},{"name":"audiosession","type":"Bool"},{"name":"backgroundColor","type":"Long"},{"name":"bgFilter","type":"Long"},{"name":"bgIdx","type":"Long"},{"name":"customFont","type":"String"},{"name":"enablescroll","type":"Bool"},{"name":"fontColor","type":"Long"},{"name":"fontFamily","type":"String"},{"name":"fontHeight","type":"Double"},{"name":"fontSize","type":"Double"},{"name":"fontWeight","type":"Long"},{"name":"groupcnt","type":"Long"},{"name":"headsetbutton","type":"Bool"},{"name":"lastDevVersion","type":"String"},{"name":"letterSpacing","type":"Double"},{"name":"paddingBottom","type":"Double"},{"name":"paddingLeft","type":"Double"},{"name":"paddingRight","type":"Double"},{"name":"paddingTop","type":"Double"},{"name":"pitch","type":"Double"},{"name":"speechRate","type":"Double"},{"name":"theme","type":"String"},{"name":"touchLayout","type":"Long"},{"name":"useClipboard","type":"Bool"},{"name":"volume","type":"Double"}],"indexes":[],"links":[]}',
   nativeAdapter: const _SettingIsarNativeAdapter(),
   webAdapter: const _SettingIsarWebAdapter(),
   idName: 'id',
@@ -1980,27 +1980,29 @@ final SettingIsarSchema = CollectionSchema(
     'audioduck': 0,
     'audiosession': 1,
     'backgroundColor': 2,
-    'customFont': 3,
-    'enablescroll': 4,
-    'fontColor': 5,
-    'fontFamily': 6,
-    'fontHeight': 7,
-    'fontSize': 8,
-    'fontWeight': 9,
-    'groupcnt': 10,
-    'headsetbutton': 11,
-    'lastDevVersion': 12,
-    'letterSpacing': 13,
-    'paddingBottom': 14,
-    'paddingLeft': 15,
-    'paddingRight': 16,
-    'paddingTop': 17,
-    'pitch': 18,
-    'speechRate': 19,
-    'theme': 20,
-    'touchLayout': 21,
-    'useClipboard': 22,
-    'volume': 23
+    'bgFilter': 3,
+    'bgIdx': 4,
+    'customFont': 5,
+    'enablescroll': 6,
+    'fontColor': 7,
+    'fontFamily': 8,
+    'fontHeight': 9,
+    'fontSize': 10,
+    'fontWeight': 11,
+    'groupcnt': 12,
+    'headsetbutton': 13,
+    'lastDevVersion': 14,
+    'letterSpacing': 15,
+    'paddingBottom': 16,
+    'paddingLeft': 17,
+    'paddingRight': 18,
+    'paddingTop': 19,
+    'pitch': 20,
+    'speechRate': 21,
+    'theme': 22,
+    'touchLayout': 23,
+    'useClipboard': 24,
+    'volume': 25
   },
   listProperties: {},
   indexIds: {},
@@ -2029,6 +2031,8 @@ class _SettingIsarWebAdapter extends IsarWebTypeAdapter<SettingIsar> {
     IsarNative.jsObjectSet(jsObj, 'audioduck', object.audioduck);
     IsarNative.jsObjectSet(jsObj, 'audiosession', object.audiosession);
     IsarNative.jsObjectSet(jsObj, 'backgroundColor', object.backgroundColor);
+    IsarNative.jsObjectSet(jsObj, 'bgFilter', object.bgFilter);
+    IsarNative.jsObjectSet(jsObj, 'bgIdx', object.bgIdx);
     IsarNative.jsObjectSet(jsObj, 'customFont', object.customFont);
     IsarNative.jsObjectSet(jsObj, 'enablescroll', object.enablescroll);
     IsarNative.jsObjectSet(jsObj, 'fontColor', object.fontColor);
@@ -2062,6 +2066,9 @@ class _SettingIsarWebAdapter extends IsarWebTypeAdapter<SettingIsar> {
       audiosession: IsarNative.jsObjectGet(jsObj, 'audiosession') ?? false,
       backgroundColor: IsarNative.jsObjectGet(jsObj, 'backgroundColor') ??
           double.negativeInfinity,
+      bgFilter:
+          IsarNative.jsObjectGet(jsObj, 'bgFilter') ?? double.negativeInfinity,
+      bgIdx: IsarNative.jsObjectGet(jsObj, 'bgIdx') ?? double.negativeInfinity,
       customFont: IsarNative.jsObjectGet(jsObj, 'customFont'),
       enablescroll: IsarNative.jsObjectGet(jsObj, 'enablescroll') ?? false,
       fontColor:
@@ -2110,6 +2117,12 @@ class _SettingIsarWebAdapter extends IsarWebTypeAdapter<SettingIsar> {
         return (IsarNative.jsObjectGet(jsObj, 'audiosession') ?? false) as P;
       case 'backgroundColor':
         return (IsarNative.jsObjectGet(jsObj, 'backgroundColor') ??
+            double.negativeInfinity) as P;
+      case 'bgFilter':
+        return (IsarNative.jsObjectGet(jsObj, 'bgFilter') ??
+            double.negativeInfinity) as P;
+      case 'bgIdx':
+        return (IsarNative.jsObjectGet(jsObj, 'bgIdx') ??
             double.negativeInfinity) as P;
       case 'customFont':
         return (IsarNative.jsObjectGet(jsObj, 'customFont')) as P;
@@ -2197,55 +2210,59 @@ class _SettingIsarNativeAdapter extends IsarNativeTypeAdapter<SettingIsar> {
     final _audiosession = value1;
     final value2 = object.backgroundColor;
     final _backgroundColor = value2;
-    final value3 = object.customFont;
+    final value3 = object.bgFilter;
+    final _bgFilter = value3;
+    final value4 = object.bgIdx;
+    final _bgIdx = value4;
+    final value5 = object.customFont;
     IsarUint8List? _customFont;
-    if (value3 != null) {
-      _customFont = IsarBinaryWriter.utf8Encoder.convert(value3);
+    if (value5 != null) {
+      _customFont = IsarBinaryWriter.utf8Encoder.convert(value5);
     }
     dynamicSize += (_customFont?.length ?? 0) as int;
-    final value4 = object.enablescroll;
-    final _enablescroll = value4;
-    final value5 = object.fontColor;
-    final _fontColor = value5;
-    final value6 = object.fontFamily;
-    final _fontFamily = IsarBinaryWriter.utf8Encoder.convert(value6);
+    final value6 = object.enablescroll;
+    final _enablescroll = value6;
+    final value7 = object.fontColor;
+    final _fontColor = value7;
+    final value8 = object.fontFamily;
+    final _fontFamily = IsarBinaryWriter.utf8Encoder.convert(value8);
     dynamicSize += (_fontFamily.length) as int;
-    final value7 = object.fontHeight;
-    final _fontHeight = value7;
-    final value8 = object.fontSize;
-    final _fontSize = value8;
-    final value9 = object.fontWeight;
-    final _fontWeight = value9;
-    final value10 = object.groupcnt;
-    final _groupcnt = value10;
-    final value11 = object.headsetbutton;
-    final _headsetbutton = value11;
-    final value12 = object.lastDevVersion;
-    final _lastDevVersion = IsarBinaryWriter.utf8Encoder.convert(value12);
+    final value9 = object.fontHeight;
+    final _fontHeight = value9;
+    final value10 = object.fontSize;
+    final _fontSize = value10;
+    final value11 = object.fontWeight;
+    final _fontWeight = value11;
+    final value12 = object.groupcnt;
+    final _groupcnt = value12;
+    final value13 = object.headsetbutton;
+    final _headsetbutton = value13;
+    final value14 = object.lastDevVersion;
+    final _lastDevVersion = IsarBinaryWriter.utf8Encoder.convert(value14);
     dynamicSize += (_lastDevVersion.length) as int;
-    final value13 = object.letterSpacing;
-    final _letterSpacing = value13;
-    final value14 = object.paddingBottom;
-    final _paddingBottom = value14;
-    final value15 = object.paddingLeft;
-    final _paddingLeft = value15;
-    final value16 = object.paddingRight;
-    final _paddingRight = value16;
-    final value17 = object.paddingTop;
-    final _paddingTop = value17;
-    final value18 = object.pitch;
-    final _pitch = value18;
-    final value19 = object.speechRate;
-    final _speechRate = value19;
-    final value20 = object.theme;
-    final _theme = IsarBinaryWriter.utf8Encoder.convert(value20);
+    final value15 = object.letterSpacing;
+    final _letterSpacing = value15;
+    final value16 = object.paddingBottom;
+    final _paddingBottom = value16;
+    final value17 = object.paddingLeft;
+    final _paddingLeft = value17;
+    final value18 = object.paddingRight;
+    final _paddingRight = value18;
+    final value19 = object.paddingTop;
+    final _paddingTop = value19;
+    final value20 = object.pitch;
+    final _pitch = value20;
+    final value21 = object.speechRate;
+    final _speechRate = value21;
+    final value22 = object.theme;
+    final _theme = IsarBinaryWriter.utf8Encoder.convert(value22);
     dynamicSize += (_theme.length) as int;
-    final value21 = object.touchLayout;
-    final _touchLayout = value21;
-    final value22 = object.useClipboard;
-    final _useClipboard = value22;
-    final value23 = object.volume;
-    final _volume = value23;
+    final value23 = object.touchLayout;
+    final _touchLayout = value23;
+    final value24 = object.useClipboard;
+    final _useClipboard = value24;
+    final value25 = object.volume;
+    final _volume = value25;
     final size = staticSize + dynamicSize;
 
     rawObj.buffer = alloc(size);
@@ -2255,27 +2272,29 @@ class _SettingIsarNativeAdapter extends IsarNativeTypeAdapter<SettingIsar> {
     writer.writeBool(offsets[0], _audioduck);
     writer.writeBool(offsets[1], _audiosession);
     writer.writeLong(offsets[2], _backgroundColor);
-    writer.writeBytes(offsets[3], _customFont);
-    writer.writeBool(offsets[4], _enablescroll);
-    writer.writeLong(offsets[5], _fontColor);
-    writer.writeBytes(offsets[6], _fontFamily);
-    writer.writeDouble(offsets[7], _fontHeight);
-    writer.writeDouble(offsets[8], _fontSize);
-    writer.writeLong(offsets[9], _fontWeight);
-    writer.writeLong(offsets[10], _groupcnt);
-    writer.writeBool(offsets[11], _headsetbutton);
-    writer.writeBytes(offsets[12], _lastDevVersion);
-    writer.writeDouble(offsets[13], _letterSpacing);
-    writer.writeDouble(offsets[14], _paddingBottom);
-    writer.writeDouble(offsets[15], _paddingLeft);
-    writer.writeDouble(offsets[16], _paddingRight);
-    writer.writeDouble(offsets[17], _paddingTop);
-    writer.writeDouble(offsets[18], _pitch);
-    writer.writeDouble(offsets[19], _speechRate);
-    writer.writeBytes(offsets[20], _theme);
-    writer.writeLong(offsets[21], _touchLayout);
-    writer.writeBool(offsets[22], _useClipboard);
-    writer.writeDouble(offsets[23], _volume);
+    writer.writeLong(offsets[3], _bgFilter);
+    writer.writeLong(offsets[4], _bgIdx);
+    writer.writeBytes(offsets[5], _customFont);
+    writer.writeBool(offsets[6], _enablescroll);
+    writer.writeLong(offsets[7], _fontColor);
+    writer.writeBytes(offsets[8], _fontFamily);
+    writer.writeDouble(offsets[9], _fontHeight);
+    writer.writeDouble(offsets[10], _fontSize);
+    writer.writeLong(offsets[11], _fontWeight);
+    writer.writeLong(offsets[12], _groupcnt);
+    writer.writeBool(offsets[13], _headsetbutton);
+    writer.writeBytes(offsets[14], _lastDevVersion);
+    writer.writeDouble(offsets[15], _letterSpacing);
+    writer.writeDouble(offsets[16], _paddingBottom);
+    writer.writeDouble(offsets[17], _paddingLeft);
+    writer.writeDouble(offsets[18], _paddingRight);
+    writer.writeDouble(offsets[19], _paddingTop);
+    writer.writeDouble(offsets[20], _pitch);
+    writer.writeDouble(offsets[21], _speechRate);
+    writer.writeBytes(offsets[22], _theme);
+    writer.writeLong(offsets[23], _touchLayout);
+    writer.writeBool(offsets[24], _useClipboard);
+    writer.writeDouble(offsets[25], _volume);
   }
 
   @override
@@ -2285,27 +2304,29 @@ class _SettingIsarNativeAdapter extends IsarNativeTypeAdapter<SettingIsar> {
       audioduck: reader.readBool(offsets[0]),
       audiosession: reader.readBool(offsets[1]),
       backgroundColor: reader.readLong(offsets[2]),
-      customFont: reader.readStringOrNull(offsets[3]),
-      enablescroll: reader.readBool(offsets[4]),
-      fontColor: reader.readLong(offsets[5]),
-      fontFamily: reader.readString(offsets[6]),
-      fontHeight: reader.readDouble(offsets[7]),
-      fontSize: reader.readDouble(offsets[8]),
-      fontWeight: reader.readLong(offsets[9]),
-      groupcnt: reader.readLong(offsets[10]),
-      headsetbutton: reader.readBool(offsets[11]),
-      lastDevVersion: reader.readString(offsets[12]),
-      letterSpacing: reader.readDouble(offsets[13]),
-      paddingBottom: reader.readDouble(offsets[14]),
-      paddingLeft: reader.readDouble(offsets[15]),
-      paddingRight: reader.readDouble(offsets[16]),
-      paddingTop: reader.readDouble(offsets[17]),
-      pitch: reader.readDouble(offsets[18]),
-      speechRate: reader.readDouble(offsets[19]),
-      theme: reader.readString(offsets[20]),
-      touchLayout: reader.readLong(offsets[21]),
-      useClipboard: reader.readBool(offsets[22]),
-      volume: reader.readDouble(offsets[23]),
+      bgFilter: reader.readLong(offsets[3]),
+      bgIdx: reader.readLong(offsets[4]),
+      customFont: reader.readStringOrNull(offsets[5]),
+      enablescroll: reader.readBool(offsets[6]),
+      fontColor: reader.readLong(offsets[7]),
+      fontFamily: reader.readString(offsets[8]),
+      fontHeight: reader.readDouble(offsets[9]),
+      fontSize: reader.readDouble(offsets[10]),
+      fontWeight: reader.readLong(offsets[11]),
+      groupcnt: reader.readLong(offsets[12]),
+      headsetbutton: reader.readBool(offsets[13]),
+      lastDevVersion: reader.readString(offsets[14]),
+      letterSpacing: reader.readDouble(offsets[15]),
+      paddingBottom: reader.readDouble(offsets[16]),
+      paddingLeft: reader.readDouble(offsets[17]),
+      paddingRight: reader.readDouble(offsets[18]),
+      paddingTop: reader.readDouble(offsets[19]),
+      pitch: reader.readDouble(offsets[20]),
+      speechRate: reader.readDouble(offsets[21]),
+      theme: reader.readString(offsets[22]),
+      touchLayout: reader.readLong(offsets[23]),
+      useClipboard: reader.readBool(offsets[24]),
+      volume: reader.readDouble(offsets[25]),
     );
     object.id = id;
     return object;
@@ -2324,29 +2345,29 @@ class _SettingIsarNativeAdapter extends IsarNativeTypeAdapter<SettingIsar> {
       case 2:
         return (reader.readLong(offset)) as P;
       case 3:
-        return (reader.readStringOrNull(offset)) as P;
+        return (reader.readLong(offset)) as P;
       case 4:
-        return (reader.readBool(offset)) as P;
+        return (reader.readLong(offset)) as P;
       case 5:
-        return (reader.readLong(offset)) as P;
+        return (reader.readStringOrNull(offset)) as P;
       case 6:
-        return (reader.readString(offset)) as P;
-      case 7:
-        return (reader.readDouble(offset)) as P;
-      case 8:
-        return (reader.readDouble(offset)) as P;
-      case 9:
-        return (reader.readLong(offset)) as P;
-      case 10:
-        return (reader.readLong(offset)) as P;
-      case 11:
         return (reader.readBool(offset)) as P;
-      case 12:
+      case 7:
+        return (reader.readLong(offset)) as P;
+      case 8:
         return (reader.readString(offset)) as P;
+      case 9:
+        return (reader.readDouble(offset)) as P;
+      case 10:
+        return (reader.readDouble(offset)) as P;
+      case 11:
+        return (reader.readLong(offset)) as P;
+      case 12:
+        return (reader.readLong(offset)) as P;
       case 13:
-        return (reader.readDouble(offset)) as P;
+        return (reader.readBool(offset)) as P;
       case 14:
-        return (reader.readDouble(offset)) as P;
+        return (reader.readString(offset)) as P;
       case 15:
         return (reader.readDouble(offset)) as P;
       case 16:
@@ -2358,12 +2379,16 @@ class _SettingIsarNativeAdapter extends IsarNativeTypeAdapter<SettingIsar> {
       case 19:
         return (reader.readDouble(offset)) as P;
       case 20:
-        return (reader.readString(offset)) as P;
+        return (reader.readDouble(offset)) as P;
       case 21:
-        return (reader.readLong(offset)) as P;
+        return (reader.readDouble(offset)) as P;
       case 22:
-        return (reader.readBool(offset)) as P;
+        return (reader.readString(offset)) as P;
       case 23:
+        return (reader.readLong(offset)) as P;
+      case 24:
+        return (reader.readBool(offset)) as P;
+      case 25:
         return (reader.readDouble(offset)) as P;
       default:
         throw 'Illegal propertyIndex';
@@ -2520,6 +2545,105 @@ extension SettingIsarQueryFilter
   }) {
     return addFilterConditionInternal(FilterCondition.between(
       property: 'backgroundColor',
+      lower: lower,
+      includeLower: includeLower,
+      upper: upper,
+      includeUpper: includeUpper,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition> bgFilterEqualTo(
+      int value) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.eq,
+      property: 'bgFilter',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      bgFilterGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.gt,
+      include: include,
+      property: 'bgFilter',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      bgFilterLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.lt,
+      include: include,
+      property: 'bgFilter',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition> bgFilterBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return addFilterConditionInternal(FilterCondition.between(
+      property: 'bgFilter',
+      lower: lower,
+      includeLower: includeLower,
+      upper: upper,
+      includeUpper: includeUpper,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition> bgIdxEqualTo(
+      int value) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.eq,
+      property: 'bgIdx',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      bgIdxGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.gt,
+      include: include,
+      property: 'bgIdx',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition> bgIdxLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.lt,
+      include: include,
+      property: 'bgIdx',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition> bgIdxBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return addFilterConditionInternal(FilterCondition.between(
+      property: 'bgIdx',
       lower: lower,
       includeLower: includeLower,
       upper: upper,
@@ -3581,6 +3705,22 @@ extension SettingIsarQueryWhereSortBy
     return addSortByInternal('backgroundColor', Sort.desc);
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByBgFilter() {
+    return addSortByInternal('bgFilter', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByBgFilterDesc() {
+    return addSortByInternal('bgFilter', Sort.desc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByBgIdx() {
+    return addSortByInternal('bgIdx', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByBgIdxDesc() {
+    return addSortByInternal('bgIdx', Sort.desc);
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByCustomFont() {
     return addSortByInternal('customFont', Sort.asc);
   }
@@ -3793,6 +3933,22 @@ extension SettingIsarQueryWhereSortThenBy
     return addSortByInternal('backgroundColor', Sort.desc);
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByBgFilter() {
+    return addSortByInternal('bgFilter', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByBgFilterDesc() {
+    return addSortByInternal('bgFilter', Sort.desc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByBgIdx() {
+    return addSortByInternal('bgIdx', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByBgIdxDesc() {
+    return addSortByInternal('bgIdx', Sort.desc);
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByCustomFont() {
     return addSortByInternal('customFont', Sort.asc);
   }
@@ -3992,6 +4148,14 @@ extension SettingIsarQueryWhereDistinct
     return addDistinctByInternal('backgroundColor');
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QDistinct> distinctByBgFilter() {
+    return addDistinctByInternal('bgFilter');
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QDistinct> distinctByBgIdx() {
+    return addDistinctByInternal('bgIdx');
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QDistinct> distinctByCustomFont(
       {bool caseSensitive = true}) {
     return addDistinctByInternal('customFont', caseSensitive: caseSensitive);
@@ -4098,6 +4262,14 @@ extension SettingIsarQueryProperty
 
   QueryBuilder<SettingIsar, int, QQueryOperations> backgroundColorProperty() {
     return addPropertyNameInternal('backgroundColor');
+  }
+
+  QueryBuilder<SettingIsar, int, QQueryOperations> bgFilterProperty() {
+    return addPropertyNameInternal('bgFilter');
+  }
+
+  QueryBuilder<SettingIsar, int, QQueryOperations> bgIdxProperty() {
+    return addPropertyNameInternal('bgIdx');
   }
 
   QueryBuilder<SettingIsar, String?, QQueryOperations> customFontProperty() {

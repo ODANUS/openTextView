@@ -164,6 +164,7 @@ class UiSetting extends GetView {
           ),
         ),
       ),
+      barrierColor: Colors.transparent,
     );
   }
 
@@ -330,6 +331,87 @@ class UiSetting extends GetView {
                         }, balpha: false);
                       },
                     ),
+                  ),
+                  Card(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: Text("bg image settings".tr, style: TextStyle(fontSize: 16.sp)),
+                      ),
+                      SizedBox(
+                          width: double.infinity,
+                          height: 100,
+                          child: ListView(
+                            padding: EdgeInsets.only(left: 30, right: 30),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            children: IsarCtl.listBg
+                                .asMap()
+                                .map((k, e) {
+                                  if (k == 0) {
+                                    return MapEntry(
+                                        k,
+                                        InkWell(
+                                            onTap: () {
+                                              IsarCtl.putSetting(setting..bgIdx = k);
+                                            },
+                                            child: Container(
+                                                padding: EdgeInsets.all(5),
+                                                width: 100,
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  color: Colors.black38,
+                                                  child: Text("none".tr),
+                                                ))));
+                                  }
+                                  return MapEntry(
+                                      k,
+                                      InkWell(
+                                          onTap: () {
+                                            if (setting.theme == "light") {
+                                              IsarCtl.putSetting(setting
+                                                ..bgIdx = k
+                                                ..bgFilter = 0xD0000000);
+                                            } else {
+                                              IsarCtl.putSetting(setting
+                                                ..bgIdx = k
+                                                ..bgFilter = 0x35000000);
+                                            }
+                                            // IsarCtl.putSetting(setting..bgFilter = c.value);
+                                          },
+                                          child: Container(
+                                              padding: EdgeInsets.all(5),
+                                              width: 100,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.fill,
+                                                    image: AssetImage('assets/images/${IsarCtl.listBg[k]}'),
+                                                  ),
+                                                ),
+                                              ))));
+                                })
+                                .values
+                                .toList(),
+                          )),
+                      ListTile(
+                        leading: Container(width: 30, height: 30, color: Color(setting.bgFilter)),
+                        title: Text("bg image filter settings".tr, style: TextStyle(fontSize: 12.sp)),
+                        trailing: ElevatedButton(
+                            onPressed: () {
+                              IsarCtl.putSetting(setting..bgFilter = 0x00FFFFFF);
+                            },
+                            child: Text("delete".tr)),
+                        onTap: () {
+                          var themeTextColor = Theme.of(context).textTheme.bodyText1!.color!.value;
+                          var c = setting.bgFilter == 0 ? themeTextColor : setting.bgFilter;
+
+                          openColorPicker(c, (c) {
+                            IsarCtl.putSetting(setting..bgFilter = c.value);
+                          }, balpha: true);
+                        },
+                      ),
+                    ]),
                   ),
                   // 글꼴 설정 부분
                   Card(

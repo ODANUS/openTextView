@@ -10,7 +10,7 @@ import 'package:open_textview/component/comp_text_reader.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
-import 'package:open_textview/objectbox.g.dart';
+// import 'package:open_textview/objectbox.g.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -41,6 +41,20 @@ class IsarCtl {
     "Roboto",
     "NanumMyeongjo",
   ];
+
+  static final List<String> listBg = [
+    "",
+    "bg1.png",
+    "bg2.png",
+    "bg3.png",
+    "bg4.png",
+    "bg5.png",
+    "bg6.png",
+    "bg7.png",
+    "bg8.png",
+    "bg9.png",
+  ];
+
   // IsarCtl._privateConstructor();
   // static final IsarCtl _instance = IsarCtl._privateConstructor();
   // static IsarCtl get instance => _instance;
@@ -99,29 +113,42 @@ class IsarCtl {
     SettingIsar? settingIsar = isar.settingIsars.where().findFirstSync();
     List<HistoryIsar> historys = isar.historyIsars.where().findAllSync();
     if (settingIsar == null || historys.isEmpty) {
-      var store = await openStore();
-      var settingbox = store.box<SettingBox>();
-      var filterbox = store.box<FilterBox>();
-      var historyBox = store.box<HistoryBox>();
-
-      var tmps = settingbox.getAll().map((e) => SettingIsar.fromMap(e.toMap())).toList();
-      var tmpf = filterbox.getAll().map((e) => FilterIsar.fromMap(e.toMap())).toList();
-      var tmph = historyBox.getAll().map((e) => HistoryIsar.fromMap(e.toMap())).toList();
-      if (tmps.isNotEmpty) {
-        try {
-          isar.writeTxnSync((isar) {
-            isar.settingIsars.putAllSync(tmps);
-            isar.filterIsars.putAllSync(tmpf);
-            isar.historyIsars.putAllSync(tmph);
-          });
-        } catch (e) {}
-      } else {
-        isar.writeTxnSync((isar) {
-          isar.settingIsars.putSync(SettingIsar());
-        });
-      }
-      store.close();
+      // var store = await openStore();
+      // var settingbox = store.box<SettingBox>();
+      // var filterbox = store.box<FilterBox>();
+      // var historyBox = store.box<HistoryBox>();
+      // var tmps = settingbox.getAll().map((e) => SettingIsar.fromMap(e.toMap())).toList();
+      // var tmpf = filterbox.getAll().map((e) => FilterIsar.fromMap(e.toMap())).toList();
+      // var tmph = historyBox.getAll().map((e) => HistoryIsar.fromMap(e.toMap())).toList();
+      // if (tmps.isNotEmpty) {
+      //   try {
+      //     isar.writeTxnSync((isar) {
+      //       isar.settingIsars.putAllSync(tmps);
+      //       isar.filterIsars.putAllSync(tmpf);
+      //       isar.historyIsars.putAllSync(tmph);
+      //     });
+      //   } catch (e) {}
+      // } else {
+      // }
+      // store.close();
+      isar.writeTxnSync((isar) {
+        isar.settingIsars.putSync(SettingIsar());
+      });
       settingIsar = isar.settingIsars.where().findFirstSync();
+    }
+    if (settingIsar != null) {
+      var bInitValue = false;
+      if (settingIsar.bgIdx < -999) {
+        bInitValue = true;
+        settingIsar.bgIdx = 0;
+      }
+      if (settingIsar.bgFilter < -999) {
+        bInitValue = true;
+        settingIsar.bgFilter = 0x00FFFFFF;
+      }
+      if (bInitValue) {
+        putSetting(settingIsar);
+      }
     }
     if (settingIsar != null) {
       if (settingIsar.theme == "light") {
@@ -524,23 +551,23 @@ class IsarCtl {
     setSetting(setting);
   }
 
-  static map2Box(Map<String, dynamic> jsonData) async {
-    var store = await openStore();
-    var settingbox = store.box<SettingBox>();
-    var filterbox = store.box<FilterBox>();
-    var historybox = store.box<HistoryBox>();
-    var his = (jsonData["historys"] as List).map((e) => HistoryBox.fromMap(e)..id = 0).toList();
-    var filters = (jsonData["filters"] as List).map((e) => FilterBox.fromMap(e)..id = 0).toList();
-    var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
+  // static map2Box(Map<String, dynamic> jsonData) async {
+  //   var store = await openStore();
+  //   var settingbox = store.box<SettingBox>();
+  //   var filterbox = store.box<FilterBox>();
+  //   var historybox = store.box<HistoryBox>();
+  //   var his = (jsonData["historys"] as List).map((e) => HistoryBox.fromMap(e)..id = 0).toList();
+  //   var filters = (jsonData["filters"] as List).map((e) => FilterBox.fromMap(e)..id = 0).toList();
+  //   var setting = SettingBox.fromMap(jsonData["setting"])..id = 0;
 
-    historybox.removeAll();
-    historybox.putMany(his);
-    filterbox.removeAll();
-    filterbox.putMany(filters);
-    settingbox.removeAll();
-    settingbox.put(setting);
-    store.close();
-  }
+  //   historybox.removeAll();
+  //   historybox.putMany(his);
+  //   filterbox.removeAll();
+  //   filterbox.putMany(filters);
+  //   settingbox.removeAll();
+  //   settingbox.put(setting);
+  //   store.close();
+  // }
 
   static openFile(File f) async {
     AudioPlay.stop();

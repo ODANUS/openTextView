@@ -80,135 +80,152 @@ class HistoryPage extends GetView {
           child: AdBanner(key: Key("history")),
         ),
       ),
-      body: ObxValue<RxString>((rxkeyword) {
-        var keyword = rxkeyword.value;
-        return IsarCtl.rxHistory((p0, p1) {
-          var historyList = IsarCtl.historyListByName(keyword);
-
-          historyList.sort((a, b) {
-            return b.date.compareTo(a.date);
-          });
-          // copyHistoryList = copyHistoryList.where((el) => el.name.indexOf(ctl.searchText.value) >= 0).toList();
-          return Column(
-            children: [
-              ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: "Please enter word".tr,
-                          ),
-                          onChanged: (v) {
-                            rxkeyword(v);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    icon: new Icon(
-                      Ionicons.search,
-                      color: Theme.of(context).colorScheme.onSurface,
+      body: Stack(children: [
+        IsarCtl.rxSetting((_, setting) {
+          return Container(
+            width: Get.width,
+            height: Get.height,
+            decoration: BoxDecoration(
+              image: setting.bgIdx <= 0
+                  ? null
+                  : DecorationImage(
+                      fit: BoxFit.cover,
+                      colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
+                      image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
                     ),
-                    color: Colors.black26,
-                    onPressed: () {},
-                  )),
-              Expanded(
-                child: ListView(
-                  padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 100),
-                  children: historyList.map((e) {
-                    Widget delwidget = Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.delete, color: Colors.white),
-                        Text(
-                          "Drag to delete".tr,
-                          style: TextStyle(color: Colors.white),
+            ),
+          );
+        }),
+        ObxValue<RxString>((rxkeyword) {
+          var keyword = rxkeyword.value;
+          return IsarCtl.rxHistory((p0, p1) {
+            var historyList = IsarCtl.historyListByName(keyword);
+
+            historyList.sort((a, b) {
+              return b.date.compareTo(a.date);
+            });
+            // copyHistoryList = copyHistoryList.where((el) => el.name.indexOf(ctl.searchText.value) >= 0).toList();
+            return Column(
+              children: [
+                ListTile(
+                    title: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: "Please enter word".tr,
+                            ),
+                            onChanged: (v) {
+                              rxkeyword(v);
+                            },
+                          ),
                         ),
                       ],
-                    );
-                    return Card(
-                      child: Dismissible(
-                        key: Key(e.name),
-                        onDismissed: (direction) {
-                          IsarCtl.deleteHistory(e);
-                        },
-                        background: Container(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          color: Colors.red,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [delwidget, delwidget],
+                    ),
+                    trailing: IconButton(
+                      icon: new Icon(
+                        Ionicons.search,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      color: Colors.black26,
+                      onPressed: () {},
+                    )),
+                Expanded(
+                  child: ListView(
+                    padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 100),
+                    children: historyList.map((e) {
+                      Widget delwidget = Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.delete, color: Colors.white),
+                          Text(
+                            "Drag to delete".tr,
+                            style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                        child: ExpansionTile(
-                          title: Text(e.name),
-                          subtitle: Column(
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text("${Utils.rdgPos(e, bnumber: true, bBooks: true)}"),
-                                ],
-                              ),
-                              Row(children: [
-                                Flexible(
-                                  child: Text(
-                                    "${"memo".tr} : ${e.memo}",
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
+                        ],
+                      );
+                      return Card(
+                        child: Dismissible(
+                          key: Key(e.name),
+                          onDismissed: (direction) {
+                            IsarCtl.deleteHistory(e);
+                          },
+                          background: Container(
+                            padding: EdgeInsets.only(left: 20, right: 20),
+                            color: Colors.red,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [delwidget, delwidget],
+                            ),
+                          ),
+                          child: ExpansionTile(
+                            title: Text(e.name),
+                            subtitle: Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("${Utils.rdgPos(e, bnumber: true, bBooks: true)}"),
+                                  ],
                                 ),
-                              ]),
+                                Row(children: [
+                                  Flexible(
+                                    child: Text(
+                                      "${"memo".tr} : ${e.memo}",
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ]),
+                              ],
+                            ),
+                            children: [
+                              ObxValue<RxBool>((bMemo) {
+                                return Column(
+                                  children: [
+                                    if (bMemo.value)
+                                      Container(
+                                        padding: EdgeInsets.all(10),
+                                        child: TextFormField(
+                                          initialValue: e.memo,
+                                          onFieldSubmitted: (v) {
+                                            IsarCtl.putHistory(e..memo = v);
+                                          },
+                                        ),
+                                      ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        ElevatedButton(
+                                          style: ElevatedButton.styleFrom(primary: Colors.red),
+                                          onPressed: () {
+                                            IsarCtl.deleteHistory(e);
+                                          },
+                                          child: Text("delete".tr),
+                                        ),
+                                        ElevatedButton(
+                                          style: ElevatedButton.styleFrom(primary: Colors.green),
+                                          onPressed: () {
+                                            bMemo(!bMemo.value);
+                                          },
+                                          child: Text("memo".tr),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                );
+                              }, false.obs),
                             ],
                           ),
-                          children: [
-                            ObxValue<RxBool>((bMemo) {
-                              return Column(
-                                children: [
-                                  if (bMemo.value)
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      child: TextFormField(
-                                        initialValue: e.memo,
-                                        onFieldSubmitted: (v) {
-                                          IsarCtl.putHistory(e..memo = v);
-                                        },
-                                      ),
-                                    ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: [
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(primary: Colors.red),
-                                        onPressed: () {
-                                          IsarCtl.deleteHistory(e);
-                                        },
-                                        child: Text("delete".tr),
-                                      ),
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(primary: Colors.green),
-                                        onPressed: () {
-                                          bMemo(!bMemo.value);
-                                        },
-                                        child: Text("memo".tr),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              );
-                            }, false.obs),
-                          ],
                         ),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              )
-            ],
-          );
-        });
-      }, "".obs),
+                      );
+                    }).toList(),
+                  ),
+                )
+              ],
+            );
+          });
+        }, "".obs),
+      ]),
       // floatingActionButton: FloatingActionButton.extended(
       //     onPressed: () {}, label: OptionReview()),
     );
