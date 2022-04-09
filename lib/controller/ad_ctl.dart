@@ -187,7 +187,8 @@ class AdCtl {
                     onAdImpression: (AdManagerInterstitialAd ad) {});
                 _interstitialAd?.show();
               } else {
-                Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+                Get.dialog(AlertDialog(
+                    content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
               }
               Get.back();
             },
@@ -212,7 +213,8 @@ class AdCtl {
       _interstitialAd?.show();
       return true;
     } else {
-      Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+      Get.dialog(AlertDialog(
+          content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
       return false;
     }
   }
@@ -233,8 +235,7 @@ class AdCtl {
       _rewardedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {});
       return true;
     } else {
-      Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-      return false;
+      return await startInterstitialAd();
     }
   }
 
@@ -279,7 +280,8 @@ class AdCtl {
                 Get.back(result: true);
               } else {
                 Get.back(result: false);
-                Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+                Get.dialog(AlertDialog(
+                    content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
               }
             },
             child: Text("Confirm")),
@@ -329,7 +331,8 @@ class AdCtl {
                 Get.back(result: true);
               } else {
                 Get.back(result: false);
-                Get.dialog(AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+                Get.dialog(AlertDialog(
+                    content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
               }
             },
             child: Text("Confirm")),

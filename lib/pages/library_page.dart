@@ -17,6 +17,8 @@ import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;
 
+final MAXOCRCNT = 1000;
+
 class LibraryPage extends GetView {
   List<String> sortList = ["name", "size", "date", "access"];
   RxString sortStr = "access".obs;
@@ -90,7 +92,7 @@ class LibraryPage extends GetView {
       return compareNatural(a.name, b.name);
     });
 
-    if (archive.length > 510) {
+    if (archive.length > MAXOCRCNT + 10) {
       AdCtl.startInterstitialAd();
       IsarCtl.unzipTotal(archive.length);
       var idx = 0;
@@ -107,7 +109,8 @@ class LibraryPage extends GetView {
             encoder.create("${rootTmpDir.path}/file_picker/div_${"${++idx}".padLeft(2, "0")}_${fileName}.zip");
           }
           final filename = file.name;
-          if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
+          if (file.isFile &&
+              (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
             final data = file.content as List<int>;
             var tmpFile = File("${tmpDir.path}/$filename");
             await tmpFile.create(recursive: true);
@@ -116,7 +119,7 @@ class LibraryPage extends GetView {
             encoder.addFile(tmpFile);
           }
           total++;
-          if (cnt++ >= 499) {
+          if (cnt++ >= MAXOCRCNT - 1) {
             cnt = 0;
           }
         }
@@ -176,7 +179,13 @@ class LibraryPage extends GetView {
                           asc(!asc.value);
                         },
                         child: Row(
-                          children: [Text(e), if (e == sortStr.value && asc.value) Icon(Icons.arrow_drop_up) else if (e == sortStr.value && !asc.value) Icon(Icons.arrow_drop_down)],
+                          children: [
+                            Text(e),
+                            if (e == sortStr.value && asc.value)
+                              Icon(Icons.arrow_drop_up)
+                            else if (e == sortStr.value && !asc.value)
+                              Icon(Icons.arrow_drop_down)
+                          ],
                         ),
                       ));
                 }).toList(),
@@ -225,7 +234,11 @@ class LibraryPage extends GetView {
                         return Column(
                           children: [
                             Card(
-                              child: Container(padding: EdgeInsets.all(5), width: double.infinity, alignment: Alignment.center, child: Text("Support image(zip) -> text , epub -> text")),
+                              child: Container(
+                                  padding: EdgeInsets.all(5),
+                                  width: double.infinity,
+                                  alignment: Alignment.center,
+                                  child: Text("Support image(zip) -> text , epub -> text")),
                             ),
                             Container(
                                 padding: EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 20),
@@ -468,7 +481,7 @@ class LibraryPage extends GetView {
                     }),
                 Obx(() {
                   // if (true) {
-                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value > 500) {
+                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value > MAXOCRCNT) {
                     return Container(
                         width: double.infinity,
                         height: double.infinity,
@@ -479,12 +492,12 @@ class LibraryPage extends GetView {
                           children: [
                             CircularProgressIndicator(),
                             SizedBox(height: 10),
-                            Text("Creating split compressed file".tr),
+                            Text("Creating split compressed file".tr + " (${MAXOCRCNT})"),
                             Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
                           ],
                         ));
                   }
-                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value <= 510) {
+                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value <= MAXOCRCNT + 10) {
                     return Container(
                         width: double.infinity,
                         height: double.infinity,
