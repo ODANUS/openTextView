@@ -106,7 +106,7 @@ class LibraryPage extends GetView {
             if (idx > 0) {
               encoder.close();
             }
-            encoder.create("${rootTmpDir.path}/file_picker/div_${"${++idx}".padLeft(2, "0")}_${fileName}.zip");
+            encoder.create("${rootTmpDir.path}/file_picker/${"${++idx}_div".padLeft(2, "0")}_${fileName}.zip");
           }
           final filename = file.name;
           if (file.isFile &&
@@ -311,6 +311,7 @@ class LibraryPage extends GetView {
                                         if (ex == "zip") {
                                           return Card(
                                               child: ExpansionTile(
+                                            leading: Icon(Icons.folder_zip_outlined),
                                             title: Text(name),
                                             subtitle: Text("${size}"),
                                             children: [
@@ -343,6 +344,7 @@ class LibraryPage extends GetView {
                                         if (ex == "epub") {
                                           return Card(
                                               child: ExpansionTile(
+                                            leading: Icon(Icons.menu_book_rounded),
                                             title: Text(name),
                                             subtitle: Text("${size}"),
                                             children: [
@@ -374,6 +376,7 @@ class LibraryPage extends GetView {
                                         return Card(
                                           child: ExpansionTile(
                                             key: Key("file_${Random().nextInt(1000000)}"),
+                                            leading: Icon(Icons.description),
                                             title: Text(name),
                                             subtitle: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
