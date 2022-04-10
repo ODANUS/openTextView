@@ -21,8 +21,10 @@ const int MAXOCRCNT = 1000;
 
 class LibraryPage extends GetView {
   List<String> sortList = ["name", "size", "date", "access"];
+  List<String> filterList = ["ALL", "txt", "zip", "epub"];
   RxString sortStr = "access".obs;
   RxString searchText = "".obs;
+  RxString filterText = "ALL".obs;
   RxBool asc = false.obs;
 
   Future<bool> newLineTheorem(File f) async {
@@ -35,7 +37,7 @@ class LibraryPage extends GetView {
 
       String rtnStr = await Utils.newLineTheorem(f);
 
-      File outputFile = File("$path/newline_$fileName(${Utils.DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
+      File outputFile = File("$path/newline_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
       outputFile.createSync();
       outputFile.writeAsStringSync(rtnStr);
       outputFile.setLastAccessedSync(DateTime.now());
@@ -64,7 +66,7 @@ class LibraryPage extends GetView {
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
       String rtnStr = await Utils.convEpub(f);
-      File outputFile = File("$path/epub_$fileName(${Utils.DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
+      File outputFile = File("$path/epub_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
       outputFile.createSync();
       outputFile.writeAsStringSync(rtnStr);
       outputFile.setLastAccessedSync(DateTime.now());
@@ -145,7 +147,7 @@ class LibraryPage extends GetView {
       IsarCtl.unzipTotal(0);
       var rtn = await Get.toNamed("/ocr");
       if (rtn != null) {
-        File outputFile = File("$path/ocr_$fileName(${Utils.DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
+        File outputFile = File("$path/ocr_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
         outputFile.createSync();
         outputFile.writeAsStringSync(rtn);
         outputFile.setLastAccessedSync(DateTime.now());
@@ -250,10 +252,26 @@ class LibraryPage extends GetView {
                           children: [
                             Card(
                               child: Container(
-                                  padding: EdgeInsets.all(5),
+                                  padding: EdgeInsets.all(0),
                                   width: double.infinity,
                                   alignment: Alignment.center,
-                                  child: Text("Support image(zip) -> text , epub -> text")),
+                                  child: Obx(() => Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+                                          ...filterList.map((e) {
+                                            return Row(
+                                              children: [
+                                                Checkbox(
+                                                    value: filterText.value == e,
+                                                    onChanged: (v) {
+                                                      filterText(e);
+                                                    }),
+                                                Text("${e}"),
+                                              ],
+                                            );
+                                          }).toList(),
+                                        ],
+                                      ))),
                             ),
                             Container(
                                 padding: EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 20),
@@ -312,6 +330,12 @@ class LibraryPage extends GetView {
                                         return date2.compareTo(date1);
                                       }
                                     });
+                                  }
+                                  if (filterText.value != "ALL") {
+                                    files = files.where((e) {
+                                      var ex = e.path.split(".").last;
+                                      return ex == filterText.value;
+                                    }).toList();
                                   }
 
                                   return ListView.builder(
