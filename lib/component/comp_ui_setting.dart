@@ -375,7 +375,7 @@ class UiSetting extends GetView {
                                             } else {
                                               IsarCtl.putSetting(setting
                                                 ..bgIdx = k
-                                                ..bgFilter = 0x35000000);
+                                                ..bgFilter = 0x45000000);
                                             }
                                             // IsarCtl.putSetting(setting..bgFilter = c.value);
                                           },

@@ -8,7 +8,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:open_textview/isar_ctl.dart';
-import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:open_textview/provider/utils.dart';
 
@@ -322,14 +321,6 @@ class AudioPlay {
   //   //   "setting": setting.toMap(),
   //   // });
   // }
-
-  static setFilter({
-    required List<FilterBox> filter,
-  }) {
-    // _audioHandler!.customAction("filter", {
-    //   "filter": filter.map((e) => e.toMap()).toList(),
-    // });
-  }
 
   static setAutoExit({required DateTime t}) {
     _audioHandler!.customAction("autoExit", {

@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:image/image.dart' as imglib;
 import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
@@ -11,6 +14,12 @@ import 'package:collection/collection.dart' show compareNatural;
 
 class OcrPage extends GetView {
   OcrPage() {
+    loadFile();
+    // checkFileSize();
+    // return compareNatural(a.name, b.name);
+  }
+  loadFile() {
+    fileList.clear();
     getTemporaryDirectory().then((tmpDir) {
       tmpDir = Directory("${tmpDir.path}/ocr");
       var list = tmpDir.listSync(recursive: true);
@@ -25,8 +34,52 @@ class OcrPage extends GetView {
         return compareNatural(aName, bName);
       });
     });
-    // return compareNatural(a.name, b.name);
   }
+
+  splitImageFiles() async {
+    if (total.value > 0) {
+      return;
+    }
+    total(bcutList.where((b) => b).length);
+    await AdCtl.startRewardedAd();
+    var cnt = 0;
+    for (var i = 0; i < fileList.length; i++) {
+      var e = fileList[i];
+      var bSplit = bcutList[i];
+      if (!bSplit) {
+        continue;
+      }
+      imglib.Image? img = imglib.decodeImage(e.readAsBytesSync());
+      if (img != null) {
+        var pathList = e.path.split("/");
+        var path = pathList.sublist(0, pathList.length - 1).join("/");
+        var fileName = pathList.last.split(".").first;
+
+        if (img.height < img.width) {
+          var img1 = imglib.copyCrop(img, 0, 0, img.width ~/ 2, img.height);
+          var img2 = imglib.copyCrop(img, img.width ~/ 2, 0, img.width, img.height);
+
+          var f1 = File("${path}/${fileName}_1.png")..createSync();
+          await f1.writeAsBytes(imglib.encodePng(img1));
+
+          var f2 = File("${path}/${fileName}_2.png")..createSync();
+          await f2.writeAsBytes(imglib.encodePng(img2));
+
+          e.deleteSync();
+        }
+      }
+      current(cnt++);
+    }
+    total(0);
+    current(0);
+    bcutList.clear();
+    // fileList.forEach((e) {
+    // });
+    loadFile();
+  }
+
+  RxList<bool> bcutList = RxList<bool>();
+
   RxList<File> fileList = RxList<File>();
   Rx<int> lang = 4.obs;
   Rx<bool> bnewLine = true.obs;
@@ -44,6 +97,18 @@ class OcrPage extends GetView {
             leadingWidth: 0,
             leading: Text(""),
             title: Text("OCR"),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    // splitImageFiles();
+                    if (bcutList.isEmpty) {
+                      bcutList(fileList.map((element) => true).toList());
+                    } else {
+                      bcutList.clear();
+                    }
+                  },
+                  icon: Icon(Icons.content_cut))
+            ],
             bottom: PreferredSize(
               preferredSize: Size(Get.width, 50),
               child: AdBanner(key: Key("history")),
@@ -52,10 +117,16 @@ class OcrPage extends GetView {
           body: Stack(
             children: [
               Obx(() {
+                // checkFileSize();
                 // fileList.forEach((e) {
                 //   print(e.path);
                 // });
                 return Column(children: [
+                  if (bcutList.isNotEmpty)
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                      ElevatedButton(onPressed: () => bcutList(bcutList.map((e) => true).toList()), child: Text("전체선택")),
+                      ElevatedButton(onPressed: () => bcutList(bcutList.map((e) => false).toList()), child: Text("전체해제"))
+                    ]),
                   Card(
                       child: ListTile(
                     title: Text("Long press to change the order".tr),
@@ -69,26 +140,47 @@ class OcrPage extends GetView {
                     )),
                   )),
                   Expanded(
-                    child: ReorderableListView(
+                    child: GridView.builder(
                       padding: EdgeInsets.only(top: 30, left: 10, right: 10, bottom: 100),
-                      onReorder: ((oldIndex, newIndex) {
-                        if (oldIndex < newIndex) {
-                          newIndex -= 1;
-                        }
-                        final File item = fileList.removeAt(oldIndex);
-                        fileList.insert(newIndex, item);
-                      }),
-                      children: [
-                        ...fileList.map((e) {
-                          var pathList = e.path.split("/");
-                          var fileName = pathList.last;
-                          return Card(
-                              key: Key("${fileName}"),
-                              child: ListTile(
-                                title: Text(fileName),
-                              ));
-                        }).toList(),
-                      ],
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, //1 개의 행에 보여줄 item 개수
+                        childAspectRatio: 1 / 1.1, //item 의 가로 1, 세로 2 의 비율
+                        mainAxisSpacing: 5, //수평 Padding
+                        crossAxisSpacing: 5, //수직 Padding
+                      ),
+                      itemCount: fileList.length,
+                      itemBuilder: (ctx, idx) {
+                        var e = fileList[idx];
+                        return Obx(() => Card(
+                                child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.file(e, height: 140),
+                                if (bcutList.isNotEmpty)
+                                  Checkbox(
+                                      value: bcutList[idx],
+                                      onChanged: (bool? v) {
+                                        bcutList[idx] = v!;
+                                        bcutList.refresh();
+                                      })
+                              ],
+                            )));
+                      },
+                      // onReorder: ((oldIndex, newIndex) {
+                      //   if (oldIndex < newIndex) {
+                      //     newIndex -= 1;
+                      //   }
+                      //   final File item = fileList.removeAt(oldIndex);
+                      //   fileList.insert(newIndex, item);
+                      // }),
+                      // children: [
+                      //   ...imageList.map((e) {
+                      //     return Card(
+                      //         child: ListTile(
+                      //       title: Image.memory(imglib.encodePng(e) as Uint8List, width: 100, height: 100,),
+                      //     ));
+                      //   }).toList(),
+                      // ],
                     ),
                   ),
                   Container(
@@ -127,54 +219,55 @@ class OcrPage extends GetView {
                                 onChanged: (v) => lang(v)),
                           ],
                         ),
-                        ElevatedButton(
-                            onPressed: () async {
-                              TextDetectorV2 textDetector = GoogleMlKit.vision.textDetectorV2();
-                              var langCode = TextRecognitionOptions.values[lang.value];
-                              List<String> tmpList = [];
-                              // AdCtl.
-                              total(fileList.length);
-                              if (fileList.length <= 60) {
-                                await AdCtl.startInterstitialAd();
-                                // if (!await AdCtl.startInterstitialAd()) {
-                                //   //   total(0);
-                                //   //   return;
-                                // }
-                              }
-                              if (fileList.length > 60) {
-                                await AdCtl.startRewardedAd();
-                                // if (!await AdCtl.startRewardedAd()) {
-                                //   //   total(0);
-                                //   //   return;
-                                // }
-                              }
+                        bcutList.isNotEmpty
+                            ? ElevatedButton(
+                                onPressed: () {
+                                  splitImageFiles();
+                                },
+                                child: Text("자르기"))
+                            : ElevatedButton(
+                                onPressed: () async {
+                                  // --------------------------------------------------------------
+                                  TextDetectorV2 textDetector = GoogleMlKit.vision.textDetectorV2();
+                                  var langCode = TextRecognitionOptions.values[lang.value];
+                                  List<String> tmpList = [];
 
-                              for (var file in fileList) {
-                                var idx = fileList.indexOf(file);
-                                var inputImage = InputImage.fromFile(file);
-                                final recognisedText = await textDetector.processImage(inputImage, script: langCode);
-                                recognisedText.blocks.forEach((e) {
-                                  tmpList.add("${e.text} ");
-                                });
-                                current(idx);
-                              }
-                              String rtnStr = "";
+                                  total(fileList.length);
+                                  if (fileList.length <= 60) {
+                                    await AdCtl.startInterstitialAd();
+                                  }
+                                  if (fileList.length > 60) {
+                                    await AdCtl.startRewardedAd();
+                                  }
 
-                              if (bnewLine.value) {
-                                rtnStr = Utils.newLineTheoremStr(tmpList.join("\n"));
-                              } else {
-                                rtnStr = tmpList.join("\n");
-                              }
+                                  for (var file in fileList) {
+                                    var idx = fileList.indexOf(file);
+                                    var inputImage = InputImage.fromFile(file);
+                                    final recognisedText = await textDetector.processImage(inputImage, script: langCode);
 
-                              var tmpDir = await getTemporaryDirectory();
-                              tmpDir = Directory("${tmpDir.path}/ocr");
-                              if (tmpDir.existsSync()) {
-                                tmpDir.deleteSync(recursive: true);
-                              }
+                                    recognisedText.blocks.forEach((e) {
+                                      tmpList.add("${e.text} ");
+                                    });
+                                    current(idx);
+                                  }
+                                  String rtnStr = "";
 
-                              Get.back(result: rtnStr);
-                            },
-                            child: Text("confirm".tr)),
+                                  if (bnewLine.value) {
+                                    rtnStr = Utils.newLineTheoremStr(tmpList.join("\n"));
+                                  } else {
+                                    rtnStr = tmpList.join("\n");
+                                  }
+                                  total(0);
+                                  current(0);
+                                  var tmpDir = await getTemporaryDirectory();
+                                  tmpDir = Directory("${tmpDir.path}/ocr");
+                                  if (tmpDir.existsSync()) {
+                                    tmpDir.deleteSync(recursive: true);
+                                  }
+
+                                  Get.back(result: rtnStr);
+                                },
+                                child: Text("confirm".tr)),
                       ],
                     ),
                   )

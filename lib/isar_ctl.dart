@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:isar/isar.dart';
 import 'package:open_textview/component/comp_text_reader.dart';
 import 'package:open_textview/controller/audio_play.dart';
-import 'package:open_textview/model/box_model.dart';
 import 'package:open_textview/model/model_isar.dart';
 // import 'package:open_textview/objectbox.g.dart';
 import 'package:open_textview/provider/utils.dart';
