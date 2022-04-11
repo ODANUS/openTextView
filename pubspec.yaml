@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.9.2+92
+version: 1.9.3+93
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -78,6 +78,7 @@ dependencies:
      git:
       url: https://github.com/khjde1207/Google-Ml-Kit-plugin
   fluttertoast: ^8.0.9
+  flutter_native_splash: ^2.1.5
   
   # flutter_downloader: ^1.7.1
   # flutter_tesseract_ocr: ^0.4.17
