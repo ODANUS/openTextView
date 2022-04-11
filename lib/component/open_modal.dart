@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:open_textview/box_ctl.dart';
 
 class openSearchCtl extends GetxController {
   final text = "".obs;

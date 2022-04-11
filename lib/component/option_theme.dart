@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:open_textview/box_ctl.dart';
 
 class OptionTheme extends GetView {
   OptionTheme({

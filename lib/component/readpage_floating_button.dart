@@ -2,7 +2,6 @@ import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/open_modal.dart';
 import 'package:open_textview/controller/audio_play.dart';
 

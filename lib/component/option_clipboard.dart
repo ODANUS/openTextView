@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:open_textview/box_ctl.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 
 class OptionClipboard extends GetView {
