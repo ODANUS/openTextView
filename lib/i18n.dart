@@ -5,7 +5,7 @@ class Messages extends Translations {
   Map<String, Map<String, String>> get keys => {
         "en": {
           "key": "en",
-          "app_name": "open source text viewer",
+          "app_name": "open text viewer",
           "text_viewer": "text viewer",
           "my_library": "my library",
           "Settings": "Settings",
@@ -918,7 +918,7 @@ class Messages extends Translations {
         },
         "da": {
           "key": "da",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "TEKST VIEWER.",
           "my_library": "mit bibliotek",
           "Settings": "Indstillinger.",
@@ -1032,7 +1032,7 @@ class Messages extends Translations {
         },
         "de": {
           "key": "de",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Text Viewer",
           "my_library": "meine Bibliothek",
           "Settings": "Einstellungen",
@@ -1487,7 +1487,7 @@ class Messages extends Translations {
         },
         "ro": {
           "key": "ro",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Vizualizator de text",
           "my_library": "Biblioteca mea",
           "Settings": "Setări.",
@@ -2058,7 +2058,7 @@ class Messages extends Translations {
         },
         "ms": {
           "key": "ms",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "penonton teks.",
           "my_library": "perpustakaan saya.",
           "Settings": "Tetapan",
@@ -2171,7 +2171,7 @@ class Messages extends Translations {
         },
         "ms": {
           "key": "ms",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "penonton teks.",
           "my_library": "perpustakaan saya.",
           "Settings": "Tetapan",
@@ -2512,7 +2512,7 @@ class Messages extends Translations {
         },
         "my": {
           "key": "my",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "စာသားကြည့်သူ",
           "my_library": "ငါ့စာကြည့်တိုက်",
           "Settings": "ဆက်တင်များ",
@@ -2739,7 +2739,7 @@ class Messages extends Translations {
         },
         "be": {
           "key": "be",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "глядач тэксту",
           "my_library": "мая бібліятэка",
           "Settings": "Налада",
@@ -3309,7 +3309,7 @@ class Messages extends Translations {
         },
         "sv": {
           "key": "sv",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "textvisare",
           "my_library": "mitt bibliotek",
           "Settings": "inställningar",
@@ -3537,7 +3537,7 @@ class Messages extends Translations {
         },
         "sk": {
           "key": "sk",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "textový prehliadač",
           "my_library": "moja knižnica",
           "Settings": "nastavenie",
@@ -4102,7 +4102,7 @@ class Messages extends Translations {
         },
         "is": {
           "key": "is",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Textaskoðari",
           "my_library": "Bókasafnið mitt",
           "Settings": "Stillingar",
@@ -4329,7 +4329,7 @@ class Messages extends Translations {
         },
         "af": {
           "key": "af",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Tekst Viewer",
           "my_library": "my biblioteek",
           "Settings": "Instelling",
@@ -4783,7 +4783,7 @@ class Messages extends Translations {
         },
         "en": {
           "key": "en",
-          "app_name": "open source text viewer",
+          "app_name": "open text viewer",
           "text_viewer": "text viewer",
           "my_library": "my library",
           "Settings": "Settings",
@@ -7963,7 +7963,7 @@ class Messages extends Translations {
         },
         "fil": {
           "key": "fil",
-          "app_name": "Open Source Text Viewer.",
+          "app_name": "open text viewer.",
           "text_viewer": "Text viewer.",
           "my_library": "Aking Library.",
           "Settings": "Mga setting",

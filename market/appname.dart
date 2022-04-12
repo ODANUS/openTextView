@@ -34,20 +34,17 @@ class Messages {
   Map<String, Map<String, String>> get keys => {
         "en": {
           "key": "en",
-          "app_name": "open source text viewer",
+          "app_name": "open text viewer",
           "text_viewer": "text viewer",
           "my_library": "my library",
           "Settings": "Settings",
           "Copied to clipboard": "Copied to clipboard",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "When adding files, you can add multiple files by long pressing.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "When adding files, you can add multiple files by long pressing.",
           "file_list": "file list",
           "Add_file": "Add file",
           "remove_from_library": "remove from library",
-          "See_how_to_solve_the_tts_voice_problem":
-              "See how to solve the tts voice problem.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto shut down after @min minute",
+          "See_how_to_solve_the_tts_voice_problem": "See how to solve the tts voice problem.",
+          "Auto_shut_down_after_@min_minute": "Auto shut down after @min minute",
           "cancel": "cancel",
           "confirm": "confirm",
           "delete": "delete",
@@ -56,8 +53,7 @@ class Messages {
           "move_location": "move location",
           "Current_location": "Current location",
           "page_search": "page search",
-          "Please enter a word/sentence to search for.":
-              "Please enter a word/sentence to search for.",
+          "Please enter a word/sentence to search for.": "Please enter a word/sentence to search for.",
           "Font size setting": "Font size setting",
           "Auto shutdown settings": "Auto shutdown settings",
           "Backup / Recovery": "Backup / Recovery",
@@ -65,8 +61,7 @@ class Messages {
           "Chinese (Hanja) filter": "Chinese (Hanja) filter",
           "Japanese (Japanese) filter": "Japanese (Japanese) filter",
           "filter multiple question marks": "filter multiple question marks",
-          "Filter multiple exclamation marks":
-              "Filter multiple exclamation marks",
+          "Filter multiple exclamation marks": "Filter multiple exclamation marks",
           "filter ----": "filter ----",
           "filter ===": "filter ===",
           "filter .....": "filter .....",
@@ -83,8 +78,7 @@ class Messages {
           "Use regular expressions": "Use regular expressions",
           "use": "use",
           "history": "history",
-          "Please enter a word/sentence to search for.__1":
-              "Please enter a word/sentence to search for.",
+          "Please enter a word/sentence to search for.__1": "Please enter a word/sentence to search for.",
           "Drag to delete": "Drag to delete",
           "last position": "last position",
           "OCR image recognition settings": "OCR image recognition settings",
@@ -98,10 +92,8 @@ class Messages {
           "speed": "speed",
           "volume": "volume",
           "pitch": "pitch",
-          "Number of lines to read at a time":
-              "Number of lines to read at a time",
-          "Freeze when other players are running":
-              "Freeze when other players are running",
+          "Number of lines to read at a time": "Number of lines to read at a time",
+          "Freeze when other players are running": "Freeze when other players are running",
           "Using the headset button": "Using the headset button",
           "language": "English (US)"
         },
@@ -112,13 +104,11 @@ class Messages {
           "my_library": "내 도서관",
           "Settings": "설정",
           "Copied to clipboard": "클립 보드에 복사",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "파일을 추가 할 때 긴 파일을 긴 파일을 추가 할 수 있습니다.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "파일을 추가 할 때 긴 파일을 긴 파일을 추가 할 수 있습니다.",
           "file_list": "파일 목록",
           "Add_file": "파일 추가",
           "remove_from_library": "라이브러리에서 제거하십시오",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS 음성 문제를 해결하는 방법을 확인하십시오.",
+          "See_how_to_solve_the_tts_voice_problem": "TTS 음성 문제를 해결하는 방법을 확인하십시오.",
           "Auto_shut_down_after_@min_minute": "@min 분 후에 자동 종료",
           "cancel": "취소",
           "confirm": "확인하다",
@@ -128,8 +118,7 @@ class Messages {
           "move_location": "위치 이동",
           "Current_location": "현재 위치",
           "page_search": "페이지 검색",
-          "Please enter a word/sentence to search for.":
-              "검색 할 단어 / 문장을 입력하십시오.",
+          "Please enter a word/sentence to search for.": "검색 할 단어 / 문장을 입력하십시오.",
           "Font size setting": "글꼴 크기 설정",
           "Auto shutdown settings": "자동 종료 설정",
           "Backup / Recovery": "백업 / 복구",
@@ -154,8 +143,7 @@ class Messages {
           "Use regular expressions": "정규 표현식을 사용하십시오",
           "use": "사용하다",
           "history": "역사",
-          "Please enter a word/sentence to search for.__1":
-              "검색 할 단어 / 문장을 입력하십시오.",
+          "Please enter a word/sentence to search for.__1": "검색 할 단어 / 문장을 입력하십시오.",
           "Drag to delete": "삭제로 드래그하십시오",
           "last position": "마지막 위치",
           "OCR image recognition settings": "OCR 이미지 인식 설정",
@@ -181,15 +169,12 @@ class Messages {
           "my_library": "A miña biblioteca",
           "Settings": "Configuración",
           "Copied to clipboard": "Copiado ao portapapeis",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Ao engadir ficheiros, pode engadir varios ficheiros por moito tempo.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Ao engadir ficheiros, pode engadir varios ficheiros por moito tempo.",
           "file_list": "Lista de ficheiros",
           "Add_file": "Engadir ficheiro",
           "remove_from_library": "Eliminar da biblioteca",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Vexa como resolver o problema de voz TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Apagado automático despois de @min minuto",
+          "See_how_to_solve_the_tts_voice_problem": "Vexa como resolver o problema de voz TTS.",
+          "Auto_shut_down_after_@min_minute": "Apagado automático despois de @min minuto",
           "cancel": "Cancelar.",
           "confirm": "Confirmar.",
           "delete": "Eliminar.",
@@ -198,18 +183,15 @@ class Messages {
           "move_location": "Mover a localización",
           "Current_location": "Localización actual",
           "page_search": "Busca de páxinas",
-          "Please enter a word/sentence to search for.":
-              "Introduza unha palabra / frase para buscar.",
+          "Please enter a word/sentence to search for.": "Introduza unha palabra / frase para buscar.",
           "Font size setting": "Configuración do tamaño da fonte",
           "Auto shutdown settings": "Configuración de apagado automático",
           "Backup / Recovery": "Backup / recuperación.",
           "google drive backup": "Google Drive Backup.",
           "Chinese (Hanja) filter": "Filtro chinés (Hanja)",
           "Japanese (Japanese) filter": "Filtro xaponés (xaponés)",
-          "filter multiple question marks":
-              "filtra múltiples marcas de preguntas",
-          "Filter multiple exclamation marks":
-              "Filtra múltiples marcas de exclamación",
+          "filter multiple question marks": "filtra múltiples marcas de preguntas",
+          "Filter multiple exclamation marks": "Filtra múltiples marcas de exclamación",
           "filter ----": "Filtro ----",
           "filter ===": "Filtro ===.",
           "filter .....": "Filter .....",
@@ -217,8 +199,7 @@ class Messages {
           "filter !?": "Filtro!?",
           "? ! filter if there is only one": "? ! filtro se hai só un",
           "apostrophe filter": "filtro de apóstrofe",
-          "special character repeat filter":
-              "Filtro de repetición de carácter especial",
+          "special character repeat filter": "Filtro de repetición de carácter especial",
           "TTS filter settings": "Configuración de filtros TTS",
           "name": "Nome",
           "filter rules": "Regras do filtro",
@@ -227,12 +208,10 @@ class Messages {
           "Use regular expressions": "Use expresións regulares",
           "use": "Uso",
           "history": "Historia",
-          "Please enter a word/sentence to search for.__1":
-              "Introduza unha palabra / frase para buscar.",
+          "Please enter a word/sentence to search for.__1": "Introduza unha palabra / frase para buscar.",
           "Drag to delete": "Arrastre a borrar",
           "last position": "Última posición",
-          "OCR image recognition settings":
-              "Configuración de recoñecemento de imaxes OCR",
+          "OCR image recognition settings": "Configuración de recoñecemento de imaxes OCR",
           "open source license": "Licenza de código aberto",
           "license": "Licenza",
           "home page": "Páxina de inicio",
@@ -244,8 +223,7 @@ class Messages {
           "volume": "volume",
           "pitch": "Pitch.",
           "Number of lines to read at a time": "Número de liñas para ler á vez",
-          "Freeze when other players are running":
-              "Conxelar cando se executan outros xogadores",
+          "Freeze when other players are running": "Conxelar cando se executan outros xogadores",
           "Using the headset button": "Usando o botón de auriculares",
           "language": "Galego"
         },
@@ -271,8 +249,7 @@ class Messages {
           "move_location": "સ્થાન ખસેડો",
           "Current_location": "હાલની જગ્યા",
           "page_search": "પૃષ્ઠ શોધ",
-          "Please enter a word/sentence to search for.":
-              "કૃપા કરીને શોધવા માટે એક શબ્દ / વાક્ય દાખલ કરો.",
+          "Please enter a word/sentence to search for.": "કૃપા કરીને શોધવા માટે એક શબ્દ / વાક્ય દાખલ કરો.",
           "Font size setting": "ફૉન્ટ કદ સેટિંગ",
           "Auto shutdown settings": "ઓટો શટડાઉન સેટિંગ્સ",
           "Backup / Recovery": "બૅકઅપ / પુનઃપ્રાપ્તિ",
@@ -280,15 +257,13 @@ class Messages {
           "Chinese (Hanja) filter": "ચાઇનીઝ (હાન્જા) ફિલ્ટર",
           "Japanese (Japanese) filter": "જાપાનીઝ (જાપાનીઝ) ફિલ્ટર",
           "filter multiple question marks": "બહુવિધ પ્રશ્ન ગુણ ફિલ્ટર કરો",
-          "Filter multiple exclamation marks":
-              "બહુવિધ ઉદ્ગાર ચિહ્નને ફિલ્ટર કરો",
+          "Filter multiple exclamation marks": "બહુવિધ ઉદ્ગાર ચિહ્નને ફિલ્ટર કરો",
           "filter ----": "ફિલ્ટર ----",
           "filter ===": "ફિલ્ટર ===",
           "filter .....": "ફિલ્ટર .....",
           "filter ?!": "ફિલ્ટર કરો?",
           "filter !?": "ફિલ્ટર કરો!",
-          "? ! filter if there is only one":
-              "? ! ફિલ્ટર કરો જો ત્યાં ફક્ત એક જ છે",
+          "? ! filter if there is only one": "? ! ફિલ્ટર કરો જો ત્યાં ફક્ત એક જ છે",
           "apostrophe filter": "એપોસ્ટ્રોફ ફિલ્ટર",
           "special character repeat filter": "ખાસ અક્ષર પુનરાવર્તિત ફિલ્ટર",
           "TTS filter settings": "ટીટીએસ ફિલ્ટર સેટિંગ્સ",
@@ -299,8 +274,7 @@ class Messages {
           "Use regular expressions": "નિયમિત સમીકરણોનો ઉપયોગ કરો",
           "use": "વાપરવુ",
           "history": "ઇતિહાસ",
-          "Please enter a word/sentence to search for.__1":
-              "કૃપા કરીને શોધવા માટે એક શબ્દ / વાક્ય દાખલ કરો.",
+          "Please enter a word/sentence to search for.__1": "કૃપા કરીને શોધવા માટે એક શબ્દ / વાક્ય દાખલ કરો.",
           "Drag to delete": "કાઢી નાખો ખેંચો",
           "last position": "છેલ્લી સ્થિતિ",
           "OCR image recognition settings": "ઓસીઆર ઇમેજ ઓળખ સેટિંગ્સ",
@@ -314,10 +288,8 @@ class Messages {
           "speed": "ઝડપ",
           "volume": "વોલ્યુમ",
           "pitch": "પિચ",
-          "Number of lines to read at a time":
-              "એક સમયે વાંચવા માટેની રેખાઓની સંખ્યા",
-          "Freeze when other players are running":
-              "જ્યારે અન્ય ખેલાડીઓ ચાલી રહ્યા હોય ત્યારે ફ્રીઝ કરો",
+          "Number of lines to read at a time": "એક સમયે વાંચવા માટેની રેખાઓની સંખ્યા",
+          "Freeze when other players are running": "જ્યારે અન્ય ખેલાડીઓ ચાલી રહ્યા હોય ત્યારે ફ્રીઝ કરો",
           "Using the headset button": "હેડસેટ બટનનો ઉપયોગ કરવો",
           "language": "ગુજરાતી"
         },
@@ -333,10 +305,8 @@ class Messages {
           "file_list": "λίστα αρχείων",
           "Add_file": "Προσθήκη αρχείου",
           "remove_from_library": "Αφαιρέστε από τη βιβλιοθήκη",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Δείτε πώς να λύσετε το πρόβλημα φωνής TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Αυτόματη απενεργοποίηση μετά το @min λεπτό",
+          "See_how_to_solve_the_tts_voice_problem": "Δείτε πώς να λύσετε το πρόβλημα φωνής TTS.",
+          "Auto_shut_down_after_@min_minute": "Αυτόματη απενεργοποίηση μετά το @min λεπτό",
           "cancel": "Ματαίωση",
           "confirm": "επιβεβαιώνω",
           "delete": "διαγράφω",
@@ -345,8 +315,7 @@ class Messages {
           "move_location": "Μετακίνηση τοποθεσίας",
           "Current_location": "Τωρινή τοποθεσία",
           "page_search": "Αναζήτηση σελίδων",
-          "Please enter a word/sentence to search for.":
-              "Εισαγάγετε μια λέξη / πρόταση για να αναζητήσετε.",
+          "Please enter a word/sentence to search for.": "Εισαγάγετε μια λέξη / πρόταση για να αναζητήσετε.",
           "Font size setting": "Ρύθμιση μεγέθους γραμματοσειράς",
           "Auto shutdown settings": "Αυτόματη διακοπή λειτουργίας",
           "Backup / Recovery": "Δημιουργία αντιγράφων ασφαλείας / ανάκτησης",
@@ -362,8 +331,7 @@ class Messages {
           "filter !?": "Φίλτρο!",
           "? ! filter if there is only one": "? ! Φίλτρο αν υπάρχει μόνο ένα",
           "apostrophe filter": "Φίλτρο αποστροφής",
-          "special character repeat filter":
-              "Ειδικό φίλτρο επανάληψης χαρακτήρων",
+          "special character repeat filter": "Ειδικό φίλτρο επανάληψης χαρακτήρων",
           "TTS filter settings": "Ρυθμίσεις φίλτρου TTS",
           "name": "όνομα",
           "filter rules": "Κανόνες φίλτρου",
@@ -372,8 +340,7 @@ class Messages {
           "Use regular expressions": "Χρησιμοποιήστε κανονικές εκφράσεις",
           "use": "χρήση",
           "history": "ιστορία",
-          "Please enter a word/sentence to search for.__1":
-              "Εισαγάγετε μια λέξη / πρόταση για να αναζητήσετε.",
+          "Please enter a word/sentence to search for.__1": "Εισαγάγετε μια λέξη / πρόταση για να αναζητήσετε.",
           "Drag to delete": "Σύρετε για να διαγράψετε",
           "last position": "τελευταία θέση",
           "OCR image recognition settings": "Ρυθμίσεις αναγνώρισης εικόνας OCR",
@@ -387,10 +354,8 @@ class Messages {
           "speed": "Ταχύτητα",
           "volume": "Ενταση ΗΧΟΥ",
           "pitch": "πίσσα",
-          "Number of lines to read at a time":
-              "Αριθμός γραμμών για να διαβάσετε κάθε φορά",
-          "Freeze when other players are running":
-              "Πάγωμα όταν εκτελούνται άλλοι παίκτες",
+          "Number of lines to read at a time": "Αριθμός γραμμών για να διαβάσετε κάθε φορά",
+          "Freeze when other players are running": "Πάγωμα όταν εκτελούνται άλλοι παίκτες",
           "Using the headset button": "Χρησιμοποιώντας το κουμπί ακουστικών",
           "language": "Ελληνικά"
         },
@@ -406,8 +371,7 @@ class Messages {
           "file_list": "Bestandslijst",
           "Add_file": "Bestand toevoegen",
           "remove_from_library": "Verwijderen uit de bibliotheek",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Zie hoe u het TTS-spraakprobleem op te lossen.",
+          "See_how_to_solve_the_tts_voice_problem": "Zie hoe u het TTS-spraakprobleem op te lossen.",
           "Auto_shut_down_after_@min_minute": "Auto afsluiten na @min minuut",
           "cancel": "Annuleer",
           "confirm": "bevestigen",
@@ -417,8 +381,7 @@ class Messages {
           "move_location": "Verplaats locatie",
           "Current_location": "Huidige locatie",
           "page_search": "pagina zoeken",
-          "Please enter a word/sentence to search for.":
-              "Voer een woord / zin in om naar te zoeken.",
+          "Please enter a word/sentence to search for.": "Voer een woord / zin in om naar te zoeken.",
           "Font size setting": "Instelling van het lettergrootte",
           "Auto shutdown settings": "Auto-shutdown-instellingen",
           "Backup / Recovery": "Back-up / herstel",
@@ -443,8 +406,7 @@ class Messages {
           "Use regular expressions": "Gebruik reguliere uitdrukkingen",
           "use": "gebruik maken van",
           "history": "geschiedenis",
-          "Please enter a word/sentence to search for.__1":
-              "Voer een woord / zin in om naar te zoeken.",
+          "Please enter a word/sentence to search for.__1": "Voer een woord / zin in om naar te zoeken.",
           "Drag to delete": "Sleep om te verwijderen",
           "last position": "laatste positie",
           "OCR image recognition settings": "OCR Beeldherkenning-instellingen",
@@ -458,10 +420,8 @@ class Messages {
           "speed": "snelheid",
           "volume": "volume",
           "pitch": "toonhoogte",
-          "Number of lines to read at a time":
-              "Aantal lijnen om tegelijk te lezen",
-          "Freeze when other players are running":
-              "Bevriezen wanneer andere spelers lopen",
+          "Number of lines to read at a time": "Aantal lijnen om tegelijk te lezen",
+          "Freeze when other players are running": "Bevriezen wanneer andere spelers lopen",
           "Using the headset button": "De hoofdtelefoonknop gebruiken",
           "language": "Nederlands"
         },
@@ -472,13 +432,11 @@ class Messages {
           "my_library": "मेरो पुस्तकालय",
           "Settings": "बतंग",
           "Copied to clipboard": "क्लिपबोर्डमा प्रतिलिपि गरियो",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "जब फाईलहरू थप्दै, तपाईं लामो प्रेस गरेर बहु ​​फाइलहरू थप्न सक्नुहुनेछ।",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "जब फाईलहरू थप्दै, तपाईं लामो प्रेस गरेर बहु ​​फाइलहरू थप्न सक्नुहुनेछ।",
           "file_list": "फाइल सूची",
           "Add_file": "फाईल थप्नुहोस्",
           "remove_from_library": "पुस्तकालयबाट हटाउनुहोस्",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS आवाज समस्या कसरी समाधान गर्ने हेर्नुहोस्।",
+          "See_how_to_solve_the_tts_voice_problem": "TTS आवाज समस्या कसरी समाधान गर्ने हेर्नुहोस्।",
           "Auto_shut_down_after_@min_minute": "@Nm मिनेट पछि अटो बन्द",
           "cancel": "रद्द गर्नु",
           "confirm": "पक्का गर्नु",
@@ -488,28 +446,23 @@ class Messages {
           "move_location": "स्थान सार्नुहोस्",
           "Current_location": "वर्तमान स्थान",
           "page_search": "पृष्ठ खोजी",
-          "Please enter a word/sentence to search for.":
-              "कृपया खोज्नको लागि एक शब्द / वाक्य प्रविष्ट गर्नुहोस्।",
+          "Please enter a word/sentence to search for.": "कृपया खोज्नको लागि एक शब्द / वाक्य प्रविष्ट गर्नुहोस्।",
           "Font size setting": "फन्ट साइज सेटिंग",
           "Auto shutdown settings": "अटो शटडाउन सेटिंग्स",
           "Backup / Recovery": "ब्याकअप / रिकभरी",
           "google drive backup": "गुगल ड्राइव ब्याकअप",
           "Chinese (Hanja) filter": "चिनियाँ (हन्जा) फिल्टर फिल्टर",
           "Japanese (Japanese) filter": "जापानी (जापानी) फिल्टर फिल्टर फिल्टर",
-          "filter multiple question marks":
-              "बहु प्रश्न मार्कहरू फिल्टर गर्नुहोस्",
-          "Filter multiple exclamation marks":
-              "बहुविध मतपत्र मार्क फिल्टर गर्नुहोस्",
+          "filter multiple question marks": "बहु प्रश्न मार्कहरू फिल्टर गर्नुहोस्",
+          "Filter multiple exclamation marks": "बहुविध मतपत्र मार्क फिल्टर गर्नुहोस्",
           "filter ----": "फिल्टर -----",
           "filter ===": "फिल्टर ===",
           "filter .....": "फिल्टर .....",
           "filter ?!": "फिल्टर छ?!",
           "filter !?": "फिल्टर!?",
-          "? ! filter if there is only one":
-              "नि? ! फिल्टर यदि त्यहाँ एक मात्र छ भने",
+          "? ! filter if there is only one": "नि? ! फिल्टर यदि त्यहाँ एक मात्र छ भने",
           "apostrophe filter": "प्रेषित चापल",
-          "special character repeat filter":
-              "विशेष चरित्र दोहोर्याउनुहोस् फिल्टर",
+          "special character repeat filter": "विशेष चरित्र दोहोर्याउनुहोस् फिल्टर",
           "TTS filter settings": "Tts फिल्टर सेटिंग्स",
           "name": "नाम",
           "filter rules": "फिल्टर नियम",
@@ -518,8 +471,7 @@ class Messages {
           "Use regular expressions": "नियमित अभिव्यक्ति प्रयोग गर्नुहोस्",
           "use": "प्रयोग गर्नु",
           "history": "इतिहास",
-          "Please enter a word/sentence to search for.__1":
-              "कृपया खोज्नको लागि एक शब्द / वाक्य प्रविष्ट गर्नुहोस्।",
+          "Please enter a word/sentence to search for.__1": "कृपया खोज्नको लागि एक शब्द / वाक्य प्रविष्ट गर्नुहोस्।",
           "Drag to delete": "मेटाउन तान्नुहोस्",
           "last position": "अन्तिम स्थान",
           "OCR image recognition settings": "OCR छवि पहिचान सेटिंग्स",
@@ -533,10 +485,8 @@ class Messages {
           "speed": "चाल",
           "volume": "आवाज",
           "pitch": "पिच",
-          "Number of lines to read at a time":
-              "एक पटकमा पढ्नको लागि लाइनहरूको संख्या",
-          "Freeze when other players are running":
-              "फ्रिज जब अन्य खेलाडीहरू चलिरहेका छन्",
+          "Number of lines to read at a time": "एक पटकमा पढ्नको लागि लाइनहरूको संख्या",
+          "Freeze when other players are running": "फ्रिज जब अन्य खेलाडीहरू चलिरहेका छन्",
           "Using the headset button": "हेडसेट बटन प्रयोग गर्दै",
           "language": "नेपाली"
         },
@@ -552,8 +502,7 @@ class Messages {
           "file_list": "Filliste",
           "Add_file": "Legg til fil",
           "remove_from_library": "Fjern fra biblioteket",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Se hvordan du løser TTS-stemmeproblemet.",
+          "See_how_to_solve_the_tts_voice_problem": "Se hvordan du løser TTS-stemmeproblemet.",
           "Auto_shut_down_after_@min_minute": "Auto stengt etter @min minutt",
           "cancel": "Avbryt",
           "confirm": "bekrefte",
@@ -563,8 +512,7 @@ class Messages {
           "move_location": "flytte sted",
           "Current_location": "Nåværende plassering",
           "page_search": "Side Søk",
-          "Please enter a word/sentence to search for.":
-              "Vennligst skriv inn et ord / setning for å søke etter.",
+          "Please enter a word/sentence to search for.": "Vennligst skriv inn et ord / setning for å søke etter.",
           "Font size setting": "Skriftstørrelsesinnstilling",
           "Auto shutdown settings": "Auto Shutdown Settings",
           "Backup / Recovery": "Sikkerhetskopiering / gjenoppretting",
@@ -589,12 +537,10 @@ class Messages {
           "Use regular expressions": "Bruk vanlige uttrykk",
           "use": "bruk",
           "history": "historie",
-          "Please enter a word/sentence to search for.__1":
-              "Vennligst skriv inn et ord / setning for å søke etter.",
+          "Please enter a word/sentence to search for.__1": "Vennligst skriv inn et ord / setning for å søke etter.",
           "Drag to delete": "Dra for å slette",
           "last position": "siste posisjon",
-          "OCR image recognition settings":
-              "OCR-bildegjenkjenningsinnstillinger",
+          "OCR image recognition settings": "OCR-bildegjenkjenningsinnstillinger",
           "open source license": "åpen kildekode lisens",
           "license": "tillatelse",
           "home page": "Hjemmeside",
@@ -606,14 +552,13 @@ class Messages {
           "volume": "volum",
           "pitch": "tonehøyde",
           "Number of lines to read at a time": "Antall linjer å lese om gangen",
-          "Freeze when other players are running":
-              "Fryse når andre spillere kjører",
+          "Freeze when other players are running": "Fryse når andre spillere kjører",
           "Using the headset button": "Bruke Headset-knappen",
           "language": "Norsk"
         },
         "da": {
           "key": "da",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "TEKST VIEWER.",
           "my_library": "mit bibliotek",
           "Settings": "Indstillinger.",
@@ -623,8 +568,7 @@ class Messages {
           "file_list": "Filliste",
           "Add_file": "Tilføj fil",
           "remove_from_library": "Fjern fra biblioteket",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Se, hvordan du løser TTS-stemmeproblemet.",
+          "See_how_to_solve_the_tts_voice_problem": "Se, hvordan du løser TTS-stemmeproblemet.",
           "Auto_shut_down_after_@min_minute": "Auto lukkes efter @min minut",
           "cancel": "afbestille",
           "confirm": "bekræfte",
@@ -634,8 +578,7 @@ class Messages {
           "move_location": "Flyt placering",
           "Current_location": "Nuværende lokation",
           "page_search": "Side søgning",
-          "Please enter a word/sentence to search for.":
-              "Indtast venligst et ord / sætning for at søge efter.",
+          "Please enter a word/sentence to search for.": "Indtast venligst et ord / sætning for at søge efter.",
           "Font size setting": "Skrifttypestørrelse indstilling",
           "Auto shutdown settings": "AUTO SHUTDOWN SETTINGS",
           "Backup / Recovery": "Backup / Recovery.",
@@ -660,8 +603,7 @@ class Messages {
           "Use regular expressions": "Brug regelmæssige udtryk",
           "use": "brug",
           "history": "historie",
-          "Please enter a word/sentence to search for.__1":
-              "Indtast venligst et ord / sætning for at søge efter.",
+          "Please enter a word/sentence to search for.__1": "Indtast venligst et ord / sætning for at søge efter.",
           "Drag to delete": "Træk for at slette",
           "last position": "sidste position",
           "OCR image recognition settings": "OCR Image Recognition Settings",
@@ -675,16 +617,14 @@ class Messages {
           "speed": "hastighed",
           "volume": "bind",
           "pitch": "tonehøjde",
-          "Number of lines to read at a time":
-              "Antal linjer for at læse ad gangen",
-          "Freeze when other players are running":
-              "Fryser, når andre spillere kører",
+          "Number of lines to read at a time": "Antal linjer for at læse ad gangen",
+          "Freeze when other players are running": "Fryser, når andre spillere kører",
           "Using the headset button": "Brug af headset-knappen",
           "language": "Dansk"
         },
         "de": {
           "key": "de",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Text Viewer",
           "my_library": "meine Bibliothek",
           "Settings": "Einstellungen",
@@ -694,10 +634,8 @@ class Messages {
           "file_list": "Dateiliste",
           "Add_file": "Datei hinzufügen",
           "remove_from_library": "Aus der Bibliothek entfernen.",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Sehen Sie, wie Sie das TTS-Sprachproblem lösen können.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto herunterfahren, nachdem @min Minute",
+          "See_how_to_solve_the_tts_voice_problem": "Sehen Sie, wie Sie das TTS-Sprachproblem lösen können.",
+          "Auto_shut_down_after_@min_minute": "Auto herunterfahren, nachdem @min Minute",
           "cancel": "Abbrechen",
           "confirm": "bestätigen Sie",
           "delete": "löschen",
@@ -706,8 +644,7 @@ class Messages {
           "move_location": "Standort bewegen",
           "Current_location": "Aktueller Standort",
           "page_search": "Seitensuche.",
-          "Please enter a word/sentence to search for.":
-              "Bitte geben Sie ein Wort / einen Satz ein, um nach zu suchen.",
+          "Please enter a word/sentence to search for.": "Bitte geben Sie ein Wort / einen Satz ein, um nach zu suchen.",
           "Font size setting": "Schriftgrößeseinstellung.",
           "Auto shutdown settings": "Automatische Herunterfahreneinstellungen",
           "Backup / Recovery": "Backup / Erholung.",
@@ -721,11 +658,9 @@ class Messages {
           "filter .....": "Filter .....",
           "filter ?!": "Filter ?!",
           "filter !?": "Filter!",
-          "? ! filter if there is only one":
-              "? Schnitte filtern, wenn nur eins vorhanden ist",
+          "? ! filter if there is only one": "? Schnitte filtern, wenn nur eins vorhanden ist",
           "apostrophe filter": "Apostrophenfilter.",
-          "special character repeat filter":
-              "Spezial-Zeichen-Wiederholungsfilter",
+          "special character repeat filter": "Spezial-Zeichen-Wiederholungsfilter",
           "TTS filter settings": "TTS-Filtereinstellungen.",
           "name": "Name",
           "filter rules": "Filterregeln",
@@ -734,8 +669,7 @@ class Messages {
           "Use regular expressions": "Verwenden Sie regelmäßige Ausdrücke",
           "use": "verwenden",
           "history": "Geschichte",
-          "Please enter a word/sentence to search for.__1":
-              "Bitte geben Sie ein Wort / einen Satz ein, um nach zu suchen.",
+          "Please enter a word/sentence to search for.__1": "Bitte geben Sie ein Wort / einen Satz ein, um nach zu suchen.",
           "Drag to delete": "Ziehen, um zu löschen",
           "last position": "letzte Position",
           "OCR image recognition settings": "OCR-Bilderkennungseinstellungen",
@@ -749,10 +683,8 @@ class Messages {
           "speed": "Geschwindigkeit",
           "volume": "Volumen",
           "pitch": "Tonhöhe",
-          "Number of lines to read at a time":
-              "Anzahl der Zeilen zu einer Zeit",
-          "Freeze when other players are running":
-              "Einfrieren, wenn andere Spieler laufen",
+          "Number of lines to read at a time": "Anzahl der Zeilen zu einer Zeit",
+          "Freeze when other players are running": "Einfrieren, wenn andere Spieler laufen",
           "Using the headset button": "Verwenden der Headset-Taste",
           "language": "Deutsch"
         },
@@ -763,13 +695,11 @@ class Messages {
           "my_library": "ຫໍສະມຸດຂອງຂ້ອຍ",
           "Settings": "ການກໍານົດ",
           "Copied to clipboard": "ຄັດລອກໄປທີ່ Clipboard",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "ໃນເວລາທີ່ເພີ່ມໄຟລ໌, ທ່ານສາມາດເພີ່ມຫລາຍເອກະສານໂດຍການກົດໄລຍະຍາວ.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "ໃນເວລາທີ່ເພີ່ມໄຟລ໌, ທ່ານສາມາດເພີ່ມຫລາຍເອກະສານໂດຍການກົດໄລຍະຍາວ.",
           "file_list": "ບັນຊີລາຍຊື່ເອກະສານ",
           "Add_file": "ເພີ່ມເອກະສານ",
           "remove_from_library": "ເອົາອອກຈາກຫໍສະມຸດ",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ເບິ່ງວິທີການແກ້ໄຂບັນຫາສຽງຂອງ TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "ເບິ່ງວິທີການແກ້ໄຂບັນຫາສຽງຂອງ TTS.",
           "Auto_shut_down_after_@min_minute": "ປິດອັດຕະໂນມັດຫຼັງຈາກ @min minim",
           "cancel": "ຍົກເລີກ",
           "confirm": "ຢືນຢັນ",
@@ -779,8 +709,7 @@ class Messages {
           "move_location": "ຍ້າຍສະຖານທີ່",
           "Current_location": "ສະຖານທີ່ປະຈຸບັນ",
           "page_search": "ຄົ້ນຫາຫນ້າ",
-          "Please enter a word/sentence to search for.":
-              "ກະລຸນາໃສ່ຄໍາສັບ / ປະໂຫຍກເພື່ອຄົ້ນຫາ.",
+          "Please enter a word/sentence to search for.": "ກະລຸນາໃສ່ຄໍາສັບ / ປະໂຫຍກເພື່ອຄົ້ນຫາ.",
           "Font size setting": "ການຕັ້ງຄ່າຂະຫນາດຕົວອັກສອນ",
           "Auto shutdown settings": "ການຕັ້ງຄ່າປິດອັດຕະໂນມັດ",
           "Backup / Recovery": "ການສໍາຮອງ / ການຟື້ນຟູ",
@@ -805,8 +734,7 @@ class Messages {
           "Use regular expressions": "ໃຊ້ການສະແດງອອກເປັນປະຈໍາ",
           "use": "ໃຊ້",
           "history": "ປະຫວັດສາດ",
-          "Please enter a word/sentence to search for.__1":
-              "ກະລຸນາໃສ່ຄໍາສັບ / ປະໂຫຍກເພື່ອຄົ້ນຫາ.",
+          "Please enter a word/sentence to search for.__1": "ກະລຸນາໃສ່ຄໍາສັບ / ປະໂຫຍກເພື່ອຄົ້ນຫາ.",
           "Drag to delete": "ລາກໄປລຶບ",
           "last position": "ຕໍາແຫນ່ງສຸດທ້າຍ",
           "OCR image recognition settings": "ການຕັ້ງຄ່າການຮັບຮູ້ຮູບພາບ OCR",
@@ -821,8 +749,7 @@ class Messages {
           "volume": "ປະລິມານ",
           "pitch": "ສະຫນາມ",
           "Number of lines to read at a time": "ຈໍານວນເສັ້ນທີ່ຈະອ່ານໃນເວລາ",
-          "Freeze when other players are running":
-              "freeze ໃນເວລາທີ່ຜູ້ນອື່ນໆກໍາລັງແລ່ນ",
+          "Freeze when other players are running": "freeze ໃນເວລາທີ່ຜູ້ນອື່ນໆກໍາລັງແລ່ນ",
           "Using the headset button": "ການໃຊ້ປຸ່ມຫູຟັງ",
           "language": "ພາສາລາວ"
         },
@@ -833,15 +760,12 @@ class Messages {
           "my_library": "mana bibliotēka",
           "Settings": "Iestatījumi",
           "Copied to clipboard": "Kopēts starpliktuvē",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Pievienojot failus, varat pievienot vairākus failus, ilgi nospiežot.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Pievienojot failus, varat pievienot vairākus failus, ilgi nospiežot.",
           "file_list": "Failu saraksts",
           "Add_file": "Pievienot failu",
           "remove_from_library": "Noņemt no bibliotēkas",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Skatiet, kā atrisināt TTS balss problēmu.",
-          "Auto_shut_down_after_@min_minute":
-              "Automātiska izslēgšana pēc @min minūte",
+          "See_how_to_solve_the_tts_voice_problem": "Skatiet, kā atrisināt TTS balss problēmu.",
+          "Auto_shut_down_after_@min_minute": "Automātiska izslēgšana pēc @min minūte",
           "cancel": "atcelt",
           "confirm": "Apstiprināt",
           "delete": "izdzēst",
@@ -850,8 +774,7 @@ class Messages {
           "move_location": "pārvietojiet vietu",
           "Current_location": "Pašreizējā atrašanās vieta",
           "page_search": "Lapas meklēšana",
-          "Please enter a word/sentence to search for.":
-              "Lūdzu, ievadiet vārdu / teikumu, lai meklētu.",
+          "Please enter a word/sentence to search for.": "Lūdzu, ievadiet vārdu / teikumu, lai meklētu.",
           "Font size setting": "Fonta lieluma iestatījums",
           "Auto shutdown settings": "Automātiskās izslēgšanas iestatījumi",
           "Backup / Recovery": "Backup / atgūšana",
@@ -859,8 +782,7 @@ class Messages {
           "Chinese (Hanja) filter": "Ķīniešu (HANJA) filtrs",
           "Japanese (Japanese) filter": "Japāņu (japāņu) filtrs",
           "filter multiple question marks": "Filtrēt vairākas jautājumu zīmes",
-          "Filter multiple exclamation marks":
-              "Filtrēt vairākas izsaukuma zīmes",
+          "Filter multiple exclamation marks": "Filtrēt vairākas izsaukuma zīmes",
           "filter ----": "Filtrs ----",
           "filter ===": "Filtrs ===",
           "filter .....": "Filtrs .....",
@@ -868,8 +790,7 @@ class Messages {
           "filter !?": "Filtrs!",
           "? ! filter if there is only one": "? ! filtru, ja ir tikai viens",
           "apostrophe filter": "apostrofu filtrs",
-          "special character repeat filter":
-              "Īpašais rakstzīmju atkārtots filtrs",
+          "special character repeat filter": "Īpašais rakstzīmju atkārtots filtrs",
           "TTS filter settings": "TTS filtra iestatījumi",
           "name": "vārds",
           "filter rules": "Filtra noteikumi",
@@ -878,12 +799,10 @@ class Messages {
           "Use regular expressions": "Izmantot regulāras izteiksmes",
           "use": "izmantot",
           "history": "vēsture",
-          "Please enter a word/sentence to search for.__1":
-              "Lūdzu, ievadiet vārdu / teikumu, lai meklētu.",
+          "Please enter a word/sentence to search for.__1": "Lūdzu, ievadiet vārdu / teikumu, lai meklētu.",
           "Drag to delete": "Velciet, lai izdzēstu",
           "last position": "pēdējā pozīcija",
-          "OCR image recognition settings":
-              "OCR attēlu atpazīšanas iestatījumi",
+          "OCR image recognition settings": "OCR attēlu atpazīšanas iestatījumi",
           "open source license": "Atvērtā koda licence",
           "license": "licence",
           "home page": "Mājas lapa",
@@ -894,10 +813,8 @@ class Messages {
           "speed": "ātrums",
           "volume": "apjoms",
           "pitch": "piķis",
-          "Number of lines to read at a time":
-              "Līniju skaits, kas lasāms laikā",
-          "Freeze when other players are running":
-              "Iesaldēt, kad darbojas citi spēlētāji",
+          "Number of lines to read at a time": "Līniju skaits, kas lasāms laikā",
+          "Freeze when other players are running": "Iesaldēt, kad darbojas citi spēlētāji",
           "Using the headset button": "Izmantojot austiņu pogu",
           "language": "Latviešu"
         },
@@ -913,10 +830,8 @@ class Messages {
           "file_list": "список файлов",
           "Add_file": "Добавить файл",
           "remove_from_library": "Удалить из библиотеки",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Посмотрите, как решить голосовую проблему TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Авто выключается после @min минут",
+          "See_how_to_solve_the_tts_voice_problem": "Посмотрите, как решить голосовую проблему TTS.",
+          "Auto_shut_down_after_@min_minute": "Авто выключается после @min минут",
           "cancel": "Отмена",
           "confirm": "подтверждать",
           "delete": "удалять",
@@ -925,28 +840,23 @@ class Messages {
           "move_location": "Переместить местоположение",
           "Current_location": "Текущее местоположение",
           "page_search": "Поиск страницы",
-          "Please enter a word/sentence to search for.":
-              "Пожалуйста, введите слово / предложение для поиска.",
+          "Please enter a word/sentence to search for.": "Пожалуйста, введите слово / предложение для поиска.",
           "Font size setting": "Установка размера шрифта",
           "Auto shutdown settings": "Настройки автоматического выключения",
           "Backup / Recovery": "Резервное копирование / восстановление",
           "google drive backup": "резервная копия Google Drive",
           "Chinese (Hanja) filter": "Китайский (Hanja) фильтр",
           "Japanese (Japanese) filter": "Японский (японский) фильтр",
-          "filter multiple question marks":
-              "Фильтр несколько вопросительных знаков",
-          "Filter multiple exclamation marks":
-              "Фильтр несколько восклицательных знаков",
+          "filter multiple question marks": "Фильтр несколько вопросительных знаков",
+          "Filter multiple exclamation marks": "Фильтр несколько восклицательных знаков",
           "filter ----": "Фильтр ----",
           "filter ===": "Фильтр ===.",
           "filter .....": "Фильтр .....",
           "filter ?!": "Фильтр?!",
           "filter !?": "Фильтр!?",
-          "? ! filter if there is only one":
-              "? Действительно фильтр, если есть только один",
+          "? ! filter if there is only one": "? Действительно фильтр, если есть только один",
           "apostrophe filter": "Фильтр апострофа",
-          "special character repeat filter":
-              "Специальный фильтр повторения персонажа",
+          "special character repeat filter": "Специальный фильтр повторения персонажа",
           "TTS filter settings": "Настройки фильтра TTS",
           "name": "имя",
           "filter rules": "Правила фильтра",
@@ -955,12 +865,10 @@ class Messages {
           "Use regular expressions": "Используйте регулярные выражения",
           "use": "использовать",
           "history": "история",
-          "Please enter a word/sentence to search for.__1":
-              "Пожалуйста, введите слово / предложение для поиска.",
+          "Please enter a word/sentence to search for.__1": "Пожалуйста, введите слово / предложение для поиска.",
           "Drag to delete": "Перетащите, чтобы удалить",
           "last position": "Последняя позиция",
-          "OCR image recognition settings":
-              "OCR Настройки распознавания изображений",
+          "OCR image recognition settings": "OCR Настройки распознавания изображений",
           "open source license": "Лицензия с открытым исходным кодом",
           "license": "лицензия",
           "home page": "Главная страница",
@@ -971,16 +879,14 @@ class Messages {
           "speed": "скорость",
           "volume": "объем",
           "pitch": "подача",
-          "Number of lines to read at a time":
-              "Количество линий для чтения одновременно",
-          "Freeze when other players are running":
-              "Заморозить, когда другие игроки бегут",
+          "Number of lines to read at a time": "Количество линий для чтения одновременно",
+          "Freeze when other players are running": "Заморозить, когда другие игроки бегут",
           "Using the headset button": "Использование кнопки гарнитуры",
           "language": "Русский"
         },
         "ro": {
           "key": "ro",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Vizualizator de text",
           "my_library": "Biblioteca mea",
           "Settings": "Setări.",
@@ -990,8 +896,7 @@ class Messages {
           "file_list": "Lista de fișiere",
           "Add_file": "Adauga fisier",
           "remove_from_library": "Eliminați din bibliotecă",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Vedeți cum să rezolvați problema voce TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Vedeți cum să rezolvați problema voce TTS.",
           "Auto_shut_down_after_@min_minute": "Auto închis după minut @min",
           "cancel": "Anulare",
           "confirm": "a confirma",
@@ -1001,28 +906,23 @@ class Messages {
           "move_location": "Mutați locația",
           "Current_location": "Locatia curenta",
           "page_search": "Căutare pagină",
-          "Please enter a word/sentence to search for.":
-              "Introduceți un cuvânt / propoziție pentru a căuta.",
+          "Please enter a word/sentence to search for.": "Introduceți un cuvânt / propoziție pentru a căuta.",
           "Font size setting": "Setarea dimensiunii fontului",
           "Auto shutdown settings": "Setări de oprire automată",
           "Backup / Recovery": "Backup / recuperare",
           "google drive backup": "Google Drive Backup",
           "Chinese (Hanja) filter": "Filtru chinezesc (Hanja)",
           "Japanese (Japanese) filter": "Filtru japonez (japonez)",
-          "filter multiple question marks":
-              "Filtrați mai multe semne de întrebare",
-          "Filter multiple exclamation marks":
-              "Filtrați semne de exclamare multiple",
+          "filter multiple question marks": "Filtrați mai multe semne de întrebare",
+          "Filter multiple exclamation marks": "Filtrați semne de exclamare multiple",
           "filter ----": "filtru ----",
           "filter ===": "Filtru ===.",
           "filter .....": "filtru .....",
           "filter ?!": "filtru ?!",
           "filter !?": "filtru !?",
-          "? ! filter if there is only one":
-              "? A! Filtrați dacă există doar unul",
+          "? ! filter if there is only one": "? A! Filtrați dacă există doar unul",
           "apostrophe filter": "Apostophete filtru.",
-          "special character repeat filter":
-              "Filtru de repetare de caractere speciale",
+          "special character repeat filter": "Filtru de repetare de caractere speciale",
           "TTS filter settings": "Setările filtrului TTS.",
           "name": "Nume",
           "filter rules": "Reguli de filtrare",
@@ -1031,12 +931,10 @@ class Messages {
           "Use regular expressions": "Utilizați expresii regulate",
           "use": "utilizare",
           "history": "istorie",
-          "Please enter a word/sentence to search for.__1":
-              "Introduceți un cuvânt / propoziție pentru a căuta.",
+          "Please enter a word/sentence to search for.__1": "Introduceți un cuvânt / propoziție pentru a căuta.",
           "Drag to delete": "Trageți pentru a șterge",
           "last position": "ultima pozitie",
-          "OCR image recognition settings":
-              "OCR Setări de recunoaștere a imaginii",
+          "OCR image recognition settings": "OCR Setări de recunoaștere a imaginii",
           "open source license": "Licență Open Source.",
           "license": "licență",
           "home page": "pagina principala",
@@ -1047,10 +945,8 @@ class Messages {
           "speed": "viteză",
           "volume": "volum",
           "pitch": "pas",
-          "Number of lines to read at a time":
-              "Numărul de linii de citit la un moment dat",
-          "Freeze when other players are running":
-              "Înghețați când se execută alți jucători",
+          "Number of lines to read at a time": "Numărul de linii de citit la un moment dat",
+          "Freeze when other players are running": "Înghețați când se execută alți jucători",
           "Using the headset button": "Utilizarea butonului setului cu cască",
           "language": "Română"
         },
@@ -1061,15 +957,12 @@ class Messages {
           "my_library": "Mano biblioteka",
           "Settings": "Nustatymai. \\ T",
           "Copied to clipboard": "Nukopijuotas į iškarpinę",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Pridėjus failus, ilgai galite pridėti kelis failus.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Pridėjus failus, ilgai galite pridėti kelis failus.",
           "file_list": "Failų sąrašas",
           "Add_file": "Pridėti failą",
           "remove_from_library": "Pašalinti iš bibliotekos",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Pažiūrėkite, kaip išspręsti TTS balso problemą.",
-          "Auto_shut_down_after_@min_minute":
-              "Automatinis uždarymas po @min minučių",
+          "See_how_to_solve_the_tts_voice_problem": "Pažiūrėkite, kaip išspręsti TTS balso problemą.",
+          "Auto_shut_down_after_@min_minute": "Automatinis uždarymas po @min minučių",
           "cancel": "Atšaukti",
           "confirm": "patvirtinti",
           "delete": "Ištrinti",
@@ -1078,8 +971,7 @@ class Messages {
           "move_location": "Perkelti vietą",
           "Current_location": "Dabartinė vieta",
           "page_search": "Puslapio paieška.",
-          "Please enter a word/sentence to search for.":
-              "Jei norite ieškoti, įveskite žodį / sakinį.",
+          "Please enter a word/sentence to search for.": "Jei norite ieškoti, įveskite žodį / sakinį.",
           "Font size setting": "Šrifto dydžio nustatymas",
           "Auto shutdown settings": "Automatinio išjungimo nustatymai",
           "Backup / Recovery": "Atsarginė kopija / atkūrimas",
@@ -1087,18 +979,15 @@ class Messages {
           "Chinese (Hanja) filter": "Kinų (hanja) filtras",
           "Japanese (Japanese) filter": "Japonijos (japonų) filtras",
           "filter multiple question marks": "Filtruoti kelis klausimų ženklus",
-          "Filter multiple exclamation marks":
-              "Filtruoti kelis šauktinius ženklus",
+          "Filter multiple exclamation marks": "Filtruoti kelis šauktinius ženklus",
           "filter ----": "filtras ----",
           "filter ===": "filtras ===.",
           "filter .....": "filtras .....",
           "filter ?!": "filtras ?!",
           "filter !?": "filtras !?",
-          "? ! filter if there is only one":
-              "? \\ T ! Filtruokite, jei yra tik vienas",
+          "? ! filter if there is only one": "? \\ T ! Filtruokite, jei yra tik vienas",
           "apostrophe filter": "Apostrofos filtras",
-          "special character repeat filter":
-              "Specialusis simbolių pakartotinis filtras",
+          "special character repeat filter": "Specialusis simbolių pakartotinis filtras",
           "TTS filter settings": "TTS filtro nustatymai",
           "name": "vardas",
           "filter rules": "Filtravimo taisyklės",
@@ -1107,8 +996,7 @@ class Messages {
           "Use regular expressions": "Naudokite reguliarias išraiškas",
           "use": "Naudojimas. \\ T",
           "history": "istorija",
-          "Please enter a word/sentence to search for.__1":
-              "Jei norite ieškoti, įveskite žodį / sakinį.",
+          "Please enter a word/sentence to search for.__1": "Jei norite ieškoti, įveskite žodį / sakinį.",
           "Drag to delete": "Vilkite ištrinti",
           "last position": "Paskutinė padėtis",
           "OCR image recognition settings": "OCR vaizdo atpažinimo nustatymai",
@@ -1122,10 +1010,8 @@ class Messages {
           "speed": "greitis",
           "volume": "Volume",
           "pitch": "Pitch.",
-          "Number of lines to read at a time":
-              "Linijų skaičius, kurį norite skaityti vienu metu",
-          "Freeze when other players are running":
-              "Užšaldyti, kai veikia kiti žaidėjai",
+          "Number of lines to read at a time": "Linijų skaičius, kurį norite skaityti vienu metu",
+          "Freeze when other players are running": "Užšaldyti, kai veikia kiti žaidėjai",
           "Using the headset button": "Naudojant ausinių mygtuką",
           "language": "Lietuvių"
         },
@@ -1136,13 +1022,11 @@ class Messages {
           "my_library": "माझे लायब्ररी",
           "Settings": "सेटिंग्ज",
           "Copied to clipboard": "क्लिपबोर्डवर कॉपी केले",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "फायली जोडताना, आपण लांब दाबून एकाधिक फायली जोडू शकता.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "फायली जोडताना, आपण लांब दाबून एकाधिक फायली जोडू शकता.",
           "file_list": "फाइल यादी",
           "Add_file": "फाइल जोडा",
           "remove_from_library": "ग्रंथालयातून काढा",
-          "See_how_to_solve_the_tts_voice_problem":
-              "टीटीएस व्हॉइस समस्येचे निराकरण कसे करावे ते पहा.",
+          "See_how_to_solve_the_tts_voice_problem": "टीटीएस व्हॉइस समस्येचे निराकरण कसे करावे ते पहा.",
           "Auto_shut_down_after_@min_minute": "@ मिन मिनिटानंतर स्वयं बंद",
           "cancel": "रद्द करा",
           "confirm": "पुष्टी",
@@ -1152,8 +1036,7 @@ class Messages {
           "move_location": "स्थान हलवा",
           "Current_location": "वर्तमान स्थान",
           "page_search": "पृष्ठ शोध",
-          "Please enter a word/sentence to search for.":
-              "कृपया शोधण्यासाठी एक शब्द / वाक्य प्रविष्ट करा.",
+          "Please enter a word/sentence to search for.": "कृपया शोधण्यासाठी एक शब्द / वाक्य प्रविष्ट करा.",
           "Font size setting": "फॉन्ट आकार सेटिंग",
           "Auto shutdown settings": "ऑटो शटडाउन सेटिंग्ज",
           "Backup / Recovery": "बॅकअप / पुनर्प्राप्ती",
@@ -1161,8 +1044,7 @@ class Messages {
           "Chinese (Hanja) filter": "चीनी (हंजा) फिल्टर",
           "Japanese (Japanese) filter": "जपानी (जपानी) फिल्टर",
           "filter multiple question marks": "एकाधिक प्रश्न चिन्ह फिल्टर करा",
-          "Filter multiple exclamation marks":
-              "एकाधिक उद्गार चिन्हे फिल्टर करा",
+          "Filter multiple exclamation marks": "एकाधिक उद्गार चिन्हे फिल्टर करा",
           "filter ----": "फिल्टर ----",
           "filter ===": "फिल्टर ===.",
           "filter .....": "फिल्टर .....",
@@ -1179,8 +1061,7 @@ class Messages {
           "Use regular expressions": "नियमित अभिव्यक्ती वापरा",
           "use": "वापर",
           "history": "इतिहास",
-          "Please enter a word/sentence to search for.__1":
-              "कृपया शोधण्यासाठी एक शब्द / वाक्य प्रविष्ट करा.",
+          "Please enter a word/sentence to search for.__1": "कृपया शोधण्यासाठी एक शब्द / वाक्य प्रविष्ट करा.",
           "Drag to delete": "हटविण्यासाठी ड्रॅग करा",
           "last position": "शेवटची स्थिती",
           "OCR image recognition settings": "ओसीआर प्रतिमा ओळख सेटिंग्ज",
@@ -1194,10 +1075,8 @@ class Messages {
           "speed": "वेग",
           "volume": "खंड",
           "pitch": "पिच",
-          "Number of lines to read at a time":
-              "एका वेळी वाचण्यासाठी ओळींची संख्या",
-          "Freeze when other players are running":
-              "इतर खेळाडू चालत असताना फ्रीझ करा",
+          "Number of lines to read at a time": "एका वेळी वाचण्यासाठी ओळींची संख्या",
+          "Freeze when other players are running": "इतर खेळाडू चालत असताना फ्रीझ करा",
           "Using the headset button": "हेडसेट बटण वापरणे",
           "language": "महारो"
         },
@@ -1213,10 +1092,8 @@ class Messages {
           "file_list": "Листа на датотеки",
           "Add_file": "Додај датотека",
           "remove_from_library": "Отстрани од библиотека",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Погледнете како да го решите проблемот со глас на TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Автоматско исклучување по @min минута",
+          "See_how_to_solve_the_tts_voice_problem": "Погледнете како да го решите проблемот со глас на TTS.",
+          "Auto_shut_down_after_@min_minute": "Автоматско исклучување по @min минута",
           "cancel": "Откажи",
           "confirm": "Потврди",
           "delete": "избриши",
@@ -1225,8 +1102,7 @@ class Messages {
           "move_location": "Премести локација",
           "Current_location": "Моментална локација",
           "page_search": "Пребарување на страници",
-          "Please enter a word/sentence to search for.":
-              "Ве молиме внесете збор / реченица за да пребарувате.",
+          "Please enter a word/sentence to search for.": "Ве молиме внесете збор / реченица за да пребарувате.",
           "Font size setting": "Поставување на големината на фонтот",
           "Auto shutdown settings": "Auto Shutdown Settings",
           "Backup / Recovery": "Резервна / закрепнување",
@@ -1242,8 +1118,7 @@ class Messages {
           "filter !?": "Филтер !?",
           "? ! filter if there is only one": "? ! Филтер Ако има само еден",
           "apostrophe filter": "Апостроф филтер",
-          "special character repeat filter":
-              "Посебен лик за повторување на филтерот",
+          "special character repeat filter": "Посебен лик за повторување на филтерот",
           "TTS filter settings": "Подесувања за филтрирање на TTS.",
           "name": "Име",
           "filter rules": "Филтер правила",
@@ -1252,12 +1127,10 @@ class Messages {
           "Use regular expressions": "Користете регуларни изрази",
           "use": "Употреба",
           "history": "Историја",
-          "Please enter a word/sentence to search for.__1":
-              "Ве молиме внесете збор / реченица за да пребарувате.",
+          "Please enter a word/sentence to search for.__1": "Ве молиме внесете збор / реченица за да пребарувате.",
           "Drag to delete": "Повлечете за да го избришете",
           "last position": "Последна позиција",
-          "OCR image recognition settings":
-              "Прилагодувања за препознавање на слики",
+          "OCR image recognition settings": "Прилагодувања за препознавање на слики",
           "open source license": "Лиценца за отворен код",
           "license": "Лиценца",
           "home page": "Главна страница",
@@ -1268,10 +1141,8 @@ class Messages {
           "speed": "Брзина",
           "volume": "волумен",
           "pitch": "теренот",
-          "Number of lines to read at a time":
-              "Број на линии за читање во исто време",
-          "Freeze when other players are running":
-              "Замрзнување кога другите играчи работат",
+          "Number of lines to read at a time": "Број на линии за читање во исто време",
+          "Freeze when other players are running": "Замрзнување кога другите играчи работат",
           "Using the headset button": "Користење на копчето за слушалки",
           "language": "Македонски"
         },
@@ -1287,10 +1158,8 @@ class Messages {
           "file_list": "ഫയൽ പട്ടിക",
           "Add_file": "ഫയല് ചേര്ക്കുക",
           "remove_from_library": "ലൈബ്രറിയിൽ നിന്ന് നീക്കംചെയ്യുക",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ടിടിഎസ് ശബ്ദ പ്രശ്നം എങ്ങനെ പരിഹരിക്കപ്പെടുമെന്ന് കാണുക.",
-          "Auto_shut_down_after_@min_minute":
-              "@Mine മിനിറ്റിന് ശേഷം ഓട്ടോ ഷട്ട് ഡ .ൺ ചെയ്യുക",
+          "See_how_to_solve_the_tts_voice_problem": "ടിടിഎസ് ശബ്ദ പ്രശ്നം എങ്ങനെ പരിഹരിക്കപ്പെടുമെന്ന് കാണുക.",
+          "Auto_shut_down_after_@min_minute": "@Mine മിനിറ്റിന് ശേഷം ഓട്ടോ ഷട്ട് ഡ .ൺ ചെയ്യുക",
           "cancel": "റദ്ദാക്കുക",
           "confirm": "ഉറപ്പിക്കുക",
           "delete": "ഇല്ലാതാക്കുക",
@@ -1299,28 +1168,23 @@ class Messages {
           "move_location": "സ്ഥാനം നീക്കുക",
           "Current_location": "ഇപ്പോഴുള്ള സ്ഥലം",
           "page_search": "പേജ് തിരയൽ",
-          "Please enter a word/sentence to search for.":
-              "തിരയാൻ ഒരു വാക്ക് / വാചകം നൽകുക.",
+          "Please enter a word/sentence to search for.": "തിരയാൻ ഒരു വാക്ക് / വാചകം നൽകുക.",
           "Font size setting": "ഫോണ്ട് വലുപ്പ ക്രമീകരണം",
           "Auto shutdown settings": "യാന്ത്രിക ഷട്ട്ഡൗൺ ക്രമീകരണങ്ങൾ",
           "Backup / Recovery": "ബാക്കപ്പ് / വീണ്ടെടുക്കൽ",
           "google drive backup": "Google ഡ്രൈവ് ബാക്കപ്പ്",
           "Chinese (Hanja) filter": "ചൈനീസ് (ഹഞ്ച) ഫിൽട്ടർ",
           "Japanese (Japanese) filter": "ജാപ്പനീസ് (ജാപ്പനീസ്) ഫിൽട്ടർ",
-          "filter multiple question marks":
-              "ഒന്നിലധികം ചോദ്യങ്ങൾ ഫിൽട്ടർ ചെയ്യുക",
-          "Filter multiple exclamation marks":
-              "ഒന്നിലധികം ആശ്ചര്യചിഹ്നം ഫിൽട്ടർ ചെയ്യുക",
+          "filter multiple question marks": "ഒന്നിലധികം ചോദ്യങ്ങൾ ഫിൽട്ടർ ചെയ്യുക",
+          "Filter multiple exclamation marks": "ഒന്നിലധികം ആശ്ചര്യചിഹ്നം ഫിൽട്ടർ ചെയ്യുക",
           "filter ----": "ഫിൽട്ടർ ----",
           "filter ===": "ഫിൽട്ടർ ===",
           "filter .....": "ഫിൽട്ടർ .....",
           "filter ?!": "ഫിൽട്ടർ?!",
           "filter !?": "ഫിൽട്ടർ !?",
-          "? ! filter if there is only one":
-              "? ! ഒന്ന് മാത്രം ഉണ്ടെങ്കിൽ ഫിൽട്ടർ ചെയ്യുക",
+          "? ! filter if there is only one": "? ! ഒന്ന് മാത്രം ഉണ്ടെങ്കിൽ ഫിൽട്ടർ ചെയ്യുക",
           "apostrophe filter": "അപ്പോസ്ട്രോഫി ഫിൽട്ടർ",
-          "special character repeat filter":
-              "പ്രത്യേക പ്രതീകം ആവർത്തിച്ചുള്ള ഫിൽട്ടർ",
+          "special character repeat filter": "പ്രത്യേക പ്രതീകം ആവർത്തിച്ചുള്ള ഫിൽട്ടർ",
           "TTS filter settings": "ടിടിഎസ് ഫിൽട്ടർ ക്രമീകരണങ്ങൾ",
           "name": "പേര്",
           "filter rules": "ഫിൽട്ടർ നിയമങ്ങൾ",
@@ -1329,12 +1193,10 @@ class Messages {
           "Use regular expressions": "പതിവ് എക്സ്പ്രഷനുകൾ ഉപയോഗിക്കുക",
           "use": "ഉപയോഗം",
           "history": "ചരിതം",
-          "Please enter a word/sentence to search for.__1":
-              "തിരയാൻ ഒരു വാക്ക് / വാചകം നൽകുക.",
+          "Please enter a word/sentence to search for.__1": "തിരയാൻ ഒരു വാക്ക് / വാചകം നൽകുക.",
           "Drag to delete": "ഇല്ലാതാക്കാൻ വലിച്ചിടുക",
           "last position": "അവസാന സ്ഥാനം",
-          "OCR image recognition settings":
-              "OCR ഇമേജ് തിരിച്ചറിയൽ ക്രമീകരണങ്ങൾ",
+          "OCR image recognition settings": "OCR ഇമേജ് തിരിച്ചറിയൽ ക്രമീകരണങ്ങൾ",
           "open source license": "ഓപ്പൺ സോഴ്സ് ലൈസൻസ്",
           "license": "ലൈസൻസ്",
           "home page": "ഹോം പേജ്",
@@ -1345,16 +1207,14 @@ class Messages {
           "speed": "വേഗത",
           "volume": "വ്യാപ്തം",
           "pitch": "പിച്ച്",
-          "Number of lines to read at a time":
-              "ഒരു സമയം വായിക്കേണ്ട വരികളുടെ എണ്ണം",
-          "Freeze when other players are running":
-              "മറ്റ് കളിക്കാർ പ്രവർത്തിക്കുമ്പോൾ ഫ്രീസുചെയ്യുക",
+          "Number of lines to read at a time": "ഒരു സമയം വായിക്കേണ്ട വരികളുടെ എണ്ണം",
+          "Freeze when other players are running": "മറ്റ് കളിക്കാർ പ്രവർത്തിക്കുമ്പോൾ ഫ്രീസുചെയ്യുക",
           "Using the headset button": "ഹെഡ്സെറ്റ് ബട്ടൺ ഉപയോഗിക്കുന്നു",
           "language": "മലയാളം"
         },
         "ms": {
           "key": "ms",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "penonton teks.",
           "my_library": "perpustakaan saya.",
           "Settings": "Tetapan",
@@ -1364,8 +1224,7 @@ class Messages {
           "file_list": "Senarai fail",
           "Add_file": "Tambah fail",
           "remove_from_library": "keluarkan dari perpustakaan",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Lihat bagaimana untuk menyelesaikan masalah suara TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Lihat bagaimana untuk menyelesaikan masalah suara TTS.",
           "Auto_shut_down_after_@min_minute": "Auto ditutup selepas minit @min",
           "cancel": "membatalkan",
           "confirm": "Sahkan",
@@ -1375,8 +1234,7 @@ class Messages {
           "move_location": "Pindahkan lokasi",
           "Current_location": "Lokasi sekarang",
           "page_search": "Cari halaman.",
-          "Please enter a word/sentence to search for.":
-              "Sila masukkan perkataan / kalimat untuk mencari.",
+          "Please enter a word/sentence to search for.": "Sila masukkan perkataan / kalimat untuk mencari.",
           "Font size setting": "Tetapan saiz fon.",
           "Auto shutdown settings": "Tetapan Shutdown Auto.",
           "Backup / Recovery": "Sandaran / pemulihan",
@@ -1390,8 +1248,7 @@ class Messages {
           "filter .....": "Penapis .....",
           "filter ?!": "Tapis?!",
           "filter !?": "Tapis!?",
-          "? ! filter if there is only one":
-              "? ! penapis jika terdapat hanya satu",
+          "? ! filter if there is only one": "? ! penapis jika terdapat hanya satu",
           "apostrophe filter": "Penapis apostrophe.",
           "special character repeat filter": "Penapis Ulang Watak Khas",
           "TTS filter settings": "Tetapan penapis TTS.",
@@ -1402,8 +1259,7 @@ class Messages {
           "Use regular expressions": "Gunakan ungkapan biasa",
           "use": "gunakan",
           "history": "Sejarah",
-          "Please enter a word/sentence to search for.__1":
-              "Sila masukkan perkataan / kalimat untuk mencari.",
+          "Please enter a word/sentence to search for.__1": "Sila masukkan perkataan / kalimat untuk mencari.",
           "Drag to delete": "Seret untuk memadam",
           "last position": "kedudukan terakhir",
           "OCR image recognition settings": "Tetapan Pengiktirafan Imej OCR",
@@ -1417,16 +1273,14 @@ class Messages {
           "speed": "kelajuan",
           "volume": "jumlah",
           "pitch": "padang",
-          "Number of lines to read at a time":
-              "Bilangan baris untuk dibaca pada satu masa",
-          "Freeze when other players are running":
-              "Membekukan apabila pemain lain sedang berjalan",
+          "Number of lines to read at a time": "Bilangan baris untuk dibaca pada satu masa",
+          "Freeze when other players are running": "Membekukan apabila pemain lain sedang berjalan",
           "Using the headset button": "Menggunakan butang alat dengar",
           "language": "Bahasa Melayu"
         },
         "ms": {
           "key": "ms",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "penonton teks.",
           "my_library": "perpustakaan saya.",
           "Settings": "Tetapan",
@@ -1436,8 +1290,7 @@ class Messages {
           "file_list": "Senarai fail",
           "Add_file": "Tambah fail",
           "remove_from_library": "keluarkan dari perpustakaan",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Lihat bagaimana untuk menyelesaikan masalah suara TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Lihat bagaimana untuk menyelesaikan masalah suara TTS.",
           "Auto_shut_down_after_@min_minute": "Auto ditutup selepas minit @min",
           "cancel": "membatalkan",
           "confirm": "Sahkan",
@@ -1447,8 +1300,7 @@ class Messages {
           "move_location": "Pindahkan lokasi",
           "Current_location": "Lokasi sekarang",
           "page_search": "Cari halaman.",
-          "Please enter a word/sentence to search for.":
-              "Sila masukkan perkataan / kalimat untuk mencari.",
+          "Please enter a word/sentence to search for.": "Sila masukkan perkataan / kalimat untuk mencari.",
           "Font size setting": "Tetapan saiz fon.",
           "Auto shutdown settings": "Tetapan Shutdown Auto.",
           "Backup / Recovery": "Sandaran / pemulihan",
@@ -1462,8 +1314,7 @@ class Messages {
           "filter .....": "Penapis .....",
           "filter ?!": "Tapis?!",
           "filter !?": "Tapis!?",
-          "? ! filter if there is only one":
-              "? ! penapis jika terdapat hanya satu",
+          "? ! filter if there is only one": "? ! penapis jika terdapat hanya satu",
           "apostrophe filter": "Penapis apostrophe.",
           "special character repeat filter": "Penapis Ulang Watak Khas",
           "TTS filter settings": "Tetapan penapis TTS.",
@@ -1474,8 +1325,7 @@ class Messages {
           "Use regular expressions": "Gunakan ungkapan biasa",
           "use": "gunakan",
           "history": "Sejarah",
-          "Please enter a word/sentence to search for.__1":
-              "Sila masukkan perkataan / kalimat untuk mencari.",
+          "Please enter a word/sentence to search for.__1": "Sila masukkan perkataan / kalimat untuk mencari.",
           "Drag to delete": "Seret untuk memadam",
           "last position": "kedudukan terakhir",
           "OCR image recognition settings": "Tetapan Pengiktirafan Imej OCR",
@@ -1489,10 +1339,8 @@ class Messages {
           "speed": "kelajuan",
           "volume": "jumlah",
           "pitch": "padang",
-          "Number of lines to read at a time":
-              "Bilangan baris untuk dibaca pada satu masa",
-          "Freeze when other players are running":
-              "Membekukan apabila pemain lain sedang berjalan",
+          "Number of lines to read at a time": "Bilangan baris untuk dibaca pada satu masa",
+          "Freeze when other players are running": "Membekukan apabila pemain lain sedang berjalan",
           "Using the headset button": "Menggunakan butang alat dengar",
           "language": "Bahasa Melayu (Malaysia)"
         },
@@ -1503,15 +1351,12 @@ class Messages {
           "my_library": "Миний номын сан",
           "Settings": "Тохиргоо",
           "Copied to clipboard": "Санах самбар руу хуулсан",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Файл нэмэх үед та олон файл нэмж, урт файл нэмж болно.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Файл нэмэх үед та олон файл нэмж, урт файл нэмж болно.",
           "file_list": "Файлын ажлын жагсаалт",
           "Add_file": "Нэмэх",
           "remove_from_library": "Номын сангаас зайлуулах",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS дуут асуудлыг хэрхэн шийдвэрлэхийг үзнэ үү.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min минутын дараа автоматаар унтраа",
+          "See_how_to_solve_the_tts_voice_problem": "TTS дуут асуудлыг хэрхэн шийдвэрлэхийг үзнэ үү.",
+          "Auto_shut_down_after_@min_minute": "@Min минутын дараа автоматаар унтраа",
           "cancel": "цуаах",
           "confirm": "батлах",
           "delete": "эдгээх",
@@ -1520,25 +1365,21 @@ class Messages {
           "move_location": "Хөдөлшөө нүүж",
           "Current_location": "Одоогийн байршил",
           "page_search": "Хайлгуу хайлт",
-          "Please enter a word/sentence to search for.":
-              "Хайлт хийхийн тулд үг / өгүүлбэр оруулна уу.",
+          "Please enter a word/sentence to search for.": "Хайлт хийхийн тулд үг / өгүүлбэр оруулна уу.",
           "Font size setting": "Хэмжээний хэмжээ тохируулга",
           "Auto shutdown settings": "Автоматаар унтраах тохиргоо",
           "Backup / Recovery": "Нөөцлөх / сэргээх",
           "google drive backup": "Google Drive нөөцлөлт",
           "Chinese (Hanja) filter": "Хятад (Ханжа) шүүлтүүр",
           "Japanese (Japanese) filter": "Япон (Япон) шүүлтүүр",
-          "filter multiple question marks":
-              "Олон тооны асуултын тэмдэгийг шүүнэ",
-          "Filter multiple exclamation marks":
-              "Олон тооны анхаарлын тэмдэгийг шүүнэ",
+          "filter multiple question marks": "Олон тооны асуултын тэмдэгийг шүүнэ",
+          "Filter multiple exclamation marks": "Олон тооны анхаарлын тэмдэгийг шүүнэ",
           "filter ----": "Шүүлтүүр ----",
           "filter ===": "Шүүлтүүр ===",
           "filter .....": "Шүүлтүүр .....",
           "filter ?!": "ШҮҮХ ВЭ?!",
           "filter !?": "Шүүлтүүр!?",
-          "? ! filter if there is only one":
-              "Чи? !!!!!!! Хэрэв зөвхөн нэг нь байвал шүүнэ",
+          "? ! filter if there is only one": "Чи? !!!!!!! Хэрэв зөвхөн нэг нь байвал шүүнэ",
           "apostrophe filter": "апостроффофийн шүүлтүүр",
           "special character repeat filter": "Онцгой тэмдэгт давтан шүүлтүүр",
           "TTS filter settings": "TTS шүүлтүүрийн тохиргоо",
@@ -1549,8 +1390,7 @@ class Messages {
           "Use regular expressions": "Тогтмол илэрхийллийг ашиглана уу",
           "use": "хэрэглэх",
           "history": "түүх",
-          "Please enter a word/sentence to search for.__1":
-              "Хайлт хийхийн тулд үг / өгүүлбэр оруулна уу.",
+          "Please enter a word/sentence to search for.__1": "Хайлт хийхийн тулд үг / өгүүлбэр оруулна уу.",
           "Drag to delete": "Устгахын тулд чирнэ үү",
           "last position": "Сүүлийн байрлал",
           "OCR image recognition settings": "OCR зургийн таних тохиргоо",
@@ -1565,8 +1405,7 @@ class Messages {
           "volume": "хэмжээ",
           "pitch": "хавга",
           "Number of lines to read at a time": "Нэг удаад унших мөрүүдийн тоо",
-          "Freeze when other players are running":
-              "Бусад тоглогчид ажиллаж байх үед хөлдөөх",
+          "Freeze when other players are running": "Бусад тоглогчид ажиллаж байх үед хөлдөөх",
           "Using the headset button": "Чихэвчийг ашиглан",
           "language": "Монгол"
         },
@@ -1577,13 +1416,11 @@ class Messages {
           "my_library": "Nire liburutegia",
           "Settings": "Ezarpen",
           "Copied to clipboard": "Arbelean kopiatuta",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Fitxategiak gehitzean, hainbat fitxategi gehi ditzakezu luze sakatuta.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Fitxategiak gehitzean, hainbat fitxategi gehi ditzakezu luze sakatuta.",
           "file_list": "Fitxategi zerrenda",
           "Add_file": "Gehitu fitxategia",
           "remove_from_library": "Kendu liburutegitik",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Ikusi nola konpondu TTS ahots arazoa.",
+          "See_how_to_solve_the_tts_voice_problem": "Ikusi nola konpondu TTS ahots arazoa.",
           "Auto_shut_down_after_@min_minute": "Auto itzali @min minutu ondoren",
           "cancel": "indargabetu",
           "confirm": "berretsi",
@@ -1593,8 +1430,7 @@ class Messages {
           "move_location": "Mugitu kokapena",
           "Current_location": "Egungo kokapena",
           "page_search": "Orriaren bilaketa",
-          "Please enter a word/sentence to search for.":
-              "Mesedez, idatzi hitz / esaldi bat bilatzeko.",
+          "Please enter a word/sentence to search for.": "Mesedez, idatzi hitz / esaldi bat bilatzeko.",
           "Font size setting": "Letra-tamaina ezarpena",
           "Auto shutdown settings": "Auto itzaltzeko ezarpenak",
           "Backup / Recovery": "Babeskopia / berreskuratzea",
@@ -1610,8 +1446,7 @@ class Messages {
           "filter !?": "Iragazi!?",
           "? ! filter if there is only one": "? ! iragazi bakarra badago",
           "apostrophe filter": "Apostrofe iragazkia",
-          "special character repeat filter":
-              "Karaktere berezia errepikatu iragazkia",
+          "special character repeat filter": "Karaktere berezia errepikatu iragazkia",
           "TTS filter settings": "TTS iragazkiaren ezarpenak",
           "name": "izen",
           "filter rules": "Iragazki arauak",
@@ -1620,8 +1455,7 @@ class Messages {
           "Use regular expressions": "Erabili ohiko adierazpenak",
           "use": "erabilpen",
           "history": "historia",
-          "Please enter a word/sentence to search for.__1":
-              "Mesedez, idatzi hitz / esaldi bat bilatzeko.",
+          "Please enter a word/sentence to search for.__1": "Mesedez, idatzi hitz / esaldi bat bilatzeko.",
           "Drag to delete": "Arrastatu ezabatzeko",
           "last position": "Azken posizioa",
           "OCR image recognition settings": "OCR irudiak aitortzeko ezarpenak",
@@ -1635,16 +1469,14 @@ class Messages {
           "speed": "abiadura",
           "volume": "ozentasun",
           "pitch": "lokatu",
-          "Number of lines to read at a time":
-              "Aldi berean irakurtzeko lerro kopurua",
-          "Freeze when other players are running":
-              "Izoztu beste jokalari batzuk martxan daudenean",
+          "Number of lines to read at a time": "Aldi berean irakurtzeko lerro kopurua",
+          "Freeze when other players are running": "Izoztu beste jokalari batzuk martxan daudenean",
           "Using the headset button": "Entzungailuaren botoia erabiliz",
           "language": "Euskara"
         },
         "my": {
           "key": "my",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "စာသားကြည့်သူ",
           "my_library": "ငါ့စာကြည့်တိုက်",
           "Settings": "ဆက်တင်များ",
@@ -1654,10 +1486,8 @@ class Messages {
           "file_list": "ဖိုင်စာရင်း",
           "Add_file": "ဖိုင်ထည့်ပါ",
           "remove_from_library": "စာကြည့်တိုက်မှဖယ်ရှားပါ",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS အသံပြ problem နာကိုဘယ်လိုဖြေရှင်းရမလဲဆိုတာကြည့်ပါ။",
-          "Auto_shut_down_after_@min_minute":
-              "@min မိနစ်ပြီးနောက်အော်တိုပိတ်ပစ်",
+          "See_how_to_solve_the_tts_voice_problem": "TTS အသံပြ problem နာကိုဘယ်လိုဖြေရှင်းရမလဲဆိုတာကြည့်ပါ။",
+          "Auto_shut_down_after_@min_minute": "@min မိနစ်ပြီးနောက်အော်တိုပိတ်ပစ်",
           "cancel": "ပျက်စေ",
           "confirm": "အတည်ပြု",
           "delete": "ဖျက်",
@@ -1666,18 +1496,15 @@ class Messages {
           "move_location": "တည်နေရာကိုရွှေ့ပါ",
           "Current_location": "လက်ရှိတည်နေရာ",
           "page_search": "စာမျက်နှာရှာဖွေခြင်း",
-          "Please enter a word/sentence to search for.":
-              "ကျေးဇူးပြု. ရှာဖွေရန်စကားလုံး / ဝါကျကိုထည့်ပါ။",
+          "Please enter a word/sentence to search for.": "ကျေးဇူးပြု. ရှာဖွေရန်စကားလုံး / ဝါကျကိုထည့်ပါ။",
           "Font size setting": "font size setting ကို",
           "Auto shutdown settings": "Auto Shutdown Settings",
           "Backup / Recovery": "backup / recovery",
           "google drive backup": "Google Drive Backup",
           "Chinese (Hanja) filter": "တရုတ် (Hanja) filter",
           "Japanese (Japanese) filter": "ဂျပန် (ဂျပန်) filter",
-          "filter multiple question marks":
-              "မေးခွန်းများကိုအမှတ်အသားများ filter",
-          "Filter multiple exclamation marks":
-              "မျိုးစုံ exclamation marks filter",
+          "filter multiple question marks": "မေးခွန်းများကိုအမှတ်အသားများ filter",
+          "Filter multiple exclamation marks": "မျိုးစုံ exclamation marks filter",
           "filter ----": "filter ----",
           "filter ===": "filter === filter",
           "filter .....": "filter .....",
@@ -1694,12 +1521,10 @@ class Messages {
           "Use regular expressions": "ပုံမှန်အသုံးအနှုန်းတွေကိုသုံးပါ",
           "use": "အသုံးပြု",
           "history": "သမိုင်း",
-          "Please enter a word/sentence to search for.__1":
-              "ကျေးဇူးပြု. ရှာဖွေရန်စကားလုံး / ဝါကျကိုထည့်ပါ။",
+          "Please enter a word/sentence to search for.__1": "ကျေးဇူးပြု. ရှာဖွေရန်စကားလုံး / ဝါကျကိုထည့်ပါ။",
           "Drag to delete": "ဖျက်ပစ်ရန်ဆွဲယူပါ",
           "last position": "နောက်ဆုံးရာထူး",
-          "OCR image recognition settings":
-              "OCR ပုံရိပ်အသိအမှတ်ပြုချိန်ညှိချက်များ",
+          "OCR image recognition settings": "OCR ပုံရိပ်အသိအမှတ်ပြုချိန်ညှိချက်များ",
           "open source license": "ပွင့်လင်းတဲ့အရင်းအမြစ်လိုင်စင်",
           "license": "အခွင့်",
           "home page": "ပင်မစာမျက်နှာ",
@@ -1710,10 +1535,8 @@ class Messages {
           "speed": "အရှိန်",
           "volume": "အရွယ်အစား",
           "pitch": "အပါး",
-          "Number of lines to read at a time":
-              "တစ်ကြိမ်တွင်ဖတ်ရန်လိုင်းအရေအတွက်",
-          "Freeze when other players are running":
-              "အခြားကစားသမားများအပြေးသောအခါအေးခဲ",
+          "Number of lines to read at a time": "တစ်ကြိမ်တွင်ဖတ်ရန်လိုင်းအရေအတွက်",
+          "Freeze when other players are running": "အခြားကစားသမားများအပြေးသောအခါအေးခဲ",
           "Using the headset button": "နားကြပ်ခလုတ်ကိုအသုံးပြုခြင်း",
           "language": "ဗမာ \\ t ဗမာ"
         },
@@ -1724,13 +1547,11 @@ class Messages {
           "my_library": "thư viện của tôi",
           "Settings": "Cài đặt",
           "Copied to clipboard": "Sao chép vào clipboard",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Khi thêm tệp, bạn có thể thêm nhiều tệp bằng cách nhấn lâu.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Khi thêm tệp, bạn có thể thêm nhiều tệp bằng cách nhấn lâu.",
           "file_list": "Danh sách tập tin",
           "Add_file": "Thêm tập tin",
           "remove_from_library": "Xóa khỏi Thư viện",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Xem cách giải quyết vấn đề giọng nói TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Xem cách giải quyết vấn đề giọng nói TTS.",
           "Auto_shut_down_after_@min_minute": "Tự động tắt sau @min phút",
           "cancel": "sự hủy bỏ",
           "confirm": "xác nhận",
@@ -1740,8 +1561,7 @@ class Messages {
           "move_location": "di chuyển vị trí",
           "Current_location": "Vị trí hiện tại",
           "page_search": "Tìm kiếm trang.",
-          "Please enter a word/sentence to search for.":
-              "Vui lòng nhập một từ / câu để tìm kiếm.",
+          "Please enter a word/sentence to search for.": "Vui lòng nhập một từ / câu để tìm kiếm.",
           "Font size setting": "Cài đặt kích thước phông chữ",
           "Auto shutdown settings": "Cài đặt tự động tắt",
           "Backup / Recovery": "Sao lưu / phục hồi",
@@ -1755,8 +1575,7 @@ class Messages {
           "filter .....": "lọc .....",
           "filter ?!": "lọc ?!",
           "filter !?": "lọc !?",
-          "? ! filter if there is only one":
-              "Trong Những bộ lọc nếu chỉ có một",
+          "? ! filter if there is only one": "Trong Những bộ lọc nếu chỉ có một",
           "apostrophe filter": "Lọc Apostephe",
           "special character repeat filter": "Bộ lọc lặp lại nhân vật đặc biệt",
           "TTS filter settings": "Cài đặt bộ lọc TTS.",
@@ -1767,8 +1586,7 @@ class Messages {
           "Use regular expressions": "Sử dụng biểu thức thông thường",
           "use": "sử dụng",
           "history": "Môn lịch sử",
-          "Please enter a word/sentence to search for.__1":
-              "Vui lòng nhập một từ / câu để tìm kiếm.",
+          "Please enter a word/sentence to search for.__1": "Vui lòng nhập một từ / câu để tìm kiếm.",
           "Drag to delete": "Kéo để xóa",
           "last position": "vị trí cuối cùng",
           "OCR image recognition settings": "Cài đặt nhận dạng hình ảnh OCR",
@@ -1782,29 +1600,24 @@ class Messages {
           "speed": "tốc độ, vận tốc",
           "volume": "âm lượng",
           "pitch": "độ cao",
-          "Number of lines to read at a time":
-              "Số dòng để đọc tại một thời điểm",
-          "Freeze when other players are running":
-              "Đóng băng khi những người chơi khác đang chạy",
+          "Number of lines to read at a time": "Số dòng để đọc tại một thời điểm",
+          "Freeze when other players are running": "Đóng băng khi những người chơi khác đang chạy",
           "Using the headset button": "Sử dụng nút tai nghe",
           "language": "Tiếng Việt"
         },
         "be": {
           "key": "be",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "глядач тэксту",
           "my_library": "мая бібліятэка",
           "Settings": "Налада",
           "Copied to clipboard": "Скапіяваныя ў буфер абмену",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Пры даданні файлаў, вы можаце дадаць некалькі файлаў даўжынёй націску.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Пры даданні файлаў, вы можаце дадаць некалькі файлаў даўжынёй націску.",
           "file_list": "спіс файлаў",
           "Add_file": "Дадаць файл",
           "remove_from_library": "Выдаліць з бібліятэкі",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Паглядзіце, як вырашыць праблему TTS Voice.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto Shut Down Пасля @min хвілін",
+          "See_how_to_solve_the_tts_voice_problem": "Паглядзіце, як вырашыць праблему TTS Voice.",
+          "Auto_shut_down_after_@min_minute": "Auto Shut Down Пасля @min хвілін",
           "cancel": "ануляваць",
           "confirm": "пацвярджаць",
           "delete": "выдаляць",
@@ -1813,8 +1626,7 @@ class Messages {
           "move_location": "перамясціць месцазнаходжанне",
           "Current_location": "Бягучае месцазнаходжанне",
           "page_search": "пошук старонкі",
-          "Please enter a word/sentence to search for.":
-              "Калі ласка, увядзіце слова / прапанова для пошуку.",
+          "Please enter a word/sentence to search for.": "Калі ласка, увядзіце слова / прапанова для пошуку.",
           "Font size setting": "Памер ўстаноўкі шрыфта",
           "Auto shutdown settings": "Налады аўтаматычнага выключэння",
           "Backup / Recovery": "Рэзервовае капіраванне / аднаўленне",
@@ -1822,18 +1634,15 @@ class Messages {
           "Chinese (Hanja) filter": "Кітайскі (Hanja) фільтр",
           "Japanese (Japanese) filter": "Японскі (японскі) фільтр",
           "filter multiple question marks": "Фільтр некалькі знакаў пытанняў",
-          "Filter multiple exclamation marks":
-              "Фільтр Некалькі exclamation Marks",
+          "Filter multiple exclamation marks": "Фільтр Некалькі exclamation Marks",
           "filter ----": "Фільтр ----",
           "filter ===": "Фільтр ===",
           "filter .....": "Фільтр .....",
           "filter ?!": "Фільтр?!",
           "filter !?": "Фільтр!?",
-          "? ! filter if there is only one":
-              "? ! фільтр, калі ёсць толькі адзін",
+          "? ! filter if there is only one": "? ! фільтр, калі ёсць толькі адзін",
           "apostrophe filter": "апостраф фільтр",
-          "special character repeat filter":
-              "Спецыяльны персанаж паўтарыць фільтр",
+          "special character repeat filter": "Спецыяльны персанаж паўтарыць фільтр",
           "TTS filter settings": "Налады TTS фільтра",
           "name": "імя",
           "filter rules": "правілы фільтра",
@@ -1842,8 +1651,7 @@ class Messages {
           "Use regular expressions": "Выкарыстоўвайце рэгулярныя выразы",
           "use": "ужываць",
           "history": "гісторыя",
-          "Please enter a word/sentence to search for.__1":
-              "Калі ласка, увядзіце слова / прапанова для пошуку.",
+          "Please enter a word/sentence to search for.__1": "Калі ласка, увядзіце слова / прапанова для пошуку.",
           "Drag to delete": "Перацягнуць, каб выдаліць",
           "last position": "апошняя пазіцыя",
           "OCR image recognition settings": "Параметры распазнання OCR",
@@ -1857,10 +1665,8 @@ class Messages {
           "speed": "хуткасць",
           "volume": "аб'ём",
           "pitch": "крок",
-          "Number of lines to read at a time":
-              "Колькасць ліній для чытання ў той час,",
-          "Freeze when other players are running":
-              "Замарожванне, калі іншыя гульцы працуюць",
+          "Number of lines to read at a time": "Колькасць ліній для чытання ў той час,",
+          "Freeze when other players are running": "Замарожванне, калі іншыя гульцы працуюць",
           "Using the headset button": "Выкарыстанне кнопкі гарнітуры",
           "language": "Беларускі"
         },
@@ -1871,15 +1677,12 @@ class Messages {
           "my_library": "আমার লাইব্রেরি",
           "Settings": "সেটিংস",
           "Copied to clipboard": "ক্লিপবোর্ডে অনুলিপি করা হয়েছে",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "ফাইল যোগ করার সময়, আপনি দীর্ঘ চাপ দ্বারা একাধিক ফাইল যোগ করতে পারেন।",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "ফাইল যোগ করার সময়, আপনি দীর্ঘ চাপ দ্বারা একাধিক ফাইল যোগ করতে পারেন।",
           "file_list": "ফাইল তালিকা",
           "Add_file": "ফাইল যুক্ত কর",
           "remove_from_library": "লাইব্রেরি থেকে সরান",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS ভয়েস সমস্যা সমাধান কিভাবে দেখুন।",
-          "Auto_shut_down_after_@min_minute":
-              "@ মিন মিনিটের পরে স্বয়ংক্রিয়ভাবে বন্ধ করুন",
+          "See_how_to_solve_the_tts_voice_problem": "TTS ভয়েস সমস্যা সমাধান কিভাবে দেখুন।",
+          "Auto_shut_down_after_@min_minute": "@ মিন মিনিটের পরে স্বয়ংক্রিয়ভাবে বন্ধ করুন",
           "cancel": "বাতিল করুন",
           "confirm": "নিশ্চিত করুন",
           "delete": "মুছে ফেলা",
@@ -1888,8 +1691,7 @@ class Messages {
           "move_location": "অবস্থান সরানো",
           "Current_location": "এখন যেখানে আছ",
           "page_search": "পৃষ্ঠা অনুসন্ধান",
-          "Please enter a word/sentence to search for.":
-              "অনুসন্ধান করার জন্য একটি শব্দ / বাক্য লিখুন দয়া করে।",
+          "Please enter a word/sentence to search for.": "অনুসন্ধান করার জন্য একটি শব্দ / বাক্য লিখুন দয়া করে।",
           "Font size setting": "ফন্ট সাইজ সেটিং",
           "Auto shutdown settings": "অটো শাটডাউন সেটিংস",
           "Backup / Recovery": "ব্যাকআপ / পুনরুদ্ধার",
@@ -1897,8 +1699,7 @@ class Messages {
           "Chinese (Hanja) filter": "চীনা (হানজা) ফিল্টার",
           "Japanese (Japanese) filter": "জাপানি (জাপানি) ফিল্টার",
           "filter multiple question marks": "একাধিক প্রশ্ন চিহ্ন ফিল্টার করুন",
-          "Filter multiple exclamation marks":
-              "একাধিক বিস্ময় চিহ্ন ফিল্টার করুন",
+          "Filter multiple exclamation marks": "একাধিক বিস্ময় চিহ্ন ফিল্টার করুন",
           "filter ----": "ছাঁকনি ----",
           "filter ===": "ফিল্টার ===.",
           "filter .....": "ছাঁকনি .....",
@@ -1915,8 +1716,7 @@ class Messages {
           "Use regular expressions": "নিয়মিত এক্সপ্রেশন ব্যবহার করুন",
           "use": "ব্যবহার করুন",
           "history": "ইতিহাস",
-          "Please enter a word/sentence to search for.__1":
-              "অনুসন্ধান করার জন্য একটি শব্দ / বাক্য লিখুন দয়া করে।",
+          "Please enter a word/sentence to search for.__1": "অনুসন্ধান করার জন্য একটি শব্দ / বাক্য লিখুন দয়া করে।",
           "Drag to delete": "মুছে ফেলতে টেনে আনুন",
           "last position": "শেষ অবস্থান",
           "OCR image recognition settings": "OCR ইমেজ স্বীকৃতি সেটিংস",
@@ -1931,8 +1731,7 @@ class Messages {
           "volume": "ভলিউম",
           "pitch": "পিচ",
           "Number of lines to read at a time": "একটি সময়ে পড়তে লাইন সংখ্যা",
-          "Freeze when other players are running":
-              "অন্যান্য খেলোয়াড় চলমান হয় যখন স্থির করা",
+          "Freeze when other players are running": "অন্যান্য খেলোয়াড় চলমান হয় যখন স্থির করা",
           "Using the headset button": "হেডসেট বাটন ব্যবহার করে",
           "language": "বাংলা"
         },
@@ -1948,10 +1747,8 @@ class Messages {
           "file_list": "Списък на файлове",
           "Add_file": "Добави файл",
           "remove_from_library": "Премахване от библиотеката",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Вижте как да решите проблема с гласа на TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Автоматично изключване след @min минута",
+          "See_how_to_solve_the_tts_voice_problem": "Вижте как да решите проблема с гласа на TTS.",
+          "Auto_shut_down_after_@min_minute": "Автоматично изключване след @min минута",
           "cancel": "Отказ",
           "confirm": "потвърждение",
           "delete": "Изтрий",
@@ -1960,8 +1757,7 @@ class Messages {
           "move_location": "Преместване на местоположението",
           "Current_location": "Настоящо местонахождение",
           "page_search": "Търсене на страница",
-          "Please enter a word/sentence to search for.":
-              "Моля, въведете дума / изречение за търсене.",
+          "Please enter a word/sentence to search for.": "Моля, въведете дума / изречение за търсене.",
           "Font size setting": "Настройка на размера на шрифта",
           "Auto shutdown settings": "Настройки за автоматично изключване",
           "Backup / Recovery": "Архивиране / възстановяване",
@@ -1969,8 +1765,7 @@ class Messages {
           "Chinese (Hanja) filter": "Китайски (Hanja) филтър",
           "Japanese (Japanese) filter": "Японски (японски) филтър",
           "filter multiple question marks": "Филтрирайте няколко въпроса",
-          "Filter multiple exclamation marks":
-              "Филтрирайте множество удивителни знаци",
+          "Filter multiple exclamation marks": "Филтрирайте множество удивителни знаци",
           "filter ----": "Филтър ----",
           "filter ===": "Филтър ===.",
           "filter .....": "филтър .....",
@@ -1978,8 +1773,7 @@ class Messages {
           "filter !?": "Филтър!",
           "? ! filter if there is only one": "? ! филтър, ако има само един",
           "apostrophe filter": "Филтър за апостроф",
-          "special character repeat filter":
-              "Специален филтър за повтаряне на знака",
+          "special character repeat filter": "Специален филтър за повтаряне на знака",
           "TTS filter settings": "Настройки за филтриране на TTS.",
           "name": "Име",
           "filter rules": "Филтърни правила",
@@ -1988,12 +1782,10 @@ class Messages {
           "Use regular expressions": "Използвайте редовни изрази",
           "use": "работа",
           "history": "История",
-          "Please enter a word/sentence to search for.__1":
-              "Моля, въведете дума / изречение за търсене.",
+          "Please enter a word/sentence to search for.__1": "Моля, въведете дума / изречение за търсене.",
           "Drag to delete": "Плъзнете, за да изтриете",
           "last position": "последна позиция",
-          "OCR image recognition settings":
-              "Настройки за разпознаване на изображения",
+          "OCR image recognition settings": "Настройки за разпознаване на изображения",
           "open source license": "Лиценз за отворен код",
           "license": "Разрешително",
           "home page": "Начална страница",
@@ -2004,10 +1796,8 @@ class Messages {
           "speed": "скорост",
           "volume": "сила на звука",
           "pitch": "наклон",
-          "Number of lines to read at a time":
-              "Брой линии за четене в даден момент",
-          "Freeze when other players are running":
-              "Замразяване, когато се изпълняват други играчи",
+          "Number of lines to read at a time": "Брой линии за четене в даден момент",
+          "Freeze when other players are running": "Замразяване, когато се изпълняват други играчи",
           "Using the headset button": "Използване на бутона за слушалки",
           "language": "Български"
         },
@@ -2018,15 +1808,12 @@ class Messages {
           "my_library": "Моја библиотека",
           "Settings": "Подешавања",
           "Copied to clipboard": "Копирано у међуспремник",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Када додајете датотеке, можете додати више датотека дугим притиском.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Када додајете датотеке, можете додати више датотека дугим притиском.",
           "file_list": "списак датотека",
           "Add_file": "Додај датотеку",
           "remove_from_library": "Уклони из библиотеке",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Погледајте како решити гласовни проблем ТТС-а.",
-          "Auto_shut_down_after_@min_minute":
-              "Ауто се искључи након @ мин минут",
+          "See_how_to_solve_the_tts_voice_problem": "Погледајте како решити гласовни проблем ТТС-а.",
+          "Auto_shut_down_after_@min_minute": "Ауто се искључи након @ мин минут",
           "cancel": "поништити, отказати",
           "confirm": "Потврди",
           "delete": "избрисати",
@@ -2035,8 +1822,7 @@ class Messages {
           "move_location": "преместити локацију",
           "Current_location": "Тренутна локација",
           "page_search": "Претрага страница",
-          "Please enter a word/sentence to search for.":
-              "Молимо унесите реч / реченицу да бисте тражили.",
+          "Please enter a word/sentence to search for.": "Молимо унесите реч / реченицу да бисте тражили.",
           "Font size setting": "Подешавање величине фонта",
           "Auto shutdown settings": "Подешавања аутоматског искључивања",
           "Backup / Recovery": "Резервна копија / опоравак",
@@ -2044,15 +1830,13 @@ class Messages {
           "Chinese (Hanja) filter": "Кинески (хања) Филтрирајте филтер",
           "Japanese (Japanese) filter": "Јапански (јапански) филтер",
           "filter multiple question marks": "Филтрирајте више упитника",
-          "Filter multiple exclamation marks":
-              "Филтрирајте вишеструких заосталих ознака",
+          "Filter multiple exclamation marks": "Филтрирајте вишеструких заосталих ознака",
           "filter ----": "Филтер ----",
           "filter ===": "филтер ===",
           "filter .....": "Филтер .....",
           "filter ?!": "Филтрирајте?!",
           "filter !?": "Филтер!?",
-          "? ! filter if there is only one":
-              "? Снимање! филтер ако постоји само један",
+          "? ! filter if there is only one": "? Снимање! филтер ако постоји само један",
           "apostrophe filter": "Апостроф Филтер",
           "special character repeat filter": "Посебни филтер поновљене знакове",
           "TTS filter settings": "ТТС подешавања филтера",
@@ -2063,8 +1847,7 @@ class Messages {
           "Use regular expressions": "Користите редовне изразе",
           "use": "употреба",
           "history": "историја",
-          "Please enter a word/sentence to search for.__1":
-              "Молимо унесите реч / реченицу да бисте тражили.",
+          "Please enter a word/sentence to search for.__1": "Молимо унесите реч / реченицу да бисте тражили.",
           "Drag to delete": "Превуците да бисте избрисали",
           "last position": "последњи положај",
           "OCR image recognition settings": "ОЦР Подешавања препознавања слика",
@@ -2078,10 +1861,8 @@ class Messages {
           "speed": "брзина",
           "volume": "запремина",
           "pitch": "висина тона",
-          "Number of lines to read at a time":
-              "Број линија за читање истовремено",
-          "Freeze when other players are running":
-              "Замрзавање када се други играчи покрећу",
+          "Number of lines to read at a time": "Број линија за читање истовремено",
+          "Freeze when other players are running": "Замрзавање када се други играчи покрећу",
           "Using the headset button": "Коришћење дугмета за слушалице",
           "language": "Српски"
         },
@@ -2097,10 +1878,8 @@ class Messages {
           "file_list": "Orodha ya faili.",
           "Add_file": "Ongeza faili.",
           "remove_from_library": "Ondoa kutoka kwenye maktaba",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Angalia jinsi ya kutatua tatizo la sauti ya TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto imefungwa baada ya @min dakika",
+          "See_how_to_solve_the_tts_voice_problem": "Angalia jinsi ya kutatua tatizo la sauti ya TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto imefungwa baada ya @min dakika",
           "cancel": "Futa.",
           "confirm": "Thibitisha",
           "delete": "Futa",
@@ -2109,8 +1888,7 @@ class Messages {
           "move_location": "Hoja eneo",
           "Current_location": "Eneo la sasa",
           "page_search": "Utafutaji wa Ukurasa.",
-          "Please enter a word/sentence to search for.":
-              "Tafadhali ingiza neno / sentensi ili utafute.",
+          "Please enter a word/sentence to search for.": "Tafadhali ingiza neno / sentensi ili utafute.",
           "Font size setting": "Mpangilio wa ukubwa wa font.",
           "Auto shutdown settings": "Mipangilio ya Kuzuia Auto.",
           "Backup / Recovery": "Backup / Recovery.",
@@ -2118,8 +1896,7 @@ class Messages {
           "Chinese (Hanja) filter": "Kichina (hanja) chujio",
           "Japanese (Japanese) filter": "Kijapani (Kijapani) chujio",
           "filter multiple question marks": "Futa alama nyingi za swali.",
-          "Filter multiple exclamation marks":
-              "Futa alama nyingi za kufurahisha",
+          "Filter multiple exclamation marks": "Futa alama nyingi za kufurahisha",
           "filter ----": "chujio ----",
           "filter ===": "Futa ===.",
           "filter .....": "Filter .....",
@@ -2136,12 +1913,10 @@ class Messages {
           "Use regular expressions": "Tumia maneno ya kawaida",
           "use": "Matumizi",
           "history": "Historia",
-          "Please enter a word/sentence to search for.__1":
-              "Tafadhali ingiza neno / sentensi ili utafute.",
+          "Please enter a word/sentence to search for.__1": "Tafadhali ingiza neno / sentensi ili utafute.",
           "Drag to delete": "Drag kwa kufuta",
           "last position": "nafasi ya mwisho",
-          "OCR image recognition settings":
-              "Mipangilio ya kutambua picha ya OCR.",
+          "OCR image recognition settings": "Mipangilio ya kutambua picha ya OCR.",
           "open source license": "Fungua Leseni ya Chanzo",
           "license": "leseni.",
           "home page": "Ukurasa wa Mwanzo",
@@ -2152,16 +1927,14 @@ class Messages {
           "speed": "kasi",
           "volume": "Volume.",
           "pitch": "lami",
-          "Number of lines to read at a time":
-              "Idadi ya mistari ya kusoma kwa wakati",
-          "Freeze when other players are running":
-              "Kufungia wakati wachezaji wengine wanaendesha",
+          "Number of lines to read at a time": "Idadi ya mistari ya kusoma kwa wakati",
+          "Freeze when other players are running": "Kufungia wakati wachezaji wengine wanaendesha",
           "Using the headset button": "Kutumia kifungo cha kichwa cha kichwa",
           "language": "Kiswahili"
         },
         "sv": {
           "key": "sv",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "textvisare",
           "my_library": "mitt bibliotek",
           "Settings": "inställningar",
@@ -2171,10 +1944,8 @@ class Messages {
           "file_list": "fil-lista",
           "Add_file": "Lägg till fil",
           "remove_from_library": "Ta bort från biblioteket",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Se hur du löser TTS-röstproblemet.",
-          "Auto_shut_down_after_@min_minute":
-              "Automatisk stängning efter @min Minute",
+          "See_how_to_solve_the_tts_voice_problem": "Se hur du löser TTS-röstproblemet.",
+          "Auto_shut_down_after_@min_minute": "Automatisk stängning efter @min Minute",
           "cancel": "Avbryt",
           "confirm": "bekräfta",
           "delete": "radera",
@@ -2183,8 +1954,7 @@ class Messages {
           "move_location": "Flytta platsen",
           "Current_location": "Nuvarande position",
           "page_search": "Sidsökning",
-          "Please enter a word/sentence to search for.":
-              "Vänligen ange ett ord / mening för att söka efter.",
+          "Please enter a word/sentence to search for.": "Vänligen ange ett ord / mening för att söka efter.",
           "Font size setting": "Fontstorleksinställning",
           "Auto shutdown settings": "Auto Shutdown-inställningar",
           "Backup / Recovery": "Backup / Recovery",
@@ -2198,8 +1968,7 @@ class Messages {
           "filter .....": "filter .....",
           "filter ?!": "filter?!",
           "filter !?": "filter!",
-          "? ! filter if there is only one":
-              "? ! filtrera om det bara finns en",
+          "? ! filter if there is only one": "? ! filtrera om det bara finns en",
           "apostrophe filter": "apostroffilter",
           "special character repeat filter": "Special Character Repeat Filter",
           "TTS filter settings": "TTS-filterinställningar",
@@ -2210,8 +1979,7 @@ class Messages {
           "Use regular expressions": "Använd regelbundna uttryck",
           "use": "använda sig av",
           "history": "historia",
-          "Please enter a word/sentence to search for.__1":
-              "Vänligen ange ett ord / mening för att söka efter.",
+          "Please enter a word/sentence to search for.__1": "Vänligen ange ett ord / mening för att söka efter.",
           "Drag to delete": "Dra för att radera",
           "last position": "Sista positionen",
           "OCR image recognition settings": "OCR-bildigenkänningsinställningar",
@@ -2226,8 +1994,7 @@ class Messages {
           "volume": "volym",
           "pitch": "tonhöjd",
           "Number of lines to read at a time": "Antal linjer att läsa i taget",
-          "Freeze when other players are running":
-              "Frys när andra spelare körs",
+          "Freeze when other players are running": "Frys när andra spelare körs",
           "Using the headset button": "Använda headsetknappen",
           "language": "Svenska"
         },
@@ -2238,15 +2005,12 @@ class Messages {
           "my_library": "mi biblioteca",
           "Settings": "Ajustes",
           "Copied to clipboard": "Copiado al portapapeles",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Al agregar archivos, puede agregar varios archivos por prensado largo.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Al agregar archivos, puede agregar varios archivos por prensado largo.",
           "file_list": "lista de archivos",
           "Add_file": "Agregar archivo",
           "remove_from_library": "Eliminar de la biblioteca",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Vea cómo resolver el problema de voz TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto apagado después de @min Minute",
+          "See_how_to_solve_the_tts_voice_problem": "Vea cómo resolver el problema de voz TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto apagado después de @min Minute",
           "cancel": "cancelar",
           "confirm": "confirmar",
           "delete": "Eliminar",
@@ -2255,18 +2019,15 @@ class Messages {
           "move_location": "Mover la ubicación",
           "Current_location": "Ubicación actual",
           "page_search": "búsqueda de páginas",
-          "Please enter a word/sentence to search for.":
-              "Por favor ingrese una palabra / oración para buscar.",
+          "Please enter a word/sentence to search for.": "Por favor ingrese una palabra / oración para buscar.",
           "Font size setting": "Configuración del tamaño de la fuente",
           "Auto shutdown settings": "Configuración de apagado automático",
           "Backup / Recovery": "Recuperación de respaldo",
           "google drive backup": "Google Drive Backup",
           "Chinese (Hanja) filter": "Filtro chino (HANJA)",
           "Japanese (Japanese) filter": "Filtro japonés (japonés)",
-          "filter multiple question marks":
-              "Filtrar múltiples signos de interrogación",
-          "Filter multiple exclamation marks":
-              "Filtrar múltiples signos de exclamación",
+          "filter multiple question marks": "Filtrar múltiples signos de interrogación",
+          "Filter multiple exclamation marks": "Filtrar múltiples signos de exclamación",
           "filter ----": "Filtro ----",
           "filter ===": "Filtro ===",
           "filter .....": "Filtro .....",
@@ -2274,8 +2035,7 @@ class Messages {
           "filter !?": "¡Filtrar!?",
           "? ! filter if there is only one": "? ! filtro si solo hay uno",
           "apostrophe filter": "Filtro de apóstrofe",
-          "special character repeat filter":
-              "Filtro de repetición de caracteres especiales",
+          "special character repeat filter": "Filtro de repetición de caracteres especiales",
           "TTS filter settings": "Configuración del filtro TTS",
           "name": "nombre",
           "filter rules": "Reglas de filtro",
@@ -2284,12 +2044,10 @@ class Messages {
           "Use regular expressions": "Utilizar expresiones regulares",
           "use": "usar",
           "history": "historia",
-          "Please enter a word/sentence to search for.__1":
-              "Por favor ingrese una palabra / oración para buscar.",
+          "Please enter a word/sentence to search for.__1": "Por favor ingrese una palabra / oración para buscar.",
           "Drag to delete": "Arrastre para eliminar",
           "last position": "Ultima posicion",
-          "OCR image recognition settings":
-              "Ajustes de reconocimiento de imágenes OCR",
+          "OCR image recognition settings": "Ajustes de reconocimiento de imágenes OCR",
           "open source license": "licencia de código abierto",
           "license": "licencia",
           "home page": "página de inicio",
@@ -2300,27 +2058,23 @@ class Messages {
           "speed": "velocidad",
           "volume": "volumen",
           "pitch": "terreno de juego",
-          "Number of lines to read at a time":
-              "Número de líneas para leer a la vez.",
-          "Freeze when other players are running":
-              "Congelar cuando otros jugadores corren",
+          "Number of lines to read at a time": "Número de líneas para leer a la vez.",
+          "Freeze when other players are running": "Congelar cuando otros jugadores corren",
           "Using the headset button": "Usando el botón Auricular",
           "language": "Español"
         },
         "sk": {
           "key": "sk",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "textový prehliadač",
           "my_library": "moja knižnica",
           "Settings": "nastavenie",
           "Copied to clipboard": "Skopírované do schránky",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Pri pridávaní súborov môžete pridať viacero súborov dlhým stlačením.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Pri pridávaní súborov môžete pridať viacero súborov dlhým stlačením.",
           "file_list": "zoznam súborov",
           "Add_file": "Pridať súbor",
           "remove_from_library": "Odstrániť z knižnice",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Pozrite sa, ako vyriešiť hlasový problém TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Pozrite sa, ako vyriešiť hlasový problém TTS.",
           "Auto_shut_down_after_@min_minute": "Automatické vypnutie po minúte",
           "cancel": "Zrušiť",
           "confirm": "potvrdiť",
@@ -2330,8 +2084,7 @@ class Messages {
           "move_location": "Presunúť miesto",
           "Current_location": "Súčasná poloha",
           "page_search": "Vyhľadávanie stránok",
-          "Please enter a word/sentence to search for.":
-              "Zadajte slovo / vetu na vyhľadávanie.",
+          "Please enter a word/sentence to search for.": "Zadajte slovo / vetu na vyhľadávanie.",
           "Font size setting": "Nastavenie veľkosti písma",
           "Auto shutdown settings": "Nastavenia automatického vypnutia",
           "Backup / Recovery": "Zálohovanie / obnovenie",
@@ -2356,12 +2109,10 @@ class Messages {
           "Use regular expressions": "Použite regulárne výrazy",
           "use": "použitie",
           "history": "história",
-          "Please enter a word/sentence to search for.__1":
-              "Zadajte slovo / vetu na vyhľadávanie.",
+          "Please enter a word/sentence to search for.__1": "Zadajte slovo / vetu na vyhľadávanie.",
           "Drag to delete": "Presuňte odstrániť",
           "last position": "posledná pozícia",
-          "OCR image recognition settings":
-              "Nastavenia rozpoznávania obrazu OCR",
+          "OCR image recognition settings": "Nastavenia rozpoznávania obrazu OCR",
           "open source license": "Open Source License",
           "license": "licencia",
           "home page": "domovská stránka",
@@ -2373,8 +2124,7 @@ class Messages {
           "volume": "objem",
           "pitch": "rozteč",
           "Number of lines to read at a time": "Počet riadkov na čítanie naraz",
-          "Freeze when other players are running":
-              "Zmraziť, keď sú spustení ostatní hráči",
+          "Freeze when other players are running": "Zmraziť, keď sú spustení ostatní hráči",
           "Using the headset button": "Pomocou tlačidla headsetu",
           "language": "Slovensky"
         },
@@ -2385,13 +2135,11 @@ class Messages {
           "my_library": "moja knjižnica",
           "Settings": "Nastavitve",
           "Copied to clipboard": "Kopirano v odložišče",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Pri dodajanju datotek lahko dodate več datotek z dolgim ​​pritiskom.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Pri dodajanju datotek lahko dodate več datotek z dolgim ​​pritiskom.",
           "file_list": "Seznam datotek",
           "Add_file": "Dodaj datoteko",
           "remove_from_library": "Odstranite iz knjižnice",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Oglejte si, kako rešiti govorni problem TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Oglejte si, kako rešiti govorni problem TTS.",
           "Auto_shut_down_after_@min_minute": "Auto Ustavitev po @Min Minute",
           "cancel": "Prekliči",
           "confirm": "Potrdite",
@@ -2401,8 +2149,7 @@ class Messages {
           "move_location": "Premakni lokacijo",
           "Current_location": "Trenutna lokacija",
           "page_search": "stran Iskanje",
-          "Please enter a word/sentence to search for.":
-              "Vnesite besedo / stavek, da ga poiščete.",
+          "Please enter a word/sentence to search for.": "Vnesite besedo / stavek, da ga poiščete.",
           "Font size setting": "Nastavitev velikosti pisave",
           "Auto shutdown settings": "Nastavitve samodejnega zaustavitve",
           "Backup / Recovery": "Varnostno kopiranje / obnovitev",
@@ -2427,12 +2174,10 @@ class Messages {
           "Use regular expressions": "Uporabite regularne izraze",
           "use": "uporaba",
           "history": "Zgodovina",
-          "Please enter a word/sentence to search for.__1":
-              "Vnesite besedo / stavek, da ga poiščete.",
+          "Please enter a word/sentence to search for.__1": "Vnesite besedo / stavek, da ga poiščete.",
           "Drag to delete": "Povlecite",
           "last position": "zadnji položaj",
-          "OCR image recognition settings":
-              "Nastavitve prepoznavanja slike OCR",
+          "OCR image recognition settings": "Nastavitve prepoznavanja slike OCR",
           "open source license": "Open Source License.",
           "license": "licenca",
           "home page": "domača stran",
@@ -2443,10 +2188,8 @@ class Messages {
           "speed": "Hitrost",
           "volume": "volumen",
           "pitch": "višina tona",
-          "Number of lines to read at a time":
-              "Število vrstic za branje naenkrat",
-          "Freeze when other players are running":
-              "Zamrznite, ko potekajo drugi igralci",
+          "Number of lines to read at a time": "Število vrstic za branje naenkrat",
+          "Freeze when other players are running": "Zamrznite, ko potekajo drugi igralci",
           "Using the headset button": "Uporaba gumba slušalk",
           "language": "Slovenščina"
         },
@@ -2462,10 +2205,8 @@ class Messages {
           "file_list": "ගොනු ලැයිස්තුව",
           "Add_file": "ගොනුව එක් කරන්න",
           "remove_from_library": "පුස්තකාලයෙන් ඉවත් කරන්න",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS හ voice ගැටළුව විසඳන්නේ කෙසේදැයි බලන්න.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min මිනිත්තුවෙන් පසු ස්වයංක්රීයව වසා දමන්න",
+          "See_how_to_solve_the_tts_voice_problem": "TTS හ voice ගැටළුව විසඳන්නේ කෙසේදැයි බලන්න.",
+          "Auto_shut_down_after_@min_minute": "@Min මිනිත්තුවෙන් පසු ස්වයංක්රීයව වසා දමන්න",
           "cancel": "අවලංගු කරන්න",
           "confirm": "තහවුරු කරන්න",
           "delete": "මකන්න",
@@ -2474,8 +2215,7 @@ class Messages {
           "move_location": "ස්ථානය ගෙනයන්න",
           "Current_location": "වත්මන් ස්ථානය",
           "page_search": "පිටු සෙවීම",
-          "Please enter a word/sentence to search for.":
-              "සෙවීම සඳහා කරුණාකර වචනයක් / වාක්යයක් ඇතුළත් කරන්න.",
+          "Please enter a word/sentence to search for.": "සෙවීම සඳහා කරුණාකර වචනයක් / වාක්යයක් ඇතුළත් කරන්න.",
           "Font size setting": "අකුරු ප්රමාණයේ සැකසුම",
           "Auto shutdown settings": "ස්වයංක්රීය වසා දැමීමේ සැකසුම්",
           "Backup / Recovery": "උපස්ථ / ප්රතිසාධනය",
@@ -2489,8 +2229,7 @@ class Messages {
           "filter .....": "පෙරහන .....",
           "filter ?!": "පෙරහන ?!",
           "filter !?": "පෙරහන !?",
-          "? ! filter if there is only one":
-              "? ! එකක් පමණක් තිබේ නම් පෙරහන් කරන්න",
+          "? ! filter if there is only one": "? ! එකක් පමණක් තිබේ නම් පෙරහන් කරන්න",
           "apostrophe filter": "අපෝස්තලාපය පෙරීම",
           "special character repeat filter": "විශේෂ චරිත පුනරාවර්තන පෙරණය",
           "TTS filter settings": "TTS පෙරහන් සැකසුම්",
@@ -2501,8 +2240,7 @@ class Messages {
           "Use regular expressions": "නිත්ය ප්රකාශන භාවිතා කරන්න",
           "use": "භාවිත",
           "history": "ඉතිහාසය",
-          "Please enter a word/sentence to search for.__1":
-              "සෙවීම සඳහා කරුණාකර වචනයක් / වාක්යයක් ඇතුළත් කරන්න.",
+          "Please enter a word/sentence to search for.__1": "සෙවීම සඳහා කරුණාකර වචනයක් / වාක්යයක් ඇතුළත් කරන්න.",
           "Drag to delete": "මකා දැමීමට අදින්න",
           "last position": "අවසාන ස්ථානය",
           "OCR image recognition settings": "OCR රූප හඳුනාගැනීමේ සැකසුම්",
@@ -2517,8 +2255,7 @@ class Messages {
           "volume": "පරිමාව",
           "pitch": "තණතීරුව",
           "Number of lines to read at a time": "වරකට කියවීමට පේළි ගණන",
-          "Freeze when other players are running":
-              "අනෙක් ක්රීඩකයන් ක්රියාත්මක වන විට කැටි කරන්න",
+          "Freeze when other players are running": "අනෙක් ක්රීඩකයන් ක්රියාත්මක වන විට කැටි කරන්න",
           "Using the headset button": "හෙඩ්සෙට් බොත්තම භාවිතා කිරීම",
           "language": "සිංගලා"
         },
@@ -2529,13 +2266,11 @@ class Messages {
           "my_library": "مكتبتي",
           "Settings": "إعدادات",
           "Copied to clipboard": "نسخ إلى الحافظة",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "عند إضافة ملفات، يمكنك إضافة ملفات متعددة عن طريق الضغط لفترة طويلة.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "عند إضافة ملفات، يمكنك إضافة ملفات متعددة عن طريق الضغط لفترة طويلة.",
           "file_list": "قائمة الملفات",
           "Add_file": "اضف ملف",
           "remove_from_library": "إزالة من المكتبة",
-          "See_how_to_solve_the_tts_voice_problem":
-              "معرفة كيفية حل مشكلة صوت TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "معرفة كيفية حل مشكلة صوت TTS.",
           "Auto_shut_down_after_@min_minute": "أغلقت السيارات بعد دقيقة دقيقة",
           "cancel": "إلغاء",
           "confirm": "تؤكد",
@@ -2545,8 +2280,7 @@ class Messages {
           "move_location": "نقل الموقع",
           "Current_location": "الموقع الحالي",
           "page_search": "بحث الصفحة",
-          "Please enter a word/sentence to search for.":
-              "الرجاء إدخال كلمة / جملة للبحث عنها.",
+          "Please enter a word/sentence to search for.": "الرجاء إدخال كلمة / جملة للبحث عنها.",
           "Font size setting": "إعداد حجم الخط",
           "Auto shutdown settings": "إعدادات الاغلاق التلقائي",
           "Backup / Recovery": "النسخ الاحتياطي / الانتعاش",
@@ -2571,8 +2305,7 @@ class Messages {
           "Use regular expressions": "استخدام التعبيرات العادية",
           "use": "استعمال",
           "history": "التاريخ",
-          "Please enter a word/sentence to search for.__1":
-              "الرجاء إدخال كلمة / جملة للبحث عنها.",
+          "Please enter a word/sentence to search for.__1": "الرجاء إدخال كلمة / جملة للبحث عنها.",
           "Drag to delete": "اسحب للحذف",
           "last position": "المركز الأخير",
           "OCR image recognition settings": "إعدادات التعرف على صورة OCR",
@@ -2587,8 +2320,7 @@ class Messages {
           "volume": "الصوت",
           "pitch": "ملعب كورة قدم",
           "Number of lines to read at a time": "عدد الخطوط لقراءة في وقت واحد",
-          "Freeze when other players are running":
-              "تجميد عندما يعمل اللاعبون الآخرون",
+          "Freeze when other players are running": "تجميد عندما يعمل اللاعبون الآخرون",
           "Using the headset button": "باستخدام زر سماعة الرأس",
           "language": "عربي"
         },
@@ -2599,15 +2331,12 @@ class Messages {
           "my_library": "Իմ գրադարանը",
           "Settings": "Կարգավորումներ",
           "Copied to clipboard": "Պատճենահանվել է clipboard- ին",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Ֆայլեր ավելացնելիս կարող եք ավելացնել բազմաթիվ ֆայլեր երկար սեղմումով:",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Ֆայլեր ավելացնելիս կարող եք ավելացնել բազմաթիվ ֆայլեր երկար սեղմումով:",
           "file_list": "Ֆայլերի ցուցակ",
           "Add_file": "Ավելացնել ֆայլ",
           "remove_from_library": "Հեռացրեք գրադարանից",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Տեսեք, թե ինչպես լուծել TTS ձայնային խնդիրը:",
-          "Auto_shut_down_after_@min_minute":
-              "@ Min րոպեից հետո ավտոմատ փակվեց",
+          "See_how_to_solve_the_tts_voice_problem": "Տեսեք, թե ինչպես լուծել TTS ձայնային խնդիրը:",
+          "Auto_shut_down_after_@min_minute": "@ Min րոպեից հետո ավտոմատ փակվեց",
           "cancel": "չեղարկել",
           "confirm": "հաստատել",
           "delete": "ջնջել",
@@ -2616,8 +2345,7 @@ class Messages {
           "move_location": "Տեղափոխել գտնվելու վայրը",
           "Current_location": "Ընթացիկ գտնվելու վայրը",
           "page_search": "Էջի որոնում",
-          "Please enter a word/sentence to search for.":
-              "Խնդրում ենք մուտքագրել մի բառ / նախադասություն `որոնելու համար:",
+          "Please enter a word/sentence to search for.": "Խնդրում ենք մուտքագրել մի բառ / նախադասություն `որոնելու համար:",
           "Font size setting": "Տառատեսակի չափի պարամետր",
           "Auto shutdown settings": "Ավտոմատ անջատման կարգավորումներ",
           "Backup / Recovery": "Կրկնօրինակեք / վերականգնում",
@@ -2625,15 +2353,13 @@ class Messages {
           "Chinese (Hanja) filter": "Չինական (Hanja) ֆիլտր",
           "Japanese (Japanese) filter": "Japanese ապոնական (ճապոնական) ֆիլտր",
           "filter multiple question marks": "Զտեք բազմաթիվ հարցական նշաններ",
-          "Filter multiple exclamation marks":
-              "Զտել բազմակի բացականչական նշաններ",
+          "Filter multiple exclamation marks": "Զտել բազմակի բացականչական նշաններ",
           "filter ----": "զտիչ ----",
           "filter ===": "Զտիչ ===",
           "filter .....": "ֆիլտր .....",
           "filter ?!": "Զտել:",
           "filter !?": "Զտիչ?",
-          "? ! filter if there is only one":
-              "? ԻՇԽԱՆՈՒԹՅՈՒՆ Զտեք, եթե կա միայն մեկը",
+          "? ! filter if there is only one": "? ԻՇԽԱՆՈՒԹՅՈՒՆ Զտեք, եթե կա միայն մեկը",
           "apostrophe filter": "Ապոնստրոֆե ֆիլտր",
           "special character repeat filter": "Հատուկ նիշ կրկնել ֆիլտրը",
           "TTS filter settings": "TTS ֆիլտրի պարամետրեր",
@@ -2644,8 +2370,7 @@ class Messages {
           "Use regular expressions": "Օգտագործեք կանոնավոր արտահայտություններ",
           "use": "օգտագործել",
           "history": "պատմություն",
-          "Please enter a word/sentence to search for.__1":
-              "Խնդրում ենք մուտքագրել մի բառ / նախադասություն `որոնելու համար:",
+          "Please enter a word/sentence to search for.__1": "Խնդրում ենք մուտքագրել մի բառ / նախադասություն `որոնելու համար:",
           "Drag to delete": "Քաշեք ջնջելու համար",
           "last position": "Վերջին դիրքը",
           "OCR image recognition settings": "OCR պատկերի ճանաչման պարամետրեր",
@@ -2659,16 +2384,14 @@ class Messages {
           "speed": "արագություն",
           "volume": "ծավալ",
           "pitch": "նետել",
-          "Number of lines to read at a time":
-              "Միանգամից կարդալու տողերի քանակը",
-          "Freeze when other players are running":
-              "Սառեցնել, երբ մյուս խաղացողներն աշխատում են",
+          "Number of lines to read at a time": "Միանգամից կարդալու տողերի քանակը",
+          "Freeze when other players are running": "Սառեցնել, երբ մյուս խաղացողներն աշխատում են",
           "Using the headset button": "Օգտագործելով ականջակալների կոճակը",
           "language": "Հայերեն"
         },
         "is": {
           "key": "is",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Textaskoðari",
           "my_library": "Bókasafnið mitt",
           "Settings": "Stillingar",
@@ -2678,10 +2401,8 @@ class Messages {
           "file_list": "Skrá lista",
           "Add_file": "Bæta við skrá",
           "remove_from_library": "Fjarlægja úr bókasafninu",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Sjáðu hvernig á að leysa tts rödd vandamálið.",
-          "Auto_shut_down_after_@min_minute":
-              "Sjálfvirk lokað eftir @min mínútu",
+          "See_how_to_solve_the_tts_voice_problem": "Sjáðu hvernig á að leysa tts rödd vandamálið.",
+          "Auto_shut_down_after_@min_minute": "Sjálfvirk lokað eftir @min mínútu",
           "cancel": "Hætta við",
           "confirm": "staðfesta",
           "delete": "eyða",
@@ -2690,8 +2411,7 @@ class Messages {
           "move_location": "Færa staðsetningu",
           "Current_location": "Núverandi staðsetning",
           "page_search": "Page Search.",
-          "Please enter a word/sentence to search for.":
-              "Vinsamlegast sláðu inn orð / setningu til að leita að.",
+          "Please enter a word/sentence to search for.": "Vinsamlegast sláðu inn orð / setningu til að leita að.",
           "Font size setting": "Leturstærð stilling",
           "Auto shutdown settings": "Sjálfvirk lokun stillingar",
           "Backup / Recovery": "Öryggisafrit / bata",
@@ -2716,12 +2436,10 @@ class Messages {
           "Use regular expressions": "Notaðu reglulega tjáningu",
           "use": "notkun",
           "history": "saga",
-          "Please enter a word/sentence to search for.__1":
-              "Vinsamlegast sláðu inn orð / setningu til að leita að.",
+          "Please enter a word/sentence to search for.__1": "Vinsamlegast sláðu inn orð / setningu til að leita að.",
           "Drag to delete": "Dragðu til að eyða",
           "last position": "Síðasta staða",
-          "OCR image recognition settings":
-              "OCR mynd viðurkenningar stillingar",
+          "OCR image recognition settings": "OCR mynd viðurkenningar stillingar",
           "open source license": "Open Source License.",
           "license": "Leyfi",
           "home page": "Heimasíða.",
@@ -2732,10 +2450,8 @@ class Messages {
           "speed": "hraði",
           "volume": "bindi",
           "pitch": "vellinum",
-          "Number of lines to read at a time":
-              "Fjöldi línanna til að lesa í einu",
-          "Freeze when other players are running":
-              "Frysta þegar aðrir leikmenn eru í gangi",
+          "Number of lines to read at a time": "Fjöldi línanna til að lesa í einu",
+          "Freeze when other players are running": "Frysta þegar aðrir leikmenn eru í gangi",
           "Using the headset button": "Notkun höfuðtól hnappinn",
           "language": "Íslenska"
         },
@@ -2746,15 +2462,12 @@ class Messages {
           "my_library": "kitabxanam",
           "Settings": "Parametrlər",
           "Copied to clipboard": "Panoya kopyalandı",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Fayl əlavə edərkən uzun basaraq birdən çox fayl əlavə edə bilərsiniz.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Fayl əlavə edərkən uzun basaraq birdən çox fayl əlavə edə bilərsiniz.",
           "file_list": "fayl siyahısı",
           "Add_file": "Faylı əlavə etmək",
           "remove_from_library": "kitabxanadan çıxarın",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS səs problemini necə həll edəcəyinizə baxın.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min dəqiqədən sonra avtomatik bağlandı",
+          "See_how_to_solve_the_tts_voice_problem": "TTS səs problemini necə həll edəcəyinizə baxın.",
+          "Auto_shut_down_after_@min_minute": "@Min dəqiqədən sonra avtomatik bağlandı",
           "cancel": "ləğv etmək",
           "confirm": "təsdiq etmək",
           "delete": "silmək",
@@ -2763,8 +2476,7 @@ class Messages {
           "move_location": "yerləşdirmək",
           "Current_location": "Hazırki məkan",
           "page_search": "Səhifə axtarışı",
-          "Please enter a word/sentence to search for.":
-              "Zəhmət olmasa axtarmaq üçün bir söz / cümlə daxil edin.",
+          "Please enter a word/sentence to search for.": "Zəhmət olmasa axtarmaq üçün bir söz / cümlə daxil edin.",
           "Font size setting": "Şrift ölçüsü qəbulu",
           "Auto shutdown settings": "Avtomatik bağlama parametrləri",
           "Backup / Recovery": "Yedekləmə / bərpa",
@@ -2789,8 +2501,7 @@ class Messages {
           "Use regular expressions": "Daimi ifadələrdən istifadə edin",
           "use": "istifadə etmək",
           "history": "tarix",
-          "Please enter a word/sentence to search for.__1":
-              "Zəhmət olmasa axtarmaq üçün bir söz / cümlə daxil edin.",
+          "Please enter a word/sentence to search for.__1": "Zəhmət olmasa axtarmaq üçün bir söz / cümlə daxil edin.",
           "Drag to delete": "Silmək üçün sürün",
           "last position": "son mövqe",
           "OCR image recognition settings": "OCR Image Tanıma Ayarları",
@@ -2804,16 +2515,14 @@ class Messages {
           "speed": "sürətlə",
           "volume": "həcm",
           "pitch": "qatmaq",
-          "Number of lines to read at a time":
-              "Bir anda oxumaq üçün xətlərin sayı",
-          "Freeze when other players are running":
-              "Digər oyunçuların işlədikdə dondurun",
+          "Number of lines to read at a time": "Bir anda oxumaq üçün xətlərin sayı",
+          "Freeze when other players are running": "Digər oyunçuların işlədikdə dondurun",
           "Using the headset button": "Qulaqlıq düyməsini istifadə edərək",
           "language": "Azərbaycan"
         },
         "af": {
           "key": "af",
-          "app_name": "Open Source Text Viewer",
+          "app_name": "open text viewer",
           "text_viewer": "Tekst Viewer",
           "my_library": "my biblioteek",
           "Settings": "Instelling",
@@ -2823,10 +2532,8 @@ class Messages {
           "file_list": "Lêer lys",
           "Add_file": "Voeg lêer by",
           "remove_from_library": "Verwyder uit biblioteek",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Kyk hoe om die TTS stemprobleem op te los.",
-          "Auto_shut_down_after_@min_minute":
-              "Outomatiese afsluiting na @min minuut",
+          "See_how_to_solve_the_tts_voice_problem": "Kyk hoe om die TTS stemprobleem op te los.",
+          "Auto_shut_down_after_@min_minute": "Outomatiese afsluiting na @min minuut",
           "cancel": "kanselleer",
           "confirm": "bevestig",
           "delete": "verwyder",
@@ -2835,8 +2542,7 @@ class Messages {
           "move_location": "Skuif plek",
           "Current_location": "Huidige ligging",
           "page_search": "bladsy soek",
-          "Please enter a word/sentence to search for.":
-              "Voer asseblief 'n woord / sin in om te soek.",
+          "Please enter a word/sentence to search for.": "Voer asseblief 'n woord / sin in om te soek.",
           "Font size setting": "Lettergrootte instelling",
           "Auto shutdown settings": "Auto Shutdown Settings",
           "Backup / Recovery": "Rugsteun / Herstel",
@@ -2844,8 +2550,7 @@ class Messages {
           "Chinese (Hanja) filter": "Sjinees (Hanja) filter",
           "Japanese (Japanese) filter": "Japannese (Japannese) filter",
           "filter multiple question marks": "Filter veelvuldige vraagpunte",
-          "Filter multiple exclamation marks":
-              "Filter veelvuldige uitroeptekens",
+          "Filter multiple exclamation marks": "Filter veelvuldige uitroeptekens",
           "filter ----": "Filter ----",
           "filter ===": "filter ===",
           "filter .....": "Filter .....",
@@ -2862,8 +2567,7 @@ class Messages {
           "Use regular expressions": "Gebruik gereelde uitdrukkings",
           "use": "gebruik",
           "history": "geskiedenis",
-          "Please enter a word/sentence to search for.__1":
-              "Voer asseblief 'n woord / sin in om te soek.",
+          "Please enter a word/sentence to search for.__1": "Voer asseblief 'n woord / sin in om te soek.",
           "Drag to delete": "Sleep om te verwyder",
           "last position": "laaste posisie",
           "OCR image recognition settings": "OCR beeldherkenning instellings",
@@ -2877,10 +2581,8 @@ class Messages {
           "speed": "spoed",
           "volume": "volume",
           "pitch": "paal",
-          "Number of lines to read at a time":
-              "Aantal lyne om op 'n slag te lees",
-          "Freeze when other players are running":
-              "Vries wanneer ander spelers hardloop",
+          "Number of lines to read at a time": "Aantal lyne om op 'n slag te lees",
+          "Freeze when other players are running": "Vries wanneer ander spelers hardloop",
           "Using the headset button": "Gebruik die Headset-knoppie",
           "language": "Afrika"
         },
@@ -2891,15 +2593,12 @@ class Messages {
           "my_library": "biblioteka ime",
           "Settings": "Parametrat",
           "Copied to clipboard": "Kopjuar në clipboard",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Kur shtoni skedarë, mund të shtoni skedarë të shumtë nga shtypni gjatë.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Kur shtoni skedarë, mund të shtoni skedarë të shumtë nga shtypni gjatë.",
           "file_list": "Lista e skedarëve",
           "Add_file": "Shto skedar",
           "remove_from_library": "Hiq nga biblioteka",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Shihni se si të zgjidhni problemin e zërit TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto mbyllur pas @ minutë minutë",
+          "See_how_to_solve_the_tts_voice_problem": "Shihni se si të zgjidhni problemin e zërit TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto mbyllur pas @ minutë minutë",
           "cancel": "anuloj",
           "confirm": "konfirmoj",
           "delete": "fshij",
@@ -2908,18 +2607,15 @@ class Messages {
           "move_location": "lëvizni vendndodhjen",
           "Current_location": "Vendndodhja aktuale",
           "page_search": "Kërkimi i faqes",
-          "Please enter a word/sentence to search for.":
-              "Ju lutemi shkruani një fjalë / dënim për të kërkuar.",
+          "Please enter a word/sentence to search for.": "Ju lutemi shkruani një fjalë / dënim për të kërkuar.",
           "Font size setting": "Vendosja e madhësisë së shkronjave",
           "Auto shutdown settings": "Cilësimet e mbylljes automatike",
           "Backup / Recovery": "Backup / Recovery",
           "google drive backup": "Backup Google Drive",
           "Chinese (Hanja) filter": "Filtër kinez (hanja)",
           "Japanese (Japanese) filter": "Filtri japonez (japonez)",
-          "filter multiple question marks":
-              "Filtroni shenjat e shumëfishta të pyetjeve",
-          "Filter multiple exclamation marks":
-              "Filtroni shenjat e shumëfishta të thirrjes",
+          "filter multiple question marks": "Filtroni shenjat e shumëfishta të pyetjeve",
+          "Filter multiple exclamation marks": "Filtroni shenjat e shumëfishta të thirrjes",
           "filter ----": "filtër ----",
           "filter ===": "filtër ===",
           "filter .....": "Filter .....",
@@ -2927,8 +2623,7 @@ class Messages {
           "filter !?": "FILTER!?",
           "? ! filter if there is only one": "? ! filtroni nëse ka vetëm një",
           "apostrophe filter": "filtër apostrofe",
-          "special character repeat filter":
-              "Filtri i përsëritur i karakterit të veçantë",
+          "special character repeat filter": "Filtri i përsëritur i karakterit të veçantë",
           "TTS filter settings": "Cilësimet e filtrave TTS",
           "name": "emër",
           "filter rules": "rregullat e filtrit",
@@ -2937,12 +2632,10 @@ class Messages {
           "Use regular expressions": "Përdorni shprehje të rregullta",
           "use": "përdorim",
           "history": "histori",
-          "Please enter a word/sentence to search for.__1":
-              "Ju lutemi shkruani një fjalë / dënim për të kërkuar.",
+          "Please enter a word/sentence to search for.__1": "Ju lutemi shkruani një fjalë / dënim për të kërkuar.",
           "Drag to delete": "Drag për të fshirë",
           "last position": "pozicionin e fundit",
-          "OCR image recognition settings":
-              "Cilësimet e njohjes së imazhit OCR",
+          "OCR image recognition settings": "Cilësimet e njohjes së imazhit OCR",
           "open source license": "Licenca me burim të hapur",
           "license": "liçensë",
           "home page": "Faqja kryesore",
@@ -2953,10 +2646,8 @@ class Messages {
           "speed": "shpejtësi",
           "volume": "volum",
           "pitch": "katran",
-          "Number of lines to read at a time":
-              "Numri i linjave për të lexuar në një kohë",
-          "Freeze when other players are running":
-              "Ngrijë kur lojtarët e tjerë po konkurrojnë",
+          "Number of lines to read at a time": "Numri i linjave për të lexuar në një kohë",
+          "Freeze when other players are running": "Ngrijë kur lojtarët e tjerë po konkurrojnë",
           "Using the headset button": "Duke përdorur butonin e kufjeve",
           "language": "Shqip"
         },
@@ -2967,13 +2658,11 @@ class Messages {
           "my_library": "የእኔ ቤተ-መጽሐፍት",
           "Settings": "ቅንብሮች",
           "Copied to clipboard": "ወደ ቅንጥብ ሰሌዳው ይገለበጣል",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "ፋይሎችን ሲጨምሩ ረዘም ያለ ጫጫታ ብዙ ፋይሎችን ማከል ይችላሉ.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "ፋይሎችን ሲጨምሩ ረዘም ያለ ጫጫታ ብዙ ፋይሎችን ማከል ይችላሉ.",
           "file_list": "የፋይል ዝርዝር",
           "Add_file": "ፋይል ያክሉ",
           "remove_from_library": "ከቤተ-መጽሐፍት ያስወግዱ",
-          "See_how_to_solve_the_tts_voice_problem":
-              "የ TTS የድምፅ ችግርን እንዴት መፍታት እንደሚቻል ይመልከቱ.",
+          "See_how_to_solve_the_tts_voice_problem": "የ TTS የድምፅ ችግርን እንዴት መፍታት እንደሚቻል ይመልከቱ.",
           "Auto_shut_down_after_@min_minute": "ከ @ ደቂቃ በኋላ ራስ-ሰር መዘጋት",
           "cancel": "ይቅር",
           "confirm": "አረጋግጥ",
@@ -2983,8 +2672,7 @@ class Messages {
           "move_location": "አካባቢን ያዛውሩ",
           "Current_location": "የአሁኑ አካባቢ",
           "page_search": "ገጽ ይፈልጉ",
-          "Please enter a word/sentence to search for.":
-              "እባክዎን ለመፈለግ አንድ ቃል / ዓረፍተ ነገር ያስገቡ.",
+          "Please enter a word/sentence to search for.": "እባክዎን ለመፈለግ አንድ ቃል / ዓረፍተ ነገር ያስገቡ.",
           "Font size setting": "የቅርጸ-ቁምፊ መጠን ቅንብር",
           "Auto shutdown settings": "ራስ-ሰር መዘጋት ቅንብሮች",
           "Backup / Recovery": "ምትኬ / ማገገም",
@@ -3009,8 +2697,7 @@ class Messages {
           "Use regular expressions": "መደበኛ አገላለጾችን ይጠቀሙ",
           "use": "መጠቀም",
           "history": "ታሪክ",
-          "Please enter a word/sentence to search for.__1":
-              "እባክዎን ለመፈለግ አንድ ቃል / ዓረፍተ ነገር ያስገቡ.",
+          "Please enter a word/sentence to search for.__1": "እባክዎን ለመፈለግ አንድ ቃል / ዓረፍተ ነገር ያስገቡ.",
           "Drag to delete": "ለመሰረዝ ይጎትቱ",
           "last position": "የመጨረሻው አቀማመጥ",
           "OCR image recognition settings": "OCR የምስል ማወቂያ ቅንብሮች",
@@ -3036,15 +2723,12 @@ class Messages {
           "my_library": "Minu raamatukogu",
           "Settings": "Seaded",
           "Copied to clipboard": "Kopeeritud lõikepuhvrisse",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Failide lisamisel saate pika vajutuse abil lisada mitu faili.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Failide lisamisel saate pika vajutuse abil lisada mitu faili.",
           "file_list": "faili nimekiri",
           "Add_file": "Lisa faili",
           "remove_from_library": "Eemaldage raamatukogust",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Vaadake, kuidas TTS-i häälprobleemi lahendada.",
-          "Auto_shut_down_after_@min_minute":
-              "Automaatne sulgemine pärast @min minuti",
+          "See_how_to_solve_the_tts_voice_problem": "Vaadake, kuidas TTS-i häälprobleemi lahendada.",
+          "Auto_shut_down_after_@min_minute": "Automaatne sulgemine pärast @min minuti",
           "cancel": "tühistama",
           "confirm": "kinnitama",
           "delete": "kustutama",
@@ -3053,8 +2737,7 @@ class Messages {
           "move_location": "Liiguta asukoht",
           "Current_location": "Praegune asukoht",
           "page_search": "Lehekülje otsing",
-          "Please enter a word/sentence to search for.":
-              "Palun sisesta sõna / lause otsida.",
+          "Please enter a word/sentence to search for.": "Palun sisesta sõna / lause otsida.",
           "Font size setting": "Fondi suuruse seade",
           "Auto shutdown settings": "Auto Shutdown Settings",
           "Backup / Recovery": "Varundus / taastamine",
@@ -3079,8 +2762,7 @@ class Messages {
           "Use regular expressions": "Kasutage regulaaravaldisi",
           "use": "kasutama",
           "history": "ajalugu",
-          "Please enter a word/sentence to search for.__1":
-              "Palun sisesta sõna / lause otsida.",
+          "Please enter a word/sentence to search for.__1": "Palun sisesta sõna / lause otsida.",
           "Drag to delete": "Lohista kustutada",
           "last position": "viimane positsioon",
           "OCR image recognition settings": "OCR pildi tuvastamise seaded",
@@ -3095,27 +2777,23 @@ class Messages {
           "volume": "maht",
           "pitch": "pigi",
           "Number of lines to read at a time": "Radide arv lugeda korraga",
-          "Freeze when other players are running":
-              "Külmutada, kui teised mängijad töötavad",
+          "Freeze when other players are running": "Külmutada, kui teised mängijad töötavad",
           "Using the headset button": "Peakomplekti nupu kasutamine",
           "language": "Eesti keel"
         },
         "en": {
           "key": "en",
-          "app_name": "open source text viewer",
+          "app_name": "open text viewer",
           "text_viewer": "text viewer",
           "my_library": "my library",
           "Settings": "Settings",
           "Copied to clipboard": "Copied to clipboard",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "When adding files, you can add multiple files by long pressing.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "When adding files, you can add multiple files by long pressing.",
           "file_list": "file list",
           "Add_file": "Add file",
           "remove_from_library": "remove from library",
-          "See_how_to_solve_the_tts_voice_problem":
-              "See how to solve the tts voice problem.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto shut down after @min minute",
+          "See_how_to_solve_the_tts_voice_problem": "See how to solve the tts voice problem.",
+          "Auto_shut_down_after_@min_minute": "Auto shut down after @min minute",
           "cancel": "cancel",
           "confirm": "confirm",
           "delete": "delete",
@@ -3124,8 +2802,7 @@ class Messages {
           "move_location": "move location",
           "Current_location": "Current location",
           "page_search": "page search",
-          "Please enter a word/sentence to search for.":
-              "Please enter a word/sentence to search for.",
+          "Please enter a word/sentence to search for.": "Please enter a word/sentence to search for.",
           "Font size setting": "Font size setting",
           "Auto shutdown settings": "Auto shutdown settings",
           "Backup / Recovery": "Backup / Recovery",
@@ -3133,8 +2810,7 @@ class Messages {
           "Chinese (Hanja) filter": "Chinese (Hanja) filter",
           "Japanese (Japanese) filter": "Japanese (Japanese) filter",
           "filter multiple question marks": "filter multiple question marks",
-          "Filter multiple exclamation marks":
-              "Filter multiple exclamation marks",
+          "Filter multiple exclamation marks": "Filter multiple exclamation marks",
           "filter ----": "filter ----",
           "filter ===": "filter ===",
           "filter .....": "filter .....",
@@ -3151,8 +2827,7 @@ class Messages {
           "Use regular expressions": "Use regular expressions",
           "use": "use",
           "history": "history",
-          "Please enter a word/sentence to search for.__1":
-              "Please enter a word/sentence to search for.",
+          "Please enter a word/sentence to search for.__1": "Please enter a word/sentence to search for.",
           "Drag to delete": "Drag to delete",
           "last position": "last position",
           "OCR image recognition settings": "OCR image recognition settings",
@@ -3166,10 +2841,8 @@ class Messages {
           "speed": "speed",
           "volume": "volume",
           "pitch": "pitch",
-          "Number of lines to read at a time":
-              "Number of lines to read at a time",
-          "Freeze when other players are running":
-              "Freeze when other players are running",
+          "Number of lines to read at a time": "Number of lines to read at a time",
+          "Freeze when other players are running": "Freeze when other players are running",
           "Using the headset button": "Using the headset button",
           "language": "English"
         },
@@ -3185,8 +2858,7 @@ class Messages {
           "file_list": "فائل کی فہرست",
           "Add_file": "فائل شامل کریں",
           "remove_from_library": "لائبریری سے ہٹا دیں",
-          "See_how_to_solve_the_tts_voice_problem":
-              "دیکھیں کہ ٹی ٹی ایس کی آواز کا مسئلہ کیسے حل کرنا ہے.",
+          "See_how_to_solve_the_tts_voice_problem": "دیکھیں کہ ٹی ٹی ایس کی آواز کا مسئلہ کیسے حل کرنا ہے.",
           "Auto_shut_down_after_@min_minute": "منٹ منٹ کے بعد آٹو بند",
           "cancel": "منسوخ",
           "confirm": "تصدیق",
@@ -3196,8 +2868,7 @@ class Messages {
           "move_location": "مقام منتقل کریں",
           "Current_location": "موجودہ مقام",
           "page_search": "صفحہ تلاش",
-          "Please enter a word/sentence to search for.":
-              "برائے مہربانی تلاش کرنے کے لئے ایک لفظ / سزا درج کریں.",
+          "Please enter a word/sentence to search for.": "برائے مہربانی تلاش کرنے کے لئے ایک لفظ / سزا درج کریں.",
           "Font size setting": "فونٹ سائز کی ترتیب",
           "Auto shutdown settings": "آٹو بند ترتیبات",
           "Backup / Recovery": "بیک اپ / وصولی",
@@ -3205,8 +2876,7 @@ class Messages {
           "Chinese (Hanja) filter": "چینی (ہنجا) فلٹر",
           "Japanese (Japanese) filter": "جاپانی (جاپانی) فلٹر",
           "filter multiple question marks": "ایک سے زیادہ سوال نمبر فلٹر کریں",
-          "Filter multiple exclamation marks":
-              "ایک سے زیادہ افتتاحی نشان فلٹر کریں",
+          "Filter multiple exclamation marks": "ایک سے زیادہ افتتاحی نشان فلٹر کریں",
           "filter ----": "فلٹر ----",
           "filter ===": "فلٹر ===.",
           "filter .....": "فلٹر .....",
@@ -3223,8 +2893,7 @@ class Messages {
           "Use regular expressions": "باقاعدگی سے اظہار کا استعمال کریں",
           "use": "استعمال",
           "history": "تاریخ",
-          "Please enter a word/sentence to search for.__1":
-              "برائے مہربانی تلاش کرنے کے لئے ایک لفظ / سزا درج کریں.",
+          "Please enter a word/sentence to search for.__1": "برائے مہربانی تلاش کرنے کے لئے ایک لفظ / سزا درج کریں.",
           "Drag to delete": "حذف کرنے کے لئے ڈریگ",
           "last position": "آخری پوزیشن",
           "OCR image recognition settings": "OCR تصویری شناخت کی ترتیبات",
@@ -3238,10 +2907,8 @@ class Messages {
           "speed": "رفتار",
           "volume": "حجم",
           "pitch": "پچ",
-          "Number of lines to read at a time":
-              "ایک وقت میں پڑھنے کے لئے لائنوں کی تعداد",
-          "Freeze when other players are running":
-              "جب دیگر کھلاڑی چل رہے ہیں تو منجمد",
+          "Number of lines to read at a time": "ایک وقت میں پڑھنے کے لئے لائنوں کی تعداد",
+          "Freeze when other players are running": "جب دیگر کھلاڑی چل رہے ہیں تو منجمد",
           "Using the headset button": "ہیڈسیٹ بٹن کا استعمال کرتے ہوئے",
           "language": "اردو"
         },
@@ -3257,10 +2924,8 @@ class Messages {
           "file_list": "Список файлів",
           "Add_file": "Додати файл",
           "remove_from_library": "Видалити з бібліотеки",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Подивіться, як вирішити проблему голосу TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Автоматичне вимкнення після хвилини @min",
+          "See_how_to_solve_the_tts_voice_problem": "Подивіться, як вирішити проблему голосу TTS.",
+          "Auto_shut_down_after_@min_minute": "Автоматичне вимкнення після хвилини @min",
           "cancel": "скасувати",
           "confirm": "підтверджувати",
           "delete": "видаляти",
@@ -3269,8 +2934,7 @@ class Messages {
           "move_location": "Переміщення місцезнаходження",
           "Current_location": "Поточне місцезнаходження",
           "page_search": "Пошук сторінок",
-          "Please enter a word/sentence to search for.":
-              "Введіть слово / пропозицію для пошуку.",
+          "Please enter a word/sentence to search for.": "Введіть слово / пропозицію для пошуку.",
           "Font size setting": "Налаштування розміру шрифту",
           "Auto shutdown settings": "Налаштування автоматичного вимкнення",
           "Backup / Recovery": "Резервне копіювання / відновлення",
@@ -3278,8 +2942,7 @@ class Messages {
           "Chinese (Hanja) filter": "Китайський (HANJA) фільтр",
           "Japanese (Japanese) filter": "Японський (японський) фільтр",
           "filter multiple question marks": "фільтрувати кілька знаків питання",
-          "Filter multiple exclamation marks":
-              "Фільтрувати декілька знаків оклику",
+          "Filter multiple exclamation marks": "Фільтрувати декілька знаків оклику",
           "filter ----": "Фільтр ----",
           "filter ===": "Фільтр ===",
           "filter .....": "Фільтр .....",
@@ -3287,8 +2950,7 @@ class Messages {
           "filter !?": "Фільтр!",
           "? ! filter if there is only one": "? ! фільтр, якщо є тільки один",
           "apostrophe filter": "Фільтр апостроф",
-          "special character repeat filter":
-              "Фільтр повторення спеціального символу",
+          "special character repeat filter": "Фільтр повторення спеціального символу",
           "TTS filter settings": "Налаштування фільтра ТТС",
           "name": "назва",
           "filter rules": "Правила фільтра",
@@ -3297,12 +2959,10 @@ class Messages {
           "Use regular expressions": "Використовуйте регулярні вирази",
           "use": "використання",
           "history": "історія",
-          "Please enter a word/sentence to search for.__1":
-              "Введіть слово / пропозицію для пошуку.",
+          "Please enter a word/sentence to search for.__1": "Введіть слово / пропозицію для пошуку.",
           "Drag to delete": "Перетягніть, щоб видалити",
           "last position": "Остання позиція",
-          "OCR image recognition settings":
-              "Налаштування розпізнавання зображень OCR",
+          "OCR image recognition settings": "Налаштування розпізнавання зображень OCR",
           "open source license": "Відкрита ліцензія",
           "license": "ліцензія",
           "home page": "Домашня сторінка",
@@ -3313,10 +2973,8 @@ class Messages {
           "speed": "швидкість",
           "volume": "обсяг",
           "pitch": "пожертвувати",
-          "Number of lines to read at a time":
-              "Кількість ліній для читання за раз",
-          "Freeze when other players are running":
-              "Заморозити, коли інші гравці працюють",
+          "Number of lines to read at a time": "Кількість ліній для читання за раз",
+          "Freeze when other players are running": "Заморозити, коли інші гравці працюють",
           "Using the headset button": "Використання кнопки гарнітури",
           "language": "Українська"
         },
@@ -3332,8 +2990,7 @@ class Messages {
           "file_list": "Elenco dei file",
           "Add_file": "Aggiungi file",
           "remove_from_library": "Rimuovi dalla libreria",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Guarda come risolvere il problema Voice TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "Guarda come risolvere il problema Voice TTS.",
           "Auto_shut_down_after_@min_minute": "Auto spento dopo @min minuto",
           "cancel": "Annulla",
           "confirm": "Confermare",
@@ -3343,8 +3000,7 @@ class Messages {
           "move_location": "Sposta la posizione",
           "Current_location": "Posizione attuale",
           "page_search": "Ricerca pagina",
-          "Please enter a word/sentence to search for.":
-              "Si prega di inserire una parola / frase da cercare.",
+          "Please enter a word/sentence to search for.": "Si prega di inserire una parola / frase da cercare.",
           "Font size setting": "Impostazione della dimensione del carattere",
           "Auto shutdown settings": "Impostazioni di spegnimento automatico",
           "Backup / Recovery": "Backup / Recovery.",
@@ -3352,8 +3008,7 @@ class Messages {
           "Chinese (Hanja) filter": "Filtro cinese (Hanja)",
           "Japanese (Japanese) filter": "Filtro giapponese (giapponese)",
           "filter multiple question marks": "Filtrare più punti interrogativi",
-          "Filter multiple exclamation marks":
-              "Filtrare punti esclamativi multipli",
+          "Filter multiple exclamation marks": "Filtrare punti esclamativi multipli",
           "filter ----": "Filtro ------",
           "filter ===": "Filtro ===.",
           "filter .....": "Filtro .....",
@@ -3361,8 +3016,7 @@ class Messages {
           "filter !?": "Filtro!?",
           "? ! filter if there is only one": "? ! filtrare se ce n'è solo uno",
           "apostrophe filter": "Apostrofo filtro.",
-          "special character repeat filter":
-              "Filtro ripetuto personaggio speciale",
+          "special character repeat filter": "Filtro ripetuto personaggio speciale",
           "TTS filter settings": "Impostazioni del filtro TTS.",
           "name": "nome",
           "filter rules": "Regole del filtro",
@@ -3371,12 +3025,10 @@ class Messages {
           "Use regular expressions": "Utilizzare espressioni regolari",
           "use": "utilizzo",
           "history": "storia",
-          "Please enter a word/sentence to search for.__1":
-              "Si prega di inserire una parola / frase da cercare.",
+          "Please enter a word/sentence to search for.__1": "Si prega di inserire una parola / frase da cercare.",
           "Drag to delete": "Trascina in Elimina",
           "last position": "ultima posizione",
-          "OCR image recognition settings":
-              "Impostazioni di riconoscimento dell'immagine OCR",
+          "OCR image recognition settings": "Impostazioni di riconoscimento dell'immagine OCR",
           "open source license": "Licenza open source.",
           "license": "licenza",
           "home page": "Home page.",
@@ -3387,10 +3039,8 @@ class Messages {
           "speed": "velocità",
           "volume": "volume",
           "pitch": "pece",
-          "Number of lines to read at a time":
-              "Numero di linee da leggere alla volta",
-          "Freeze when other players are running":
-              "Congelare quando altri giocatori sono in esecuzione",
+          "Number of lines to read at a time": "Numero di linee da leggere alla volta",
+          "Freeze when other players are running": "Congelare quando altri giocatori sono in esecuzione",
           "Using the headset button": "Usando il pulsante della cuffia",
           "language": "Italiano"
         },
@@ -3406,10 +3056,8 @@ class Messages {
           "file_list": "Daftar File",
           "Add_file": "Tambah berkas",
           "remove_from_library": "Hapus dari perpustakaan",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Lihat bagaimana menyelesaikan masalah suara TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Otomatis ditutup setelah @min menit",
+          "See_how_to_solve_the_tts_voice_problem": "Lihat bagaimana menyelesaikan masalah suara TTS.",
+          "Auto_shut_down_after_@min_minute": "Otomatis ditutup setelah @min menit",
           "cancel": "membatalkan",
           "confirm": "Konfirmasi",
           "delete": "menghapus",
@@ -3418,8 +3066,7 @@ class Messages {
           "move_location": "Pindahkan lokasi",
           "Current_location": "Lokasi saat ini",
           "page_search": "Pencarian halaman",
-          "Please enter a word/sentence to search for.":
-              "Silakan masukkan kata / kalimat untuk dicari.",
+          "Please enter a word/sentence to search for.": "Silakan masukkan kata / kalimat untuk dicari.",
           "Font size setting": "Pengaturan ukuran font",
           "Auto shutdown settings": "Pengaturan shutdown otomatis",
           "Backup / Recovery": "Cadangan / Pemulihan",
@@ -3444,8 +3091,7 @@ class Messages {
           "Use regular expressions": "Gunakan ekspresi reguler",
           "use": "menggunakan",
           "history": "sejarah",
-          "Please enter a word/sentence to search for.__1":
-              "Silakan masukkan kata / kalimat untuk dicari.",
+          "Please enter a word/sentence to search for.__1": "Silakan masukkan kata / kalimat untuk dicari.",
           "Drag to delete": "Seret untuk menghapus",
           "last position": "posisi terakhir",
           "OCR image recognition settings": "Pengaturan Pengenalan Gambar OCR",
@@ -3459,10 +3105,8 @@ class Messages {
           "speed": "kecepatan",
           "volume": "volume",
           "pitch": "melempar",
-          "Number of lines to read at a time":
-              "Jumlah garis untuk dibaca pada suatu waktu",
-          "Freeze when other players are running":
-              "Membekukan ketika pemain lain berjalan",
+          "Number of lines to read at a time": "Jumlah garis untuk dibaca pada suatu waktu",
+          "Freeze when other players are running": "Membekukan ketika pemain lain berjalan",
           "Using the headset button": "Menggunakan tombol headset",
           "language": "Bahasa Indonesia"
         },
@@ -3473,8 +3117,7 @@ class Messages {
           "my_library": "私の図書館",
           "Settings": "設定",
           "Copied to clipboard": "クリップボードにコピーされました",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "ファイルを追加するときは、長押しして複数のファイルを追加できます。",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "ファイルを追加するときは、長押しして複数のファイルを追加できます。",
           "file_list": "ファイルリスト",
           "Add_file": "ファイルを追加します",
           "remove_from_library": "図書館から削除します",
@@ -3488,8 +3131,7 @@ class Messages {
           "move_location": "場所を移動します",
           "Current_location": "現在位置",
           "page_search": "ページ検索",
-          "Please enter a word/sentence to search for.":
-              "検索するために単語/文を入力してください。",
+          "Please enter a word/sentence to search for.": "検索するために単語/文を入力してください。",
           "Font size setting": "フォントサイズ設定",
           "Auto shutdown settings": "自動シャットダウン設定",
           "Backup / Recovery": "バックアップ/回復",
@@ -3514,8 +3156,7 @@ class Messages {
           "Use regular expressions": "正規表現を使う",
           "use": "使用する",
           "history": "歴史",
-          "Please enter a word/sentence to search for.__1":
-              "検索するために単語/文を入力してください。",
+          "Please enter a word/sentence to search for.__1": "検索するために単語/文を入力してください。",
           "Drag to delete": "削除するためにドラッグします",
           "last position": "最後の位置",
           "OCR image recognition settings": "OCR画像認識設定",
@@ -3546,10 +3187,8 @@ class Messages {
           "file_list": "ფაილის სია",
           "Add_file": "Ფაილის დამატება",
           "remove_from_library": "ბიბლიოთეკიდან ამოღება",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ნახეთ, თუ როგორ უნდა გადაწყდეს TTS ხმის პრობლემა.",
-          "Auto_shut_down_after_@min_minute":
-              "ავტომატური დახურეს შემდეგ @ min წუთი",
+          "See_how_to_solve_the_tts_voice_problem": "ნახეთ, თუ როგორ უნდა გადაწყდეს TTS ხმის პრობლემა.",
+          "Auto_shut_down_after_@min_minute": "ავტომატური დახურეს შემდეგ @ min წუთი",
           "cancel": "გაუქმება",
           "confirm": "დადასტურება",
           "delete": "წაშლება",
@@ -3558,28 +3197,23 @@ class Messages {
           "move_location": "გადაადგილეთ მდებარეობა",
           "Current_location": "Ახლანდელი ადგილსამყოფელი",
           "page_search": "გვერდი ძიება",
-          "Please enter a word/sentence to search for.":
-              "გთხოვთ, შეიყვანოთ სიტყვა / წინადადება.",
+          "Please enter a word/sentence to search for.": "გთხოვთ, შეიყვანოთ სიტყვა / წინადადება.",
           "Font size setting": "შრიფტის ზომა",
           "Auto shutdown settings": "ავტომატური გამორთვა პარამეტრები",
           "Backup / Recovery": "სარეზერვო / აღდგენა",
           "google drive backup": "Google Drive Backup",
           "Chinese (Hanja) filter": "ჩინური (Hanja) ფილტრი",
           "Japanese (Japanese) filter": "იაპონური (იაპონური) ფილტრი",
-          "filter multiple question marks":
-              "ფილტრის მრავალჯერადი კითხვის ნიშნები",
-          "Filter multiple exclamation marks":
-              "ფილტრი მრავალრიცხოვანი ძახილის ნიშნები",
+          "filter multiple question marks": "ფილტრის მრავალჯერადი კითხვის ნიშნები",
+          "Filter multiple exclamation marks": "ფილტრი მრავალრიცხოვანი ძახილის ნიშნები",
           "filter ----": "ფილტრი ----",
           "filter ===": "ფილტრი ===",
           "filter .....": "ფილტრი .....",
           "filter ?!": "ფილტრი?",
           "filter !?": "ფილტრი?",
-          "? ! filter if there is only one":
-              "? ! ფილტრი თუ არსებობს მხოლოდ ერთი",
+          "? ! filter if there is only one": "? ! ფილტრი თუ არსებობს მხოლოდ ერთი",
           "apostrophe filter": "აპოსტროფი ფილტრი",
-          "special character repeat filter":
-              "სპეციალური ხასიათი გაიმეორეთ ფილტრი",
+          "special character repeat filter": "სპეციალური ხასიათი გაიმეორეთ ფილტრი",
           "TTS filter settings": "TTS ფილტრაციის პარამეტრები",
           "name": "სახელი",
           "filter rules": "ფილტრაციის წესები",
@@ -3588,12 +3222,10 @@ class Messages {
           "Use regular expressions": "რეგულარული გამონათქვამების გამოყენება",
           "use": "სარგებლობა",
           "history": "ისტორია",
-          "Please enter a word/sentence to search for.__1":
-              "გთხოვთ, შეიყვანოთ სიტყვა / წინადადება.",
+          "Please enter a word/sentence to search for.__1": "გთხოვთ, შეიყვანოთ სიტყვა / წინადადება.",
           "Drag to delete": "გადაათრიეთ წაშლა",
           "last position": "ბოლო პოზიცია",
-          "OCR image recognition settings":
-              "OCR გამოსახულების აღიარების პარამეტრები",
+          "OCR image recognition settings": "OCR გამოსახულების აღიარების პარამეტრები",
           "open source license": "ღია ლიცენზია",
           "license": "ნებართვა",
           "home page": "მთავარი გვერდი",
@@ -3604,10 +3236,8 @@ class Messages {
           "speed": "სისწრაფე",
           "volume": "მოცულობა",
           "pitch": "სძინავს",
-          "Number of lines to read at a time":
-              "ხაზების რაოდენობა წაკითხვის დროს",
-          "Freeze when other players are running":
-              "გაყინვა, როდესაც სხვა მოთამაშეები გაშვებულია",
+          "Number of lines to read at a time": "ხაზების რაოდენობა წაკითხვის დროს",
+          "Freeze when other players are running": "გაყინვა, როდესაც სხვა მოთამაშეები გაშვებულია",
           "Using the headset button": "გამოყენებით headset ღილაკს",
           "language": "ქართული"
         },
@@ -3623,10 +3253,8 @@ class Messages {
           "file_list": "Uhlu lwefayela",
           "Add_file": "Faka ifayela",
           "remove_from_library": "Susa emtapweni wezincwadi",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Bona ukuthi ungayixazulula kanjani inkinga yezwi le-TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "I-Auto vala phansi ngemuva kwe- @min umzuzu",
+          "See_how_to_solve_the_tts_voice_problem": "Bona ukuthi ungayixazulula kanjani inkinga yezwi le-TTS.",
+          "Auto_shut_down_after_@min_minute": "I-Auto vala phansi ngemuva kwe- @min umzuzu",
           "cancel": "hlikihla",
           "confirm": "gcizelela",
           "delete": "cisha",
@@ -3635,8 +3263,7 @@ class Messages {
           "move_location": "Hambisa indawo",
           "Current_location": "Indawo Indawo yamanje",
           "page_search": "search search",
-          "Please enter a word/sentence to search for.":
-              "Sicela ufake igama / umusho ukuze useshe.",
+          "Please enter a word/sentence to search for.": "Sicela ufake igama / umusho ukuze useshe.",
           "Font size setting": "Ukuhlelwa kosayizi wefonti",
           "Auto shutdown settings": "Izilungiselelo ze-Auto Shutdown",
           "Backup / Recovery": "Isipele / Ukubuyiselwa kabusha",
@@ -3644,8 +3271,7 @@ class Messages {
           "Chinese (Hanja) filter": "Isihlungi seChinese (Hanja)",
           "Japanese (Japanese) filter": "Isihlungi seJapan (Japanese)",
           "filter multiple question marks": "Hlunga amamaki emibuzo amaningi",
-          "Filter multiple exclamation marks":
-              "Hlunga amamaki okubalwa okuningi",
+          "Filter multiple exclamation marks": "Hlunga amamaki okubalwa okuningi",
           "filter ----": "Isihlungi ----",
           "filter ===": "isihlungi ===",
           "filter .....": "Hlunga .....",
@@ -3653,8 +3279,7 @@ class Messages {
           "filter !?": "Hlunga !?",
           "? ! filter if there is only one": "? ! Hlunga uma kukhona kuphela",
           "apostrophe filter": "Isihlungi se-Apostrophe",
-          "special character repeat filter":
-              "Isihlungi Somlingiswa Okhethekile",
+          "special character repeat filter": "Isihlungi Somlingiswa Okhethekile",
           "TTS filter settings": "Izilungiselelo zokuhlunga ze-TTS",
           "name": "ibizo",
           "filter rules": "Imithetho yokuhlunga",
@@ -3663,12 +3288,10 @@ class Messages {
           "Use regular expressions": "Sebenzisa izinkulumo ezijwayelekile",
           "use": "umsebenzi",
           "history": "umlando",
-          "Please enter a word/sentence to search for.__1":
-              "Sicela ufake igama / umusho ukuze useshe.",
+          "Please enter a word/sentence to search for.__1": "Sicela ufake igama / umusho ukuze useshe.",
           "Drag to delete": "Hudula ukuze ususe",
           "last position": "isikhundla sokugcina",
-          "OCR image recognition settings":
-              "Izilungiselelo Zokuqashelwa Kwezithombe ze-OCR",
+          "OCR image recognition settings": "Izilungiselelo Zokuqashelwa Kwezithombe ze-OCR",
           "open source license": "Ilayisense Lomthombo Ovulekile",
           "license": "ilayisense",
           "home page": "ikhasi lekhaya",
@@ -3679,10 +3302,8 @@ class Messages {
           "speed": "isivinini",
           "volume": "ukuvimbanisa",
           "pitch": "iphimbo",
-          "Number of lines to read at a time":
-              "Inani lemigqa okufanele lifunde ngesikhathi",
-          "Freeze when other players are running":
-              "Uqhwa lapho abanye abadlali besebenza",
+          "Number of lines to read at a time": "Inani lemigqa okufanele lifunde ngesikhathi",
+          "Freeze when other players are running": "Uqhwa lapho abanye abadlali besebenza",
           "Using the headset button": "Kusetshenziswa inkinobho ye-Headset",
           "language": "Zulur"
         },
@@ -3693,8 +3314,7 @@ class Messages {
           "my_library": "我的图书馆",
           "Settings": "设置",
           "Copied to clipboard": "复制到剪贴板",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "添加文件时，可以长时间按下多个文件。",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "添加文件时，可以长时间按下多个文件。",
           "file_list": "文件列表",
           "Add_file": "添加文件",
           "remove_from_library": "从图书馆删除",
@@ -3759,8 +3379,7 @@ class Messages {
           "my_library": "我的圖書館",
           "Settings": "設置",
           "Copied to clipboard": "複製到剪貼板",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "添加文件時，可以長時間按下多個文件。",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "添加文件時，可以長時間按下多個文件。",
           "file_list": "文件列表",
           "Add_file": "添加文件",
           "remove_from_library": "從圖書館刪除",
@@ -3825,8 +3444,7 @@ class Messages {
           "my_library": "我的圖書館",
           "Settings": "設置",
           "Copied to clipboard": "複製到剪貼板",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "添加文件時，可以長時間按下多個文件。",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "添加文件時，可以長時間按下多個文件。",
           "file_list": "文件列表",
           "Add_file": "添加文件",
           "remove_from_library": "從圖書館刪除",
@@ -3891,15 +3509,12 @@ class Messages {
           "my_library": "moje knihovna",
           "Settings": "Nastavení",
           "Copied to clipboard": "Zkopírován do schránky",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Při přidávání souborů můžete přidat více souborů dlouhým stisknutím.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Při přidávání souborů můžete přidat více souborů dlouhým stisknutím.",
           "file_list": "Seznam souborů",
           "Add_file": "Přidat soubor",
           "remove_from_library": "Odstranit z knihovny",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Podívejte se, jak vyřešit hlasový problém TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Automatické vypnutí po @min minute",
+          "See_how_to_solve_the_tts_voice_problem": "Podívejte se, jak vyřešit hlasový problém TTS.",
+          "Auto_shut_down_after_@min_minute": "Automatické vypnutí po @min minute",
           "cancel": "zrušení",
           "confirm": "potvrdit",
           "delete": "vymazat",
@@ -3908,8 +3523,7 @@ class Messages {
           "move_location": "Přesunout umístění",
           "Current_location": "Současná pozice",
           "page_search": "Vyhledávání stránky",
-          "Please enter a word/sentence to search for.":
-              "Zadejte slovo / větu pro vyhledávání.",
+          "Please enter a word/sentence to search for.": "Zadejte slovo / větu pro vyhledávání.",
           "Font size setting": "Nastavení velikosti písma",
           "Auto shutdown settings": "Nastavení automatického vypnutí",
           "Backup / Recovery": "Zálohování / Obnovení",
@@ -3923,8 +3537,7 @@ class Messages {
           "filter .....": "Filtr .....",
           "filter ?!": "Filtrovat?",
           "filter !?": "Filtr!?",
-          "? ! filter if there is only one":
-              "? Mezihlédnout! filtr, pokud je pouze jeden",
+          "? ! filter if there is only one": "? Mezihlédnout! filtr, pokud je pouze jeden",
           "apostrophe filter": "Apostrofový filtr",
           "special character repeat filter": "Speciální znak opakování znaků",
           "TTS filter settings": "Nastavení filtru TTS.",
@@ -3935,12 +3548,10 @@ class Messages {
           "Use regular expressions": "Používat regulární výrazy",
           "use": "použití",
           "history": "Dějiny",
-          "Please enter a word/sentence to search for.__1":
-              "Zadejte slovo / větu pro vyhledávání.",
+          "Please enter a word/sentence to search for.__1": "Zadejte slovo / větu pro vyhledávání.",
           "Drag to delete": "Přetažením odstranit",
           "last position": "poslední pozice",
-          "OCR image recognition settings":
-              "Nastavení rozpoznávání obrázku OCR",
+          "OCR image recognition settings": "Nastavení rozpoznávání obrázku OCR",
           "open source license": "Open Source License.",
           "license": "licence",
           "home page": "domovská stránka",
@@ -3952,8 +3563,7 @@ class Messages {
           "volume": "objem",
           "pitch": "rozteč",
           "Number of lines to read at a time": "Počet řádků pro čtení najednou",
-          "Freeze when other players are running":
-              "Zamrznout, když běží ostatní hráči",
+          "Freeze when other players are running": "Zamrznout, když běží ostatní hráči",
           "Using the headset button": "Pomocí tlačítka headsetu",
           "language": "Čeština"
         },
@@ -3969,10 +3579,8 @@ class Messages {
           "file_list": "Файлдар тізімі",
           "Add_file": "Файл қосу",
           "remove_from_library": "Кітапханадан шығарыңыз",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS дауыстық мәселесін қалай шешу керектігін қараңыз.",
-          "Auto_shut_down_after_@min_minute":
-              "Автоматты түрде @Min минуттан кейін өшіріңіз",
+          "See_how_to_solve_the_tts_voice_problem": "TTS дауыстық мәселесін қалай шешу керектігін қараңыз.",
+          "Auto_shut_down_after_@min_minute": "Автоматты түрде @Min минуттан кейін өшіріңіз",
           "cancel": "күшін жою",
           "confirm": "растау",
           "delete": "жою",
@@ -3981,8 +3589,7 @@ class Messages {
           "move_location": "Орынды жылжытыңыз",
           "Current_location": "Ағымдағы орналасқан жері",
           "page_search": "Бетті іздеу",
-          "Please enter a word/sentence to search for.":
-              "Іздеу үшін сөз / сөйлемді енгізіңіз.",
+          "Please enter a word/sentence to search for.": "Іздеу үшін сөз / сөйлемді енгізіңіз.",
           "Font size setting": "Қаріп өлшемі параметрі",
           "Auto shutdown settings": "Автоматты түрде өшіру параметрлері",
           "Backup / Recovery": "Сақтық көшірме жасау / қалпына келтіру",
@@ -3996,8 +3603,7 @@ class Messages {
           "filter .....": "Сүзгі .....",
           "filter ?!": "Сүзгі?!",
           "filter !?": "Сүзгі!?",
-          "? ! filter if there is only one":
-              "? ! Егер бар болса, сүзгіден тұрады",
+          "? ! filter if there is only one": "? ! Егер бар болса, сүзгіден тұрады",
           "apostrophe filter": "Апостроф сүзгісі",
           "special character repeat filter": "Арнайы таңба қайталама сүзгісі",
           "TTS filter settings": "TTS сүзгісі параметрлері",
@@ -4008,8 +3614,7 @@ class Messages {
           "Use regular expressions": "Тұрақты тіркестерді қолданыңыз",
           "use": "пайдалану",
           "history": "Тарих",
-          "Please enter a word/sentence to search for.__1":
-              "Іздеу үшін сөз / сөйлемді енгізіңіз.",
+          "Please enter a word/sentence to search for.__1": "Іздеу үшін сөз / сөйлемді енгізіңіз.",
           "Drag to delete": "Жою үшін сүйреңіз",
           "last position": "Соңғы позиция",
           "OCR image recognition settings": "OCR кескінін тану параметрлері",
@@ -4023,10 +3628,8 @@ class Messages {
           "speed": "жылдамдық",
           "volume": "дыбыс",
           "pitch": "шықтық",
-          "Number of lines to read at a time":
-              "Бір уақытта оқу үшін сызықтар саны",
-          "Freeze when other players are running":
-              "Басқа ойыншылар жұмыс істеп тұрған кезде қатып қалады",
+          "Number of lines to read at a time": "Бір уақытта оқу үшін сызықтар саны",
+          "Freeze when other players are running": "Басқа ойыншылар жұмыс істеп тұрған кезде қатып қалады",
           "Using the headset button": "Гарнитураның батырмасын пайдалану",
           "language": "Қазақстан"
         },
@@ -4037,15 +3640,12 @@ class Messages {
           "my_library": "la meva biblioteca",
           "Settings": "Parada",
           "Copied to clipboard": "Copiat al porta-retalls",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Quan afegiu fitxers, podeu afegir diversos fitxers per prémer llargs.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Quan afegiu fitxers, podeu afegir diversos fitxers per prémer llargs.",
           "file_list": "Llista de fitxers",
           "Add_file": "Afegeix un fitxer",
           "remove_from_library": "Traieu de la biblioteca",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Vegeu com resoldre el problema de veu TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto apagat després de @min minut",
+          "See_how_to_solve_the_tts_voice_problem": "Vegeu com resoldre el problema de veu TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto apagat després de @min minut",
           "cancel": "cancel · lar",
           "confirm": "confirmar",
           "delete": "supressió",
@@ -4054,18 +3654,15 @@ class Messages {
           "move_location": "Mou la ubicació",
           "Current_location": "Localització actual",
           "page_search": "Cerca de pàgines",
-          "Please enter a word/sentence to search for.":
-              "Introduïu una paraula / frase per cercar.",
+          "Please enter a word/sentence to search for.": "Introduïu una paraula / frase per cercar.",
           "Font size setting": "Configuració de la mida de la font",
           "Auto shutdown settings": "Configuració de l'apagada automàtica",
           "Backup / Recovery": "Còpia de seguretat / recuperació",
           "google drive backup": "Còpia de seguretat de Google Drive",
           "Chinese (Hanja) filter": "Filtre xinès (Hanja)",
           "Japanese (Japanese) filter": "Filtre japonès (japonès)",
-          "filter multiple question marks":
-              "Filtra múltiples marques d'interrogació",
-          "Filter multiple exclamation marks":
-              "Filtreu múltiples marques d'exclamació",
+          "filter multiple question marks": "Filtra múltiples marques d'interrogació",
+          "Filter multiple exclamation marks": "Filtreu múltiples marques d'exclamació",
           "filter ----": "Filtre ----",
           "filter ===": "filtre ===",
           "filter .....": "filtre .....",
@@ -4073,8 +3670,7 @@ class Messages {
           "filter !?": "Filtre!?",
           "? ! filter if there is only one": "?? ! Filtre si només hi ha un",
           "apostrophe filter": "Filtre d'apòstrofe",
-          "special character repeat filter":
-              "Filtre de repetició de caràcters especials",
+          "special character repeat filter": "Filtre de repetició de caràcters especials",
           "TTS filter settings": "Configuració del filtre TTS",
           "name": "nom",
           "filter rules": "Normes de filtre",
@@ -4083,12 +3679,10 @@ class Messages {
           "Use regular expressions": "Utilitzeu expressions regulars",
           "use": "utilitzar",
           "history": "història",
-          "Please enter a word/sentence to search for.__1":
-              "Introduïu una paraula / frase per cercar.",
+          "Please enter a word/sentence to search for.__1": "Introduïu una paraula / frase per cercar.",
           "Drag to delete": "Arrossegueu per eliminar",
           "last position": "Última posició",
-          "OCR image recognition settings":
-              "Configuració de reconeixement d'imatges OCR",
+          "OCR image recognition settings": "Configuració de reconeixement d'imatges OCR",
           "open source license": "Llicència de codi obert",
           "license": "llicenciar",
           "home page": "Pàgina d'inici",
@@ -4099,10 +3693,8 @@ class Messages {
           "speed": "velocitat",
           "volume": "volum",
           "pitch": "Brea",
-          "Number of lines to read at a time":
-              "Nombre de línies per llegir a la vegada",
-          "Freeze when other players are running":
-              "Congelar quan s'executen altres jugadors",
+          "Number of lines to read at a time": "Nombre de línies per llegir a la vegada",
+          "Freeze when other players are running": "Congelar quan s'executen altres jugadors",
           "Using the headset button": "Utilitzant el botó Healtet",
           "language": "Català"
         },
@@ -4113,15 +3705,12 @@ class Messages {
           "my_library": "ನನ್ನ ಗ್ರಂಥಾಲಯ",
           "Settings": "ಸಂಯೋಜನೆಗಳು",
           "Copied to clipboard": "ಕ್ಲಿಪ್ಬೋರ್ಡ್ಗೆ ನಕಲಿಸಲಾಗಿದೆ",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "ಫೈಲ್ಗಳನ್ನು ಸೇರಿಸುವಾಗ, ನೀವು ಬಹು ಫೈಲ್ಗಳನ್ನು ದೀರ್ಘ ಒತ್ತುವ ಮೂಲಕ ಸೇರಿಸಬಹುದು.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "ಫೈಲ್ಗಳನ್ನು ಸೇರಿಸುವಾಗ, ನೀವು ಬಹು ಫೈಲ್ಗಳನ್ನು ದೀರ್ಘ ಒತ್ತುವ ಮೂಲಕ ಸೇರಿಸಬಹುದು.",
           "file_list": "ಫೈಲ್ ಪಟ್ಟಿ",
           "Add_file": "ಕಡತವನ್ನು ಸೇರಿಸು",
           "remove_from_library": "ಗ್ರಂಥಾಲಯದಿಂದ ತೆಗೆದುಹಾಕಿ",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ಟಿಟಿಎಸ್ ಧ್ವನಿ ಸಮಸ್ಯೆಯನ್ನು ಹೇಗೆ ಪರಿಹರಿಸುವುದು ಎಂಬುದನ್ನು ನೋಡಿ.",
-          "Auto_shut_down_after_@min_minute":
-              "@ ಮಿನ್ ನಿಮಿಷದ ನಂತರ ಆಟೋ ಮುಚ್ಚಲಾಯಿತು",
+          "See_how_to_solve_the_tts_voice_problem": "ಟಿಟಿಎಸ್ ಧ್ವನಿ ಸಮಸ್ಯೆಯನ್ನು ಹೇಗೆ ಪರಿಹರಿಸುವುದು ಎಂಬುದನ್ನು ನೋಡಿ.",
+          "Auto_shut_down_after_@min_minute": "@ ಮಿನ್ ನಿಮಿಷದ ನಂತರ ಆಟೋ ಮುಚ್ಚಲಾಯಿತು",
           "cancel": "ರದ್ದುಮಾಡು",
           "confirm": "ದೃಢೀಕರಿಸಿ",
           "delete": "ಅಳಿಸಿ",
@@ -4130,18 +3719,15 @@ class Messages {
           "move_location": "ಸ್ಥಳವನ್ನು ಸರಿಸಿ",
           "Current_location": "ಈಗಿನ ಸ್ಥಳ",
           "page_search": "ಪುಟ ಹುಡುಕಾಟ",
-          "Please enter a word/sentence to search for.":
-              "ದಯವಿಟ್ಟು ಹುಡುಕಲು ಪದ / ವಾಕ್ಯವನ್ನು ನಮೂದಿಸಿ.",
+          "Please enter a word/sentence to search for.": "ದಯವಿಟ್ಟು ಹುಡುಕಲು ಪದ / ವಾಕ್ಯವನ್ನು ನಮೂದಿಸಿ.",
           "Font size setting": "ಫಾಂಟ್ ಗಾತ್ರ ಸೆಟ್ಟಿಂಗ್",
           "Auto shutdown settings": "ಆಟೋ ಸ್ಥಗಿತಗೊಳಿಸುವಿಕೆ ಸೆಟ್ಟಿಂಗ್ಗಳು",
           "Backup / Recovery": "ಬ್ಯಾಕಪ್ / ಚೇತರಿಕೆ",
           "google drive backup": "ಗೂಗಲ್ ಡ್ರೈವ್ ಬ್ಯಾಕಪ್",
           "Chinese (Hanja) filter": "ಚೈನೀಸ್ (ಹಂಜಾ) ಫಿಲ್ಟರ್",
           "Japanese (Japanese) filter": "ಜಪಾನೀಸ್ (ಜಪಾನೀಸ್) ಫಿಲ್ಟರ್",
-          "filter multiple question marks":
-              "ಬಹು ಪ್ರಶ್ನೆ ಗುರುತುಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ",
-          "Filter multiple exclamation marks":
-              "ಬಹು ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತುಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ",
+          "filter multiple question marks": "ಬಹು ಪ್ರಶ್ನೆ ಗುರುತುಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ",
+          "Filter multiple exclamation marks": "ಬಹು ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತುಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ",
           "filter ----": "ಫಿಲ್ಟರ್ -----",
           "filter ===": "ಫಿಲ್ಟರ್ ===",
           "filter .....": "ಫಿಲ್ಟರ್ .....",
@@ -4158,12 +3744,10 @@ class Messages {
           "Use regular expressions": "ನಿಯಮಿತ ಅಭಿವ್ಯಕ್ತಿಗಳನ್ನು ಬಳಸಿ",
           "use": "ಬಳಕೆ",
           "history": "ಇತಿಹಾಸ",
-          "Please enter a word/sentence to search for.__1":
-              "ದಯವಿಟ್ಟು ಹುಡುಕಲು ಪದ / ವಾಕ್ಯವನ್ನು ನಮೂದಿಸಿ.",
+          "Please enter a word/sentence to search for.__1": "ದಯವಿಟ್ಟು ಹುಡುಕಲು ಪದ / ವಾಕ್ಯವನ್ನು ನಮೂದಿಸಿ.",
           "Drag to delete": "ಅಳಿಸಲು ಎಳೆಯಿರಿ",
           "last position": "ಕೊನೆಯ ಸ್ಥಾನ",
-          "OCR image recognition settings":
-              "OCR ಇಮೇಜ್ ಗುರುತಿಸುವಿಕೆ ಸೆಟ್ಟಿಂಗ್ಗಳು",
+          "OCR image recognition settings": "OCR ಇಮೇಜ್ ಗುರುತಿಸುವಿಕೆ ಸೆಟ್ಟಿಂಗ್ಗಳು",
           "open source license": "ತೆರೆದ ಮೂಲ ಪರವಾನಗಿ",
           "license": "ಪರವಾನಗಿ",
           "home page": "ಮುಖಪುಟ ಪುಟ",
@@ -4174,10 +3758,8 @@ class Messages {
           "speed": "ವೇಗ",
           "volume": "ಪರಿಮಾಣ",
           "pitch": "ಪಿಚ್",
-          "Number of lines to read at a time":
-              "ಒಂದು ಸಮಯದಲ್ಲಿ ಓದಲು ಸಾಲುಗಳ ಸಂಖ್ಯೆ",
-          "Freeze when other players are running":
-              "ಇತರ ಆಟಗಾರರು ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಫ್ರೀಜ್ ಮಾಡಿ",
+          "Number of lines to read at a time": "ಒಂದು ಸಮಯದಲ್ಲಿ ಓದಲು ಸಾಲುಗಳ ಸಂಖ್ಯೆ",
+          "Freeze when other players are running": "ಇತರ ಆಟಗಾರರು ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಫ್ರೀಜ್ ಮಾಡಿ",
           "Using the headset button": "ಹೆಡ್ಸೆಟ್ ಬಟನ್ ಬಳಸಿ",
           "language": "ಕಾನ್ನಾ ಡಯಾ"
         },
@@ -4193,10 +3775,8 @@ class Messages {
           "file_list": "popis datoteka",
           "Add_file": "Dodaj datoteku",
           "remove_from_library": "uklonite iz knjižnice",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Pogledajte kako riješiti problem glasa TTS-a.",
-          "Auto_shut_down_after_@min_minute":
-              "Automatsko isključivanje nakon minuta",
+          "See_how_to_solve_the_tts_voice_problem": "Pogledajte kako riješiti problem glasa TTS-a.",
+          "Auto_shut_down_after_@min_minute": "Automatsko isključivanje nakon minuta",
           "cancel": "otkazati",
           "confirm": "potvrditi",
           "delete": "izbrisati",
@@ -4205,8 +3785,7 @@ class Messages {
           "move_location": "Premjesti mjesto",
           "Current_location": "Trenutna lokacija",
           "page_search": "pretraživanje stranice",
-          "Please enter a word/sentence to search for.":
-              "Unesite riječ / rečenicu za traženje.",
+          "Please enter a word/sentence to search for.": "Unesite riječ / rečenicu za traženje.",
           "Font size setting": "Postavka veličine fonta",
           "Auto shutdown settings": "Postavke automatskog isključivanja",
           "Backup / Recovery": "Sigurnosna kopija / oporavak",
@@ -4214,15 +3793,13 @@ class Messages {
           "Chinese (Hanja) filter": "Kineski (hanja) filter",
           "Japanese (Japanese) filter": "Japanski (japanski) filtar",
           "filter multiple question marks": "Filtrirajte više oznaka pitanja",
-          "Filter multiple exclamation marks":
-              "Filtrirajte višestruke usklične oznake",
+          "Filter multiple exclamation marks": "Filtrirajte višestruke usklične oznake",
           "filter ----": "filtar ----",
           "filter ===": "filtar ===",
           "filter .....": "filtar .....",
           "filter ?!": "filtar ?!",
           "filter !?": "filtar !?",
-          "? ! filter if there is only one":
-              "? ! filtar ako postoji samo jedan",
+          "? ! filter if there is only one": "? ! filtar ako postoji samo jedan",
           "apostrophe filter": "filtar apostrofa",
           "special character repeat filter": "Poseban lik ponavljanje filtar",
           "TTS filter settings": "TTS setting postavke",
@@ -4233,8 +3810,7 @@ class Messages {
           "Use regular expressions": "Koristite regularne izraze",
           "use": "koristiti",
           "history": "povijest",
-          "Please enter a word/sentence to search for.__1":
-              "Unesite riječ / rečenicu za traženje.",
+          "Please enter a word/sentence to search for.__1": "Unesite riječ / rečenicu za traženje.",
           "Drag to delete": "Povucite za brisanje",
           "last position": "posljednji položaj",
           "OCR image recognition settings": "OCR postavke prepoznavanja slike",
@@ -4248,10 +3824,8 @@ class Messages {
           "speed": "ubrzati",
           "volume": "volumen",
           "pitch": "nagib",
-          "Number of lines to read at a time":
-              "Broj linija za čitanje u isto vrijeme",
-          "Freeze when other players are running":
-              "Zamrznuti kada drugi igrači trče",
+          "Number of lines to read at a time": "Broj linija za čitanje u isto vrijeme",
+          "Freeze when other players are running": "Zamrznuti kada drugi igrači trče",
           "Using the headset button": "Pomoću gumba slušalice",
           "language": "Hrvatski"
         },
@@ -4262,15 +3836,12 @@ class Messages {
           "my_library": "បណ្ណាល័យរបស់ខ្ញុំ",
           "Settings": "ការកំណត់",
           "Copied to clipboard": "បានចម្លងទៅក្ដារតម្បៀតខ្ទាស់",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "នៅពេលបន្ថែមឯកសារអ្នកអាចបន្ថែមឯកសារច្រើនដោយចុចយូរ។",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "នៅពេលបន្ថែមឯកសារអ្នកអាចបន្ថែមឯកសារច្រើនដោយចុចយូរ។",
           "file_list": "បញ្ជីឯកសារ",
           "Add_file": "បន្ថែមឯកសារ",
           "remove_from_library": "យកចេញពីបណ្ណាល័យ",
-          "See_how_to_solve_the_tts_voice_problem":
-              "សូមមើលពីវិធីដោះស្រាយបញ្ហាសំលេង TTS ។",
-          "Auto_shut_down_after_@min_minute":
-              "បិទដោយស្វ័យប្រវត្តិបន្ទាប់ពី @min នាទី",
+          "See_how_to_solve_the_tts_voice_problem": "សូមមើលពីវិធីដោះស្រាយបញ្ហាសំលេង TTS ។",
+          "Auto_shut_down_after_@min_minute": "បិទដោយស្វ័យប្រវត្តិបន្ទាប់ពី @min នាទី",
           "cancel": "លប់ចោល",
           "confirm": "បហ្ជាក់",
           "delete": "របៅបេលរសច",
@@ -4279,8 +3850,7 @@ class Messages {
           "move_location": "ផ្លាស់ទីទីតាំង",
           "Current_location": "ទីតាំង​បច្ចុប្បន្ន",
           "page_search": "ស្វែងរកទំព័រ",
-          "Please enter a word/sentence to search for.":
-              "សូមបញ្ចូលពាក្យ / ប្រយោគដើម្បីស្វែងរក។",
+          "Please enter a word/sentence to search for.": "សូមបញ្ចូលពាក្យ / ប្រយោគដើម្បីស្វែងរក។",
           "Font size setting": "ការកំណត់ទំហំពុម្ពអក្សរ",
           "Auto shutdown settings": "ការកំណត់បិទដោយស្វ័យប្រវត្តិ",
           "Backup / Recovery": "ការបម្រុងទុក / ការងើបឡើងវិញ",
@@ -4305,8 +3875,7 @@ class Messages {
           "Use regular expressions": "ប្រើកន្សោមធម្មតា",
           "use": "រេបី",
           "history": "របវត្ដិសារស្ដ",
-          "Please enter a word/sentence to search for.__1":
-              "សូមបញ្ចូលពាក្យ / ប្រយោគដើម្បីស្វែងរក។",
+          "Please enter a word/sentence to search for.__1": "សូមបញ្ចូលពាក្យ / ប្រយោគដើម្បីស្វែងរក។",
           "Drag to delete": "អូសដើម្បីលុប",
           "last position": "ទីតាំងចុងក្រោយ",
           "OCR image recognition settings": "ការកំណត់ការទទួលស្គាល់រូបភាព OCR",
@@ -4320,10 +3889,8 @@ class Messages {
           "speed": "ល្បឿន",
           "volume": "ចមនយន",
           "pitch": "រនាមកល់",
-          "Number of lines to read at a time":
-              "ចំនួនបន្ទាត់ដែលត្រូវអានក្នុងពេលតែមួយ",
-          "Freeze when other players are running":
-              "បង្កកនៅពេលដែលអ្នកលេងផ្សេងទៀតកំពុងដំណើរការ",
+          "Number of lines to read at a time": "ចំនួនបន្ទាត់ដែលត្រូវអានក្នុងពេលតែមួយ",
+          "Freeze when other players are running": "បង្កកនៅពេលដែលអ្នកលេងផ្សេងទៀតកំពុងដំណើរការ",
           "Using the headset button": "ដោយប្រើប៊ូតុងកាស",
           "language": "ខ្មែរ"
         },
@@ -4334,15 +3901,12 @@ class Messages {
           "my_library": "Менин китепкана",
           "Settings": "Жөндөөлөр",
           "Copied to clipboard": "Алмашуу буферине көчүрүлдү",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Файлдарды кошууда, узакка созулган бир нече файлды узартууга болот.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Файлдарды кошууда, узакка созулган бир нече файлды узартууга болот.",
           "file_list": "файл тизмеси",
           "Add_file": "Файл кошуу",
           "remove_from_library": "китепканадан алып салуу",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS үн көйгөйүн кантип чечүү керектигин караңыз.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min мүнөтүнөн кийин авто жабылган",
+          "See_how_to_solve_the_tts_voice_problem": "TTS үн көйгөйүн кантип чечүү керектигин караңыз.",
+          "Auto_shut_down_after_@min_minute": "@Min мүнөтүнөн кийин авто жабылган",
           "cancel": "жокко чыгаруу",
           "confirm": "ыраста",
           "delete": "жок кылуу",
@@ -4351,18 +3915,15 @@ class Messages {
           "move_location": "Жайгашкан жерди жылдыруу",
           "Current_location": "Учурдагы жайгашкан жер",
           "page_search": "Барак издөө",
-          "Please enter a word/sentence to search for.":
-              "Издөө үчүн сөз / сүйлөмдү киргизиңиз.",
+          "Please enter a word/sentence to search for.": "Издөө үчүн сөз / сүйлөмдү киргизиңиз.",
           "Font size setting": "Шрифт өлчөмүн жөндөө",
           "Auto shutdown settings": "Авто өчүрүү Жөндөөлөрү",
           "Backup / Recovery": "Камдык көчүрмө / калыбына келтирүү",
           "google drive backup": "Google Drive Камдык көчүрмө",
           "Chinese (Hanja) filter": "Кытай (Hanja) чыпка",
           "Japanese (Japanese) filter": "Жапон (Жапон) чыпкасы",
-          "filter multiple question marks":
-              "Бир нече суроо белгилерин чыпкалаңыз",
-          "Filter multiple exclamation marks":
-              "Бир нече леп белгилерин чыпкалаңыз",
+          "filter multiple question marks": "Бир нече суроо белгилерин чыпкалаңыз",
+          "Filter multiple exclamation marks": "Бир нече леп белгилерин чыпкалаңыз",
           "filter ----": "Чыпка ----",
           "filter ===": "Filter ===",
           "filter .....": "Filter .....",
@@ -4379,8 +3940,7 @@ class Messages {
           "Use regular expressions": "Үзгүлтүксүз туюнтма колдонуңуз",
           "use": "колдонуу",
           "history": "тарых",
-          "Please enter a word/sentence to search for.__1":
-              "Издөө үчүн сөз / сүйлөмдү киргизиңиз.",
+          "Please enter a word/sentence to search for.__1": "Издөө үчүн сөз / сүйлөмдү киргизиңиз.",
           "Drag to delete": "Жок кылуу үчүн сүйрөңүз",
           "last position": "акыркы абал",
           "OCR image recognition settings": "OCR сүрөтүн таануу жөндөөлөрү",
@@ -4394,10 +3954,8 @@ class Messages {
           "speed": "ылдамдык",
           "volume": "көлөмү",
           "pitch": "тон",
-          "Number of lines to read at a time":
-              "Бир убакта окуу үчүн саптардын саны",
-          "Freeze when other players are running":
-              "Башка оюнчулар иштеп жатканда тоңдургула",
+          "Number of lines to read at a time": "Бир убакта окуу үчүн саптардын саны",
+          "Freeze when other players are running": "Башка оюнчулар иштеп жатканда тоңдургула",
           "Using the headset button": "Гарнитура баскычын колдонуу",
           "language": "Кыргызча"
         },
@@ -4413,10 +3971,8 @@ class Messages {
           "file_list": "கோப்பு பட்டியல்",
           "Add_file": "கோப்பு சேர்க்கவும்",
           "remove_from_library": "நூலகத்திலிருந்து நீக்கவும்",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS குரல் பிரச்சனை தீர்க்க எப்படி பார்க்க.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min நிமிடத்திற்குப் பிறகு தானாகவே மூடப்பட்டது",
+          "See_how_to_solve_the_tts_voice_problem": "TTS குரல் பிரச்சனை தீர்க்க எப்படி பார்க்க.",
+          "Auto_shut_down_after_@min_minute": "@Min நிமிடத்திற்குப் பிறகு தானாகவே மூடப்பட்டது",
           "cancel": "ரத்துசெய்",
           "confirm": "உறுதி",
           "delete": "அழி",
@@ -4425,18 +3981,15 @@ class Messages {
           "move_location": "இடம் நகர்த்து",
           "Current_location": "தற்போதைய இடம்",
           "page_search": "பக்கம் தேடல்",
-          "Please enter a word/sentence to search for.":
-              "தேட ஒரு வார்த்தை / வாக்கியத்தை உள்ளிடவும்.",
+          "Please enter a word/sentence to search for.": "தேட ஒரு வார்த்தை / வாக்கியத்தை உள்ளிடவும்.",
           "Font size setting": "எழுத்துரு அளவு அமைப்பை",
           "Auto shutdown settings": "ஆட்டோ பணிநிறுத்தம் அமைப்புகள்",
           "Backup / Recovery": "காப்பு / மீட்பு",
           "google drive backup": "Google டிரைவ் காப்பு",
           "Chinese (Hanja) filter": "சீன (ஹான்ஜா) வடிகட்டி",
           "Japanese (Japanese) filter": "ஜப்பனீஸ் (ஜப்பனீஸ்) வடிகட்டி",
-          "filter multiple question marks":
-              "பல கேள்வி மதிப்பெண்கள் வடிகட்டவும்",
-          "Filter multiple exclamation marks":
-              "பல ஆச்சரியம் மதிப்பெண்கள் வடிகட்டவும்",
+          "filter multiple question marks": "பல கேள்வி மதிப்பெண்கள் வடிகட்டவும்",
+          "Filter multiple exclamation marks": "பல ஆச்சரியம் மதிப்பெண்கள் வடிகட்டவும்",
           "filter ----": "வடிகட்டி ----",
           "filter ===": "வடிகட்டி ===",
           "filter .....": "வடிகட்டி .....",
@@ -4444,8 +3997,7 @@ class Messages {
           "filter !?": "வடிகட்டி !?",
           "? ! filter if there is only one": "? ! ஒரே ஒரு இருந்தால் வடிகட்டி",
           "apostrophe filter": "அப்போஸ்ட்ரோப்பி வடிகட்டி",
-          "special character repeat filter":
-              "சிறப்பு எழுத்து மீண்டும் வடிகட்டி",
+          "special character repeat filter": "சிறப்பு எழுத்து மீண்டும் வடிகட்டி",
           "TTS filter settings": "TTS வடிகட்டி அமைப்புகள்",
           "name": "பெயர்",
           "filter rules": "வடிகட்டி விதிகள்",
@@ -4454,8 +4006,7 @@ class Messages {
           "Use regular expressions": "வழக்கமான வெளிப்பாடுகளைப் பயன்படுத்தவும்",
           "use": "பயன்படுத்தவும்",
           "history": "வரலாறு",
-          "Please enter a word/sentence to search for.__1":
-              "தேட ஒரு வார்த்தை / வாக்கியத்தை உள்ளிடவும்.",
+          "Please enter a word/sentence to search for.__1": "தேட ஒரு வார்த்தை / வாக்கியத்தை உள்ளிடவும்.",
           "Drag to delete": "நீக்க இழுக்கவும்",
           "last position": "கடைசி நிலை",
           "OCR image recognition settings": "OCR பட அங்கீகாரம் அமைப்புகள்",
@@ -4469,10 +4020,8 @@ class Messages {
           "speed": "வேகம்",
           "volume": "தொகுதி",
           "pitch": "பிட்ச்",
-          "Number of lines to read at a time":
-              "ஒரு நேரத்தில் படிக்க வரிகளின் எண்ணிக்கை",
-          "Freeze when other players are running":
-              "மற்ற வீரர்கள் இயங்கும் போது முடக்கம்",
+          "Number of lines to read at a time": "ஒரு நேரத்தில் படிக்க வரிகளின் எண்ணிக்கை",
+          "Freeze when other players are running": "மற்ற வீரர்கள் இயங்கும் போது முடக்கம்",
           "Using the headset button": "ஹெட்செட் பட்டன் பயன்படுத்தி",
           "language": "தமிழ்"
         },
@@ -4483,13 +4032,11 @@ class Messages {
           "my_library": "ห้องสมุดของฉัน",
           "Settings": "การตั้งค่า",
           "Copied to clipboard": "คัดลอกไปยังคลิปบอร์ด",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "เมื่อเพิ่มไฟล์คุณสามารถเพิ่มหลายไฟล์โดยกดนาน",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "เมื่อเพิ่มไฟล์คุณสามารถเพิ่มหลายไฟล์โดยกดนาน",
           "file_list": "รายการไฟล์",
           "Add_file": "เพิ่มไฟล์",
           "remove_from_library": "ลบออกจากห้องสมุด",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ดูวิธีการแก้ปัญหาเสียงของ TTS",
+          "See_how_to_solve_the_tts_voice_problem": "ดูวิธีการแก้ปัญหาเสียงของ TTS",
           "Auto_shut_down_after_@min_minute": "ปิดอัตโนมัติหลังจาก @min นาที",
           "cancel": "ยกเลิก",
           "confirm": "ยืนยัน",
@@ -4499,8 +4046,7 @@ class Messages {
           "move_location": "ย้ายตำแหน่ง",
           "Current_location": "สถานที่ปัจจุบัน",
           "page_search": "ค้นหาหน้า",
-          "Please enter a word/sentence to search for.":
-              "โปรดป้อนคำ / ประโยคเพื่อค้นหา",
+          "Please enter a word/sentence to search for.": "โปรดป้อนคำ / ประโยคเพื่อค้นหา",
           "Font size setting": "การตั้งค่าขนาดตัวอักษร",
           "Auto shutdown settings": "การตั้งค่าการปิดระบบอัตโนมัติ",
           "Backup / Recovery": "สำรอง / กู้คืน",
@@ -4508,8 +4054,7 @@ class Messages {
           "Chinese (Hanja) filter": "กรองจีน (Hanja)",
           "Japanese (Japanese) filter": "ตัวกรองญี่ปุ่น (ญี่ปุ่น)",
           "filter multiple question marks": "กรองเครื่องหมายคำถามหลายข้อ",
-          "Filter multiple exclamation marks":
-              "กรองเครื่องหมายอัศเจรีย์หลายเครื่องหมาย",
+          "Filter multiple exclamation marks": "กรองเครื่องหมายอัศเจรีย์หลายเครื่องหมาย",
           "filter ----": "กรอง ----",
           "filter ===": "กรอง ===",
           "filter .....": "กรอง .....",
@@ -4526,8 +4071,7 @@ class Messages {
           "Use regular expressions": "ใช้นิพจน์ทั่วไป",
           "use": "ใช้",
           "history": "ประวัติศาสตร์",
-          "Please enter a word/sentence to search for.__1":
-              "โปรดป้อนคำ / ประโยคเพื่อค้นหา",
+          "Please enter a word/sentence to search for.__1": "โปรดป้อนคำ / ประโยคเพื่อค้นหา",
           "Drag to delete": "ลากเพื่อลบ",
           "last position": "ตำแหน่งสุดท้าย",
           "OCR image recognition settings": "การตั้งค่าการจดจำภาพ OCR",
@@ -4541,10 +4085,8 @@ class Messages {
           "speed": "ความเร็ว",
           "volume": "ปริมาณ",
           "pitch": "ขว้าง",
-          "Number of lines to read at a time":
-              "จำนวนบรรทัดที่จะอ่านในแต่ละครั้ง",
-          "Freeze when other players are running":
-              "ตรึงเมื่อผู้เล่นคนอื่นกำลังทำงานอยู่",
+          "Number of lines to read at a time": "จำนวนบรรทัดที่จะอ่านในแต่ละครั้ง",
+          "Freeze when other players are running": "ตรึงเมื่อผู้เล่นคนอื่นกำลังทำงานอยู่",
           "Using the headset button": "ใช้ปุ่มชุดหูฟัง",
           "language": "ไทย"
         },
@@ -4555,15 +4097,12 @@ class Messages {
           "my_library": "benim kutuphanem",
           "Settings": "Ayarlar",
           "Copied to clipboard": "Panoya kopyalandı",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "Dosya eklerken, uzun basılarak birden fazla dosya ekleyebilirsiniz.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "Dosya eklerken, uzun basılarak birden fazla dosya ekleyebilirsiniz.",
           "file_list": "Dosya Listesi",
           "Add_file": "Dosya Ekle",
           "remove_from_library": "Kütüphaneden Çıkarın",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS ses problemini nasıl çözeceğinizi görün.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min dakika sonra otomatik kapanma",
+          "See_how_to_solve_the_tts_voice_problem": "TTS ses problemini nasıl çözeceğinizi görün.",
+          "Auto_shut_down_after_@min_minute": "@Min dakika sonra otomatik kapanma",
           "cancel": "iptal etmek",
           "confirm": "onaylamak",
           "delete": "silmek",
@@ -4572,18 +4111,15 @@ class Messages {
           "move_location": "Konum taşı",
           "Current_location": "Mevcut konum",
           "page_search": "Sayfa Arama",
-          "Please enter a word/sentence to search for.":
-              "Lütfen aramak için bir kelime / cümle girin.",
+          "Please enter a word/sentence to search for.": "Lütfen aramak için bir kelime / cümle girin.",
           "Font size setting": "Yazı Tipi Boyutu Ayarı",
           "Auto shutdown settings": "Otomatik Kapatma Ayarları",
           "Backup / Recovery": "Yedekleme / Kurtarma",
           "google drive backup": "Google Drive Yedekleme",
           "Chinese (Hanja) filter": "Çince (Hanja) filtresi",
           "Japanese (Japanese) filter": "Japonca (Japonca) filtre",
-          "filter multiple question marks":
-              "Birden fazla soru işareti filtreleyin",
-          "Filter multiple exclamation marks":
-              "Birden fazla ünlem işareti filtreleyin",
+          "filter multiple question marks": "Birden fazla soru işareti filtreleyin",
+          "Filter multiple exclamation marks": "Birden fazla ünlem işareti filtreleyin",
           "filter ----": "Filtre ----",
           "filter ===": "Filtre ===",
           "filter .....": "Filtre .....",
@@ -4600,8 +4136,7 @@ class Messages {
           "Use regular expressions": "Düzenli ifadeler kullanın",
           "use": "kullanmak",
           "history": "Tarih",
-          "Please enter a word/sentence to search for.__1":
-              "Lütfen aramak için bir kelime / cümle girin.",
+          "Please enter a word/sentence to search for.__1": "Lütfen aramak için bir kelime / cümle girin.",
           "Drag to delete": "Silmek için sürükle",
           "last position": "son pozisyon",
           "OCR image recognition settings": "OCR görüntü tanıma ayarları",
@@ -4615,10 +4150,8 @@ class Messages {
           "speed": "hız",
           "volume": "Ses",
           "pitch": "saha",
-          "Number of lines to read at a time":
-              "Bir seferde okunacak satır sayısı",
-          "Freeze when other players are running":
-              "Diğer oyuncular kaçtığında don",
+          "Number of lines to read at a time": "Bir seferde okunacak satır sayısı",
+          "Freeze when other players are running": "Diğer oyuncular kaçtığında don",
           "Using the headset button": "Kulaklık düğmesini kullanarak",
           "language": "Türk"
         },
@@ -4634,10 +4167,8 @@ class Messages {
           "file_list": "ఫైల్ జాబితా",
           "Add_file": "ఫైల్ను జోడించండి",
           "remove_from_library": "లైబ్రరీ నుండి తొలగించండి",
-          "See_how_to_solve_the_tts_voice_problem":
-              "TTS వాయిస్ సమస్యను ఎలా పరిష్కరించాలో చూడండి.",
-          "Auto_shut_down_after_@min_minute":
-              "@Min నిమిషం తర్వాత ఆటో మూసివేయబడింది",
+          "See_how_to_solve_the_tts_voice_problem": "TTS వాయిస్ సమస్యను ఎలా పరిష్కరించాలో చూడండి.",
+          "Auto_shut_down_after_@min_minute": "@Min నిమిషం తర్వాత ఆటో మూసివేయబడింది",
           "cancel": "రద్దు చేయండి",
           "confirm": "నిర్ధారించండి",
           "delete": "తొలగింపు",
@@ -4646,18 +4177,15 @@ class Messages {
           "move_location": "స్థాన తరలించండి",
           "Current_location": "ప్రస్తుత స్తలం",
           "page_search": "పేజీ శోధన",
-          "Please enter a word/sentence to search for.":
-              "దయచేసి శోధించడానికి ఒక పదం / వాక్యాన్ని నమోదు చేయండి.",
+          "Please enter a word/sentence to search for.": "దయచేసి శోధించడానికి ఒక పదం / వాక్యాన్ని నమోదు చేయండి.",
           "Font size setting": "ఫాంట్ సైజు సెట్టింగ్",
           "Auto shutdown settings": "ఆటో షట్డౌన్ సెట్టింగులు",
           "Backup / Recovery": "బ్యాకప్ / రికవరీ",
           "google drive backup": "Google డ్రైవ్ బ్యాకప్",
           "Chinese (Hanja) filter": "చైనీస్ (హంజా) వడపోత",
           "Japanese (Japanese) filter": "జపనీస్ (జపనీస్) వడపోత",
-          "filter multiple question marks":
-              "బహుళ ప్రశ్న మార్కులు ఫిల్టర్ చేయండి",
-          "Filter multiple exclamation marks":
-              "బహుళ ఆశ్చర్యార్థకం మార్కులు ఫిల్టర్ చేయండి",
+          "filter multiple question marks": "బహుళ ప్రశ్న మార్కులు ఫిల్టర్ చేయండి",
+          "Filter multiple exclamation marks": "బహుళ ఆశ్చర్యార్థకం మార్కులు ఫిల్టర్ చేయండి",
           "filter ----": "వడపోత ----",
           "filter ===": "ఫిల్టర్ ===.",
           "filter .....": "వడపోత .....",
@@ -4674,8 +4202,7 @@ class Messages {
           "Use regular expressions": "సాధారణ వ్యక్తీకరణలను ఉపయోగించండి",
           "use": "వా డు",
           "history": "చరిత్ర",
-          "Please enter a word/sentence to search for.__1":
-              "దయచేసి శోధించడానికి ఒక పదం / వాక్యాన్ని నమోదు చేయండి.",
+          "Please enter a word/sentence to search for.__1": "దయచేసి శోధించడానికి ఒక పదం / వాక్యాన్ని నమోదు చేయండి.",
           "Drag to delete": "తొలగించడానికి లాగండి",
           "last position": "చివరి స్థానం",
           "OCR image recognition settings": "OCR చిత్రం గుర్తింపు సెట్టింగులు",
@@ -4689,10 +4216,8 @@ class Messages {
           "speed": "వేగం",
           "volume": "పరిమాణము",
           "pitch": "పిచ్",
-          "Number of lines to read at a time":
-              "ఒక సమయంలో చదవడానికి పంక్తుల సంఖ్య",
-          "Freeze when other players are running":
-              "ఇతర ఆటగాళ్ళు నడుస్తున్నప్పుడు స్తంభింప",
+          "Number of lines to read at a time": "ఒక సమయంలో చదవడానికి పంక్తుల సంఖ్య",
+          "Freeze when other players are running": "ఇతర ఆటగాళ్ళు నడుస్తున్నప్పుడు స్తంభింప",
           "Using the headset button": "హెడ్సెట్ బటన్ ఉపయోగించి",
           "language": "తెలుగు"
         },
@@ -4708,8 +4233,7 @@ class Messages {
           "file_list": "ਫਾਈਲ ਲਿਸਟ",
           "Add_file": "ਫਾਈਲ ਸ਼ਾਮਲ ਕਰੋ",
           "remove_from_library": "ਲਾਇਬ੍ਰੇਰੀ ਤੋਂ ਹਟਾਓ",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Tts ਵੌਇਸ ਦੀ ਸਮੱਸਿਆ ਨੂੰ ਕਿਵੇਂ ਹੱਲ ਕਰਨਾ ਹੈ ਵੇਖੋ.",
+          "See_how_to_solve_the_tts_voice_problem": "Tts ਵੌਇਸ ਦੀ ਸਮੱਸਿਆ ਨੂੰ ਕਿਵੇਂ ਹੱਲ ਕਰਨਾ ਹੈ ਵੇਖੋ.",
           "Auto_shut_down_after_@min_minute": "@ ਮਿੰਟ ਤੋਂ ਬਾਅਦ ਆਟੋ ਬੰਦ ਕਰੋ",
           "cancel": "ਰੱਦ ਕਰੋ",
           "confirm": "ਪੁਸ਼ਟੀ ਕਰੋ",
@@ -4719,8 +4243,7 @@ class Messages {
           "move_location": "ਟਿਕਾਣਾ ਭੇਜੋ",
           "Current_location": "ਮੌਜੂਦਾ ਟਿਕਾਣਾ",
           "page_search": "ਪੇਜ ਖੋਜ",
-          "Please enter a word/sentence to search for.":
-              "ਕਿਰਪਾ ਕਰਕੇ ਖੋਜ ਕਰਨ ਲਈ ਇੱਕ ਸ਼ਬਦ / ਵਾਕ ਦਰਜ ਕਰੋ.",
+          "Please enter a word/sentence to search for.": "ਕਿਰਪਾ ਕਰਕੇ ਖੋਜ ਕਰਨ ਲਈ ਇੱਕ ਸ਼ਬਦ / ਵਾਕ ਦਰਜ ਕਰੋ.",
           "Font size setting": "ਫੋਂਟ ਸਾਈਜ਼ ਸੈਟਿੰਗ",
           "Auto shutdown settings": "ਆਟੋ ਬੰਦ ਸੈਟਿੰਗ",
           "Backup / Recovery": "ਬੈਕਅਪ / ਰਿਕਵਰੀ",
@@ -4745,8 +4268,7 @@ class Messages {
           "Use regular expressions": "ਨਿਯਮਤ ਸਮੀਕਰਨ ਦੀ ਵਰਤੋਂ ਕਰੋ",
           "use": "ਵਰਤਣ",
           "history": "ਇਤਿਹਾਸ",
-          "Please enter a word/sentence to search for.__1":
-              "ਕਿਰਪਾ ਕਰਕੇ ਖੋਜ ਕਰਨ ਲਈ ਇੱਕ ਸ਼ਬਦ / ਵਾਕ ਦਰਜ ਕਰੋ.",
+          "Please enter a word/sentence to search for.__1": "ਕਿਰਪਾ ਕਰਕੇ ਖੋਜ ਕਰਨ ਲਈ ਇੱਕ ਸ਼ਬਦ / ਵਾਕ ਦਰਜ ਕਰੋ.",
           "Drag to delete": "ਮਿਟਾਉਣ ਲਈ ਖਿੱਚੋ",
           "last position": "ਆਖਰੀ ਸਥਿਤੀ",
           "OCR image recognition settings": "ਓਸੀਆਰ ਇਮੋਰੀ ਦੀ ਪਛਾਣ ਸੈਟਿੰਗਾਂ",
@@ -4760,10 +4282,8 @@ class Messages {
           "speed": "ਗਤੀ",
           "volume": "ਵਾਲੀਅਮ",
           "pitch": "ਪਿੱਚ",
-          "Number of lines to read at a time":
-              "ਇਕ ਸਮੇਂ ਪੜ੍ਹਨ ਲਈ ਲਾਈਨਾਂ ਦੀ ਗਿਣਤੀ",
-          "Freeze when other players are running":
-              "ਫ੍ਰੀਜ਼ ਕਰੋ ਜਦੋਂ ਹੋਰ ਖਿਡਾਰੀ ਚੱਲ ਰਹੇ ਹਨ",
+          "Number of lines to read at a time": "ਇਕ ਸਮੇਂ ਪੜ੍ਹਨ ਲਈ ਲਾਈਨਾਂ ਦੀ ਗਿਣਤੀ",
+          "Freeze when other players are running": "ਫ੍ਰੀਜ਼ ਕਰੋ ਜਦੋਂ ਹੋਰ ਖਿਡਾਰੀ ਚੱਲ ਰਹੇ ਹਨ",
           "Using the headset button": "ਹੈੱਡਸੈੱਟ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ",
           "language": "ਪੰਜਾਬੀ"
         },
@@ -4779,8 +4299,7 @@ class Messages {
           "file_list": "لیست پرونده",
           "Add_file": "اضافه کردن فایل",
           "remove_from_library": "حذف از کتابخانه",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ببینید که چگونه مشکل صدای TTS را حل کنید.",
+          "See_how_to_solve_the_tts_voice_problem": "ببینید که چگونه مشکل صدای TTS را حل کنید.",
           "Auto_shut_down_after_@min_minute": "خودکار خاموش بعد از دقیقه دقیقه",
           "cancel": "لغو کردن",
           "confirm": "تایید",
@@ -4790,25 +4309,21 @@ class Messages {
           "move_location": "محل حرکت",
           "Current_location": "موقعیت فعلی",
           "page_search": "جستجو صفحه",
-          "Please enter a word/sentence to search for.":
-              "لطفا یک کلمه / جمله را برای جستجو وارد کنید",
+          "Please enter a word/sentence to search for.": "لطفا یک کلمه / جمله را برای جستجو وارد کنید",
           "Font size setting": "تنظیم اندازه فونت",
           "Auto shutdown settings": "تنظیمات خاموش شدن خودکار",
           "Backup / Recovery": "پشتیبان گیری / بازیابی",
           "google drive backup": "پشتیبان گیری Google Drive",
           "Chinese (Hanja) filter": "فیلتر چینی (هانجا)",
           "Japanese (Japanese) filter": "فیلتر ژاپنی (ژاپنی)",
-          "filter multiple question marks":
-              "علامت های چند سوال چندگانه را فیلتر کنید",
-          "Filter multiple exclamation marks":
-              "فیلتر چندین علامت تعجب را فیلتر کنید",
+          "filter multiple question marks": "علامت های چند سوال چندگانه را فیلتر کنید",
+          "Filter multiple exclamation marks": "فیلتر چندین علامت تعجب را فیلتر کنید",
           "filter ----": "فیلتر ----",
           "filter ===": "فیلتر ===",
           "filter .....": "فیلتر .....",
           "filter ?!": "فیلتر کردن؟",
           "filter !?": "فیلتر!؟",
-          "? ! filter if there is only one":
-              "؟ ! فیلتر کردن اگر تنها یک وجود دارد",
+          "? ! filter if there is only one": "؟ ! فیلتر کردن اگر تنها یک وجود دارد",
           "apostrophe filter": "فیلتر آپوستروف",
           "special character repeat filter": "فیلتر تکرار شخصیت خاص",
           "TTS filter settings": "تنظیمات فیلتر TTS",
@@ -4819,8 +4334,7 @@ class Messages {
           "Use regular expressions": "از عبارات منظم استفاده کنید",
           "use": "استفاده کنید",
           "history": "تاریخ",
-          "Please enter a word/sentence to search for.__1":
-              "لطفا یک کلمه / جمله را برای جستجو وارد کنید",
+          "Please enter a word/sentence to search for.__1": "لطفا یک کلمه / جمله را برای جستجو وارد کنید",
           "Drag to delete": "کشیدن به حذف",
           "last position": "آخرین موقعیت",
           "OCR image recognition settings": "تنظیمات تشخیص تصویر OCR",
@@ -4834,10 +4348,8 @@ class Messages {
           "speed": "سرعت",
           "volume": "جلد",
           "pitch": "گام صدا",
-          "Number of lines to read at a time":
-              "تعداد خطوط برای خواندن در یک زمان",
-          "Freeze when other players are running":
-              "زمانی که بازیکنان دیگر در حال اجرا هستند، یخ زده شوند",
+          "Number of lines to read at a time": "تعداد خطوط برای خواندن در یک زمان",
+          "Freeze when other players are running": "زمانی که بازیکنان دیگر در حال اجرا هستند، یخ زده شوند",
           "Using the headset button": "با استفاده از دکمه هدست",
           "language": "فارسی"
         },
@@ -4853,10 +4365,8 @@ class Messages {
           "file_list": "lista de arquivos",
           "Add_file": "Adicionar ficheiro",
           "remove_from_library": "Remover da biblioteca",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Veja como resolver o problema de voz TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto desligamento após o minuto @min",
+          "See_how_to_solve_the_tts_voice_problem": "Veja como resolver o problema de voz TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto desligamento após o minuto @min",
           "cancel": "cancelar",
           "confirm": "confirme",
           "delete": "excluir",
@@ -4865,18 +4375,15 @@ class Messages {
           "move_location": "mover a localização",
           "Current_location": "Localização atual",
           "page_search": "Página pesquisar",
-          "Please enter a word/sentence to search for.":
-              "Por favor, insira uma palavra / sentença para procurar.",
+          "Please enter a word/sentence to search for.": "Por favor, insira uma palavra / sentença para procurar.",
           "Font size setting": "Configuração do tamanho da fonte",
           "Auto shutdown settings": "Configurações de desligamento automático.",
           "Backup / Recovery": "Backup / Recovery.",
           "google drive backup": "Backup do Google Drive",
           "Chinese (Hanja) filter": "Filtro chinês (HANJA)",
           "Japanese (Japanese) filter": "Filtro japonês (japonês)",
-          "filter multiple question marks":
-              "Filtrar múltiplos pontos de interrogação",
-          "Filter multiple exclamation marks":
-              "Filtrar múltiplas marcas de exclamação",
+          "filter multiple question marks": "Filtrar múltiplos pontos de interrogação",
+          "Filter multiple exclamation marks": "Filtrar múltiplas marcas de exclamação",
           "filter ----": "Filtro ----",
           "filter ===": "Filtro ===.",
           "filter .....": "filtro .....",
@@ -4884,8 +4391,7 @@ class Messages {
           "filter !?": "filtro!",
           "? ! filter if there is only one": "? ! filtrar se houver apenas um",
           "apostrophe filter": "filtro de apóstrofo",
-          "special character repeat filter":
-              "Filtro de repetição de caracteres especiais",
+          "special character repeat filter": "Filtro de repetição de caracteres especiais",
           "TTS filter settings": "Configurações do filtro TTS.",
           "name": "nome",
           "filter rules": "Regras de filtro",
@@ -4894,12 +4400,10 @@ class Messages {
           "Use regular expressions": "Use expressões regulares",
           "use": "usar",
           "history": "história",
-          "Please enter a word/sentence to search for.__1":
-              "Por favor, insira uma palavra / sentença para procurar.",
+          "Please enter a word/sentence to search for.__1": "Por favor, insira uma palavra / sentença para procurar.",
           "Drag to delete": "Arraste para excluir",
           "last position": "última posição",
-          "OCR image recognition settings":
-              "Configurações de reconhecimento de imagem OCR",
+          "OCR image recognition settings": "Configurações de reconhecimento de imagem OCR",
           "open source license": "Licença de código aberto",
           "license": "licença",
           "home page": "pagina inicial",
@@ -4910,10 +4414,8 @@ class Messages {
           "speed": "Rapidez",
           "volume": "volume",
           "pitch": "tom",
-          "Number of lines to read at a time":
-              "Número de linhas para ler de cada vez",
-          "Freeze when other players are running":
-              "Congelar quando outros jogadores estão funcionando",
+          "Number of lines to read at a time": "Número de linhas para ler de cada vez",
+          "Freeze when other players are running": "Congelar quando outros jogadores estão funcionando",
           "Using the headset button": "Usando o botão de fone de ouvido",
           "language": "Português (Brasil)"
         },
@@ -4929,10 +4431,8 @@ class Messages {
           "file_list": "Lista plików",
           "Add_file": "Dodaj plik",
           "remove_from_library": "Usuń z biblioteki",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Zobacz, jak rozwiązać problem głosu TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto zamknij się po minucie @min",
+          "See_how_to_solve_the_tts_voice_problem": "Zobacz, jak rozwiązać problem głosu TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto zamknij się po minucie @min",
           "cancel": "Anuluj",
           "confirm": "potwierdzać",
           "delete": "kasować",
@@ -4941,8 +4441,7 @@ class Messages {
           "move_location": "Przenieś lokalizację.",
           "Current_location": "Aktualna lokalizacja",
           "page_search": "Szukaj strony",
-          "Please enter a word/sentence to search for.":
-              "Wprowadź słowo / zdanie, aby wyszukać.",
+          "Please enter a word/sentence to search for.": "Wprowadź słowo / zdanie, aby wyszukać.",
           "Font size setting": "Ustawienie rozmiaru czcionki",
           "Auto shutdown settings": "Ustawienia automatycznego zamykania",
           "Backup / Recovery": "Kopia zapasowa / odzyskiwanie",
@@ -4956,8 +4455,7 @@ class Messages {
           "filter .....": "filtr .....",
           "filter ?!": "filtr?!",
           "filter !?": "Filtruj!",
-          "? ! filter if there is only one":
-              "? ! filtr, jeśli jest tylko jeden",
+          "? ! filter if there is only one": "? ! filtr, jeśli jest tylko jeden",
           "apostrophe filter": "filtr apostropowy",
           "special character repeat filter": "Specjalny filtr powtarzający się",
           "TTS filter settings": "Ustawienia filtra TTS.",
@@ -4968,12 +4466,10 @@ class Messages {
           "Use regular expressions": "Używaj wyrażeń regularnych",
           "use": "posługiwać się",
           "history": "historia",
-          "Please enter a word/sentence to search for.__1":
-              "Wprowadź słowo / zdanie, aby wyszukać.",
+          "Please enter a word/sentence to search for.__1": "Wprowadź słowo / zdanie, aby wyszukać.",
           "Drag to delete": "Przeciągnij do usuwania",
           "last position": "Ostatnia pozycja",
-          "OCR image recognition settings":
-              "Ustawienia rozpoznawania obrazu OCR",
+          "OCR image recognition settings": "Ustawienia rozpoznawania obrazu OCR",
           "open source license": "Open Source License.",
           "license": "licencja",
           "home page": "Strona główna",
@@ -4984,12 +4480,9 @@ class Messages {
           "speed": "prędkość",
           "volume": "Tom",
           "pitch": "poziom",
-          "Number of lines to read at a time":
-              "Liczba linii do czytania na raz",
-          "Freeze when other players are running":
-              "Zamrażać, gdy biegają innych graczy",
-          "Using the headset button":
-              "Korzystanie z przycisku zestawu słuchawkowego",
+          "Number of lines to read at a time": "Liczba linii do czytania na raz",
+          "Freeze when other players are running": "Zamrażać, gdy biegają innych graczy",
+          "Using the headset button": "Korzystanie z przycisku zestawu słuchawkowego",
           "language": "Polskie"
         },
         "fr": {
@@ -5004,10 +4497,8 @@ class Messages {
           "file_list": "liste de fichiers",
           "Add_file": "Ajouter le fichier",
           "remove_from_library": "Supprimer de la bibliothèque",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Voir comment résoudre le problème de la voix TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Arrêt automatique après @min minute",
+          "See_how_to_solve_the_tts_voice_problem": "Voir comment résoudre le problème de la voix TTS.",
+          "Auto_shut_down_after_@min_minute": "Arrêt automatique après @min minute",
           "cancel": "Annuler",
           "confirm": "confirmer",
           "delete": "effacer",
@@ -5016,28 +4507,23 @@ class Messages {
           "move_location": "déplacer l'emplacement",
           "Current_location": "Localisation actuelle",
           "page_search": "recherche de page",
-          "Please enter a word/sentence to search for.":
-              "Veuillez entrer un mot / une phrase pour rechercher.",
+          "Please enter a word/sentence to search for.": "Veuillez entrer un mot / une phrase pour rechercher.",
           "Font size setting": "Réglage de la taille de la police",
           "Auto shutdown settings": "Paramètres d'arrêt automatique",
           "Backup / Recovery": "Sauvegarde / récupération",
           "google drive backup": "Sauvegarde de Google Drive",
           "Chinese (Hanja) filter": "Filtre chinois (Hanja)",
           "Japanese (Japanese) filter": "Filtre japonais (japonais)",
-          "filter multiple question marks":
-              "Filtrer plusieurs points d'interrogation",
-          "Filter multiple exclamation marks":
-              "Filtrer plusieurs marques d'exclamation",
+          "filter multiple question marks": "Filtrer plusieurs points d'interrogation",
+          "Filter multiple exclamation marks": "Filtrer plusieurs marques d'exclamation",
           "filter ----": "Filtre ----",
           "filter ===": "Filtre ===",
           "filter .....": "Filtre .....",
           "filter ?!": "Filtre ?!",
           "filter !?": "filtrer !?",
-          "? ! filter if there is only one":
-              "? ! filtrer s'il n'y a qu'un seul",
+          "? ! filter if there is only one": "? ! filtrer s'il n'y a qu'un seul",
           "apostrophe filter": "Filtre Apostrophe",
-          "special character repeat filter":
-              "filtre de répétition de caractères spécial",
+          "special character repeat filter": "filtre de répétition de caractères spécial",
           "TTS filter settings": "Paramètres de filtre TTS",
           "name": "Nom",
           "filter rules": "Règles de filtrage",
@@ -5046,12 +4532,10 @@ class Messages {
           "Use regular expressions": "Utiliser des expressions régulières",
           "use": "utilisation",
           "history": "l'histoire",
-          "Please enter a word/sentence to search for.__1":
-              "Veuillez entrer un mot / une phrase pour rechercher.",
+          "Please enter a word/sentence to search for.__1": "Veuillez entrer un mot / une phrase pour rechercher.",
           "Drag to delete": "Glisser pour supprimer",
           "last position": "dernière position",
-          "OCR image recognition settings":
-              "Paramètres de reconnaissance d'images OCR",
+          "OCR image recognition settings": "Paramètres de reconnaissance d'images OCR",
           "open source license": "Licence open source",
           "license": "Licence",
           "home page": "Page d'accueil",
@@ -5062,10 +4546,8 @@ class Messages {
           "speed": "la vitesse",
           "volume": "le volume",
           "pitch": "terrain",
-          "Number of lines to read at a time":
-              "Nombre de lignes à lire à la fois",
-          "Freeze when other players are running":
-              "Geler quand d'autres joueurs sont en cours d'exécution",
+          "Number of lines to read at a time": "Nombre de lignes à lire à la fois",
+          "Freeze when other players are running": "Geler quand d'autres joueurs sont en cours d'exécution",
           "Using the headset button": "Utilisation du bouton de casque",
           "language": "Français"
         },
@@ -5081,8 +4563,7 @@ class Messages {
           "file_list": "Tiedoston luettelo",
           "Add_file": "Lisää tiedosto",
           "remove_from_library": "Poista kirjastosta",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Katso, miten ratkaista TTS-ääniogelma.",
+          "See_how_to_solve_the_tts_voice_problem": "Katso, miten ratkaista TTS-ääniogelma.",
           "Auto_shut_down_after_@min_minute": "Auto SULJETTU @MIN MINUTE",
           "cancel": "peruuttaa",
           "confirm": "vahvistaa",
@@ -5092,8 +4573,7 @@ class Messages {
           "move_location": "Siirrä sijainti",
           "Current_location": "Tämänhetkinen olinpaikka",
           "page_search": "Sivun haku",
-          "Please enter a word/sentence to search for.":
-              "Anna sana / lause etsiä.",
+          "Please enter a word/sentence to search for.": "Anna sana / lause etsiä.",
           "Font size setting": "Fontin kokoasetus",
           "Auto shutdown settings": "Automaattinen sammutusasetukset",
           "Backup / Recovery": "Varmuuskopiointi / palautus",
@@ -5118,8 +4598,7 @@ class Messages {
           "Use regular expressions": "Käytä säännöllisiä lausekkeita",
           "use": "käyttää",
           "history": "historia",
-          "Please enter a word/sentence to search for.__1":
-              "Anna sana / lause etsiä.",
+          "Please enter a word/sentence to search for.__1": "Anna sana / lause etsiä.",
           "Drag to delete": "Vedä Poista",
           "last position": "viimeinen asema",
           "OCR image recognition settings": "OCR-kuvan tunnistusasetukset",
@@ -5133,16 +4612,14 @@ class Messages {
           "speed": "nopeus",
           "volume": "määrä",
           "pitch": "piki",
-          "Number of lines to read at a time":
-              "Linjojen lukumäärä lukemaan kerrallaan",
-          "Freeze when other players are running":
-              "Jäädyttää, kun muut pelaajat ovat käynnissä",
+          "Number of lines to read at a time": "Linjojen lukumäärä lukemaan kerrallaan",
+          "Freeze when other players are running": "Jäädyttää, kun muut pelaajat ovat käynnissä",
           "Using the headset button": "HF-painikkeen käyttäminen",
           "language": "Suomalainen"
         },
         "fil": {
           "key": "fil",
-          "app_name": "Open Source Text Viewer.",
+          "app_name": "open text viewer.",
           "text_viewer": "Text viewer.",
           "my_library": "Aking Library.",
           "Settings": "Mga setting",
@@ -5152,10 +4629,8 @@ class Messages {
           "file_list": "listahan ng file.",
           "Add_file": "Magdagdag ng file",
           "remove_from_library": "Alisin mula sa library",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Tingnan kung paano malutas ang problema ng boses ng TTS.",
-          "Auto_shut_down_after_@min_minute":
-              "Auto shut down pagkatapos @ minutong minuto",
+          "See_how_to_solve_the_tts_voice_problem": "Tingnan kung paano malutas ang problema ng boses ng TTS.",
+          "Auto_shut_down_after_@min_minute": "Auto shut down pagkatapos @ minutong minuto",
           "cancel": "Kanselahin",
           "confirm": "kumpirmahin",
           "delete": "Tanggalin.",
@@ -5164,28 +4639,23 @@ class Messages {
           "move_location": "Ilipat ang lokasyon",
           "Current_location": "Kasalukuyang lokasyon",
           "page_search": "Paghahanap ng Pahina",
-          "Please enter a word/sentence to search for.":
-              "Mangyaring magpasok ng isang salita / pangungusap upang maghanap.",
+          "Please enter a word/sentence to search for.": "Mangyaring magpasok ng isang salita / pangungusap upang maghanap.",
           "Font size setting": "Setting ng laki ng font",
           "Auto shutdown settings": "Mga setting ng auto shutdown.",
           "Backup / Recovery": "Backup / Recovery.",
           "google drive backup": "Google Drive Backup.",
           "Chinese (Hanja) filter": "Intsik (Hanja) filter.",
           "Japanese (Japanese) filter": "Japanese (Japanese) filter.",
-          "filter multiple question marks":
-              "i-filter ang maramihang mga marka ng tanong",
-          "Filter multiple exclamation marks":
-              "I-filter ang maramihang mga marka ng exclamation.",
+          "filter multiple question marks": "i-filter ang maramihang mga marka ng tanong",
+          "Filter multiple exclamation marks": "I-filter ang maramihang mga marka ng exclamation.",
           "filter ----": "Filter ----",
           "filter ===": "filter ===",
           "filter .....": "I-filter .....",
           "filter ?!": "filter?!",
           "filter !?": "Filter!?",
-          "? ! filter if there is only one":
-              "? Labanan! Salain kung mayroon lamang ONE.",
+          "? ! filter if there is only one": "? Labanan! Salain kung mayroon lamang ONE.",
           "apostrophe filter": "Apostrophe Filter.",
-          "special character repeat filter":
-              "Espesyal na character ulit na filter.",
+          "special character repeat filter": "Espesyal na character ulit na filter.",
           "TTS filter settings": "Mga setting ng filter ng TTS.",
           "name": "pangalan",
           "filter rules": "Mga panuntunan sa filter",
@@ -5194,12 +4664,10 @@ class Messages {
           "Use regular expressions": "Gumamit ng mga regular na expression",
           "use": "paggamit",
           "history": "Kasaysayan",
-          "Please enter a word/sentence to search for.__1":
-              "Mangyaring magpasok ng isang salita / pangungusap upang maghanap.",
+          "Please enter a word/sentence to search for.__1": "Mangyaring magpasok ng isang salita / pangungusap upang maghanap.",
           "Drag to delete": "I-drag upang tanggalin",
           "last position": "huling posisyon",
-          "OCR image recognition settings":
-              "Mga setting ng pagkilala ng imahe ng OCR.",
+          "OCR image recognition settings": "Mga setting ng pagkilala ng imahe ng OCR.",
           "open source license": "Open Source License.",
           "license": "lisensya",
           "home page": "Home Page",
@@ -5210,10 +4678,8 @@ class Messages {
           "speed": "bilis",
           "volume": "Dami",
           "pitch": "Pitch.",
-          "Number of lines to read at a time":
-              "Bilang ng mga linya na basahin sa isang pagkakataon",
-          "Freeze when other players are running":
-              "I-freeze kapag tumatakbo ang iba pang mga manlalaro",
+          "Number of lines to read at a time": "Bilang ng mga linya na basahin sa isang pagkakataon",
+          "Freeze when other players are running": "I-freeze kapag tumatakbo ang iba pang mga manlalaro",
           "Using the headset button": "Gamit ang pindutan ng headset",
           "language": "Pilipinas"
         },
@@ -5224,15 +4690,12 @@ class Messages {
           "my_library": "a könyvtáram",
           "Settings": "Beállítások",
           "Copied to clipboard": "A vágólapra másolt",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "A fájlok hozzáadásával több fájlt is hozzáadhat hosszú megnyomásával.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "A fájlok hozzáadásával több fájlt is hozzáadhat hosszú megnyomásával.",
           "file_list": "fájllista",
           "Add_file": "Fájl hozzáadása",
           "remove_from_library": "távolítsa el a könyvtárból",
-          "See_how_to_solve_the_tts_voice_problem":
-              "Nézze meg, hogyan oldja meg a TTS hangproblémát.",
-          "Auto_shut_down_after_@min_minute":
-              "Automatikus kikapcsolás @min perc után",
+          "See_how_to_solve_the_tts_voice_problem": "Nézze meg, hogyan oldja meg a TTS hangproblémát.",
+          "Auto_shut_down_after_@min_minute": "Automatikus kikapcsolás @min perc után",
           "cancel": "megszünteti",
           "confirm": "megerősít",
           "delete": "töröl",
@@ -5241,8 +4704,7 @@ class Messages {
           "move_location": "Helyezze el a helyet",
           "Current_location": "Jelenlegi tartózkodási hely",
           "page_search": "Oldalkeresés",
-          "Please enter a word/sentence to search for.":
-              "Kérjük, adjon meg egy szót / mondatot, hogy keresse meg.",
+          "Please enter a word/sentence to search for.": "Kérjük, adjon meg egy szót / mondatot, hogy keresse meg.",
           "Font size setting": "Betűméret beállítás",
           "Auto shutdown settings": "Automatikus leállítási beállítások",
           "Backup / Recovery": "Biztonsági mentés / helyreállítás",
@@ -5250,8 +4712,7 @@ class Messages {
           "Chinese (Hanja) filter": "Kínai (Hanja) szűrő",
           "Japanese (Japanese) filter": "Japán (japán) szűrő",
           "filter multiple question marks": "Több kérdőjel szűrése",
-          "Filter multiple exclamation marks":
-              "Szűrje többszörös felkiáltójeleket",
+          "Filter multiple exclamation marks": "Szűrje többszörös felkiáltójeleket",
           "filter ----": "szűrő ----",
           "filter ===": "Szűrés ===",
           "filter .....": "szűrő .....",
@@ -5259,8 +4720,7 @@ class Messages {
           "filter !?": "szűrő !?",
           "? ! filter if there is only one": "? ! szűrő, ha csak egy",
           "apostrophe filter": "Apostrophe szűrő",
-          "special character repeat filter":
-              "Speciális karakter ismétlési szűrő",
+          "special character repeat filter": "Speciális karakter ismétlési szűrő",
           "TTS filter settings": "TTS szűrési beállítások",
           "name": "név",
           "filter rules": "szűrőszabályok",
@@ -5269,8 +4729,7 @@ class Messages {
           "Use regular expressions": "Rendszeres kifejezéseket használjon",
           "use": "használat",
           "history": "történelem",
-          "Please enter a word/sentence to search for.__1":
-              "Kérjük, adjon meg egy szót / mondatot, hogy keresse meg.",
+          "Please enter a word/sentence to search for.__1": "Kérjük, adjon meg egy szót / mondatot, hogy keresse meg.",
           "Drag to delete": "Húzza a törlést",
           "last position": "utolsó hely",
           "OCR image recognition settings": "OCR képfelismerési beállítások",
@@ -5285,8 +4744,7 @@ class Messages {
           "volume": "hangerő",
           "pitch": "hangmagasság",
           "Number of lines to read at a time": "A sorok száma egyszerre",
-          "Freeze when other players are running":
-              "Fagyassza le, ha más játékosok futnak",
+          "Freeze when other players are running": "Fagyassza le, ha más játékosok futnak",
           "Using the headset button": "A fülhallgató gomb segítségével",
           "language": "Magyar"
         },
@@ -5297,13 +4755,11 @@ class Messages {
           "my_library": "הספריה שלי",
           "Settings": "הגדרות",
           "Copied to clipboard": "הועתק ללוח",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "בעת הוספת קבצים, תוכל להוסיף קבצים מרובים על ידי לחיצה ארוכה.",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "בעת הוספת קבצים, תוכל להוסיף קבצים מרובים על ידי לחיצה ארוכה.",
           "file_list": "רשימת קבצים",
           "Add_file": "הוסף קובץ",
           "remove_from_library": "הסר מתוך הספרייה",
-          "See_how_to_solve_the_tts_voice_problem":
-              "ראה כיצד לפתור את הבעיה קול TTS.",
+          "See_how_to_solve_the_tts_voice_problem": "ראה כיצד לפתור את הבעיה קול TTS.",
           "Auto_shut_down_after_@min_minute": "אוטומטי לכבות אחרי @min דקה",
           "cancel": "לְבַטֵל",
           "confirm": "לְאַשֵׁר",
@@ -5313,8 +4769,7 @@ class Messages {
           "move_location": "הזז מיקום",
           "Current_location": "מיקום נוכחי",
           "page_search": "חיפוש דף",
-          "Please enter a word/sentence to search for.":
-              "הזן מילה / משפט כדי לחפש.",
+          "Please enter a word/sentence to search for.": "הזן מילה / משפט כדי לחפש.",
           "Font size setting": "הגדרת גודל גופן",
           "Auto shutdown settings": "הגדרות כיבוי אוטומטי",
           "Backup / Recovery": "גיבוי / שחזור",
@@ -5339,8 +4794,7 @@ class Messages {
           "Use regular expressions": "השתמש בביטויים רגולריים",
           "use": "להשתמש",
           "history": "הִיסטוֹרִיָה",
-          "Please enter a word/sentence to search for.__1":
-              "הזן מילה / משפט כדי לחפש.",
+          "Please enter a word/sentence to search for.__1": "הזן מילה / משפט כדי לחפש.",
           "Drag to delete": "גרור כדי למחוק",
           "last position": "תפקיד אחרון",
           "OCR image recognition settings": "הגדרות זיהוי תמונה של OCR",
@@ -5355,8 +4809,7 @@ class Messages {
           "volume": "כרך",
           "pitch": "גובה הצליל",
           "Number of lines to read at a time": "מספר שורות לקריאה בכל פעם",
-          "Freeze when other players are running":
-              "להקפיא כאשר שחקנים אחרים פועלים",
+          "Freeze when other players are running": "להקפיא כאשר שחקנים אחרים פועלים",
           "Using the headset button": "באמצעות לחצן האוזניה",
           "language": "עברית"
         },
@@ -5367,13 +4820,11 @@ class Messages {
           "my_library": "मेरा पुस्तकालय",
           "Settings": "समायोजन",
           "Copied to clipboard": "क्लिपबोर्ड पर नकल",
-          "When_adding_files, you_can_add_multiple_files_by_long_pressing":
-              "फ़ाइलों को जोड़ते समय, आप लंबे समय तक कई फाइलें जोड़ सकते हैं।",
+          "When_adding_files, you_can_add_multiple_files_by_long_pressing": "फ़ाइलों को जोड़ते समय, आप लंबे समय तक कई फाइलें जोड़ सकते हैं।",
           "file_list": "संचिका सूची",
           "Add_file": "फाइल जोडें",
           "remove_from_library": "पुस्तकालय से निकालें",
-          "See_how_to_solve_the_tts_voice_problem":
-              "देखें कि टीटीएस आवाज समस्या को हल करने के लिए कैसे।",
+          "See_how_to_solve_the_tts_voice_problem": "देखें कि टीटीएस आवाज समस्या को हल करने के लिए कैसे।",
           "Auto_shut_down_after_@min_minute": "@Min मिनट के बाद ऑटो बंद हो गया",
           "cancel": "रद्द करना",
           "confirm": "पुष्टि करना",
@@ -5383,8 +4834,7 @@ class Messages {
           "move_location": "स्थान ले जाएँ",
           "Current_location": "वर्तमान स्थान",
           "page_search": "पृष्ठ खोज",
-          "Please enter a word/sentence to search for.":
-              "कृपया खोज के लिए एक शब्द / वाक्य दर्ज करें।",
+          "Please enter a word/sentence to search for.": "कृपया खोज के लिए एक शब्द / वाक्य दर्ज करें।",
           "Font size setting": "फ़ॉन्ट आकार सेटिंग",
           "Auto shutdown settings": "ऑटो शटडाउन सेटिंग्स",
           "Backup / Recovery": "बैकअप / रिकवरी",
@@ -5392,8 +4842,7 @@ class Messages {
           "Chinese (Hanja) filter": "चीनी (हंजा) फ़िल्टर",
           "Japanese (Japanese) filter": "जापानी (जापानी) फ़िल्टर",
           "filter multiple question marks": "फ़िल्टर कई प्रश्न चिह्न",
-          "Filter multiple exclamation marks":
-              "फ़िल्टर एकाधिक विस्मयादिबोधक अंक",
+          "Filter multiple exclamation marks": "फ़िल्टर एकाधिक विस्मयादिबोधक अंक",
           "filter ----": "फ़िल्टर ----",
           "filter ===": "फ़िल्टर ===",
           "filter .....": "फ़िल्टर .....",
@@ -5410,8 +4859,7 @@ class Messages {
           "Use regular expressions": "नियमित अभिव्यक्तियों का उपयोग करें",
           "use": "उपयोग",
           "history": "इतिहास",
-          "Please enter a word/sentence to search for.__1":
-              "कृपया खोज के लिए एक शब्द / वाक्य दर्ज करें।",
+          "Please enter a word/sentence to search for.__1": "कृपया खोज के लिए एक शब्द / वाक्य दर्ज करें।",
           "Drag to delete": "हटाने के लिए खींचें",
           "last position": "आखिरी स्थान",
           "OCR image recognition settings": "ओसीआर छवि पहचान सेटिंग्स",
@@ -5425,10 +4873,8 @@ class Messages {
           "speed": "स्पीड",
           "volume": "आयतन",
           "pitch": "आवाज़ का उतार - चढ़ाव",
-          "Number of lines to read at a time":
-              "एक समय में पढ़ने के लिए लाइनों की संख्या",
-          "Freeze when other players are running":
-              "फ्रीज जब अन्य खिलाड़ी चल रहे हैं",
+          "Number of lines to read at a time": "एक समय में पढ़ने के लिए लाइनों की संख्या",
+          "Freeze when other players are running": "फ्रीज जब अन्य खिलाड़ी चल रहे हैं",
           "Using the headset button": "हेडसेट बटन का उपयोग करना",
           "language": "हिंदी"
         }
