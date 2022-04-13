@@ -61,8 +61,8 @@ class LibraryPage extends GetView {
   }
 
   Future<bool> epubConv(File f) async {
-    var rtn = await AdCtl.openInterstitialAdEpubConv();
-    // var rtn = true;
+    // var rtn = await AdCtl.openInterstitialAdEpubConv();
+    var rtn = true;
     if (rtn) {
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
@@ -71,7 +71,6 @@ class LibraryPage extends GetView {
         epubTotal(total);
         epubCurrent(cur);
       });
-      // return false;
       epubTotal(0);
       epubCurrent(0);
       File outputFile = File("$path/epub_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");

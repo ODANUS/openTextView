@@ -111,7 +111,7 @@ class Utils {
   }
 
   static Future<String> convEpub(File f, {Function(int total, int current)? onProcess}) async {
-    List<String?> hrefs = [];
+    List<String> hrefs = [];
     Map<String, String> listhtml = {};
     Map<String, String> cssMap = {};
 
@@ -122,12 +122,19 @@ class Utils {
       final filename = file.name;
       if (file.isFile) {
         final intdatas = file.content as List<int>;
-        if (file.name.contains("content.opf")) {
+        if (file.name.contains(".opf")) {
           var data = String.fromCharCodes(intdatas);
           var htmlData = parse(data);
           var items = htmlData.querySelector("manifest")?.querySelectorAll("item[media-type*=xml]");
           if (items != null) {
-            hrefs = items.map((e) => e.attributes['href']).toList();
+            hrefs = items.map((e) {
+              var rtn = e.attributes['href'] ?? "";
+              // if (rtn.indexOf("/") < 0) {
+              //   var filePath = file.name.split("/");
+              //   rtn = filePath.getRange(0, filePath.length - 1).join("/") + "/" + rtn;
+              // }
+              return rtn;
+            }).toList();
           }
         }
         if (file.name.contains(".css")) {
@@ -146,9 +153,10 @@ class Utils {
     }
 
     var htmllen = listhtml.keys.length;
-    for (var i = 0; i < htmllen; i++) {
-      String href = listhtml.keys.elementAt(i);
+    for (var i = 0; i < hrefs.length; i++) {
+      String href = hrefs.elementAt(i);
       if (listhtml[href] != null) {
+        listhtml[href] = listhtml[href]!.replaceAll('<title/>', "");
         var htmlData = parse(listhtml[href]);
         if (cssMap.keys.length > 10) {
           if (onProcess != null) {
@@ -159,7 +167,6 @@ class Utils {
             removeFontSize0(htmlData, cssMap);
           } catch (e) {}
         }
-
         var bodytext = htmlData.body?.text ?? "";
 
         if (Get.locale?.languageCode.contains("ko") != null) {
