@@ -8,6 +8,9 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+1.9.7 (2022 04 13) 패치내역 :
+1. epub -> txt 라일 변환시 챕터가 가끔 혼동되어 나오는 현상 수정. 
+
 1.9.5 (2022 04 13) 패치내역 :
 
 1. 특정 epub -> txt 변환 알고리즘을 추가 했습니다. 
