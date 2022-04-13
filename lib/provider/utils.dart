@@ -9,6 +9,7 @@ import 'package:epubx/epubx.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:get/get.dart';
+import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:open_textview/model/model_isar.dart';
@@ -18,7 +19,8 @@ extension Ex on double {
 }
 
 extension Iterables<E> on Iterable<E> {
-  Map<K, List<E>> groupBy<K>(K Function(E) keyFunction) => fold(<K, List<E>>{}, (Map<K, List<E>> map, E element) => map..putIfAbsent(keyFunction(element), () => <E>[]).add(element));
+  Map<K, List<E>> groupBy<K>(K Function(E) keyFunction) =>
+      fold(<K, List<E>>{}, (Map<K, List<E>> map, E element) => map..putIfAbsent(keyFunction(element), () => <E>[]).add(element));
 }
 
 class Utils {
@@ -108,10 +110,10 @@ class Utils {
     return newLineTheoremStr(tmpStr);
   }
 
-  static Future<String> convEpub(File f) async {
+  static Future<String> convEpub(File f, {Function(int total, int current)? onProcess}) async {
     List<String?> hrefs = [];
-    Map<String, String> listXhtml = {};
-    String cssString = "";
+    Map<String, String> listhtml = {};
+    Map<String, String> cssMap = {};
 
     String strContents = "";
     final bytes = f.readAsBytesSync();
@@ -129,23 +131,37 @@ class Utils {
           }
         }
         if (file.name.contains(".css")) {
-          var data = String.fromCharCodes(intdatas);
-          cssString += data;
+          var ctn = String.fromCharCodes(intdatas);
+          var decodeData = await CharsetDetector.autoDecode(file.content);
+          cssMap[file.name.split("/").skip(1).join("/")] = decodeData.string;
         }
         if (file.name.contains("html")) {
           var ctn = String.fromCharCodes(intdatas);
           var decodeData = await CharsetDetector.autoDecode(file.content);
-          listXhtml[file.name.split("/").skip(1).join("/")] = decodeData.string;
+          listhtml[file.name.split("/").skip(1).join("/")] = decodeData.string;
         }
       } else {
         // Directory('out/' + filename).create(recursive: true);
       }
     }
 
-    hrefs.forEach((href) {
-      if (listXhtml[href] != null) {
-        var htmlData = parse(listXhtml[href]);
+    var htmllen = listhtml.keys.length;
+    for (var i = 0; i < htmllen; i++) {
+      String href = listhtml.keys.elementAt(i);
+      if (listhtml[href] != null) {
+        var htmlData = parse(listhtml[href]);
+        if (cssMap.keys.length > 10) {
+          if (onProcess != null) {
+            onProcess(htmllen, i);
+            await Future.delayed(10.milliseconds);
+          }
+          try {
+            removeFontSize0(htmlData, cssMap);
+          } catch (e) {}
+        }
+
         var bodytext = htmlData.body?.text ?? "";
+
         if (Get.locale?.languageCode.contains("ko") != null) {
           // bodytext = bodytext.split("\n").join();
           bodytext = bodytext.split("\n").map((e) => e.trim()).join("\n");
@@ -155,14 +171,30 @@ class Utils {
         }
         strContents += bodytext;
       }
-    });
-
-    // }
-    // File saveFile = File(e.path!.replaceAll(RegExp("epub\$"), "txt"));
-    // saveFile.writeAsStringSync(strContents);
-    // f.delete();
+    }
+    // hrefs.forEach((href) {
+    // });
 
     return newLineTheoremStr(strContents);
+  }
+
+  static removeFontSize0(Document htmlData, Map<String, String> cssMap) {
+    var links = htmlData.querySelectorAll("link[type=\"text/css\"]");
+    links.forEach((e) {
+      if (e.attributes['href']?.isNotEmpty != null) {
+        var fontsizes = cssMap[e.attributes['href']]!.split(RegExp(r" {font-size:.{1,5}0}"));
+
+        fontsizes.forEach((classname) {
+          if (classname.trim().isNotEmpty) {
+            var arr = htmlData.querySelectorAll(classname);
+            arr.forEach((e) {
+              if (e.children.isNotEmpty) return;
+              e.remove();
+            });
+          }
+        });
+      }
+    });
   }
 
   static Future<FilePickerResult?> selectFile() async {

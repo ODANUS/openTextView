@@ -26,6 +26,8 @@ class LibraryPage extends GetView {
   RxString searchText = "".obs;
   RxString filterText = "ALL".obs;
   RxBool asc = false.obs;
+  RxInt epubTotal = 0.obs;
+  RxInt epubCurrent = 0.obs;
 
   Future<bool> newLineTheorem(File f) async {
     var rtn = await AdCtl.openInterstitialAdNewLine();
@@ -65,11 +67,18 @@ class LibraryPage extends GetView {
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
-      String rtnStr = await Utils.convEpub(f);
+      String rtnStr = await Utils.convEpub(f, onProcess: (total, cur) {
+        epubTotal(total);
+        epubCurrent(cur);
+      });
+      // return false;
+      epubTotal(0);
+      epubCurrent(0);
       File outputFile = File("$path/epub_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
       outputFile.createSync();
       outputFile.writeAsStringSync(rtnStr);
       outputFile.setLastAccessedSync(DateTime.now());
+
       return true;
     }
     return false;
@@ -522,7 +531,24 @@ class LibraryPage extends GetView {
                       });
                     }),
                 Obx(() {
-                  // if (true) {
+                  if (epubTotal.value > 0) {
+                    return Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Colors.black54,
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircularProgressIndicator(),
+                            SizedBox(height: 10),
+                            Text("${epubCurrent.value}/${epubTotal.value}"),
+                          ],
+                        ));
+                  }
+                  return SizedBox();
+                }),
+                Obx(() {
                   if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value > MAXOCRCNT) {
                     return Container(
                         width: double.infinity,
