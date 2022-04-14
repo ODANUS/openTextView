@@ -39,8 +39,10 @@ class LibraryPage extends GetView {
 
       String rtnStr = await Utils.newLineTheorem(f);
 
-      File outputFile = File("$path/newline_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
-      outputFile.createSync();
+      File outputFile = File("$path/newline_$fileName.txt");
+      if (!outputFile.existsSync()) {
+        outputFile.createSync();
+      }
       outputFile.writeAsStringSync(rtnStr);
       outputFile.setLastAccessedSync(DateTime.now());
       return true;
@@ -70,11 +72,46 @@ class LibraryPage extends GetView {
       String rtnStr = await Utils.convEpub(f, onProcess: (total, cur) {
         epubTotal(total);
         epubCurrent(cur);
+      }, onFont: () async {
+        return Get.dialog(AlertDialog(
+          content: Text("There are built-in fonts.".tr),
+          actionsAlignment: MainAxisAlignment.spaceBetween,
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back(result: false);
+                },
+                child: Text("close".tr)),
+            ElevatedButton(
+                onPressed: () {
+                  Get.back(result: true);
+                  AdCtl.startRewardedAd();
+                },
+                child: Text("confirm".tr)),
+          ],
+        ));
       });
+      // return false;
       epubTotal(0);
       epubCurrent(0);
-      File outputFile = File("$path/epub_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
-      outputFile.createSync();
+
+      if (rtnStr.trim().isEmpty) {
+        Get.dialog(AlertDialog(
+          content: Text("Failed to convert epub.".tr),
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text("confirm".tr))
+          ],
+        ));
+      }
+
+      File outputFile = File("$path/epub_$fileName.txt");
+      if (!outputFile.existsSync()) {
+        outputFile.createSync();
+      }
       outputFile.writeAsStringSync(rtnStr);
       outputFile.setLastAccessedSync(DateTime.now());
 
@@ -123,7 +160,10 @@ class LibraryPage extends GetView {
               (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
             final data = file.content as List<int>;
             var tmpFile = File("${tmpDir.path}/$filename");
-            await tmpFile.create(recursive: true);
+            if (!tmpFile.existsSync()) {
+              await tmpFile.create(recursive: true);
+            }
+
             await tmpFile.writeAsBytes(data);
             IsarCtl.unzipCurrent(total);
             encoder.addFile(tmpFile);
@@ -145,7 +185,10 @@ class LibraryPage extends GetView {
         if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
           final data = file.content as List<int>;
           var tmpFile = File("${tmpDir.path}/$filename");
-          await tmpFile.create(recursive: true);
+          if (!tmpFile.existsSync()) {
+            await tmpFile.create(recursive: true);
+          }
+
           await tmpFile.writeAsBytes(data);
           IsarCtl.unzipCurrent(idx++);
         } else {
@@ -155,19 +198,15 @@ class LibraryPage extends GetView {
       IsarCtl.unzipTotal(0);
       var rtn = await Get.toNamed("/ocr");
       if (rtn != null) {
-        File outputFile = File("$path/ocr_$fileName(${Utils.DF(DateTime.now(), f: 'HH:mm:ss')}).txt");
+        File outputFile = File("$path/ocr_$fileName.txt");
+        if (!outputFile.existsSync()) {
+          outputFile.createSync();
+        }
         outputFile.createSync();
         outputFile.writeAsStringSync(rtn);
         outputFile.setLastAccessedSync(DateTime.now());
       }
     }
-    // var len = tmpDir.listSync().length;
-    // if (len <= 60 && !AdCtl.hasOpenInterstitialAd()) {
-    //   return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-    // }
-    // if (len > 60 && !AdCtl.hasOpenRewardedAd()) {
-    //   return await Get.dialog(AlertDialog(title: Text("이미지 -> 텍스트."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-    // }
 
     return true;
   }
@@ -249,11 +288,19 @@ class LibraryPage extends GetView {
                     stream: getTemporaryDirectory().asStream(),
                     builder: (context, snapshot) {
                       if (snapshot.data == null) return SizedBox();
+
                       var dir = Directory("${snapshot.data!.path}/file_picker");
                       if (!dir.existsSync()) {
                         dir.createSync(recursive: true);
                       }
                       var refFiles = dir.listSync();
+                      refFiles.forEach((element) {
+                        var tmpEx = element.path.split(".").last.toLowerCase();
+                        if (tmpEx == "png" || tmpEx == "jpg" || tmpEx == "jpeg" || tmpEx == "gif") {
+                          element.deleteSync();
+                          refFiles.remove(element);
+                        }
+                      });
 
                       return IsarCtl.rxHistory((p0, p1) {
                         return Column(

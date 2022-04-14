@@ -88,7 +88,6 @@ class OcrPage extends GetView {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        // <-  WillPopScope로 감싼다.
         onWillPop: () {
           return Future(() => false);
         },
@@ -111,7 +110,7 @@ class OcrPage extends GetView {
             ],
             bottom: PreferredSize(
               preferredSize: Size(Get.width, 50),
-              child: AdBanner(key: Key("history")),
+              child: AdBanner(key: Key("ocr")),
             ),
           ),
           body: Stack(
@@ -124,8 +123,8 @@ class OcrPage extends GetView {
                 return Column(children: [
                   if (bcutList.isNotEmpty)
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                      ElevatedButton(onPressed: () => bcutList(bcutList.map((e) => true).toList()), child: Text("전체선택")),
-                      ElevatedButton(onPressed: () => bcutList(bcutList.map((e) => false).toList()), child: Text("전체해제"))
+                      ElevatedButton(onPressed: () => bcutList(bcutList.map((e) => true).toList()), child: Text("Select All".tr)),
+                      ElevatedButton(onPressed: () => bcutList(bcutList.map((e) => false).toList()), child: Text("Unselect All".tr))
                     ]),
                   Card(
                       child: ListTile(
@@ -224,7 +223,7 @@ class OcrPage extends GetView {
                                 onPressed: () {
                                   splitImageFiles();
                                 },
-                                child: Text("자르기"))
+                                child: Text("Crop".tr))
                             : ElevatedButton(
                                 onPressed: () async {
                                   // --------------------------------------------------------------

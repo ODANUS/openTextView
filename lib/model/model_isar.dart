@@ -124,7 +124,7 @@ class SettingIsar {
     this.touchLayout = 0,
     this.useClipboard = true,
     this.enablescroll = false,
-    this.theme = "light",
+    this.theme = "dark",
     this.lastDevVersion = "",
     this.backgroundColor = 0x00FFFFFF,
     this.fontColor = 0,

@@ -2,13 +2,18 @@ import 'dart:developer' as d;
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:archive/archive_io.dart';
 import 'package:charset_converter/charset_converter.dart';
 import 'package:epubx/epubx.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:get/get.dart';
+import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -25,6 +30,7 @@ extension Iterables<E> on Iterable<E> {
 
 class Utils {
   static String newLineTheoremStr(String tmpStr) {
+    tmpStr = tmpStr.replaceAll(RegExp("\n{2,}"), "▤▤▤&&&");
     var strList = tmpStr.split("\n");
     // strList = strList.getRange(0, 100).toList();
 
@@ -110,7 +116,9 @@ class Utils {
     return newLineTheoremStr(tmpStr);
   }
 
-  static Future<String> convEpub(File f, {Function(int total, int current)? onProcess}) async {
+  static Future<String> convEpub(File f, {Function(int total, int current)? onProcess, Function? onFont}) async {
+    var pathList = f.path.split("/");
+    var path = pathList.sublist(0, pathList.length - 2).join("/");
     List<String> hrefs = [];
     Map<String, String> listhtml = {};
     Map<String, String> cssMap = {};
@@ -118,6 +126,7 @@ class Utils {
     String strContents = "";
     final bytes = f.readAsBytesSync();
     final archive = ZipDecoder().decodeBytes(bytes);
+    bool bFont = false;
     for (final file in archive) {
       final filename = file.name;
       if (file.isFile) {
@@ -147,11 +156,63 @@ class Utils {
           var decodeData = await CharsetDetector.autoDecode(file.content);
           listhtml[file.name.split("/").skip(1).join("/")] = decodeData.string;
         }
+        if (file.name.contains(".ttf") || file.name.contains(".otf")) {
+          var font = file.content as Uint8List;
+          if (file.size > 15000000) {
+            bFont = true;
+            await ui.loadFontFromList(font, fontFamily: "tmpfont");
+          }
+        }
       } else {
         // Directory('out/' + filename).create(recursive: true);
       }
     }
+    if (bFont && (onFont != null && await onFont())) {
+      var str = "";
+      Map<int, String> codeMap = {};
+      var bodytext = "";
 
+      var htmllen = listhtml.keys.length;
+      for (var i = 0; i < hrefs.length; i++) {
+        if (onProcess != null) {
+          onProcess(htmllen, i);
+          await Future.delayed(10.milliseconds);
+        }
+        String href = hrefs.elementAt(i);
+        if (listhtml[href] != null) {
+          var htmlData = parse(listhtml[href]);
+          bodytext = htmlData.body?.text ?? "";
+          ui.PictureRecorder recorder = ui.PictureRecorder();
+          Canvas canvas = Canvas(recorder);
+          canvas.drawPaint(Paint()..color = Colors.white);
+
+          var t = TextPainter(
+            text: TextSpan(
+              text: bodytext,
+              style: TextStyle(
+                fontFamily: "tmpfont",
+                color: Colors.black,
+                fontSize: 14,
+                height: 1.2,
+              ),
+            ),
+            textDirection: TextDirection.ltr,
+          )..layout(maxWidth: 1800);
+
+          t.paint(canvas, Offset(50, 0));
+          var img = await recorder.endRecording().toImage(1800, t.height.toInt());
+          var pngBytes = await img.toByteData(format: ui.ImageByteFormat.png);
+          var ff = File('${path}/epub_ocr.png')..writeAsBytesSync(pngBytes!.buffer.asInt8List());
+          // final params = SaveFileDialogParams(sourceFilePath: ff.path);
+          // await FlutterFileDialog.saveFile(params: params);
+          var tmpstr = await ocrData(ff);
+          str += tmpstr;
+        }
+      }
+      var ex = RegExp(r"\| htt.+\n.{0,}\n.{0,}\n.{0,}\n.{0,}\n.{0,}\n.{0,}");
+      var rtn = newLineTheoremStr(str).replaceAll(ex, "");
+      return rtn;
+    }
     var htmllen = listhtml.keys.length;
     for (var i = 0; i < hrefs.length; i++) {
       String href = hrefs.elementAt(i);
@@ -183,6 +244,22 @@ class Utils {
     // });
 
     return newLineTheoremStr(strContents);
+  }
+
+  static ocrData(File file) async {
+    TextDetectorV2 textDetector = GoogleMlKit.vision.textDetectorV2();
+    var langCode = TextRecognitionOptions.korean;
+    List<String> tmpList = [];
+
+    var inputImage = InputImage.fromFile(file);
+    final recognisedText = await textDetector.processImage(inputImage, script: langCode);
+
+    recognisedText.blocks.forEach((e) {
+      e.lines.forEach((element) {
+        tmpList.add("${element.text} ");
+      });
+    });
+    return tmpList.join("\n\n");
   }
 
   static removeFontSize0(Document htmlData, Map<String, String> cssMap) {

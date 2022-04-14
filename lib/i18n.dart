@@ -116,6 +116,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Creating split compressed file...",
           "bg image settings": "Background Image Settings",
           "bg image filter settings": "Background image filter settings",
+          "Failed to convert epub.": "Failed to convert epub.\nIf you email the file to the developer, it may be resolved.",
+          "Select All": "Select All",
+          "Unselect All": "Unselect All",
+          "Crop": "Crop",
+          "There are built-in fonts.": "There are built-in fonts.\nDo you want to convert using the built-in font?\nChanges to the OCR process.",
         },
         "ko": {
           "key": "ko",
@@ -228,6 +233,11 @@ class Messages extends Translations {
           "Creating split compressed file": "분할 압축 파일 생성중...",
           "bg image settings": "배경이미지 설정",
           "bg image filter settings": "배경 이미지 필터 설정",
+          "Failed to convert epub.": "epub 변환에 실패하였습니다.\n해당 파일을 개발자 에게 메일로 주시면 해결 될지도 모름니다.",
+          "Select All": "전체선택",
+          "Unselect All": "전체해제",
+          "Crop": "자르기",
+          "There are built-in fonts.": "내장 폰트가 있습니다. \n내장 폰트를 이용하여 변환 하시겠습니까? \nOCR 프로세스로 변경 됩니다.",
         },
         "gl": {
           "key": "gl",
@@ -342,6 +352,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Creación de ficheiro comprimido dividido ...",
           "bg image settings": "Configuración de imaxes de fondo",
           "bg image filter settings": "Configuración de filtro de imaxe de fondo",
+          "Failed to convert epub.": "Non se puido converter EPUB.\nSe envías por correo electrónico o ficheiro ao desarrollador, pode resolverse.",
+          "Select All": "Seleccionar todo",
+          "Unselect All": "Unlite All",
+          "Crop": "Crop.",
+          "There are built-in fonts.": "Hai fontes incorporadas.\nQueres converter usando a fonte incorporada?\nCambios no proceso OCR.",
         },
         "gu": {
           "key": "gu",
@@ -456,6 +471,12 @@ class Messages extends Translations {
           "Creating split compressed file": "સ્પ્લિટ કમ્પ્રેસ્ડ ફાઇલ બનાવવી ...",
           "bg image settings": "પૃષ્ઠભૂમિ છબી સેટિંગ્સ",
           "bg image filter settings": "પૃષ્ઠભૂમિ છબી ફિલ્ટર સેટિંગ્સ",
+          "Failed to convert epub.": "ઇપબને કન્વર્ટ કરવામાં નિષ્ફળ.\nજો તમે ફાઇલને વિકાસકર્તાને ઇમેઇલ કરો છો, તો તે ઉકેલાઈ શકે છે.",
+          "Select All": "બધા પસંદ કરો",
+          "Unselect All": "બધાને પસંદ ન કરો",
+          "Crop": "પાક",
+          "There are built-in fonts.":
+              "બિલ્ટ-ઇન ફોન્ટ્સ છે.\nશું તમે બિલ્ટ-ઇન ફૉન્ટનો ઉપયોગ કરીને કન્વર્ટ કરવા માંગો છો?\nઓસીઆર પ્રક્રિયામાં ફેરફારો.",
         },
         "el": {
           "key": "el",
@@ -571,6 +592,13 @@ class Messages extends Translations {
           "Creating split compressed file": "Δημιουργία διαχωρισμένου συμπιεσμένου αρχείου ...",
           "bg image settings": "Ρυθμίσεις εικόνας φόντου",
           "bg image filter settings": "Ρυθμίσεις φίλτρου εικόνας φόντου",
+          "Failed to convert epub.":
+              "Απέτυχε να μετατραπεί η EPUB.\nΕάν στείλετε μήνυμα ηλεκτρονικού ταχυδρομείου στο αρχείο στον προγραμματιστή, μπορεί να επιλυθεί.",
+          "Select All": "Επιλογή όλων",
+          "Unselect All": "Αποσυναρμολογήστε όλα",
+          "Crop": "Καλλιέργεια",
+          "There are built-in fonts.":
+              "Υπάρχουν ενσωματωμένες γραμματοσειρές.\nΘέλετε να μετατρέψετε τη χρήση της ενσωματωμένης γραμματοσειράς;\nΑλλαγές στη διαδικασία OCR.",
         },
         "nl": {
           "key": "nl",
@@ -686,6 +714,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Split-gecomprimeerd bestand maken ...",
           "bg image settings": "Achtergrondafbeeldingen",
           "bg image filter settings": "Achtergrondafbeeldingsfilterinstellingen",
+          "Failed to convert epub.": "Epub niet converteren.\nAls u het bestand naar de ontwikkelaar e-mailt, kan deze worden opgelost.",
+          "Select All": "Selecteer alles",
+          "Unselect All": "Alles verwijderen",
+          "Crop": "Bijsnijden",
+          "There are built-in fonts.":
+              "Er zijn ingebouwde lettertypen.\nWilt u converteren met behulp van het ingebouwde lettertype?\nWijzigingen in het OCR-proces.",
         },
         "ne": {
           "key": "ne",
@@ -801,6 +835,12 @@ class Messages extends Translations {
           "Creating split compressed file": "स्प्लिट संकुचित फाइल सिर्जना गर्दै ...",
           "bg image settings": "पृष्ठभूमि छवि सेटिंग्स",
           "bg image filter settings": "पृष्ठभूमि छवि फिल्टर सेटिंग्स",
+          "Failed to convert epub.": "Epub परिवर्तन गर्न असफल भयो।\nयदि तपाइँले फाइभरमा फाईललाई ईमेल गर्नुहुन्छ भने, यो समाधान हुन सक्छ।",
+          "Select All": "सबै छान्नु",
+          "Unselect All": "सबै भन्दा अचेतन",
+          "Crop": "फसल",
+          "There are built-in fonts.":
+              "त्यहाँ निर्मित फन्टहरू छन्।\nके तपाइँ निर्मित फन्ट प्रयोग गरेर रूपान्तरण गर्न चाहानुहुन्छ?\nOCR प्रक्रियामा परिवर्तन।",
         },
         "no": {
           "key": "no",
@@ -915,6 +955,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Opprette Split-komprimert fil ...",
           "bg image settings": "Bakgrunnsbildeinnstillinger",
           "bg image filter settings": "Bakgrunnsbildefilterinnstillinger",
+          "Failed to convert epub.": "Kunne ikke konvertere ePub.\nHvis du sender filen til utvikleren, kan den løses.",
+          "Select All": "Velg alle",
+          "Unselect All": "Avmarker alt",
+          "Crop": "Avling",
+          "There are built-in fonts.":
+              "Det er innebygde skrifttyper.\nVil du konvertere ved hjelp av den innebygde fonten?\nEndrer seg til OCR-prosessen.",
         },
         "da": {
           "key": "da",
@@ -1029,6 +1075,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Oprettelse af split komprimeret fil ...",
           "bg image settings": "Baggrundsbilledindstillinger",
           "bg image filter settings": "Indstillinger for baggrundsbilledfilter",
+          "Failed to convert epub.": "Kunne ikke konvertere EPUB.\nHvis du sender filen til udvikleren, kan den blive løst.",
+          "Select All": "Vælg alle",
+          "Unselect All": "Unselect All.",
+          "Crop": "Afgrøde",
+          "There are built-in fonts.":
+              "Der er indbyggede skrifttyper.\nVil du konvertere ved hjælp af den indbyggede skrifttype?\nÆndringer i OCR-processen.",
         },
         "de": {
           "key": "de",
@@ -1143,6 +1195,13 @@ class Messages extends Translations {
           "Creating split compressed file": "Erstellen von geteilten komprimierten Datei ...",
           "bg image settings": "Hintergrundbildeinstellungen",
           "bg image filter settings": "Hintergrundbild-Filtereinstellungen",
+          "Failed to convert epub.":
+              "EPUB konnte nicht konvertiert werden.\nWenn Sie die Datei per E-Mail an den Entwickler senden, kann es gelöst werden.",
+          "Select All": "Wählen Sie Alle",
+          "Unselect All": "Alles wiederufen",
+          "Crop": "Ernte",
+          "There are built-in fonts.":
+              "Es gibt eingebaute Schriftarten.\nMöchten Sie mit der integrierten Schriftart konvertieren?\nÄnderungen am OCR-Prozess.",
         },
         "lo": {
           "key": "lo",
@@ -1255,6 +1314,11 @@ class Messages extends Translations {
           "Creating split compressed file": "ສ້າງເອກະສານທີ່ມີການແບ່ງປັນການແບ່ງປັນ ...",
           "bg image settings": "ການຕັ້ງຄ່າຮູບພາບພື້ນຫລັງ",
           "bg image filter settings": "ການຕັ້ງຄ່າຕົວກອງຮູບພາບພື້ນຫລັງ",
+          "Failed to convert epub.": "ລົ້ມເຫລວໃນການປ່ຽນ epub.\nຖ້າທ່ານສົ່ງອີເມວໄຟລ໌ໃຫ້ກັບນັກພັດທະນາ, ມັນອາດຈະຖືກແກ້ໄຂ.",
+          "Select All": "ເລືອກ​ທັງ​ຫມົດ",
+          "Unselect All": "UNSELECT ທັງຫມົດ",
+          "Crop": "ການປູກພືດ",
+          "There are built-in fonts.": "ມີຕົວອັກສອນທີ່ສ້າງຂຶ້ນ.\nທ່ານຕ້ອງການປ່ຽນແປງໂດຍໃຊ້ຕົວອັກສອນທີ່ສ້າງໃນບໍ?\nການປ່ຽນແປງຂະບວນການ OCR.",
         },
         "lv": {
           "key": "lv",
@@ -1369,6 +1433,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Izveidojot sadalīt saspiestu failu ...",
           "bg image settings": "Fona attēlu iestatījumi",
           "bg image filter settings": "Fona attēla filtra iestatījumi",
+          "Failed to convert epub.": "Neizdevās konvertēt EPUB.\nJa nosūtīsiet e-pastu failam izstrādātājam, to var atrisināt.",
+          "Select All": "Izvēlēties visus",
+          "Unselect All": "Noņemiet visu",
+          "Crop": "Apgriezt",
+          "There are built-in fonts.": "Ir iebūvēti fonti.\nVai vēlaties konvertēt, izmantojot iebūvēto fontu?\nIzmaiņas OCR procesā.",
         },
         "ru": {
           "key": "ru",
@@ -1484,6 +1553,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Создание разделенного сжатого файла ...",
           "bg image settings": "Настройки фонового изображения",
           "bg image filter settings": "Настройки фильтра фона изображения",
+          "Failed to convert epub.":
+              "Не удалось преобразовать EPUB.\nЕсли вы отправляете по электронной почте файл разработчику, он может быть разрешен.",
+          "Select All": "Выбрать все",
+          "Unselect All": "Снять все",
+          "Crop": "Обрезать",
+          "There are built-in fonts.": "Есть встроенные шрифты.\nВы хотите конвертировать, используя встроенный шрифт?\nИзменения в процессе OCR.",
         },
         "ro": {
           "key": "ro",
@@ -1599,6 +1674,13 @@ class Messages extends Translations {
           "Creating split compressed file": "Crearea fișierului comprimat divizat ...",
           "bg image settings": "Setări imagine de fundal",
           "bg image filter settings": "Setări filtru de fundal imagine",
+          "Failed to convert epub.":
+              "Nu a reușit să convertească epubul.\nDacă trimiteți prin e-mail fișierul către dezvoltator, acesta poate fi rezolvat.",
+          "Select All": "Selectează tot",
+          "Unselect All": "Deselectează tot",
+          "Crop": "A decupa",
+          "There are built-in fonts.":
+              "Există fonturi încorporate.\nDoriți să convertiți folosind fontul încorporat?\nModificări ale procesului OCR.",
         },
         "lt": {
           "key": "lt",
@@ -1712,6 +1794,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Splito suspausto failo kūrimas ...",
           "bg image settings": "Fono vaizdo nustatymai",
           "bg image filter settings": "Fono vaizdo filtro nustatymai",
+          "Failed to convert epub.": "Nepavyko konvertuoti EPUB.\nJei el. Paštu išsiųsite failą kūrėjui, jis gali būti išspręstas.",
+          "Select All": "Pasirinkti viską",
+          "Unselect All": "Unselect All.",
+          "Crop": "Pasėlių",
+          "There are built-in fonts.": "Yra pastatytų šriftų.\nAr norite konvertuoti naudojant integruotą šriftą?\nOCR proceso pakeitimai.",
         },
         "mr": {
           "key": "mr",
@@ -1826,6 +1913,11 @@ class Messages extends Translations {
           "Creating split compressed file": "संकुचित फाइल तयार करणे ...",
           "bg image settings": "पार्श्वभूमी प्रतिमा सेटिंग्ज",
           "bg image filter settings": "पार्श्वभूमी प्रतिमा फिल्टर सेटिंग्ज",
+          "Failed to convert epub.": "EPUB रूपांतरित करण्यात अयशस्वी.\nआपण विकसकांना फाइल ईमेल केल्यास, ते निराकरण केले जाऊ शकते.",
+          "Select All": "सर्व निवडा",
+          "Unselect All": "निवडलेले सर्व काढा",
+          "Crop": "पीक",
+          "There are built-in fonts.": "तेथे अंगभूत फॉन्ट आहेत.\nआपण अंगभूत फॉन्ट वापरून रूपांतरित करू इच्छिता?\nओसीआर प्रक्रियेत बदल.",
         },
         "mk": {
           "key": "mk",
@@ -1940,6 +2032,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Креирање на сплит компресирана датотека ...",
           "bg image settings": "Поставки за позадина",
           "bg image filter settings": "Поставки за филтер за слики",
+          "Failed to convert epub.": "Не успеа да го конвертира ЕПУБ.\nАко ја испратите датотеката до инвеститорот, може да се реши.",
+          "Select All": "Селектирај се",
+          "Unselect All": "Unlexect All.",
+          "Crop": "Култура",
+          "There are built-in fonts.":
+              "Постојат вградени фонтови.\nДали сакате да го конвертирате користењето на вградениот фонт?\nПромени во процесот на OCR.",
         },
         "ml": {
           "key": "ml",
@@ -2055,6 +2153,13 @@ class Messages extends Translations {
           "Creating split compressed file": "സ്പ്ലിറ്റ് കംപ്രസ് ചെയ്ത ഫയൽ സൃഷ്ടിക്കുന്നു ...",
           "bg image settings": "പശ്ചാത്തല ഇമേജ് ക്രമീകരണങ്ങൾ",
           "bg image filter settings": "പശ്ചാത്തല ഇമേജ് ഫിൽട്ടർ ക്രമീകരണങ്ങൾ",
+          "Failed to convert epub.":
+              "Epub പരിവർത്തനം ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.\nനിങ്ങൾ ഡവലപ്പറിലേക്ക് ഫയൽ ഇമെയിൽ ചെയ്യുകയാണെങ്കിൽ, അത് പരിഹരിക്കപ്പെടാം.",
+          "Select All": "എല്ലാം തിരഞ്ഞെടുക്കുക",
+          "Unselect All": "എല്ലാം തിരഞ്ഞെടുത്തത് തിരഞ്ഞെടുക്കുക",
+          "Crop": "വിള",
+          "There are built-in fonts.":
+              "അന്തർനിർമ്മിതമായ ഫോണ്ടുകളുണ്ട്.\nഅന്തർനിർമ്മിത ഫോണ്ട് ഉപയോഗിച്ച് പരിവർത്തനം ചെയ്യണോ?\nOCR പ്രക്രിയയിലെ മാറ്റങ്ങൾ.",
         },
         "ms": {
           "key": "ms",
@@ -2168,6 +2273,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Membuat fail termampat Split ...",
           "bg image settings": "Tetapan imej latar belakang",
           "bg image filter settings": "Tetapan Penapis Imej Latar Belakang",
+          "Failed to convert epub.": "Gagal menukar epub.\nJika anda menghantar e-mel kepada pemaju, ia boleh diselesaikan.",
+          "Select All": "Pilih semua",
+          "Unselect All": "Unselect semua",
+          "Crop": "Potong",
+          "There are built-in fonts.":
+              "Terdapat fon terbina dalam.\nAdakah anda ingin menukar menggunakan font terbina dalam?\nPerubahan kepada proses OCR.",
         },
         "ms": {
           "key": "ms",
@@ -2281,6 +2392,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Membuat fail termampat Split ...",
           "bg image settings": "Tetapan imej latar belakang",
           "bg image filter settings": "Tetapan Penapis Imej Latar Belakang",
+          "Failed to convert epub.": "Gagal menukar epub.\nJika anda menghantar e-mel kepada pemaju, ia boleh diselesaikan.",
+          "Select All": "Pilih semua",
+          "Unselect All": "Unselect semua",
+          "Crop": "Potong",
+          "There are built-in fonts.":
+              "Terdapat fon terbina dalam.\nAdakah anda ingin menukar menggunakan font terbina dalam?\nPerubahan kepada proses OCR.",
         },
         "mn": {
           "key": "mn",
@@ -2394,6 +2511,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Хуваах шахсан файлыг бий болгох ...",
           "bg image settings": "Арын зургийн тохиргоо",
           "bg image filter settings": "Арын зургийн шүүлтүүр шүүлтүүрийн тохиргоо",
+          "Failed to convert epub.": "Epub хөрвүүлж чадаагүй.\nХэрэв та файлыг хөгжүүлэгчдэд имэйлээр имэйлээр илгээвэл энэ нь шийдэж магадгүй юм.",
+          "Select All": "Бүгдийг сонгох",
+          "Unselect All": "Бүгдийг нь",
+          "Crop": "Ургац",
+          "There are built-in fonts.": "Дээрх фонтууд байдаг.\nТа баригдсан фонтыг ашиглан хөрвүүлэхийг хүсч байна уу?\nOCR процессын өөрчлөлт.",
         },
         "eu": {
           "key": "eu",
@@ -2509,6 +2631,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Konprimitutako fitxategi zatitua sortzen ...",
           "bg image settings": "Atzeko planoaren irudiaren ezarpenak",
           "bg image filter settings": "Atzeko planoaren irudiaren iragazkiaren ezarpenak",
+          "Failed to convert epub.": "Ezin izan da epub bihurtu.\nFitxategia garatzaileari eutsiz gero, ebatzi daiteke.",
+          "Select All": "Hautatu guztiak",
+          "Unselect All": "Deslecturatu guztiak",
+          "Crop": "Uzta",
+          "There are built-in fonts.": "Letra-tipoak daude.\nBortutako letra erabiltzea nahi al duzu?\nOCR prozesuan aldaketak.",
         },
         "my": {
           "key": "my",
@@ -2623,6 +2750,11 @@ class Messages extends Translations {
           "Creating split compressed file": "split compressed file ကိုဖန်တီး ...",
           "bg image settings": "နောက်ခံပုံ settings",
           "bg image filter settings": "နောက်ခံပုံ filter settings",
+          "Failed to convert epub.": "Epub ကိုပြောင်းလဲရန်မအောင်မြင်ပါ။\nဖိုင်ကို developer သို့အီးမေးလ်ပို့လျှင်၎င်းကိုဖြေရှင်းနိုင်သည်။",
+          "Select All": "အားလုံးရွေးချယ်ပါ",
+          "Unselect All": "အားလုံးရွေးချယ်ပါ",
+          "Crop": "အသီးအနှံ",
+          "There are built-in fonts.": "built-in ဖောင့်ရှိပါတယ်။\nသင် built-in ဖောင့်ကိုသုံးလိုပါသလား?\nOCR လုပ်ငန်းစဉ်အပြောင်းအလဲများ။",
         },
         "vi": {
           "key": "vi",
@@ -2736,6 +2868,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Tạo tệp nén chia ...",
           "bg image settings": "Cài đặt hình nền",
           "bg image filter settings": "Cài đặt bộ lọc hình nền",
+          "Failed to convert epub.": "Không thể chuyển đổi EPUB.\nNếu bạn gửi email tệp vào nhà phát triển, nó có thể được giải quyết.",
+          "Select All": "Chọn tất cả",
+          "Unselect All": "Bỏ chọn tất cả",
+          "Crop": "Mùa vụ",
+          "There are built-in fonts.": "Có phông chữ tích hợp.\nBạn có muốn chuyển đổi bằng phông chữ tích hợp không?\nThay đổi quy trình OCR.",
         },
         "be": {
           "key": "be",
@@ -2850,6 +2987,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Стварэнне расколу сціснутага файла ...",
           "bg image settings": "Налады фону малюнка",
           "bg image filter settings": "Налады фільтра фону малюнка",
+          "Failed to convert epub.":
+              "Не атрымалася пераўтварыць EPUB.\nКалі вы па электроннай пошце файл для распрацоўніка, гэта можа быць вырашана.",
+          "Select All": "Абраць усё",
+          "Unselect All": "Невылечыць ўсе",
+          "Crop": "Ураджай",
+          "There are built-in fonts.": "Ёсць убудаваныя шрыфты.\nВы хочаце, каб пераўтварыць з дапамогай убудаванага шрыфта?\nЗмены ў працэсе OCR.",
         },
         "bn": {
           "key": "bn",
@@ -2964,6 +3107,11 @@ class Messages extends Translations {
           "Creating split compressed file": "বিভক্ত সংকুচিত ফাইল তৈরি করা হচ্ছে ...",
           "bg image settings": "পটভূমি ইমেজ সেটিংস",
           "bg image filter settings": "পটভূমি ইমেজ ফিল্টার সেটিংস",
+          "Failed to convert epub.": "EPUB রূপান্তর করতে ব্যর্থ হয়েছে।\nআপনি যদি বিকাশকারীর কাছে ফাইলটি ইমেল করেন তবে এটি সমাধান করা যেতে পারে।",
+          "Select All": "সব নির্বাচন করুন",
+          "Unselect All": "সরিয়ে ফেলুন সব",
+          "Crop": "ফসল",
+          "There are built-in fonts.": "অন্তর্নির্মিত ফন্ট আছে।\nআপনি অন্তর্নির্মিত ফন্ট ব্যবহার করে রূপান্তর করতে চান?\nOCR প্রক্রিয়া পরিবর্তন।",
         },
         "bg": {
           "key": "bg",
@@ -3078,6 +3226,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Създаване на разделен компресиран файл ...",
           "bg image settings": "Настройки на фоновото изображение",
           "bg image filter settings": "Настройки на филтъра на фоновото изображение",
+          "Failed to convert epub.": "Не успя да конвертира EPUB.\nАко изпращате файла на разработчика, той може да бъде разрешен.",
+          "Select All": "Избери всичко",
+          "Unselect All": "Деселектирайте всички",
+          "Crop": "реколта",
+          "There are built-in fonts.":
+              "Има вградени шрифтове.\nИскате ли да конвертирате използването на вградения шрифт?\nПромени в процеса на OCR.",
         },
         "sr": {
           "key": "sr",
@@ -3192,6 +3346,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Стварање сплитске компримоване датотеке ...",
           "bg image settings": "Подешавања позадинске слике",
           "bg image filter settings": "Подешавања филтра позадинске слике",
+          "Failed to convert epub.": "Није успело претворити ЕПУБ.\nАко датотеку пошаљете е-пошту програмеру, може се решити.",
+          "Select All": "Изабери све",
+          "Unselect All": "Поништи све",
+          "Crop": "Усев",
+          "There are built-in fonts.": "Постоје уграђени фонтови.\nДа ли желите да претворите помоћу уграђеног фонта?\nПромјене у процес ОЦР-а.",
         },
         "sw": {
           "key": "sw",
@@ -3306,6 +3465,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Kujenga faili iliyopasuliwa ya mgawanyiko ...",
           "bg image settings": "Mipangilio ya picha ya asili.",
           "bg image filter settings": "Mipangilio ya kichujio cha picha ya picha.",
+          "Failed to convert epub.": "Imeshindwa kubadili EPUB.\nIkiwa unatumia barua pepe kwa msanidi programu, inaweza kutatuliwa.",
+          "Select All": "Chagua Wote",
+          "Unselect All": "Futa wote",
+          "Crop": "Mazao",
+          "There are built-in fonts.": "Kuna fonts zilizojengwa.\nJe! Unataka kubadilisha kutumia font iliyojengwa?\nMabadiliko ya mchakato wa OCR.",
         },
         "sv": {
           "key": "sv",
@@ -3420,6 +3584,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Skapa split-komprimerad fil ...",
           "bg image settings": "Bakgrundsbildinställningar",
           "bg image filter settings": "Bakgrundsbildfilterinställningar",
+          "Failed to convert epub.": "Misslyckades med att konvertera EPUB.\nOm du skickar filen till utvecklaren kan den lösas.",
+          "Select All": "Välj alla",
+          "Unselect All": "Avmarkera alla",
+          "Crop": "Beskära",
+          "There are built-in fonts.":
+              "Det finns inbyggda teckensnitt.\nVill du konvertera med det inbyggda teckensnittet?\nÄndras till OCR-processen.",
         },
         "es": {
           "key": "es",
@@ -3534,6 +3704,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Creación de archivos comprimidos divididos ...",
           "bg image settings": "Configuración de la imagen de fondo",
           "bg image filter settings": "Configuración de filtro de imagen de fondo",
+          "Failed to convert epub.": "Error al convertir epub.\nSi envía un correo electrónico al archivo al desarrollador, puede resolverse.",
+          "Select All": "Seleccionar todo",
+          "Unselect All": "Deselecciona todo",
+          "Crop": "Cosecha",
+          "There are built-in fonts.": "Hay fuentes incorporadas.\n¿Quieres convertirte usando la fuente incorporada?\nCambios en el proceso de OCR.",
         },
         "sk": {
           "key": "sk",
@@ -3647,6 +3822,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Vytvorenie rozdeleného komprimovaného súboru ...",
           "bg image settings": "Nastavenia obrázka na pozadí",
           "bg image filter settings": "Nastavenia obrázkov na pozadí",
+          "Failed to convert epub.": "Nepodarilo sa previesť EPUB.\nAk e-mailom e-mailom súboru vývojárovi, môže sa vyriešiť.",
+          "Select All": "Vybrať všetko",
+          "Unselect All": "Odznačiť všetko",
+          "Crop": "Plodina",
+          "There are built-in fonts.": "Existujú vstavané fonty.\nChcete previesť pomocou vstavaného písma?\nZmeny v procese OCR.",
         },
         "sl": {
           "key": "sl",
@@ -3760,6 +3940,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Ustvarjanje Split stisnjene datoteke ...",
           "bg image settings": "Nastavitve slike ozadja.",
           "bg image filter settings": "Nastavitve filtra za ozadje",
+          "Failed to convert epub.": "EPUB ni uspelo pretvoriti.\nČe pošljete datoteko na razvijalca, se lahko reši.",
+          "Select All": "Izberi vse",
+          "Unselect All": "Neizberi vse",
+          "Crop": "Crop.",
+          "There are built-in fonts.": "Vgrajene pisave.\nŽelite pretvoriti uporabo vgrajenega pisave?\nSpremembe procesa OCR.",
         },
         "si": {
           "key": "si",
@@ -3873,6 +4058,11 @@ class Messages extends Translations {
           "Creating split compressed file": "බෙදී ගිය සම්පීඩිත ගොනුවක් නිර්මාණය කිරීම ...",
           "bg image settings": "පසුබිම් රූප සැකසුම්",
           "bg image filter settings": "පසුබිම් රූප පෙරහන් සැකසුම්",
+          "Failed to convert epub.": "එපුබ් හැරවීමට අපොහොසත් විය.\nඔබ ගොනුව සංවර්ධකයා වෙත විද්යුත් තැපැල් කරන්නේ නම්, එය විසඳා ගත හැකිය.",
+          "Select All": "සියල්ල තෝරන්න",
+          "Unselect All": "සියල්ල තෝරා නොගන්න",
+          "Crop": "බෝග",
+          "There are built-in fonts.": "සාදන ලද අකුරු ඇත.\nඔබට සාදන ලද අකුරු භාවිතා කිරීමට අවශ්යද?\nOCR ක්රියාවලියේ වෙනස්කම්.",
         },
         "ar": {
           "key": "ar",
@@ -3986,6 +4176,11 @@ class Messages extends Translations {
           "Creating split compressed file": "إنشاء ملف مضغوط سبليت ...",
           "bg image settings": "إعدادات صورة الخلفية",
           "bg image filter settings": "إعدادات تصفية صورة الخلفية",
+          "Failed to convert epub.": "فشل في تحويل EPUB.\nإذا قمت بالبريد الإلكتروني إلى الملف إلى المطور، فقد يتم حلها.",
+          "Select All": "اختر الكل",
+          "Unselect All": "إلغاء تحديد الكل",
+          "Crop": "ا & قتصاص",
+          "There are built-in fonts.": "هناك الخطوط المدمجة.\nهل ترغب في تحويل استخدام الخط المدمج؟\nالتغييرات في عملية OCR.",
         },
         "hy": {
           "key": "hy",
@@ -4099,6 +4294,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Պառակտված սեղմված ֆայլի ստեղծում ...",
           "bg image settings": "Ֆոնային պատկերի պարամետրեր",
           "bg image filter settings": "Ֆոնային պատկերի ֆիլտրի պարամետրեր",
+          "Failed to convert epub.": "Չհաջողվեց փոխարկել EPUB- ը:\nԵթե ​​ֆայլը էլեկտրոնային փոստով ուղարկեք ծրագրավորողին, այն կարող է լուծվել:",
+          "Select All": "Ընտրել բոլորը",
+          "Unselect All": "Անտեսել բոլորը",
+          "Crop": "Բերք",
+          "There are built-in fonts.":
+              "Ներկառուցված տառատեսակներ կան:\nDo անկանում եք փոխարկել ներկառուցված տառատեսակը:\nՓոփոխություններ OCR գործընթացում:",
         },
         "is": {
           "key": "is",
@@ -4213,6 +4414,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Búa til skipta þjappað skrá ...",
           "bg image settings": "Bakgrunnur myndastillingar",
           "bg image filter settings": "Bakgrunnsmynd sía stillingar",
+          "Failed to convert epub.": "Mistókst að umbreyta EPUB.\nEf þú sendir tölvupóstinn í framkvæmdaraðila getur það verið leyst.",
+          "Select All": "Velja allt",
+          "Unselect All": "Unselect allur",
+          "Crop": "Ræktun",
+          "There are built-in fonts.":
+              "Það eru innbyggðir leturgerðir.\nViltu umbreyta með því að nota innbyggða leturgerðina?\nBreytingar á OCR aðferðinni.",
         },
         "az": {
           "key": "az",
@@ -4326,6 +4533,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Split sıxılmış fayl yaratmaq ...",
           "bg image settings": "Fon görüntü parametrləri",
           "bg image filter settings": "Fon görüntü filtri parametrləri",
+          "Failed to convert epub.": "EPUB çevirə bilmədi.\nFaylı geliştiriciyə göndərsəniz, həll oluna bilər.",
+          "Select All": "Hamısını seç",
+          "Unselect All": "Hamısını yazacaq",
+          "Crop": "Məhsul",
+          "There are built-in fonts.":
+              "Quraşdırılmış şriftlər var.\nDaxili şriftdən istifadə edərək çevirmək istəyirsiniz?\nOCR prosesində dəyişikliklər.",
         },
         "af": {
           "key": "af",
@@ -4440,6 +4653,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Skepping van gesplete saamgeperste lêer ...",
           "bg image settings": "Agtergrond beeld instellings",
           "bg image filter settings": "Agtergrondbeeld Filter instellings",
+          "Failed to convert epub.": "Kon nie Epub omskep nie.\nAs u die lêer aan die ontwikkelaar epos, kan dit opgelos word.",
+          "Select All": "Kies alles",
+          "Unselect All": "Unsepect almal",
+          "Crop": "Oes",
+          "There are built-in fonts.": "Daar is ingeboude lettertipes.\nWil jy omskep met die ingeboude lettertipe?\nVerander na die OCR-proses.",
         },
         "sq": {
           "key": "sq",
@@ -4554,6 +4772,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Krijimi i skedarit të ngjeshur të ndarë ...",
           "bg image settings": "Cilësimet e imazhit të sfondit",
           "bg image filter settings": "Cilësimet e filtrit të imazhit të sfondit",
+          "Failed to convert epub.": "Dështoi në konvertimin e Epubit.\nNëse e dërgoni me email skedarin tek zhvilluesi, mund të zgjidhet.",
+          "Select All": "Selektoj të gjitha",
+          "Unselect All": "Të pakta",
+          "Crop": "Thyej",
+          "There are built-in fonts.":
+              "Janë fontë të integruar.\nA doni të konvertoheni duke përdorur fontin e integruar?\nNdryshimet në procesin e OCR.",
         },
         "am": {
           "key": "am",
@@ -4666,6 +4890,11 @@ class Messages extends Translations {
           "Creating split compressed file": "የተከፋፈለ ፋይልን መፍጠር ...",
           "bg image settings": "የጀርባ ምስል ቅንብሮች",
           "bg image filter settings": "የጀርባ ምስል ማጣሪያ ቅንጅቶች",
+          "Failed to convert epub.": "EPUB መለወጥ አልተሳካም.\nፋይሉን ወደ ገንቢው ኢብራዩ, ሊፈታ ይችላል.",
+          "Select All": "ሁሉንም ምረጥ",
+          "Unselect All": "ሁሉንም አይምረጡ",
+          "Crop": "ሰብል",
+          "There are built-in fonts.": "የተገነቡ ቅርጸ-ቁምፊዎች አሉ.\nአብሮ የተሰራውን ቅርጸ-ቁምፊ በመጠቀም መለወጥ ይፈልጋሉ?\nበ OCR ሂደት ላይ ለውጦች.",
         },
         "et": {
           "key": "et",
@@ -4780,6 +5009,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Splipressitud faili loomine ...",
           "bg image settings": "Taustpildi seaded",
           "bg image filter settings": "Taustpildi filter seaded",
+          "Failed to convert epub.": "EPUB-i teisendamine ebaõnnestus.\nKui e-kiri faili arendaja, see võib lahendada.",
+          "Select All": "Vali kõik",
+          "Unselect All": "Unleta kõik",
+          "Crop": "Saak",
+          "There are built-in fonts.": "Seal on sisseehitatud fonte.\nKas soovite teisendada sisseehitatud fondi?\nOCR-i protsessis muudatused.",
         },
         "en": {
           "key": "en",
@@ -4894,6 +5128,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Creating split compressed file...",
           "bg image settings": "Background Image Settings",
           "bg image filter settings": "Background image filter settings",
+          "Failed to convert epub.": "Failed to convert epub.\nIf you email the file to the developer, it may be resolved.",
+          "Select All": "Select All",
+          "Unselect All": "Unselect All",
+          "Crop": "Crop",
+          "There are built-in fonts.": "There are built-in fonts.\nDo you want to convert using the built-in font?\nChanges to the OCR process.",
         },
         "ur": {
           "key": "ur",
@@ -5008,6 +5247,11 @@ class Messages extends Translations {
           "Creating split compressed file": "تقسیم شدہ کمپریسڈ فائل بنانا ...",
           "bg image settings": "پس منظر کی تصویر کی ترتیبات",
           "bg image filter settings": "پس منظر کی تصویر فلٹر کی ترتیبات",
+          "Failed to convert epub.": "EPUB تبدیل کرنے میں ناکام\nاگر آپ فائل کو ڈویلپر کو ای میل کریں تو، یہ حل کیا جا سکتا ہے.",
+          "Select All": "تمام منتخب کریں",
+          "Unselect All": "سب کو منتخب کریں",
+          "Crop": "فصل",
+          "There are built-in fonts.": "بلٹ ان فونٹس ہیں.\nکیا آپ بلٹ ان فونٹ کا استعمال کرتے ہوئے تبدیل کرنا چاہتے ہیں؟\nOCR عمل میں تبدیلی",
         },
         "uk": {
           "key": "uk",
@@ -5122,6 +5366,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Створення розщепленого стисненого файлу ...",
           "bg image settings": "Налаштування фонового зображення",
           "bg image filter settings": "Налаштування фільтра фонового зображення",
+          "Failed to convert epub.":
+              "Не вдалося перетворити ЕПУБ.\nЯкщо ви надішлете по електронній пошті файлу до розробника, це може бути вирішено.",
+          "Select All": "Вибрати все",
+          "Unselect All": "Небесний",
+          "Crop": "Урожай, врожай",
+          "There are built-in fonts.": "Є вбудовані шрифти.\nВи хочете конвертувати за допомогою вбудованого шрифту?\nЗміни до процесу OCR.",
         },
         "it": {
           "key": "it",
@@ -5236,6 +5486,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Creazione di file divisa compressa ...",
           "bg image settings": "Impostazioni immagine di sfondo.",
           "bg image filter settings": "Impostazioni del filtro dell'immagine di sfondo",
+          "Failed to convert epub.": "Impossibile convertire EPUB.\nSe invii il file allo sviluppatore, potrebbe essere risolto.",
+          "Select All": "Seleziona tutto",
+          "Unselect All": "Deseleziona tutto",
+          "Crop": "Raccolto",
+          "There are built-in fonts.": "Ci sono font incorporati.\nVuoi convertire usando il font integrato?\nModifiche al processo OCR.",
         },
         "id": {
           "key": "id",
@@ -5349,6 +5604,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Membuat File Terkompresi Split ...",
           "bg image settings": "Pengaturan Gambar Latar Belakang",
           "bg image filter settings": "Pengaturan filter gambar latar belakang",
+          "Failed to convert epub.": "Gagal mengkonversi epub.\nJika Anda mengirim email file ke pengembang, itu dapat diselesaikan.",
+          "Select All": "Pilih Semua",
+          "Unselect All": "Tidak berhasil semua",
+          "Crop": "Tanaman",
+          "There are built-in fonts.": "Ada font built-in.\nApakah Anda ingin mengkonversi menggunakan font bawaan?\nPerubahan pada proses OCR.",
         },
         "ja": {
           "key": "ja",
@@ -5461,6 +5721,11 @@ class Messages extends Translations {
           "Creating split compressed file": "分割圧縮ファイルを作成する...",
           "bg image settings": "背景画像の設定",
           "bg image filter settings": "背景画像フィルタ設定",
+          "Failed to convert epub.": "epubの変換に失敗しました。\nファイルを開発者に電子メールで送信すると、解決される可能性があります。",
+          "Select All": "すべて選択",
+          "Unselect All": "全体の選択を解除します",
+          "Crop": "作物",
+          "There are built-in fonts.": "組み込みフォントがあります。\n内蔵フォントを使って変換しますか？\nOCRプロセスへの変更",
         },
         "ka": {
           "key": "ka",
@@ -5574,6 +5839,11 @@ class Messages extends Translations {
           "Creating split compressed file": "შექმნა გაყოფილი შეკუმშული ფაილი ...",
           "bg image settings": "ფონის გამოსახულების პარამეტრები",
           "bg image filter settings": "ფონის გამოსახულება ფილტრაციის პარამეტრები",
+          "Failed to convert epub.": "ვერ მოხერხდა EPUB- ის გარდაქმნას.\nთუ თქვენ მიიღებთ ფაილს დეველოპერს, შეიძლება გადაწყდეს.",
+          "Select All": "Მონიშნე ყველა",
+          "Unselect All": "Ყველა მონიშვნის გაუქმება",
+          "Crop": "მოსავალი",
+          "There are built-in fonts.": "არსებობს ჩაშენებული შრიფტები.\nგნებავთ კონვერტირება გამოყენებით ჩაშენებული შრიფტი?\nცვლილებები OCR პროცესში.",
         },
         "zu": {
           "key": "zu",
@@ -5687,6 +5957,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Ukwakha ifayela elihlanganisiwe ...",
           "bg image settings": "Izilungiselelo zesithombe sangemuva",
           "bg image filter settings": "Izilungiselelo zesithombe sangemuva",
+          "Failed to convert epub.": "Yehlulekile ukuguqula i-epub.\nUma uthumela i-imeyili ifayela kunjiniyela, lingaxazululeka.",
+          "Select All": "Khetha konke",
+          "Unselect All": "Ungakhethi konke",
+          "Crop": "Isivuno",
+          "There are built-in fonts.":
+              "Kukhona amafonti owakhelwe ngaphakathi.\nNgabe ufuna ukuguqula usebenzisa ifonti eyakhelwe ngaphakathi?\nIzinguquko kwinqubo ye-OCR.",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -5799,6 +6075,11 @@ class Messages extends Translations {
           "Creating split compressed file": "创建拆分压缩文件...",
           "bg image settings": "背景图像设置",
           "bg image filter settings": "背景图像过滤器设置",
+          "Failed to convert epub.": "无法转换epub。\n如果将文件发送到开发人员，则可能会解决它。",
+          "Select All": "全选",
+          "Unselect All": "全部取消选择",
+          "Crop": "庄稼",
+          "There are built-in fonts.": "内置字体。\n您想使用内置字体转换吗？\n对OCR进程的更改。",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -5911,6 +6192,11 @@ class Messages extends Translations {
           "Creating split compressed file": "創建拆分壓縮文件...",
           "bg image settings": "背景圖像設置",
           "bg image filter settings": "背景圖像過濾器設置",
+          "Failed to convert epub.": "無法轉換epub。\n如果將文件發送到開發人員，則可能會解決它。",
+          "Select All": "全選",
+          "Unselect All": "全部取消選擇",
+          "Crop": "莊稼",
+          "There are built-in fonts.": "內置字體。\n您想使用內置字體轉換嗎？\n對OCR進程的更改。",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -6023,6 +6309,11 @@ class Messages extends Translations {
           "Creating split compressed file": "創建拆分壓縮文件...",
           "bg image settings": "背景圖像設置",
           "bg image filter settings": "背景圖像過濾器設置",
+          "Failed to convert epub.": "無法轉換epub。\n如果將文件發送到開發人員，則可能會解決它。",
+          "Select All": "全選",
+          "Unselect All": "全部取消選擇",
+          "Crop": "莊稼",
+          "There are built-in fonts.": "內置字體。\n您想使用內置字體轉換嗎？\n對OCR進程的更改。",
         },
         "cs": {
           "key": "cs",
@@ -6137,6 +6428,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Vytvoření rozděleného komprimovaného souboru ...",
           "bg image settings": "Nastavení obrázku na pozadí",
           "bg image filter settings": "Nastavení filtru pozadí obrázku",
+          "Failed to convert epub.": "Nepodařilo se převést EPUB.\nPokud e-mailem soubor do vývojáře, může být vyřešen.",
+          "Select All": "Vybrat vše",
+          "Unselect All": "Odznačit vše",
+          "Crop": "Oříznutí",
+          "There are built-in fonts.": "Jsou zde vestavěné fonty.\nChcete převést pomocí vestavěného písma?\nZměny procesu OCR.",
         },
         "kk": {
           "key": "kk",
@@ -6251,6 +6547,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Бөлінген сығылған файлды құру ...",
           "bg image settings": "Фондық кескін параметрлері",
           "bg image filter settings": "Фондық сурет сүзгісі параметрлері",
+          "Failed to convert epub.": "EPUB түрлендірілмеді.\nЕгер сіз файлды әзірлеушіге жіберсеңіз, ол шешілуі мүмкін.",
+          "Select All": "Барлығын таңдаңыз",
+          "Unselect All": "Бәрін алып тастаңыз",
+          "Crop": "Өнім",
+          "There are built-in fonts.": "Кірістірілген қаріптер бар.\nКірістірілген қаріпті қолданғыңыз келе ме?\nOCR процесіне өзгерістер.",
         },
         "ca": {
           "key": "ca",
@@ -6365,6 +6666,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Creació de fitxers comprimits dividits ...",
           "bg image settings": "Configuració de la imatge de fons",
           "bg image filter settings": "Configuració del filtre d'imatge de fons",
+          "Failed to convert epub.": "No s'ha pogut convertir EPUB.\nSi envieu un correu electrònic al fitxer al desenvolupador, es pot resoldre.",
+          "Select All": "Seleccionar tot",
+          "Unselect All": "Desmarqueu-ho tot",
+          "Crop": "Collita",
+          "There are built-in fonts.": "Hi ha fonts integrades.\nVoleu convertir utilitzant la font integrada?\nCanvis en el procés OCR.",
         },
         "kn": {
           "key": "kn",
@@ -6479,6 +6785,12 @@ class Messages extends Translations {
           "Creating split compressed file": "ಸ್ಪ್ಲಿಟ್ ಸಂಕುಚಿತ ಫೈಲ್ ರಚಿಸಲಾಗುತ್ತಿದೆ ...",
           "bg image settings": "ಹಿನ್ನೆಲೆ ಇಮೇಜ್ ಸೆಟ್ಟಿಂಗ್ಗಳು",
           "bg image filter settings": "ಹಿನ್ನೆಲೆ ಇಮೇಜ್ ಫಿಲ್ಟರ್ ಸೆಟ್ಟಿಂಗ್ಗಳು",
+          "Failed to convert epub.": "EPUB ಅನ್ನು ಪರಿವರ್ತಿಸುವಲ್ಲಿ ವಿಫಲವಾಗಿದೆ.\nನೀವು ಫೈಲ್ ಅನ್ನು ಡೆವಲಪರ್ಗೆ ಇಮೇಲ್ ಮಾಡಿದರೆ, ಅದನ್ನು ಪರಿಹರಿಸಬಹುದು.",
+          "Select All": "ಎಲ್ಲವನ್ನು ಆರಿಸು",
+          "Unselect All": "ಎಲ್ಲವನ್ನೂ ಆಯ್ಕೆ ಮಾಡಿ",
+          "Crop": "ಬೆಳೆ",
+          "There are built-in fonts.":
+              "ಅಂತರ್ನಿರ್ಮಿತ ಫಾಂಟ್ಗಳು ಇವೆ.\nಅಂತರ್ನಿರ್ಮಿತ ಫಾಂಟ್ ಅನ್ನು ಬಳಸಿಕೊಂಡು ನೀವು ಪರಿವರ್ತಿಸಲು ಬಯಸುವಿರಾ?\nOCR ಪ್ರಕ್ರಿಯೆಗೆ ಬದಲಾವಣೆಗಳು.",
         },
         "hr": {
           "key": "hr",
@@ -6593,6 +6905,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Stvaranje split komprimirane datoteke ...",
           "bg image settings": "Postavke pozadinske slike",
           "bg image filter settings": "Postavke filtra za pozadinu",
+          "Failed to convert epub.": "Nije uspjelo pretvoriti EPUB.\nAko e-poštu datoteku s programerima, može se riješiti.",
+          "Select All": "Odaberi sve",
+          "Unselect All": "Poništiti sve",
+          "Crop": "Usjev",
+          "There are built-in fonts.": "Ugrađeni su fontovi.\nŽelite li pretvoriti pomoću ugrađenog fonta?\nPromjene u procesu OCR-a.",
         },
         "km": {
           "key": "km",
@@ -6707,6 +7024,12 @@ class Messages extends Translations {
           "Creating split compressed file": "ការបង្កើតឯកសារដែលបានបង្ហាប់បំបែក ...",
           "bg image settings": "ការកំណត់រូបភាពផ្ទៃខាងក្រោយ",
           "bg image filter settings": "ការកំណត់តម្រងរូបភាពផ្ទៃខាងក្រោយ",
+          "Failed to convert epub.": "បានបរាជ័យក្នុងការបំលែងអេភីប៊ី។\nប្រសិនបើអ្នកផ្ញើអ៊ីមែលឯកសារទៅអ្នកអភិវឌ្ឍន៍វាអាចត្រូវបានដោះស្រាយ។",
+          "Select All": "ជ្រើស​យក​ទាំងអស់",
+          "Unselect All": "មិនជ្រើសរើសទាំងអស់",
+          "Crop": "ដមនាម",
+          "There are built-in fonts.":
+              "មានពុម្ពអក្សរដែលមានស្រាប់។\nតើអ្នកចង់បំលែងដោយប្រើពុម្ពអក្សរដែលភ្ជាប់មកជាមួយទេ?\nការផ្លាស់ប្តូរទៅដំណើរការ OCR ។",
         },
         "ky": {
           "key": "ky",
@@ -6820,6 +7143,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Бөлүнгөн кысылган файлды түзүү ...",
           "bg image settings": "Фон сүрөт жөндөөлөрү",
           "bg image filter settings": "Фондук сүрөт Жөндөөлөр",
+          "Failed to convert epub.":
+              "Эпбирди айландырган жок.\nЭгер сиз файлды иштеп чыгуучуга электрондук почта аркылуу жөнөтсөңүз, анда ал чечилиши мүмкүн.",
+          "Select All": "Баарын тандаңыз",
+          "Unselect All": "Баарын ачуу",
+          "Crop": "Түшүм",
+          "There are built-in fonts.": "Курулган шрифттер бар.\nКалган шрифтти колдонуп айландыркыңыз келеби?\nOCR процессине өзгөртүүлөр.",
         },
         "ta": {
           "key": "ta",
@@ -6934,6 +7263,12 @@ class Messages extends Translations {
           "Creating split compressed file": "பிளவு சுருக்கப்பட்ட கோப்பை உருவாக்குதல் ...",
           "bg image settings": "பின்னணி படத்தை அமைப்புகள்",
           "bg image filter settings": "பின்னணி பட வடிகட்டி அமைப்புகள்",
+          "Failed to convert epub.": "EPUB ஐ மாற்ற முடியவில்லை.\nநீங்கள் டெவலப்பருக்கு கோப்பை மின்னஞ்சல் செய்தால், அது தீர்க்கப்படலாம்.",
+          "Select All": "அனைத்தையும் தெரிவுசெய்",
+          "Unselect All": "எல்லாவற்றையும் தேர்வுநீக்கவும்",
+          "Crop": "பயிர்",
+          "There are built-in fonts.":
+              "எழுத்துருக்கள் உள்ளமைக்கப்பட்டுள்ளன.\nஉள்ளமைக்கப்பட்ட எழுத்துருவைப் பயன்படுத்தி மாற்ற வேண்டுமா?\nOCR செயல்முறைக்கு மாற்றங்கள்.",
         },
         "th": {
           "key": "th",
@@ -7047,6 +7382,11 @@ class Messages extends Translations {
           "Creating split compressed file": "การสร้างไฟล์บีบอัดแยก ...",
           "bg image settings": "การตั้งค่าภาพพื้นหลัง",
           "bg image filter settings": "การตั้งค่าตัวกรองภาพพื้นหลัง",
+          "Failed to convert epub.": "ไม่สามารถแปลง EPUB\nหากคุณส่งอีเมลไฟล์ไปยังนักพัฒนาซอฟต์แวร์อาจได้รับการแก้ไข",
+          "Select All": "เลือกทั้งหมด",
+          "Unselect All": "ไม่เลือกทั้งหมด",
+          "Crop": "พืชผล",
+          "There are built-in fonts.": "มีฟอนต์ในตัว\nคุณต้องการแปลงโดยใช้แบบอักษรในตัวหรือไม่\nการเปลี่ยนแปลงกระบวนการ OCR",
         },
         "tr": {
           "key": "tr",
@@ -7161,6 +7501,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Split Sıkıştırılmış Dosya Oluşturma ...",
           "bg image settings": "Arka plan resim ayarları",
           "bg image filter settings": "Arka plan görüntü filtresi ayarları",
+          "Failed to convert epub.": "EPUB dönüştürülemedi.\nDosyayı geliştiriciye e-postayla gönderirseniz, çözülebilir.",
+          "Select All": "Hepsini seç",
+          "Unselect All": "Hepsini seçmemek",
+          "Crop": "Mahsul",
+          "There are built-in fonts.":
+              "Dahili yazı tipleri var.\nDahili yazı tipini kullanarak dönüştürmek ister misiniz?\nOCR işleminde değişiklikler.",
         },
         "te": {
           "key": "te",
@@ -7276,6 +7622,12 @@ class Messages extends Translations {
           "Creating split compressed file": "స్ప్లిట్ కంప్రెస్డ్ ఫైల్ను సృష్టిస్తోంది ...",
           "bg image settings": "నేపథ్య చిత్రం సెట్టింగులు",
           "bg image filter settings": "నేపథ్య చిత్రం ఫిల్టర్ సెట్టింగులు",
+          "Failed to convert epub.": "EPUB ను మార్చడం విఫలమైంది.\nమీరు డెవలపర్కు ఫైల్కు ఇమెయిల్ చేస్తే, అది పరిష్కరించబడుతుంది.",
+          "Select All": "అన్ని ఎంచుకోండి",
+          "Unselect All": "ఎంచుకున్నవన్నీ తొలగించు",
+          "Crop": "పంట",
+          "There are built-in fonts.":
+              "అంతర్నిర్మిత ఫాంట్లు ఉన్నాయి.\nఅంతర్నిర్మిత ఫాంట్ను ఉపయోగించి మీరు మార్చాలనుకుంటున్నారా?\nOCR ప్రక్రియకు మార్పులు.",
         },
         "pa": {
           "key": "pa",
@@ -7390,6 +7742,11 @@ class Messages extends Translations {
           "Creating split compressed file": "ਸਪਲਿਟ ਸੰਕੁਚਿਤ ਫਾਈਲ ਬਣਾਉਣਾ ...",
           "bg image settings": "ਬੈਕਗਰਾ .ਂਡ ਚਿੱਤਰ ਸੈਟਿੰਗਾਂ",
           "bg image filter settings": "ਬੈਕਗਰਾ .ਂਡ ਚਿੱਤਰ ਫਿਲਟਰ ਸੈਟਿੰਗਾਂ",
+          "Failed to convert epub.": "EPUB ਨੂੰ ਤਬਦੀਲ ਕਰਨ ਵਿੱਚ ਅਸਫਲ.\nਜੇ ਤੁਸੀਂ ਡਿਵੈਲਪਰ ਨੂੰ ਫਾਈਲ ਈਮੇਲ ਕਰਦੇ ਹੋ, ਤਾਂ ਇਹ ਹੱਲ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ.",
+          "Select All": "ਸਾਰਿਆ ਨੂੰ ਚੁਣੋ",
+          "Unselect All": "ਸਭ ਨੂੰ ਚੁਣਨਾ",
+          "Crop": "ਫਸਲ",
+          "There are built-in fonts.": "ਇੱਥੇ ਬਿਲਟ-ਇਨ ਫੋਂਟ ਹਨ.\nਕੀ ਤੁਸੀਂ ਬਿਲਟ-ਇਨ ਫੋਂਟ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਬਦਲਣਾ ਚਾਹੁੰਦੇ ਹੋ?\nਓਸੀਆਰ ਪ੍ਰਕਿਰਿਆ ਵਿਚ ਤਬਦੀਲੀਆਂ.",
         },
         "fa": {
           "key": "fa",
@@ -7504,6 +7861,12 @@ class Messages extends Translations {
           "Creating split compressed file": "ایجاد فایل فشرده تقسیم شده ...",
           "bg image settings": "تنظیمات تصویر پس زمینه",
           "bg image filter settings": "تنظیمات فیلتر تصویر پس زمینه",
+          "Failed to convert epub.": "موفق به تبدیل ePub نشد.\nاگر فایل را به توسعه دهنده ایمیل کنید، ممکن است حل شود.",
+          "Select All": "انتخاب همه",
+          "Unselect All": "همه را بیرون بکشید",
+          "Crop": "محصول",
+          "There are built-in fonts.":
+              "فونت های ساخته شده وجود دارد.\nآیا می خواهید با استفاده از فونت داخلی ساخته شده تبدیل شوید؟\nتغییرات در روند OCR.",
         },
         "pt": {
           "key": "pt",
@@ -7619,6 +7982,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Criando um arquivo compactado dividido ...",
           "bg image settings": "Configurações da imagem de fundo.",
           "bg image filter settings": "Configurações do filtro de imagem de fundo",
+          "Failed to convert epub.":
+              "Não conseguiu converter epub.\nSe você enviar um email o arquivo para o desenvolvedor, ele poderá ser resolvido.",
+          "Select All": "Selecionar tudo",
+          "Unselect All": "Desmarque todos",
+          "Crop": "Colheita",
+          "There are built-in fonts.": "Existem fontes embutidas.\nVocê quer converter usando a fonte interna?\nAlterações no processo de OCR.",
         },
         "pl": {
           "key": "pl",
@@ -7732,6 +8101,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Tworzenie podziałowego pliku sprężonego ...",
           "bg image settings": "Ustawienia obrazu tła",
           "bg image filter settings": "Ustawienia filtru obrazu tła",
+          "Failed to convert epub.": "Nie udało się przekonwertować epub.\nJeśli wysłać wiadomość e-mail do dewelopera, można go rozwiązać.",
+          "Select All": "Zaznacz wszystko",
+          "Unselect All": "Odznacz wszystko",
+          "Crop": "Przyciąć",
+          "There are built-in fonts.": "Są wbudowane czcionki.\nCzy chcesz konwertować za pomocą wbudowanej czcionki?\nZmiany w procesie OCR.",
         },
         "fr": {
           "key": "fr",
@@ -7847,6 +8221,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Créer un fichier compressé divisé ...",
           "bg image settings": "Paramètres de l'image de fond",
           "bg image filter settings": "Paramètres du filtre d'images de fond",
+          "Failed to convert epub.": "Échoué à convertir EPUB.\nSi vous envoyez un courriel au développeur, cela peut être résolu.",
+          "Select All": "Tout sélectionner",
+          "Unselect All": "Tout déselectionner",
+          "Crop": "Culture",
+          "There are built-in fonts.":
+              "Il y a des polices intégrées.\nVoulez-vous convertir en utilisant la police intégrée?\nModifications apportées au processus OCR.",
         },
         "fi": {
           "key": "fi",
@@ -7960,6 +8340,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Split-pakatun tiedoston luominen ...",
           "bg image settings": "Taustakuvan asetukset",
           "bg image filter settings": "Taustakuvan suodatinasetukset",
+          "Failed to convert epub.": "EPUB: n muuttaminen epäonnistui.\nJos lähetät tiedoston kehittäjälle, se voidaan ratkaista.",
+          "Select All": "Valitse kaikki",
+          "Unselect All": "Poista kaikki",
+          "Crop": "Rajata",
+          "There are built-in fonts.": "On sisäänrakennetut fontit.\nHaluatko muuntaa sisäänrakennetun fontin avulla?\nMuutokset OCR-prosessiin.",
         },
         "fil": {
           "key": "fil",
@@ -8075,6 +8460,12 @@ class Messages extends Translations {
           "Creating split compressed file": "Paglikha ng Split Compressed File ...",
           "bg image settings": "Mga setting ng larawan sa background",
           "bg image filter settings": "Mga setting ng filter ng larawan sa background",
+          "Failed to convert epub.": "Nabigong i-convert ang EPUB.\nKung nag-email ka sa file sa developer, maaari itong malutas.",
+          "Select All": "Piliin lahat",
+          "Unselect All": "Unselect lahat",
+          "Crop": "I-crop",
+          "There are built-in fonts.":
+              "May mga built-in na mga font.\nGusto mo bang i-convert gamit ang built-in na font?\nMga pagbabago sa proseso ng OCR.",
         },
         "hu": {
           "key": "hu",
@@ -8189,6 +8580,11 @@ class Messages extends Translations {
           "Creating split compressed file": "Split tömörített fájl létrehozása ...",
           "bg image settings": "Háttérképek beállításai",
           "bg image filter settings": "Háttér A kép szűrő beállításai",
+          "Failed to convert epub.": "Nem sikerült konvertálni az EPUB-t.\nHa elküldi a fájlt a fejlesztőnek, akkor megoldható.",
+          "Select All": "Mindet kiválaszt",
+          "Unselect All": "Minden kijelölés megszüntetése",
+          "Crop": "Vág",
+          "There are built-in fonts.": "Vannak beépített betűtípusok.\nSzeretne átalakítani a beépített betűtípust?\nAz OCR folyamat változásai.",
         },
         "iw": {
           "key": "iw",
@@ -8302,6 +8698,11 @@ class Messages extends Translations {
           "Creating split compressed file": "יצירת פיצול קובץ דחוס ...",
           "bg image settings": "הגדרות תמונה רקע",
           "bg image filter settings": "הגדרות מסנן תמונת רקע",
+          "Failed to convert epub.": "נכשל להמיר EPUB.\nאם אתה שולט בקובץ למפתח, ניתן לפתור אותו.",
+          "Select All": "בחר הכל",
+          "Unselect All": "בטל בחירה של כל",
+          "Crop": "יְבוּל",
+          "There are built-in fonts.": "ישנם גופנים מובנים.\nהאם אתה רוצה להמיר באמצעות גופן מובנה?\nשינויים בתהליך OCR.",
         },
         "hi": {
           "key": "hi",
@@ -8416,6 +8817,12 @@ class Messages extends Translations {
           "Creating split compressed file": "विभाजित संपीड़ित फ़ाइल बनाना ...",
           "bg image settings": "पृष्ठभूमि छवि सेटिंग्स",
           "bg image filter settings": "पृष्ठभूमि छवि फ़िल्टर सेटिंग्स",
+          "Failed to convert epub.": "EPUB को परिवर्तित करने में विफल।\nयदि आप फ़ाइल को डेवलपर को ईमेल करते हैं, तो इसे हल किया जा सकता है।",
+          "Select All": "सभी का चयन करे",
+          "Unselect All": "सभी का चयन रद्द",
+          "Crop": "फसल",
+          "There are built-in fonts.":
+              "अंतर्निहित फ़ॉन्ट्स हैं।\nक्या आप अंतर्निहित फ़ॉन्ट का उपयोग करके कनवर्ट करना चाहते हैं?\nओसीआर प्रक्रिया में परिवर्तन।",
         },
       };
 }
