@@ -124,24 +124,33 @@ class TextViewerPainter extends CustomPainter {
     required this.style,
     required this.textViewerController,
   }) : super(repaint: textViewerController) {}
-  // late TextViewerPainterCtl ctl;
+
   TextViewerController textViewerController;
 
   TextStyle style;
   late double height;
+  int lastPos = 0;
 
   Paint bg = Paint()..color = Colors.green;
   Paint highlight = Paint()..color = Colors.blueGrey.shade400;
 
-  void render(Canvas canvas, Size size) {
-    var ctl = textViewerController;
-    var pos = ctl.cntntPstn;
-    // print(pos);
-    double offsetY = textViewerController.offsetY;
-    var tmpcontents = ctl.contents;
-    var perText = tmpcontents.substring(max(pos - 1000, 0), pos);
-    var nextText = tmpcontents.substring(pos, min(pos + 1000, tmpcontents.length));
+  String getNextText(String nextText, Size size) {
+    TextPainter p = TextPainter(
+      text: TextSpan(text: nextText, style: style),
+      textDirection: TextDirection.ltr,
+    )..layout(maxWidth: size.width);
+    List<LineMetrics> lines = p.computeLineMetrics();
 
+    for (var line in lines) {
+      if (size.height < line.baseline + line.descent) {
+        var currentPageEndIndex = p.getPositionForOffset(Offset(0, line.baseline - line.ascent)).offset;
+        return nextText.substring(0, currentPageEndIndex);
+      }
+    }
+    return nextText;
+  }
+
+  String getPerText(String perText, Size size) {
     var pPer = TextPainter(
       text: TextSpan(text: perText, style: style),
       textDirection: TextDirection.ltr,
@@ -149,68 +158,55 @@ class TextViewerPainter extends CustomPainter {
     var perLines = pPer.computeLineMetrics();
     var maxPerHeight = pPer.height - size.height;
     double perHeight = 0.0;
-    // if (perLines.length == 1) {
-    //   maxPerHeight = 0;
-    // }
+
     for (var line in perLines) {
       if (line.baseline > maxPerHeight) {
         var startPos = pPer.getPositionForOffset(Offset(line.left, line.baseline)).offset;
-        perText = perText.substring(startPos, perText.length);
-        pPer = TextPainter(
-          text: TextSpan(text: perText, style: style),
-          textDirection: TextDirection.ltr,
-        )..layout(maxWidth: size.width);
-        perHeight = pPer.height;
-        break;
+        return perText.substring(startPos, perText.length);
       }
     }
+    return perText;
+  }
 
-    TextPainter p = TextPainter(
-      text: TextSpan(text: nextText, style: style),
+  void render(Canvas canvas, Size size) {
+    var ctl = textViewerController;
+    var pos = ctl.cntntPstn;
+    lastPos = pos;
+
+    double offsetY = textViewerController.offsetY;
+
+    var perText = getPerText(ctl.contents.substring(max(pos - 1000, 0), pos), size);
+    var nextText = getNextText(ctl.contents.substring(pos, min(pos + 1000, ctl.contents.length)), size);
+    var totalText = perText + nextText;
+
+    var tmpperPos = min(pos, perText.length);
+    var tmpTextP = TextPainter(
+      text: TextSpan(text: totalText, style: style),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: size.width);
-    List<LineMetrics> lines = p.computeLineMetrics();
-    for (var line in lines) {
-      if (size.height - (style.fontSize!) < line.baseline + line.descent) {
-        var currentPageEndIndex = p.getPositionForOffset(Offset(line.left, line.baseline - line.ascent)).offset;
-        p = TextPainter(
-          text: TextSpan(text: nextText.substring(0, currentPageEndIndex), style: style),
-          textDirection: TextDirection.ltr,
-        )..layout(maxWidth: size.width);
+    var lineHeight = tmpTextP.preferredLineHeight;
 
-        break;
+    var currentOffset = tmpTextP.getOffsetForCaret(TextPosition(offset: tmpperPos), Rect.zero);
+
+    tmpTextP.paint(canvas, Offset(0, offsetY - currentOffset.dy));
+    var per = tmpTextP.getPositionForOffset(Offset(size.width, currentOffset.dy - offsetY - lineHeight));
+    var next = tmpTextP.getPositionForOffset(Offset(0, currentOffset.dy - offsetY));
+
+    var tmppo = (pos + next.offset) - tmpperPos;
+    var tmpPerPo = (pos + per.offset) - tmpperPos;
+
+    ctl.perPos = pos - perText.length;
+    ctl.maxPos = pos + nextText.length;
+
+    if (tmpPerPo != tmppo && offsetY != 0) {
+      if (pos < tmppo && (tmppo - pos).abs() > 1) {
+        ctl.setCntntPstn(tmppo, offsetY: 0.001);
+      } else if (pos > tmpPerPo && (tmpPerPo - pos).abs() > 1) {
+        ctl.setCntntPstn(tmppo, offsetY: -lineHeight + 000.1);
       }
     }
-    if (ctl.bHighlight && ctl.highlightPos - pos >= 0) {
-      var curHighlightPos = ctl.highlightPos - pos;
-      var tb = p.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightPos + ctl.highlightCnt));
-      tb.forEach((e) {
-        var r = e.toRect();
-        var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
-        canvas.drawRect(rect, highlight);
-      });
-    }
 
-    pPer.paint(canvas, Offset(0, offsetY - perHeight));
-    p.paint(canvas, Offset(0, offsetY));
-
-    var perPos = pPer.text!.toPlainText().length;
-
-    var maxPos = p.text!.toPlainText().length;
-    ctl.perPos = pos - perPos;
-    ctl.maxPos = pos + maxPos;
-
-    var po = pos + p.getPositionForOffset(Offset(0, -offsetY)).offset;
-    var perPo = pos - (perText.length - pPer.getPositionForOffset(Offset(pPer.width, pPer.height - (offsetY))).offset);
-
-    if (pos != po) {
-      var l = p.computeLineMetrics();
-      ctl.setCntntPstn(po, offsetY: offsetY + l.first.height);
-    } else if (pos != perPo && (po - perPo).abs() > 1) {
-      var l = pPer.computeLineMetrics();
-      var tmppos = pos - (pPer.text!.toPlainText().length - pPer.getPositionForOffset(Offset(0, pPer.height - (offsetY))).offset);
-      ctl.setCntntPstn(tmppos, offsetY: offsetY - (l.last.height * 2));
-    }
+    return;
   }
 
   @override
@@ -220,8 +216,13 @@ class TextViewerPainter extends CustomPainter {
   }
 
   @override
+  bool shouldRebuildSemantics(TextViewerPainter oldDelegate) {
+    return textViewerController.cntntPstn != oldDelegate.lastPos;
+  }
+
+  @override
   bool shouldRepaint(TextViewerPainter oldDelegate) {
-    return true;
+    return textViewerController.cntntPstn != oldDelegate.lastPos;
   }
 }
 
@@ -261,6 +262,7 @@ class TextViewerController extends ChangeNotifier {
 
   set offsetY(double v) {
     _offsetY = v;
+
     notifyListeners();
   }
 
@@ -279,16 +281,16 @@ class TextViewerController extends ChangeNotifier {
   int get perPos => _per;
 
   back() {
+    onChange!(perPos);
     offsetY = 0;
     cntntPstn = perPos;
-    onChange!(perPos);
   }
 
   next() {
     if (maxPos < contents.length - 1) {
+      onChange!(maxPos);
       offsetY = 0;
       cntntPstn = maxPos;
-      onChange!(maxPos);
     }
     // print(maxPos);
   }

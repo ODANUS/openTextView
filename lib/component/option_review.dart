@@ -6,6 +6,7 @@ import 'package:package_info/package_info.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:get/get.dart';
 import 'package:store_checker/store_checker.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OptionReview extends GetView {
   OptionReview() {
@@ -17,16 +18,27 @@ class OptionReview extends GetView {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (installationSource.value != Source.IS_INSTALLED_FROM_PLAY_STORE) {
+      if (installationSource.value != Source.IS_INSTALLED_FROM_PLAY_STORE &&
+          installationSource.value != Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE &&
+          installationSource.value != Source.IS_INSTALLED_FROM_LOCAL_SOURCE) {
         return SizedBox();
       }
       return Row(
         children: [
           IconButton(
               onPressed: () async {
-                final InAppReview inAppReview = InAppReview.instance;
-                if (await inAppReview.isAvailable()) {
-                  inAppReview.openStoreListing();
+                if (installationSource.value == Source.IS_INSTALLED_FROM_PLAY_STORE) {
+                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                  launch('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+                }
+                if (installationSource.value == Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE) {
+                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                  launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                }
+                if (installationSource.value == Source.IS_INSTALLED_FROM_LOCAL_SOURCE) {
+                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                  launch('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+                  // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
               },
               icon: Icon(Icons.rate_review_outlined)),
@@ -35,6 +47,15 @@ class OptionReview extends GetView {
                 if (installationSource.value == Source.IS_INSTALLED_FROM_PLAY_STORE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
                   Share.share('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+                }
+                if (installationSource.value == Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE) {
+                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                  Share.share('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                }
+                if (installationSource.value == Source.IS_INSTALLED_FROM_LOCAL_SOURCE) {
+                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                  Share.share('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                  // Share.share('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
                 }
               },
               icon: Icon(Icons.share)),
