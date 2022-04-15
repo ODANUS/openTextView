@@ -106,6 +106,7 @@ class LibraryPage extends GetView {
                 child: Text("confirm".tr))
           ],
         ));
+        return false;
       }
 
       File outputFile = File("$path/epub_$fileName.txt");

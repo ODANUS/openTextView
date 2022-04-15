@@ -198,7 +198,7 @@ class TextViewerPainter extends CustomPainter {
     ctl.perPos = pos - perText.length;
     ctl.maxPos = pos + nextText.length;
 
-    if (tmpPerPo != tmppo && offsetY != 0) {
+    if (offsetY != 0 && offsetY != -lineHeight + 000.1) {
       if (pos < tmppo && (tmppo - pos).abs() > 1) {
         ctl.setCntntPstn(tmppo, offsetY: 0.001);
       } else if (pos > tmpPerPo && (tmpPerPo - pos).abs() > 1) {

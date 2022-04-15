@@ -38,7 +38,7 @@ class Utils {
     // var colonSpace = RegExp("( {1,}\\,)");
     var questionSpace = RegExp("( {1,}\\?)");
     var exclamationSpace = RegExp("( {1,}\\!)");
-    var endLine = RegExp("(다\\.)|(다\\. )");
+    var endLine = RegExp(r"다\. {0,}");
     if (Get.locale?.languageCode != "ko") {
       endLine = RegExp("(\\.)|(\\. )|(\\。 )");
     }
@@ -228,18 +228,15 @@ class Utils {
         }
         var bodytext = htmlData.body?.text ?? "";
 
+        bodytext = bodytext.split("\n").map((e) => e.trim()).join("\n\n");
         if (Get.locale?.languageCode.contains("ko") != null) {
-          // bodytext = bodytext.split("\n").join();
-          bodytext = bodytext.split("\n").map((e) => e.trim()).join("\n");
           bodytext = bodytext.split("다. ").map((e) => e.trim()).join("다. \n\n");
-          bodytext = bodytext.split("\" ").map((e) => e.trim()).join("\" \n");
-          bodytext = bodytext.split("” ").map((e) => e.trim()).join("\”\n");
+          // bodytext = bodytext.split("\" ").map((e) => e.trim()).join("\" \n\n");
+          // bodytext = bodytext.split("” ").map((e) => e.trim()).join("\”\n\n");
         }
         strContents += bodytext;
       }
     }
-    // hrefs.forEach((href) {
-    // });
 
     return newLineTheoremStr(strContents);
   }

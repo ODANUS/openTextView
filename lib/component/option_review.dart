@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:in_app_review/in_app_review.dart';
 import 'package:package_info/package_info.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:get/get.dart';
