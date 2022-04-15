@@ -6,12 +6,10 @@ import 'dart:ui' as ui;
 
 import 'package:archive/archive_io.dart';
 import 'package:charset_converter/charset_converter.dart';
-import 'package:epubx/epubx.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
-import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+
 import 'package:get/get.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:html/dom.dart';
