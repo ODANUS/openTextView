@@ -194,11 +194,13 @@ class TextViewerPainter extends CustomPainter {
     ctl.perPos = pos - perText.length;
     ctl.maxPos = pos + nextText.length;
     // && offsetY != -lineHeight + 000.1
-    if (offsetY != 0) {
+    // print("pos >>> ${pos}");
+    // print("tmppo >>> ${tmppo}");
+    if ((offsetY < 0 && offsetY < -(lineHeight)) || (offsetY > 0)) {
       if (pos < tmppo && (tmppo - pos).abs() > 1) {
         ctl.setCntntPstn(tmppo, offsetY: 0.01);
       } else if (pos > tmpPerPo && (tmpPerPo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: -lineHeight - 0.01);
+        ctl.setCntntPstn(tmppo, offsetY: -(lineHeight + 0.01));
       }
     }
 
