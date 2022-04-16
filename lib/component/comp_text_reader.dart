@@ -170,6 +170,20 @@ class TextViewerPainter extends CustomPainter {
 
     var currentOffset = tmpTextP.getOffsetForCaret(TextPosition(offset: tmpperPos), Rect.zero);
 
+    if (ctl.bHighlight) {
+      var curHighlightPos = ctl.highlightPos - (pos - tmpperPos);
+
+      var tb = tmpTextP.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightPos + ctl.highlightCnt));
+      tb.forEach((e) {
+        var r = e.toRect();
+        var oy = offsetY - currentOffset.dy;
+        var rect = Rect.fromLTRB(r.left, r.top + oy, r.right, r.bottom + oy);
+        if (rect.height < lineHeight) {
+          rect = Rect.fromLTRB(rect.left, rect.top - (lineHeight - rect.height), rect.right, rect.bottom);
+        }
+        canvas.drawRect(rect, highlight);
+      });
+    }
     tmpTextP.paint(canvas, Offset(0, offsetY - currentOffset.dy));
     var per = tmpTextP.getPositionForOffset(Offset(size.width, currentOffset.dy - offsetY - lineHeight));
     var next = tmpTextP.getPositionForOffset(Offset(0, currentOffset.dy - offsetY));

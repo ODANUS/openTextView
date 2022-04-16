@@ -8,6 +8,9 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.0.2 (2022 04 15) 패치내역 :
+1. tts 재생시 하이라이트 표시 하게 수정 하였습니다. 
+
 2.0.1 (2022 04 15) 패치내역 :
 1. 스크롤을 천천히 내리면 스크롤이 안되고 제자리에서 흔들리는 현상 수정. 
 
