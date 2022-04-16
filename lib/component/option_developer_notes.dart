@@ -8,6 +8,9 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.0.1 (2022 04 15) 패치내역 :
+1. 스크롤을 천천히 내리면 스크롤이 안되고 제자리에서 흔들리는 현상 수정. 
+
 2.0.0 (2022 04 15) 패치내역 :
 1. 텍스트 뷰어 부분 개선 작업. 
   - 사실 개선 시도는 몇주 전부터 이틀 간격으로 계속 시도 했었습니다. 
@@ -16,7 +19,7 @@ class DeveloperNotes extends GetView {
 
 2. 갤럭시 스토어 에서 설치시 리뷰 를 누를경우 갤럭시 스토어로 이동 되도록 수정. 
 
-3. 아이폰 개발 준비 하면서 사용하지 않는 라이브 러리 제거. 
+3. 아이폰 개발 준비 하면서 사용하지 않는 라이브러리 제거. 
 
 4. 개발자 노트 내용 길어져서 기존 내용 삭제. 
 

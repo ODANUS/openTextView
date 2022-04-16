@@ -29,15 +29,13 @@ class CompTextReader extends GetView {
         GestureDetector(
           onVerticalDragUpdate: (d) {
             var curPos = IsarCtl.tctl.cntntPstn;
-            // print(curPos);
-
             if (curPos <= 0 && d.delta.dy > 0 && IsarCtl.tctl.offsetY > 50) {
               return;
             }
-
             if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
               return;
             }
+            IsarCtl.basyncOffset(true);
             var dy = d.delta.dy;
             var cnt = 1;
             if (d.delta.dy < 0 && d.delta.dy < -6) {
@@ -49,31 +47,9 @@ class CompTextReader extends GetView {
             for (var i = 0; i < cnt; i++) {
               IsarCtl.tctl.offsetY += dy;
             }
+            IsarCtl.basyncOffset(false);
           },
-          onPanUpdate: (d) {
-            // if (!IsarCtl.bfullScreen.value && d.delta.dy < 0) {
-            //   IsarCtl.bfullScreen(true);
-            //   IsarCtl.tctl.offsetY = 0;
-            //   return;
-            // }
-            // if (IsarCtl.bfullScreen.value && d.delta.dy > 0) {
-            //   IsarCtl.bfullScreen(false);
-            //   IsarCtl.tctl.offsetY = 0;
-            //   return;
-            // }
-            // var curPos = IsarCtl.tctl.cntntPstn;
-            // // print(curPos);
-            // if (curPos <= 0 && d.delta.dy > 0) {
-            //   return;
-            // }
-
-            // if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
-            //   return;
-            // }
-            // print(d.delta.dy);
-
-            // IsarCtl.tctl.offsetY += d.delta.dy;
-          },
+          onPanUpdate: (d) {},
           child: SizedBox(
             width: double.infinity,
             height: double.infinity,
@@ -85,7 +61,9 @@ class CompTextReader extends GetView {
                   ..cntntPstn = IsarCtl.cntntPstn
                   ..contents = contens.text
                   ..onChange = (idx) async {
-                    IsarCtl.cntntPstnAsync(idx);
+                    // IsarCtl.basyncOffset(true);
+                    // IsarCtl.basyncOffset(false);
+                    // IsarCtl.cntntPstnAsync(idx);
                   },
                 style: IsarCtl.textStyle,
               ),
@@ -109,10 +87,14 @@ class CompTextReader extends GetView {
               IsarCtl.bfullScreen(!IsarCtl.bfullScreen.value);
             },
             onBackpage: () {
+              IsarCtl.basyncOffset(true);
               IsarCtl.tctl.back();
+              IsarCtl.basyncOffset(false);
             },
             onNextpage: () {
+              IsarCtl.basyncOffset(true);
               IsarCtl.tctl.next();
+              IsarCtl.basyncOffset(false);
             }),
       ],
     );
@@ -197,12 +179,12 @@ class TextViewerPainter extends CustomPainter {
 
     ctl.perPos = pos - perText.length;
     ctl.maxPos = pos + nextText.length;
-
-    if (offsetY != 0 && offsetY != -lineHeight + 000.1) {
+    // && offsetY != -lineHeight + 000.1
+    if (offsetY != 0) {
       if (pos < tmppo && (tmppo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: 0.001);
+        ctl.setCntntPstn(tmppo, offsetY: 0.01);
       } else if (pos > tmpPerPo && (tmpPerPo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: -lineHeight + 000.1);
+        ctl.setCntntPstn(tmppo, offsetY: -lineHeight - 0.01);
       }
     }
 

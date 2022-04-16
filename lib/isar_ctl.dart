@@ -82,9 +82,8 @@ class IsarCtl {
   static late Isar isar;
   static final Map<int, GlobalKey> keys = {};
 
-  static RxInt asyncPos = 0.obs;
-  // static final scrollController = ScrollController();
-  // static final carouselController = CarouselController();
+  // static RxInt asyncPos = 0.obs;
+  static RxBool basyncOffset = false.obs;
 
   // static RxBool bOpen = false.obs;
 
@@ -168,14 +167,21 @@ class IsarCtl {
     //     }
     //   }
     // });
-
-    debounce(asyncPos, (int v) {
-      if (v >= 0) {
+    debounce(basyncOffset, (bool b) {
+      if (!b) {
         IsarCtl.lastHistory = IsarCtl.lastHistory!
-          ..cntntPstn = v
+          ..cntntPstn = tctl.cntntPstn
           ..date = DateTime.now();
       }
-    }, time: 400.milliseconds);
+    }, time: 200.milliseconds);
+
+    // debounce(asyncPos, (int v) {
+    //   if (v >= 0) {
+    //     IsarCtl.lastHistory = IsarCtl.lastHistory!
+    //       ..cntntPstn = v
+    //       ..date = DateTime.now();
+    //   }
+    // }, time: 400.milliseconds);
 
     HardwareKeyboard.instance.removeHandler(volumeControll);
     HardwareKeyboard.instance.addHandler(volumeControll);
@@ -261,9 +267,9 @@ class IsarCtl {
   }
 
   // static bool debounce = false;
-  static cntntPstnAsync(int idx) async {
-    asyncPos(idx);
-  }
+  // static cntntPstnAsync(int idx) async {
+  //   asyncPos(idx);
+  // }
 
   // static void isolateFunction(int idx) async {
   //   WidgetsFlutterBinding.ensureInitialized();
