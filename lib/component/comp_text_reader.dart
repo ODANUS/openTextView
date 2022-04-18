@@ -185,23 +185,25 @@ class TextViewerPainter extends CustomPainter {
       });
     }
     tmpTextP.paint(canvas, Offset(0, offsetY - currentOffset.dy));
+    var perLeft = tmpTextP.getPositionForOffset(Offset(0, currentOffset.dy - offsetY - lineHeight));
     var per = tmpTextP.getPositionForOffset(Offset(size.width, currentOffset.dy - offsetY - lineHeight));
     var next = tmpTextP.getPositionForOffset(Offset(0, currentOffset.dy - offsetY));
 
     var tmppo = (pos + next.offset) - tmpperPos;
     var tmpPerPo = (pos + per.offset) - tmpperPos;
+    var tmpPerLeftPo = (pos + perLeft.offset) - tmpperPos;
 
     ctl.perPos = pos - perText.length;
     ctl.maxPos = pos + nextText.length;
-    // && offsetY != -lineHeight + 000.1
-    // print("pos >>> ${pos}");
-    // print("tmppo >>> ${tmppo}");
-    if ((offsetY < 0 && offsetY < -(lineHeight)) || (offsetY > 0)) {
+    if (offsetY.abs() > lineHeight + 2) {
       if (pos < tmppo && (tmppo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: 0.01);
+        ctl.setCntntPstn(tmppo, offsetY: -0.001);
       } else if (pos > tmpPerPo && (tmpPerPo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: -(lineHeight + 0.01));
+        ctl.setCntntPstn(tmppo, offsetY: -(offsetY - lineHeight));
       }
+    }
+    if (offsetY > (lineHeight * 2) && tmpPerLeftPo == 0 && pos != 0) {
+      ctl.setCntntPstn(tmppo, offsetY: 0);
     }
 
     return;

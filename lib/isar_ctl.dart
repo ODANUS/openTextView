@@ -378,6 +378,10 @@ class IsarCtl {
     return isar.filterIsars.where().build().watch(initialReturn: true);
   }
 
+  static Stream<List<HistoryIsar>> streamFilterHistory(DateTime startDate, DateTime endDate, String name) {
+    return isar.historyIsars.where().filter().nameContains(name).and().dateBetween(startDate, endDate).watch(initialReturn: true);
+  }
+
   // static Stream<List<LocalSettingIsar>> get streamLocalSetting {
   //   return isar.localSettingIsars.where().build().watch(initialReturn: true);
   //   // var f = isar.localSettingIsars.where().findFirstSync();
@@ -398,6 +402,19 @@ class IsarCtl {
   static StreamBuilder<List<HistoryIsar>> rxHistory(Widget Function(BuildContext, List<HistoryIsar>) builder) {
     return StreamBuilder<List<HistoryIsar>>(
         stream: streamHistory,
+        builder: ((context, snapshot) {
+          if (snapshot.data != null) {
+            return builder(context, snapshot.data!);
+          }
+          return SizedBox();
+        }));
+  }
+
+  static StreamBuilder<List<HistoryIsar>> rxHistoryFilterDate(
+      Widget Function(BuildContext, List<HistoryIsar>) builder, DateTime startDate, DateTime endDate, String name) {
+    print(">>>>>>>>>>>>>>>>>>>> ${startDate} $endDate  $name");
+    return StreamBuilder<List<HistoryIsar>>(
+        stream: streamFilterHistory(startDate, endDate, name),
         builder: ((context, snapshot) {
           if (snapshot.data != null) {
             return builder(context, snapshot.data!);

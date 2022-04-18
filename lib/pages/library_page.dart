@@ -240,26 +240,6 @@ class LibraryPage extends GetView {
                       ));
                 }).toList(),
                 SizedBox(width: 1),
-                IconButton(
-                    onPressed: () {
-                      // if (AdCtl.hasOpenInterstitialAd()) {
-                      AdCtl.openInterstitialAd();
-                      // }
-                    },
-                    icon: Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: Icon(Icons.smart_display),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                            "AD",
-                          ),
-                        ),
-                      ],
-                    ))
               ],
               bottom: PreferredSize(
                 preferredSize: Size(Get.width, 50),
@@ -394,182 +374,172 @@ class LibraryPage extends GetView {
                                     }).toList();
                                   }
 
-                                  return ListView.builder(
+                                  return GridView.builder(
                                       padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 200),
                                       itemCount: files.length,
+                                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3, //1 개의 행에 보여줄 item 개수
+                                        childAspectRatio: 1 / 1, //item 의 가로 1, 세로 2 의 비율
+                                        mainAxisSpacing: 10, //수평 Padding
+                                        crossAxisSpacing: 10, //수직 Padding
+                                      ),
                                       itemBuilder: (ctx, idx) {
-                                        File file = files[idx] as File;
-                                        String name = file.path.split("/").last;
-                                        String ex = name.split(".").last;
-                                        HistoryIsar? history = IsarCtl.historyByName(name);
-                                        String size = Utils.getFileSize(file);
-                                        if (ex == "zip") {
-                                          return Card(
-                                              child: ExpansionTile(
-                                            leading: Icon(Icons.folder_zip_outlined),
-                                            title: Text(name),
-                                            subtitle: Text("${size}"),
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                children: [
-                                                  if (kDebugMode) ElevatedButton(onPressed: () => saveAs(file), child: Text("save as")),
-                                                  ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(primary: Colors.red),
-                                                    onPressed: () {
-                                                      file.deleteSync();
-                                                      reloadFn(!reloadValue!);
-                                                    },
-                                                    child: Text("delete".tr),
-                                                  ),
-                                                  ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                    onPressed: () async {
-                                                      if (await ocrZipFile(file)) {
-                                                        reloadFn(!reloadValue!);
-                                                      }
-                                                    },
-                                                    child: Text("OCR".tr),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ));
-                                        }
-                                        if (ex == "epub") {
-                                          return Card(
-                                              child: ExpansionTile(
-                                            leading: Icon(Icons.menu_book_rounded),
-                                            title: Text(name),
-                                            subtitle: Text("${size}"),
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                children: [
-                                                  ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(primary: Colors.red),
-                                                    onPressed: () {
-                                                      file.deleteSync();
-                                                      reloadFn(!reloadValue!);
-                                                    },
-                                                    child: Text("delete".tr),
-                                                  ),
-                                                  ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                    onPressed: () async {
-                                                      if (await epubConv(file)) {
-                                                        reloadFn(!reloadValue!);
-                                                      }
-                                                    },
-                                                    child: Text("text conv".tr),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ));
-                                        }
-                                        return Card(
-                                          child: ExpansionTile(
-                                            key: Key("file_${Random().nextInt(1000000)}"),
-                                            leading: Icon(Icons.description),
-                                            title: Text(name),
-                                            subtitle: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                if (history != null) Text("${Utils.rdgPos(history)}"),
-                                                // Text("${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
-                                                if (history != null)
-                                                  Row(children: [
-                                                    Flexible(
-                                                      child: Text(
-                                                        "${"memo".tr} : ${history.memo}",
-                                                        overflow: TextOverflow.ellipsis,
-                                                      ),
-                                                    ),
-                                                  ]),
-                                                Text("${size}"),
-                                              ],
-                                            ),
-                                            children: [
-                                              ObxValue<RxBool>((bMemo) {
-                                                return Column(
-                                                  children: [
-                                                    if (bMemo.value && history != null)
-                                                      Container(
-                                                        padding: EdgeInsets.all(10),
-                                                        child: TextFormField(
-                                                          initialValue: history.memo,
-                                                          onFieldSubmitted: (v) {
-                                                            IsarCtl.putHistory(history..memo = v);
-                                                          },
-                                                        ),
-                                                      ),
-                                                    Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                      children: [
-                                                        ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(primary: Colors.blue, padding: EdgeInsets.all(1)),
-                                                          onPressed: () async {
-                                                            if (await newLineTheorem(file)) {
-                                                              reloadFn(!reloadValue!);
-                                                            }
-                                                          },
-                                                          child: Text("newline theorem".tr, style: TextStyle(fontSize: 13)),
-                                                        ),
-                                                        ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(primary: Colors.red),
-                                                          onPressed: () {
-                                                            file.deleteSync();
-                                                            reloadFn(!reloadValue!);
-                                                          },
-                                                          child: Text("delete".tr),
-                                                        ),
-                                                        if (history != null)
-                                                          ElevatedButton(
-                                                            style: ElevatedButton.styleFrom(primary: Colors.green),
-                                                            onPressed: () {
-                                                              bMemo(!bMemo.value);
-                                                            },
-                                                            child: Text("memo".tr),
-                                                          ),
-                                                        ElevatedButton(
-                                                          onPressed: () async {
-                                                            await IsarCtl.openFile(file);
-                                                            reloadFn(!reloadValue!);
-                                                          },
-                                                          child: Text("open".tr),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    // Row(
-                                                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                    //   children: [
-                                                    //     ElevatedButton(
-                                                    //       style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                    //       onPressed: () async {
-                                                    //         if (await newLineTheorem(file)) {
-                                                    //           reloadFn(!reloadValue!);
-                                                    //         }
-                                                    //       },
-                                                    //       child: Text("newline theorem".tr),
-                                                    //     ),
-                                                    //     // ElevatedButton(
-                                                    //     //   style: ElevatedButton.styleFrom(primary: Colors.blue),
-                                                    //     //   onPressed: () {
-                                                    //     //     saveAs(file);
-                                                    //     //   },
-                                                    //     //   child: Text("save as".tr),
-                                                    //     // ),
-                                                    //   ],
-                                                    // ),
-                                                    // if (Get.locale?.languageCode == "ko")
-                                                  ],
-                                                );
-                                              }, false.obs),
-                                            ],
-                                          ),
-                                        );
+                                        return Card();
                                       });
+                                  // ListView.builder(
+                                  //     padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 200),
+                                  //     itemCount: files.length,
+                                  //     itemBuilder: (ctx, idx) {
+                                  //       File file = files[idx] as File;
+                                  //       String name = file.path.split("/").last;
+                                  //       String ex = name.split(".").last;
+                                  //       HistoryIsar? history = IsarCtl.historyByName(name);
+                                  //       String size = Utils.getFileSize(file);
+                                  //       if (ex == "zip") {
+                                  //         return Card(
+                                  //             child: ExpansionTile(
+                                  //           leading: Icon(Icons.folder_zip_outlined),
+                                  //           title: Text(name),
+                                  //           subtitle: Text("${size}"),
+                                  //           children: [
+                                  //             Row(
+                                  //               mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  //               children: [
+                                  //                 if (kDebugMode) ElevatedButton(onPressed: () => saveAs(file), child: Text("save as")),
+                                  //                 ElevatedButton(
+                                  //                   style: ElevatedButton.styleFrom(primary: Colors.red),
+                                  //                   onPressed: () {
+                                  //                     file.deleteSync();
+                                  //                     reloadFn(!reloadValue!);
+                                  //                   },
+                                  //                   child: Text("delete".tr),
+                                  //                 ),
+                                  //                 ElevatedButton(
+                                  //                   style: ElevatedButton.styleFrom(primary: Colors.blue),
+                                  //                   onPressed: () async {
+                                  //                     if (await ocrZipFile(file)) {
+                                  //                       reloadFn(!reloadValue!);
+                                  //                     }
+                                  //                   },
+                                  //                   child: Text("OCR".tr),
+                                  //                 ),
+                                  //               ],
+                                  //             )
+                                  //           ],
+                                  //         ));
+                                  //       }
+                                  //       if (ex == "epub") {
+                                  //         return Card(
+                                  //             child: ExpansionTile(
+                                  //           leading: Icon(Icons.menu_book_rounded),
+                                  //           title: Text(name),
+                                  //           subtitle: Text("${size}"),
+                                  //           children: [
+                                  //             Row(
+                                  //               mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  //               children: [
+                                  //                 ElevatedButton(
+                                  //                   style: ElevatedButton.styleFrom(primary: Colors.red),
+                                  //                   onPressed: () {
+                                  //                     file.deleteSync();
+                                  //                     reloadFn(!reloadValue!);
+                                  //                   },
+                                  //                   child: Text("delete".tr),
+                                  //                 ),
+                                  //                 ElevatedButton(
+                                  //                   style: ElevatedButton.styleFrom(primary: Colors.blue),
+                                  //                   onPressed: () async {
+                                  //                     if (await epubConv(file)) {
+                                  //                       reloadFn(!reloadValue!);
+                                  //                     }
+                                  //                   },
+                                  //                   child: Text("text conv".tr),
+                                  //                 ),
+                                  //               ],
+                                  //             )
+                                  //           ],
+                                  //         ));
+                                  //       }
+                                  //       return Card(
+                                  //         child: ExpansionTile(
+                                  //           key: Key("file_${Random().nextInt(1000000)}"),
+                                  //           leading: Icon(Icons.description),
+                                  //           title: Text(name),
+                                  //           subtitle: Column(
+                                  //             crossAxisAlignment: CrossAxisAlignment.start,
+                                  //             children: [
+                                  //               if (history != null) Text("${Utils.rdgPos(history)}"),
+                                  //               // Text("${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% (${history.contentsLen ~/ 160000}${"books".tr})"),
+                                  //               if (history != null)
+                                  //                 Row(children: [
+                                  //                   Flexible(
+                                  //                     child: Text(
+                                  //                       "${"memo".tr} : ${history.memo}",
+                                  //                       overflow: TextOverflow.ellipsis,
+                                  //                     ),
+                                  //                   ),
+                                  //                 ]),
+                                  //               Text("${size}"),
+                                  //             ],
+                                  //           ),
+                                  //           children: [
+                                  //             ObxValue<RxBool>((bMemo) {
+                                  //               return Column(
+                                  //                 children: [
+                                  //                   if (bMemo.value && history != null)
+                                  //                     Container(
+                                  //                       padding: EdgeInsets.all(10),
+                                  //                       child: TextFormField(
+                                  //                         initialValue: history.memo,
+                                  //                         onFieldSubmitted: (v) {
+                                  //                           IsarCtl.putHistory(history..memo = v);
+                                  //                         },
+                                  //                       ),
+                                  //                     ),
+                                  //                   Row(
+                                  //                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  //                     children: [
+                                  //                       ElevatedButton(
+                                  //                         style: ElevatedButton.styleFrom(primary: Colors.blue, padding: EdgeInsets.all(1)),
+                                  //                         onPressed: () async {
+                                  //                           if (await newLineTheorem(file)) {
+                                  //                             reloadFn(!reloadValue!);
+                                  //                           }
+                                  //                         },
+                                  //                         child: Text("newline theorem".tr, style: TextStyle(fontSize: 13)),
+                                  //                       ),
+                                  //                       ElevatedButton(
+                                  //                         style: ElevatedButton.styleFrom(primary: Colors.red),
+                                  //                         onPressed: () {
+                                  //                           file.deleteSync();
+                                  //                           reloadFn(!reloadValue!);
+                                  //                         },
+                                  //                         child: Text("delete".tr),
+                                  //                       ),
+                                  //                       if (history != null)
+                                  //                         ElevatedButton(
+                                  //                           style: ElevatedButton.styleFrom(primary: Colors.green),
+                                  //                           onPressed: () {
+                                  //                             bMemo(!bMemo.value);
+                                  //                           },
+                                  //                           child: Text("memo".tr),
+                                  //                         ),
+                                  //                       ElevatedButton(
+                                  //                         onPressed: () async {
+                                  //                           await IsarCtl.openFile(file);
+                                  //                           reloadFn(!reloadValue!);
+                                  //                         },
+                                  //                         child: Text("open".tr),
+                                  //                       ),
+                                  //                     ],
+                                  //                   ),
+                                  //                 ],
+                                  //               );
+                                  //             }, false.obs),
+                                  //           ],
+                                  //         ),
+                                  //       );
+                                  //     });
                                 }),
                               ),
                             )

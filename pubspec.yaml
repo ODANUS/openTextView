@@ -78,6 +78,10 @@ dependencies:
   fluttertoast: ^8.0.9
   flutter_native_splash: ^2.1.5
   store_checker: ^1.0.0
+  flutter_datetime_picker: 
+   git:
+      url: https://github.com/Realank/flutter_datetime_picker.git
+      ref: master
   
   # flutter_downloader: ^1.7.1
   # flutter_tesseract_ocr: ^0.4.17

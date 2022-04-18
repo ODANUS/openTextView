@@ -33,27 +33,6 @@ class SettingPage extends GetView {
             ],
           ),
           // OptionPopupAds(),
-          IconButton(
-              onPressed: () {
-                // if (AdCtl.hasOpenInterstitialAd()) {
-                AdCtl.openInterstitialAd();
-                // }
-                // hasOpenInterstitialAd
-              },
-              icon: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Icon(Icons.smart_display),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      "AD",
-                    ),
-                  ),
-                ],
-              ))
         ],
         bottom: PreferredSize(
           preferredSize: Size(Get.width, 50),

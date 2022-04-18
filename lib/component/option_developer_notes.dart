@@ -8,6 +8,12 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.0.3 (2022 04 19) 패치내역 :
+1. 히스토리에 일자 기준으로 검색 할수 있도록 기능을 추가 했습니다. 
+2. 뷰어 페이지 개선. 
+3. 
+
+---
 2.0.2 (2022 04 15) 패치내역 :
 1. tts 재생시 하이라이트 표시 하게 수정 하였습니다. 
 

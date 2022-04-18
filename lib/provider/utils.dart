@@ -396,21 +396,29 @@ class Utils {
     String rtn = "";
     if (history.cntntPstn <= 0 && history.pos > 0) {
       if (bpercent) {
-        rtn = "${(history.pos / history.length * 100).toStringAsFixed(2)}% ";
+        if (history.pos > 0 && history.length > 0) {
+          rtn = "${(history.pos / history.length * 100).toStringAsFixed(2)}% ";
+        } else {
+          rtn = "0% ";
+        }
       }
       if (bnumber) {
         rtn += "${history.pos}/${history.length}";
       }
     } else {
       if (bpercent) {
-        rtn = "${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% ";
+        if (history.cntntPstn > 0 && history.contentsLen > 0) {
+          rtn = "${(history.cntntPstn / history.contentsLen * 100).toStringAsFixed(2)}% ";
+        } else {
+          rtn = "0% ";
+        }
       }
       if (bnumber) {
         rtn += "${history.cntntPstn}/${history.contentsLen}";
       }
     }
     if (bBooks && history.contentsLen > 0) {
-      rtn += " (${history.contentsLen ~/ 160000} ${"books".tr})";
+      rtn += " (${history.contentsLen ~/ 120000} ${"books".tr})";
     }
     return rtn;
   }
