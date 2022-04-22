@@ -27,6 +27,9 @@ class HistoryPage extends GetView {
           title: Text("history".tr),
           actions: [
             IsarCtl.rxHistoryFilterDate((ctx, historys) {
+              if (historys.isEmpty) {
+                return SizedBox();
+              }
               var books = historys.map((e) {
                 if (e.cntntPstn > 0) {
                   return max(e.cntntPstn ~/ 120000, 1);

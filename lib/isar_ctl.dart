@@ -103,7 +103,11 @@ class IsarCtl {
   static Future<void> initData() async {
     var dir = await getApplicationSupportDirectory();
 
-    libDir(Directory("${(await getTemporaryDirectory()).path}/file_picker"));
+    var tmpLibDir = Directory("${(await getTemporaryDirectory()).path}/file_picker");
+    if (!tmpLibDir.existsSync()) {
+      tmpLibDir.createSync();
+    }
+    libDir(tmpLibDir);
     // dbPath = dir.path;
     isar = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dir.path);
 
