@@ -100,8 +100,6 @@ class HistoryPage extends GetView {
           ),
         ),
         body: IsarCtl.rxHistoryFilterDate((ctx, historys) {
-          print(historys.length);
-
           historys.sort((a, b) {
             return b.date.compareTo(a.date);
           });

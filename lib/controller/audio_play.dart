@@ -178,7 +178,6 @@ class AudioHandler extends BaseAudioHandler
       // contents.substring(i, end);
 
       // .join("\n");
-      // print(speakText);
 
       IsarCtl.filters.forEach((e) {
         if (e.enable) {

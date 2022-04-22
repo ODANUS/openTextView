@@ -26,11 +26,9 @@ class Net {
   static Dio dio = Dio();
   static Future<List<String>> getImage(String keyword) async {
     // log("https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m");
-    var ss = await dio.get(
-        "https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m",
+    var ss = await dio.get("https://www.google.com/search?q=${keyword}&tbm=isch&tbs=isz:m",
         options: Options(headers: {
-          "user-agent":
-              "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+          "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
         }));
 
     var data = ss.data.toString();
@@ -42,8 +40,7 @@ class Net {
       var idx = e.indexOf('"');
       if (idx >= 0) {
         try {
-          return covertStringToUnicode("https://" + e.substring(0, idx))
-              .toString();
+          return covertStringToUnicode("https://" + e.substring(0, idx)).toString();
         } catch (e) {}
       }
       return "";
@@ -64,8 +61,5 @@ class Net {
     }).toList();
 
     return imageurls;
-    // imageurls.forEach((element) {
-    //   print(element);
-    // });
   }
 }

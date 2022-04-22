@@ -15,7 +15,7 @@ import 'package:open_textview/component/library_file_viewer.dart';
 import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
-import 'package:open_textview/pages/library_page%20copy.dart';
+
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;

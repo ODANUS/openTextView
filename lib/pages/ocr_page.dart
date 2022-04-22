@@ -118,7 +118,6 @@ class OcrPage extends GetView {
               Obx(() {
                 // checkFileSize();
                 // fileList.forEach((e) {
-                //   print(e.path);
                 // });
                 return Column(children: [
                   if (bcutList.isNotEmpty)
