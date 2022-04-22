@@ -9,13 +9,18 @@ import 'package:charset_converter/charset_converter.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 import 'package:get/get.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
-import 'package:html/dom.dart';
+import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:open_textview/controller/ad_ctl.dart';
+import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:collection/collection.dart' show compareNatural;
 
 extension Ex on double {
   double toPrecision(int n) => double.parse(toStringAsFixed(n));
@@ -27,6 +32,189 @@ extension Iterables<E> on Iterable<E> {
 }
 
 class Utils {
+  static Future<bool> newLineTheoremFile(File f) async {
+    var rtn = await AdCtl.openInterstitialAdNewLine();
+    // var rtn = true;
+    if (rtn) {
+      var pathList = f.path.split("/");
+      var path = pathList.sublist(0, pathList.length - 1).join("/");
+      var fileName = pathList.last.split(".").first;
+
+      String rtnStr = await newLineTheorem(f);
+
+      File outputFile = File("$path/newline_$fileName.txt");
+      if (!outputFile.existsSync()) {
+        outputFile.createSync();
+      }
+      outputFile.writeAsStringSync(rtnStr);
+      outputFile.setLastAccessedSync(DateTime.now());
+      return true;
+    }
+    return false;
+  }
+
+  Future<bool> saveAs(File f) async {
+    // if (!AdCtl.hasOpenRewardedInterstitialAd()) {
+    //   return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    // }
+    // var rtn = await AdCtl.openSaveAsAd();
+    // if (rtn) {
+    final params = SaveFileDialogParams(sourceFilePath: f.path);
+    await FlutterFileDialog.saveFile(params: params);
+    // }
+    return true;
+  }
+
+  static Future<bool> epubConv(File f) async {
+    var rtn = await AdCtl.openInterstitialAdEpubConv();
+    // var rtn = true;
+    if (rtn) {
+      var pathList = f.path.split("/");
+      var path = pathList.sublist(0, pathList.length - 1).join("/");
+      var fileName = pathList.last.split(".").first;
+      String rtnStr = await Utils.convEpub(f, onProcess: (total, cur) {
+        IsarCtl.epubTotal(total);
+        IsarCtl.epubCurrent(cur);
+      }, onFont: () async {
+        return Get.dialog(AlertDialog(
+          content: Text("There are built-in fonts.".tr),
+          actionsAlignment: MainAxisAlignment.spaceBetween,
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back(result: false);
+                },
+                child: Text("close".tr)),
+            ElevatedButton(
+                onPressed: () {
+                  Get.back(result: true);
+                  AdCtl.startRewardedAd();
+                },
+                child: Text("confirm".tr)),
+          ],
+        ));
+      });
+      IsarCtl.epubTotal(0);
+      IsarCtl.epubCurrent(0);
+
+      if (rtnStr.trim().isEmpty) {
+        Get.dialog(AlertDialog(
+          content: Text("Failed to convert epub.".tr),
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text("confirm".tr))
+          ],
+        ));
+        return false;
+      }
+
+      File outputFile = File("$path/epub_$fileName.txt");
+      if (!outputFile.existsSync()) {
+        outputFile.createSync();
+      }
+      outputFile.writeAsStringSync(rtnStr);
+      outputFile.setLastAccessedSync(DateTime.now());
+
+      return true;
+    }
+    return false;
+  }
+
+  static Future<bool> ocrZipFile(File f) async {
+    var pathList = f.path.split("/");
+    var path = pathList.sublist(0, pathList.length - 1).join("/");
+    var fileName = pathList.last.split(".").first;
+
+    final bytes = f.readAsBytesSync();
+    final archive = ZipDecoder().decodeBytes(bytes);
+    // archive.
+    var rootTmpDir = await getTemporaryDirectory();
+    var tmpDir = Directory("${rootTmpDir.path}/ocr");
+    if (tmpDir.existsSync()) {
+      tmpDir.deleteSync(recursive: true);
+    }
+    tmpDir.createSync(recursive: true);
+
+    archive.files.sort((a, b) {
+      return compareNatural(a.name, b.name);
+    });
+
+    if (archive.length > IsarCtl.MAXOCRCNT + 10) {
+      AdCtl.startInterstitialAd();
+      IsarCtl.unzipTotal(archive.length);
+      var idx = 0;
+      var cnt = 0;
+      var total = 0;
+      ZipFileEncoder encoder = ZipFileEncoder();
+      Directory newDir = Directory("${rootTmpDir.path}/file_picker/$fileName");
+      if (!newDir.existsSync()) newDir.createSync();
+      try {
+        for (var file in archive) {
+          if (cnt == 0) {
+            if (idx > 0) {
+              encoder.close();
+            }
+            encoder.create("${newDir.path}/${"${++idx}_div".padLeft(2, "0")}_${fileName}.zip");
+          }
+          final filename = file.name;
+          if (file.isFile &&
+              (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
+            final data = file.content as List<int>;
+            var tmpFile = File("${tmpDir.path}/$filename");
+            if (!tmpFile.existsSync()) {
+              await tmpFile.create(recursive: true);
+            }
+
+            await tmpFile.writeAsBytes(data);
+            IsarCtl.unzipCurrent(total);
+            encoder.addFile(tmpFile);
+          }
+          total++;
+          if (cnt++ >= IsarCtl.MAXOCRCNT - 1) {
+            cnt = 0;
+          }
+        }
+        encoder.close();
+      } catch (e) {}
+      IsarCtl.unzipTotal(0);
+      tmpDir.deleteSync(recursive: true);
+    } else {
+      IsarCtl.unzipTotal(archive.length);
+
+      var idx = 0;
+      for (final file in archive) {
+        final filename = file.name;
+        if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
+          final data = file.content as List<int>;
+          var tmpFile = File("${tmpDir.path}/$filename");
+          if (!tmpFile.existsSync()) {
+            await tmpFile.create(recursive: true);
+          }
+          IsarCtl.unzipCurrent(idx++);
+          await tmpFile.writeAsBytes(data);
+        } else {
+          Directory("${tmpDir.path}/$filename").create(recursive: true);
+        }
+      }
+      IsarCtl.unzipTotal(0);
+      var rtn = await Get.toNamed("/ocr");
+      if (rtn != null) {
+        File outputFile = File("$path/ocr_$fileName.txt");
+        if (!outputFile.existsSync()) {
+          outputFile.createSync();
+        }
+        outputFile.createSync();
+        outputFile.writeAsStringSync(rtn);
+        outputFile.setLastAccessedSync(DateTime.now());
+      }
+    }
+
+    return true;
+  }
+
   static String newLineTheoremStr(String tmpStr) {
     tmpStr = tmpStr.replaceAll(RegExp("\n{2,}"), "▤▤▤&&&");
     var strList = tmpStr.split("\n");
@@ -257,7 +445,7 @@ class Utils {
     return tmpList.join("\n\n");
   }
 
-  static removeFontSize0(Document htmlData, Map<String, String> cssMap) {
+  static removeFontSize0(dom.Document htmlData, Map<String, String> cssMap) {
     var links = htmlData.querySelectorAll("link[type=\"text/css\"]");
     links.forEach((e) {
       if (e.attributes['href']?.isNotEmpty != null) {
@@ -282,76 +470,21 @@ class Utils {
       return selectedFiles;
     }
 
-    // await Future.forEach(selectedFiles.files, (PlatformFile e) async {
-    //   if (e.extension != null && e.extension == "epub") {
-    //     File f = File(e.path!);
-    //     List<String?> hrefs = [];
-    //     Map<String, String> listXhtml = {};
-    //     String cssString = "";
+    selectedFiles.files.forEach((f) {
+      var tmpEx = f.path!.split(".").last.toLowerCase();
+      if (tmpEx != "txt" && tmpEx != "epub" && tmpEx != "zip") {
+        File(f.path!).deleteSync();
+      }
+    });
 
-    //     String strContents = "";
-    //     final bytes = f.readAsBytesSync();
-    //     final archive = ZipDecoder().decodeBytes(bytes);
-    //     for (final file in archive) {
-    //       final filename = file.name;
-    //       if (file.isFile) {
-    //         final intdatas = file.content as List<int>;
-    //         if (file.name.contains("content.opf")) {
-    //           var data = String.fromCharCodes(intdatas);
-    //           var htmlData = parse(data);
-    //           var items = htmlData.querySelector("manifest")?.querySelectorAll("item[media-type*=xml]");
-    //           if (items != null) {
-    //             hrefs = items.map((e) => e.attributes['href']).toList();
-    //           }
-    //         }
-    //         if (file.name.contains(".css")) {
-    //           var data = String.fromCharCodes(intdatas);
-    //           cssString += data;
-    //         }
-    //         if (file.name.contains("html")) {
-    //           var ctn = String.fromCharCodes(intdatas);
-    //           var decodeData = await CharsetDetector.autoDecode(file.content);
-    //           listXhtml[file.name.split("/").skip(1).join("/")] = decodeData.string;
-    //         }
-    //       } else {
-    //         // Directory('out/' + filename).create(recursive: true);
-    //       }
-    //     }
-
-    //     hrefs.forEach((href) {
-    //       if (listXhtml[href] != null) {
-    //         var htmlData = parse(listXhtml[href]);
-    //         var bodytext = htmlData.body?.text ?? "";
-    //         if (Get.locale?.languageCode.contains("ko") != null) {
-    //           // bodytext = bodytext.split("\n").join();
-    //           bodytext = bodytext.split("\n").map((e) => e.trim()).join("\n");
-    //           bodytext = bodytext.split("다. ").map((e) => e.trim()).join("다. \n\n");
-    //           bodytext = bodytext.split("\" ").map((e) => e.trim()).join("\" \n");
-    //           bodytext = bodytext.split("” ").map((e) => e.trim()).join("\”\n");
-    //         }
-    //         strContents += bodytext;
-    //       }
-    //     });
-    //     // List<int> bytes = await f.readAsBytes();
-    //     // EpubBook epubBook = await EpubReader.readBook(bytes);
-    //     // if (epubBook.Content != null) {
-    //     //   EpubContent bookContent = epubBook.Content!;
-    //     //   var strContent = bookContent.Html!.values.map((EpubTextContentFile value) {
-    //     //     var document = parse(value.Content!);
-
-    //     //     var saveData = document.body!.text; //bodyToText(document.body!);
-    //     //     saveData = saveData.split("\n").map((e) => e.trim()).join("\n");
-
-    //     //     saveData = saveData.replaceAll(RegExp(r"\n{3,}"), "\n\n");
-    //     //     return saveData;
-    //     //   }).join();
-
-    //     // }
-    //     File saveFile = File(e.path!.replaceAll(RegExp("epub\$"), "txt"));
-    //     saveFile.writeAsStringSync(strContents);
-    //     f.delete();
-    //   }
-    // });
+    var curPath = IsarCtl.libDir.value.path;
+    var pathArr = curPath.split("/");
+    if (pathArr.last != "file_picker") {
+      selectedFiles.files.forEach((e) {
+        var f = File(e.path!);
+        f.renameSync("${curPath}/${f.path.split("/").last}");
+      });
+    }
 
     return selectedFiles;
   }

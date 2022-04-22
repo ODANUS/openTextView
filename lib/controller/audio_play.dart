@@ -96,6 +96,7 @@ class AudioHandler extends BaseAudioHandler
   DateTime? autoExitDate;
   var lastPos = 0;
   int errorCnt = 0;
+  int retry = 0;
 
   Future<void> setTts() async {
     await tts?.setSpeechRate(IsarCtl.setting?.speechRate ?? 1);
@@ -137,7 +138,17 @@ class AudioHandler extends BaseAudioHandler
     playbackState.add(baseState.copyWith(updatePosition: Duration(milliseconds: 100)));
 
     // ---------------------------------------------------
-    int pos = IsarCtl.cntntPstn;
+    int? pos = IsarCtl.cntntPstnNil;
+    if (pos == null) {
+      Future.delayed(500.milliseconds);
+      retry++;
+      if (retry < 5) {
+        play();
+      }
+      return;
+    }
+    retry = 0;
+    // ----------------------------------------------------
     String contents = IsarCtl.contents.text;
     HistoryIsar history = IsarCtl.lastHistory!;
     SettingIsar setting = IsarCtl.setting!;
@@ -292,6 +303,7 @@ class AudioPlay {
     _audioHandler = await AudioService.init(
       builder: () => AudioHandler(),
       config: AudioServiceConfig(
+        androidNotificationIcon: 'mipmap/ic_launcher_play',
         // androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
         androidNotificationChannelId: 'com.khjde.opentextview.channel.audio',
         androidNotificationChannelName: 'tts',

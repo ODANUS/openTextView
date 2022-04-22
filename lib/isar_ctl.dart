@@ -73,9 +73,16 @@ class IsarCtl {
   // static RxDouble maxHeight = RxDouble(0);
   static RxInt unzipTotal = 0.obs;
   static RxInt unzipCurrent = 0.obs;
+  static RxInt epubTotal = 0.obs;
+  static RxInt epubCurrent = 0.obs;
 
   static RxBool bConvLoading = false.obs;
   static RxBool enableVolumeButton = false.obs;
+
+  static Rx<Directory> libDir = Directory("").obs;
+  static Rxn<Directory> libPDir = Rxn<Directory>();
+  static RxString libSearchText = "".obs;
+
   // static RxBool bImageFullScreen = false.obs;
   // static RxBool bTowDrage = false.obs;
 
@@ -85,6 +92,8 @@ class IsarCtl {
   // static RxInt asyncPos = 0.obs;
   static RxBool basyncOffset = false.obs;
 
+  static const int MAXOCRCNT = 1000;
+
   // static RxBool bOpen = false.obs;
 
   static Future<void> init() async {
@@ -93,42 +102,14 @@ class IsarCtl {
 
   static Future<void> initData() async {
     var dir = await getApplicationSupportDirectory();
+
+    libDir(Directory("${(await getTemporaryDirectory()).path}/file_picker"));
     // dbPath = dir.path;
     isar = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dir.path);
 
-    // isar.writeTxnSync((isar) => isar.contentsIsars.clearSync());
-    // isar.writeTxnSync((isar) => isar.filterIsars.clearSync());
-    // isar.writeTxnSync((isar) => isar.historyIsars.clearSync());
-    // isar.writeTxnSync((isar) => isar.settingIsars.clearSync());
-
-    // LocalSettingIsar? localSettingIsar =
-    //     isar.localSettingIsars.where().findFirstSync();
-    // if (localSettingIsar == null) {
-    //   isar.writeTxnSync((isar) {
-    //     isar.localSettingIsars.putSync(LocalSettingIsar());
-    //   });
-    // }
     SettingIsar? settingIsar = isar.settingIsars.where().findFirstSync();
     List<HistoryIsar> historys = isar.historyIsars.where().findAllSync();
     if (settingIsar == null || historys.isEmpty) {
-      // var store = await openStore();
-      // var settingbox = store.box<SettingBox>();
-      // var filterbox = store.box<FilterBox>();
-      // var historyBox = store.box<HistoryBox>();
-      // var tmps = settingbox.getAll().map((e) => SettingIsar.fromMap(e.toMap())).toList();
-      // var tmpf = filterbox.getAll().map((e) => FilterIsar.fromMap(e.toMap())).toList();
-      // var tmph = historyBox.getAll().map((e) => HistoryIsar.fromMap(e.toMap())).toList();
-      // if (tmps.isNotEmpty) {
-      //   try {
-      //     isar.writeTxnSync((isar) {
-      //       isar.settingIsars.putAllSync(tmps);
-      //       isar.filterIsars.putAllSync(tmpf);
-      //       isar.historyIsars.putAllSync(tmph);
-      //     });
-      //   } catch (e) {}
-      // } else {
-      // }
-      // store.close();
       isar.writeTxnSync((isar) {
         isar.settingIsars.putSync(SettingIsar());
       });
@@ -186,8 +167,27 @@ class IsarCtl {
     HardwareKeyboard.instance.removeHandler(volumeControll);
     HardwareKeyboard.instance.addHandler(volumeControll);
 
+    // libraryInit();
     // WidgetsBinding.instance!.addObserver(IsarCtl());
   }
+
+  // static libraryInit() async {
+  //   var dir = await getTemporaryDirectory();
+  //   var library_root = Directory("${dir.path}/file_picker");
+
+  //   var library_base = Directory("${dir.path}/file_picker/_base_");
+
+  //   if (!library_base.existsSync()) {
+  //     library_base.createSync();
+  //   }
+  //   var list = library_base.listSync();
+  //   list.forEach((e) {
+  //     if (e is File) {
+  //       var fileName = e.path.split("/").last;
+  //       e.renameSync('${library_root.path}/$fileName');
+  //     }
+  //   });
+  // }
 
   // [*] ----- GET SET ----- [*]
   static double get screenContensHeight {
@@ -257,6 +257,11 @@ class IsarCtl {
 
   static int get cntntPstn {
     return lastHistory?.cntntPstn ?? 0;
+  }
+
+  static int? get cntntPstnNil {
+    var last = lastHistory;
+    return last?.cntntPstn;
   }
 
   static set cntntPstn(int idx) {
@@ -412,7 +417,6 @@ class IsarCtl {
 
   static StreamBuilder<List<HistoryIsar>> rxHistoryFilterDate(
       Widget Function(BuildContext, List<HistoryIsar>) builder, DateTime startDate, DateTime endDate, String name) {
-    print(">>>>>>>>>>>>>>>>>>>> ${startDate} $endDate  $name");
     return StreamBuilder<List<HistoryIsar>>(
         stream: streamFilterHistory(startDate, endDate, name),
         builder: ((context, snapshot) {
@@ -647,7 +651,7 @@ class IsarCtl {
       return;
     }
 
-    f.setLastAccessedSync(DateTime.now());
+    // f.setLastAccessedSync(DateTime.now());
     var tmpName = f.path.split("/").last;
 
     String tmpStr = await Utils.readFile(f);

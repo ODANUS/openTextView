@@ -7,6 +7,7 @@ import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/i18n.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/pages/main_page.dart';
+import 'package:open_textview/pages/merge_page.dart';
 import 'package:open_textview/pages/ocr_page.dart';
 import 'package:open_textview/provider/custom_theme.dart';
 import 'package:wakelock/wakelock.dart';
@@ -46,6 +47,7 @@ void main() async {
             getPages: [
               GetPage(name: '/', page: () => MainPage()),
               GetPage(name: '/ocr', page: () => OcrPage()),
+              GetPage(name: '/merge', page: () => MergePage()),
             ]);
       }));
 }

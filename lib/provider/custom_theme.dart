@@ -4,6 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      pageTransitionsTheme: PageTransitionsTheme(builders: {
+        TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      }),
       brightness: Brightness.light,
       textTheme: TextTheme(
           // headline1: TextStyle(fontSize: 110.0.sp),
@@ -20,13 +24,11 @@ class CustomTheme {
           // button: TextStyle(fontSize: 12.0.sp),
           // overline: TextStyle(fontSize: 8.0.sp),
           ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(padding: EdgeInsets.all(1.0))),
+      elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(padding: EdgeInsets.all(1.0))),
       buttonTheme: ButtonThemeData(padding: EdgeInsets.all(1.0)),
       iconTheme: IconThemeData(size: 24.0.sp),
       primaryIconTheme: IconThemeData(size: 10.0.sp),
-      inputDecorationTheme:
-          const InputDecorationTheme(border: OutlineInputBorder()),
+      inputDecorationTheme: const InputDecorationTheme(border: OutlineInputBorder()),
       floatingActionButtonTheme: FloatingActionButtonThemeData(),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedLabelStyle: TextStyle(fontSize: 11.sp),
@@ -53,13 +55,11 @@ class CustomTheme {
             // button: TextStyle(fontSize: 14.0.sp),
             // overline: TextStyle(fontSize: 10.0.sp),
             ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(padding: EdgeInsets.all(1.0))),
+        elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(padding: EdgeInsets.all(1.0))),
         buttonTheme: ButtonThemeData(padding: EdgeInsets.all(1.0)),
         // iconTheme: IconThemeData(size: 24.0.sp),
         // primaryIconTheme: IconThemeData(size: 10.0.sp),
-        inputDecorationTheme:
-            const InputDecorationTheme(border: OutlineInputBorder()),
+        inputDecorationTheme: const InputDecorationTheme(border: OutlineInputBorder()),
         floatingActionButtonTheme: FloatingActionButtonThemeData());
   }
 }
