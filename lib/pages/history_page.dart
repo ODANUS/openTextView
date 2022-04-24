@@ -207,7 +207,7 @@ class HistoryPage extends GetView {
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text("${Utils.rdgPos(e, bnumber: true, bBooks: true)}"),
+                                    Text("${Utils.rdgPos(e, bnumber: false, bBooks: true)}"),
                                   ],
                                 ),
                                 Row(children: [
