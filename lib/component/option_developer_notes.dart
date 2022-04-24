@@ -8,7 +8,7 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
-2.0.3 (2022 04 19) 패치내역 :
+2.0.4 (2022 04 25) 패치내역 :
 1. 히스토리에 일자 기준으로 검색 할수 있도록 기능을 추가 했습니다. 
 
 2. 내서재 UI 변경 

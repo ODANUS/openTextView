@@ -46,7 +46,7 @@ class LibraryPage extends GetView {
                   ),
                 ),
               ],
-              bottom: PreferredSize(preferredSize: Size(Get.width, 50), child: AdBanner(key: Key("library"))),
+              // bottom: PreferredSize(preferredSize: Size(Get.width, 50), child: AdBanner(key: Key("library"))),
             ),
             body: Stack(
               children: [
