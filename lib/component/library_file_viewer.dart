@@ -45,6 +45,10 @@ class LibraryFileViewer extends GetView {
     }
     var list = f.listSync();
     return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Color(0x40fdcc6f),
+        ),
         padding: EdgeInsets.all(5),
         width: 100.w,
         height: 110.h,
@@ -55,9 +59,12 @@ class LibraryFileViewer extends GetView {
               animationType: BadgeAnimationType.fade,
               badgeColor: Colors.deepPurple,
               badgeContent: Text("${list.length}", style: TextStyle(color: Colors.white)),
-              child: Icon(Icons.folder_open_outlined),
+              child: Icon(
+                Icons.folder_rounded,
+                color: Color(0xFFfdcc6f),
+                size: 40.sp,
+              ),
             ),
-            SizedBox(height: 5),
             Expanded(
               child: Center(
                 child: Material(
@@ -85,21 +92,40 @@ class LibraryFileViewer extends GetView {
     String ex = name.split(".").last;
     var history = IsarCtl.historyByName(name);
 
+    var c = Color(0x2068bef7);
+    if (ex == "zip") c = Color(0x7067c99d);
+    if (ex == "epub") c = Color(0x20f39e7e);
+
     return Material(
         type: MaterialType.transparency, // likely needed
         child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: c,
+            ),
             padding: EdgeInsets.all(5),
             width: 100.w,
             height: 110.h,
             child: Column(
               children: [
-                if (ex == "txt") Icon(Icons.description_outlined),
-                if (ex == "zip") Icon(Icons.folder_zip_outlined),
-                if (ex == "epub") Icon(Icons.book_outlined),
-                SizedBox(height: 2),
+                Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    if (ex == "txt") Icon(Icons.description_rounded, size: 28.sp, color: Color(0x9068bef7)),
+                    if (ex == "zip") Icon(Icons.folder_zip_rounded, size: 35.sp, color: Color(0xFF67c99d)),
+                    if (ex == "epub") Icon(Icons.book_rounded, size: 35.sp, color: Color(0x90f39e7e)),
+                    Container(
+                        padding: EdgeInsets.only(top: 15.sp, left: 35.sp),
+                        child: Text(
+                          ex,
+                          style: TextStyle(fontSize: 13.sp),
+                        )),
+                  ],
+                ),
+                SizedBox(height: 1),
                 if (history != null) Text("${Utils.rdgPos(history)}"),
                 if (history != null) Text("${"memo".tr}:${history.memo}", overflow: TextOverflow.ellipsis),
-                SizedBox(height: 2),
+                SizedBox(height: 1),
                 Expanded(
                   child: Center(
                     child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine),
@@ -441,7 +467,7 @@ class LibraryFileViewer extends GetView {
                         return Container(
                           width: 16.w,
                           height: 110.h,
-                          decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
+                          decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(15)),
                           child: bDrag.value && dragEx.value != "dir" ? Icon(Icons.horizontal_distribute, size: 8.sp) : null,
                         );
                       });
@@ -599,7 +625,7 @@ class LibraryFileViewer extends GetView {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: c,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(15),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,

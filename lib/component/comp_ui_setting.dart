@@ -426,7 +426,7 @@ class UiSetting extends GetView {
                             children: [
                               IconButton(
                                   onPressed: () {
-                                    IsarCtl.putSetting(setting..fontSize = max(setting.fontSize - 1, 10));
+                                    IsarCtl.putSetting(setting..fontSize = max(setting.fontSize - 1, 18));
                                   },
                                   icon: Icon(Ionicons.remove_outline)),
                               Text("${setting.fontSize}"),

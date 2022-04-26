@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 import 'dart:developer' as d;
 import 'dart:math';
 import 'dart:ui';
@@ -58,14 +59,15 @@ class CompTextReader extends GetView {
               size: Size(100, 100),
               painter: TextViewerPainter(
                 textViewerController: IsarCtl.tctl
-                  ..cntntPstn = IsarCtl.cntntPstn
                   ..contents = contens.text
+                  ..style = IsarCtl.textStyle
+                  ..cntntPstn = IsarCtl.cntntPstn
                   ..onChange = (idx) async {
                     // IsarCtl.basyncOffset(true);
                     // IsarCtl.basyncOffset(false);
                     // IsarCtl.cntntPstnAsync(idx);
                   },
-                style: IsarCtl.textStyle,
+                // style: IsarCtl.textStyle,
               ),
             ),
           ),
@@ -103,108 +105,53 @@ class CompTextReader extends GetView {
 
 class TextViewerPainter extends CustomPainter {
   TextViewerPainter({
-    required this.style,
     required this.textViewerController,
   }) : super(repaint: textViewerController) {}
 
   TextViewerController textViewerController;
 
-  TextStyle style;
-  late double height;
-  int lastPos = 0;
-
   Paint bg = Paint()..color = Colors.green;
   Paint highlight = Paint()..color = Colors.blueGrey.shade400;
-
-  String getNextText(String nextText, Size size) {
-    TextPainter p = TextPainter(
-      text: TextSpan(text: nextText, style: style),
-      textDirection: TextDirection.ltr,
-    )..layout(maxWidth: size.width);
-    List<LineMetrics> lines = p.computeLineMetrics();
-
-    for (var line in lines) {
-      if (size.height < line.baseline + line.descent) {
-        var currentPageEndIndex = p.getPositionForOffset(Offset(0, line.baseline - line.ascent)).offset;
-        return nextText.substring(0, currentPageEndIndex);
-      }
-    }
-    return nextText;
-  }
-
-  String getPerText(String perText, Size size) {
-    var pPer = TextPainter(
-      text: TextSpan(text: perText, style: style),
-      textDirection: TextDirection.ltr,
-    )..layout(maxWidth: size.width);
-    var perLines = pPer.computeLineMetrics();
-    var maxPerHeight = pPer.height - size.height;
-    double perHeight = 0.0;
-
-    for (var line in perLines) {
-      if (line.baseline > maxPerHeight) {
-        var startPos = pPer.getPositionForOffset(Offset(line.left, line.baseline)).offset;
-        return perText.substring(startPos, perText.length);
-      }
-    }
-    return perText;
-  }
 
   void render(Canvas canvas, Size size) {
     var ctl = textViewerController;
     var pos = ctl.cntntPstn;
-    lastPos = pos;
 
     double offsetY = textViewerController.offsetY;
-
-    var perText = getPerText(ctl.contents.substring(max(pos - 1000, 0), pos), size);
-    var nextText = getNextText(ctl.contents.substring(pos, min(pos + 1000, ctl.contents.length)), size);
-    var totalText = perText + nextText;
-
-    var tmpperPos = min(pos, perText.length);
-    var tmpTextP = TextPainter(
-      text: TextSpan(text: totalText, style: style),
+    // ------------ per ------------
+    var perData = ctl._getPerText(size);
+    var pper = TextPainter(
+      text: TextSpan(text: perData.contents + "-", style: ctl._style),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: size.width);
-    var lineHeight = tmpTextP.preferredLineHeight;
 
-    var currentOffset = tmpTextP.getOffsetForCaret(TextPosition(offset: tmpperPos), Rect.zero);
+    // ------------ next ------------
+    var data = ctl._getNextText(size);
+
+    var p = TextPainter(
+      text: TextSpan(text: data.contents, style: ctl._style),
+      textDirection: TextDirection.ltr,
+    )..layout(maxWidth: size.width);
 
     if (ctl.bHighlight) {
-      var curHighlightPos = ctl.highlightPos - (pos - tmpperPos);
+      var curHighlightPos = max(ctl.highlightPos - (pos), 0);
+      var curHighlightCnt = max(ctl.highlightPos - (pos) + ctl.highlightCnt, 0);
 
-      var tb = tmpTextP.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightPos + ctl.highlightCnt));
+      var tb = p.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightCnt));
       tb.forEach((e) {
         var r = e.toRect();
-        var oy = offsetY - currentOffset.dy;
-        var rect = Rect.fromLTRB(r.left, r.top + oy, r.right, r.bottom + oy);
-        if (rect.height < lineHeight) {
-          rect = Rect.fromLTRB(rect.left, rect.top - (lineHeight - rect.height), rect.right, rect.bottom);
-        }
+        var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
+        rect = Rect.fromLTRB(rect.left, rect.top, size.width, rect.bottom);
         canvas.drawRect(rect, highlight);
       });
     }
-    tmpTextP.paint(canvas, Offset(0, offsetY - currentOffset.dy));
-    var perLeft = tmpTextP.getPositionForOffset(Offset(0, currentOffset.dy - offsetY - lineHeight));
-    var per = tmpTextP.getPositionForOffset(Offset(size.width, currentOffset.dy - offsetY - lineHeight));
-    var next = tmpTextP.getPositionForOffset(Offset(0, currentOffset.dy - offsetY));
+    p.paint(canvas, Offset(0, offsetY));
 
-    var tmppo = (pos + next.offset) - tmpperPos;
-    var tmpPerPo = (pos + per.offset) - tmpperPos;
-    var tmpPerLeftPo = (pos + perLeft.offset) - tmpperPos;
-
-    ctl.perPos = pos - perText.length;
-    ctl.maxPos = pos + nextText.length;
-    if (offsetY.abs() > lineHeight + 2) {
-      if (pos < tmppo && (tmppo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: 0.0001);
-      } else if (pos > tmpPerPo && (tmpPerPo - pos).abs() > 1) {
-        ctl.setCntntPstn(tmppo, offsetY: -(0.0001));
-        // ctl.setCntntPstn(tmppo, offsetY: -(offsetY - lineHeight));
-      }
+    if (offsetY < -ctl.avgHeight) {
+      ctl.setCntntPstn(data.nextLine, offsetY: 0);
     }
-    if (offsetY > (lineHeight * 2) && tmpPerLeftPo == 0 && pos != 0) {
-      ctl.setCntntPstn(tmppo, offsetY: 0);
+    if (offsetY > ctl.avgHeight) {
+      ctl.setCntntPstn(perData.lastLine, offsetY: 0);
     }
 
     return;
@@ -218,37 +165,56 @@ class TextViewerPainter extends CustomPainter {
 
   @override
   bool shouldRebuildSemantics(TextViewerPainter oldDelegate) {
-    return textViewerController.cntntPstn != oldDelegate.lastPos;
+    return true;
   }
 
   @override
   bool shouldRepaint(TextViewerPainter oldDelegate) {
-    return textViewerController.cntntPstn != oldDelegate.lastPos;
+    return true;
   }
 }
 
 class TextViewerController extends ChangeNotifier {
   double _offsetY = 0;
-  // int _pos = 0;
+
   int _cntntPstn = 0;
-  String contents = "";
+  String _contents = "";
 
   int lastPos = -999;
 
-  int _per = 0;
-
-  int _max = 0;
+  PosData perPosData = PosData();
+  PosData nextPosData = PosData();
 
   bool bHighlight = false;
   int highlightPos = 0;
   int highlightCnt = 0;
 
-  Map<int, TextPainter> cache = {};
+  double avgWidth = 0.0;
+  double avgHeight = 0.0;
+
+  TextStyle _style = TextStyle(fontSize: 14);
 
   Function(int)? onChange;
 
+  set contents(String v) {
+    _contents = v;
+    cacheWord();
+  }
+
+  String get contents => _contents;
+
   set cntntPstn(int v) {
     _cntntPstn = v;
+
+    cacheWord();
+  }
+
+  set style(TextStyle v) {
+    if (_style.fontSize != v.fontSize && _style.height != v.height && _style.letterSpacing != v.letterSpacing && _style.fontFamily != v.fontFamily) {
+      cacheMap.clear();
+      cacheWord();
+    }
+    _style = v;
   }
 
   int get cntntPstn => _cntntPstn;
@@ -269,35 +235,175 @@ class TextViewerController extends ChangeNotifier {
 
   double get offsetY => _offsetY;
 
-  set maxPos(int v) {
-    if (v > contents.length - 1) {
-      v = contents.length - 1;
-    }
-    _max = v;
-  }
-
-  int get maxPos => _max;
-
-  set perPos(int v) => _per = v;
-  int get perPos => _per;
-
   back() {
-    onChange!(perPos);
+    if (onChange != null) {
+      onChange!(perPosData.basePos);
+    }
     offsetY = 0;
-    cntntPstn = perPos;
+    cntntPstn = perPosData.basePos;
   }
 
   next() {
-    if (maxPos < contents.length - 1) {
-      onChange!(maxPos);
+    if (nextPosData.nextPos < contents.length - 1) {
+      if (onChange != null) {
+        onChange!(nextPosData.nextPos);
+      }
       offsetY = 0;
-      cntntPstn = maxPos;
+      cntntPstn = nextPosData.nextPos;
     }
-    // print(maxPos);
   }
 
-  // void clearItems() {
-  //   items.clear();
-  //   notifyListeners();
-  // }
+  Map<String, List<double>> cacheMap = Map<String, List<double>>();
+
+  PosData _getPerText(Size size) {
+    PosData data = PosData();
+    for (var i = 1; i < 800; i++) {
+      var perText = contents.substring(max(cntntPstn - i, 0), cntntPstn);
+      var tmpData = _clcText(perText, size, max(cntntPstn - i, 0));
+      if (tmpData.nextPos < cntntPstn || cntntPstn - i < 0) {
+        break;
+      }
+      data = tmpData;
+    }
+    perPosData = data;
+    return data;
+  }
+
+  PosData _getNextText(Size size) {
+    // cntntPstn
+    var nextText = contents.substring(cntntPstn, min(cntntPstn + 800, contents.length));
+    // var nextText = contents.substring(0, 20);
+    nextPosData = _clcText(nextText, size, cntntPstn);
+
+    return nextPosData;
+  }
+
+  PosData _clcText(String _str, Size size, int basePos) {
+    var nextArr = _str.split("\n").map((e) => e.split(" ")).toList();
+    var rtnStr = "";
+
+    var tleng = 0;
+    var lineWidth = 0.0;
+    var lastWidth = 0.0;
+    var lineHeight = 0.0;
+
+    var bBreak = false;
+
+    var nextLine = 0;
+
+    for (var i = 0; i < nextArr.length; i++) {
+      var newLine = nextArr[i];
+
+      lineWidth = 0;
+      lineHeight += avgHeight;
+
+      if (bBreak || lineHeight + avgHeight > size.height) {
+        break;
+      }
+      for (var y = 0; y < newLine.length; y++) {
+        var word = newLine[y];
+        var wordLen = word.length + 1;
+
+        lastWidth = (cacheMap[word]?[0] ?? cacheMap[" "]![0] * 2);
+        lastWidth += cacheMap[" "]![0];
+        lineWidth += lastWidth;
+
+        if (lineWidth > size.width) {
+          word = "\n${word.trimLeft()}";
+          lineWidth = lastWidth;
+          lineHeight += avgHeight;
+
+          if (nextLine == 0) {
+            nextLine = tleng;
+          }
+
+          if (lineHeight > size.height) {
+            bBreak = true;
+            break;
+          }
+        }
+        rtnStr += "$word ";
+        // if (y == 0) {
+        // } else {
+        //   rtnStr += "$word ";
+        // }
+        tleng += wordLen;
+      }
+      if (nextLine == 0) {
+        nextLine = tleng;
+      }
+      if (i < nextArr.length - 1) {
+        rtnStr += "\n";
+      }
+    }
+    var data = PosData();
+    // data.perPos = max(basePos - tleng, 0);
+    data.basePos = basePos;
+    data.nextPos = basePos + tleng;
+    data.nextLine = basePos + nextLine;
+    data.lastLine = basePos + (tleng - rtnStr.split("\n").last.length);
+    if (data.nextPos - data.lastLine <= 1) {
+      data.lastLine--;
+    }
+    if (data.lastLine < 0) {
+      data.lastLine = 0;
+    }
+    data.contents = rtnStr;
+
+    return data;
+  }
+
+  cacheWord() {
+    if (contents.isEmpty || cntntPstn > contents.length) {
+      return;
+    }
+    String str = contents.substring(max(cntntPstn - 1000, 0), min(cntntPstn + 1000, contents.length));
+    var nextArr = str.split("\n").map((e) => e.split(" ")).toList();
+    Map<String, int> count = {};
+    var painter = TextPainter(text: TextSpan(text: " ", style: _style), textDirection: TextDirection.ltr)..layout();
+    cacheMap[" "] = [painter.width, painter.height];
+    for (var line in nextArr) {
+      for (var word in line) {
+        var painter = TextPainter(text: TextSpan(text: word, style: _style), textDirection: TextDirection.ltr)..layout();
+        cacheMap[word] = [painter.width, painter.height];
+        count["${painter.width},${painter.height}"] = (count["${painter.width},${painter.height}"] ?? 0) + 1;
+      }
+    }
+
+    var thevalue = 0;
+    String thekey = "";
+
+    count.forEach((k, v) {
+      if (v > thevalue) {
+        thevalue = v;
+        thekey = k;
+      }
+    });
+    if (count.isNotEmpty) {
+      avgWidth = double.parse(thekey.split(",").first);
+      avgHeight = double.parse(thekey.split(",").last);
+    }
+    // var endDate = DateTime.now();
+    // print("end cache ${endDate}  :: ${endDate.difference(startDate).inMilliseconds}");
+  }
+}
+
+class PosData {
+  // int perPos = 0;
+  int basePos = 0;
+  int nextPos = 0;
+  int nextLine = 0;
+  int lastLine = 0;
+  String contents = "";
+
+  String toJson() => json.encode(toMap());
+
+  Map<String, dynamic> toMap() => {
+        // "perPos": perPos,
+        "basePos": basePos,
+        "nextPos": nextPos,
+        "nextLine": nextLine,
+        "lastLine": lastLine,
+        "contents": contents,
+      };
 }

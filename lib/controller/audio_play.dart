@@ -62,6 +62,7 @@ class AudioHandler extends BaseAudioHandler
     });
     Timer.periodic(Duration(milliseconds: 200), (timer) {
       errorCnt = 0;
+      errorLen = 0;
     });
   }
 
@@ -96,6 +97,7 @@ class AudioHandler extends BaseAudioHandler
   DateTime? autoExitDate;
   var lastPos = 0;
   int errorCnt = 0;
+  int errorLen = 0;
   int retry = 0;
 
   Future<void> setTts() async {
@@ -111,7 +113,7 @@ class AudioHandler extends BaseAudioHandler
 
       var engine = await tts?.getDefaultEngine;
       await tts?.setEngine(engine);
-      await Future.delayed(900.milliseconds);
+      await Future.delayed(1000.milliseconds);
     }
 
     setTts();
@@ -138,17 +140,18 @@ class AudioHandler extends BaseAudioHandler
     playbackState.add(baseState.copyWith(updatePosition: Duration(milliseconds: 100)));
 
     // ---------------------------------------------------
-    int? pos = IsarCtl.cntntPstnNil;
-    if (pos == null) {
-      Future.delayed(500.milliseconds);
-      retry++;
-      if (retry < 5) {
-        play();
-      }
-      return;
-    }
-    retry = 0;
+    // int? pos = IsarCtl.cntntPstnNil;
+    // if (pos == null) {
+    //   Future.delayed(500.milliseconds);
+    //   retry++;
+    //   if (retry < 5) {
+    //     play();
+    //   }
+    //   return;
+    // }
+    // retry = 0;
     // ----------------------------------------------------
+    int pos = IsarCtl.cntntPstn;
     String contents = IsarCtl.contents.text;
     HistoryIsar history = IsarCtl.lastHistory!;
     SettingIsar setting = IsarCtl.setting!;
@@ -221,8 +224,10 @@ class AudioHandler extends BaseAudioHandler
       var bspeak = await tts?.speak(speakText);
       i += nextPos;
       errorCnt++;
+      errorLen += speakText.length;
+      print("${errorLen} ${speakText.length}");
       if (errorCnt > 6) {
-        IsarCtl.cntntPstn -= i;
+        IsarCtl.cntntPstn -= errorLen;
         stop();
       }
       if (bspeak == null) {
