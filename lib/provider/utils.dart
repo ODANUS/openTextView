@@ -21,6 +21,7 @@ import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;
+import 'package:pdf_text/pdf_text.dart';
 
 extension Ex on double {
   double toPrecision(int n) => double.parse(toStringAsFixed(n));
@@ -112,6 +113,52 @@ class Utils {
       }
 
       File outputFile = File("$path/epub_$fileName.txt");
+      if (!outputFile.existsSync()) {
+        outputFile.createSync();
+      }
+      outputFile.writeAsStringSync(rtnStr);
+      outputFile.setLastAccessedSync(DateTime.now());
+
+      return true;
+    }
+    return false;
+  }
+
+  static Future<bool> pdfConv(File f) async {
+    var rtn = await AdCtl.openInterstitialAdPDFConv();
+    // var rtn = true;
+    if (rtn) {
+      IsarCtl.bLoadingLib(true);
+      var pathList = f.path.split("/");
+      var path = pathList.sublist(0, pathList.length - 1).join("/");
+      var fileName = pathList.last.split(".").first;
+      var doc = await PDFDoc.fromFile(f);
+      IsarCtl.bLoadingLib(false);
+      String rtnStr = "";
+      IsarCtl.epubTotal(doc.pages.length);
+      for (var i = 0; i < doc.pages.length; i++) {
+        IsarCtl.epubCurrent(i);
+        var v = doc.pages[i];
+        rtnStr += await v.text;
+      }
+      IsarCtl.epubTotal(0);
+      rtnStr = newLineTheoremStr(rtnStr);
+
+      if (rtnStr.trim().isEmpty) {
+        Get.dialog(AlertDialog(
+          content: Text("Failed to convert pdf.".tr),
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text("confirm".tr))
+          ],
+        ));
+        return false;
+      }
+
+      File outputFile = File("$path/pdf_$fileName.txt");
       if (!outputFile.existsSync()) {
         outputFile.createSync();
       }
@@ -465,14 +512,17 @@ class Utils {
   }
 
   static Future<FilePickerResult?> selectFile() async {
-    var selectedFiles = await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip"]);
+    IsarCtl.bLoadingLib(true);
+    var selectedFiles =
+        await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
     if (selectedFiles == null) {
       return selectedFiles;
     }
+    IsarCtl.bLoadingLib(false);
 
     selectedFiles.files.forEach((f) {
       var tmpEx = f.path!.split(".").last.toLowerCase();
-      if (tmpEx != "txt" && tmpEx != "epub" && tmpEx != "zip") {
+      if (tmpEx != "txt" && tmpEx != "epub" && tmpEx != "zip" && tmpEx != "pdf") {
         File(f.path!).deleteSync();
       }
     });
