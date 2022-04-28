@@ -84,13 +84,18 @@ dependencies:
   marquee: ^2.2.1
   
   # 아이폰 설정 필요 
-  google_ml_kit:
-     git:
-      url: https://github.com/khjde1207/Google-Ml-Kit-plugin
+  # google_ml_kit:
+  #    git:
+  #     url: https://github.com/khjde1207/Google-Ml-Kit-plugin
+  google_mlkit_text_recognition:
+    git:
+      url: https://github.com/bharat-biradar/Google-Ml-Kit-plugin
+      path: packages/google_mlkit_text_recognition
 
   pdf_text:
     git:
       url: https://github.com/khjde1207/flutter-pdf-text
+      
   flutter_svg: ^1.0.3
   
   # flutter_downloader: ^1.7.1

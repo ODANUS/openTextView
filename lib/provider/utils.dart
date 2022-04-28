@@ -12,7 +12,7 @@ import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 import 'package:get/get.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -484,12 +484,12 @@ class Utils {
   }
 
   static ocrData(File file) async {
-    TextDetectorV2 textDetector = GoogleMlKit.vision.textDetectorV2();
-    var langCode = TextRecognitionOptions.korean;
+    var langCode = TextRecognitionScript.korean;
+    TextRecognizer textDetector = TextRecognizer(script: langCode);
     List<String> tmpList = [];
 
     var inputImage = InputImage.fromFile(file);
-    final recognisedText = await textDetector.processImage(inputImage, script: langCode);
+    final recognisedText = await textDetector.processImage(inputImage);
 
     recognisedText.blocks.forEach((e) {
       e.lines.forEach((element) {
