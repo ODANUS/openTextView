@@ -125,22 +125,29 @@ class Utils {
   }
 
   static Future<bool> pdfConv(File f) async {
-    var rtn = await AdCtl.openInterstitialAdPDFConv();
-    // var rtn = true;
+    // var rtn = await AdCtl.openInterstitialAdPDFConv();
+    var rtn = true;
     if (rtn) {
       IsarCtl.bLoadingLib(true);
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
-      var doc = await PDFDoc.fromFile(f);
-      IsarCtl.bLoadingLib(false);
+
       String rtnStr = "";
-      IsarCtl.epubTotal(doc.pages.length);
-      for (var i = 0; i < doc.pages.length; i++) {
-        IsarCtl.epubCurrent(i);
-        var v = doc.pages[i];
-        rtnStr += await v.text;
-      }
+      try {
+        PDFDoc doc = await PDFDoc.fromFile(f);
+        IsarCtl.bLoadingLib(false);
+
+        IsarCtl.epubTotal(doc.pages.length);
+        // for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < doc.pages.length; i++) {
+          IsarCtl.epubCurrent(i);
+          var v = doc.pages[i];
+          rtnStr += await v.text;
+        }
+      } catch (e) {}
+      IsarCtl.bLoadingLib(false);
+
       IsarCtl.epubTotal(0);
       rtnStr = newLineTheoremStr(rtnStr);
 
@@ -515,10 +522,10 @@ class Utils {
     IsarCtl.bLoadingLib(true);
     var selectedFiles =
         await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
+    IsarCtl.bLoadingLib(false);
     if (selectedFiles == null) {
       return selectedFiles;
     }
-    IsarCtl.bLoadingLib(false);
 
     selectedFiles.files.forEach((f) {
       var tmpEx = f.path!.split(".").last.toLowerCase();

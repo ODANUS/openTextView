@@ -8,6 +8,21 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.0.8 (2022 04 28) 패치내역 :
+
+1. 내서재 에서 파일추가 안해도 로딩 화면이 계속 떠있는 버그 수정. 
+
+2. 파일 용량 표기 하도록 수정
+
+3. 파일명 변경시 읽던 위치가 유지 되지 않던 현상 수정. 
+
+4. 내서재 UI 수정 . 
+  - 아이콘 을 수정해 보았습니다. 
+
+5. 특정 PDF 오픈시 비정상 종료 되던 현상 수정. 
+
+
+---
 2.0.6 (2022 04 27) 패치내역 :
 
 1. 내서재 에서 파일 추가시 로딩 화면 표시되도록 수정. 

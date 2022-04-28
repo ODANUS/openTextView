@@ -733,10 +733,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3ad8823da6c6bda05fa55086225ba5b8c4dbf6e1"
+      resolved-ref: f1b7b2dab1ee84c67c7f6242b40390ccbf161300
       url: "https://github.com/khjde1207/flutter-pdf-text"
     source: git
-    version: "0.5.0"
+    version: "0.5.2"
   pedantic:
     dependency: transitive
     description:

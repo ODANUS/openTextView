@@ -11,6 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:open_textview/component/hero_dialog_route.dart';
 import 'package:open_textview/isar_ctl.dart';
+import 'package:open_textview/model/model_isar.dart';
+import 'package:open_textview/provider/svg_data.dart';
 import 'package:open_textview/provider/utils.dart';
 
 class LibraryFileViewer extends GetView {
@@ -35,30 +37,13 @@ class LibraryFileViewer extends GetView {
       var ex = f.path.split(".").last;
       Color bgColor = Color(0xFF2e9bdf);
       if (ex == "zip") {
-        bgColor = Color(0xFF68c99e);
-        var bg = SvgPicture.string(
-          """<svg width="19" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24">
-            <g class="layer">
-              <title>Layer 1</title>
-              <g id="svg_1">
-              <rect fill="none" height="20" id="svg_2" width="16.1" x="-0.1" y="0"/>
-              </g>
-              <g id="svg_3" transform="rotate(90, 9.56, 11.95)">
-              <path d="m19.12,4.78l-9.56,0l-2.39,-2.39l-7.17,0c-1.31,0 -2.38,1.08 -2.38,2.39l-0.01,14.34c0,1.31 1.08,2.39 2.39,2.39l19.12,0c1.31,0 2.39,-1.08 2.39,-2.39l0,-11.95c0,-1.31 -1.08,-2.39 -2.39,-2.39zm-2.39,7.17l-2.39,0l0,2.39l2.39,0l0,2.39l-2.39,0l0,2.39l-2.39,0l0,-2.39l2.39,0l0,-2.39l-2.39,0l0,-2.39l2.39,0l0,-2.39l-2.39,0l0,-2.39l2.39,0l0,2.39l2.39,0l0,2.39z" id="svg_4"/>
-              </g>
-            </g>
-            </svg>""",
-          width: 100.w,
-          height: 130.h,
-          color: bgColor.withOpacity(0.5),
-        );
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
               width: 100.w,
               height: 130.h,
               child: Stack(alignment: Alignment.topCenter, children: [
-                bg,
+                SvgData.zip(),
                 Container(
                   margin: EdgeInsets.only(right: 11.w, bottom: 14.h),
                   alignment: Alignment.bottomCenter,
@@ -86,27 +71,13 @@ class LibraryFileViewer extends GetView {
             ));
       }
       if (ex == "epub") {
-        bgColor = Color(0xFF81bb0e);
-        var bg = SvgPicture.string(
-          """<svg width="19" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
- <g class="layer">
-  <title>Layer 1</title>
-  <path d="m0,0l24,0l0,24l-24,0l0,-24z" fill="none" id="svg_1" transform="matrix(1, 0, 0, 1, 0, 0)"/>
-  <path d="m16.71,0l-14.33,0c-1.31,0 -2.39,1.07 -2.39,2.39l0,19.1c0,1.31 1.07,2.39 2.39,2.39l14.33,0c1.31,0 2.39,-1.07 2.39,-2.39l0,-19.1c0,-1.31 -1.07,-2.39 -2.39,-2.39zm-14.33,2.39l5.97,0l0,9.55l-2.98,-1.79l-2.98,1.79l0,-9.55l-0.01,0z" id="svg_2"/>
- </g>
-
-</svg>""",
-          width: 100.w,
-          height: 130.h,
-          color: bgColor.withOpacity(0.5),
-        );
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
               width: 100.w,
               height: 130.h,
               child: Stack(alignment: Alignment.bottomCenter, children: [
-                bg,
+                SvgData.epub(),
                 Container(
                   margin: EdgeInsets.only(right: 5, top: 20),
                   alignment: Alignment.topRight,
@@ -129,27 +100,13 @@ class LibraryFileViewer extends GetView {
             ));
       }
       if (ex == "pdf") bgColor = Color(0xFFc10103);
-
-      var bg = SvgPicture.string(
-        """<svg width="19" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-          <g class="layer">
-            <title>Layer 1</title>
-            <path d="m0,0l24,0l0,24l-24,0l0,-24z" fill="none" id="svg_1"/>
-            <path d="m2.38,0c-1.31,0 -2.36,1.07 -2.36,2.38l-0.01,19c0,1.31 1.06,2.38 2.36,2.38l14.26,0c1.31,0 2.38,-1.07 2.38,-2.38l0,-14.25l-7.13,-7.13l-9.5,0zm8.31,8.31l0,-6.53l6.53,6.53l-6.53,0z" id="svg_2"/>
-            <path d="m10.54,8.54l-0.14,-7.64l7.6,7.3c0,0 -1.66,0.94 -1.66,0.94c0,0 -5.8,-0.6 -5.8,-0.6z" id="svg_5" >
-          </g>
-          </svg>""",
-        width: 100.w,
-        height: 130.h,
-        color: bgColor.withOpacity(0.5),
-      );
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
             width: 100.w,
             height: 130.h,
             child: Stack(alignment: Alignment.bottomCenter, children: [
-              bg,
+              SvgData.file(bgColor),
               Container(
                 margin: EdgeInsets.only(left: 0, top: 5),
                 alignment: Alignment.topRight,
@@ -182,25 +139,14 @@ class LibraryFileViewer extends GetView {
           ));
     }
     if (f is Directory) {
-      Color bgColor = Color(0xFF2e9bdf);
       var list = f.listSync();
-//  fill-opacity="50%"
-      var bg = SvgPicture.string(
-        """<svg width="16" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-              <path d="m2.12,0.5c-1.06,0 -1.92,0.84 -1.92,1.87l-0.01,14.99c0,1.03 0.86,1.87 1.92,1.87l11.59,0c1.06,0 1.93,-0.84 1.93,-1.87l0,-11.24l-5.79,-5.62l-7.72,0zm6.75,6.56l0,-5.15l5.31,5.15l-5.31,0z" id="svg_3" fill="#FFF" fill-opacity="0.6"/>
-              <path d="m16.06,8.06l0,-6c0,-1.1 -0.9,-1.99 -2,-1.99l-12,-0.01c-1.1,0 -2,0.9 -2,2l0,16c0,1.1 0.9,2 2,2l10,0c1.1,0 2,-0.9 2,-2l0,-8l2,-2z" id="svg_2" fill="#e2bb70" fill-opacity="0.9"/>
-            </svg>""",
-        width: 100.w,
-        height: 130.h,
-        // color: bgColor.withOpacity(0.3),
-      );
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
             width: 100.w,
             height: 130.h,
             child: Stack(alignment: Alignment.topCenter, children: [
-              bg,
+              SvgData.dir(),
               Container(
                 alignment: Alignment.bottomLeft,
                 child: Container(
@@ -289,7 +235,7 @@ class LibraryFileViewer extends GetView {
     return InkWell(onTap: () => openMenu(f), child: cardBox(child: _fileWidget(f), f: f, tag: f.path));
   }
 
-  Widget changeNameWidget(File f) {
+  Widget changeNameWidget(File f, {HistoryIsar? history}) {
     var ex = f.path.split(".").last;
     var fileName = f.path.split("/").last;
     var name = f.path.split("/").last.split(".").first;
@@ -305,6 +251,10 @@ class LibraryFileViewer extends GetView {
                       onFieldSubmitted: (v) {
                         bedit(false);
                         fileName = "$v.$ex";
+                        if (history != null) {
+                          history.name = fileName;
+                          IsarCtl.putHistory(history);
+                        }
                         name = v;
                         var pathArr = f.path.split("/");
                         var fullpath = pathArr.getRange(0, pathArr.length - 1).join("/");
@@ -363,7 +313,7 @@ class LibraryFileViewer extends GetView {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        changeNameWidget(f),
+                        changeNameWidget(f, history: history),
                         Card(
                             child: ListTile(
                                 onTap: () async {
