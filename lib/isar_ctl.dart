@@ -82,6 +82,7 @@ class IsarCtl {
   static Rx<Directory> libDir = Directory("").obs;
   static Rxn<Directory> libPDir = Rxn<Directory>();
   static RxString libSearchText = "".obs;
+  static RxBool bLoadingLib = false.obs;
 
   // static RxBool bImageFullScreen = false.obs;
   // static RxBool bTowDrage = false.obs;

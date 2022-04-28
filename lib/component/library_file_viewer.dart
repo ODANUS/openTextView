@@ -5,10 +5,14 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:open_textview/component/hero_dialog_route.dart';
 import 'package:open_textview/isar_ctl.dart';
+import 'package:open_textview/model/model_isar.dart';
+import 'package:open_textview/provider/svg_data.dart';
 import 'package:open_textview/provider/utils.dart';
 
 class LibraryFileViewer extends GetView {
@@ -28,14 +32,142 @@ class LibraryFileViewer extends GetView {
   // Function? onBackpage;
   // Function? onFullScreen;
   // Function? onNextpage;
-  Widget cardBox({required Widget child, bool? bcolor, String? tag}) {
-    return Card(
-        margin: EdgeInsets.only(left: 0, right: 0, top: 5, bottom: 5),
-        color: bcolor == null || !bcolor ? null : Theme.of(Get.context!).cardColor.withOpacity(0.5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        child: tag != null ? Hero(tag: tag, child: child) : child);
+  Widget cardBox({required Widget child, required FileSystemEntity f, bool? bcolor, String? tag, bool? bIcon}) {
+    if (f is File) {
+      var ex = f.path.split(".").last;
+      Color bgColor = Color(0xFF2e9bdf);
+      if (ex == "zip") {
+        return Material(
+            type: MaterialType.transparency, // likely needed
+            child: Container(
+              width: 100.w,
+              height: 130.h,
+              child: Stack(alignment: Alignment.topCenter, children: [
+                SvgData.zip(),
+                Container(
+                  margin: EdgeInsets.only(right: 11.w, bottom: 14.h),
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    Utils.getFileSize(f),
+                    style: TextStyle(fontSize: 13),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                      width: 90.w,
+                      margin: EdgeInsets.only(bottom: 30.h, right: 11.w),
+                      // alignment: Alignment.bottomCenter,
+                      padding: EdgeInsets.only(top: 8, bottom: 8),
+                      decoration: BoxDecoration(color: Colors.purple),
+                      child: Text(
+                        "ZIP",
+                        textAlign: TextAlign.center,
+                      )),
+                ),
+                if (bIcon != null && bIcon) Container(alignment: Alignment.center, child: tag != null ? Hero(tag: tag, child: child) : child),
+                if (bIcon == null || !bIcon) tag != null ? Hero(tag: tag, child: child) : child,
+              ]),
+            ));
+      }
+      if (ex == "epub") {
+        return Material(
+            type: MaterialType.transparency, // likely needed
+            child: Container(
+              width: 100.w,
+              height: 130.h,
+              child: Stack(alignment: Alignment.bottomCenter, children: [
+                SvgData.epub(),
+                Container(
+                  margin: EdgeInsets.only(right: 5, top: 20),
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    Utils.getFileSize(f),
+                    style: TextStyle(fontSize: 10),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                      margin: EdgeInsets.only(left: 8, top: 20),
+                      padding: EdgeInsets.only(left: 7, right: 7, top: 5, bottom: 5),
+                      decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
+                      child: Text(ex.toUpperCase())),
+                ),
+                if (bIcon != null && bIcon) Container(alignment: Alignment.center, child: tag != null ? Hero(tag: tag, child: child) : child),
+                if (bIcon == null || !bIcon) tag != null ? Hero(tag: tag, child: child) : child,
+              ]),
+            ));
+      }
+      if (ex == "pdf") bgColor = Color(0xFFc10103);
+      return Material(
+          type: MaterialType.transparency, // likely needed
+          child: Container(
+            width: 100.w,
+            height: 130.h,
+            child: Stack(alignment: Alignment.bottomCenter, children: [
+              SvgData.file(bgColor),
+              Container(
+                margin: EdgeInsets.only(left: 0, top: 5),
+                alignment: Alignment.topRight,
+                child: Transform.rotate(
+                    angle: 45 * pi / 180,
+                    origin: Offset(-30, 0),
+                    child: Text(
+                      Utils.getFileSize(f),
+                      style: TextStyle(fontSize: 10),
+                    )),
+              ),
+              Container(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 8, top: 20),
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                        decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
+                        child: Text(ex.toUpperCase()),
+                      ),
+                    ],
+                  )),
+              if (bIcon != null && bIcon) Container(alignment: Alignment.center, child: tag != null ? Hero(tag: tag, child: child) : child),
+              if (bIcon == null || !bIcon) tag != null ? Hero(tag: tag, child: child) : child,
+            ]),
+          ));
+    }
+    if (f is Directory) {
+      var list = f.listSync();
+      return Material(
+          type: MaterialType.transparency, // likely needed
+          child: Container(
+            width: 100.w,
+            height: 130.h,
+            child: Stack(alignment: Alignment.topCenter, children: [
+              SvgData.dir(),
+              Container(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                    margin: EdgeInsets.only(left: 10, bottom: 20),
+                    padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                    decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.circular(10)),
+                    child: Text("${list.length}")),
+              ),
+              if (bIcon != null && bIcon) Container(alignment: Alignment.center, child: tag != null ? Hero(tag: tag, child: child) : child),
+              if (bIcon == null || !bIcon) tag != null ? Hero(tag: tag, child: child) : child,
+            ]),
+          ));
+    }
+    return SizedBox();
+    // return Card(
+    //     margin: EdgeInsets.only(left: 0, right: 0, top: 5, bottom: 5),
+    //     color: bcolor == null || !bcolor ? null : Theme.of(Get.context!).cardColor.withOpacity(0.5),
+    //     shape: RoundedRectangleBorder(
+    //       borderRadius: BorderRadius.circular(15.0),
+    //     ),
+    //     child: tag != null ? Hero(tag: tag, child: child) : child);
   }
 
   Widget _directoryWidget(Directory f) {
@@ -43,48 +175,27 @@ class LibraryFileViewer extends GetView {
     if (IsarCtl.libPDir.value == f) {
       name = "../";
     }
-    var list = f.listSync();
-    return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Color(0x40fdcc6f),
-        ),
-        padding: EdgeInsets.all(5),
-        width: 100.w,
-        height: 110.h,
-        child: Column(
-          children: [
-            Badge(
-              shape: BadgeShape.circle,
-              animationType: BadgeAnimationType.fade,
-              badgeColor: Colors.deepPurple,
-              badgeContent: Text("${list.length}", style: TextStyle(color: Colors.white)),
-              child: Icon(
-                Icons.folder_rounded,
-                color: Color(0xFFfdcc6f),
-                size: 40.sp,
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Material(
-                  type: MaterialType.transparency, // likely needed
-                  child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine),
-                ),
-              ),
-            )
-          ],
+    return Material(
+        type: MaterialType.transparency, // likely needed
+        child: Container(
+          width: 90.w,
+          height: 80.h,
+          // color: Colors.red,
+          padding: EdgeInsets.only(top: 20),
+          // transformAlignment: Alignment.bottomCenter,
+          alignment: Alignment.topCenter,
+          child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine),
         ));
   }
 
   Widget directoryFeedbackWidget(Directory f) {
     var name = f.path.split("/").last;
-    return cardBox(child: _directoryWidget(f), bcolor: true, tag: name);
+    return cardBox(child: _directoryWidget(f), f: f, bcolor: true, tag: name);
   }
 
   Widget directoryWidget(Directory f) {
     var name = f.path.split("/").last;
-    return cardBox(child: _directoryWidget(f));
+    return cardBox(child: _directoryWidget(f), f: f);
   }
 
   Widget _fileWidget(File f) {
@@ -92,39 +203,20 @@ class LibraryFileViewer extends GetView {
     String ex = name.split(".").last;
     var history = IsarCtl.historyByName(name);
 
-    var c = Color(0x2068bef7);
-    if (ex == "zip") c = Color(0x7067c99d);
-    if (ex == "epub") c = Color(0x20f39e7e);
-
     return Material(
         type: MaterialType.transparency, // likely needed
         child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: c,
-            ),
-            padding: EdgeInsets.all(5),
-            width: 100.w,
-            height: 110.h,
+            width: 90.w,
+            height: 80.h,
+            padding: EdgeInsets.only(bottom: 10),
+            transformAlignment: Alignment.bottomCenter,
+            alignment: Alignment.bottomCenter,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Stack(
-                  alignment: Alignment.topCenter,
-                  children: [
-                    if (ex == "txt") Icon(Icons.description_rounded, size: 28.sp, color: Color(0x9068bef7)),
-                    if (ex == "zip") Icon(Icons.folder_zip_rounded, size: 35.sp, color: Color(0xFF67c99d)),
-                    if (ex == "epub") Icon(Icons.book_rounded, size: 35.sp, color: Color(0x90f39e7e)),
-                    Container(
-                        padding: EdgeInsets.only(top: 15.sp, left: 35.sp),
-                        child: Text(
-                          ex,
-                          style: TextStyle(fontSize: 13.sp),
-                        )),
-                  ],
-                ),
                 SizedBox(height: 1),
                 if (history != null) Text("${Utils.rdgPos(history)}"),
-                if (history != null) Text("${"memo".tr}:${history.memo}", overflow: TextOverflow.ellipsis),
                 SizedBox(height: 1),
                 Expanded(
                   child: Center(
@@ -136,48 +228,69 @@ class LibraryFileViewer extends GetView {
   }
 
   Widget fileFeedbackWidget(File f) {
-    return cardBox(child: _fileWidget(f), bcolor: true);
+    return cardBox(child: _fileWidget(f), f: f, bcolor: true);
   }
 
   Widget fileWidget(File f) {
-    return InkWell(onTap: () => openMenu(f), child: cardBox(child: _fileWidget(f), tag: f.path));
+    return InkWell(onTap: () => openMenu(f), child: cardBox(child: _fileWidget(f), f: f, tag: f.path));
   }
 
-  Widget changeNameWidget(File f) {
+  Widget changeNameWidget(File f, {HistoryIsar? history}) {
     var ex = f.path.split(".").last;
     var fileName = f.path.split("/").last;
     var name = f.path.split("/").last.split(".").first;
-    return ObxValue<RxBool>((bedit) {
-      return bedit.value
-          ? TextFormField(
-              initialValue: name,
-              onFieldSubmitted: (v) {
-                bedit(false);
-                fileName = "$v.$ex";
-                name = v;
-                var pathArr = f.path.split("/");
-                var fullpath = pathArr.getRange(0, pathArr.length - 1).join("/");
-                f.renameSync("$fullpath/$fileName");
-                reload(!reload.value);
-              },
-              decoration: InputDecoration(
-                suffixIcon: InkWell(
-                  onTap: () => bedit(false),
-                  child: Icon(Icons.close),
-                ),
-              ),
-            )
-          : Wrap(
-              children: [
-                Text(
-                  fileName,
-                  style: TextStyle(fontSize: 16.sp),
-                ),
-                SizedBox(width: 10),
-                InkWell(onTap: () => bedit(!bedit.value), child: Icon(Icons.edit_outlined))
-              ],
-            );
-    }, false.obs);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ObxValue<RxBool>((bedit) {
+          return Container(
+              padding: EdgeInsets.only(bottom: 10),
+              child: bedit.value
+                  ? TextFormField(
+                      initialValue: name,
+                      onFieldSubmitted: (v) {
+                        bedit(false);
+                        fileName = "$v.$ex";
+                        if (history != null) {
+                          history.name = fileName;
+                          IsarCtl.putHistory(history);
+                        }
+                        name = v;
+                        var pathArr = f.path.split("/");
+                        var fullpath = pathArr.getRange(0, pathArr.length - 1).join("/");
+                        f.renameSync("$fullpath/$fileName");
+                        reload(!reload.value);
+                      },
+                      decoration: InputDecoration(
+                        suffixIcon: InkWell(
+                          onTap: () => bedit(false),
+                          child: Icon(Icons.close),
+                        ),
+                      ),
+                    )
+                  : Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            fileName,
+                            style: TextStyle(fontSize: 16.sp),
+                            softWrap: true,
+                          ),
+                        ),
+                        SizedBox(width: 3),
+                        InkWell(
+                            onTap: () => bedit(!bedit.value),
+                            child: Icon(
+                              Icons.edit_outlined,
+                              // size: 10,
+                            )),
+                      ],
+                    ));
+        }, false.obs),
+        Text(Utils.getFileSize(f)),
+        SizedBox(height: 10),
+      ],
+    );
   }
 
   openMenu(File f) {
@@ -200,7 +313,7 @@ class LibraryFileViewer extends GetView {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        changeNameWidget(f),
+                        changeNameWidget(f, history: history),
                         Card(
                             child: ListTile(
                                 onTap: () async {
@@ -321,6 +434,39 @@ class LibraryFileViewer extends GetView {
             ),
           ));
     }
+    if (ex == "pdf") {
+      HeroPopup.open(
+          tag: f.path,
+          child: Container(
+            width: Get.width * 0.7,
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                Card(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        changeNameWidget(f),
+                        Card(
+                            child: ListTile(
+                                tileColor: Colors.blue.withOpacity(0.5),
+                                onTap: () async {
+                                  Get.back();
+                                  if (await Utils.pdfConv(f)) {
+                                    reload(!reload.value);
+                                  }
+                                },
+                                title: Text("text conv".tr))),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ));
+    }
     // ------if
   }
 
@@ -362,6 +508,7 @@ class LibraryFileViewer extends GetView {
           child: SingleChildScrollView(
             padding: EdgeInsets.only(top: 60.h, bottom: 190.h, left: 0, right: 0),
             child: Wrap(
+              runSpacing: 0,
               children: totalList.map((e) {
                 if (e is Directory) {
                   Directory d = e;
@@ -395,18 +542,10 @@ class LibraryFileViewer extends GetView {
                           }
                         }, builder: (ctx, listItem, lstitem2) {
                           if (listItem.isNotEmpty && IsarCtl.libPDir.value == e) {
-                            return Container(
-                              width: 100.w,
-                              height: 117.h,
-                              child: cardBox(child: Icon(Icons.upload_file)),
-                            );
+                            return cardBox(child: Icon(Icons.upload_file), f: e, bIcon: true);
                           }
                           if (listItem.isNotEmpty && listItem.first is File) {
-                            return Container(
-                              width: 100.w,
-                              height: 117.h,
-                              child: cardBox(child: Icon(Icons.note_add)),
-                            );
+                            return cardBox(child: Icon(Icons.note_add), f: e, bIcon: true);
                           }
                           if (IsarCtl.libPDir.value == e) {
                             return directoryWidget(e);
@@ -472,7 +611,7 @@ class LibraryFileViewer extends GetView {
                         );
                       });
                     }),
-                    DragTarget(onAccept: (v) {
+                    DragTarget<FileSystemEntity>(onAccept: (v) {
                       try {
                         if (v is File && v.path != e.path) {
                           var pathList = e.path.split("/");
@@ -491,12 +630,8 @@ class LibraryFileViewer extends GetView {
                       } catch (e) {}
                       bDrag(false);
                     }, builder: (ctx, listItem, lstitem2) {
-                      if (listItem.isNotEmpty && listItem.first != f && listItem.first is File) {
-                        return Container(
-                          width: 100.w,
-                          height: 117.h,
-                          child: cardBox(child: Icon(Icons.folder)),
-                        );
+                      if (listItem.isNotEmpty && listItem.first!.path != f.path && listItem.first is File) {
+                        return cardBox(child: Icon(Icons.folder), f: e, bIcon: true);
                       }
 
                       return LongPressDraggable(

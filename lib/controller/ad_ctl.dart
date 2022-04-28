@@ -301,8 +301,59 @@ class AdCtl {
         children: [
           Text("epub 파일을 텍스트로 변환합니다."),
           Text("변환후 파일의 모든 문자를 여러 패턴으로 붙이고 개행 처리를 합니다."),
-          Text("수정된 파일은 (epub_[기존 파일명](시각).txt) 으로 생성됩니다."),
+          Text("수정된 파일은 (epub_[기존 파일명].txt) 으로 생성됩니다."),
           Text("변환/개행 수정은 5초 광고(전면광고) 가 실행 되며."),
+          Text("광고를 시정하는 동안에 백그라운드에서 개행/파일생성 작업을 동시에 처리합니다."),
+        ],
+      ),
+      actionsAlignment: MainAxisAlignment.spaceAround,
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Get.back(result: false);
+            },
+            child: Text("Cancel")),
+        ElevatedButton(
+            onPressed: () async {
+              if (await initInterstitialAd()) {
+                _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+                    onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
+                    onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+                      await ad.dispose();
+                      _interstitialAd = null;
+                    },
+                    onAdImpression: (AdManagerInterstitialAd ad) {});
+                _interstitialAd?.show();
+                Get.back(result: true);
+              } else {
+                Get.back(result: false);
+                Get.dialog(AlertDialog(
+                    content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+              }
+            },
+            child: Text("Confirm")),
+      ],
+    ));
+
+    // return c.future;
+  }
+
+  static Future<bool> openInterstitialAdPDFConv() async {
+    // Completer<bool> c = Completer<bool>();
+    return await Get.dialog(AlertDialog(
+      title: Text("pdf -> txt"),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("PDF 파일을 텍스트로 변환합니다."),
+          Text("변환후 파일의 모든 문자를 여러 패턴으로 붙이고 개행 처리를 합니다."),
+          Text("수정된 파일은 (pdf_[기존 파일명].txt) 으로 생성됩니다."),
+          Text("변환/개행 수정은 5초 광고 가 실행 되며. "),
           Text("광고를 시정하는 동안에 백그라운드에서 개행/파일생성 작업을 동시에 처리합니다."),
         ],
       ),

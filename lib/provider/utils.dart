@@ -12,7 +12,7 @@ import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 import 'package:get/get.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -21,6 +21,7 @@ import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;
+import 'package:pdf_text/pdf_text.dart';
 
 extension Ex on double {
   double toPrecision(int n) => double.parse(toStringAsFixed(n));
@@ -112,6 +113,59 @@ class Utils {
       }
 
       File outputFile = File("$path/epub_$fileName.txt");
+      if (!outputFile.existsSync()) {
+        outputFile.createSync();
+      }
+      outputFile.writeAsStringSync(rtnStr);
+      outputFile.setLastAccessedSync(DateTime.now());
+
+      return true;
+    }
+    return false;
+  }
+
+  static Future<bool> pdfConv(File f) async {
+    // var rtn = await AdCtl.openInterstitialAdPDFConv();
+    var rtn = true;
+    if (rtn) {
+      IsarCtl.bLoadingLib(true);
+      var pathList = f.path.split("/");
+      var path = pathList.sublist(0, pathList.length - 1).join("/");
+      var fileName = pathList.last.split(".").first;
+
+      String rtnStr = "";
+      try {
+        PDFDoc doc = await PDFDoc.fromFile(f);
+        IsarCtl.bLoadingLib(false);
+
+        IsarCtl.epubTotal(doc.pages.length);
+        // for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < doc.pages.length; i++) {
+          IsarCtl.epubCurrent(i);
+          var v = doc.pages[i];
+          rtnStr += await v.text;
+        }
+      } catch (e) {}
+      IsarCtl.bLoadingLib(false);
+
+      IsarCtl.epubTotal(0);
+      rtnStr = newLineTheoremStr(rtnStr);
+
+      if (rtnStr.trim().isEmpty) {
+        Get.dialog(AlertDialog(
+          content: Text("Failed to convert pdf.".tr),
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text("confirm".tr))
+          ],
+        ));
+        return false;
+      }
+
+      File outputFile = File("$path/pdf_$fileName.txt");
       if (!outputFile.existsSync()) {
         outputFile.createSync();
       }
@@ -430,12 +484,12 @@ class Utils {
   }
 
   static ocrData(File file) async {
-    TextDetectorV2 textDetector = GoogleMlKit.vision.textDetectorV2();
-    var langCode = TextRecognitionOptions.korean;
+    var langCode = TextRecognitionScript.korean;
+    TextRecognizer textDetector = TextRecognizer(script: langCode);
     List<String> tmpList = [];
 
     var inputImage = InputImage.fromFile(file);
-    final recognisedText = await textDetector.processImage(inputImage, script: langCode);
+    final recognisedText = await textDetector.processImage(inputImage);
 
     recognisedText.blocks.forEach((e) {
       e.lines.forEach((element) {
@@ -465,14 +519,17 @@ class Utils {
   }
 
   static Future<FilePickerResult?> selectFile() async {
-    var selectedFiles = await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip"]);
+    IsarCtl.bLoadingLib(true);
+    var selectedFiles =
+        await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
+    IsarCtl.bLoadingLib(false);
     if (selectedFiles == null) {
       return selectedFiles;
     }
 
     selectedFiles.files.forEach((f) {
       var tmpEx = f.path!.split(".").last.toLowerCase();
-      if (tmpEx != "txt" && tmpEx != "epub" && tmpEx != "zip") {
+      if (tmpEx != "txt" && tmpEx != "epub" && tmpEx != "zip" && tmpEx != "pdf") {
         File(f.path!).deleteSync();
       }
     });

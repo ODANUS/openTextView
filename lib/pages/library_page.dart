@@ -46,7 +46,7 @@ class LibraryPage extends GetView {
                   ),
                 ),
               ],
-              // bottom: PreferredSize(preferredSize: Size(Get.width, 50), child: AdBanner(key: Key("library"))),
+              bottom: PreferredSize(preferredSize: Size(Get.width, 50), child: AdBanner(key: Key("library"))),
             ),
             body: Stack(
               children: [
@@ -138,6 +138,20 @@ class LibraryPage extends GetView {
                           ],
                         ));
                   }
+                  if (IsarCtl.bLoadingLib.value) {
+                    return Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Colors.black54,
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircularProgressIndicator(),
+                          ],
+                        ));
+                  }
+
                   return SizedBox();
                 })
               ],
