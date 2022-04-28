@@ -60,6 +60,14 @@ class LibraryFileViewer extends GetView {
               child: Stack(alignment: Alignment.topCenter, children: [
                 bg,
                 Container(
+                  margin: EdgeInsets.only(right: 11.w, bottom: 14.h),
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    Utils.getFileSize(f),
+                    style: TextStyle(fontSize: 13),
+                  ),
+                ),
+                Container(
                   alignment: Alignment.bottomCenter,
                   child: Container(
                       width: 90.w,
@@ -92,7 +100,6 @@ class LibraryFileViewer extends GetView {
           height: 130.h,
           color: bgColor.withOpacity(0.5),
         );
-        double lrPadding = ex.toLowerCase() == "epub" ? 7 : 10;
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
@@ -101,10 +108,18 @@ class LibraryFileViewer extends GetView {
               child: Stack(alignment: Alignment.bottomCenter, children: [
                 bg,
                 Container(
+                  margin: EdgeInsets.only(right: 5, top: 20),
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    Utils.getFileSize(f),
+                    style: TextStyle(fontSize: 10),
+                  ),
+                ),
+                Container(
                   alignment: Alignment.topLeft,
                   child: Container(
                       margin: EdgeInsets.only(left: 8, top: 20),
-                      padding: EdgeInsets.only(left: lrPadding, right: lrPadding, top: 5, bottom: 5),
+                      padding: EdgeInsets.only(left: 7, right: 7, top: 5, bottom: 5),
                       decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
                       child: Text(ex.toUpperCase())),
                 ),
@@ -128,7 +143,6 @@ class LibraryFileViewer extends GetView {
         height: 130.h,
         color: bgColor.withOpacity(0.5),
       );
-      double lrPadding = ex.toLowerCase() == "epub" ? 7 : 10;
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
@@ -137,14 +151,31 @@ class LibraryFileViewer extends GetView {
             child: Stack(alignment: Alignment.bottomCenter, children: [
               bg,
               Container(
-                alignment: Alignment.topLeft,
-                transformAlignment: Alignment.topLeft,
-                child: Container(
-                    margin: EdgeInsets.only(left: 8, top: 20),
-                    padding: EdgeInsets.only(left: lrPadding, right: lrPadding, top: 5, bottom: 5),
-                    decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
-                    child: Text(ex.toUpperCase())),
+                margin: EdgeInsets.only(left: 0, top: 5),
+                alignment: Alignment.topRight,
+                child: Transform.rotate(
+                    angle: 45 * pi / 180,
+                    origin: Offset(-30, 0),
+                    child: Text(
+                      Utils.getFileSize(f),
+                      style: TextStyle(fontSize: 10),
+                    )),
               ),
+              Container(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 8, top: 20),
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                        decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
+                        child: Text(ex.toUpperCase()),
+                      ),
+                    ],
+                  )),
               if (bIcon != null && bIcon) Container(alignment: Alignment.center, child: tag != null ? Hero(tag: tag, child: child) : child),
               if (bIcon == null || !bIcon) tag != null ? Hero(tag: tag, child: child) : child,
             ]),
@@ -262,47 +293,54 @@ class LibraryFileViewer extends GetView {
     var ex = f.path.split(".").last;
     var fileName = f.path.split("/").last;
     var name = f.path.split("/").last.split(".").first;
-    return ObxValue<RxBool>((bedit) {
-      return Container(
-          padding: EdgeInsets.only(bottom: 15),
-          child: bedit.value
-              ? TextFormField(
-                  initialValue: name,
-                  onFieldSubmitted: (v) {
-                    bedit(false);
-                    fileName = "$v.$ex";
-                    name = v;
-                    var pathArr = f.path.split("/");
-                    var fullpath = pathArr.getRange(0, pathArr.length - 1).join("/");
-                    f.renameSync("$fullpath/$fileName");
-                    reload(!reload.value);
-                  },
-                  decoration: InputDecoration(
-                    suffixIcon: InkWell(
-                      onTap: () => bedit(false),
-                      child: Icon(Icons.close),
-                    ),
-                  ),
-                )
-              : Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        fileName,
-                        style: TextStyle(fontSize: 16.sp),
-                        softWrap: true,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ObxValue<RxBool>((bedit) {
+          return Container(
+              padding: EdgeInsets.only(bottom: 10),
+              child: bedit.value
+                  ? TextFormField(
+                      initialValue: name,
+                      onFieldSubmitted: (v) {
+                        bedit(false);
+                        fileName = "$v.$ex";
+                        name = v;
+                        var pathArr = f.path.split("/");
+                        var fullpath = pathArr.getRange(0, pathArr.length - 1).join("/");
+                        f.renameSync("$fullpath/$fileName");
+                        reload(!reload.value);
+                      },
+                      decoration: InputDecoration(
+                        suffixIcon: InkWell(
+                          onTap: () => bedit(false),
+                          child: Icon(Icons.close),
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 3),
-                    InkWell(
-                        onTap: () => bedit(!bedit.value),
-                        child: Icon(
-                          Icons.edit_outlined,
-                          // size: 10,
-                        )),
-                  ],
-                ));
-    }, false.obs);
+                    )
+                  : Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            fileName,
+                            style: TextStyle(fontSize: 16.sp),
+                            softWrap: true,
+                          ),
+                        ),
+                        SizedBox(width: 3),
+                        InkWell(
+                            onTap: () => bedit(!bedit.value),
+                            child: Icon(
+                              Icons.edit_outlined,
+                              // size: 10,
+                            )),
+                      ],
+                    ));
+        }, false.obs),
+        Text(Utils.getFileSize(f)),
+        SizedBox(height: 10),
+      ],
+    );
   }
 
   openMenu(File f) {
