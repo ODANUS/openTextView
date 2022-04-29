@@ -1,20 +1,12 @@
 import 'dart:developer' as d;
-import 'dart:io';
-import 'dart:math';
-
-import 'package:archive/archive_io.dart';
-import 'package:drag_and_drop_lists/drag_and_drop_list_interface.dart';
-import 'package:drag_and_drop_lists/drag_and_drop_lists.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:marquee/marquee.dart';
 import 'package:open_textview/component/library_file_viewer.dart';
 import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
-import 'package:open_textview/model/model_isar.dart';
 
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
