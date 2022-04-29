@@ -46,16 +46,8 @@ dependencies:
   image: 
 
   
-  # localstorage: ^4.0.0+1 
   
-  
-
-  # flutter_spinbox: ^0.5.2
-  # device_info: ^2.0.0 
-  googleapis: ^4.0.0 
-  # 아이폰 설정 필요 
-  google_sign_in: ^5.0.7 
-  google_mobile_ads: ^1.2.0
+ 
   package_info: ^2.0.2
   share_plus: ^2.0.4
   flutter_screenutil: ^5.3.1
@@ -65,8 +57,8 @@ dependencies:
   
   
   flutter_colorpicker: ^1.0.3
-  isar: ^2.2.1
-  isar_flutter_libs: ^2.2.1
+  isar: ^2.4.0
+  isar_flutter_libs: ^2.4.0
   carousel_slider: ^4.0.0
   archive: ^3.1.6
 
@@ -75,18 +67,23 @@ dependencies:
   fluttertoast: ^8.0.9
   flutter_native_splash: ^2.1.5
   store_checker: ^1.0.0
+  badges: ^2.0.2
+  marquee: ^2.2.1
+  flutter_svg: ^1.0.3
+
+  googleapis: ^4.0.0 
+  # # 아이폰 설정 필요 
+  google_sign_in: ^5.0.7 
+  google_mobile_ads: ^1.2.0
+
+  
   flutter_datetime_picker: 
    git:
       url: https://github.com/Realank/flutter_datetime_picker.git
       ref: master
   drag_and_drop_lists: ^0.3.2+2
-  badges: ^2.0.2
-  marquee: ^2.2.1
   
-  # 아이폰 설정 필요 
-  # google_ml_kit:
-  #    git:
-  #     url: https://github.com/khjde1207/Google-Ml-Kit-plugin
+  
   google_mlkit_text_recognition:
     git:
       url: https://github.com/bharat-biradar/Google-Ml-Kit-plugin
@@ -96,11 +93,8 @@ dependencies:
     git:
       url: https://github.com/khjde1207/flutter-pdf-text
       
-  flutter_svg: ^1.0.3
   
-  # flutter_downloader: ^1.7.1
-  # flutter_tesseract_ocr: ^0.4.17
-  
+ 
 
   
   
@@ -112,8 +106,8 @@ dev_dependencies:
   integration_test: 
     sdk: flutter  
   flutter_oss_licenses: ^1.0.1 
-  isar_generator: ^2.2.1
-  build_runner: ^2.1.7
+  isar_generator: ^2.4.0
+  build_runner: ^2.1.10
 
   # flutter_tesseract_ocr: 
   
