@@ -30,12 +30,12 @@ class OpenModal {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("@num minutes".trParams({"num": modalCtl.autoexitValue.value.toString()})),
+                Text("@num minutes".trParams({"num": modalCtl.autoexitValue.value.toStringAsFixed(0)})),
                 Slider(
                     min: 0,
                     max: 200,
                     divisions: 200,
-                    label: "@num minutes".trParams({"num": modalCtl.autoexitValue.value.toString()}),
+                    label: "@num minutes".trParams({"num": modalCtl.autoexitValue.value.toStringAsFixed(0)}),
                     value: modalCtl.autoexitValue.value,
                     onChanged: (v) {
                       modalCtl.autoexitValue(v);

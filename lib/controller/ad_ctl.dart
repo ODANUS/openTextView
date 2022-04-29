@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,11 +8,18 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdBanner extends GetView {
   AdBanner({Key? key}) : super(key: key) {
+    String adUnitId = "ca-app-pub-3940256099942544/6300978111";
+    if (Platform.isIOS && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/4350253441";
+    }
+    if (Platform.isAndroid && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/4612534059";
+    }
     BannerAd(
       size: AdSize(width: Get.width.toInt(), height: 50),
       // size: AdSize.banner,
       request: AdRequest(),
-      adUnitId: kDebugMode ? "ca-app-pub-3940256099942544/6300978111" : "ca-app-pub-6280862087797110/4612534059",
+      adUnitId: adUnitId,
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
           _bannerAd(ad as BannerAd);
@@ -64,8 +72,15 @@ class AdCtl {
 
   static initInterstitialAd() async {
     Completer<bool> c = Completer<bool>();
+    String adUnitId = "ca-app-pub-3940256099942544/1033173712";
+    if (Platform.isIOS && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/5088905450";
+    }
+    if (Platform.isAndroid && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/4526743229";
+    }
     AdManagerInterstitialAd.load(
-        adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/1033173712' : 'ca-app-pub-6280862087797110/4526743229',
+        adUnitId: adUnitId,
         request: AdManagerAdRequest(),
         adLoadCallback: AdManagerInterstitialAdLoadCallback(
           onAdLoaded: (AdManagerInterstitialAd ad) {
@@ -82,8 +97,15 @@ class AdCtl {
 
   static initRewardedAd() {
     Completer<bool> c = Completer<bool>();
+    String adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    if (Platform.isIOS && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/3775823780";
+    }
+    if (Platform.isAndroid && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/1667025028";
+    }
     RewardedAd.load(
-        adUnitId: kDebugMode ? 'ca-app-pub-3940256099942544/5224354917' : 'ca-app-pub-6280862087797110/1667025028',
+        adUnitId: adUnitId,
         request: AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd ad) {

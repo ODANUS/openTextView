@@ -28,6 +28,7 @@ class LibraryPage extends GetView {
           return Scaffold(
             appBar: AppBar(
               // toolbarHeight: 40,
+              leadingWidth: 0,
               title: Text("my_library".tr),
               actions: [
                 Container(

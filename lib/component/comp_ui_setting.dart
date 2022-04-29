@@ -613,19 +613,22 @@ class MoveLocation extends GetView {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("${"Current_location".tr} : $position / ${IsarCtl.contents.text.length}"),
+                  Text(
+                      "${"Current_location".tr} : $position / ${IsarCtl.contents.text.length}  (${(position / IsarCtl.contents.text.length * 100).toStringAsFixed(2)}%)"),
                   Slider(
                       value: position.toDouble(),
                       min: 0,
                       max: IsarCtl.contents.text.length.toDouble(),
                       divisions: IsarCtl.contents.text.length,
                       label: "${position.toInt()}",
-                      onChanged: (double v) {
+                      onChanged: (v) {
+                        position(v.toInt());
+                      },
+                      onChangeEnd: (double v) {
                         IsarCtl.tctl.setCntntPstn(v.toInt(), offsetY: 0.0);
+                        IsarCtl.tctl.notifyListeners();
                         // IsarCtl.tctl.cntntPstn = v.toInt();
                         // IsarCtl.tctl.offsetY = 0;
-                        // IsarCtl.tctl.notifyListeners();
-                        position(v.toInt());
                       }),
                   TextFormField(
                     decoration: InputDecoration(
@@ -638,9 +641,11 @@ class MoveLocation extends GetView {
                       if (v.isEmpty) return;
                       int tidx = int.parse(v);
                       if (tidx < IsarCtl.contents.text.length) {
-                        IsarCtl.tctl.cntntPstn = tidx;
+                        IsarCtl.tctl.setCntntPstn(tidx, offsetY: 0.0);
                         IsarCtl.tctl.notifyListeners();
                         position(tidx);
+                        // IsarCtl.cntntPstn = tidx;
+                        // IsarCtl.tctl.cntntPstn = tidx;
                       }
                     },
                   ),
@@ -713,6 +718,7 @@ class PageSearch extends GetView {
                                 child: ListTile(
                                     onTap: () {
                                       IsarCtl.tctl.setCntntPstn(k, offsetY: 0.0);
+                                      IsarCtl.tctl.notifyListeners();
                                     },
                                     // leading: Text("${e}"),
                                     title: Text(e)),

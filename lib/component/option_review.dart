@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:package_info/package_info.dart';
@@ -15,6 +17,9 @@ class OptionReview extends GetView {
   Rxn<Source> installationSource = Rxn<Source>();
   @override
   Widget build(BuildContext context) {
+    if (Platform.isIOS) {
+      return SizedBox();
+    }
     return Obx(() {
       if (installationSource.value != Source.IS_INSTALLED_FROM_PLAY_STORE &&
           installationSource.value != Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE &&

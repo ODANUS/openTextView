@@ -454,7 +454,8 @@ class Utils {
       return rtn;
     }
     var htmllen = listhtml.keys.length;
-    for (var i = 0; i < hrefs.length; i++) {
+    // for (var i = 0; i <  hrefs.length; i++) {
+    for (var i = 0; i < 2; i++) {
       String href = hrefs.elementAt(i);
       if (listhtml[href] != null) {
         listhtml[href] = listhtml[href]!.replaceAll('<title/>', "");
@@ -469,6 +470,12 @@ class Utils {
           } catch (e) {}
         }
         var bodytext = htmlData.body?.text ?? "";
+
+        bodytext = bodytext.replaceAll("\u200B", "");
+        bodytext = bodytext.replaceAll("\u200C", "");
+        bodytext = bodytext.replaceAll("\u200D", "");
+        bodytext = bodytext.replaceAll("\u200E", "");
+        bodytext = bodytext.replaceAll("\uFEFF", "");
 
         bodytext = bodytext.split("\n").map((e) => e.trim()).join("\n\n");
         if (Get.locale?.languageCode.contains("ko") != null) {
@@ -555,7 +562,7 @@ class Utils {
           DecodingResult result = await CharsetDetector.autoDecode(bytes);
           decodeContents = result.string;
         } catch (e) {
-          decodeContents = (await CharsetConverter.decode('EUC-KR', bytes))!;
+          decodeContents = (await CharsetConverter.decode('EUC-KR', bytes));
         }
         return decodeContents;
       }

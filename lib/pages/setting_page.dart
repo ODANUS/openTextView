@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -63,18 +64,28 @@ class SettingPage extends GetView {
               Card(child: OptionBackup()),
               Card(child: OptionTts()),
               Card(child: OptionFilter()),
-              Card(child: DeveloperNotes()),
-              Card(
-                child: ListTile(
-                    title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
-                    onTap: () {
-                      launch("https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
-                    }),
-              ),
+              if (Platform.isAndroid) Card(child: DeveloperNotes()),
+              if (Platform.isAndroid)
+                Card(
+                  child: ListTile(
+                      title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
+                      onTap: () {
+                        launch("https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
+                      }),
+                ),
               Card(child: OptionOsslicense()),
               Card(child: OptionReset()),
               Divider(),
-              if (kDebugMode) ElevatedButton(onPressed: () async {}, child: Text("test")),
+              if (kDebugMode)
+                ElevatedButton(
+                    onPressed: () async {
+                      print(IsarCtl.tctl.contents.split('\n').first);
+                      var str = IsarCtl.tctl.contents.split('\n').first;
+                      var reg = RegExp("h.{0,}t.{0,}t.{0,}p.+");
+                      str = str.replaceAll(reg, "");
+                      print(str);
+                    },
+                    child: Text("test")),
             ],
           ),
         ],

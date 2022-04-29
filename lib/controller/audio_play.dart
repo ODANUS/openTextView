@@ -186,11 +186,13 @@ class AudioHandler extends BaseAudioHandler
         if (e.enable) {
           if (e.expr) {
             speakText = speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
+            print(">>>>>>>>>>> ${e.toJson()} ${speakText}");
           } else {
             speakText = speakText.replaceAll(e.filter, e.to);
           }
         }
       });
+      print(">>>>>>>>>>> $speakText ");
       if (this.autoExitDate != null) {
         mediaItem.first.then((e) {
           var now = DateTime.now();
@@ -221,11 +223,11 @@ class AudioHandler extends BaseAudioHandler
       }
       lastPos = i;
 
+      print("$speakText");
       var bspeak = await tts?.speak(speakText);
       i += nextPos;
       errorCnt++;
       errorLen += speakText.length;
-      print("${errorLen} ${speakText.length}");
       if (errorCnt > 6) {
         IsarCtl.cntntPstn -= errorLen;
         stop();

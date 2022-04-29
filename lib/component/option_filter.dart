@@ -15,9 +15,22 @@ List<dynamic> DFFILTER = [
   {"name": "filter .....".tr, "expr": true, "filter": "\\.{2,}|\\…{1,}", "to": '', 'enable': false},
   {"name": "filter ?!".tr, "expr": true, "filter": "\\?{1,}!{1,}", "to": '!', 'enable': false},
   {"name": "filter !?".tr, "expr": true, "filter": "!{1,}\\?{1,}", "to": '!', 'enable': false},
-  {"name": "filter ?,!".tr, "expr": true, "filter": """"!"|"\\."|"\\?"|'!'|'\\?'|“\\.”|“!”|“\\?”|‘!’|‘\\?|\\[!\\]|\\[\\?\\]|\\[\\.\\]""", "to": '', 'enable': false},
+  {
+    "name": "filter ?,!".tr,
+    "expr": true,
+    "filter": """"!"|"\\."|"\\?"|'!'|'\\?'|“\\.”|“!”|“\\?”|‘!’|‘\\?|\\[!\\]|\\[\\?\\]|\\[\\.\\]""",
+    "to": '',
+    'enable': false
+  },
   {"name": "apostrophe filter".tr, "expr": false, "filter": "'", "to": '', 'enable': false},
-  {"name": "special character repeat filter".tr, "expr": true, "filter": "\\&{2,}|\\#{2,}|\\@{2,}|\\\${2,}|~{1,}|\\*{2,}|\\[\\]|\\(\\)|\\{\\}", "to": '', 'enable': true}
+  {
+    "name": "special character repeat filter".tr,
+    "expr": true,
+    "filter": "\\&{2,}|\\#{2,}|\\@{2,}|\\\${2,}|~{1,}|\\*{2,}|\\[\\]|\\(\\)|\\{\\}",
+    "to": '',
+    'enable': true
+  },
+  {"name": "http...", "expr": true, "filter": "h.{0,3}t.{0,3}t.{0,3}p.+", "to": '', 'enable': true}
 ];
 
 class OptionFilter extends GetView {
@@ -46,7 +59,9 @@ class OptionFilter extends GetView {
                           onTap: () {
                             IsarCtl.putFilter(FilterIsar.fromMap(e)..enable = true);
                           },
-                          child: Padding(padding: EdgeInsets.all(5), child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [Text(e['name']), Text(e['filter'])]))));
+                          child: Padding(
+                              padding: EdgeInsets.all(5),
+                              child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [Text(e['name']), Text(e['filter'])]))));
                 }).toList()
               ])),
           ...filters.map((e) {
