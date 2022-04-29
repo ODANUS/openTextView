@@ -14,13 +14,11 @@ class Gdrive {
 
   // static
   static Future<bool> gdriveSignIn() async {
-    final googleSignIn = signIn.GoogleSignIn.standard(
-        scopes: [drive.DriveApi.driveAppdataScope]);
+    final googleSignIn = signIn.GoogleSignIn.standard(scopes: [drive.DriveApi.driveAppdataScope]);
     final signIn.GoogleSignInAccount? account = await googleSignIn.signIn();
     var hasScope = false;
     try {
-      hasScope =
-          await googleSignIn.requestScopes([drive.DriveApi.driveAppdataScope]);
+      hasScope = await googleSignIn.requestScopes([drive.DriveApi.driveAppdataScope]);
     } catch (e) {
       await googleSignIn.signOut();
       return false;
@@ -42,19 +40,16 @@ class Gdrive {
     return [];
   }
 
-  static Future<drive.File?> createFile(
-      {required String name, required String data}) async {
+  static Future<drive.File?> createFile({required String name, required String data}) async {
     if (driveApi != null) {
       return _create(name: name, data: data);
     }
     return null;
   }
 
-  static Future<drive.File> _create(
-      {required String name, required String data}) {
+  static Future<drive.File> _create({required String name, required String data}) {
     List<int> uploadData = utf8.encode(data);
-    final Stream<List<int>> mediaStream =
-        Future.value(uploadData).asStream().asBroadcastStream();
+    final Stream<List<int>> mediaStream = Future.value(uploadData).asStream().asBroadcastStream();
     var media = new drive.Media(mediaStream, uploadData.length);
     var driveFile = new drive.File();
     driveFile.name = name;
@@ -72,8 +67,7 @@ class Gdrive {
   static Future<String> readAppData(String id) async {
     if (driveApi != null) {
       Completer<String> c = Completer<String>();
-      var file = await driveApi!.files
-          .get(id, downloadOptions: drive.DownloadOptions.fullMedia);
+      var file = await driveApi!.files.get(id, downloadOptions: drive.DownloadOptions.fullMedia);
       var media = file as drive.Media;
       List<int> rtn = [];
       media.stream.listen((data) {

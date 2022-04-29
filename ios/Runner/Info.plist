@@ -45,8 +45,12 @@
 		<false/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>UISupportsDocumentBrowser</key>
+		<true/>
 		<key>UIBackgroundModes</key>
 		<array>
+			<string>fetch</string>
+   			<string>remote-notification</string>
 			<string>audio</string>
 		</array>
 		<key>LSApplicationQueriesSchemes</key>
