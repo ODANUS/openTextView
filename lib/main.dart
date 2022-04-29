@@ -33,7 +33,7 @@ void main() async {
       designSize: Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: () {
+      builder: (_) {
         ScreenUtil().setSp(24);
 
         return GetMaterialApp(
