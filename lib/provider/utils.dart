@@ -125,8 +125,8 @@ class Utils {
   }
 
   static Future<bool> pdfConv(File f) async {
-    // var rtn = await AdCtl.openInterstitialAdPDFConv();
-    var rtn = true;
+    var rtn = await AdCtl.openInterstitialAdPDFConv();
+    // var rtn = true;
     if (rtn) {
       IsarCtl.bLoadingLib(true);
       var pathList = f.path.split("/");
