@@ -625,8 +625,11 @@ class MoveLocation extends GetView {
                         position(v.toInt());
                       },
                       onChangeEnd: (double v) {
+                        IsarCtl.basyncOffset(true);
                         IsarCtl.tctl.setCntntPstn(v.toInt(), offsetY: 0.0);
-                        IsarCtl.tctl.notifyListeners();
+                        IsarCtl.basyncOffset(false);
+                        // IsarCtl.tctl.offsetY = 0;
+                        // IsarCtl.tctl.notifyListeners();
                         // IsarCtl.tctl.cntntPstn = v.toInt();
                         // IsarCtl.tctl.offsetY = 0;
                       }),
@@ -641,8 +644,13 @@ class MoveLocation extends GetView {
                       if (v.isEmpty) return;
                       int tidx = int.parse(v);
                       if (tidx < IsarCtl.contents.text.length) {
+                        IsarCtl.basyncOffset(true);
+
                         IsarCtl.tctl.setCntntPstn(tidx, offsetY: 0.0);
-                        IsarCtl.tctl.notifyListeners();
+                        // IsarCtl.tctl.offsetY = 0;
+                        // IsarCtl.tctl.notifyListeners();
+                        IsarCtl.basyncOffset(false);
+                        // IsarCtl.tctl.notifyListeners();
                         position(tidx);
                         // IsarCtl.cntntPstn = tidx;
                         // IsarCtl.tctl.cntntPstn = tidx;
@@ -670,7 +678,7 @@ class PageSearch extends GetView {
             var contents = IsarCtl.contents.text;
 
             int lastIdx = 0;
-            for (var i = 0; i < 30; i++) {
+            for (var i = 0; i < 50; i++) {
               int idx = contents.indexOf(keyword);
               if (idx < 0) {
                 break;
@@ -717,8 +725,9 @@ class PageSearch extends GetView {
                               Card(
                                 child: ListTile(
                                     onTap: () {
+                                      IsarCtl.basyncOffset(true);
                                       IsarCtl.tctl.setCntntPstn(k, offsetY: 0.0);
-                                      IsarCtl.tctl.notifyListeners();
+                                      IsarCtl.basyncOffset(false);
                                     },
                                     // leading: Text("${e}"),
                                     title: Text(e)),

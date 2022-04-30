@@ -304,11 +304,11 @@ class TextViewerController extends ChangeNotifier {
         var word = newLine[y];
         var wordLen = word.length + 1;
 
-        lastWidth = (cacheMap[word]?[0] ?? cacheMap[" "]![0] * 2);
+        lastWidth = (cacheMap[word]?[0] ?? cacheMap[" "]![0]);
         lastWidth += cacheMap[" "]![0];
         lineWidth += lastWidth;
 
-        if (lineWidth > size.width + cacheMap[" "]![0]) {
+        if (lineWidth > size.width + cacheMap[" "]![0] * 1.1) {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
           lineHeight += avgHeight;

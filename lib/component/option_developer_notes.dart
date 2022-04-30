@@ -8,6 +8,11 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.1.1 (2022 04 30) 패치내역 :
+1. 페이지 이동 로직 을 수정 했습니다. 
+2. 페이지 검색 로직을 수정 했습니다. 
+
+---
 2.0.9 (2022 04 30) 패치내역 :
 
 1. 뷰어 페이지 개행 로직을 일부 수정 하였습니다. 
