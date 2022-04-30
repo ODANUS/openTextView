@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:badges/badges.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
@@ -314,6 +315,12 @@ class LibraryFileViewer extends GetView {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         changeNameWidget(f, history: history),
+                        if (kDebugMode)
+                          ElevatedButton(
+                              onPressed: () {
+                                Utils.saveAs(f);
+                              },
+                              child: Text("save")),
                         Card(
                             child: ListTile(
                                 onTap: () async {

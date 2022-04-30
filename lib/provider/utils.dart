@@ -54,15 +54,15 @@ class Utils {
     return false;
   }
 
-  Future<bool> saveAs(File f) async {
+  static Future<bool> saveAs(File f) async {
     // if (!AdCtl.hasOpenRewardedInterstitialAd()) {
     //   return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
     // }
     // var rtn = await AdCtl.openSaveAsAd();
-    // if (rtn) {
+
     final params = SaveFileDialogParams(sourceFilePath: f.path);
     await FlutterFileDialog.saveFile(params: params);
-    // }
+
     return true;
   }
 
@@ -454,8 +454,8 @@ class Utils {
       return rtn;
     }
     var htmllen = listhtml.keys.length;
-    // for (var i = 0; i <  hrefs.length; i++) {
-    for (var i = 0; i < 2; i++) {
+    // for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < hrefs.length; i++) {
       String href = hrefs.elementAt(i);
       if (listhtml[href] != null) {
         listhtml[href] = listhtml[href]!.replaceAll('<title/>', "");
