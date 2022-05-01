@@ -5,6 +5,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -129,18 +130,24 @@ class TextViewerPainter extends CustomPainter {
     var data = ctl._getNextText(size);
 
     var p = TextPainter(
-      text: TextSpan(text: data.contents, style: ctl._style),
+      text: TextSpan(
+        text: data.contents,
+        style: ctl._style,
+        mouseCursor: MaterialStateMouseCursor.clickable,
+      ),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: size.width);
 
     if (ctl.bHighlight) {
       var curHighlightPos = max(ctl.highlightPos - (pos), 0);
       var curHighlightCnt = max(ctl.highlightPos - (pos) + ctl.highlightCnt, 0);
+      curHighlightCnt += data.newlineCnt;
 
       var tb = p.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightCnt));
       tb.forEach((e) {
         var r = e.toRect();
         var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
+        // rect = Rect.fromLTRB(rect.left, rect.top, r.right, rect.bottom);
         rect = Rect.fromLTRB(rect.left, rect.top, size.width, rect.bottom);
         canvas.drawRect(rect, highlight);
       });
@@ -290,6 +297,7 @@ class TextViewerController extends ChangeNotifier {
     var bBreak = false;
 
     var nextLine = 0;
+    var newlineCnt = 0;
 
     for (var i = 0; i < nextArr.length; i++) {
       var newLine = nextArr[i];
@@ -312,6 +320,7 @@ class TextViewerController extends ChangeNotifier {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
           lineHeight += avgHeight;
+          newlineCnt++;
 
           if (nextLine == 0) {
             nextLine = tleng;
@@ -342,6 +351,7 @@ class TextViewerController extends ChangeNotifier {
     data.nextPos = basePos + tleng;
     data.nextLine = basePos + nextLine;
     data.lastLine = basePos + (tleng - rtnStr.split("\n").last.length);
+    data.newlineCnt = newlineCnt;
     if (data.nextPos - data.lastLine <= 1) {
       data.lastLine--;
     }
@@ -394,6 +404,7 @@ class PosData {
   int nextPos = 0;
   int nextLine = 0;
   int lastLine = 0;
+  int newlineCnt = 0;
   String contents = "";
 
   String toJson() => json.encode(toMap());
@@ -405,5 +416,6 @@ class PosData {
         "nextLine": nextLine,
         "lastLine": lastLine,
         "contents": contents,
+        "newlineCnt": newlineCnt,
       };
 }

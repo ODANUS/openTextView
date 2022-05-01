@@ -92,6 +92,7 @@ dependencies:
   pdf_text:
     git:
       url: https://github.com/khjde1207/flutter-pdf-text
+  scrollable_positioned_list: ^0.2.3
       
   
  

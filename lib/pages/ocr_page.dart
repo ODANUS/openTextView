@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -78,6 +79,15 @@ class OcrPage extends GetView {
     loadFile();
   }
 
+  close() async {
+    var tmpDir = await getTemporaryDirectory();
+    tmpDir = Directory("${tmpDir.path}/ocr");
+    if (tmpDir.existsSync()) {
+      tmpDir.deleteSync(recursive: true);
+    }
+    Get.back();
+  }
+
   RxList<bool> bcutList = RxList<bool>();
 
   RxList<File> fileList = RxList<File>();
@@ -89,12 +99,17 @@ class OcrPage extends GetView {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () {
-          return Future(() => false);
+          return Future(() => true);
         },
         child: Scaffold(
           appBar: AppBar(
-            leadingWidth: 0,
-            leading: Text(""),
+            // leadingWidth: 0,
+            leading: IconButton(
+              onPressed: () {
+                close();
+              },
+              icon: Icon(Icons.arrow_back_ios),
+            ),
             title: Text("OCR"),
             actions: [
               IconButton(
@@ -149,20 +164,29 @@ class OcrPage extends GetView {
                       itemCount: fileList.length,
                       itemBuilder: (ctx, idx) {
                         var e = fileList[idx];
-                        return Obx(() => Card(
-                                child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Image.file(e, height: 140),
-                                if (bcutList.isNotEmpty)
-                                  Checkbox(
-                                      value: bcutList[idx],
-                                      onChanged: (bool? v) {
-                                        bcutList[idx] = v!;
-                                        bcutList.refresh();
-                                      })
-                              ],
-                            )));
+                        return Obx(
+                          () => Card(
+                              child: InkWell(
+                                  onTap: kDebugMode
+                                      ? () {
+                                          Get.toNamed("/ocr/edit", arguments: fileList[idx].path);
+                                          // print("onTap");
+                                        }
+                                      : null,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Image.file(e, height: 140),
+                                      if (bcutList.isNotEmpty)
+                                        Checkbox(
+                                            value: bcutList[idx],
+                                            onChanged: (bool? v) {
+                                              bcutList[idx] = v!;
+                                              bcutList.refresh();
+                                            })
+                                    ],
+                                  ))),
+                        );
                       },
                       // onReorder: ((oldIndex, newIndex) {
                       //   if (oldIndex < newIndex) {
@@ -189,12 +213,13 @@ class OcrPage extends GetView {
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(primary: Colors.red),
                             onPressed: () async {
-                              var tmpDir = await getTemporaryDirectory();
-                              tmpDir = Directory("${tmpDir.path}/ocr");
-                              if (tmpDir.existsSync()) {
-                                tmpDir.deleteSync(recursive: true);
-                              }
-                              Get.back();
+                              close();
+                              // var tmpDir = await getTemporaryDirectory();
+                              // tmpDir = Directory("${tmpDir.path}/ocr");
+                              // if (tmpDir.existsSync()) {
+                              //   tmpDir.deleteSync(recursive: true);
+                              // }
+                              // Get.back();
                             },
                             child: Text("cancel".tr)),
                         Column(

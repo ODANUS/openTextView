@@ -8,6 +8,15 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.1.2 (2022 05 02) 패치내역 :
+1. TTS 설정 슬라이드바 이동시 렉걸리는 현상 수정 하였습니다. 
+2. 단어 단위 개행으로 변경하면서 tts 리딩시 하이라이트가 몇글자 부족하게 채워지는 현상 수정. 
+  - 좀 과하게 채워질 수 도 있습니다.
+
+3. 
+
+
+---
 2.1.1 (2022 04 30) 패치내역 :
 1. 페이지 이동 로직 을 수정 했습니다. 
 2. 페이지 검색 로직을 수정 했습니다. 

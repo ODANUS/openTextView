@@ -155,7 +155,6 @@ class IsarCtl {
     // });
     debounce(basyncOffset, (bool b) {
       if (!b) {
-        print("asaaaaaaaaaaaaaaaaa");
         IsarCtl.lastHistory = IsarCtl.lastHistory!
           ..cntntPstn = tctl.cntntPstn
           ..date = DateTime.now();

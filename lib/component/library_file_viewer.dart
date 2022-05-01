@@ -321,6 +321,13 @@ class LibraryFileViewer extends GetView {
                                 Utils.saveAs(f);
                               },
                               child: Text("save")),
+                        if (kDebugMode)
+                          Card(
+                              child: ListTile(
+                                  onTap: () async {
+                                    Get.toNamed("/editor", arguments: f.path);
+                                  },
+                                  title: Text("편집".tr))),
                         Card(
                             child: ListTile(
                                 onTap: () async {

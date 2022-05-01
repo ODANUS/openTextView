@@ -13,101 +13,105 @@ class OptionTts extends GetView {
         title: Text("TTS settings".tr),
         children: [
           ListTile(
-              title: Text(
-                  '${"speed".tr} : ${setting.speechRate.toStringAsFixed(2)}'),
+              title: Text('${"speed".tr} : ${setting.speechRate.toStringAsFixed(2)}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,
-                  child: Row(children: [
-                    IconButton(
-                        onPressed: () {
-                          var p = double.parse(
-                              (setting.speechRate - 0.01).toStringAsFixed(2));
-                          setting.speechRate = max(p, 0);
-                          IsarCtl.putSetting(setting);
+                  child: ObxValue<RxDouble>((speechRate) {
+                    return Row(children: [
+                      IconButton(
+                          onPressed: () {
+                            var p = double.parse((setting.speechRate - 0.01).toStringAsFixed(2));
+                            setting.speechRate = max(p, 0);
+                            IsarCtl.putSetting(setting);
+                          },
+                          icon: Icon(Icons.navigate_before_sharp)),
+                      Expanded(
+                          child: Slider(
+                        value: speechRate.value,
+                        min: 0,
+                        max: 5,
+                        divisions: 50,
+                        label: speechRate.toStringAsFixed(2),
+                        onChangeEnd: (double v) {
+                          IsarCtl.putSetting(setting..speechRate = v);
                         },
-                        icon: Icon(Icons.navigate_before_sharp)),
-                    Expanded(
-                        child: Slider(
-                      value: setting.speechRate,
-                      min: 0,
-                      max: 5,
-                      divisions: 50,
-                      label: setting.speechRate.toStringAsFixed(2),
-                      onChanged: (double v) {
-                        IsarCtl.putSetting(setting..speechRate = v);
-                      },
-                    )),
-                    IconButton(
-                        onPressed: () {
-                          var p = double.parse(
-                              (setting.speechRate + 0.01).toStringAsFixed(2));
-                          setting.speechRate = min(p, 5);
-                          IsarCtl.putSetting(setting);
+                        onChanged: (double v) {
+                          speechRate(v);
+                          // IsarCtl.putSetting(setting..speechRate = v);
                         },
-                        icon: Icon(Icons.navigate_next_sharp)),
-                  ]))),
+                      )),
+                      IconButton(
+                          onPressed: () {
+                            var p = double.parse((setting.speechRate + 0.01).toStringAsFixed(2));
+                            setting.speechRate = min(p, 5);
+                            IsarCtl.putSetting(setting);
+                          },
+                          icon: Icon(Icons.navigate_next_sharp)),
+                    ]);
+                  }, setting.speechRate.obs))),
           ListTile(
-              title:
-                  Text('${"volume".tr} : ${setting.volume.toStringAsFixed(1)}'),
+              title: Text('${"volume".tr} : ${setting.volume.toStringAsFixed(1)}'),
               subtitle: Container(
-                  width: double.infinity,
-                  // color: Colors.red,
-                  child: Row(children: [
+                width: double.infinity,
+                // color: Colors.red,
+                child: ObxValue<RxDouble>((volume) {
+                  return Row(children: [
                     Expanded(
                         child: Slider(
-                      value: setting.volume,
+                      value: volume.value,
                       min: 0,
                       max: 1,
                       divisions: 10,
-                      label: setting.volume.toStringAsFixed(1),
-                      onChanged: (double v) {
-                        IsarCtl.putSetting(setting..volume = v);
-                      },
+                      label: volume.toStringAsFixed(1),
+                      onChangeEnd: (v) => IsarCtl.putSetting(setting..volume = v),
+                      onChanged: volume,
                     )),
-                  ]))),
+                  ]);
+                }, setting.volume.obs),
+              )),
           ListTile(
-              title:
-                  Text('${"pitch".tr} : ${setting.pitch.toStringAsFixed(1)}'),
+              title: Text('${"pitch".tr} : ${setting.pitch.toStringAsFixed(1)}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,
-                  child: Row(children: [
-                    IconButton(
-                        onPressed: () {
-                          var p = double.parse(
-                              (setting.pitch - 0.01).toStringAsFixed(2));
-                          setting.pitch = max(p, 0.5);
-                          IsarCtl.putSetting(setting);
+                  child: ObxValue<RxDouble>((pitch) {
+                    return Row(children: [
+                      IconButton(
+                          onPressed: () {
+                            var p = double.parse((setting.pitch - 0.01).toStringAsFixed(2));
+                            setting.pitch = max(p, 0.5);
+                            IsarCtl.putSetting(setting);
+                          },
+                          icon: Icon(Icons.navigate_before_sharp)),
+                      Expanded(
+                          child: Slider(
+                        value: pitch.value,
+                        min: 0.5,
+                        max: 2,
+                        divisions: 15,
+                        label: pitch.toStringAsFixed(1),
+                        onChangeEnd: (v) => IsarCtl.putSetting(setting..pitch = v),
+                        onChanged: (double v) {
+                          pitch(v);
                         },
-                        icon: Icon(Icons.navigate_before_sharp)),
-                    Expanded(
-                        child: Slider(
-                      value: setting.pitch,
-                      min: 0.5,
-                      max: 2,
-                      divisions: 15,
-                      label: setting.pitch.toStringAsFixed(1),
-                      onChanged: (double v) {
-                        IsarCtl.putSetting(setting..pitch = v);
-                      },
-                    )),
-                    IconButton(
-                        onPressed: () {
-                          var p = double.parse(
-                              (setting.pitch + 0.01).toStringAsFixed(2));
-                          setting.pitch = min(p, 2);
-                          IsarCtl.putSetting(setting);
-                        },
-                        icon: Icon(Icons.navigate_next_sharp)),
-                  ]))),
+                      )),
+                      IconButton(
+                          onPressed: () {
+                            var p = double.parse((setting.pitch + 0.01).toStringAsFixed(2));
+                            setting.pitch = min(p, 2);
+                            IsarCtl.putSetting(setting);
+                          },
+                          icon: Icon(Icons.navigate_next_sharp)),
+                    ]);
+                  }, setting.pitch.obs))),
           ListTile(
-              title: Text(
-                  '${"Number of lines to read at a time".tr}  : ${setting.groupcnt}'),
+              title: Text('${"Number of lines to read at a time".tr}  : ${setting.groupcnt}'),
               subtitle: Container(
-                  width: double.infinity,
-                  // color: Colors.red,
-                  child: Row(children: [
+                width: double.infinity,
+                // color: Colors.red,
+                child: ObxValue<RxInt>((groupcnt) {
+                  return Row(children: [
                     IconButton(
                         onPressed: () {
                           if (setting.groupcnt <= 1) return;
@@ -116,15 +120,16 @@ class OptionTts extends GetView {
                         icon: Icon(Icons.navigate_before_sharp)),
                     Expanded(
                         child: Slider(
-                      value: setting.groupcnt < 1
-                          ? 1
-                          : setting.groupcnt.toDouble(),
+                      value: groupcnt.value < 1 ? 1 : groupcnt.toDouble(),
                       min: 1,
                       max: 40,
                       divisions: 40,
-                      label: setting.groupcnt.toStringAsFixed(0),
-                      onChanged: (double v) {
+                      label: groupcnt.toStringAsFixed(0),
+                      onChangeEnd: (v) {
                         IsarCtl.putSetting(setting..groupcnt = v.toInt());
+                      },
+                      onChanged: (double v) {
+                        groupcnt(v.toInt());
                       },
                     )),
                     IconButton(
@@ -133,7 +138,9 @@ class OptionTts extends GetView {
                           IsarCtl.putSetting(setting..groupcnt += 1);
                         },
                         icon: Icon(Icons.navigate_next_sharp)),
-                  ]))),
+                  ]);
+                }, setting.groupcnt.obs),
+              )),
           Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: CheckboxListTile(
