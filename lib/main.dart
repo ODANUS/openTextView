@@ -24,7 +24,7 @@ Future<void> initCtl() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
   // Get.lazyPut(() => GlobalController());
   // await initCtl();
   await IsarCtl.init();

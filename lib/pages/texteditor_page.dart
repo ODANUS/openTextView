@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -15,7 +16,10 @@ class TextEditorPage extends GetView {
   }
   late File f;
   RxList<String> content = [""].obs;
+  RxInt perLineNum = 0.obs;
+  RxInt nextLineNum = 0.obs;
   RxString keyWord = "".obs;
+  RxString endkeyWord = "".obs;
   RxString tokeyWord = "".obs;
   RxInt editorType = 0.obs;
 
@@ -49,30 +53,127 @@ class TextEditorPage extends GetView {
                           .toList(),
                     ]);
                   }),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Please enter word".tr,
+                  Obx(() {
+                    if (editorType.value == 0) {
+                      return Row(
+                        children: [
+                          Expanded(
+                              child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "검색할 단어".tr,
+                            ),
+                            onFieldSubmitted: (s) {
+                              keyWord(s);
+                            },
+                          )),
+                          Icon(Icons.arrow_right),
+                          Expanded(
+                              child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "변경 할 단어".tr,
+                            ),
+                            onFieldSubmitted: (s) {
+                              tokeyWord(s);
+                            },
+                          )),
+                          // ElevatedButton(onPressed: () {}, child: Text("찾기")),
+                        ],
+                      );
+                    }
+                    if (editorType.value == 1) {
+                      return Row(
+                        children: [
+                          Expanded(
+                              child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "시작 단어".tr,
+                            ),
+                            onFieldSubmitted: (s) {
+                              keyWord(s);
+                            },
+                          )),
+                          Padding(
+                            padding: EdgeInsets.only(left: 1, right: 5),
+                            child: Text("~"),
+                          ),
+                          Expanded(
+                              child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "끝 단어".tr,
+                            ),
+                            onFieldSubmitted: (s) {
+                              endkeyWord(s);
+                            },
+                          )),
+                          Icon(Icons.arrow_right),
+                          Expanded(
+                              child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "변경할 단어".tr,
+                            ),
+                            onFieldSubmitted: (s) {
+                              tokeyWord(s);
+                            },
+                          )),
+                          // ElevatedButton(onPressed: () {}, child: Text("찾기")),
+                        ],
+                      );
+                    }
+
+                    return Column(
+                      children: [
+                        Row(
+                          children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  perLineNum(max(--perLineNum.value, 0));
+                                },
+                                icon: Icon(Icons.remove)),
+                            Text("$perLineNum"),
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  perLineNum(min(++perLineNum.value, 20));
+                                },
+                                icon: Icon(Icons.add)),
+                            //
+                            Expanded(
+                                child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "검색 단어".tr,
+                              ),
+                              onFieldSubmitted: (s) {
+                                keyWord(s);
+                              },
+                            )),
+                            //
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  nextLineNum(max(--nextLineNum.value, 0));
+                                },
+                                icon: Icon(Icons.remove)),
+                            Text("$nextLineNum"),
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  nextLineNum(min(++nextLineNum.value, 20));
+                                },
+                                icon: Icon(Icons.add)),
+                          ],
                         ),
-                        onFieldSubmitted: (s) {
-                          keyWord(s);
-                        },
-                      )),
-                      Icon(Icons.arrow_right),
-                      Expanded(
-                          child: TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "변경 할 단어".tr,
-                        ),
-                        onFieldSubmitted: (s) {
-                          tokeyWord(s);
-                        },
-                      )),
-                      // ElevatedButton(onPressed: () {}, child: Text("찾기")),
-                    ],
-                  ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "변경할 단어".tr,
+                          ),
+                          onFieldSubmitted: (s) {
+                            tokeyWord(s);
+                          },
+                        )
+                      ],
+                    );
+                  }),
                   SizedBox(height: 5.h),
                   Flexible(
                       flex: 2,
@@ -120,7 +221,7 @@ class TextEditorPage extends GetView {
                       })),
                   Divider(),
                   Flexible(
-                      flex: 4,
+                      flex: 3,
                       child: Obx(() {
                         return ScrollablePositionedList.builder(
                             itemScrollController: itemScrollController,

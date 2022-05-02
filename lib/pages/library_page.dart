@@ -1,4 +1,5 @@
 import 'dart:developer' as d;
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,114 +42,116 @@ class LibraryPage extends GetView {
               ],
               bottom: PreferredSize(preferredSize: Size(Get.width, 50), child: AdBanner(key: Key("library"))),
             ),
-            body: Stack(
-              children: [
-                IsarCtl.rxSetting((_, setting) {
-                  return Container(
-                    width: Get.width,
-                    height: Get.height,
-                    decoration: BoxDecoration(
-                      image: setting.bgIdx <= 0
-                          ? null
-                          : DecorationImage(
-                              fit: BoxFit.cover,
-                              colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
-                              image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+            body: OrientationBuilder(builder: (_, orientation) {
+              return Stack(
+                children: [
+                  IsarCtl.rxSetting((_, setting) {
+                    return Container(
+                      width: Get.width,
+                      height: Get.height,
+                      decoration: BoxDecoration(
+                        image: setting.bgIdx <= 0
+                            ? null
+                            : DecorationImage(
+                                fit: BoxFit.cover,
+                                colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
+                                image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+                              ),
+                      ),
+                    );
+                  }),
+                  Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                    Container(
+                        padding: EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 20),
+                        child: TextFormField(
+                          controller: searchTextCtl,
+                          decoration: InputDecoration(
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                IsarCtl.libSearchText("");
+                                searchTextCtl.text = "";
+                                FocusScopeNode currentFocus = FocusScope.of(context);
+                                if (!currentFocus.hasPrimaryFocus) {
+                                  currentFocus.unfocus();
+                                }
+                              },
+                              child: Icon(Icons.close),
                             ),
-                    ),
-                  );
-                }),
-                Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                  Container(
-                      padding: EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 20),
-                      child: TextFormField(
-                        controller: searchTextCtl,
-                        decoration: InputDecoration(
-                          suffixIcon: InkWell(
-                            onTap: () {
-                              IsarCtl.libSearchText("");
-                              searchTextCtl.text = "";
-                              FocusScopeNode currentFocus = FocusScope.of(context);
-                              if (!currentFocus.hasPrimaryFocus) {
-                                currentFocus.unfocus();
-                              }
-                            },
-                            child: Icon(Icons.close),
+                            labelText: "Please enter word".tr,
                           ),
-                          labelText: "Please enter word".tr,
-                        ),
-                        onChanged: (v) => IsarCtl.libSearchText(v),
-                      )),
-                  Expanded(child: LibraryFileViewer()),
-                ]),
-                Obx(() {
-                  if (IsarCtl.epubTotal.value > 0) {
-                    return Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black54,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircularProgressIndicator(),
-                            SizedBox(height: 10),
-                            Text("${IsarCtl.epubCurrent.value}/${IsarCtl.epubTotal.value}"),
-                          ],
-                        ));
-                  }
-                  return SizedBox();
-                }),
-                Obx(() {
-                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value > IsarCtl.MAXOCRCNT) {
-                    return Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black54,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircularProgressIndicator(),
-                            SizedBox(height: 10),
-                            Text("Creating split compressed file".tr + " (${IsarCtl.MAXOCRCNT})"),
-                            Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
-                          ],
-                        ));
-                  }
-                  if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value <= IsarCtl.MAXOCRCNT + 10) {
-                    return Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black54,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircularProgressIndicator(),
-                            SizedBox(height: 10),
-                            Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
-                          ],
-                        ));
-                  }
-                  if (IsarCtl.bLoadingLib.value) {
-                    return Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black54,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircularProgressIndicator(),
-                          ],
-                        ));
-                  }
+                          onChanged: (v) => IsarCtl.libSearchText(v),
+                        )),
+                    Expanded(child: LibraryFileViewer()),
+                  ]),
+                  Obx(() {
+                    if (IsarCtl.epubTotal.value > 0) {
+                      return Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.black54,
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CircularProgressIndicator(),
+                              SizedBox(height: 10),
+                              Text("${IsarCtl.epubCurrent.value}/${IsarCtl.epubTotal.value}"),
+                            ],
+                          ));
+                    }
+                    return SizedBox();
+                  }),
+                  Obx(() {
+                    if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value > IsarCtl.MAXOCRCNT) {
+                      return Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.black54,
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CircularProgressIndicator(),
+                              SizedBox(height: 10),
+                              Text("Creating split compressed file".tr + " (${IsarCtl.MAXOCRCNT})"),
+                              Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
+                            ],
+                          ));
+                    }
+                    if (IsarCtl.unzipTotal.value > 0 && IsarCtl.unzipTotal.value <= IsarCtl.MAXOCRCNT + 10) {
+                      return Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.black54,
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CircularProgressIndicator(),
+                              SizedBox(height: 10),
+                              Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
+                            ],
+                          ));
+                    }
+                    if (IsarCtl.bLoadingLib.value) {
+                      return Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.black54,
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CircularProgressIndicator(),
+                            ],
+                          ));
+                    }
 
-                  return SizedBox();
-                })
-              ],
-            ),
+                    return SizedBox();
+                  })
+                ],
+              );
+            }),
             // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
             floatingActionButton: FloatingActionButton.extended(
               heroTag: "library",
