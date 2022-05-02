@@ -527,8 +527,16 @@ class Utils {
 
   static Future<FilePickerResult?> selectFile() async {
     IsarCtl.bLoadingLib(true);
-    var selectedFiles =
-        await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
+
+    FilePickerResult? selectedFiles;
+    if (Platform.isIOS) {
+      FilePicker.platform.clearTemporaryFiles();
+      selectedFiles = await FilePicker.platform.pickFiles();
+    } else {
+      selectedFiles =
+          await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
+    }
+
     IsarCtl.bLoadingLib(false);
     if (selectedFiles == null) {
       return selectedFiles;
