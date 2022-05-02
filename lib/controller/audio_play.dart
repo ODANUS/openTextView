@@ -186,13 +186,12 @@ class AudioHandler extends BaseAudioHandler
         if (e.enable) {
           if (e.expr) {
             speakText = speakText.replaceAllMapped(RegExp(e.filter), (match) => e.to);
-            print(">>>>>>>>>>> ${e.toJson()} ${speakText}");
           } else {
             speakText = speakText.replaceAll(e.filter, e.to);
           }
         }
       });
-      print(">>>>>>>>>>> $speakText ");
+
       if (this.autoExitDate != null) {
         mediaItem.first.then((e) {
           var now = DateTime.now();
