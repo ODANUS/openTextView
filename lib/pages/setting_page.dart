@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -84,12 +85,15 @@ class SettingPage extends GetView {
                       if (!IsarCtl.libDir.value.existsSync()) {
                         IsarCtl.libDir.value.createSync(recursive: true);
                       }
+                      var re = await Dio().get("", options: Options(responseType: ResponseType.bytes));
+                      print(re.data);
                       print(ss);
-                      var f = File("${IsarCtl.libDir.value.path}/test1.txt");
+                      var f = File("${IsarCtl.libDir.value.path}/test12.epub");
                       if (!f.existsSync()) {
                         f.createSync();
                       }
-                      f.writeAsStringSync(ss);
+                      f.writeAsBytesSync(re.data);
+                      print(111111);
                       // IsarCtl.libDir.value
                       // var temp = await getTemporaryDirectory();
                       // var dir = Directory("${temp.path}");
@@ -114,6 +118,5 @@ class SettingPage extends GetView {
   }
 
   var ss = """
-
 """;
 }
