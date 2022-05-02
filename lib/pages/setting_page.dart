@@ -15,6 +15,7 @@ import 'package:open_textview/component/option_review.dart';
 import 'package:open_textview/component/option_tts.dart';
 import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends GetView {
@@ -79,11 +80,28 @@ class SettingPage extends GetView {
               if (kDebugMode)
                 ElevatedButton(
                     onPressed: () async {
-                      print(IsarCtl.tctl.contents.split('\n').first);
-                      var str = IsarCtl.tctl.contents.split('\n').first;
-                      var reg = RegExp("h.{0,}t.{0,}t.{0,}p.+");
-                      str = str.replaceAll(reg, "");
-                      print(str);
+                      print(IsarCtl.libDir.value.path);
+                      if (!IsarCtl.libDir.value.existsSync()) {
+                        IsarCtl.libDir.value.createSync(recursive: true);
+                      }
+                      print(ss);
+                      var f = File("${IsarCtl.libDir.value.path}/test1.txt");
+                      if (!f.existsSync()) {
+                        f.createSync();
+                      }
+                      f.writeAsStringSync(ss);
+                      // IsarCtl.libDir.value
+                      // var temp = await getTemporaryDirectory();
+                      // var dir = Directory("${temp.path}");
+                      // print(dir.listSync());
+                      // dir.listSync().forEach((e) {
+                      //   print(e.path);
+                      // });
+                      // print(IsarCtl.tctl.contents.split('\n').first);
+                      // var str = IsarCtl.tctl.contents.split('\n').first;
+                      // var reg = RegExp("h.{0,}t.{0,}t.{0,}p.+");
+                      // str = str.replaceAll(reg, "");
+                      // print(str);
                     },
                     child: Text("test")),
             ],
@@ -94,4 +112,8 @@ class SettingPage extends GetView {
       //     onPressed: () {}, label: OptionReview()),
     );
   }
+
+  var ss = """
+
+""";
 }
