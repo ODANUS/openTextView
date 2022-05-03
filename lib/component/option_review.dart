@@ -32,15 +32,15 @@ class OptionReview extends GetView {
               onPressed: () async {
                 if (installationSource.value == Source.IS_INSTALLED_FROM_PLAY_STORE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  launch('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+                  launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=${packageInfo.packageName}'));
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                  launchUrl(Uri.parse('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}'));
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_LOCAL_SOURCE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  launch('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+                  launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=${packageInfo.packageName}'));
                   // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
               },

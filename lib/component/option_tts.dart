@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -7,13 +8,18 @@ import 'package:open_textview/isar_ctl.dart';
 class OptionTts extends GetView {
   @override
   Widget build(BuildContext context) {
+    var speedCmd = "${"default speed".tr}: (1.0)";
+    if (Platform.isIOS) {
+      speedCmd = "${"default speed".tr}: (0.4)";
+    }
+
     return IsarCtl.rxSetting((ctx, setting) {
       return ExpansionTile(
         onExpansionChanged: (b) async {},
         title: Text("TTS settings".tr),
         children: [
           ListTile(
-              title: Text('${"speed".tr} : ${setting.speechRate.toStringAsFixed(2)}'),
+              title: Text('${"speed".tr} : ${setting.speechRate.toStringAsFixed(2)}   ${speedCmd}'),
               subtitle: Container(
                   width: double.infinity,
                   // color: Colors.red,

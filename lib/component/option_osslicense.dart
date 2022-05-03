@@ -35,7 +35,7 @@ class OptionOsslicense extends GetView {
                                     ),
                                   ),
                                   onTap: () {
-                                    launch(value['homepage']);
+                                    launchUrl(Uri.parse(value['homepage']));
                                   }),
                           ]),
                         ),

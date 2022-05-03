@@ -24,6 +24,7 @@ class HistoryPage extends GetView {
     return Obx(() {
       return Scaffold(
         appBar: AppBar(
+          centerTitle: false,
           title: Text("history".tr),
           actions: [
             IsarCtl.rxHistoryFilterDate((ctx, historys) {

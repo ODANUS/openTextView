@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:open_textview/component/option_backup.dart';
+import 'package:open_textview/component/option_battery_optimization.dart';
 
 import 'package:open_textview/component/option_developer_notes.dart';
 import 'package:open_textview/component/option_filter.dart';
@@ -26,7 +27,7 @@ class SettingPage extends GetView {
 
     return Scaffold(
       appBar: AppBar(
-        // centerTitle: true,
+        centerTitle: false,
         title: Text("Settings".tr),
         actions: [
           Column(
@@ -72,9 +73,10 @@ class SettingPage extends GetView {
                   child: ListTile(
                       title: Text('See_how_to_solve_the_tts_voice_problem'.tr),
                       onTap: () {
-                        launch("https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md");
+                        launchUrl(Uri.parse("https://github.com/khjde1207/openTextView/blob/main/datas/ttsapk/README.md"));
                       }),
                 ),
+              if (Platform.isAndroid) Card(child: OptionBatteryOptimization()),
               Card(child: OptionOsslicense()),
               Card(child: OptionReset()),
               Divider(),

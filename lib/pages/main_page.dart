@@ -14,27 +14,28 @@ class MainPage extends GetView {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async {
-          if (!bClose) {
-            bClose = true;
-            Future.delayed(1.seconds, () {
-              bClose = false;
-            });
-            Fluttertoast.showToast(
-                msg: "Press once more to close".tr,
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.black54,
-                textColor: Colors.white,
-                fontSize: 16.0);
+      onWillPop: () async {
+        if (!bClose) {
+          bClose = true;
+          Future.delayed(1.seconds, () {
+            bClose = false;
+          });
+          Fluttertoast.showToast(
+              msg: "Press once more to close".tr,
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              backgroundColor: Colors.black54,
+              textColor: Colors.white,
+              fontSize: 16.0);
 
-            return false;
-          } else {
-            return true;
-          }
-        },
-        child: Scaffold(
+          return false;
+        } else {
+          return true;
+        }
+      },
+      child: OrientationBuilder(builder: (_, orientation) {
+        return Scaffold(
           body: Obx(() => IndexedStack(index: IsarCtl.tabIndex.value, children: [
                 ReadPage(),
                 LibraryPage(),
@@ -107,6 +108,8 @@ class MainPage extends GetView {
           //               icon: Icon(Icons.history),
           //             ),
           //           ])),
-        ));
+        );
+      }),
+    );
   }
 }

@@ -16,6 +16,7 @@ class ReadPage extends GetView {
             toolbarHeight: 30.h,
             // backgroundColor: Colors.transparent,
             // elevation: 0,
+            centerTitle: false,
             title: InkWell(
               onTap: () {},
               child: IsarCtl.rxLastHistory(
@@ -69,61 +70,59 @@ class ReadPage extends GetView {
               //   ), //Icon(IsarCtl.enableVolumeButton.value ? Icons.stay_primary_portrait : Icons.phonelink_erase),
               // )
             ]),
-        body: OrientationBuilder(builder: (_, orientation) {
-          return Builder(builder: (ctx) {
-            return Stack(children: [
-              IsarCtl.rxSetting((_, setting) {
+        body: Builder(builder: (ctx) {
+          return Stack(children: [
+            IsarCtl.rxSetting((_, setting) {
+              return Container(
+                width: Get.width,
+                height: Get.height,
+                color: Color(setting.backgroundColor),
+              );
+            }),
+            AudioPlay.builder(builder: (BuildContext context, AsyncSnapshot<PlaybackState> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              }
+
+              // return SizedBox();
+
+              return IsarCtl.rxSetting((_, setting) {
                 return Container(
-                  width: Get.width,
-                  height: Get.height,
-                  color: Color(setting.backgroundColor),
-                );
-              }),
-              AudioPlay.builder(builder: (BuildContext context, AsyncSnapshot<PlaybackState> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
-                }
-
-                // return SizedBox();
-
-                return IsarCtl.rxSetting((_, setting) {
-                  return Container(
-                      width: Get.width,
-                      height: Get.height,
-                      // color: Color(setting.backgroundColor),
-                      decoration: BoxDecoration(
-                        color: Color(setting.backgroundColor),
-                        image: setting.bgIdx <= 0
-                            ? null
-                            : DecorationImage(
-                                fit: BoxFit.cover,
-                                colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
-                                image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
-                              ),
-                      ),
-                      padding: EdgeInsets.only(
-                        left: setting.paddingLeft,
-                        right: setting.paddingRight,
-                        top: setting.paddingTop,
-                        bottom: setting.paddingBottom,
-                      ),
-                      child: IsarCtl.rxContents((_, contents) {
-                        return CompTextReader(
-                          setting: setting,
-                          bPlay: snapshot.data!.playing,
-                        );
-                      }));
-                });
-              }),
-              Obx(
-                () => IsarCtl.bSetting.value
-                    ? IsarCtl.rxSetting((_, setting) {
-                        return CompUiSetting(setting: setting);
-                      })
-                    : SizedBox(),
-              )
-            ]);
-          });
+                    width: Get.width,
+                    height: Get.height,
+                    // color: Color(setting.backgroundColor),
+                    decoration: BoxDecoration(
+                      color: Color(setting.backgroundColor),
+                      image: setting.bgIdx <= 0
+                          ? null
+                          : DecorationImage(
+                              fit: BoxFit.cover,
+                              colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
+                              image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+                            ),
+                    ),
+                    padding: EdgeInsets.only(
+                      left: setting.paddingLeft,
+                      right: setting.paddingRight,
+                      top: setting.paddingTop,
+                      bottom: setting.paddingBottom,
+                    ),
+                    child: IsarCtl.rxContents((_, contents) {
+                      return CompTextReader(
+                        setting: setting,
+                        bPlay: snapshot.data!.playing,
+                      );
+                    }));
+              });
+            }),
+            Obx(
+              () => IsarCtl.bSetting.value
+                  ? IsarCtl.rxSetting((_, setting) {
+                      return CompUiSetting(setting: setting);
+                    })
+                  : SizedBox(),
+            )
+          ]);
         }),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Obx(() => AnimatedContainer(

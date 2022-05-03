@@ -128,6 +128,8 @@ class Messages extends Translations {
           "Long press on": "Long press on a file to move, merge into folder, delete, or merge text content.",
           "Merge files": "Merge files",
           "total": "total",
+          "Enable background operation": "Enable background operation",
+          "default speed": "default speed",
         },
         "ko": {
           "key": "ko",
@@ -252,6 +254,8 @@ class Messages extends Translations {
           "Long press on": "파일 을 길게 눌러 이동, 폴더 로 합치기, 삭제, 텍스트 내용 병합 기능을 사용 할 수 있습니다. ",
           "Merge files": "파일 합치기",
           "total": "총 갯수",
+          "Enable background operation": "백그라운드 작동 활성화",
+          "default speed": "기본 속도",
         },
         "gl": {
           "key": "gl",
@@ -378,6 +382,8 @@ class Messages extends Translations {
           "Long press on": "Prema de longa data nun ficheiro para mover, fusionarse en cartafol, borrar ou combinar contido de texto.",
           "Merge files": "Fusionar ficheiros.",
           "total": "TOTAL.",
+          "Enable background operation": "Activar a operación de fondo",
+          "default speed": "Velocidade predeterminada",
         },
         "gu": {
           "key": "gu",
@@ -505,6 +511,8 @@ class Messages extends Translations {
           "Long press on": "ખસેડવા માટે એક ફાઇલ પર લાંબી પ્રેસ, ફોલ્ડરમાં મર્જ કરો, કાઢી નાખો અથવા ટેક્સ્ટ સામગ્રીને મર્જ કરો.",
           "Merge files": "ફાઇલો મર્જ કરો",
           "total": "કુલ",
+          "Enable background operation": "પૃષ્ઠભૂમિ કામગીરીને સક્ષમ કરો",
+          "default speed": "પરવાનગી ગતિ",
         },
         "el": {
           "key": "el",
@@ -635,6 +643,8 @@ class Messages extends Translations {
               "Μεγάλο πάτημα σε ένα αρχείο για να μετακινηθείτε, να συγχωνεύσετε σε φάκελο, διαγράψτε ή συγχώνευση περιεχομένου κειμένου.",
           "Merge files": "Συγχώνευση αρχείων",
           "total": "σύνολο",
+          "Enable background operation": "Ενεργοποίηση λειτουργίας φόντου",
+          "default speed": "προεπιλεγμένη ταχύτητα",
         },
         "nl": {
           "key": "nl",
@@ -763,6 +773,8 @@ class Messages extends Translations {
           "Long press on": "Lang indrukken op een bestand om te verplaatsen, samen te voegen in map, verwijderen of tekstinhoud samenvoegen.",
           "Merge files": "Fuseer bestanden",
           "total": "totaal",
+          "Enable background operation": "Schakel achtergrondbewerking in",
+          "default speed": "standaardsnelheid",
         },
         "ne": {
           "key": "ne",
@@ -891,6 +903,8 @@ class Messages extends Translations {
           "Long press on": "एक फाईलमा सार्न लामो प्रेस, फोल्डर, मेटाउनुहोस्, वा पाठ सामग्री मर्स गर्नुहोस्।",
           "Merge files": "फाइलहरू मर्ज",
           "total": "कुल",
+          "Enable background operation": "पृष्ठभूमि अपरेशन सक्षम गर्नुहोस्",
+          "default speed": "पूर्वनिर्धारित गति",
         },
         "no": {
           "key": "no",
@@ -1018,6 +1032,8 @@ class Messages extends Translations {
           "Long press on": "Langt trykk på en fil for å flytte, slå sammen i mappe, slette eller slå sammen tekstinnhold.",
           "Merge files": "Slå sammen filer",
           "total": "Total",
+          "Enable background operation": "Aktiver bakgrunnsdrift",
+          "default speed": "standardhastighet",
         },
         "da": {
           "key": "da",
@@ -1145,6 +1161,8 @@ class Messages extends Translations {
           "Long press on": "Langt tryk på en fil for at flytte, slå sammen i mappe, slette eller fusionere tekstindhold.",
           "Merge files": "Fusionere filer.",
           "total": "i alt",
+          "Enable background operation": "Aktivér baggrundsoperation",
+          "default speed": "Standardhastighed",
         },
         "de": {
           "key": "de",
@@ -1274,6 +1292,8 @@ class Messages extends Translations {
               "Drücken Sie lange Drücken Sie auf einer Datei, um zu verschieben, in Ordner, Löschen oder Zusammenführen von Textinhalten zusammenzuführen.",
           "Merge files": "Dateien zusammenführen",
           "total": "gesamt",
+          "Enable background operation": "Hintergrundbetrieb aktivieren",
+          "default speed": "Standardgeschwindigkeit",
         },
         "lo": {
           "key": "lo",
@@ -1398,6 +1418,8 @@ class Messages extends Translations {
           "Long press on": "ກົດປຸ່ມຍາວໃສ່ເອກະສານເພື່ອຍ້າຍ, ຮວມເຂົ້າໄປໃນໂຟນເດີ, ລຶບ, ຫຼືຮວມເຂົ້າເນື້ອໃນຂໍ້ຄວາມ.",
           "Merge files": "ຮວມໄຟລ໌",
           "total": "ທັງຫມົດ",
+          "Enable background operation": "ເປີດໃຊ້ງານປະຕິບັດງານພື້ນຫລັງ",
+          "default speed": "ຄວາມໄວເລີ່ມຕົ້ນ",
         },
         "lv": {
           "key": "lv",
@@ -1524,6 +1546,8 @@ class Messages extends Translations {
           "Long press on": "Long nospiediet uz faila, lai pārvietotos, apvienot mapi, dzēst vai apvienot teksta saturu.",
           "Merge files": "Apvienot failus",
           "total": "Kopā",
+          "Enable background operation": "Iespējot fona darbību",
+          "default speed": "noklusējuma ātrums",
         },
         "ru": {
           "key": "ru",
@@ -1652,6 +1676,8 @@ class Messages extends Translations {
           "Long press on": "Длинный Нажмите на файл для перемещения, объединения в папку, удалить или объединить текстовый контент.",
           "Merge files": "Слияние файлов",
           "total": "общее",
+          "Enable background operation": "Включить фоновую работу",
+          "default speed": "скорость по умолчанию",
         },
         "ro": {
           "key": "ro",
@@ -1781,6 +1807,8 @@ class Messages extends Translations {
           "Long press on": "Apăsați lung pe un fișier pentru a vă deplasa, îmbinare în folder, ștergeți sau conectați conținutul textului.",
           "Merge files": "Mergeți fișierele",
           "total": "total",
+          "Enable background operation": "Activați funcționarea de fundal",
+          "default speed": "viteză implicită",
         },
         "lt": {
           "key": "lt",
@@ -1906,6 +1934,8 @@ class Messages extends Translations {
           "Long press on": "Ilgai paspauskite failą, kad galėtumėte perkelti, sujungti į aplanką, ištrinti arba sujungti teksto turinį.",
           "Merge files": "Sujungti failus",
           "total": "Iš viso. \\ t",
+          "Enable background operation": "Įgalinti fono operaciją",
+          "default speed": "Numatytasis greitis",
         },
         "mr": {
           "key": "mr",
@@ -2032,6 +2062,8 @@ class Messages extends Translations {
           "Long press on": "हलविण्यासाठी फाइलवर लांब दाबा, फोल्डरमध्ये विलीन करा, हटवा किंवा मजकूर सामग्री विलीन करा.",
           "Merge files": "फायली विलीन",
           "total": "एकूण",
+          "Enable background operation": "पार्श्वभूमी ऑपरेशन सक्षम करा",
+          "default speed": "डीफॉल्ट वेग",
         },
         "mk": {
           "key": "mk",
@@ -2159,6 +2191,8 @@ class Messages extends Translations {
           "Long press on": "Долго притиснете на датотека за движење, спој во папка, избришете или спојте ја содржината на текстот.",
           "Merge files": "Спојување на датотеки",
           "total": "Вкупно",
+          "Enable background operation": "Овозможете работа во позадина",
+          "default speed": "Стандардна брзина",
         },
         "ml": {
           "key": "ml",
@@ -2288,6 +2322,8 @@ class Messages extends Translations {
           "Long press on": "നീക്കാൻ ഒരു ഫയലിൽ നീളമുള്ള അമർത്തുക, ഫോൾഡറിൽ ലയിപ്പിക്കുക, ഇല്ലാതാക്കുക, അല്ലെങ്കിൽ ടെക്സ്റ്റ് ഉള്ളടക്കം ലയിപ്പിക്കുക.",
           "Merge files": "ഫയലുകൾ ലയിപ്പിക്കുക",
           "total": "മൊത്തമായ",
+          "Enable background operation": "പശ്ചാത്തല പ്രവർത്തനം പ്രാപ്തമാക്കുക",
+          "default speed": "സ്ഥിരസ്ഥിതി വേഗത",
         },
         "ms": {
           "key": "ms",
@@ -2414,6 +2450,8 @@ class Messages extends Translations {
           "Long press on": "Tekan lama pada fail untuk bergerak, bergabung ke dalam folder, memadam, atau menggabungkan kandungan teks.",
           "Merge files": "Menggabungkan fail",
           "total": "jumlahnya",
+          "Enable background operation": "Membolehkan operasi latar belakang",
+          "default speed": "kelajuan lalai",
         },
         "ms": {
           "key": "ms",
@@ -2540,6 +2578,8 @@ class Messages extends Translations {
           "Long press on": "Tekan lama pada fail untuk bergerak, bergabung ke dalam folder, memadam, atau menggabungkan kandungan teks.",
           "Merge files": "Menggabungkan fail",
           "total": "jumlahnya",
+          "Enable background operation": "Membolehkan operasi latar belakang",
+          "default speed": "kelajuan lalai",
         },
         "mn": {
           "key": "mn",
@@ -2665,6 +2705,8 @@ class Messages extends Translations {
           "Long press on": "Хөдөлгөөнт шилжихийн тулд файл дээр шилжих, устгах, устгах, текстийн агуулгад нэгтгэх.",
           "Merge files": "Файлуудыг нэгтгэх",
           "total": "нийт",
+          "Enable background operation": "Далд үйл ажиллагааг идэвхжүүлэх",
+          "default speed": "Анхны хурд",
         },
         "eu": {
           "key": "eu",
@@ -2792,6 +2834,8 @@ class Messages extends Translations {
           "Long press on": "Luzea sakatu fitxategi batean mugitzeko, karpetan sartu, ezabatu edo testu-edukia batu.",
           "Merge files": "Batu fitxategiak",
           "total": "guztizko",
+          "Enable background operation": "Gaitu atzeko planoaren funtzionamendua",
+          "default speed": "abiadura lehenetsia",
         },
         "my": {
           "key": "my",
@@ -2918,6 +2962,8 @@ class Messages extends Translations {
           "Long press on": "ကူးယူရန်, ဖိုင်တွဲထဲသို့ပေါင်းစည်းရန်, ဖိုင်တွဲထဲသို့ပေါင်းစည်းခြင်း,",
           "Merge files": "ဖိုင်များကိုပေါင်းစည်းပါ",
           "total": "လုံးဝသော",
+          "Enable background operation": "နောက်ခံစစ်ဆင်ရေးကို enable",
+          "default speed": "ပုံမှန်မြန်နှုန်း",
         },
         "vi": {
           "key": "vi",
@@ -3043,6 +3089,8 @@ class Messages extends Translations {
           "Long press on": "Nhấn và giữ một tệp để di chuyển, hợp nhất vào thư mục, xóa hoặc hợp nhất nội dung văn bản.",
           "Merge files": "Hợp nhất các tập tin",
           "total": "toàn bộ",
+          "Enable background operation": "Kích hoạt hoạt động nền",
+          "default speed": "Tốc độ mặc định",
         },
         "be": {
           "key": "be",
@@ -3170,6 +3218,8 @@ class Messages extends Translations {
           "Long press on": "Доўгі націск на файл для перамяшчэння, зліцця ў тэчку, выдаліць, або зліваюць змест тэксту.",
           "Merge files": "Аб'яднаць файлы",
           "total": "агульны",
+          "Enable background operation": "Уключыць фонавую працу",
+          "default speed": "Хуткасць па змаўчанні",
         },
         "bn": {
           "key": "bn",
@@ -3296,6 +3346,8 @@ class Messages extends Translations {
           "Long press on": "একটি ফাইলের উপর দীর্ঘ চাপুন, ফোল্ডারে মার্জ করুন, মুছে ফেলুন, বা পাঠ্য সামগ্রী মার্জ করুন।",
           "Merge files": "ফাইল মার্জ করুন",
           "total": "মোট",
+          "Enable background operation": "ব্যাকগ্রাউন্ড অপারেশন সক্ষম করুন",
+          "default speed": "ডিফল্ট গতি",
         },
         "bg": {
           "key": "bg",
@@ -3423,6 +3475,8 @@ class Messages extends Translations {
           "Long press on": "Дълго натиснете върху файл, за да се движите, слеете в папка, изтрийте или обединете текстовото съдържание.",
           "Merge files": "Обединяване на файлове",
           "total": "обща сума",
+          "Enable background operation": "Активирайте операцията на фона",
+          "default speed": "Скорост по подразбиране",
         },
         "sr": {
           "key": "sr",
@@ -3549,6 +3603,8 @@ class Messages extends Translations {
           "Long press on": "Дуго притисните датотеку да бисте се кретали, спајајте се у мапу, избришите или спајате текстуалне садржаје.",
           "Merge files": "Спајање датотека",
           "total": "тотално",
+          "Enable background operation": "Омогући позадински рад",
+          "default speed": "подразумевана брзина",
         },
         "sw": {
           "key": "sw",
@@ -3676,6 +3732,8 @@ class Messages extends Translations {
               "Waandishi wa habari kwa muda mrefu kwenye faili ya kusonga, kuunganisha kwenye folda, kufuta, au kuunganisha maudhui ya maandishi.",
           "Merge files": "Kuunganisha faili",
           "total": "Jumla",
+          "Enable background operation": "Wezesha operesheni ya nyuma",
+          "default speed": "Kasi ya chaguo -msingi",
         },
         "sv": {
           "key": "sv",
@@ -3803,6 +3861,8 @@ class Messages extends Translations {
           "Long press on": "Långt tryck på en fil för att flytta, slå samman i mapp, radera eller slå samman textinnehåll.",
           "Merge files": "Sammanfoga filer",
           "total": "total",
+          "Enable background operation": "Aktivera bakgrundsdrift",
+          "default speed": "standardhastighet",
         },
         "es": {
           "key": "es",
@@ -3929,6 +3989,8 @@ class Messages extends Translations {
           "Long press on": "Larga, presione un archivo para moverse, fusionarse en la carpeta, eliminar o fusionar contenido de texto.",
           "Merge files": "Fusionar archivos",
           "total": "total",
+          "Enable background operation": "Habilitar la operación de fondo",
+          "default speed": "Velocidad predeterminada",
         },
         "sk": {
           "key": "sk",
@@ -4054,6 +4116,8 @@ class Messages extends Translations {
           "Long press on": "Dlhé stlačenie v súbore sa pohybujete, zlúčte sa do priečinka, odstrániť alebo zlúčiť obsah textu.",
           "Merge files": "Zlúčiť súbory",
           "total": "Celkom",
+          "Enable background operation": "Povoliť prevádzku na pozadí",
+          "default speed": "predvolená rýchlosť",
         },
         "sl": {
           "key": "sl",
@@ -4179,6 +4243,8 @@ class Messages extends Translations {
           "Long press on": "Dolga pritisnite na datoteko, da se premaknete, združite v mapo, izbrišite ali združite vsebino besedila.",
           "Merge files": "Združite datoteke",
           "total": "Skupaj.",
+          "Enable background operation": "Omogoči delovanje ozadja",
+          "default speed": "privzeta hitrost",
         },
         "si": {
           "key": "si",
@@ -4304,6 +4370,8 @@ class Messages extends Translations {
           "Long press on": "චලනය කිරීමට, ෆෝල්ඩරයට ඒකාබද්ධ කිරීම, මකන්න හෝ පෙළ අන්තර්ගතව චලනය කිරීමට ගොනුවක් මත දිගු ඔබන්න.",
           "Merge files": "ගොනු ඒකාබද්ධ කරන්න",
           "total": "සමස්ත",
+          "Enable background operation": "පසුබිම් ක්රියාකාරිත්වය සක්රීය කරන්න",
+          "default speed": "පෙරනිමි වේගය",
         },
         "ar": {
           "key": "ar",
@@ -4429,6 +4497,8 @@ class Messages extends Translations {
           "Long press on": "اضغط لفترة طويلة على ملف للتحرك، دمج في مجلد أو حذف أو دمج محتوى نصي.",
           "Merge files": "دمج الملفات",
           "total": "المجموع",
+          "Enable background operation": "تمكين تشغيل الخلفية",
+          "default speed": "السرعة الافتراضية",
         },
         "hy": {
           "key": "hy",
@@ -4555,6 +4625,8 @@ class Messages extends Translations {
           "Long press on": "Հեռավոր սեղմեք ֆայլի վրա տեղափոխելու, միանալու թղթապանակի մեջ, ջնջել կամ միավորել տեքստի բովանդակությունը:",
           "Merge files": "Միավորել ֆայլերը",
           "total": "ընդհանուր",
+          "Enable background operation": "Միացնել ֆոնային գործողություն",
+          "default speed": "Լռելյայն արագությունը",
         },
         "is": {
           "key": "is",
@@ -4682,6 +4754,8 @@ class Messages extends Translations {
           "Long press on": "Langt ýttu á skrá til að færa, sameinast í möppu, eyða eða sameina textainnihald.",
           "Merge files": "Sameina skrár",
           "total": "Samtals.",
+          "Enable background operation": "Virkja bakgrunnsaðgerð",
+          "default speed": "Sjálfgefinn hraði",
         },
         "az": {
           "key": "az",
@@ -4808,6 +4882,8 @@ class Messages extends Translations {
           "Long press on": "Hərəkət etmək, qovluğa birləşdirmək, silmək və ya mətn məzmunu birləşdirmək üçün bir fayl üzərində uzun basın.",
           "Merge files": "Faylları birləşdirmək",
           "total": "ümumi",
+          "Enable background operation": "Fon əməliyyatını aktivləşdirin",
+          "default speed": "standart sürət",
         },
         "af": {
           "key": "af",
@@ -4934,6 +5010,8 @@ class Messages extends Translations {
           "Long press on": "Lang druk op 'n lêer om te beweeg, saam te smelt in die gids, skrap of voeg teksinhoud saam.",
           "Merge files": "Voeg lêers saam",
           "total": "totaal",
+          "Enable background operation": "Aktiveer agtergrondbewerking",
+          "default speed": "verstekspoed",
         },
         "sq": {
           "key": "sq",
@@ -5061,6 +5139,8 @@ class Messages extends Translations {
           "Long press on": "Shtypni gjatë në një skedar për të lëvizur, bashkoni në dosje, fshini ose bashkoni përmbajtjen e tekstit.",
           "Merge files": "Merge Files",
           "total": "total",
+          "Enable background operation": "Aktivizo funksionimin e sfondit",
+          "default speed": "shpejtësi e paracaktuar",
         },
         "am": {
           "key": "am",
@@ -5185,6 +5265,8 @@ class Messages extends Translations {
           "Long press on": "ወደ አቃፊ ማዋሃድ, ወደ አቃፊ, ወይም የጽሑፍ ይዘቱን ማዋሃድ, ወይም ማዋሃድ.",
           "Merge files": "ፋይሎችን ያዋህዱ",
           "total": "ጠቅላላ",
+          "Enable background operation": "የጀርባ ክወናን ያንቁ",
+          "default speed": "ነባሪ ፍጥነት",
         },
         "et": {
           "key": "et",
@@ -5311,6 +5393,8 @@ class Messages extends Translations {
           "Long press on": "Pikad vajutage failil liikumiseks, kausta ühendamiseks, kustutamiseks või teksti sisu ühendamiseks.",
           "Merge files": "Merge failid",
           "total": "kogusumma",
+          "Enable background operation": "Luba taustoperatsioon",
+          "default speed": "vaikekiirus",
         },
         "en": {
           "key": "en",
@@ -5437,6 +5521,8 @@ class Messages extends Translations {
           "Long press on": "Long press on a file to move, merge into folder, delete, or merge text content.",
           "Merge files": "Merge files",
           "total": "total",
+          "Enable background operation": "Enable background operation",
+          "default speed": "default speed",
         },
         "ur": {
           "key": "ur",
@@ -5563,6 +5649,8 @@ class Messages extends Translations {
           "Long press on": "منتقل کرنے کے لئے ایک فائل پر طویل دبائیں، فولڈر میں ضم، حذف کریں، یا ٹیکسٹ مواد ضم.",
           "Merge files": "فائلوں کو ضم",
           "total": "کل",
+          "Enable background operation": "پس منظر کے آپریشن کو فعال کریں",
+          "default speed": "پہلے سے طے شدہ رفتار",
         },
         "uk": {
           "key": "uk",
@@ -5690,6 +5778,8 @@ class Messages extends Translations {
           "Long press on": "Довго натискайте файл, щоб перемістити, об'єднати в папку, видалити або об'єднати текстовий вміст.",
           "Merge files": "Об'єднати файли",
           "total": "загальний",
+          "Enable background operation": "Увімкнути фонову операцію",
+          "default speed": "Швидкість за замовчуванням",
         },
         "it": {
           "key": "it",
@@ -5816,6 +5906,8 @@ class Messages extends Translations {
           "Long press on": "Premere a lungo su un file da spostare, unire in cartella, eliminare o unire il contenuto del testo.",
           "Merge files": "Unisci i file",
           "total": "totale",
+          "Enable background operation": "Abilita il funzionamento in background",
+          "default speed": "Velocità predefinita",
         },
         "id": {
           "key": "id",
@@ -5941,6 +6033,8 @@ class Messages extends Translations {
           "Long press on": "Tekan lama pada file untuk bergerak, bergabung ke folder, hapus, atau gabungkan konten teks.",
           "Merge files": "Menggabungkan file",
           "total": "total",
+          "Enable background operation": "Aktifkan operasi latar belakang",
+          "default speed": "Kecepatan default",
         },
         "ja": {
           "key": "ja",
@@ -6065,6 +6159,8 @@ class Messages extends Translations {
           "Long press on": "移動するファイルを長押しして、フォルダ内容を削除、またはマージする、テキストコンテンツをマージします。",
           "Merge files": "ファイルをマージする",
           "total": "合計",
+          "Enable background operation": "背景操作を有効にします",
+          "default speed": "デフォルトの速度",
         },
         "ka": {
           "key": "ka",
@@ -6190,6 +6286,8 @@ class Messages extends Translations {
           "Long press on": "დიდხანს დააჭირეთ ფაილის გადატანა, შერწყმა საქაღალდეში, წაშლა ან ტექსტის შინაარსის შერწყმა.",
           "Merge files": "შერწყმა ფაილები",
           "total": "მთელი",
+          "Enable background operation": "ფონის ოპერაციის ჩართვა",
+          "default speed": "ნაგულისხმევი სიჩქარე",
         },
         "zu": {
           "key": "zu",
@@ -6316,6 +6414,8 @@ class Messages extends Translations {
           "Long press on": "Cindezela isikhathi eside kufayela lokuhambisa, hlanganisa kube ifolda, ususe, noma uhlanganise okuqukethwe kombhalo.",
           "Merge files": "Hlanganisa amafayela",
           "total": "-nke",
+          "Enable background operation": "Nika amandla ukusebenza kwangemuva",
+          "default speed": "isivinini esizenzakalelayo",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -6440,6 +6540,8 @@ class Messages extends Translations {
           "Long press on": "长按文件才能移动，合并到文件夹，删除或合并文本内容。",
           "Merge files": "合并文件",
           "total": "全部的",
+          "Enable background operation": "启用背景操作",
+          "default speed": "默认速度",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -6564,6 +6666,8 @@ class Messages extends Translations {
           "Long press on": "長按文件才能移動，合併到文件夾，刪除或合併文本內容。",
           "Merge files": "合併文件",
           "total": "全部的",
+          "Enable background operation": "啟用背景操作",
+          "default speed": "默認速度",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -6688,6 +6792,8 @@ class Messages extends Translations {
           "Long press on": "長按文件才能移動，合併到文件夾，刪除或合併文本內容。",
           "Merge files": "合併文件",
           "total": "全部的",
+          "Enable background operation": "啟用背景操作",
+          "default speed": "默認速度",
         },
         "cs": {
           "key": "cs",
@@ -6814,6 +6920,8 @@ class Messages extends Translations {
           "Long press on": "Dlouhý Stiskněte do souboru, který chcete přesunout, sloučit do složky, smazat nebo sloučit textový obsah.",
           "Merge files": "Sloučit soubory",
           "total": "celkový",
+          "Enable background operation": "Povolte provoz na pozadí",
+          "default speed": "výchozí rychlost",
         },
         "kk": {
           "key": "kk",
@@ -6940,6 +7048,8 @@ class Messages extends Translations {
           "Long press on": "Файлды жылжыту, қалтаға біріктіру, біріктіру, мәтін мазмұнын жою немесе біріктіру үшін ұзақ басыңыз.",
           "Merge files": "Файлдарды біріктіру",
           "total": "жалпы",
+          "Enable background operation": "Фондық әрекетті қосу",
+          "default speed": "Әдепкі жылдамдық",
         },
         "ca": {
           "key": "ca",
@@ -7066,6 +7176,8 @@ class Messages extends Translations {
           "Long press on": "Premsa llarga sobre un fitxer per moure, es fusiona a la carpeta, eliminar o fusionar contingut de text.",
           "Merge files": "Merge els fitxers",
           "total": "total",
+          "Enable background operation": "Activa el funcionament de fons",
+          "default speed": "velocitat per defecte",
         },
         "kn": {
           "key": "kn",
@@ -7193,6 +7305,8 @@ class Messages extends Translations {
           "Long press on": "ಸರಿಸಲು, ಫೋಲ್ಡರ್ಗೆ ವಿಲೀನಗೊಳ್ಳಲು, ಅಳಿಸಿ, ಅಥವಾ ಪಠ್ಯ ವಿಷಯವನ್ನು ವಿಲೀನಗೊಳಿಸಲು, ಫೈಲ್ನಲ್ಲಿ ಲಾಂಗ್ ಪ್ರೆಸ್.",
           "Merge files": "ಫೈಲ್ಗಳನ್ನು ವಿಲೀನಗೊಳಿಸಿ",
           "total": "ಒಟ್ಟು",
+          "Enable background operation": "ಹಿನ್ನೆಲೆ ಕಾರ್ಯಾಚರಣೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
+          "default speed": "ಡೀಫಾಲ್ಟ್ ವೇಗ",
         },
         "hr": {
           "key": "hr",
@@ -7319,6 +7433,8 @@ class Messages extends Translations {
           "Long press on": "Dugo pritisnite na datoteku za pomicanje, spojite se u mapu, brisanje ili spajanje teksta sadržaja.",
           "Merge files": "Spajanje datoteka",
           "total": "ukupan",
+          "Enable background operation": "Omogući pozadinski rad",
+          "default speed": "zadana brzina",
         },
         "km": {
           "key": "km",
@@ -7446,6 +7562,8 @@ class Messages extends Translations {
           "Long press on": "ចុចពាក្យជាច្រើននៅលើឯកសារដើម្បីផ្លាស់ទីបញ្ចូលចូលទៅក្នុងថតឯកសារលុបឬបញ្ចូលមាតិកាអត្ថបទ។",
           "Merge files": "បញ្ចូលឯកសារ",
           "total": "បុកសរុប",
+          "Enable background operation": "បើកដំណើរការប្រតិបត្តិការផ្ទៃខាងក្រោយ",
+          "default speed": "ល្បឿនលំនាំដើម",
         },
         "ky": {
           "key": "ky",
@@ -7572,6 +7690,8 @@ class Messages extends Translations {
           "Long press on": "Жылдыруу үчүн файлды басып, папкага, жок кылуу же текст мазмунун биригүүгө багытталыңыз.",
           "Merge files": "Файлдарды бириктирүү",
           "total": "Бардыгы",
+          "Enable background operation": "Фондук иштөө мүмкүнчүлүгүн иштетүү",
+          "default speed": "Демейки ылдамдык",
         },
         "ta": {
           "key": "ta",
@@ -7699,6 +7819,8 @@ class Messages extends Translations {
           "Long press on": "நகர்த்த ஒரு கோப்பில் நீண்ட அழுத்தவும், கோப்புறையில் ஒன்றிணைத்தல், நீக்குதல் அல்லது உரை உள்ளடக்கத்தை ஒன்றிணைத்தல்.",
           "Merge files": "கோப்புகளை ஒன்றிணைக்க",
           "total": "மொத்தம்",
+          "Enable background operation": "பின்னணி செயல்பாட்டை இயக்கவும்",
+          "default speed": "இயல்புநிலை வேகம்",
         },
         "th": {
           "key": "th",
@@ -7824,6 +7946,8 @@ class Messages extends Translations {
           "Long press on": "กดค้างไว้บนไฟล์เพื่อย้ายรวมเข้ากับโฟลเดอร์ลบหรือรวมเนื้อหาข้อความ",
           "Merge files": "รวมไฟล์",
           "total": "ทั้งหมด",
+          "Enable background operation": "เปิดใช้งานการทำงานพื้นหลัง",
+          "default speed": "ความเร็วเริ่มต้น",
         },
         "tr": {
           "key": "tr",
@@ -7951,6 +8075,8 @@ class Messages extends Translations {
           "Long press on": "Taşımak için bir dosyaya uzun basın, klasöre birleştirmek, silmek veya metin içeriğini birleştirmek.",
           "Merge files": "Dosyaları birleştirmek",
           "total": "Toplam",
+          "Enable background operation": "Arka Plan İşlemini Etkinleştir",
+          "default speed": "Varsayılan hız",
         },
         "te": {
           "key": "te",
@@ -8079,6 +8205,8 @@ class Messages extends Translations {
           "Long press on": "తరలించడానికి ఒక ఫైల్ లో లాంగ్ ప్రెస్, ఫోల్డర్ లోకి విలీనం, తొలగించండి, లేదా టెక్స్ట్ కంటెంట్ విలీనం.",
           "Merge files": "ఫైల్స్ విలీనం",
           "total": "మొత్తం",
+          "Enable background operation": "నేపథ్య ఆపరేషన్‌ను ప్రారంభించండి",
+          "default speed": "డిఫాల్ట్ వేగం",
         },
         "pa": {
           "key": "pa",
@@ -8205,6 +8333,8 @@ class Messages extends Translations {
           "Long press on": "ਮੂਵ ਕਰਨ ਲਈ ਇੱਕ ਫਾਈਲ ਤੇ ਜਾਓ, ਫੋਲਡਰ ਵਿੱਚ ਅਭੇਦ, ਹਟਾਓ, ਜਾਂ ਮੇਲ ਸਮੱਗਰੀ ਨੂੰ ਮਿਟਾਓ.",
           "Merge files": "ਫਾਈਲਾਂ ਨੂੰ ਮਿਲਾਓ",
           "total": "ਕੁੱਲ",
+          "Enable background operation": "ਬੈਕਗ੍ਰਾਉਂਡ ਓਪਰੇਸ਼ਨ ਨੂੰ ਸਮਰੱਥ ਕਰੋ",
+          "default speed": "ਮੂਲ ਗਤੀ",
         },
         "fa": {
           "key": "fa",
@@ -8332,6 +8462,8 @@ class Messages extends Translations {
           "Long press on": "طولانی فشار بر روی یک فایل برای حرکت، ادغام به پوشه، حذف، و یا ادغام محتوای متن.",
           "Merge files": "ادغام فایل ها",
           "total": "جمع",
+          "Enable background operation": "عملکرد پس زمینه را فعال کنید",
+          "default speed": "سرعت پیش فرض",
         },
         "pt": {
           "key": "pt",
@@ -8460,6 +8592,8 @@ class Messages extends Translations {
           "Long press on": "Pressione longa em um arquivo para mover, fundir a pasta, excluir ou mesclar o conteúdo de texto.",
           "Merge files": "Mesclar arquivos",
           "total": "total",
+          "Enable background operation": "Ativar operação em segundo plano",
+          "default speed": "velocidade padrão",
         },
         "pl": {
           "key": "pl",
@@ -8585,6 +8719,8 @@ class Messages extends Translations {
           "Long press on": "Długie naciśnięcie pliku, aby przesunąć, scalać do folderu, usunąć lub scalaj zawartość tekstu.",
           "Merge files": "Scal pliki.",
           "total": "całkowity",
+          "Enable background operation": "Włącz operację tła",
+          "default speed": "prędkość domyślna",
         },
         "fr": {
           "key": "fr",
@@ -8713,6 +8849,8 @@ class Messages extends Translations {
           "Long press on": "Appuyez longuement sur un fichier pour déplacer, fusionner dans le dossier, supprimer ou fusionner le contenu du texte.",
           "Merge files": "Fusionner des fichiers",
           "total": "total",
+          "Enable background operation": "Activer le fonctionnement de fond",
+          "default speed": "vitesse par défaut",
         },
         "fi": {
           "key": "fi",
@@ -8838,6 +8976,8 @@ class Messages extends Translations {
           "Long press on": "Pitkä paina tiedosto siirtyäksesi, yhdistää kansioon, poistaa tai yhdistää tekstisisältö.",
           "Merge files": "Yhdistä tiedostot",
           "total": "kaikki yhteensä",
+          "Enable background operation": "Ota taustatoiminta käyttöön",
+          "default speed": "oletuksena",
         },
         "fil": {
           "key": "fil",
@@ -8966,6 +9106,8 @@ class Messages extends Translations {
           "Long press on": "Long pindutin sa isang file upang ilipat, pagsamahin sa folder, tanggalin, o pagsamahin ang nilalaman ng teksto.",
           "Merge files": "Pagsamahin ang mga file",
           "total": "kabuuan",
+          "Enable background operation": "Paganahin ang operasyon sa background",
+          "default speed": "bilis ng default",
         },
         "hu": {
           "key": "hu",
@@ -9092,6 +9234,8 @@ class Messages extends Translations {
           "Long press on": "#VALUE!",
           "Merge files": "Fájlok egyesítése",
           "total": "teljes",
+          "Enable background operation": "A háttér üzemeltetése engedélyezése",
+          "default speed": "alapértelmezett sebesség",
         },
         "iw": {
           "key": "iw",
@@ -9217,6 +9361,8 @@ class Messages extends Translations {
           "Long press on": "לחיצה ארוכה על קובץ כדי לזוז, להתמזג לתיקייה, למחוק או למזג תוכן טקסט.",
           "Merge files": "מיזוג קבצים",
           "total": "סך הכל",
+          "Enable background operation": "אפשר פעולת רקע",
+          "default speed": "מהירות ברירת מחדל",
         },
         "hi": {
           "key": "hi",
@@ -9344,6 +9490,8 @@ class Messages extends Translations {
           "Long press on": "स्थानांतरित करने के लिए फ़ाइल पर लंबे समय तक दबाएं, फ़ोल्डर में विलय करें, हटाएं या टेक्स्ट सामग्री को मर्ज करें।",
           "Merge files": "फाइलों को मर्ज करें",
           "total": "कुल",
+          "Enable background operation": "पृष्ठभूमि संचालन सक्षम करें",
+          "default speed": "डिफ़ॉल्ट गति",
         },
       };
 }
