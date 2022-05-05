@@ -7,6 +7,7 @@ import 'dart:ui' as ui;
 import 'package:archive/archive_io.dart';
 import 'package:charset_converter/charset_converter.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
@@ -16,12 +17,14 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:kss_dart/kss_dart.dart';
 import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;
 import 'package:pdf_text/pdf_text.dart';
+import 'package:flutter/src/foundation/isolates.dart' as iso;
 
 extension Ex on double {
   double toPrecision(int n) => double.parse(toStringAsFixed(n));
@@ -32,11 +35,19 @@ extension Iterables<E> on Iterable<E> {
       fold(<K, List<E>>{}, (Map<K, List<E>> map, E element) => map..putIfAbsent(keyFunction(element), () => <E>[]).add(element));
 }
 
+String testSplitSentences(String str) {
+  Kss kss = Kss();
+  return kss.splitSentences(str, maxRecoverLength: str.length).join("\n\n");
+}
+
 class Utils {
   static Future<bool> newLineTheoremFile(File f) async {
-    var rtn = await AdCtl.openInterstitialAdNewLine();
+    var rtn = false;
+    if (!kDebugMode) {
+      var rtn = await AdCtl.openInterstitialAdNewLine();
+    }
     // var rtn = true;
-    if (rtn) {
+    if (rtn || kDebugMode) {
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
@@ -149,7 +160,7 @@ class Utils {
       IsarCtl.bLoadingLib(false);
 
       IsarCtl.epubTotal(0);
-      rtnStr = newLineTheoremStr(rtnStr);
+      rtnStr = await newLineTheoremStr(rtnStr);
 
       if (rtnStr.trim().isEmpty) {
         Get.dialog(AlertDialog(
@@ -269,78 +280,99 @@ class Utils {
     return true;
   }
 
-  static String newLineTheoremStr(String tmpStr) {
-    tmpStr = tmpStr.replaceAll(RegExp("\n{2,}"), "▤▤▤&&&");
-    var strList = tmpStr.split("\n");
-    // strList = strList.getRange(0, 100).toList();
-
+  static Future<String> newLineTheoremStr(String tmpStr, {bool useKss = true}) async {
     List<String> rtnStr = [];
 
-    var dotSpace = RegExp("( {1,}\\.)");
-    // var colonSpace = RegExp("( {1,}\\,)");
-    var questionSpace = RegExp("( {1,}\\?)");
-    var exclamationSpace = RegExp("( {1,}\\!)");
-    var endLine = RegExp(r"다\. {0,}");
-    if (Get.locale?.languageCode != "ko") {
-      endLine = RegExp("(\\.)|(\\. )|(\\。 )");
-    }
-
-    // var startCon1 = RegExp("‘");
-    var startCon2 = RegExp("\^-");
-    var startCon3 = RegExp("“");
-    var startCon4 = RegExp("\^\"");
-
-    var endCon0 = RegExp(" {0,}’ {1,}");
-    var endCon1 = RegExp(" {0,}”");
-    var endCon2 = RegExp("\\\"\n");
-    var endCon3 = RegExp("\\\"\$");
-    var endCon4 = RegExp("-\$");
-
-    var endSpecialCon1 = RegExp(" {0,}▤▤▤&&& {0,}\’");
-    var endSpecialCon2 = RegExp(" {0,}▤▤▤&&& {0,}\”");
-    var endSpecialCon3 = RegExp(" {0,}▤▤▤&&& {0,}\"");
-    var endSpecialCon4 = RegExp("\\? {0,}▤▤▤&&& {0,}\"");
-    var endSpecialCon5 = RegExp("\\! {0,}▤▤▤&&& {0,}\"");
-    var endSpecialCon6 = RegExp(" {0,}▤▤▤&&& {0,}\\\]");
-
-    strList.forEach((v) {
-      v = v.trim();
-
-      v = v.replaceAllMapped(dotSpace, (match) => "\.");
-      // v = v.replaceAllMapped(colonSpace, (match) => "\,");
-      v = v.replaceAllMapped(questionSpace, (match) => "?");
-      v = v.replaceAllMapped(exclamationSpace, (match) => "!");
-
-      // v = v.replaceAllMapped(startCon1, (match) => "▤▤▤&&&‘");
-      v = v.replaceAllMapped(startCon2, (match) => "▤▤▤&&&-");
-      v = v.replaceAllMapped(startCon3, (match) => "&&&▒▒▒“");
-      v = v.replaceAllMapped(startCon4, (match) => "&&&▒▒▒\"");
-
-      if (!v.contains("&&&▒▒▒") && Get.locale?.languageCode == "ko") {
-        v = v.replaceAllMapped(endLine, (match) => "다.▤▤▤&&&");
-      } else if (Get.locale?.languageCode != "ko") {
-        v = v.replaceAllMapped(endLine, (match) => ".▤▤▤&&&");
+    if (Get.locale != null && Get.locale!.languageCode == "ko" && useKss) {
+      var listTmpStr = tmpStr.split("\n");
+      IsarCtl.epubTotal(listTmpStr.length);
+      IsarCtl.epubTotal(0);
+      List<String> rtn = [];
+      // try {
+      for (var i = 0; i < listTmpStr.length; i += 500) {
+        // for (var i = 0; i < 3000; i += 500)
+        IsarCtl.epubCurrent(i);
+        print("${i} ::: ${min(i + 500, listTmpStr.length - 1)}");
+        var tmpStr = listTmpStr.getRange(i, min(i + 500, listTmpStr.length - 1));
+        // await Future.delayed(500.milliseconds);
+        rtn.add(await iso.compute(testSplitSentences, tmpStr.join("")));
       }
-      v = v.replaceAllMapped(endCon0, (match) => "\’▤▤▤&&&");
-      v = v.replaceAllMapped(endCon1, (match) => "\”▤▤▤&&&");
-      v = v.replaceAllMapped(endCon2, (match) => "\"▤▤▤&&&");
-      v = v.replaceAllMapped(endCon3, (match) => "\"▤▤▤&&&");
-      v = v.replaceAllMapped(endCon4, (match) => "-▤▤▤&&&");
+      // } catch (e) {
+      //   print(e);
+      // }
+      IsarCtl.epubTotal(0);
 
-      v = v.replaceAllMapped(endSpecialCon1, (match) => "\’▤▤▤&&&");
-      v = v.replaceAllMapped(endSpecialCon2, (match) => "\”▤▤▤&&&");
-      v = v.replaceAllMapped(endSpecialCon3, (match) => "\"▤▤▤&&&");
-      v = v.replaceAllMapped(endSpecialCon4, (match) => "\\?▤▤▤&&&");
-      v = v.replaceAllMapped(endSpecialCon5, (match) => "\\!▤▤▤&&&");
-      v = v.replaceAllMapped(endSpecialCon6, (match) => "\]▤▤▤&&&");
+      return rtn.join("\n\n");
+    } else {
+      tmpStr = tmpStr.replaceAll(RegExp("\n{2,}"), "▤▤▤&&&");
+      var strList = tmpStr.split("\n");
 
-      v = v.trim();
+      var dotSpace = RegExp("( {1,}\\.)");
+      // var colonSpace = RegExp("( {1,}\\,)");
+      var questionSpace = RegExp("( {1,}\\?)");
+      var exclamationSpace = RegExp("( {1,}\\!)");
+      var endLine = RegExp(r"다\. {0,}");
+      if (Get.locale?.languageCode != "ko") {
+        endLine = RegExp("(\\.)|(\\. )|(\\。 )");
+      }
 
-      v = v.replaceAll("▤▤▤&&&", "\n\n");
-      v = v.replaceAll("&&&▒▒▒", "\n\n");
+      // var startCon1 = RegExp("‘");
+      var startCon2 = RegExp("\^-");
+      var startCon3 = RegExp("“");
+      var startCon4 = RegExp("\^\"");
 
-      rtnStr.add(v);
-    });
+      var endCon0 = RegExp(" {0,}’ {1,}");
+      var endCon1 = RegExp(" {0,}”");
+      var endCon2 = RegExp("\\\"\n");
+      var endCon3 = RegExp("\\\"\$");
+      var endCon4 = RegExp("-\$");
+
+      var endSpecialCon1 = RegExp(" {0,}▤▤▤&&& {0,}\’");
+      var endSpecialCon2 = RegExp(" {0,}▤▤▤&&& {0,}\”");
+      var endSpecialCon3 = RegExp(" {0,}▤▤▤&&& {0,}\"");
+      var endSpecialCon4 = RegExp("\\? {0,}▤▤▤&&& {0,}\"");
+      var endSpecialCon5 = RegExp("\\! {0,}▤▤▤&&& {0,}\"");
+      var endSpecialCon6 = RegExp(" {0,}▤▤▤&&& {0,}\\\]");
+
+      strList.forEach((v) {
+        v = v.trim();
+
+        v = v.replaceAllMapped(dotSpace, (match) => "\.");
+        // v = v.replaceAllMapped(colonSpace, (match) => "\,");
+        v = v.replaceAllMapped(questionSpace, (match) => "?");
+        v = v.replaceAllMapped(exclamationSpace, (match) => "!");
+
+        // v = v.replaceAllMapped(startCon1, (match) => "▤▤▤&&&‘");
+        v = v.replaceAllMapped(startCon2, (match) => "▤▤▤&&&-");
+        v = v.replaceAllMapped(startCon3, (match) => "&&&▒▒▒“");
+        v = v.replaceAllMapped(startCon4, (match) => "&&&▒▒▒\"");
+
+        if (!v.contains("&&&▒▒▒") && Get.locale?.languageCode == "ko") {
+          v = v.replaceAllMapped(endLine, (match) => "다.▤▤▤&&&");
+        } else if (Get.locale?.languageCode != "ko") {
+          v = v.replaceAllMapped(endLine, (match) => ".▤▤▤&&&");
+        }
+        v = v.replaceAllMapped(endCon0, (match) => "\’▤▤▤&&&");
+        v = v.replaceAllMapped(endCon1, (match) => "\”▤▤▤&&&");
+        v = v.replaceAllMapped(endCon2, (match) => "\"▤▤▤&&&");
+        v = v.replaceAllMapped(endCon3, (match) => "\"▤▤▤&&&");
+        v = v.replaceAllMapped(endCon4, (match) => "-▤▤▤&&&");
+
+        v = v.replaceAllMapped(endSpecialCon1, (match) => "\’▤▤▤&&&");
+        v = v.replaceAllMapped(endSpecialCon2, (match) => "\”▤▤▤&&&");
+        v = v.replaceAllMapped(endSpecialCon3, (match) => "\"▤▤▤&&&");
+        v = v.replaceAllMapped(endSpecialCon4, (match) => "\\?▤▤▤&&&");
+        v = v.replaceAllMapped(endSpecialCon5, (match) => "\\!▤▤▤&&&");
+        v = v.replaceAllMapped(endSpecialCon6, (match) => "\]▤▤▤&&&");
+
+        v = v.trim();
+
+        v = v.replaceAll("▤▤▤&&&", "\n\n");
+        v = v.replaceAll("&&&▒▒▒", "\n\n");
+
+        rtnStr.add(v);
+      });
+    }
     // d.log(rtnStr.join(""));
 
     // File outputFile = File("$path/newline_$fileName(${DF(DateTime.now(), f: 'yyyy-MM-dd HH:mm:ss')}).txt");
@@ -450,7 +482,7 @@ class Utils {
         }
       }
       var ex = RegExp(r"\| htt.+\n.{0,}\n.{0,}\n.{0,}\n.{0,}\n.{0,}\n.{0,}");
-      var rtn = newLineTheoremStr(str).replaceAll(ex, "");
+      var rtn = (await newLineTheoremStr(str)).replaceAll(ex, "");
       return rtn;
     }
     var htmllen = listhtml.keys.length;

@@ -331,6 +331,7 @@ class LibraryFileViewer extends GetView {
                         Card(
                             child: ListTile(
                                 onTap: () async {
+                                  Get.back();
                                   if (await Utils.newLineTheoremFile(f)) {
                                     reload(!reload.value);
                                   }

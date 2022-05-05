@@ -94,6 +94,7 @@ dependencies:
       url: https://github.com/khjde1207/flutter-pdf-text
   scrollable_positioned_list: ^0.2.3
   disable_battery_optimization: ^1.1.0+1
+  kss_dart: ^2.6.2
       
   
  

@@ -256,10 +256,10 @@ class OcrPage extends GetView {
                                   List<String> tmpList = [];
 
                                   total(fileList.length);
-                                  if (fileList.length <= 60) {
+                                  if (fileList.length <= 60 && !kDebugMode) {
                                     await AdCtl.startInterstitialAd();
                                   }
-                                  if (fileList.length > 60) {
+                                  if (fileList.length > 60 && !kDebugMode) {
                                     await AdCtl.startRewardedAd();
                                   }
 
@@ -275,8 +275,14 @@ class OcrPage extends GetView {
                                   }
                                   String rtnStr = "";
 
+                                  var str = tmpList.join("\n");
+                                  // str = str.replaceAll("“", "\"");
+                                  // str = str.replaceAll("”", "\"");
+                                  // str = str.replaceAll("'", "\'");
+                                  // str = str.replaceAll("”", "\"");
+
                                   if (bnewLine.value) {
-                                    rtnStr = Utils.newLineTheoremStr(tmpList.join("\n"));
+                                    rtnStr = await Utils.newLineTheoremStr(str, useKss: false);
                                   } else {
                                     rtnStr = tmpList.join("\n");
                                   }
