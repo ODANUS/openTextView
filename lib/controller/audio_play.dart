@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'dart:math';
 import 'package:get/get.dart';
@@ -107,13 +108,16 @@ class AudioHandler extends BaseAudioHandler
   }
 
   Future<void> initTts() async {
-    if (!bInitTts) {
+    if (!bInitTts && Platform.isAndroid) {
       bInitTts = true;
       tts = FlutterTts();
 
       var engine = await tts?.getDefaultEngine;
       await tts?.setEngine(engine);
       await Future.delayed(1000.milliseconds);
+    } else if (!bInitTts && Platform.isIOS) {
+      bInitTts = true;
+      tts = FlutterTts();
     }
 
     setTts();
@@ -222,7 +226,7 @@ class AudioHandler extends BaseAudioHandler
       }
       lastPos = i;
 
-      print("$speakText");
+      // print("$speakText");
       var bspeak = await tts?.speak(speakText);
       i += nextPos;
       errorCnt++;

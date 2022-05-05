@@ -83,21 +83,25 @@ class SettingPage extends GetView {
               if (kDebugMode)
                 ElevatedButton(
                     onPressed: () async {
-                      print(IsarCtl.libDir.value.path);
-                      if (!IsarCtl.libDir.value.existsSync()) {
-                        IsarCtl.libDir.value.createSync(recursive: true);
-                      }
-                      var re = await Dio().get("", options: Options(responseType: ResponseType.bytes));
-                      print(re.data);
-                      print(ss);
-                      var f = File("${IsarCtl.libDir.value.path}/test12.epub");
-                      if (!f.existsSync()) {
-                        f.createSync();
-                      }
-                      f.writeAsBytesSync(re.data);
-                      print(111111);
-                      // IsarCtl.libDir.value
-                      // var temp = await getTemporaryDirectory();
+                      // print(IsarCtl.libDir.value.path);
+                      // if (!IsarCtl.libDir.value.existsSync()) {
+                      //   IsarCtl.libDir.value.createSync(recursive: true);
+                      // }
+                      // var re = await Dio().get("", options: Options(responseType: ResponseType.bytes));
+                      // print(re.data);
+                      // print(ss);
+                      // var f = File("${IsarCtl.libDir.value.path}/test12.epub");
+                      // if (!f.existsSync()) {
+                      //   f.createSync();
+                      // }
+                      // f.writeAsBytesSync(re.data);
+                      // print(111111);
+                      // // IsarCtl.libDir.value
+                      var temp = await getTemporaryDirectory();
+                      temp.listSync().forEach((e) {
+                        print(e.path);
+                      });
+
                       // var dir = Directory("${temp.path}");
                       // print(dir.listSync());
                       // dir.listSync().forEach((e) {

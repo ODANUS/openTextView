@@ -568,6 +568,7 @@ class Utils {
       selectedFiles =
           await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
     }
+    print(selectedFiles);
 
     IsarCtl.bLoadingLib(false);
     if (selectedFiles == null) {

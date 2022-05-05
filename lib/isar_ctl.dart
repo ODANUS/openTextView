@@ -104,7 +104,12 @@ class IsarCtl {
   static Future<void> initData() async {
     var dir = await getApplicationSupportDirectory();
 
-    var tmpLibDir = Directory("${(await getTemporaryDirectory()).path}/file_picker");
+    Directory tmpdir = await getTemporaryDirectory();
+    String filePickerPath = "${tmpdir.path}/file_picker";
+    if (Platform.isIOS) {
+      filePickerPath = "${tmpdir.path}/com.khjde.openTextview-Inbox";
+    }
+    var tmpLibDir = Directory(filePickerPath);
     if (!tmpLibDir.existsSync()) {
       tmpLibDir.createSync();
     }
