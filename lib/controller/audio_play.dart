@@ -21,12 +21,14 @@ class AudioHandler extends BaseAudioHandler
       this.session = session;
       await this.session!.configure(AudioSessionConfiguration.music());
       this.session!.devicesChangedEventStream.listen((event) {
+        print("devicesChangedEventStream : $event");
         if (event.devicesRemoved.isNotEmpty && playstat == STAT_PLAY) {
           this.stop();
         }
       });
 
       this.session!.interruptionEventStream.listen((event) {
+        print("interruptionEventStream : $event");
         if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
@@ -168,6 +170,7 @@ class AudioHandler extends BaseAudioHandler
       duration: Duration(seconds: contents.length),
     ));
     tts!.setProgressHandler((text, start, end, word) {
+      print("[[[[[[[[[[[[[[[[[[[[[[[[ ${start}");
       lastProgrss = start;
     });
 

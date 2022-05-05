@@ -39,7 +39,7 @@ class AdBanner extends GetView {
   Widget build(BuildContext context) {
     // print(">>>>>>>>>>>>>>>>>>>>>>>>>");
     return Obx(() {
-      if (_bannerAd.value != null) {
+      if (_bannerAd.value != null && !kDebugMode) {
         return Container(
           width: Get.width,
           height: 50,

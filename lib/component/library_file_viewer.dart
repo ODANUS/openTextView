@@ -27,6 +27,7 @@ class LibraryFileViewer extends GetView {
   RxBool reload = false.obs;
   RxList<File> mergeList = RxList<File>();
 
+  var rootName = Platform.isAndroid ? "file_picker" : "com.khjde.openTextview-Inbox";
   // bool bScreenHelp;
   // int touchLayout;
   // BoxDecoration? decoration;
@@ -41,29 +42,30 @@ class LibraryFileViewer extends GetView {
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
-              width: 100.w,
-              height: 130.h,
+              width: 100.sp,
+              height: 130.sp,
               child: Stack(alignment: Alignment.topCenter, children: [
                 SvgData.zip(),
                 Container(
-                  margin: EdgeInsets.only(right: 11.w, bottom: 14.h),
+                  margin: EdgeInsets.only(right: 11.sp, bottom: 14.sp),
                   alignment: Alignment.bottomCenter,
                   child: Text(
                     Utils.getFileSize(f),
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 12.sp),
                   ),
                 ),
                 Container(
                   alignment: Alignment.bottomCenter,
                   child: Container(
                       width: 90.w,
-                      margin: EdgeInsets.only(bottom: 30.h, right: 11.w),
+                      margin: EdgeInsets.only(bottom: 30.sp, right: 11.sp),
                       // alignment: Alignment.bottomCenter,
-                      padding: EdgeInsets.only(top: 8, bottom: 8),
+                      padding: EdgeInsets.only(top: 8.sp, bottom: 8.sp),
                       decoration: BoxDecoration(color: Colors.purple),
                       child: Text(
                         "ZIP",
                         textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 14.sp),
                       )),
                 ),
                 if (bIcon != null && bIcon) Container(alignment: Alignment.center, child: tag != null ? Hero(tag: tag, child: child) : child),
@@ -75,23 +77,23 @@ class LibraryFileViewer extends GetView {
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
-              width: 100.w,
-              height: 130.h,
+              width: 100.sp,
+              height: 130.sp,
               child: Stack(alignment: Alignment.bottomCenter, children: [
                 SvgData.epub(),
                 Container(
-                  margin: EdgeInsets.only(right: 5, top: 20),
+                  margin: EdgeInsets.only(right: 5.sp, top: 20.sp),
                   alignment: Alignment.topRight,
                   child: Text(
                     Utils.getFileSize(f),
-                    style: TextStyle(fontSize: 10),
+                    style: TextStyle(fontSize: 10.sp),
                   ),
                 ),
                 Container(
                   alignment: Alignment.topLeft,
                   child: Container(
-                      margin: EdgeInsets.only(left: 8, top: 20),
-                      padding: EdgeInsets.only(left: 7, right: 7, top: 5, bottom: 5),
+                      margin: EdgeInsets.only(left: 8.sp, top: 20.sp),
+                      padding: EdgeInsets.only(left: 7.sp, right: 7.sp, top: 5.sp, bottom: 5.sp),
                       decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
                       child: Text(ex.toUpperCase())),
                 ),
@@ -104,19 +106,19 @@ class LibraryFileViewer extends GetView {
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
-            width: 100.w,
-            height: 130.h,
+            width: 100.sp,
+            height: 130.sp,
             child: Stack(alignment: Alignment.bottomCenter, children: [
               SvgData.file(bgColor),
               Container(
-                margin: EdgeInsets.only(left: 0, top: 5),
+                margin: EdgeInsets.only(left: 0, top: 5.sp),
                 alignment: Alignment.topRight,
                 child: Transform.rotate(
                     angle: 45 * pi / 180,
                     origin: Offset(-30, 0),
                     child: Text(
                       Utils.getFileSize(f),
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 10.sp),
                     )),
               ),
               Container(
@@ -127,8 +129,8 @@ class LibraryFileViewer extends GetView {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 8, top: 20),
-                        padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                        margin: EdgeInsets.only(left: 8.sp, top: 20.sp),
+                        padding: EdgeInsets.only(left: 10.sp, right: 10.sp, top: 5.sp, bottom: 5.sp),
                         decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
                         child: Text(ex.toUpperCase()),
                       ),
@@ -144,15 +146,15 @@ class LibraryFileViewer extends GetView {
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
-            width: 100.w,
-            height: 130.h,
+            width: 100.sp,
+            height: 130.sp,
             child: Stack(alignment: Alignment.topCenter, children: [
               SvgData.dir(),
               Container(
                 alignment: Alignment.bottomLeft,
                 child: Container(
-                    margin: EdgeInsets.only(left: 10, bottom: 20),
-                    padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                    margin: EdgeInsets.only(left: 10.sp, bottom: 20.sp),
+                    padding: EdgeInsets.only(left: 10.sp, right: 10.sp, top: 5.sp, bottom: 5.sp),
                     decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.circular(10)),
                     child: Text("${list.length}")),
               ),
@@ -179,13 +181,13 @@ class LibraryFileViewer extends GetView {
     return Material(
         type: MaterialType.transparency, // likely needed
         child: Container(
-          width: 90.w,
-          height: 80.h,
+          width: 90.sp,
+          height: 80.sp,
           // color: Colors.red,
-          padding: EdgeInsets.only(top: 20),
+          padding: EdgeInsets.only(top: 20.sp),
           // transformAlignment: Alignment.bottomCenter,
           alignment: Alignment.topCenter,
-          child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine),
+          child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine, style: TextStyle(fontSize: 12.sp)),
         ));
   }
 
@@ -207,9 +209,9 @@ class LibraryFileViewer extends GetView {
     return Material(
         type: MaterialType.transparency, // likely needed
         child: Container(
-            width: 90.w,
-            height: 80.h,
-            padding: EdgeInsets.only(bottom: 10),
+            width: 90.sp,
+            height: 80.sp,
+            padding: EdgeInsets.only(bottom: 10.sp),
             transformAlignment: Alignment.bottomCenter,
             alignment: Alignment.bottomCenter,
             child: Column(
@@ -221,7 +223,7 @@ class LibraryFileViewer extends GetView {
                 SizedBox(height: 1),
                 Expanded(
                   child: Center(
-                    child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine),
+                    child: Text(name, overflow: TextOverflow.fade, textWidthBasis: TextWidthBasis.longestLine, style: TextStyle(fontSize: 12.sp)),
                   ),
                 )
               ],
@@ -245,7 +247,7 @@ class LibraryFileViewer extends GetView {
       children: [
         ObxValue<RxBool>((bedit) {
           return Container(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 10.sp),
               child: bedit.value
                   ? TextFormField(
                       initialValue: name,
@@ -315,19 +317,19 @@ class LibraryFileViewer extends GetView {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         changeNameWidget(f, history: history),
-                        if (kDebugMode)
-                          ElevatedButton(
-                              onPressed: () {
-                                Utils.saveAs(f);
-                              },
-                              child: Text("save")),
-                        if (kDebugMode)
-                          Card(
-                              child: ListTile(
-                                  onTap: () async {
-                                    Get.toNamed("/editor", arguments: f.path);
-                                  },
-                                  title: Text("편집".tr))),
+                        // if (kDebugMode)
+                        //   ElevatedButton(
+                        //       onPressed: () {
+                        //         Utils.saveAs(f);
+                        //       },
+                        //       child: Text("save")),
+                        // if (kDebugMode)
+                        //   Card(
+                        //       child: ListTile(
+                        //           onTap: () async {
+                        //             Get.toNamed("/editor", arguments: f.path);
+                        //           },
+                        //           title: Text("편집".tr))),
                         Card(
                             child: ListTile(
                                 onTap: () async {
@@ -535,7 +537,7 @@ class LibraryFileViewer extends GetView {
                       InkWell(
                         onTap: () {
                           IsarCtl.libPDir.value = null;
-                          if (d.path.split("/").last != 'file_picker') {
+                          if (d.path.split("/").last != rootName) {
                             IsarCtl.libPDir(d.parent);
                           }
                           IsarCtl.libPDir.refresh();
@@ -681,7 +683,7 @@ class LibraryFileViewer extends GetView {
           ObxValue<RxBool>((bedit) {
             var pathArr = IsarCtl.libDir.value.path.split("/");
             var name = pathArr.last;
-            var rootIdx = pathArr.indexOf("file_picker");
+            var rootIdx = pathArr.indexOf(rootName);
             var curPath = pathArr.getRange(rootIdx + 1, pathArr.length).join("/");
             return Container(
                 padding: EdgeInsets.only(left: 20, right: 20, top: 5),

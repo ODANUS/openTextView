@@ -1,6 +1,7 @@
 import 'dart:developer' as d;
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
@@ -43,7 +44,12 @@ class LibraryPage extends GetView {
                   ),
                 ),
               ],
-              bottom: PreferredSize(preferredSize: Size(Get.width, 50), child: AdBanner(key: Key("library"))),
+              bottom: PreferredSize(
+                  preferredSize: Size(
+                    Get.width,
+                    50,
+                  ),
+                  child: AdBanner(key: Key("library"))),
             ),
             body: Stack(
               children: [
