@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ionicons/ionicons.dart';
@@ -48,7 +50,7 @@ class MainPage extends GetView {
               key: Key("bottombar"),
               color: Colors.transparent,
               duration: const Duration(milliseconds: 300),
-              height: IsarCtl.bfullScreen.value ? 0 : 60,
+              height: IsarCtl.bfullScreen.value ? 0 : kBottomNavigationBarHeight + (Platform.isIOS ? 25 : 5),
               // transform: Matrix4.translationValues(
               //     0, IsarCtl.bfullScreen.value ? 60 : 0, 0),
               // onEnd: () => v(IsarCtl.bfullScreen.value),
