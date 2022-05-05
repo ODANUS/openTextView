@@ -529,12 +529,13 @@ class Utils {
     IsarCtl.bLoadingLib(true);
 
     FilePickerResult? selectedFiles;
-    // if (Platform.isIOS) {
-    //   FilePicker.platform.clearTemporaryFiles();
-    //   selectedFiles = await FilePicker.platform.pickFiles();
-    // } else {
-    selectedFiles = await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
-    // }
+    if (Platform.isIOS) {
+      FilePicker.platform.clearTemporaryFiles();
+      selectedFiles = await FilePicker.platform.pickFiles();
+    } else {
+      selectedFiles =
+          await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
+    }
     print(selectedFiles);
 
     IsarCtl.bLoadingLib(false);

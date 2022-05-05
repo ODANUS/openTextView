@@ -52,34 +52,33 @@ class MainPage extends GetView {
               // transform: Matrix4.translationValues(
               //     0, IsarCtl.bfullScreen.value ? 60 : 0, 0),
               // onEnd: () => v(IsarCtl.bfullScreen.value),
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  BottomNavigationBar(
+              child: SingleChildScrollView(
+                // shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                child: BottomNavigationBar(
 
-                      // backgroundColor: Colors.red,
-                      type: BottomNavigationBarType.fixed,
-                      currentIndex: IsarCtl.tabIndex.value,
-                      onTap: IsarCtl.tabIndex,
-                      items: [
-                        BottomNavigationBarItem(
-                          label: "text_viewer".tr,
-                          icon: Icon(Icons.menu_book_outlined),
-                        ),
-                        BottomNavigationBarItem(
-                          label: "my_library".tr,
-                          icon: Icon(Ionicons.library_outline),
-                        ),
-                        BottomNavigationBarItem(
-                          label: "Settings".tr,
-                          icon: Icon(Ionicons.settings_outline),
-                        ),
-                        BottomNavigationBarItem(
-                          label: "history".tr,
-                          icon: Icon(Icons.history),
-                        ),
-                      ]),
-                ],
+                    // backgroundColor: Colors.red,
+                    type: BottomNavigationBarType.fixed,
+                    currentIndex: IsarCtl.tabIndex.value,
+                    onTap: IsarCtl.tabIndex,
+                    items: [
+                      BottomNavigationBarItem(
+                        label: "text_viewer".tr,
+                        icon: Icon(Icons.menu_book_outlined),
+                      ),
+                      BottomNavigationBarItem(
+                        label: "my_library".tr,
+                        icon: Icon(Ionicons.library_outline),
+                      ),
+                      BottomNavigationBarItem(
+                        label: "Settings".tr,
+                        icon: Icon(Ionicons.settings_outline),
+                      ),
+                      BottomNavigationBarItem(
+                        label: "history".tr,
+                        icon: Icon(Icons.history),
+                      ),
+                    ]),
               ),
             ),
           ),

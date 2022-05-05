@@ -115,6 +115,9 @@ class AudioHandler extends BaseAudioHandler
       var engine = await tts?.getDefaultEngine;
       await tts?.setEngine(engine);
       await Future.delayed(1000.milliseconds);
+    } else if (!bInitTts && Platform.isIOS) {
+      bInitTts = true;
+      tts = FlutterTts();
     }
 
     setTts();
