@@ -50,7 +50,7 @@ class MainPage extends GetView {
               key: Key("bottombar"),
               color: Colors.transparent,
               duration: const Duration(milliseconds: 300),
-              height: IsarCtl.bfullScreen.value ? 0 : kBottomNavigationBarHeight + (Platform.isIOS ? 25 : 5),
+              height: IsarCtl.bfullScreen.value ? 0 : null,
               // transform: Matrix4.translationValues(
               //     0, IsarCtl.bfullScreen.value ? 60 : 0, 0),
               // onEnd: () => v(IsarCtl.bfullScreen.value),
