@@ -170,7 +170,7 @@ class AudioHandler extends BaseAudioHandler
       duration: Duration(seconds: contents.length),
     ));
     tts!.setProgressHandler((text, start, end, word) {
-      print("[[[[[[[[[[[[[[[[[[[[[[[[ ${start}");
+      // print("[[[[[[[[[[[[[[[[[[[[[[[[ ${start}");
       lastProgrss = start;
     });
 

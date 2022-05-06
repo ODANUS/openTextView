@@ -44,10 +44,10 @@ class Utils {
   static Future<bool> newLineTheoremFile(File f) async {
     var rtn = false;
     if (!kDebugMode) {
-      var rtn = await AdCtl.openInterstitialAdNewLine();
+      rtn = await AdCtl.openInterstitialAdNewLine();
     }
     // var rtn = true;
-    if (rtn || kDebugMode) {
+    if (rtn) {
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
@@ -282,8 +282,9 @@ class Utils {
 
   static Future<String> newLineTheoremStr(String tmpStr, {bool useKss = true}) async {
     List<String> rtnStr = [];
+    // Get.locale != null && Get.locale!.languageCode == "ko" && useKss && kDebugMode
 
-    if (Get.locale != null && Get.locale!.languageCode == "ko" && useKss) {
+    if (false) {
       var listTmpStr = tmpStr.split("\n");
       IsarCtl.epubTotal(listTmpStr.length);
       IsarCtl.epubTotal(0);

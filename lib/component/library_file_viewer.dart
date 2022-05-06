@@ -47,7 +47,7 @@ class LibraryFileViewer extends GetView {
               child: Stack(alignment: Alignment.topCenter, children: [
                 SvgData.zip(),
                 Container(
-                  margin: EdgeInsets.only(right: 11.sp, bottom: 14.sp),
+                  margin: EdgeInsets.only(right: 11.sp, bottom: 10.sp),
                   alignment: Alignment.bottomCenter,
                   child: Text(
                     Utils.getFileSize(f),
@@ -58,7 +58,7 @@ class LibraryFileViewer extends GetView {
                   alignment: Alignment.bottomCenter,
                   child: Container(
                       width: 90.w,
-                      margin: EdgeInsets.only(bottom: 30.sp, right: 11.sp),
+                      margin: EdgeInsets.only(bottom: 28.sp, right: 11.sp),
                       // alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.only(top: 8.sp, bottom: 8.sp),
                       decoration: BoxDecoration(color: Colors.purple),
@@ -82,7 +82,7 @@ class LibraryFileViewer extends GetView {
               child: Stack(alignment: Alignment.bottomCenter, children: [
                 SvgData.epub(),
                 Container(
-                  margin: EdgeInsets.only(right: 5.sp, top: 20.sp),
+                  margin: EdgeInsets.only(right: 5.sp, top: 15.sp),
                   alignment: Alignment.topRight,
                   child: Text(
                     Utils.getFileSize(f),
@@ -92,7 +92,7 @@ class LibraryFileViewer extends GetView {
                 Container(
                   alignment: Alignment.topLeft,
                   child: Container(
-                      margin: EdgeInsets.only(left: 8.sp, top: 20.sp),
+                      margin: EdgeInsets.only(left: 5.sp, top: 10.sp),
                       padding: EdgeInsets.only(left: 7.sp, right: 7.sp, top: 5.sp, bottom: 5.sp),
                       decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
                       child: Text(ex.toUpperCase())),
@@ -115,7 +115,7 @@ class LibraryFileViewer extends GetView {
                 alignment: Alignment.topRight,
                 child: Transform.rotate(
                     angle: 45 * pi / 180,
-                    origin: Offset(-30, 0),
+                    origin: Offset(-20, 2),
                     child: Text(
                       Utils.getFileSize(f),
                       style: TextStyle(fontSize: 10.sp),
@@ -129,7 +129,7 @@ class LibraryFileViewer extends GetView {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 8.sp, top: 20.sp),
+                        margin: EdgeInsets.only(left: 5.sp, top: 10.sp),
                         padding: EdgeInsets.only(left: 10.sp, right: 10.sp, top: 5.sp, bottom: 5.sp),
                         decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(15)),
                         child: Text(ex.toUpperCase()),
