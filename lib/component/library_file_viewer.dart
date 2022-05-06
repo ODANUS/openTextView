@@ -330,6 +330,16 @@ class LibraryFileViewer extends GetView {
                         //             Get.toNamed("/editor", arguments: f.path);
                         //           },
                         //           title: Text("편집".tr))),
+                        if (Get.locale != null && Get.locale!.languageCode == "ko")
+                          Card(
+                              child: ListTile(
+                                  onTap: () async {
+                                    Get.back();
+                                    if (await Utils.newLineTheoremFile(f, useKss: true)) {
+                                      reload(!reload.value);
+                                    }
+                                  },
+                                  title: Text("kss 알고리즘으로 개행처리".tr))),
                         Card(
                             child: ListTile(
                                 onTap: () async {

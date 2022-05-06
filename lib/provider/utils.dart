@@ -41,20 +41,24 @@ String testSplitSentences(String str) {
 }
 
 class Utils {
-  static Future<bool> newLineTheoremFile(File f) async {
+  static Future<bool> newLineTheoremFile(File f, {useKss = false}) async {
     var rtn = false;
     if (!kDebugMode) {
       rtn = await AdCtl.openInterstitialAdNewLine();
     }
+    if (kDebugMode) rtn = true;
     // var rtn = true;
     if (rtn) {
       var pathList = f.path.split("/");
       var path = pathList.sublist(0, pathList.length - 1).join("/");
       var fileName = pathList.last.split(".").first;
 
-      String rtnStr = await newLineTheorem(f);
-
-      File outputFile = File("$path/newline_$fileName.txt");
+      String rtnStr = await newLineTheorem(f, useKss: useKss);
+      String savePath = "newline_$fileName.txt";
+      if (useKss) {
+        savePath = "kss_$fileName.txt";
+      }
+      File outputFile = File("$path/$savePath");
       if (!outputFile.existsSync()) {
         outputFile.createSync();
       }
@@ -280,27 +284,22 @@ class Utils {
     return true;
   }
 
-  static Future<String> newLineTheoremStr(String tmpStr, {bool useKss = true}) async {
+  static Future<String> newLineTheoremStr(String tmpStr, {bool useKss = false}) async {
     List<String> rtnStr = [];
     // Get.locale != null && Get.locale!.languageCode == "ko" && useKss && kDebugMode
 
-    if (false) {
+    if (useKss) {
       var listTmpStr = tmpStr.split("\n");
       IsarCtl.epubTotal(listTmpStr.length);
-      IsarCtl.epubTotal(0);
+
       List<String> rtn = [];
-      // try {
-      for (var i = 0; i < listTmpStr.length; i += 500) {
-        // for (var i = 0; i < 3000; i += 500)
+
+      for (var i = 0; i < listTmpStr.length; i += 10) {
         IsarCtl.epubCurrent(i);
-        print("${i} ::: ${min(i + 500, listTmpStr.length - 1)}");
-        var tmpStr = listTmpStr.getRange(i, min(i + 500, listTmpStr.length - 1));
-        // await Future.delayed(500.milliseconds);
-        rtn.add(await iso.compute(testSplitSentences, tmpStr.join("")));
+        var tmpStr = listTmpStr.getRange(i, min(i + 10, listTmpStr.length - 1));
+        rtn.add(await iso.compute(testSplitSentences, tmpStr.join("\n")));
       }
-      // } catch (e) {
-      //   print(e);
-      // }
+
       IsarCtl.epubTotal(0);
 
       return rtn.join("\n\n");
@@ -384,9 +383,9 @@ class Utils {
     return rtnStr.join("");
   }
 
-  static Future<String> newLineTheorem(File f) async {
+  static Future<String> newLineTheorem(File f, {useKss = false}) async {
     String tmpStr = await readFile(f);
-    return newLineTheoremStr(tmpStr);
+    return newLineTheoremStr(tmpStr, useKss: useKss);
   }
 
   static Future<String> convEpub(File f, {Function(int total, int current)? onProcess, Function? onFont}) async {
