@@ -339,7 +339,7 @@ class LibraryFileViewer extends GetView {
                                       reload(!reload.value);
                                     }
                                   },
-                                  title: Text("kss 알고리즘으로 개행처리".tr))),
+                                  title: Text("kss 개행정리".tr))),
                         Card(
                             child: ListTile(
                                 onTap: () async {
