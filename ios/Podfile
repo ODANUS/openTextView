@@ -42,6 +42,7 @@ post_install do |installer|
     target.build_configurations.each do |config|
       config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
         '$(inherited)',
+        'AUDIO_SESSION_MICROPHONE=0'
         # dart: PermissionGroup.calendar
         'PERMISSION_EVENTS=0',
         # dart: PermissionGroup.reminders
@@ -70,8 +71,7 @@ post_install do |installer|
         'PERMISSION_APP_TRACKING_TRANSPARENCY=0',
         # dart: PermissionGroup.criticalAlerts
         'PERMISSION_CRITICAL_ALERTS=0'
-
-        'AUDIO_SESSION_MICROPHONE=0'
+        
       ]
       config.build_settings['SWIFT_VERSION'] = '5.0'
     end
