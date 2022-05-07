@@ -352,7 +352,7 @@ class IsarCtl {
   static bool volumeControll(KeyEvent event) {
     bool result = false;
     if (event is KeyDownEvent && tabIndex.value == 0 && bfullScreen.value) {
-      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp && !result && !AudioPlay.audioHandler!.playbackState.stream.value.playing) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp && !result && !AudioPlay.audioHandler!.playbackState.value.playing) {
         result = true;
         tctl.back();
       }
