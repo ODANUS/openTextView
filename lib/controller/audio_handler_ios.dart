@@ -22,13 +22,18 @@ class AudioHandlerIOS extends BaseAudioHandler
     AudioSession.instance.then((session) async {
       this.session = session;
       await this.session!.configure(AudioSessionConfiguration.speech());
+
       AVAudioSession().interruptionNotificationStream.listen((note) {
         AVAudioSessionInterruptionNotification;
         print('received interrupt');
         print('type: ${note.type}');
         print('wasSuspended: ${note.wasSuspended}');
       });
+      session.interruptionEventStream.listen((e) {
+        print("interruptionEventStream : $e");
+      });
     });
+
     // AudioSession.instance.then((session) async {
     //   this.session = session;
 
@@ -125,7 +130,9 @@ class AudioHandlerIOS extends BaseAudioHandler
   // onplay
   Future<void> play() async {
     playstat = STAT_PLAY;
-    session?.setActive(true, avAudioSessionSetActiveOptions: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation);
+    AVAudioSession().setActive(true);
+
+    // session?.setActive(true, avAudioSessionSetActiveOptions: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation);
 
     // this.session?.setActive(true,
     //     androidWillPauseWhenDucked: true,
@@ -227,7 +234,7 @@ class AudioHandlerIOS extends BaseAudioHandler
   Future<void> pause() async {
     print("-=----------pause----");
     await tts?.pause();
-    session?.setActive(false);
+    // session?.setActive(false);
     this.playbackState.add(baseState.copyWith(
           controls: [
             MediaControl.play,
@@ -249,7 +256,7 @@ class AudioHandlerIOS extends BaseAudioHandler
   Future<void> stop() async {
     print("-=--------stopstop------");
     await tts?.stop();
-    session?.setActive(false);
+    // session?.setActive(false);
     this.playbackState.add(PlaybackState());
     playstat = STAT_STOP;
     IsarCtl.tctl.bHighlight = false;

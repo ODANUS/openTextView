@@ -147,38 +147,41 @@ class OptionTts extends GetView {
                   ]);
                 }, setting.groupcnt.obs),
               )),
-          Padding(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            child: CheckboxListTile(
-                contentPadding: EdgeInsets.all(0),
-                title: Text("stop_audioduck".tr),
-                value: setting.audioduck,
-                onChanged: (b) {
-                  IsarCtl.putSetting(setting..audioduck = b!);
-                }),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            child: CheckboxListTile(
-                contentPadding: EdgeInsets.all(0),
-                title: Text("Freeze when other players are running".tr),
-                value: setting.audiosession,
-                onChanged: (b) {
-                  IsarCtl.putSetting(setting..audiosession = b!);
-                  // setting.update((val) {
-                  //   tts.audiosession = b!;
-                  // });
-                }),
-          ),
-          Padding(
+          if (Platform.isAndroid)
+            Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: CheckboxListTile(
                   contentPadding: EdgeInsets.all(0),
-                  title: Text('Using the headset button'.tr),
-                  value: setting.headsetbutton,
+                  title: Text("stop_audioduck".tr),
+                  value: setting.audioduck,
                   onChanged: (b) {
-                    IsarCtl.putSetting(setting..headsetbutton = b!);
-                  })),
+                    IsarCtl.putSetting(setting..audioduck = b!);
+                  }),
+            ),
+          if (Platform.isAndroid)
+            Padding(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: CheckboxListTile(
+                  contentPadding: EdgeInsets.all(0),
+                  title: Text("Freeze when other players are running".tr),
+                  value: setting.audiosession,
+                  onChanged: (b) {
+                    IsarCtl.putSetting(setting..audiosession = b!);
+                    // setting.update((val) {
+                    //   tts.audiosession = b!;
+                    // });
+                  }),
+            ),
+          if (Platform.isAndroid)
+            Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: CheckboxListTile(
+                    contentPadding: EdgeInsets.all(0),
+                    title: Text('Using the headset button'.tr),
+                    value: setting.headsetbutton,
+                    onChanged: (b) {
+                      IsarCtl.putSetting(setting..headsetbutton = b!);
+                    })),
         ],
       );
     });

@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdBanner extends GetView {
+  String adUnitId = "";
   AdBanner({Key? key}) : super(key: key) {
-    String adUnitId = "ca-app-pub-3940256099942544/6300978111";
+    adUnitId = "ca-app-pub-3940256099942544/6300978111";
     if (Platform.isIOS && !kDebugMode) {
       adUnitId = "ca-app-pub-6280862087797110/4350253441";
     }
@@ -49,6 +50,7 @@ class AdBanner extends GetView {
       return Container(
         width: Get.width,
         height: 50,
+        // child: Text("${adUnitId}"),
       );
     });
   }
