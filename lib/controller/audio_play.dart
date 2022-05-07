@@ -330,22 +330,6 @@ class AudioPlay {
     return _audioHandler;
   }
 
-  // static lisen(Function(PlaybackState) fn) {
-  //   lisenFunction.add(fn);
-  // }
-
-  // static removeLisen(Function(PlaybackState) fn) {
-  //   lisenFunction.remove(fn);
-  // }
-
-  // static setSetting({
-  //   required SettingBox setting,
-  // }) {
-  //   // _audioHandler!.customAction("setting", {
-  //   //   "setting": setting.toMap(),
-  //   // });
-  // }
-
   static setAutoExit({required DateTime t}) {
     _audioHandler!.customAction("autoExit", {
       "autoExit": t,
@@ -357,22 +341,6 @@ class AudioPlay {
       _audioHandler!.play();
     }
   }
-  // static play({
-  //   required List<String> contents,
-  //   required List<FilterBox> filter,
-  //   required SettingBox setting,
-  //   required HistoryBox currentHistory,
-  // }) {
-  //   if (_audioHandler != null) {
-  //     _audioHandler!.customAction("init", {
-  //       "contents": contents,
-  //       "filter": filter.map((e) => e.toMap()).toList(),
-  //       "setting": setting.toMap(),
-  //       "currentHistory": currentHistory.toMap(),
-  //     });
-  //     _audioHandler!.play();
-  //   }
-  // }
 
   static stop() {
     if (_audioHandler != null) {
