@@ -217,7 +217,6 @@ class AudioHandlerIOS extends BaseAudioHandler
 
       // print("$speakText");
       var bspeak = await tts?.speak(speakText);
-      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${bspeak}>>");
       i += nextPos;
 
       if (bspeak == null) {
@@ -232,7 +231,6 @@ class AudioHandlerIOS extends BaseAudioHandler
   }
 
   Future<void> pause() async {
-    print("-=----------pause----");
     await tts?.pause();
     // session?.setActive(false);
     this.playbackState.add(baseState.copyWith(
@@ -254,7 +252,6 @@ class AudioHandlerIOS extends BaseAudioHandler
   }
 
   Future<void> stop() async {
-    print("-=--------stopstop------");
     await tts?.stop();
     // session?.setActive(false);
     this.playbackState.add(PlaybackState());
