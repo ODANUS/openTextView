@@ -195,7 +195,7 @@ class Utils {
   static Future<bool> ocrZipFile(File f) async {
     var pathList = f.path.split("/");
     var path = pathList.sublist(0, pathList.length - 1).join("/");
-    var fileName = pathList.last.split(".").first;
+    var zipFileName = pathList.last.split(".").first;
 
     final bytes = f.readAsBytesSync();
     final archive = ZipDecoder().decodeBytes(bytes);
@@ -218,7 +218,7 @@ class Utils {
       var cnt = 0;
       var total = 0;
       ZipFileEncoder encoder = ZipFileEncoder();
-      Directory newDir = Directory("${rootTmpDir.path}/file_picker/$fileName");
+      Directory newDir = Directory("${rootTmpDir.path}/file_picker/$zipFileName");
       if (!newDir.existsSync()) newDir.createSync();
       try {
         for (var file in archive) {
@@ -226,7 +226,7 @@ class Utils {
             if (idx > 0) {
               encoder.close();
             }
-            encoder.create("${newDir.path}/${"${++idx}_div".padLeft(2, "0")}_${fileName}.zip");
+            encoder.create("${newDir.path}/${"${++idx}_div".padLeft(2, "0")}_${zipFileName}.zip");
           }
           final filename = file.name;
           if (file.isFile &&
@@ -256,6 +256,20 @@ class Utils {
       var idx = 0;
       for (final file in archive) {
         final filename = file.name;
+        if (file.isFile && (file.name.contains(".zip"))) {
+          var zipDir = Directory("$path")..createSync(recursive: true);
+
+          final data = file.content as List<int>;
+          var tmpFile = File("${zipDir.path}/$filename");
+          if (!tmpFile.existsSync()) {
+            await tmpFile.create(recursive: true);
+          }
+          IsarCtl.unzipCurrent(idx++);
+          await tmpFile.writeAsBytes(data);
+
+          // print(path);
+          // print(file.name);
+        }
         if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
           final data = file.content as List<int>;
           var tmpFile = File("${tmpDir.path}/$filename");
@@ -269,15 +283,22 @@ class Utils {
         }
       }
       IsarCtl.unzipTotal(0);
-      var rtn = await Get.toNamed("/ocr");
-      if (rtn != null) {
-        File outputFile = File("$path/ocr_$fileName.txt");
-        if (!outputFile.existsSync()) {
+      var imglist = tmpDir.listSync(recursive: true).where((e) {
+        var ex = e.path.split(".").last;
+        print(ex);
+        return ex.contains("gif") || ex.contains("png") || ex.contains("jpg") || ex.contains("jpeg");
+      });
+      if (imglist.isNotEmpty) {
+        var rtn = await Get.toNamed("/ocr");
+        if (rtn != null) {
+          File outputFile = File("$path/ocr_$zipFileName.txt");
+          if (!outputFile.existsSync()) {
+            outputFile.createSync();
+          }
           outputFile.createSync();
+          outputFile.writeAsStringSync(rtn);
+          outputFile.setLastAccessedSync(DateTime.now());
         }
-        outputFile.createSync();
-        outputFile.writeAsStringSync(rtn);
-        outputFile.setLastAccessedSync(DateTime.now());
       }
     }
 
