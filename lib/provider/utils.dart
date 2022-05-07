@@ -285,7 +285,7 @@ class Utils {
       IsarCtl.unzipTotal(0);
       var imglist = tmpDir.listSync(recursive: true).where((e) {
         var ex = e.path.split(".").last;
-        print(ex);
+
         return ex.contains("gif") || ex.contains("png") || ex.contains("jpg") || ex.contains("jpeg");
       });
       if (imglist.isNotEmpty) {
