@@ -414,7 +414,7 @@ class LibraryFileViewer extends GetView {
                             child: ListTile(
                                 tileColor: Colors.blue.withOpacity(0.5),
                                 onTap: () async {
-                                  Get.back();
+                                  // Get.back();
                                   if (await Utils.ocrZipFile(f)) {
                                     reload(!reload.value);
                                   }
