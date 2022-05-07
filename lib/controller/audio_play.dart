@@ -17,6 +17,9 @@ class AudioHandler extends BaseAudioHandler
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
   AudioHandler() {
+    AVAudioSession().interruptionNotificationStream.listen((event) {
+      print("AVAudioSession().interruptionNotificationStream : $event");
+    });
     AudioSession.instance.then((session) async {
       this.session = session;
       await this.session!.configure(AudioSessionConfiguration.music());
@@ -28,7 +31,6 @@ class AudioHandler extends BaseAudioHandler
       });
 
       this.session!.interruptionEventStream.listen((event) {
-        print("interruptionEventStream : $event");
         if (event.type == AudioInterruptionType.duck && (IsarCtl.setting?.audioduck ?? true)) {
           if (event.begin) {
             bool laststat = playstat == STAT_PLAY;
