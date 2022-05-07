@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:get/get.dart';
 import 'package:open_textview/component/option_backup.dart';
@@ -83,6 +84,10 @@ class SettingPage extends GetView {
               if (kDebugMode)
                 ElevatedButton(
                     onPressed: () async {
+                      var ss = "";
+
+                      var tts = FlutterTts();
+                      tts.speak(ss);
                       // print(IsarCtl.libDir.value.path);
                       // if (!IsarCtl.libDir.value.existsSync()) {
                       //   IsarCtl.libDir.value.createSync(recursive: true);
@@ -97,10 +102,10 @@ class SettingPage extends GetView {
                       // f.writeAsBytesSync(re.data);
                       // print(111111);
                       // // IsarCtl.libDir.value
-                      var temp = await getTemporaryDirectory();
-                      temp.listSync().forEach((e) {
-                        print(e.path);
-                      });
+                      // var temp = await getTemporaryDirectory();
+                      // temp.listSync().forEach((e) {
+                      //   print(e.path);
+                      // });
 
                       // var dir = Directory("${temp.path}");
                       // print(dir.listSync());

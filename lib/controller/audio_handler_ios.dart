@@ -17,14 +17,12 @@ class AudioHandlerIOS extends BaseAudioHandler
         QueueHandler, // mix in default queue callback implementations
         SeekHandler {
   AudioHandlerIOS() {
-    print("Ios>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     this.tts = FlutterTts();
     AudioSession.instance.then((session) async {
       this.session = session;
       await this.session!.configure(AudioSessionConfiguration.speech());
 
       AVAudioSession().interruptionNotificationStream.listen((note) {
-        AVAudioSessionInterruptionNotification;
         print('received interrupt');
         print('type: ${note.type}');
         print('wasSuspended: ${note.wasSuspended}');
@@ -75,11 +73,11 @@ class AudioHandlerIOS extends BaseAudioHandler
     //   });
     // });
 
-    // IsarCtl.streamSetting.listen((event) {
-    //   if (tts != null) {
-    //     setTts();
-    //   }
-    // });
+    IsarCtl.streamSetting.listen((event) {
+      if (tts != null) {
+        setTts();
+      }
+    });
     // Timer.periodic(Duration(milliseconds: 200), (timer) {
     //   errorCnt = 0;
     //   errorLen = 0;
@@ -165,11 +163,13 @@ class AudioHandlerIOS extends BaseAudioHandler
       var listContents = contents.substring(i, min(i + 3000, contents.length)).split("\n");
 
       int end = min(setting.groupcnt, listContents.length);
-      String speakText = listContents.getRange(0, end).join("\n");
+      String speakText = listContents.getRange(0, end).toList().join(" ");
       int nextPos = speakText.length;
       if (speakText.isEmpty) {
         nextPos += 1;
       }
+      speakText = speakText.replaceAll(RegExp("X{2,}"), "ᄋ");
+      speakText = speakText.replaceAll(RegExp("x{2,}"), "ᄋ");
 
       // contents.substring(i, end);
 
@@ -215,7 +215,7 @@ class AudioHandlerIOS extends BaseAudioHandler
       }
       lastPos = i;
 
-      // print("$speakText");
+      print("$speakText");
       var bspeak = await tts?.speak(speakText);
       i += nextPos;
 
