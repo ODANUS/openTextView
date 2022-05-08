@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 2.1.9+219
+version: 2.2.0+220
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -86,7 +86,7 @@ dependencies:
   
   google_mlkit_text_recognition:
     git:
-      url: https://github.com/bharat-biradar/Google-Ml-Kit-plugin
+      url: https://github.com/khjde1207/Google-Ml-Kit-plugin
       path: packages/google_mlkit_text_recognition
 
   pdf_text:

@@ -481,10 +481,10 @@ packages:
     description:
       path: "packages/google_mlkit_text_recognition"
       ref: HEAD
-      resolved-ref: "8891db4bf37cca53ce90d5fa673f3c5bd5a92187"
-      url: "https://github.com/bharat-biradar/Google-Ml-Kit-plugin"
+      resolved-ref: f488a709e42fefbcb2ca04e0e93054428a229416
+      url: "https://github.com/khjde1207/Google-Ml-Kit-plugin"
     source: git
-    version: "0.2.0"
+    version: "0.3.0"
   google_mobile_ads:
     dependency: "direct main"
     description:

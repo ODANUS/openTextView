@@ -8,6 +8,12 @@ import 'package:package_info/package_info.dart';
 class DeveloperNotes extends GetView {
   final String content = """
 ---
+2.2.0 (2022 05 08)
+
+1. 구글 인공지능 이미지 인식 을 beta4 로 변경 
+  - 인식률이 상당히 좋아 졌습니다. 점점 인식률좋아 지는것 같습니다! 
+
+---
 2.1.9 (2022 05 08)
 
 1. 압축 파일 안에 압축파일이 있을경우. 라이브러리에 파일명 으로 폴더를 만들어 압축을 해제 하도록 기능 변경. 
