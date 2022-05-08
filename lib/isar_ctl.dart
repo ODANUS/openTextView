@@ -607,70 +607,15 @@ class IsarCtl {
 
   static openFile(File f) async {
     AudioPlay.stop();
-    if (f.path.split(".").last == "epub") {
-      // List<String?> hrefs = [];
-      // Map<String, String> listXhtml = {};
-      // String cssString = "";
-
-      // String strContents = "";
-      // final bytes = f.readAsBytesSync();
-      // final archive = ZipDecoder().decodeBytes(bytes);
-      // for (final file in archive) {
-      //   final filename = file.name;
-      //   if (file.isFile) {
-      //     final intdatas = file.content as List<int>;
-      //     if (file.name.contains("content.opf")) {
-      //       var data = String.fromCharCodes(intdatas);
-      //       var htmlData = parse(data);
-      //       var items = htmlData.querySelector("manifest")?.querySelectorAll("item[media-type*=xml]");
-      //       if (items != null) {
-      //         hrefs = items.map((e) => e.attributes['href']).toList();
-      //       }
-      //     }
-      //     if (file.name.contains(".css")) {
-      //       var data = String.fromCharCodes(intdatas);
-      //       cssString += data;
-      //     }
-      //     if (file.name.contains("html")) {
-      //       var ctn = String.fromCharCodes(intdatas);
-      //       var decodeData = await CharsetDetector.autoDecode(file.content);
-      //       listXhtml[file.name.split("/").skip(1).join("/")] = decodeData.string;
-      //     }
-      //   } else {
-      //     // Directory('out/' + filename).create(recursive: true);
-      //   }
-      // }
-      // print("------------------------${Get.locale?.languageCode}");
-
-      // hrefs.forEach((href) {
-      //   if (listXhtml[href] != null) {
-      //     var htmlData = parse(listXhtml[href]);
-      //     var bodytext = htmlData.body?.text ?? "";
-      //     if (Get.locale?.languageCode.contains("ko") != null) {
-      //       // bodytext = bodytext.split("\n").join();
-      //       bodytext = bodytext.split("다. ").map((e) => e.trim()).join("다. \n");
-      //       bodytext = bodytext.split("\" ").map((e) => e.trim()).join("\" \n");
-      //       bodytext = bodytext.split("” ").map((e) => e.trim()).join("\”\n");
-      //     }
-      //     strContents += bodytext;
-      //   }
-      // });
-      // log(strContents);
-
-      // print("epub");
-      return;
-    }
 
     // f.setLastAccessedSync(DateTime.now());
     var tmpName = f.path.split("/").last;
 
-    String tmpStr = await Utils.readFile(f);
-    var tmpcontents = tmpStr.replaceAll(RegExp(r'\n{3,}'), "\n\n");
+    String tmpcontents = await Utils.readFile(f);
     tmpcontents = tmpcontents.replaceAll("\r\n", "\n");
+    tmpcontents = tmpcontents.replaceAll(RegExp(r'\n{3,}'), "\n\n");
 
     ContentsIsar contentsisar = ContentsIsar(text: tmpcontents);
-
-    // List<ContentsIsar> contentsList = targetList.asMap().map((k, e) => MapEntry(k, ContentsIsar(idx: k, text: e))).values.toList();
 
     var history = isar.historyIsars.filter().nameEqualTo(tmpName).findFirstSync();
 
