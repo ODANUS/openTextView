@@ -264,7 +264,7 @@ class TextViewerController extends ChangeNotifier {
 
   PosData _getPerText(Size size) {
     PosData data = PosData();
-    for (var i = 1; i < 1000; i++) {
+    for (var i = 1; i < 2200; i++) {
       var perText = contents.substring(max(cntntPstn - i, 0), cntntPstn);
       var tmpData = _clcText(perText, size, max(cntntPstn - i, 0));
       if (tmpData.nextPos < cntntPstn || cntntPstn - i < 0) {
@@ -278,7 +278,7 @@ class TextViewerController extends ChangeNotifier {
 
   PosData _getNextText(Size size) {
     // cntntPstn
-    var nextText = contents.substring(cntntPstn, min(cntntPstn + 1000, contents.length));
+    var nextText = contents.substring(cntntPstn, min(cntntPstn + 2200, contents.length));
     // var nextText = contents.substring(0, 20);
     nextPosData = _clcText(nextText, size, cntntPstn);
 
@@ -367,7 +367,7 @@ class TextViewerController extends ChangeNotifier {
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
-    String str = contents.substring(max(cntntPstn - 1200, 0), min(cntntPstn + 1000, contents.length));
+    String str = contents.substring(max(cntntPstn - 2300, 0), min(cntntPstn + 2300, contents.length));
     var nextArr = str.split("\n").map((e) => e.split(" ")).toList();
     Map<String, int> count = {};
     var painter = TextPainter(text: TextSpan(text: " ", style: _style), textDirection: TextDirection.ltr)..layout();

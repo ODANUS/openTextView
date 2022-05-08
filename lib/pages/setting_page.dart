@@ -81,44 +81,44 @@ class SettingPage extends GetView {
               Card(child: OptionOsslicense()),
               Card(child: OptionReset()),
               Divider(),
-              if (kDebugMode)
-                ElevatedButton(
-                    onPressed: () async {
-                      var ss = "";
+              // if (kDebugMode)
+              // ElevatedButton(
+              //     onPressed: () async {
+              //       var ss = "";
 
-                      var tts = FlutterTts();
-                      tts.speak(ss);
-                      // print(IsarCtl.libDir.value.path);
-                      // if (!IsarCtl.libDir.value.existsSync()) {
-                      //   IsarCtl.libDir.value.createSync(recursive: true);
-                      // }
-                      // var re = await Dio().get("", options: Options(responseType: ResponseType.bytes));
-                      // print(re.data);
-                      // print(ss);
-                      // var f = File("${IsarCtl.libDir.value.path}/test12.epub");
-                      // if (!f.existsSync()) {
-                      //   f.createSync();
-                      // }
-                      // f.writeAsBytesSync(re.data);
-                      // print(111111);
-                      // // IsarCtl.libDir.value
-                      // var temp = await getTemporaryDirectory();
-                      // temp.listSync().forEach((e) {
-                      //   print(e.path);
-                      // });
+              //       var tts = FlutterTts();
+              //       tts.speak(ss);
+              //       // print(IsarCtl.libDir.value.path);
+              //       // if (!IsarCtl.libDir.value.existsSync()) {
+              //       //   IsarCtl.libDir.value.createSync(recursive: true);
+              //       // }
+              //       // var re = await Dio().get("", options: Options(responseType: ResponseType.bytes));
+              //       // print(re.data);
+              //       // print(ss);
+              //       // var f = File("${IsarCtl.libDir.value.path}/test12.epub");
+              //       // if (!f.existsSync()) {
+              //       //   f.createSync();
+              //       // }
+              //       // f.writeAsBytesSync(re.data);
+              //       // print(111111);
+              //       // // IsarCtl.libDir.value
+              //       // var temp = await getTemporaryDirectory();
+              //       // temp.listSync().forEach((e) {
+              //       //   print(e.path);
+              //       // });
 
-                      // var dir = Directory("${temp.path}");
-                      // print(dir.listSync());
-                      // dir.listSync().forEach((e) {
-                      //   print(e.path);
-                      // });
-                      // print(IsarCtl.tctl.contents.split('\n').first);
-                      // var str = IsarCtl.tctl.contents.split('\n').first;
-                      // var reg = RegExp("h.{0,}t.{0,}t.{0,}p.+");
-                      // str = str.replaceAll(reg, "");
-                      // print(str);
-                    },
-                    child: Text("test")),
+              //       // var dir = Directory("${temp.path}");
+              //       // print(dir.listSync());
+              //       // dir.listSync().forEach((e) {
+              //       //   print(e.path);
+              //       // });
+              //       // print(IsarCtl.tctl.contents.split('\n').first);
+              //       // var str = IsarCtl.tctl.contents.split('\n').first;
+              //       // var reg = RegExp("h.{0,}t.{0,}t.{0,}p.+");
+              //       // str = str.replaceAll(reg, "");
+              //       // print(str);
+              //     },
+              //     child: Text("test")),
             ],
           ),
         ],

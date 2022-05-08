@@ -109,7 +109,7 @@ class ContentsIsar {
 @Collection()
 class SettingIsar {
   SettingIsar({
-    this.fontSize = 20,
+    this.fontSize = 26,
     this.fontWeight = 3,
     this.fontFamily = "",
     this.customFont,
