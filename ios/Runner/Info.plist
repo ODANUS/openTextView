@@ -197,7 +197,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>Text to Speech</string>
+		<string>Background Text to Speech</string>
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
