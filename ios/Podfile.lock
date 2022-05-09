@@ -67,7 +67,7 @@ PODS:
   - google_mlkit_commons (0.2.0):
     - Flutter
     - MLKitVision
-  - google_mlkit_text_recognition (0.2.0):
+  - google_mlkit_text_recognition (0.3.0):
     - Flutter
     - google_mlkit_commons
     - GoogleMLKit/TextRecognition (~> 2.6.0)
@@ -366,7 +366,7 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Google-Mobile-Ads-SDK: 05e5d68bb42a61b2e5bef336a52789785605aa22
   google_mlkit_commons: e9070f57232c3a3e4bd42fdfa621bb1f4bb3e709
-  google_mlkit_text_recognition: 31c36ac7571c5e67add28cee8bfd0cb2d3115e36
+  google_mlkit_text_recognition: 99cf85a1eb8ff9f2918c959bd8c907ba4489b6ec
   google_mobile_ads: 36eaaacc5c08ca2b9c4878232ab98152b11805cc
   google_sign_in_ios: ed71c0dbddfba8b1ea9aa210dbda695f46bf51bd
   GoogleAppMeasurement: 4c19f031220c72464d460c9daa1fb5d1acce958e
