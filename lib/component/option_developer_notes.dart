@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 // 34.7MB -> 52.4MB
 
@@ -256,8 +257,19 @@ class DeveloperNotes extends GetView {
               // 1.4.3
               await Get.dialog(AlertDialog(
                 title: Text("${snapshot.data!.version} 버전이 출시 되었습니다."),
-                content: SingleChildScrollView(
-                  child: Text(content),
+                content: Column(
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          launchUrlString("https://www.youtube.com/watch?v=uBhiGBPOl4I");
+                        },
+                        child: Text("아이폰 TTS 보기")),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Text(content),
+                      ),
+                    ),
+                  ],
                 ),
                 actions: [
                   ElevatedButton(
