@@ -100,13 +100,13 @@ class Utils {
                 onPressed: () {
                   Get.back(result: false);
                 },
-                child: Text("close".tr)),
+                child: Text("epub->text")),
             ElevatedButton(
                 onPressed: () {
                   Get.back(result: true);
-                  AdCtl.startRewardedAd();
+                  AdCtl.startInterstitialAd();
                 },
-                child: Text("confirm".tr)),
+                child: Text("Epub->Image->OCR".tr)),
           ],
         ));
       });
@@ -490,10 +490,10 @@ class Utils {
               ),
             ),
             textDirection: TextDirection.ltr,
-          )..layout(maxWidth: 1800);
+          )..layout(maxWidth: 1500);
 
           t.paint(canvas, Offset(50, 0));
-          var img = await recorder.endRecording().toImage(1800, t.height.toInt());
+          var img = await recorder.endRecording().toImage(1500, t.height.toInt());
           var pngBytes = await img.toByteData(format: ui.ImageByteFormat.png);
           var ff = File('${path}/epub_ocr.png')..writeAsBytesSync(pngBytes!.buffer.asInt8List());
           // final params = SaveFileDialogParams(sourceFilePath: ff.path);

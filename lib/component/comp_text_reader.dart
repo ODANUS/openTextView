@@ -41,10 +41,10 @@ class CompTextReader extends GetView {
             var dy = d.delta.dy;
             var cnt = 1;
             if (d.delta.dy < 0 && d.delta.dy < -6) {
-              dy = -6;
+              dy = -8;
             }
             if (d.delta.dy > 0 && d.delta.dy > 6) {
-              dy = 6;
+              dy = 8;
             }
             for (var i = 0; i < cnt; i++) {
               IsarCtl.tctl.offsetY += dy;

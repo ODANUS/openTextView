@@ -26,6 +26,9 @@ class LibraryFileViewer extends GetView {
   RxString dragEx = "".obs;
   RxBool reload = false.obs;
   RxList<File> mergeList = RxList<File>();
+  final _listViewKey = GlobalKey();
+
+  final ScrollController _scroller = ScrollController();
 
   var rootName = Platform.isAndroid ? "file_picker" : "com.khjde.openTextview-Inbox";
   // bool bScreenHelp;
@@ -35,6 +38,8 @@ class LibraryFileViewer extends GetView {
   // Function? onFullScreen;
   // Function? onNextpage;
   Widget cardBox({required Widget child, required FileSystemEntity f, bool? bcolor, String? tag, bool? bIcon}) {
+    var cardW = 100.sp;
+    var cardH = 130.sp;
     if (f is File) {
       var ex = f.path.split(".").last;
       Color bgColor = Color(0xFF2e9bdf);
@@ -42,8 +47,8 @@ class LibraryFileViewer extends GetView {
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
-              width: 100.sp,
-              height: 130.sp,
+              width: cardW,
+              height: cardH,
               child: Stack(alignment: Alignment.topCenter, children: [
                 SvgData.zip(),
                 Container(
@@ -77,8 +82,8 @@ class LibraryFileViewer extends GetView {
         return Material(
             type: MaterialType.transparency, // likely needed
             child: Container(
-              width: 100.sp,
-              height: 130.sp,
+              width: cardW,
+              height: cardH,
               child: Stack(alignment: Alignment.bottomCenter, children: [
                 SvgData.epub(),
                 Container(
@@ -106,8 +111,8 @@ class LibraryFileViewer extends GetView {
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
-            width: 100.sp,
-            height: 130.sp,
+            width: cardW,
+            height: cardH,
             child: Stack(alignment: Alignment.bottomCenter, children: [
               SvgData.file(bgColor),
               Container(
@@ -146,8 +151,8 @@ class LibraryFileViewer extends GetView {
       return Material(
           type: MaterialType.transparency, // likely needed
           child: Container(
-            width: 100.sp,
-            height: 130.sp,
+            width: cardW,
+            height: cardH,
             child: Stack(alignment: Alignment.topCenter, children: [
               SvgData.dir(),
               Container(
@@ -532,156 +537,184 @@ class LibraryFileViewer extends GetView {
         Container(
           width: double.infinity,
           height: double.infinity,
-          child: SingleChildScrollView(
-            padding: EdgeInsets.only(top: 60.h, bottom: 190.h, left: 0, right: 0),
-            child: Wrap(
-              runSpacing: 0,
-              children: totalList.map((e) {
-                if (e is Directory) {
-                  Directory d = e;
-                  // var list = d.listSync();
+          child: Listener(
+            onPointerMove: (PointerMoveEvent event) {
+              if (!bDrag.value) {
+                return;
+              }
+
+              RenderBox render = _listViewKey.currentContext?.findRenderObject() as RenderBox;
+              Offset position = render.localToGlobal(Offset.zero);
+              double topY = position.dy;
+              double bottomY = topY + render.size.height;
+
+              const detectedRange = 70;
+              const moveDistance = 3;
+              if (event.position.dy < topY + detectedRange) {
+                var to = _scroller.offset - moveDistance;
+                to = (to < 0) ? 0 : to;
+                _scroller.jumpTo(to);
+              }
+              if (event.position.dy > bottomY - detectedRange && event.position.dx < Get.width / 2.1 && dragEx.value == "txt") {
+                return;
+              }
+              if (event.position.dy > bottomY - detectedRange) {
+                _scroller.jumpTo(_scroller.offset + moveDistance);
+              }
+            },
+            child: SingleChildScrollView(
+              key: _listViewKey,
+              controller: _scroller,
+              padding: EdgeInsets.only(top: 60.h, bottom: 190.h, left: 0, right: 0),
+              child: Wrap(
+                runSpacing: 0,
+                children: totalList.map((e) {
+                  if (e is Directory) {
+                    Directory d = e;
+                    // var list = d.listSync();
+                    return Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(width: 16.w, height: 110.h),
+                        InkWell(
+                          onTap: () {
+                            IsarCtl.libPDir.value = null;
+                            if (d.path.split("/").last != rootName) {
+                              IsarCtl.libPDir(d.parent);
+                            }
+                            IsarCtl.libPDir.refresh();
+                            IsarCtl.libDir(d);
+                            reload(!reload.value);
+                          },
+                          child: DragTarget<FileSystemEntity>(onAccept: (v) {
+                            if (e.path != v.path) {
+                              var name = v.path.split("/").last;
+                              var reName = "${e.path}/$name";
+                              if (File(reName).existsSync()) {
+                                Get.snackbar("duplicate file name".tr, "There are files".tr, snackPosition: SnackPosition.BOTTOM);
+                                reName = "${reName}";
+                              } else {
+                                v.renameSync(reName);
+                              }
+                              reload(!reload.value);
+                              bDrag(false);
+                            }
+                          }, builder: (ctx, listItem, lstitem2) {
+                            if (listItem.isNotEmpty && IsarCtl.libPDir.value == e) {
+                              return cardBox(child: Icon(Icons.upload_file), f: e, bIcon: true);
+                            }
+                            if (listItem.isNotEmpty && listItem.first is File) {
+                              return cardBox(child: Icon(Icons.note_add), f: e, bIcon: true);
+                            }
+                            if (IsarCtl.libPDir.value == e) {
+                              return directoryWidget(e);
+                            }
+                            // return directoryWidget(d);
+                            return LongPressDraggable(
+                                onDragStarted: () {
+                                  bDrag(true);
+                                  dragEx("dir");
+                                },
+                                onDragEnd: (d) {
+                                  bDrag(false);
+                                  dragEx("");
+                                },
+                                data: d,
+                                child: directoryWidget(d),
+                                feedback: directoryFeedbackWidget(d));
+                          }),
+                        )
+                      ],
+                    );
+                  }
+                  var f = (e as File);
                   return Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Container(width: 16.w, height: 110.h),
-                      InkWell(
-                        onTap: () {
-                          IsarCtl.libPDir.value = null;
-                          if (d.path.split("/").last != rootName) {
-                            IsarCtl.libPDir(d.parent);
-                          }
-                          IsarCtl.libPDir.refresh();
-                          IsarCtl.libDir(d);
-                          reload(!reload.value);
-                        },
-                        child: DragTarget<FileSystemEntity>(onAccept: (v) {
-                          if (e.path != v.path) {
-                            var name = v.path.split("/").last;
-                            var reName = "${e.path}/$name";
-                            if (File(reName).existsSync()) {
-                              Get.snackbar("duplicate file name".tr, "There are files".tr, snackPosition: SnackPosition.BOTTOM);
-                              reName = "${reName}";
-                            } else {
-                              v.renameSync(reName);
+                      DragTarget(onAccept: (v) {
+                        try {
+                          if (v is File) {
+                            var fromIdx = fileList.indexOf(v);
+                            var toIdx = fileList.indexOf(e);
+                            DateTime startDate = DateTime.now();
+                            DateTime endDate;
+                            if (toIdx > 0) {
+                              startDate = (fileList[toIdx - 1] as File).lastAccessedSync();
                             }
+                            endDate = (e as File).lastAccessedSync();
+                            int df = startDate.difference(endDate).inMicroseconds ~/ 2;
+                            v.setLastAccessedSync(endDate.add(Duration(microseconds: df)));
                             reload(!reload.value);
-                            bDrag(false);
                           }
-                        }, builder: (ctx, listItem, lstitem2) {
-                          if (listItem.isNotEmpty && IsarCtl.libPDir.value == e) {
-                            return cardBox(child: Icon(Icons.upload_file), f: e, bIcon: true);
+                        } catch (e) {}
+                      }, builder: (ctx, listItem, lstitem2) {
+                        Color? color = null;
+
+                        if (listItem.isNotEmpty && listItem.first is File) {
+                          color = Colors.green;
+                        }
+
+                        return Obx(() {
+                          if (bDrag.value && color == null) {
+                            color = Colors.green.withOpacity(0.1);
                           }
-                          if (listItem.isNotEmpty && listItem.first is File) {
-                            return cardBox(child: Icon(Icons.note_add), f: e, bIcon: true);
+                          if (!bDrag.value || dragEx.value == "dir") {
+                            color = null;
                           }
-                          if (IsarCtl.libPDir.value == e) {
-                            return directoryWidget(e);
+
+                          return Container(
+                            width: 16.w,
+                            height: 110.h,
+                            decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(15)),
+                            child: bDrag.value && dragEx.value != "dir" ? Icon(Icons.horizontal_distribute, size: 8.sp) : null,
+                          );
+                        });
+                      }),
+                      DragTarget<FileSystemEntity>(onAccept: (v) {
+                        try {
+                          if (v is File && v.path != e.path) {
+                            var pathList = e.path.split("/");
+                            var path = pathList.sublist(0, pathList.length - 1).join("/");
+                            var fileName = pathList.last.split(".").first;
+                            var f1name = e.path.split("/").last;
+                            var f2name = v.path.split("/").last;
+                            var dir = Directory("${path}/${fileName}");
+                            if (!dir.existsSync()) {
+                              dir.createSync();
+                            }
+                            e.renameSync("${dir.path}/$f1name");
+                            v.renameSync("${dir.path}/$f2name");
+                            reload(!reload.value);
                           }
-                          // return directoryWidget(d);
-                          return LongPressDraggable(
-                              onDragStarted: () {
-                                bDrag(true);
-                                dragEx("dir");
-                              },
-                              onDragEnd: (d) {
-                                bDrag(false);
-                                dragEx("");
-                              },
-                              data: d,
-                              child: directoryWidget(d),
-                              feedback: directoryFeedbackWidget(d));
-                        }),
-                      )
+                        } catch (e) {}
+                        bDrag(false);
+                      }, builder: (ctx, listItem, lstitem2) {
+                        if (listItem.isNotEmpty && listItem.first!.path != f.path && listItem.first is File) {
+                          return cardBox(child: Icon(Icons.folder), f: e, bIcon: true);
+                        }
+
+                        return LongPressDraggable(
+                            data: e,
+                            onDragStarted: () {
+                              var ex = e.path.split(".").last;
+                              bDrag(true);
+                              dragEx(ex);
+                            },
+                            onDragEnd: (d) {
+                              bDrag(false);
+                              dragEx("");
+                            },
+                            onDraggableCanceled: (v, o) {
+                              bDrag(false);
+                              dragEx("");
+                            },
+                            child: fileWidget(f),
+                            feedback: fileFeedbackWidget(f));
+                      }),
                     ],
                   );
-                }
-                var f = (e as File);
-                return Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    DragTarget(onAccept: (v) {
-                      try {
-                        if (v is File) {
-                          var fromIdx = fileList.indexOf(v);
-                          var toIdx = fileList.indexOf(e);
-                          DateTime startDate = DateTime.now();
-                          DateTime endDate;
-                          if (toIdx > 0) {
-                            startDate = (fileList[toIdx - 1] as File).lastAccessedSync();
-                          }
-                          endDate = (e as File).lastAccessedSync();
-                          int df = startDate.difference(endDate).inMicroseconds ~/ 2;
-                          v.setLastAccessedSync(endDate.add(Duration(microseconds: df)));
-                          reload(!reload.value);
-                        }
-                      } catch (e) {}
-                    }, builder: (ctx, listItem, lstitem2) {
-                      Color? color = null;
-
-                      if (listItem.isNotEmpty && listItem.first is File) {
-                        color = Colors.green;
-                      }
-
-                      return Obx(() {
-                        if (bDrag.value && color == null) {
-                          color = Colors.green.withOpacity(0.1);
-                        }
-                        if (!bDrag.value || dragEx.value == "dir") {
-                          color = null;
-                        }
-
-                        return Container(
-                          width: 16.w,
-                          height: 110.h,
-                          decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(15)),
-                          child: bDrag.value && dragEx.value != "dir" ? Icon(Icons.horizontal_distribute, size: 8.sp) : null,
-                        );
-                      });
-                    }),
-                    DragTarget<FileSystemEntity>(onAccept: (v) {
-                      try {
-                        if (v is File && v.path != e.path) {
-                          var pathList = e.path.split("/");
-                          var path = pathList.sublist(0, pathList.length - 1).join("/");
-                          var fileName = pathList.last.split(".").first;
-                          var f1name = e.path.split("/").last;
-                          var f2name = v.path.split("/").last;
-                          var dir = Directory("${path}/${fileName}");
-                          if (!dir.existsSync()) {
-                            dir.createSync();
-                          }
-                          e.renameSync("${dir.path}/$f1name");
-                          v.renameSync("${dir.path}/$f2name");
-                          reload(!reload.value);
-                        }
-                      } catch (e) {}
-                      bDrag(false);
-                    }, builder: (ctx, listItem, lstitem2) {
-                      if (listItem.isNotEmpty && listItem.first!.path != f.path && listItem.first is File) {
-                        return cardBox(child: Icon(Icons.folder), f: e, bIcon: true);
-                      }
-
-                      return LongPressDraggable(
-                          data: e,
-                          onDragStarted: () {
-                            var ex = e.path.split(".").last;
-                            bDrag(true);
-                            dragEx(ex);
-                          },
-                          onDragEnd: (d) {
-                            bDrag(false);
-                            dragEx("");
-                          },
-                          onDraggableCanceled: (v, o) {
-                            bDrag(false);
-                            dragEx("");
-                          },
-                          child: fileWidget(f),
-                          feedback: fileFeedbackWidget(f));
-                    }),
-                  ],
-                );
-              }).toList(),
+                }).toList(),
+              ),
             ),
           ),
         ),
