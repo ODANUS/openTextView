@@ -584,7 +584,8 @@ class Utils {
     FilePickerResult? selectedFiles;
     if (Platform.isIOS) {
       FilePicker.platform.clearTemporaryFiles();
-      selectedFiles = await FilePicker.platform.pickFiles();
+      selectedFiles =
+          await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
     } else {
       selectedFiles =
           await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
