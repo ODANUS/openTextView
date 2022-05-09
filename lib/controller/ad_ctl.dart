@@ -39,7 +39,6 @@ class AdBanner extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    // print(">>>>>>>>>>>>>>>>>>>>>>>>>");
     return Obx(() {
       if (_bannerAd.value != null) {
         return Container(
@@ -117,7 +116,6 @@ class AdCtl {
           },
           onAdFailedToLoad: (LoadAdError error) {
             _rewardedAd = null;
-            print('RewardedAd failed to load: $error');
             c.complete(false);
           },
         ));
@@ -140,9 +138,10 @@ class AdCtl {
       _interstitialAd?.show();
       return true;
     } else {
-      Get.dialog(AlertDialog(
-          content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
-      return false;
+      return true;
+      // Get.dialog(AlertDialog(
+      //     content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+      // return false;
     }
   }
 
@@ -186,8 +185,9 @@ class AdCtl {
       //  Get.back(result: true);
     } else {
       IsarCtl.bLoadingLib(false);
-      return await Get.dialog(
-          AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: true), child: Text("confirm".tr))]));
+      return true;
+      // return await Get.dialog(
+      //     AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: true), child: Text("confirm".tr))]));
     }
   }
 
@@ -213,8 +213,9 @@ class AdCtl {
     } else {
       // Get.back(result: false);
       IsarCtl.bLoadingLib(false);
-      return await Get.dialog(
-          AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: true), child: Text("confirm".tr))]));
+      return true;
+      // return await Get.dialog(
+      //     AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: true), child: Text("confirm".tr))]));
     }
   }
 
@@ -239,8 +240,9 @@ class AdCtl {
       // Get.back(result: true);
     } else {
       IsarCtl.bLoadingLib(false);
-      return await Get.dialog(
-          AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: true), child: Text("confirm".tr))]));
+      return true;
+      // return await Get.dialog(
+      //     AlertDialog(content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: true), child: Text("confirm".tr))]));
     }
   }
 }
