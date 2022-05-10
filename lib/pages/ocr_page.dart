@@ -12,6 +12,7 @@ import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:collection/collection.dart' show compareNatural;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OcrPage extends GetView {
   OcrPage() {
@@ -314,7 +315,10 @@ class OcrPage extends GetView {
                           children: [
                             CircularProgressIndicator(),
                             SizedBox(height: 10),
-                            Text("${current}/${total}"),
+                            Text(
+                              "${current}/${total}",
+                              style: TextStyle(fontSize: 15.sp),
+                            ),
                           ],
                         ))
                     : SizedBox(),

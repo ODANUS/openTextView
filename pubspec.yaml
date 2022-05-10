@@ -86,10 +86,10 @@ dependencies:
   
   google_mlkit_text_recognition:
     git:
-      url: https://github.com/khjde1207/Google-Ml-Kit-plugin
+      url: https://github.com/bharat-biradar/Google-Ml-Kit-plugin
       path: packages/google_mlkit_text_recognition
 
-  pdf_text:
+  pdf_text: 
     git:
       url: https://github.com/khjde1207/flutter-pdf-text
   scrollable_positioned_list: ^0.2.3

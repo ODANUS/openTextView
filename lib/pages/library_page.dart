@@ -103,7 +103,10 @@ class LibraryPage extends GetView {
                           children: [
                             CircularProgressIndicator(),
                             SizedBox(height: 10),
-                            Text("${IsarCtl.epubCurrent.value}/${IsarCtl.epubTotal.value}"),
+                            Text(
+                              "${IsarCtl.epubCurrent.value}/${IsarCtl.epubTotal.value}",
+                              style: TextStyle(fontSize: 18.sp),
+                            ),
                           ],
                         ));
                   }
@@ -121,8 +124,14 @@ class LibraryPage extends GetView {
                           children: [
                             CircularProgressIndicator(),
                             SizedBox(height: 10),
-                            Text("Creating split compressed file".tr + " (${IsarCtl.MAXOCRCNT})"),
-                            Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
+                            Text(
+                              "Creating split compressed file".tr + " (${IsarCtl.MAXOCRCNT})",
+                              style: TextStyle(fontSize: 18.sp),
+                            ),
+                            Text(
+                              "${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}",
+                              style: TextStyle(fontSize: 18.sp),
+                            ),
                           ],
                         ));
                   }
@@ -137,7 +146,10 @@ class LibraryPage extends GetView {
                           children: [
                             CircularProgressIndicator(),
                             SizedBox(height: 10),
-                            Text("${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}"),
+                            Text(
+                              "${IsarCtl.unzipCurrent.value}/${IsarCtl.unzipTotal.value}",
+                              style: TextStyle(fontSize: 18.sp),
+                            ),
                           ],
                         ));
                   }
