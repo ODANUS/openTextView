@@ -131,8 +131,8 @@ class SettingIsar {
     this.fontColor = 0,
     this.paddingLeft = 10,
     this.paddingRight = 10,
-    this.paddingTop = 10,
-    this.paddingBottom = 10,
+    this.paddingTop = 20,
+    this.paddingBottom = 20,
     this.bgIdx = 0,
     this.bgFilter = 0x00FFFFFF,
   });
@@ -159,8 +159,8 @@ class SettingIsar {
   int fontColor;
   double paddingLeft = 10;
   double paddingRight = 10;
-  double paddingTop = 10;
-  double paddingBottom = 10;
+  double paddingTop = 20;
+  double paddingBottom = 20;
   int bgIdx = 0;
   int bgFilter = 0x00FFFFFF;
 

@@ -157,6 +157,11 @@ class AudioHandlerIOS extends BaseAudioHandler
       title: '${history.name}',
       duration: Duration(seconds: contents.length),
     ));
+    DateTime? lastTtsDate;
+
+    tts!.setProgressHandler((text, start, end, word) {
+      lastTtsDate = null;
+    });
 
     for (var i = pos; i < contents.length;) {
       if (playstat != STAT_PLAY) break;
@@ -214,9 +219,22 @@ class AudioHandlerIOS extends BaseAudioHandler
         lastProgrss = 0;
       }
       lastPos = i;
-
-      print("$speakText");
+      // var bspeak = await tts?.speak(speakText);
+      lastTtsDate = DateTime.now();
+      Future.delayed(500.milliseconds, () async {
+        if (lastTtsDate != null) {
+          await stop();
+          lastTtsDate = null;
+          history.cntntPstn += 5;
+          history.date = DateTime.now();
+          IsarCtl.putHistory(history);
+          await Future.delayed(300.milliseconds);
+          await play();
+          return;
+        }
+      });
       var bspeak = await tts?.speak(speakText);
+
       i += nextPos;
 
       if (bspeak == null) {

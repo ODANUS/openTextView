@@ -63,6 +63,7 @@ class AdCtl {
   static init() {
     MobileAds.instance.initialize().then((value) {
       MobileAds.instance.setAppMuted(true);
+      MobileAds.instance.updateRequestConfiguration(RequestConfiguration(testDeviceIds: ["0be8f77d456375460b4e3c6bb7bab25c"]));
     });
     // MobileAds.instance.setAppVolume(0);
     // 5559A4CF00EDA5E61AC931F9D8F9742D

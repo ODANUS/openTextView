@@ -321,7 +321,7 @@ class TextViewerController extends ChangeNotifier {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += avgHeight * (lastWidth ~/ size.width + 1);
+            lineHeight += avgHeight * (lastWidth ~/ size.width + 2);
           } else {
             lineHeight += avgHeight;
           }
