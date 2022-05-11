@@ -121,7 +121,7 @@ class IsarCtl {
     List<HistoryIsar> historys = isar.historyIsars.where().findAllSync();
     if (settingIsar == null || historys.isEmpty) {
       isar.writeTxnSync((isar) {
-        isar.settingIsars.putSync(SettingIsar(speechRate: Platform.isAndroid ? 1 : 0.4));
+        isar.settingIsars.putSync(SettingIsar(speechRate: Platform.isAndroid ? 1 : 0.4, groupcnt: Platform.isAndroid ? 5 : 1));
       });
       settingIsar = isar.settingIsars.where().findFirstSync();
     }

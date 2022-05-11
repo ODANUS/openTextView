@@ -198,7 +198,14 @@ class Utils {
     var zipFileName = pathList.last.split(".").first;
 
     final bytes = f.readAsBytesSync();
-    final archive = ZipDecoder().decodeBytes(bytes);
+    Archive archive;
+
+    try {
+      archive = ZipDecoder().decodeBytes(bytes);
+    } catch (e) {
+      return false;
+    }
+
     // archive.
     var rootTmpDir = await getTemporaryDirectory();
     var tmpDir = Directory("${rootTmpDir.path}/ocr");

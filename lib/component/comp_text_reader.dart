@@ -18,6 +18,7 @@ class CompTextReader extends GetView {
     required this.setting,
     this.bPlay = false,
   }) {}
+  // CompTextReaderCtl ctl = Get.put(CompTextReaderCtl(con: IsarCtl.contents.text, style: IsarCtl.textStyle));
 
   SettingIsar setting;
 
@@ -319,7 +320,11 @@ class TextViewerController extends ChangeNotifier {
         if (lineWidth > size.width + cacheMap[" "]![0] * 1.1) {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
-          lineHeight += avgHeight;
+          if (lastWidth > size.width) {
+            lineHeight += avgHeight * (lastWidth ~/ size.width + 1);
+          } else {
+            lineHeight += avgHeight;
+          }
           newlineCnt++;
 
           if (nextLine == 0) {

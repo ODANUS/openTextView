@@ -322,12 +322,12 @@ class LibraryFileViewer extends GetView {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         changeNameWidget(f, history: history),
-                        // if (kDebugMode)
-                        //   ElevatedButton(
-                        //       onPressed: () {
-                        //         Utils.saveAs(f);
-                        //       },
-                        //       child: Text("save")),
+                        if (kDebugMode)
+                          ElevatedButton(
+                              onPressed: () {
+                                Utils.saveAs(f);
+                              },
+                              child: Text("save")),
                         // if (kDebugMode)
                         //   Card(
                         //       child: ListTile(
@@ -419,12 +419,23 @@ class LibraryFileViewer extends GetView {
                             child: ListTile(
                                 tileColor: Colors.blue.withOpacity(0.5),
                                 onTap: () async {
-                                  // Get.back();
+                                  Get.back();
                                   if (await Utils.ocrZipFile(f)) {
                                     reload(!reload.value);
+                                  } else {
+                                    Get.dialog(AlertDialog(
+                                      content: Text("Decompression failed".tr),
+                                      actions: [
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              Get.back();
+                                            },
+                                            child: Text("".tr)),
+                                      ],
+                                    ));
                                   }
                                 },
-                                title: Text("OCR".tr))),
+                                title: Text("ZIP".tr))),
                       ],
                     ),
                   ),
