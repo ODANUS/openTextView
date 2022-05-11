@@ -49,7 +49,6 @@ class OptionReview extends GetView {
                   }
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
-                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
                   launchUrlString('https://apps.apple.com/app/id1622580218');
                   // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
