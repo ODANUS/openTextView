@@ -18,9 +18,9 @@ class OptionReview extends GetView {
   Rxn<Source> installationSource = Rxn<Source>();
   @override
   Widget build(BuildContext context) {
-    if (Platform.isIOS) {
-      return SizedBox();
-    }
+    // if (Platform.isIOS) {
+    //   return SizedBox();
+    // }
     return Obx(() {
       if (installationSource.value != Source.IS_INSTALLED_FROM_PLAY_STORE &&
           installationSource.value != Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE &&
@@ -45,12 +45,12 @@ class OptionReview extends GetView {
                   if (Platform.isAndroid) {
                     launchUrlString('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                   } else if (Platform.isIOS) {
-                    launchUrlString('https://apps.apple.com/app/${packageInfo.packageName}');
+                    launchUrlString('https://apps.apple.com/app/id1622580218');
                   }
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  launchUrlString('https://apps.apple.com/app/${packageInfo.packageName}');
+                  launchUrlString('https://apps.apple.com/app/id1622580218');
                   // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
               },
@@ -66,12 +66,15 @@ class OptionReview extends GetView {
                   Share.share('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_LOCAL_SOURCE) {
-                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  Share.share('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                  if (Platform.isAndroid) {
+                    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                    Share.share('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                  } else if (Platform.isIOS) {
+                    Share.share('https://apps.apple.com/app/id1622580218');
+                  }
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
-                  PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  Share.share('https://apps.apple.com/app/${packageInfo.packageName}');
+                  Share.share('https://apps.apple.com/app/id1622580218');
                 }
               },
               icon: Icon(Icons.share)),
