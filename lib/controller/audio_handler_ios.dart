@@ -223,12 +223,13 @@ class AudioHandlerIOS extends BaseAudioHandler
       lastTtsDate = DateTime.now();
       Future.delayed(500.milliseconds, () async {
         if (lastTtsDate != null) {
-          await stop();
           lastTtsDate = null;
+          await stop();
+
           history.cntntPstn += 5;
           history.date = DateTime.now();
           IsarCtl.putHistory(history);
-          await Future.delayed(300.milliseconds);
+          await Future.delayed(500.milliseconds);
           await play();
           return;
         }
