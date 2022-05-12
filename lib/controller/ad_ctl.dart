@@ -146,25 +146,25 @@ class AdCtl {
     }
   }
 
-  static Future<bool> startRewardedAd() async {
-    if (await initRewardedAd()) {
-      _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
-        onAdDismissedFullScreenContent: (RewardedAd ad) async {
-          await ad.dispose();
-          _rewardedAd = null;
-        },
-        onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
-          await ad.dispose();
-          _rewardedAd = null;
-        },
-      );
+  // static Future<bool> startRewardedAd() async {
+  //   if (await initRewardedAd()) {
+  //     _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+  //       onAdDismissedFullScreenContent: (RewardedAd ad) async {
+  //         await ad.dispose();
+  //         _rewardedAd = null;
+  //       },
+  //       onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
+  //         await ad.dispose();
+  //         _rewardedAd = null;
+  //       },
+  //     );
 
-      _rewardedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {});
-      return true;
-    } else {
-      return await startInterstitialAd();
-    }
-  }
+  //     _rewardedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {});
+  //     return true;
+  //   } else {
+  //     return await startInterstitialAd();
+  //   }
+  // }
 
   static Future<bool> openInterstitialAdNewLine() async {
     IsarCtl.bLoadingLib(true);

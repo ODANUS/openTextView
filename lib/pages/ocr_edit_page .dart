@@ -142,7 +142,6 @@ class OcrEditPage extends GetView {
                         tmpv(v.toInt());
                       },
                       onChangeEnd: (v) {
-                        print("-------------");
                         var ss = imglib.brightness(refimgByte.value!.clone(), v.toInt());
                         imgByte(ss!);
                         imgByte.refresh();

@@ -43,7 +43,7 @@ class OcrPage extends GetView {
       return;
     }
     total(bcutList.where((b) => b).length);
-    await AdCtl.startRewardedAd();
+    await AdCtl.startInterstitialAd();
     var cnt = 0;
     for (var i = 0; i < fileList.length; i++) {
       var e = fileList[i];
@@ -149,7 +149,6 @@ class OcrPage extends GetView {
                       children: [
                         TextSpan(text: "${"Total number of images".tr}"),
                         TextSpan(text: " ${fileList.length}  "),
-                        TextSpan(text: "If the number of pages".tr),
                       ],
                     )),
                   )),
@@ -257,12 +256,12 @@ class OcrPage extends GetView {
                                   List<String> tmpList = [];
 
                                   total(fileList.length);
-                                  if (fileList.length <= 60 && !kDebugMode) {
-                                    await AdCtl.startInterstitialAd();
-                                  }
-                                  if (fileList.length > 60 && !kDebugMode) {
-                                    await AdCtl.startRewardedAd();
-                                  }
+                                  await AdCtl.startInterstitialAd();
+                                  // if (fileList.length <= 60 && !kDebugMode) {
+                                  // }
+                                  // if (fileList.length > 60 && !kDebugMode) {
+                                  //   await AdCtl.startRewardedAd();
+                                  // }
 
                                   for (var file in fileList) {
                                     var idx = fileList.indexOf(file);

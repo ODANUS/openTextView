@@ -435,7 +435,7 @@ class LibraryFileViewer extends GetView {
                                     ));
                                   }
                                 },
-                                title: Text("ZIP".tr))),
+                                title: Text("OCR".tr))),
                       ],
                     ),
                   ),
