@@ -602,7 +602,7 @@ class LibraryFileViewer extends GetView {
                               var name = v.path.split("/").last;
                               var reName = "${e.path}/$name";
                               if (File(reName).existsSync()) {
-                                Get.snackbar("duplicate file name".tr, "There are files".tr, snackPosition: SnackPosition.bottom);
+                                Get.snackbar("duplicate file name".tr, "There are files".tr, snackPosition: SnackPosition.BOTTOM);
                                 reName = "${reName}";
                               } else {
                                 v.renameSync(reName);
