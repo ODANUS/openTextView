@@ -24,6 +24,7 @@ Future<void> initCtl() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
   // Get.lazyPut(() => GlobalController());
   // await initCtl();
@@ -42,7 +43,7 @@ void main() async {
             translations: Messages(),
             locale: Get.deviceLocale,
             // locale: Locale('ko'),
-            theme: CustomTheme.lightTheme(),
+            theme: CustomTheme.darkTheme(),
             darkTheme: CustomTheme.darkTheme(),
             fallbackLocale: Locale('en'),
             debugShowCheckedModeBanner: false,

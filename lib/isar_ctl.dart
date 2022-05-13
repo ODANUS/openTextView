@@ -139,14 +139,16 @@ class IsarCtl {
         putSetting(settingIsar);
       }
     }
-    if (settingIsar != null) {
-      if (settingIsar.theme == "light") {
-        Get.changeTheme(ThemeData.light());
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (settingIsar != null) {
+        if (settingIsar.theme == "light") {
+          Get.changeTheme(ThemeData.light());
+        }
+        if (settingIsar.theme == "dark") {
+          Get.changeTheme(ThemeData.dark());
+        }
       }
-      if (settingIsar.theme == "dark") {
-        Get.changeTheme(ThemeData.dark());
-      }
-    }
+    });
     // var historyst = isar.historyIsars.where().findAllSync();
     // print(historyst.length);
     // historys.forEach((e) {
