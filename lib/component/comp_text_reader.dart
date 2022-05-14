@@ -325,7 +325,7 @@ class TextViewerController extends ChangeNotifier {
         lastWidth += cacheMap[" "]![0];
         lineWidth += lastWidth;
 
-        if (lineWidth > size.width + cacheMap[" "]![0] * 1.1) {
+        if (lineWidth > size.width) {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
