@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CompTextReader extends GetView {
   CompTextReader({
@@ -217,7 +218,7 @@ class TextViewerController extends ChangeNotifier {
   }
 
   set style(TextStyle v) {
-    if (_style.fontSize != v.fontSize && _style.height != v.height && _style.letterSpacing != v.letterSpacing && _style.fontFamily != v.fontFamily) {
+    if (_style.fontSize != v.fontSize || _style.height != v.height || _style.letterSpacing != v.letterSpacing || _style.fontFamily != v.fontFamily) {
       cacheMap.clear();
       cacheWord();
     }
@@ -267,6 +268,7 @@ class TextViewerController extends ChangeNotifier {
     for (var i = 1; i < 2200; i++) {
       var perText = contents.substring(max(cntntPstn - i, 0), cntntPstn);
       var tmpData = _clcText(perText, size, max(cntntPstn - i, 0));
+
       if (tmpData.nextPos < cntntPstn || cntntPstn - i < 0) {
         break;
       }
@@ -316,11 +318,11 @@ class TextViewerController extends ChangeNotifier {
         lastWidth += cacheMap[" "]![0];
         lineWidth += lastWidth;
 
-        if (lineWidth > size.width + cacheMap[" "]![0] * 1.1) {
+        if (lineWidth > size.width) {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += avgHeight * (lastWidth ~/ size.width + 2);
+            lineHeight += avgHeight * (lastWidth ~/ size.width + 1);
           } else {
             lineHeight += avgHeight;
           }
