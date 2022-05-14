@@ -10,7 +10,7 @@ class DeveloperNotes extends GetView {
   final String content = """
 
 ---
-2.2.9 (2022 05 14)
+2.3.0 (2022 05 14)
 
 1. flutter 3.0 올라가면서 [위치이동] 슬라이더 컨트롤 하려고 하면 페이지가 전환되는 버그가 생겼습니다. 
   - 드래그 로 페이지 전환 기능을 제거 하였습니다. 
