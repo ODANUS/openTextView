@@ -90,7 +90,21 @@ class CompTextReader extends GetView {
                 Get.back();
                 IsarCtl.enableVolumeButton(true);
               }
-              IsarCtl.bfullScreen(!IsarCtl.bfullScreen.value);
+              if (!IsarCtl.bfullScreen.value) {
+                IsarCtl.bfullScreen(true);
+                return;
+              }
+              print(IsarCtl.bfullScreen.value);
+              print(IsarCtl.btitleFullScreen.value);
+              if (!IsarCtl.btitleFullScreen.value) {
+                IsarCtl.btitleFullScreen(true);
+                return;
+              }
+              if (IsarCtl.btitleFullScreen.value && IsarCtl.bfullScreen.value) {
+                IsarCtl.bfullScreen(false);
+                IsarCtl.btitleFullScreen(false);
+                return;
+              }
             },
             onBackpage: () {
               IsarCtl.basyncOffset(true);

@@ -12,118 +12,116 @@ class ReadPage extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            toolbarHeight: 30.h,
-            // backgroundColor: Colors.transparent,
-            // elevation: 0,
-            centerTitle: false,
-            title: InkWell(
-              onTap: () {},
-              child: IsarCtl.rxLastHistory(
-                (ctx, data) {
-                  return Padding(
-                      padding: EdgeInsets.only(right: 5),
-                      child: Text(
-                        data.name.replaceAll(".txt", ""),
-                        style: TextStyle(
-                          fontSize: 13.sp,
-                        ),
-                      ));
-                },
-              ),
-            ),
-            actions: [
-              IsarCtl.rxLastHistory(
-                (ctx, data) {
-                  return Align(
-                      alignment: Alignment.center,
+        body: SafeArea(
+          child: Builder(builder: (ctx) {
+            return Column(
+              children: [
+                Obx(() => AnimatedContainer(
+                    key: Key("titlebar"),
+                    color: Colors.transparent,
+                    duration: const Duration(milliseconds: 300),
+                    height: IsarCtl.btitleFullScreen.value ? 0 : null,
+                    child: Card(
+                      margin: EdgeInsets.all(0),
                       child: Padding(
-                          padding: EdgeInsets.only(right: 5),
-                          child: Text(
-                            "${(data.cntntPstn / data.contentsLen * 100).toStringAsFixed(2)}%",
-                          )));
-                },
-              ),
-              Obx(
-                () => InkWell(
-                    onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value),
-                    child: Icon(IsarCtl.bSetting.value ? Icons.cancel : Icons.settings_outlined)),
-              ),
-
-              SizedBox(width: 5),
-              // InkWell(
-              //   onLongPress: () {},
-              //   onTap: () async {
-              //     Get.dialog(AlertDialog(
-              //         content: TextField(
-              //       keyboardType: TextInputType.number,
-              //       autofocus: true,
-              //     )));
-              //     await Future.delayed(50.milliseconds);
-              //     Get.back();
-              //     IsarCtl.enableVolumeButton(true);
-              //   },
-              //   child: Tooltip(
-              //     message: "enable volume keys".tr,
-              //     triggerMode: TooltipTriggerMode.longPress,
-              //     child: Icon(Icons.stay_primary_portrait),
-              //   ), //Icon(IsarCtl.enableVolumeButton.value ? Icons.stay_primary_portrait : Icons.phonelink_erase),
-              // )
-            ]),
-        body: Builder(builder: (ctx) {
-          return Stack(children: [
-            IsarCtl.rxSetting((_, setting) {
-              return Container(
-                width: Get.width,
-                height: Get.height,
-                color: Color(setting.backgroundColor),
-              );
-            }),
-            AudioPlay.builder(builder: (BuildContext context, AsyncSnapshot<PlaybackState> snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
-              }
-
-              // return SizedBox();
-
-              return IsarCtl.rxSetting((_, setting) {
-                return Container(
-                    width: Get.width,
-                    height: Get.height,
-                    // color: Color(setting.backgroundColor),
-                    decoration: BoxDecoration(
-                      color: Color(setting.backgroundColor),
-                      image: setting.bgIdx <= 0
-                          ? null
-                          : DecorationImage(
-                              fit: BoxFit.cover,
-                              colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
-                              image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+                        padding: EdgeInsets.all(5),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: IsarCtl.rxLastHistory(
+                                (ctx, data) {
+                                  return Text(
+                                    data.name.replaceAll(".txt", ""),
+                                    style: TextStyle(fontSize: 13.sp, overflow: TextOverflow.ellipsis),
+                                  );
+                                },
+                              ),
                             ),
-                    ),
-                    padding: EdgeInsets.only(
-                      left: setting.paddingLeft,
-                      right: setting.paddingRight,
-                      top: setting.paddingTop,
-                      bottom: setting.paddingBottom,
-                    ),
-                    child: IsarCtl.rxContents((_, contents) {
-                      return CompTextReader(
-                        setting: setting,
-                        bPlay: snapshot.data!.playing,
+                            Row(
+                              children: [
+                                IsarCtl.rxLastHistory(
+                                  (ctx, data) {
+                                    return Text(
+                                      "${(data.cntntPstn / data.contentsLen * 100).toStringAsFixed(2)}%",
+                                      style: TextStyle(overflow: TextOverflow.ellipsis),
+                                      maxLines: 1,
+                                    );
+                                  },
+                                ),
+                                SizedBox(width: 5),
+                                Obx(() {
+                                  if (IsarCtl.btitleFullScreen.value) {
+                                    return SizedBox();
+                                  }
+                                  return InkWell(
+                                      onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value),
+                                      child: Icon(IsarCtl.bSetting.value ? Icons.cancel : Icons.settings_outlined));
+                                }),
+                                SizedBox(width: 2),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ))),
+                Expanded(
+                  child: Stack(children: [
+                    IsarCtl.rxSetting((_, setting) {
+                      return Container(
+                        width: Get.width,
+                        height: Get.height,
+                        color: Color(setting.backgroundColor),
                       );
-                    }));
-              });
-            }),
-            Obx(
-              () => IsarCtl.bSetting.value
-                  ? IsarCtl.rxSetting((_, setting) {
-                      return CompUiSetting(setting: setting);
-                    })
-                  : SizedBox(),
-            )
-          ]);
-        }),
+                    }),
+                    AudioPlay.builder(builder: (BuildContext context, AsyncSnapshot<PlaybackState> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator();
+                      }
+
+                      // return SizedBox();
+
+                      return IsarCtl.rxSetting((_, setting) {
+                        return Container(
+                            width: Get.width,
+                            height: Get.height,
+                            // color: Color(setting.backgroundColor),
+                            decoration: BoxDecoration(
+                              color: Color(setting.backgroundColor),
+                              image: setting.bgIdx <= 0
+                                  ? null
+                                  : DecorationImage(
+                                      fit: BoxFit.cover,
+                                      colorFilter: new ColorFilter.mode(Color(setting.bgFilter), BlendMode.dstATop),
+                                      image: AssetImage('assets/images/${IsarCtl.listBg[setting.bgIdx]}'),
+                                    ),
+                            ),
+                            padding: EdgeInsets.only(
+                              left: setting.paddingLeft,
+                              right: setting.paddingRight,
+                              top: setting.paddingTop,
+                              bottom: setting.paddingBottom,
+                            ),
+                            child: IsarCtl.rxContents((_, contents) {
+                              return CompTextReader(
+                                setting: setting,
+                                bPlay: snapshot.data!.playing,
+                              );
+                            }));
+                      });
+                    }),
+                    Obx(
+                      () => IsarCtl.bSetting.value
+                          ? IsarCtl.rxSetting((_, setting) {
+                              return CompUiSetting(setting: setting);
+                            })
+                          : SizedBox(),
+                    )
+                  ]),
+                ),
+              ],
+            );
+          }),
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Obx(() => AnimatedContainer(
               key: Key("bottombar"),

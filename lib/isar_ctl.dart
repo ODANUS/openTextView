@@ -40,6 +40,13 @@ class IsarCtl {
     "ReadexPro",
     "Roboto",
     "NanumMyeongjo",
+    "BMDOHYEON",
+    "BMEULJIRO",
+    "KoPubBatang",
+    'KoPubDotum',
+    "MaruBuri",
+    "NanumPen",
+    "RIDIBatang",
   ];
 
   static final List<String> listBg = [
@@ -70,6 +77,7 @@ class IsarCtl {
   static RxBool bSetting = false.obs;
   static RxInt tabIndex = 0.obs;
   static RxBool bfullScreen = false.obs;
+  static RxBool btitleFullScreen = false.obs;
 
   // static RxDouble maxHeight = RxDouble(0);
   static RxInt unzipTotal = 0.obs;
@@ -214,11 +222,6 @@ class IsarCtl {
       tctl.back();
     }
     await PerfectVolumeControl.setVolume(lastVolume.value);
-
-    print(lastVolume.value);
-    print(volume);
-
-    // return result;
   }
 
   static bool volumeControll(KeyEvent event) {
@@ -371,8 +374,8 @@ class IsarCtl {
     if (s == null) {
       return null;
     }
-    int? c = s?.fontColor;
-    if (c == null || c == 0) {
+    int c = s.fontColor;
+    if (c == 0) {
       c = Get.isDarkMode ? 0xFFFFFFFF : 0xFF000000;
     }
     return TextStyle(

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -599,6 +600,7 @@ class LayoutSetting extends GetView {
 }
 
 class MoveLocation extends GetView {
+  int lastIdx = 1;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -608,32 +610,64 @@ class MoveLocation extends GetView {
         // color: Colors.black26,
         child: ObxValue((RxInt position) {
           TextEditingController c = TextEditingController()..text = position.toString();
+          // var perCon = IsarCtl.contents.text.substring(max(0, position.value - 100), position.value + 1);
+          var perPos = max(0, position.value - 200);
+          var nextPos = min(position.value + 200, IsarCtl.contents.text.length);
+          var curCon = IsarCtl.contents.text.substring(position.value, nextPos);
+          // var nextCon = IsarCtl.contents.text.substring(nextPos, min(nextPos + 100, IsarCtl.contents.text.length));
           return Card(
             child: Container(
               padding: EdgeInsets.all(10),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  SizedBox(
+                    height: 220.h,
+                    child: Text(curCon),
+                  ),
+                  Divider(),
                   Text(
                       "${"Current_location".tr} : $position / ${IsarCtl.contents.text.length}  (${(position / IsarCtl.contents.text.length * 100).toStringAsFixed(2)}%)"),
-                  Slider(
-                      value: position.toDouble(),
-                      min: 0,
-                      max: IsarCtl.contents.text.length.toDouble(),
-                      divisions: IsarCtl.contents.text.length,
-                      label: "${position.toInt()}",
-                      onChanged: (v) {
-                        position(v.toInt());
-                      },
-                      onChangeEnd: (double v) {
-                        IsarCtl.basyncOffset(true);
-                        IsarCtl.tctl.setCntntPstn(v.toInt(), offsetY: 0.0);
-                        IsarCtl.basyncOffset(false);
-                        // IsarCtl.tctl.offsetY = 0;
-                        // IsarCtl.tctl.notifyListeners();
-                        // IsarCtl.tctl.cntntPstn = v.toInt();
-                        // IsarCtl.tctl.offsetY = 0;
-                      }),
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            IsarCtl.basyncOffset(true);
+                            IsarCtl.tctl.setCntntPstn(perPos, offsetY: 0.0);
+                            IsarCtl.basyncOffset(false);
+                            position(perPos);
+                          },
+                          icon: Icon(Icons.remove)),
+                      Expanded(
+                        child: Slider(
+                            value: position.toDouble(),
+                            min: 0,
+                            max: IsarCtl.contents.text.length.toDouble(),
+                            divisions: IsarCtl.contents.text.length,
+                            label: "${position.toInt()}",
+                            onChanged: (v) {
+                              position(v.toInt());
+                            },
+                            onChangeEnd: (double v) {
+                              IsarCtl.basyncOffset(true);
+                              IsarCtl.tctl.setCntntPstn(v.toInt(), offsetY: 0.0);
+                              IsarCtl.basyncOffset(false);
+                              // IsarCtl.tctl.offsetY = 0;
+                              // IsarCtl.tctl.notifyListeners();
+                              // IsarCtl.tctl.cntntPstn = v.toInt();
+                              // IsarCtl.tctl.offsetY = 0;
+                            }),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            IsarCtl.basyncOffset(true);
+                            IsarCtl.tctl.setCntntPstn(nextPos, offsetY: 0.0);
+                            IsarCtl.basyncOffset(false);
+                            position(nextPos);
+                          },
+                          icon: Icon(Icons.add)),
+                    ],
+                  ),
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: "move_location".tr,
