@@ -12,6 +12,7 @@ import 'package:open_textview/model/model_isar.dart';
 // import 'package:open_textview/objectbox.g.dart';
 import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:perfect_volume_control/perfect_volume_control.dart';
 
 // Isar? isarIsolate;
 // String dbPath = "";
@@ -83,6 +84,7 @@ class IsarCtl {
   static Rxn<Directory> libPDir = Rxn<Directory>();
   static RxString libSearchText = "".obs;
   static RxBool bLoadingLib = false.obs;
+  static RxDouble lastVolume = 0.1.obs;
 
   // static RxBool bImageFullScreen = false.obs;
   // static RxBool bTowDrage = false.obs;
@@ -94,6 +96,8 @@ class IsarCtl {
   static RxBool basyncOffset = false.obs;
 
   static const int MAXOCRCNT = 1000;
+
+  static StreamSubscription? iosVolumeSub;
 
   // static RxBool bOpen = false.obs;
 
@@ -175,12 +179,61 @@ class IsarCtl {
     //       ..date = DateTime.now();
     //   }
     // }, time: 400.milliseconds);
-
-    HardwareKeyboard.instance.removeHandler(volumeControll);
-    HardwareKeyboard.instance.addHandler(volumeControll);
+    if (Platform.isAndroid) {
+      HardwareKeyboard.instance.removeHandler(volumeControll);
+      HardwareKeyboard.instance.addHandler(volumeControll);
+    }
+    if (Platform.isIOS) {
+      ever(bfullScreen, (bool v) async {
+        if (v) {
+          if (await PerfectVolumeControl.getVolume() == 0.0) {
+            await PerfectVolumeControl.setVolume(0.3);
+          }
+          if (await PerfectVolumeControl.getVolume() == 1.0) {
+            await PerfectVolumeControl.setVolume(0.7);
+          }
+          lastVolume(await PerfectVolumeControl.getVolume());
+          PerfectVolumeControl.hideUI = true;
+          iosVolumeSub = PerfectVolumeControl.stream.listen(volumeControllIOS);
+        } else {
+          PerfectVolumeControl.hideUI = false;
+          iosVolumeSub?.cancel();
+        }
+      });
+    }
 
     // libraryInit();
     // WidgetsBinding.instance!.addObserver(IsarCtl());
+  }
+
+  static void volumeControllIOS(double volume) async {
+    if (volume < lastVolume.value) {
+      tctl.next();
+    }
+    if (volume > lastVolume.value) {
+      tctl.back();
+    }
+    await PerfectVolumeControl.setVolume(lastVolume.value);
+
+    print(lastVolume.value);
+    print(volume);
+
+    // return result;
+  }
+
+  static bool volumeControll(KeyEvent event) {
+    bool result = false;
+    if (event is KeyDownEvent && tabIndex.value == 0 && bfullScreen.value) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp && !result && !AudioPlay.audioHandler!.playbackState.value.playing) {
+        result = true;
+        tctl.back();
+      }
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown && bfullScreen.value) {
+        result = true;
+        tctl.next();
+      }
+    }
+    return result;
   }
 
   // static libraryInit() async {
@@ -354,20 +407,6 @@ class IsarCtl {
   //   // }
   // }
 
-  static bool volumeControll(KeyEvent event) {
-    bool result = false;
-    if (event is KeyDownEvent && tabIndex.value == 0 && bfullScreen.value) {
-      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp && !result && !AudioPlay.audioHandler!.playbackState.value.playing) {
-        result = true;
-        tctl.back();
-      }
-      if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown && bfullScreen.value) {
-        result = true;
-        tctl.next();
-      }
-    }
-    return result;
-  }
   // rxSetting {
 
   // }
