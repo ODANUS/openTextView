@@ -1,6 +1,7 @@
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:developer' as d;
+import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
@@ -79,7 +80,7 @@ class CompTextReader extends GetView {
             bScreenHelp: false,
             touchLayout: setting.touchLayout,
             onFullScreen: () async {
-              if (!IsarCtl.enableVolumeButton.value) {
+              if (!IsarCtl.enableVolumeButton.value && Platform.isAndroid) {
                 Get.dialog(AlertDialog(
                     content: TextField(
                   keyboardType: TextInputType.number,
