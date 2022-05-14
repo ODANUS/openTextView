@@ -323,11 +323,11 @@ class IsarCtl {
       c = Get.isDarkMode ? 0xFFFFFFFF : 0xFF000000;
     }
     return TextStyle(
-      fontFamily: s?.fontFamily,
-      fontSize: s?.fontSize ?? 14,
-      fontWeight: FontWeight.values[s?.fontWeight ?? 3],
-      height: s?.fontHeight ?? 1.4,
-      letterSpacing: s?.letterSpacing ?? 0,
+      fontFamily: s.fontFamily,
+      fontSize: s.fontSize,
+      fontWeight: FontWeight.values[s.fontWeight],
+      height: s.fontHeight,
+      letterSpacing: s.letterSpacing,
       color: Color(c),
     );
   }
