@@ -134,7 +134,6 @@ class TextViewerPainter extends CustomPainter {
       text: TextSpan(
         text: data.contents,
         style: ctl._style,
-        mouseCursor: MaterialStateMouseCursor.clickable,
       ),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: size.width);
@@ -372,16 +371,20 @@ class TextViewerController extends ChangeNotifier {
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
-    String str = contents.substring(max(cntntPstn - 2300, 0), min(cntntPstn + 2300, contents.length));
+
+    String str = contents.substring(max(cntntPstn - 2200, 0), min(cntntPstn + 2200, contents.length));
     var nextArr = str.split("\n").map((e) => e.split(" ")).toList();
     Map<String, int> count = {};
     var painter = TextPainter(text: TextSpan(text: " ", style: _style), textDirection: TextDirection.ltr)..layout();
     cacheMap[" "] = [painter.width, painter.height];
+
     for (var line in nextArr) {
       for (var word in line) {
-        var painter = TextPainter(text: TextSpan(text: word, style: _style), textDirection: TextDirection.ltr)..layout();
-        cacheMap[word] = [painter.width, painter.height];
-        count["${painter.width},${painter.height}"] = (count["${painter.width},${painter.height}"] ?? 0) + 1;
+        if (cacheMap[word] == null) {
+          var painter = TextPainter(text: TextSpan(text: word, style: _style), textDirection: TextDirection.ltr)..layout();
+          cacheMap[word] = [painter.width, painter.height];
+          count["${painter.width},${painter.height}"] = (count["${painter.width},${painter.height}"] ?? 0) + 1;
+        }
       }
     }
 
@@ -398,6 +401,7 @@ class TextViewerController extends ChangeNotifier {
       avgWidth = double.parse(thekey.split(",").first);
       avgHeight = double.parse(thekey.split(",").last);
     }
+
     // var endDate = DateTime.now();
     // print("end cache ${endDate}  :: ${endDate.difference(startDate).inMilliseconds}");
   }

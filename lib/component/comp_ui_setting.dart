@@ -47,6 +47,7 @@ class CompUiSetting extends GetView {
           ),
         ),
         body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             PageSearch(),
             MoveLocation(),

@@ -68,7 +68,7 @@ class SettingPage extends GetView {
               Card(child: OptionBackup()),
               Card(child: OptionTts()),
               Card(child: OptionFilter()),
-              if (Platform.isAndroid) Card(child: DeveloperNotes()),
+              Card(child: DeveloperNotes()),
               if (Platform.isAndroid)
                 Card(
                   child: ListTile(
