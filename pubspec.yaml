@@ -179,7 +179,7 @@ flutter:
 
     - family: KoPubBatang
       fonts:
-        - asset: assets/fonts/KoPubBatangMedium.ttf
+        - asset: assets/fonts/KoPubBatangLight.ttf
     
     - family: KoPubDotum
       fonts:
