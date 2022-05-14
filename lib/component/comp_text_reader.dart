@@ -201,7 +201,9 @@ class TextViewerController extends ChangeNotifier {
   double avgWidth = 0.0;
   double avgHeight = 0.0;
 
-  TextStyle? _style = TextStyle(fontSize: 14);
+  TextStyle? _style = TextStyle(fontSize: 25);
+
+  TextStyle? _laststyle = TextStyle();
 
   Function(int)? onChange;
 
@@ -222,6 +224,7 @@ class TextViewerController extends ChangeNotifier {
     if (v == null) {
       return;
     }
+    print(v);
     if (_style?.fontSize != v.fontSize ||
         _style?.height != v.height ||
         _style?.letterSpacing != v.letterSpacing ||
@@ -339,7 +342,7 @@ class TextViewerController extends ChangeNotifier {
             nextLine = tleng;
           }
 
-          if (lineHeight > (size.height - avgHeight)) {
+          if (lineHeight > size.height) {
             bBreak = true;
             break;
           }
@@ -377,6 +380,15 @@ class TextViewerController extends ChangeNotifier {
   }
 
   cacheWord() {
+    if (_laststyle?.fontSize != _style?.fontSize ||
+        _laststyle?.height != _style?.height ||
+        _laststyle?.letterSpacing != _style?.letterSpacing ||
+        _laststyle?.fontFamily != _style?.fontFamily) {
+      cacheMap.clear();
+      if (_style != null) {
+        _laststyle = _style!.copyWith();
+      }
+    }
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
