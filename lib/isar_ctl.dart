@@ -313,8 +313,11 @@ class IsarCtl {
   //   lastHistory = tmp;
   // }
 
-  static TextStyle get textStyle {
+  static TextStyle? get textStyle {
     SettingIsar? s = isar.settingIsars.where().findFirstSync();
+    if (s == null) {
+      return null;
+    }
     int? c = s?.fontColor;
     if (c == null || c == 0) {
       c = Get.isDarkMode ? 0xFFFFFFFF : 0xFF000000;

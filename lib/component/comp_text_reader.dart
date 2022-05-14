@@ -201,7 +201,7 @@ class TextViewerController extends ChangeNotifier {
   double avgWidth = 0.0;
   double avgHeight = 0.0;
 
-  TextStyle _style = TextStyle(fontSize: 14);
+  TextStyle? _style = TextStyle(fontSize: 14);
 
   Function(int)? onChange;
 
@@ -218,8 +218,14 @@ class TextViewerController extends ChangeNotifier {
     cacheWord();
   }
 
-  set style(TextStyle v) {
-    if (_style.fontSize != v.fontSize || _style.height != v.height || _style.letterSpacing != v.letterSpacing || _style.fontFamily != v.fontFamily) {
+  set style(TextStyle? v) {
+    if (v == null) {
+      return;
+    }
+    if (_style?.fontSize != v.fontSize ||
+        _style?.height != v.height ||
+        _style?.letterSpacing != v.letterSpacing ||
+        _style?.fontFamily != v.fontFamily) {
       cacheMap.clear();
       cacheWord();
     }
@@ -319,11 +325,11 @@ class TextViewerController extends ChangeNotifier {
         lastWidth += cacheMap[" "]![0];
         lineWidth += lastWidth;
 
-        if (lineWidth > size.width) {
+        if (lineWidth > size.width + cacheMap[" "]![0] * 1.1) {
           word = "\n${word.trimLeft()}";
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += avgHeight * (lastWidth ~/ size.width + 1);
+            lineHeight += avgHeight * (lastWidth ~/ size.width + 2);
           } else {
             lineHeight += avgHeight;
           }
@@ -333,7 +339,7 @@ class TextViewerController extends ChangeNotifier {
             nextLine = tleng;
           }
 
-          if (lineHeight > size.height) {
+          if (lineHeight > (size.height - avgHeight)) {
             bBreak = true;
             break;
           }
