@@ -23,12 +23,10 @@ class AudioHandlerIOS extends BaseAudioHandler
       await this.session!.configure(AudioSessionConfiguration.speech());
 
       AVAudioSession().interruptionNotificationStream.listen((note) {
-        print('received interrupt');
-        print('type: ${note.type}');
-        print('wasSuspended: ${note.wasSuspended}');
+        //
       });
       session.interruptionEventStream.listen((e) {
-        print("interruptionEventStream : $e");
+        //
       });
     });
 
@@ -288,7 +286,6 @@ class AudioHandlerIOS extends BaseAudioHandler
 
   @override
   Future<void> click([MediaButton button = MediaButton.media]) async {
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>clickclickclick>>>>>>>$button");
     // if (IsarCtl.setting?.headsetbutton ?? false) {
     //   if (playstat == STAT_PLAY) {
     //     pause();

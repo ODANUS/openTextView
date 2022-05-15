@@ -296,6 +296,31 @@ class UiSetting extends GetView {
                       )
                     ]),
                   )),
+                  // 풀스크린 타입 설정.
+                  Card(
+                    child: ListTile(
+                      title: Text("Full screen setting".tr),
+                      subtitle: Column(
+                        children: [
+                          ...[0, 1, 2].map((e) {
+                            var strs = ["bottom menu".tr, "Bottom menu + top title bar".tr, "bottom + top + full screen".tr];
+
+                            // var ff = setting.fontFamily;
+
+                            return RadioListTile(
+                                title: Text(strs[e]),
+                                value: e,
+                                groupValue: setting.fullScreenType,
+                                onChanged: (int? type) {
+                                  if (type != null) {
+                                    IsarCtl.putSetting(setting..fullScreenType = type);
+                                  }
+                                });
+                          }).toList(),
+                        ],
+                      ),
+                    ),
+                  ),
                   // 색상 설정 부분
                   Card(
                     child: ListTile(
@@ -334,6 +359,7 @@ class UiSetting extends GetView {
                       },
                     ),
                   ),
+
                   Card(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
                       Container(

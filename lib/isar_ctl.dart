@@ -14,24 +14,6 @@ import 'package:open_textview/provider/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:perfect_volume_control/perfect_volume_control.dart';
 
-// Isar? isarIsolate;
-// String dbPath = "";
-// void isolateFunction(int idx) async {
-//   if (isarIsolate == null) {
-//     isarIsolate = Isar.openSync(schemas: [FilterIsarSchema, ContentsIsarSchema, WordCacheSchema, SettingIsarSchema, HistoryIsarSchema], directory: dbPath);
-//   }
-//   isarIsolate!.writeTxnSync((isar) {
-//     print("[[[[[[[[[[ , ${isarIsolate}");
-
-//     var curHistory = isar.historyIsars.where().sortByDateDesc().findFirstSync();
-//     if (curHistory != null) {
-//       curHistory.cntntPstn = idx;
-//       curHistory.date = DateTime.now();
-//       isar.historyIsars.putSync(curHistory);
-//     }
-//   });
-// }
-
 class IsarCtl {
   static final List<String> listFont = [
     'default',
@@ -147,6 +129,10 @@ class IsarCtl {
         bInitValue = true;
         settingIsar.bgFilter = 0x00FFFFFF;
       }
+      if (settingIsar.fullScreenType < -999) {
+        bInitValue = true;
+        settingIsar.fullScreenType = 0;
+      }
       if (bInitValue) {
         putSetting(settingIsar);
       }
@@ -162,13 +148,13 @@ class IsarCtl {
       }
     });
     // var historyst = isar.historyIsars.where().findAllSync();
-    // print(historyst.length);
+
     // historys.forEach((e) {
     //   if (e.cntntPstn < 0) {
     //     if (e.contentsLen <= 0) {
     //       e.cntntPstn = 0;
     //     } else {
-    //       print(e.toJson());
+    //
     //     }
     //   }
     // });
@@ -517,26 +503,6 @@ class IsarCtl {
         }));
   }
 
-  // static StreamBuilder<List<LocalSettingIsar>> rxLocalSetting(
-  //     Widget Function(BuildContext, LocalSettingIsar) builder) {
-  //   return StreamBuilder<List<LocalSettingIsar>>(
-  //       stream: streamLocalSetting,
-  //       builder: ((context, snapshot) {
-  //         print("------------");
-  //         if (snapshot.data != null && snapshot.data!.isNotEmpty) {
-  //           return builder(context, snapshot.data!.first);
-  //         }
-  //         return SizedBox();
-  //       }));
-  // }
-
-  // static putLocalSetting(LocalSettingIsar v) {
-  //   print(DateTime.now());
-  //   isar.writeTxnSync((isar) {
-  //     isar.localSettingIsars.putSync(v);
-  //   });
-  //   print(DateTime.now());
-  // }
   static setHistory(List<HistoryIsar> v) {
     isar.writeTxnSync((isar) {
       isar.historyIsars.clearSync();

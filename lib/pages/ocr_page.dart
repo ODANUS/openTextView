@@ -170,7 +170,6 @@ class OcrPage extends GetView {
                                   onTap: kDebugMode
                                       ? () {
                                           Get.toNamed("/ocr/edit", arguments: fileList[idx].path);
-                                          // print("onTap");
                                         }
                                       : null,
                                   child: Column(

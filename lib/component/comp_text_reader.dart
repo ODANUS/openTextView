@@ -8,6 +8,7 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:open_textview/component/readpage_overlay.dart';
@@ -32,7 +33,7 @@ class CompTextReader extends GetView {
     return Stack(
       children: [
         GestureDetector(
-          onVerticalDragUpdate: (d) {
+          onVerticalDragUpdate: (d) async {
             var curPos = IsarCtl.tctl.cntntPstn;
             if (curPos <= 0 && d.delta.dy > 0 && IsarCtl.tctl.offsetY > 50) {
               return;
@@ -43,14 +44,16 @@ class CompTextReader extends GetView {
             IsarCtl.basyncOffset(true);
             var dy = d.delta.dy;
             var cnt = 1;
-            if (d.delta.dy < 0 && d.delta.dy < -6) {
+            cnt += dy.abs() ~/ 8;
+            if (d.delta.dy < 0 && d.delta.dy < -8) {
               dy = -8;
             }
-            if (d.delta.dy > 0 && d.delta.dy > 6) {
+            if (d.delta.dy > 0 && d.delta.dy > 8) {
               dy = 8;
             }
             for (var i = 0; i < cnt; i++) {
               IsarCtl.tctl.offsetY += dy;
+              await Future.delayed(5.milliseconds);
             }
             IsarCtl.basyncOffset(false);
           },
@@ -90,19 +93,27 @@ class CompTextReader extends GetView {
                 Get.back();
                 IsarCtl.enableVolumeButton(true);
               }
-              if (!IsarCtl.bfullScreen.value) {
+
+              if (setting.fullScreenType == 0 && !IsarCtl.bfullScreen.value) {
                 IsarCtl.bfullScreen(true);
                 return;
               }
-              print(IsarCtl.bfullScreen.value);
-              print(IsarCtl.btitleFullScreen.value);
-              if (!IsarCtl.btitleFullScreen.value) {
+              if (setting.fullScreenType == 1 && !IsarCtl.bfullScreen.value) {
+                IsarCtl.bfullScreen(true);
                 IsarCtl.btitleFullScreen(true);
                 return;
               }
-              if (IsarCtl.btitleFullScreen.value && IsarCtl.bfullScreen.value) {
+              if (setting.fullScreenType == 2 && !IsarCtl.bfullScreen.value) {
+                IsarCtl.bfullScreen(true);
+                IsarCtl.btitleFullScreen(true);
+                await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+                return;
+              }
+
+              if (IsarCtl.bfullScreen.value) {
                 IsarCtl.bfullScreen(false);
                 IsarCtl.btitleFullScreen(false);
+                await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
                 return;
               }
             },
@@ -238,7 +249,6 @@ class TextViewerController extends ChangeNotifier {
     if (v == null) {
       return;
     }
-    print(v);
     if (_style?.fontSize != v.fontSize ||
         _style?.height != v.height ||
         _style?.letterSpacing != v.letterSpacing ||
@@ -436,9 +446,6 @@ class TextViewerController extends ChangeNotifier {
       avgWidth = double.parse(thekey.split(",").first);
       avgHeight = double.parse(thekey.split(",").last);
     }
-
-    // var endDate = DateTime.now();
-    // print("end cache ${endDate}  :: ${endDate.difference(startDate).inMilliseconds}");
   }
 }
 

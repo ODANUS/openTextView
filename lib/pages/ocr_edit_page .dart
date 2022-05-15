@@ -26,21 +26,16 @@ class OcrEditPage extends GetView {
       var pathList = file.value.path.split("/");
       var path = pathList.sublist(0, pathList.length - 2).join("/");
       var fileName = pathList.last.split(".").first;
-      print(pathList);
+
       var f1 = File("${path}/ocrtemp/${fileName}.png");
       if (!f1.existsSync()) {
         f1.createSync(recursive: true);
       }
       f1.writeAsBytesSync(imglib.encodePng(imgByte.value!));
-      print("f1.path : ${f1.path}");
       var langCode = TextRecognitionScript.korean;
       TextRecognizer textDetector = TextRecognizer(script: langCode);
       var process = await textDetector.processImage(InputImage.fromFile(f1));
       textBlock(process.blocks);
-      // .forEach((v) {
-      //   print(v.boundingBox);
-      //   print(v.text);
-      // });
     }
   }
 
@@ -109,7 +104,6 @@ class OcrEditPage extends GetView {
                   ],
                 );
               }),
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -123,7 +117,6 @@ class OcrEditPage extends GetView {
                         tmpv(v.toInt());
                       },
                       onChangeEnd: (v) {
-                        print(v);
                         // imglib.contrast(refimgByte.value, v.toInt());
                         var ss = imglib.contrast(refimgByte.value!.clone(), v.toInt());
                         imgByte(ss);
@@ -145,7 +138,7 @@ class OcrEditPage extends GetView {
                         var ss = imglib.brightness(refimgByte.value!.clone(), v.toInt());
                         imgByte(ss!);
                         imgByte.refresh();
-                        print(v);
+
                         loadFile();
                       },
                     );
@@ -161,81 +154,8 @@ class OcrEditPage extends GetView {
                       child: Text("asda"))
                 ],
               ),
-
-              // SingleChildScrollView(
-              //     child: Stack(children: [
-
-              //   )),
-              // Column(
-              //   children: [
-              //     Container(
-              //       // width: Get.width - 20,
-              //       // height: Get.height / 2,
-              //       child: Obx(() {
-              //         // print("bbbbbbbbbbbb ${textBlock}");
-              //         if (imgByte.value != null) {
-              //           return Stack(
-              //             children: [
-              //               // Image.memory(imglib.encodePng(imgByte.value!) as Uint8List),
-              //               ...textBlock.map((e) {
-              //                 var r = e.boundingBox;
-              //                 print(r);
-              //                 print("-------------------------------");
-              //                 r = Rect.fromLTRB(r.left, r.top / 3, r.right / 2, r.bottom / 3);
-              //                 print(r);
-
-              //                 return Positioned.fromRect(
-              //                   rect: r,
-              //                   child: Container(
-              //                     width: double.infinity,
-              //                     height: double.infinity,
-              //                     color: Colors.red,
-              //                     child: Text(
-              //                       e.text,
-              //                       style: TextStyle(color: Colors.black),
-              //                     ),
-              //                   ),
-              //                 );
-              //               })
-              //             ],
-              //           );
-              //         }
-              //         return SizedBox();
-              //       }),
-              //     ),
-              //     // ElevatedButton(
-              //     //     onPressed: () {
-              //     //       if (imgByte.value != null) {
-              //     //         print("aaaaaaaaaaaaaaa");
-              //     //         imgByte(imglib.brightness(imgByte.value, 1));
-              //     //         imgByte.refresh();
-              //     //         loadFile();
-              //     //       }
-              //     //     },
-              //     //     child: Text("dd"))
-              //   ],
-              // )
-              // Text("Asdfsdfds"),
-              // Obx(
-              //   () => total.value > 0
-              //       ? Container(
-              //           width: double.infinity,
-              //           height: double.infinity,
-              //           alignment: Alignment.center,
-              //           color: Colors.black54,
-              //           child: Column(
-              //             mainAxisSize: MainAxisSize.min,
-              //             children: [
-              //               CircularProgressIndicator(),
-              //               SizedBox(height: 10),
-              //               Text("${current}/${total}"),
-              //             ],
-              //           ))
-              //       : SizedBox(),
-              // )
             ],
           ),
-          // bottomNavigationBar:
         ));
   }
 }

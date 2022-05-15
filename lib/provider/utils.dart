@@ -273,9 +273,6 @@ class Utils {
           }
           IsarCtl.unzipCurrent(idx++);
           await tmpFile.writeAsBytes(data);
-
-          // print(path);
-          // print(file.name);
         }
         if (file.isFile && (file.name.contains(".gif") || file.name.contains(".png") || file.name.contains(".jpg") || file.name.contains(".jpeg"))) {
           final data = file.content as List<int>;
@@ -597,7 +594,6 @@ class Utils {
       selectedFiles =
           await FilePicker.platform.pickFiles(type: FileType.custom, allowMultiple: true, allowedExtensions: ['txt', 'epub', "zip", "pdf"]);
     }
-    print(selectedFiles);
 
     IsarCtl.bLoadingLib(false);
     if (selectedFiles == null) {

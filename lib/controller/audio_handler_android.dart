@@ -170,7 +170,6 @@ class AudioHandlerAndroid extends BaseAudioHandler
       duration: Duration(seconds: contents.length),
     ));
     tts!.setProgressHandler((text, start, end, word) {
-      // print("[[[[[[[[[[[[[[[[[[[[[[[[ ${start}");
       lastProgrss = start;
     });
 
@@ -229,7 +228,6 @@ class AudioHandlerAndroid extends BaseAudioHandler
       }
       lastPos = i;
 
-      // print("$speakText");
       var bspeak = await tts?.speak(speakText);
       i += nextPos;
       errorCnt++;

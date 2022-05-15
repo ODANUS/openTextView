@@ -1910,7 +1910,7 @@ extension GetSettingIsarCollection on Isar {
 const SettingIsarSchema = CollectionSchema(
   name: 'SettingIsar',
   schema:
-      '{"name":"SettingIsar","idName":"id","properties":[{"name":"audioduck","type":"Bool"},{"name":"audiosession","type":"Bool"},{"name":"backgroundColor","type":"Long"},{"name":"bgFilter","type":"Long"},{"name":"bgIdx","type":"Long"},{"name":"customFont","type":"String"},{"name":"enablescroll","type":"Bool"},{"name":"fontColor","type":"Long"},{"name":"fontFamily","type":"String"},{"name":"fontHeight","type":"Double"},{"name":"fontSize","type":"Double"},{"name":"fontWeight","type":"Long"},{"name":"groupcnt","type":"Long"},{"name":"headsetbutton","type":"Bool"},{"name":"lastDevVersion","type":"String"},{"name":"letterSpacing","type":"Double"},{"name":"paddingBottom","type":"Double"},{"name":"paddingLeft","type":"Double"},{"name":"paddingRight","type":"Double"},{"name":"paddingTop","type":"Double"},{"name":"pitch","type":"Double"},{"name":"speechRate","type":"Double"},{"name":"theme","type":"String"},{"name":"touchLayout","type":"Long"},{"name":"useClipboard","type":"Bool"},{"name":"volume","type":"Double"}],"indexes":[],"links":[]}',
+      '{"name":"SettingIsar","idName":"id","properties":[{"name":"audioduck","type":"Bool"},{"name":"audiosession","type":"Bool"},{"name":"backgroundColor","type":"Long"},{"name":"bgFilter","type":"Long"},{"name":"bgIdx","type":"Long"},{"name":"customFont","type":"String"},{"name":"enablescroll","type":"Bool"},{"name":"fontColor","type":"Long"},{"name":"fontFamily","type":"String"},{"name":"fontHeight","type":"Double"},{"name":"fontSize","type":"Double"},{"name":"fontWeight","type":"Long"},{"name":"fullScreenType","type":"Long"},{"name":"groupcnt","type":"Long"},{"name":"headsetbutton","type":"Bool"},{"name":"lastDevVersion","type":"String"},{"name":"letterSpacing","type":"Double"},{"name":"paddingBottom","type":"Double"},{"name":"paddingLeft","type":"Double"},{"name":"paddingRight","type":"Double"},{"name":"paddingTop","type":"Double"},{"name":"pitch","type":"Double"},{"name":"speechRate","type":"Double"},{"name":"theme","type":"String"},{"name":"touchLayout","type":"Long"},{"name":"useClipboard","type":"Bool"},{"name":"volume","type":"Double"}],"indexes":[],"links":[]}',
   idName: 'id',
   propertyIds: {
     'audioduck': 0,
@@ -1925,20 +1925,21 @@ const SettingIsarSchema = CollectionSchema(
     'fontHeight': 9,
     'fontSize': 10,
     'fontWeight': 11,
-    'groupcnt': 12,
-    'headsetbutton': 13,
-    'lastDevVersion': 14,
-    'letterSpacing': 15,
-    'paddingBottom': 16,
-    'paddingLeft': 17,
-    'paddingRight': 18,
-    'paddingTop': 19,
-    'pitch': 20,
-    'speechRate': 21,
-    'theme': 22,
-    'touchLayout': 23,
-    'useClipboard': 24,
-    'volume': 25
+    'fullScreenType': 12,
+    'groupcnt': 13,
+    'headsetbutton': 14,
+    'lastDevVersion': 15,
+    'letterSpacing': 16,
+    'paddingBottom': 17,
+    'paddingLeft': 18,
+    'paddingRight': 19,
+    'paddingTop': 20,
+    'pitch': 21,
+    'speechRate': 22,
+    'theme': 23,
+    'touchLayout': 24,
+    'useClipboard': 25,
+    'volume': 26
   },
   listProperties: {},
   indexIds: {},
@@ -2011,36 +2012,38 @@ void _settingIsarSerializeNative(
   final _fontSize = value10;
   final value11 = object.fontWeight;
   final _fontWeight = value11;
-  final value12 = object.groupcnt;
-  final _groupcnt = value12;
-  final value13 = object.headsetbutton;
-  final _headsetbutton = value13;
-  final value14 = object.lastDevVersion;
-  final _lastDevVersion = IsarBinaryWriter.utf8Encoder.convert(value14);
+  final value12 = object.fullScreenType;
+  final _fullScreenType = value12;
+  final value13 = object.groupcnt;
+  final _groupcnt = value13;
+  final value14 = object.headsetbutton;
+  final _headsetbutton = value14;
+  final value15 = object.lastDevVersion;
+  final _lastDevVersion = IsarBinaryWriter.utf8Encoder.convert(value15);
   dynamicSize += (_lastDevVersion.length) as int;
-  final value15 = object.letterSpacing;
-  final _letterSpacing = value15;
-  final value16 = object.paddingBottom;
-  final _paddingBottom = value16;
-  final value17 = object.paddingLeft;
-  final _paddingLeft = value17;
-  final value18 = object.paddingRight;
-  final _paddingRight = value18;
-  final value19 = object.paddingTop;
-  final _paddingTop = value19;
-  final value20 = object.pitch;
-  final _pitch = value20;
-  final value21 = object.speechRate;
-  final _speechRate = value21;
-  final value22 = object.theme;
-  final _theme = IsarBinaryWriter.utf8Encoder.convert(value22);
+  final value16 = object.letterSpacing;
+  final _letterSpacing = value16;
+  final value17 = object.paddingBottom;
+  final _paddingBottom = value17;
+  final value18 = object.paddingLeft;
+  final _paddingLeft = value18;
+  final value19 = object.paddingRight;
+  final _paddingRight = value19;
+  final value20 = object.paddingTop;
+  final _paddingTop = value20;
+  final value21 = object.pitch;
+  final _pitch = value21;
+  final value22 = object.speechRate;
+  final _speechRate = value22;
+  final value23 = object.theme;
+  final _theme = IsarBinaryWriter.utf8Encoder.convert(value23);
   dynamicSize += (_theme.length) as int;
-  final value23 = object.touchLayout;
-  final _touchLayout = value23;
-  final value24 = object.useClipboard;
-  final _useClipboard = value24;
-  final value25 = object.volume;
-  final _volume = value25;
+  final value24 = object.touchLayout;
+  final _touchLayout = value24;
+  final value25 = object.useClipboard;
+  final _useClipboard = value25;
+  final value26 = object.volume;
+  final _volume = value26;
   final size = staticSize + dynamicSize;
 
   rawObj.buffer = alloc(size);
@@ -2059,20 +2062,21 @@ void _settingIsarSerializeNative(
   writer.writeDouble(offsets[9], _fontHeight);
   writer.writeDouble(offsets[10], _fontSize);
   writer.writeLong(offsets[11], _fontWeight);
-  writer.writeLong(offsets[12], _groupcnt);
-  writer.writeBool(offsets[13], _headsetbutton);
-  writer.writeBytes(offsets[14], _lastDevVersion);
-  writer.writeDouble(offsets[15], _letterSpacing);
-  writer.writeDouble(offsets[16], _paddingBottom);
-  writer.writeDouble(offsets[17], _paddingLeft);
-  writer.writeDouble(offsets[18], _paddingRight);
-  writer.writeDouble(offsets[19], _paddingTop);
-  writer.writeDouble(offsets[20], _pitch);
-  writer.writeDouble(offsets[21], _speechRate);
-  writer.writeBytes(offsets[22], _theme);
-  writer.writeLong(offsets[23], _touchLayout);
-  writer.writeBool(offsets[24], _useClipboard);
-  writer.writeDouble(offsets[25], _volume);
+  writer.writeLong(offsets[12], _fullScreenType);
+  writer.writeLong(offsets[13], _groupcnt);
+  writer.writeBool(offsets[14], _headsetbutton);
+  writer.writeBytes(offsets[15], _lastDevVersion);
+  writer.writeDouble(offsets[16], _letterSpacing);
+  writer.writeDouble(offsets[17], _paddingBottom);
+  writer.writeDouble(offsets[18], _paddingLeft);
+  writer.writeDouble(offsets[19], _paddingRight);
+  writer.writeDouble(offsets[20], _paddingTop);
+  writer.writeDouble(offsets[21], _pitch);
+  writer.writeDouble(offsets[22], _speechRate);
+  writer.writeBytes(offsets[23], _theme);
+  writer.writeLong(offsets[24], _touchLayout);
+  writer.writeBool(offsets[25], _useClipboard);
+  writer.writeDouble(offsets[26], _volume);
 }
 
 SettingIsar _settingIsarDeserializeNative(
@@ -2093,20 +2097,21 @@ SettingIsar _settingIsarDeserializeNative(
     fontHeight: reader.readDouble(offsets[9]),
     fontSize: reader.readDouble(offsets[10]),
     fontWeight: reader.readLong(offsets[11]),
-    groupcnt: reader.readLong(offsets[12]),
-    headsetbutton: reader.readBool(offsets[13]),
-    lastDevVersion: reader.readString(offsets[14]),
-    letterSpacing: reader.readDouble(offsets[15]),
-    paddingBottom: reader.readDouble(offsets[16]),
-    paddingLeft: reader.readDouble(offsets[17]),
-    paddingRight: reader.readDouble(offsets[18]),
-    paddingTop: reader.readDouble(offsets[19]),
-    pitch: reader.readDouble(offsets[20]),
-    speechRate: reader.readDouble(offsets[21]),
-    theme: reader.readString(offsets[22]),
-    touchLayout: reader.readLong(offsets[23]),
-    useClipboard: reader.readBool(offsets[24]),
-    volume: reader.readDouble(offsets[25]),
+    fullScreenType: reader.readLong(offsets[12]),
+    groupcnt: reader.readLong(offsets[13]),
+    headsetbutton: reader.readBool(offsets[14]),
+    lastDevVersion: reader.readString(offsets[15]),
+    letterSpacing: reader.readDouble(offsets[16]),
+    paddingBottom: reader.readDouble(offsets[17]),
+    paddingLeft: reader.readDouble(offsets[18]),
+    paddingRight: reader.readDouble(offsets[19]),
+    paddingTop: reader.readDouble(offsets[20]),
+    pitch: reader.readDouble(offsets[21]),
+    speechRate: reader.readDouble(offsets[22]),
+    theme: reader.readString(offsets[23]),
+    touchLayout: reader.readLong(offsets[24]),
+    useClipboard: reader.readBool(offsets[25]),
+    volume: reader.readDouble(offsets[26]),
   );
   object.id = id;
   return object;
@@ -2144,11 +2149,11 @@ P _settingIsarDeserializePropNative<P>(
     case 12:
       return (reader.readLong(offset)) as P;
     case 13:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 14:
-      return (reader.readString(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 15:
-      return (reader.readDouble(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 16:
       return (reader.readDouble(offset)) as P;
     case 17:
@@ -2162,12 +2167,14 @@ P _settingIsarDeserializePropNative<P>(
     case 21:
       return (reader.readDouble(offset)) as P;
     case 22:
-      return (reader.readString(offset)) as P;
+      return (reader.readDouble(offset)) as P;
     case 23:
-      return (reader.readLong(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 24:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 25:
+      return (reader.readBool(offset)) as P;
+    case 26:
       return (reader.readDouble(offset)) as P;
     default:
       throw 'Illegal propertyIndex';
@@ -2189,6 +2196,7 @@ dynamic _settingIsarSerializeWeb(
   IsarNative.jsObjectSet(jsObj, 'fontHeight', object.fontHeight);
   IsarNative.jsObjectSet(jsObj, 'fontSize', object.fontSize);
   IsarNative.jsObjectSet(jsObj, 'fontWeight', object.fontWeight);
+  IsarNative.jsObjectSet(jsObj, 'fullScreenType', object.fullScreenType);
   IsarNative.jsObjectSet(jsObj, 'groupcnt', object.groupcnt);
   IsarNative.jsObjectSet(jsObj, 'headsetbutton', object.headsetbutton);
   IsarNative.jsObjectSet(jsObj, 'id', object.id);
@@ -2228,6 +2236,8 @@ SettingIsar _settingIsarDeserializeWeb(
         IsarNative.jsObjectGet(jsObj, 'fontSize') ?? double.negativeInfinity,
     fontWeight:
         IsarNative.jsObjectGet(jsObj, 'fontWeight') ?? double.negativeInfinity,
+    fullScreenType: IsarNative.jsObjectGet(jsObj, 'fullScreenType') ??
+        double.negativeInfinity,
     groupcnt:
         IsarNative.jsObjectGet(jsObj, 'groupcnt') ?? double.negativeInfinity,
     headsetbutton: IsarNative.jsObjectGet(jsObj, 'headsetbutton') ?? false,
@@ -2287,6 +2297,9 @@ P _settingIsarDeserializePropWeb<P>(Object jsObj, String propertyName) {
           double.negativeInfinity) as P;
     case 'fontWeight':
       return (IsarNative.jsObjectGet(jsObj, 'fontWeight') ??
+          double.negativeInfinity) as P;
+    case 'fullScreenType':
+      return (IsarNative.jsObjectGet(jsObj, 'fullScreenType') ??
           double.negativeInfinity) as P;
     case 'groupcnt':
       return (IsarNative.jsObjectGet(jsObj, 'groupcnt') ??
@@ -2960,6 +2973,57 @@ extension SettingIsarQueryFilter
   }) {
     return addFilterConditionInternal(FilterCondition.between(
       property: 'fontWeight',
+      lower: lower,
+      includeLower: includeLower,
+      upper: upper,
+      includeUpper: includeUpper,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      fullScreenTypeEqualTo(int value) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.eq,
+      property: 'fullScreenType',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      fullScreenTypeGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.gt,
+      include: include,
+      property: 'fullScreenType',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      fullScreenTypeLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.lt,
+      include: include,
+      property: 'fullScreenType',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      fullScreenTypeBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return addFilterConditionInternal(FilterCondition.between(
+      property: 'fullScreenType',
       lower: lower,
       includeLower: includeLower,
       upper: upper,
@@ -3698,6 +3762,15 @@ extension SettingIsarQueryWhereSortBy
     return addSortByInternal('fontWeight', Sort.desc);
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByFullScreenType() {
+    return addSortByInternal('fullScreenType', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy>
+      sortByFullScreenTypeDesc() {
+    return addSortByInternal('fullScreenType', Sort.desc);
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByGroupcnt() {
     return addSortByInternal('groupcnt', Sort.asc);
   }
@@ -3926,6 +3999,15 @@ extension SettingIsarQueryWhereSortThenBy
     return addSortByInternal('fontWeight', Sort.desc);
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByFullScreenType() {
+    return addSortByInternal('fullScreenType', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy>
+      thenByFullScreenTypeDesc() {
+    return addSortByInternal('fullScreenType', Sort.desc);
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByGroupcnt() {
     return addSortByInternal('groupcnt', Sort.asc);
   }
@@ -4106,6 +4188,10 @@ extension SettingIsarQueryWhereDistinct
     return addDistinctByInternal('fontWeight');
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QDistinct> distinctByFullScreenType() {
+    return addDistinctByInternal('fullScreenType');
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QDistinct> distinctByGroupcnt() {
     return addDistinctByInternal('groupcnt');
   }
@@ -4218,6 +4304,10 @@ extension SettingIsarQueryProperty
 
   QueryBuilder<SettingIsar, int, QQueryOperations> fontWeightProperty() {
     return addPropertyNameInternal('fontWeight');
+  }
+
+  QueryBuilder<SettingIsar, int, QQueryOperations> fullScreenTypeProperty() {
+    return addPropertyNameInternal('fullScreenType');
   }
 
   QueryBuilder<SettingIsar, int, QQueryOperations> groupcntProperty() {
