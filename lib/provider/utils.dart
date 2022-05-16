@@ -70,6 +70,13 @@ class Utils {
   }
 
   static Future<bool> saveAs(File f) async {
+    if (!await Get.dialog(
+        AlertDialog(title: Text("precautions".tr), content: Text("save as cmd".tr), actionsAlignment: MainAxisAlignment.spaceAround, actions: [
+      ElevatedButton(style: ElevatedButton.styleFrom(primary: Colors.red), onPressed: () => Get.back(result: false), child: Text("cancel".tr)),
+      ElevatedButton(onPressed: () => Get.back(result: true), child: Text("agreement".tr))
+    ]))) {
+      return false;
+    }
     // if (!AdCtl.hasOpenRewardedInterstitialAd()) {
     //   return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
     // }
