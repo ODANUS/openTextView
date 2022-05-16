@@ -10,6 +10,8 @@ class DeveloperNotes extends GetView {
   final String content = """
 
 ---
+2.3.5 (2022 05 17)
+1. 다른이름으로 텍스트 파일 저장시 광고를 명확하게 표기 하였습니다. 
 
 2.3.4 (2022 05 16)
 
