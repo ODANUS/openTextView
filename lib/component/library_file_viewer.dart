@@ -322,12 +322,15 @@ class LibraryFileViewer extends GetView {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         changeNameWidget(f, history: history),
-                        if (kDebugMode)
-                          ElevatedButton(
-                              onPressed: () {
-                                Utils.saveAs(f);
-                              },
-                              child: Text("save")),
+                        // if (kDebugMode)
+                        Card(
+                            child: ListTile(
+                                onTap: () async {
+                                  Get.back();
+                                  Utils.saveAs(f);
+                                },
+                                title: Text("save as".tr))),
+
                         // if (kDebugMode)
                         //   Card(
                         //       child: ListTile(

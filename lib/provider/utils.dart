@@ -74,9 +74,11 @@ class Utils {
     //   return await Get.dialog(AlertDialog(title: Text("다른 이름으로 저장."), content: Text("준비된 광고가 없습니다."), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
     // }
     // var rtn = await AdCtl.openSaveAsAd();
-
-    final params = SaveFileDialogParams(sourceFilePath: f.path);
-    await FlutterFileDialog.saveFile(params: params);
+    var rtn = await AdCtl.startSaveAsInterstitialAd();
+    if (rtn) {
+      final params = SaveFileDialogParams(sourceFilePath: f.path);
+      await FlutterFileDialog.saveFile(params: params);
+    }
 
     return true;
   }

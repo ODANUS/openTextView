@@ -146,6 +146,60 @@ class AdCtl {
     }
   }
 
+  static Future<bool> startSaveAsInterstitialAd() async {
+    Completer<bool> c = Completer<bool>();
+    IsarCtl.bLoadingLib(true);
+    var stat = false;
+    if (await initRewardedAd()) {
+      _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (RewardedAd ad) async {
+          IsarCtl.bLoadingLib(false);
+          c.complete(stat);
+          await ad.dispose();
+          _rewardedAd = null;
+        },
+        onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
+          IsarCtl.bLoadingLib(false);
+          await ad.dispose();
+          _rewardedAd = null;
+        },
+      );
+
+      _rewardedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {
+        IsarCtl.bLoadingLib(false);
+        stat = true;
+      });
+      return c.future;
+    } else {
+      IsarCtl.bLoadingLib(false);
+      return await Get.dialog(AlertDialog(
+          content: Text("Failed to load ad"), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    }
+    // if (await initInterstitialAd()) {
+    //   _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+    //       onAdShowedFullScreenContent: (AdManagerInterstitialAd ad) {},
+    //       onAdDismissedFullScreenContent: (AdManagerInterstitialAd ad) async {
+    //         IsarCtl.bLoadingLib(false);
+    //         c.complete(true);
+    //         await ad.dispose();
+    //         _interstitialAd = null;
+    //       },
+    //       onAdFailedToShowFullScreenContent: (AdManagerInterstitialAd ad, AdError error) async {
+    //         IsarCtl.bLoadingLib(false);
+    //         c.complete(false);
+    //         await ad.dispose();
+    //         _interstitialAd = null;
+    //       },
+    //       onAdImpression: (AdManagerInterstitialAd ad) {});
+    //   _interstitialAd?.show();
+
+    //   return c.future;
+    // } else {
+    //   IsarCtl.bLoadingLib(false);
+    //   return await Get.dialog(AlertDialog(
+    //       content: Text("Failed to load ad"), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    // }
+  }
   // static Future<bool> startRewardedAd() async {
   //   if (await initRewardedAd()) {
   //     _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
