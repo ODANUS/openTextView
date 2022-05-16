@@ -138,6 +138,7 @@ class Messages extends Translations {
               "Users must use all content created through OpenTecView only for personal use.\nUsers are responsible for any unauthorized redistribution or commercial use of content.",
           "precautions": "Precautions",
           "agreement": "agreement",
+          "Watch the ad and save the file as.": "Watch the ad and save the file as.",
         },
         "ko": {
           "key": "ko",
@@ -271,6 +272,7 @@ class Messages extends Translations {
           "save as cmd": "사용자는 오픈텍뷰를 통해 생성된 모든 콘텐츠를 개인적 이용 목적으로만 사용해야 합니다.\n콘텐츠의 무단 재배포, 영리적 이용 시 발생하는 모든 책임은 사용자에게 있습니다.",
           "precautions": "주의사항",
           "agreement": "동의",
+          "Watch the ad and save the file as.": "광고 를 시청하고 다른이름으로 저장.",
         },
         "gl": {
           "key": "gl",
@@ -407,6 +409,7 @@ class Messages extends Translations {
               "Os usuarios deben usar todo o contido creado a través de OpentEcView só para uso persoal.\nOs usuarios son responsables de calquera redistribución non autorizada ou uso comercial de contido.",
           "precautions": "Precaucións",
           "agreement": "acordo",
+          "Watch the ad and save the file as.": "Mira o anuncio e garda o ficheiro como.",
         },
         "gu": {
           "key": "gu",
@@ -544,6 +547,7 @@ class Messages extends Translations {
               "વપરાશકર્તાઓએ ફક્ત વ્યક્તિગત ઉપયોગ માટે ઓપનટેક વ્યૂ દ્વારા બનાવેલ બધી સામગ્રીનો ઉપયોગ કરવો આવશ્યક છે.\nવપરાશકર્તાઓ કોઈપણ અનધિકૃત પુન ist વિતરણ અથવા સામગ્રીના વ્યવસાયિક ઉપયોગ માટે જવાબદાર છે.",
           "precautions": "સાવચેતીનાં પગલાં",
           "agreement": "સહમત",
+          "Watch the ad and save the file as.": "જાહેરાત જુઓ અને ફાઇલને સાચવો.",
         },
         "el": {
           "key": "el",
@@ -684,6 +688,7 @@ class Messages extends Translations {
               "Οι χρήστες πρέπει να χρησιμοποιούν όλο το περιεχόμενο που δημιουργούνται μέσω OpentecView μόνο για προσωπική χρήση.\nΟι χρήστες είναι υπεύθυνοι για οποιαδήποτε μη εξουσιοδοτημένη ανακατανομή ή εμπορική χρήση περιεχομένου.",
           "precautions": "Προφυλάξεις",
           "agreement": "συμφωνία",
+          "Watch the ad and save the file as.": "Παρακολουθήστε τη διαφήμιση και αποθηκεύστε το αρχείο ως.",
         },
         "nl": {
           "key": "nl",
@@ -822,6 +827,7 @@ class Messages extends Translations {
               "Gebruikers moeten alle inhoud die via OpenTecview is gemaakt alleen voor persoonlijk gebruik gebruiken.\nGebruikers zijn verantwoordelijk voor elke ongeautoriseerde herverdeling of commercieel gebruik van inhoud.",
           "precautions": "Voorzorgsmaatregelen",
           "agreement": "Akkoord",
+          "Watch the ad and save the file as.": "Bekijk de advertentie en sla het bestand op als.",
         },
         "ne": {
           "key": "ne",
@@ -960,6 +966,7 @@ class Messages extends Translations {
               "प्रयोगकर्ताहरूले सबै सामग्रीहरू केवल व्यक्तिगत प्रयोगको लागि स्वचालित प्रयोगको माध्यमबाट सिर्जना गर्नुपर्दछ।\nप्रयोगकर्ताहरू कुनै पनि अनधिकृत पुनर्निर्देशन वा व्यावसायिक प्रयोगको लागि जिम्मेवार हुन्छन्।",
           "precautions": "सावधानी",
           "agreement": "सम्भ्कौता",
+          "Watch the ad and save the file as.": "विज्ञापन हेर्नुहोस् र फाईल बचत गर्नुहोस्।",
         },
         "no": {
           "key": "no",
@@ -1097,6 +1104,7 @@ class Messages extends Translations {
               "Brukere må bruke alt innhold som er opprettet via opentecview bare for personlig bruk.\nBrukere er ansvarlige for uautorisert omfordeling eller kommersiell bruk av innhold.",
           "precautions": "Forholdsregler",
           "agreement": "avtale",
+          "Watch the ad and save the file as.": "Se annonsen og lagre filen som.",
         },
         "da": {
           "key": "da",
@@ -1234,6 +1242,7 @@ class Messages extends Translations {
               "Brugere skal kun bruge alt indhold oprettet via OpenTecView til personlig brug.\nBrugere er ansvarlige for enhver uautoriseret omfordeling eller kommerciel brug af indhold.",
           "precautions": "Forholdsregler",
           "agreement": "aftale",
+          "Watch the ad and save the file as.": "Se annoncen og gem filen som.",
         },
         "de": {
           "key": "de",
@@ -1373,6 +1382,7 @@ class Messages extends Translations {
               "Benutzer müssen alle Inhalte nur für den persönlichen Gebrauch über OpenteCView verwenden.\nBenutzer sind für eine nicht autorisierte Umverteilung oder kommerzielle Nutzung von Inhalten verantwortlich.",
           "precautions": "Vorsichtsmaßnahmen",
           "agreement": "Zustimmung",
+          "Watch the ad and save the file as.": "Sehen Sie sich die Anzeige an und speichern Sie die Datei als.",
         },
         "lo": {
           "key": "lo",
@@ -1507,6 +1517,7 @@ class Messages extends Translations {
               "ຜູ້ໃຊ້ຕ້ອງໃຊ້ເນື້ອຫາທັງຫມົດທີ່ສ້າງຂື້ນໂດຍຜ່ານ OpenTecview ພຽງແຕ່ໃຊ້ສ່ວນຕົວ.\nຜູ້ໃຊ້ຮັບຜິດຊອບຕໍ່ການແຈກຈ່າຍຄືນທີ່ບໍ່ໄດ້ຮັບອະນຸມັດຫຼືການນໍາໃຊ້ເນື້ອຫາ.",
           "precautions": "ການ​ປ້ອງ​ກັນ​ລ່ວງ​ໜ້າ",
           "agreement": "ການຕົກລົງ",
+          "Watch the ad and save the file as.": "ເບິ່ງໂຄສະນາແລະບັນທຶກເອກະສານດັ່ງກ່າວ.",
         },
         "lv": {
           "key": "lv",
@@ -1643,6 +1654,7 @@ class Messages extends Translations {
               "Lietotājiem ir jāizmanto viss saturs, kas izveidots, izmantojot OpenCView tikai personīgai lietošanai.\nLietotāji ir atbildīgi par jebkādu nesankcionētu satura pārdali vai komerciālu izmantošanu.",
           "precautions": "Piesardzības pasākumi",
           "agreement": "vienošanās",
+          "Watch the ad and save the file as.": "Noskatieties reklāmu un saglabājiet failu kā.",
         },
         "ru": {
           "key": "ru",
@@ -1781,6 +1793,7 @@ class Messages extends Translations {
               "Пользователи должны использовать весь контент, созданный через OpenTecView только для личного использования.\nПользователи несут ответственность за любое несанкционированное перераспределение или коммерческое использование контента.",
           "precautions": "Меры предосторожности",
           "agreement": "соглашение",
+          "Watch the ad and save the file as.": "Посмотрите объявление и сохраните файл как.",
         },
         "ro": {
           "key": "ro",
@@ -1920,6 +1933,7 @@ class Messages extends Translations {
               "Utilizatorii trebuie să utilizeze tot conținutul creat prin OpenCView numai pentru uz personal.\nUtilizatorii sunt responsabili pentru orice redistribuire neautorizată sau utilizarea comercială a conținutului.",
           "precautions": "Precauții",
           "agreement": "acord",
+          "Watch the ad and save the file as.": "Urmăriți anunțul și salvați fișierul ca.",
         },
         "lt": {
           "key": "lt",
@@ -2055,6 +2069,7 @@ class Messages extends Translations {
               "Vartotojai turi naudoti visą turinį, sukurtą per „OpentecView“ tik asmeniniam naudojimui.\nVartotojai yra atsakingi už bet kokį neteisėtą perskirstymą ar komercinį turinį.",
           "precautions": "Atsargumo priemonės",
           "agreement": "susitarimas",
+          "Watch the ad and save the file as.": "Peržiūrėkite skelbimą ir išsaugokite failą kaip.",
         },
         "mr": {
           "key": "mr",
@@ -2191,6 +2206,7 @@ class Messages extends Translations {
               "वापरकर्त्यांनी केवळ वैयक्तिक वापरासाठी ओपनटेक्यूद्वारे तयार केलेली सर्व सामग्री वापरली पाहिजे.\nकोणत्याही अनधिकृत पुनर्वितरणासाठी किंवा सामग्रीच्या व्यावसायिक वापरासाठी वापरकर्ते जबाबदार आहेत.",
           "precautions": "सावधगिरी",
           "agreement": "करार",
+          "Watch the ad and save the file as.": "जाहिरात पहा आणि फाईल म्हणून जतन करा.",
         },
         "mk": {
           "key": "mk",
@@ -2328,6 +2344,7 @@ class Messages extends Translations {
               "Корисниците мора да ги користат сите содржини создадени преку OpentEcview само за лична употреба.\nКорисниците се одговорни за какво било неовластено прераспределување или комерцијална употреба на содржина.",
           "precautions": "Мерки на претпазливост",
           "agreement": "Договор",
+          "Watch the ad and save the file as.": "Погледнете ја рекламата и зачувајте ја датотеката како.",
         },
         "ml": {
           "key": "ml",
@@ -2467,6 +2484,7 @@ class Messages extends Translations {
               "വ്യക്തിഗത ഉപയോഗത്തിനായി മാത്രം ഒപെന്റസ്റ്റ്വ്യൂ വഴി സൃഷ്ടിച്ച എല്ലാ ഉള്ളടക്കവും ഉപയോക്താക്കൾ ഉപയോഗിക്കണം.\nഉള്ളടക്കത്തിന്റെ അനധികൃത പുനർവിതരണ അല്ലെങ്കിൽ വാണിജ്യ ഉപയോഗത്തിന് ഉപയോക്താക്കൾ ഉത്തരവാദികളാണ്.",
           "precautions": "മുൻകരുതലുകൾ",
           "agreement": "കരാര്",
+          "Watch the ad and save the file as.": "പരസ്യം കാണുക, ഫയൽ ഇതായി സംരക്ഷിക്കുക.",
         },
         "ms": {
           "key": "ms",
@@ -2603,6 +2621,7 @@ class Messages extends Translations {
               "Pengguna mesti menggunakan semua kandungan yang dibuat melalui Opentecview hanya untuk kegunaan peribadi.\nPengguna bertanggungjawab untuk sebarang pengagihan semula atau penggunaan kandungan komersil yang tidak dibenarkan.",
           "precautions": "Langkah berjaga-berjaga",
           "agreement": "perjanjian",
+          "Watch the ad and save the file as.": "Tonton iklan dan simpan fail sebagai.",
         },
         "ms": {
           "key": "ms",
@@ -2739,6 +2758,7 @@ class Messages extends Translations {
               "Pengguna mesti menggunakan semua kandungan yang dibuat melalui Opentecview hanya untuk kegunaan peribadi.\nPengguna bertanggungjawab untuk sebarang pengagihan semula atau penggunaan kandungan komersil yang tidak dibenarkan.",
           "precautions": "Langkah berjaga-berjaga",
           "agreement": "perjanjian",
+          "Watch the ad and save the file as.": "Tonton iklan dan simpan fail sebagai.",
         },
         "mn": {
           "key": "mn",
@@ -2874,6 +2894,7 @@ class Messages extends Translations {
               "Хэрэглэгчид зөвхөн хувийн хэрэглээнд зориулагдсан бүх агуулгыг ашиглах ёстой.\nХэрэглэгчид контентыг баталгаажуулсан дахин хуваарилах эсвэл арилжааны хэрэгслийг ашиглах үүрэгтэй.",
           "precautions": "Урьдчилан сэргийлэх",
           "agreement": "тохиролцоо",
+          "Watch the ad and save the file as.": "Зарыг үзээд файлыг нь хадгал.",
         },
         "eu": {
           "key": "eu",
@@ -3011,6 +3032,7 @@ class Messages extends Translations {
               "Erabiltzaileek OpentecView-ren bidez sortutako eduki guztiak erabili behar dira erabilera pertsonalerako soilik.\nErabiltzaileei dagokienez, baimenik gabeko edozein edukien banaketa edo erabilera komertzialen erantzule dira.",
           "precautions": "Neurriak",
           "agreement": "akordio",
+          "Watch the ad and save the file as.": "Ikusi iragarkia eta gorde fitxategia.",
         },
         "my": {
           "key": "my",
@@ -3147,6 +3169,7 @@ class Messages extends Translations {
               "အသုံးပြုသူများသည် opentecview မှတဆင့်ဖန်တီးထားသောအကြောင်းအရာအားလုံးကိုအသုံးပြုရမည်။\nအသုံးပြုသူများသည်မည်သည့်ခွင့်ပြုချက်မရှိဘဲပြန်လည်ခွဲဝေမှုသို့မဟုတ်ပါဝင်မှုကိုစီးပွားဖြစ်အသုံးပြုမှုအတွက်တာဝန်ရှိသည်။",
           "precautions": "ကြိုတင်ကာကွယ်မှုများ",
           "agreement": "သဘောတူညီချက်",
+          "Watch the ad and save the file as.": "ကြော်ငြာကိုကြည့်ပြီးဖိုင်ကိုသိမ်းဆည်းပါ။",
         },
         "vi": {
           "key": "vi",
@@ -3282,6 +3305,7 @@ class Messages extends Translations {
               "Người dùng phải sử dụng tất cả nội dung được tạo thông qua OpenTecview chỉ để sử dụng cá nhân.\nNgười dùng chịu trách nhiệm cho bất kỳ phân phối lại trái phép hoặc sử dụng nội dung thương mại.",
           "precautions": "Các biện pháp phòng ngừa",
           "agreement": "hợp đồng",
+          "Watch the ad and save the file as.": "Xem quảng cáo và lưu tệp dưới dạng.",
         },
         "be": {
           "key": "be",
@@ -3419,6 +3443,7 @@ class Messages extends Translations {
               "Карыстальнікі павінны выкарыстоўваць увесь змест, створаны праз OpenTecview толькі для асабістага карыстання.\nКарыстальнікі нясуць адказнасць за любое несанкцыянаванае пераразмеркаванне або камерцыйнае выкарыстанне змесціва.",
           "precautions": "Меры засцярогі",
           "agreement": "пагадненне",
+          "Watch the ad and save the file as.": "Глядзіце рэкламу і захавайце файл як.",
         },
         "bn": {
           "key": "bn",
@@ -3555,6 +3580,7 @@ class Messages extends Translations {
               "ব্যবহারকারীদের অবশ্যই ব্যক্তিগত ব্যবহারের জন্য ওপেনটেকভিউয়ের মাধ্যমে তৈরি সমস্ত সামগ্রী ব্যবহার করতে হবে।\nব্যবহারকারীরা কোনও অননুমোদিত পুনরায় বিতরণ বা সামগ্রীর বাণিজ্যিক ব্যবহারের জন্য দায়বদ্ধ।",
           "precautions": "সতর্কতা",
           "agreement": "চুক্তি",
+          "Watch the ad and save the file as.": "বিজ্ঞাপনটি দেখুন এবং ফাইলটি সংরক্ষণ করুন।",
         },
         "bg": {
           "key": "bg",
@@ -3692,6 +3718,7 @@ class Messages extends Translations {
               "Потребителите трябва да използват цялото съдържание, създадено чрез OpenTecview само за лична употреба.\nПотребителите са отговорни за всяко неразрешено преразпределение или търговско използване на съдържание.",
           "precautions": "Предпазни мерки",
           "agreement": "споразумение",
+          "Watch the ad and save the file as.": "Гледайте рекламата и запазете файла като.",
         },
         "sr": {
           "key": "sr",
@@ -3828,6 +3855,7 @@ class Messages extends Translations {
               "Корисници морају да користе сав садржај креиран преко ОпентецВиев само за личну употребу.\nКорисници су одговорни за било какву неовлашћену прерасподелу или комерцијалну употребу садржаја.",
           "precautions": "Превентивне мере",
           "agreement": "договор",
+          "Watch the ad and save the file as.": "Гледајте оглас и сачувајте датотеку као.",
         },
         "sw": {
           "key": "sw",
@@ -3965,6 +3993,7 @@ class Messages extends Translations {
               "Watumiaji lazima watumie yaliyomo iliyoundwa kupitia OpenTecView tu kwa matumizi ya kibinafsi.\nWatumiaji wanawajibika kwa ugawaji wowote usioidhinishwa au matumizi ya kibiashara ya yaliyomo.",
           "precautions": "Tahadhari",
           "agreement": "makubaliano",
+          "Watch the ad and save the file as.": "Tazama tangazo na uhifadhi faili kama.",
         },
         "sv": {
           "key": "sv",
@@ -4102,6 +4131,7 @@ class Messages extends Translations {
               "Användare måste använda allt innehåll som skapats via OpenTecview endast för personligt bruk.\nAnvändare ansvarar för obehörig omfördelning eller kommersiell användning av innehåll.",
           "precautions": "Försiktighetsåtgärder",
           "agreement": "avtal",
+          "Watch the ad and save the file as.": "Titta på annonsen och spara filen som.",
         },
         "es": {
           "key": "es",
@@ -4238,6 +4268,7 @@ class Messages extends Translations {
               "Los usuarios deben usar todo el contenido creado a través de OpenTecView solo para uso personal.\nLos usuarios son responsables de cualquier redistribución no autorizada o uso comercial de contenido.",
           "precautions": "Precauciones",
           "agreement": "convenio",
+          "Watch the ad and save the file as.": "Mire el anuncio y guarde el archivo como.",
         },
         "sk": {
           "key": "sk",
@@ -4373,6 +4404,7 @@ class Messages extends Translations {
               "Používatelia musia používať všetok obsah vytvorený prostredníctvom OpenTecView iba na osobné použitie.\nPoužívatelia sú zodpovední za akékoľvek neoprávnené prerozdelenie alebo komerčné použitie obsahu.",
           "precautions": "Prevencia",
           "agreement": "dohoda",
+          "Watch the ad and save the file as.": "Sledujte reklamu a uložte súbor ako.",
         },
         "sl": {
           "key": "sl",
@@ -4508,6 +4540,7 @@ class Messages extends Translations {
               "Uporabniki morajo uporabljati vso vsebino, ustvarjeno prek OpenTecView, samo za osebno uporabo.\nUporabniki so odgovorni za kakršno koli nepooblaščeno prerazporeditev ali komercialno uporabo vsebine.",
           "precautions": "Previdnostni ukrepi",
           "agreement": "sporazum",
+          "Watch the ad and save the file as.": "Oglejte si oglas in shranite datoteko kot.",
         },
         "si": {
           "key": "si",
@@ -4643,6 +4676,7 @@ class Messages extends Translations {
               "පරිශීලකයින් විසින් OpentCecView හරහා නිර්මාණය කරන ලද සියලුම අන්තර්ගතයන් පුද්ගලික භාවිතය සඳහා පමණක් භාවිතා කළ යුතුය.\nඕනෑම අනවසර නැවත බෙදාහැරීමක් හෝ අන්තර්ගතයක් වාණිජමය වශයෙන් භාවිතා කිරීම සඳහා පරිශීලකයින් වගකිව යුතුය.",
           "precautions": "පූර්වාරක්‍ෂා",
           "agreement": "ගිවිසුම",
+          "Watch the ad and save the file as.": "දැන්වීම නරඹා ගොනුව විකාශනය කරන්න.",
         },
         "ar": {
           "key": "ar",
@@ -4778,6 +4812,7 @@ class Messages extends Translations {
               "يجب على المستخدمين استخدام جميع المحتوى الذي تم إنشاؤه من خلال OpentEcView فقط للاستخدام الشخصي.\nالمستخدمون مسؤولون عن أي إعادة توزيع غير مصرح بها أو استخدام تجاري للمحتوى.",
           "precautions": "احتياطات",
           "agreement": "اتفاق",
+          "Watch the ad and save the file as.": "شاهد الإعلان وحفظ الملف باسم.",
         },
         "hy": {
           "key": "hy",
@@ -4914,6 +4949,7 @@ class Messages extends Translations {
               "Օգտագործողները պետք է օգտագործեն Opentecview- ի միջոցով ստեղծված բոլոր բովանդակությունը միայն անձնական օգտագործման համար:\nՕգտագործողները պատասխանատու են ցանկացած չարտոնված վերաբաշխման կամ բովանդակության առեւտրային օգտագործման համար:",
           "precautions": "Նախազգուշական միջոցներ",
           "agreement": "համաձայնություն",
+          "Watch the ad and save the file as.": "Դիտեք գովազդը եւ պահեք ֆայլը որպես:",
         },
         "is": {
           "key": "is",
@@ -5051,6 +5087,7 @@ class Messages extends Translations {
               "Notendur verða að nota allt efni sem er búið til í gegnum OpentecView eingöngu til einkanota.\nNotendur bera ábyrgð á óleyfilegri dreifingu eða notkun efnis.",
           "precautions": "Varúðarráðstafanir",
           "agreement": "samningur",
+          "Watch the ad and save the file as.": "Horfðu á auglýsinguna og vistaðu skrána sem.",
         },
         "az": {
           "key": "az",
@@ -5187,6 +5224,7 @@ class Messages extends Translations {
               "İstifadəçilər yalnız OpenteCView vasitəsilə yalnız şəxsi istifadə üçün yaradılan bütün məzmunu istifadə etməlidirlər.\nİstifadəçilər heç bir icazəsiz yenidən bölüşdürülmə və ya məzmunun ticari istifadəsinə cavabdehdirlər.",
           "precautions": "Ehtiyat tədbirləri",
           "agreement": "razılaşma",
+          "Watch the ad and save the file as.": "Reklamı izləyin və faylı olaraq qeyd edin.",
         },
         "af": {
           "key": "af",
@@ -5323,6 +5361,7 @@ class Messages extends Translations {
               "Gebruikers moet alle inhoud gebruik wat deur OpentecView geskep word slegs vir persoonlike gebruik.\nGebruikers is verantwoordelik vir enige ongemagtigde herverdeling of kommersiële gebruik van inhoud.",
           "precautions": "Voorsorgmaatreëls",
           "agreement": "ooreenkoms",
+          "Watch the ad and save the file as.": "Kyk na die advertensie en stoor die lêer as.",
         },
         "sq": {
           "key": "sq",
@@ -5460,6 +5499,7 @@ class Messages extends Translations {
               "Përdoruesit duhet të përdorin të gjithë përmbajtjen e krijuar përmes OpenteCview vetëm për përdorim personal.\nPërdoruesit janë përgjegjës për çdo rishpërndarje të paautorizuar ose përdorim komercial të përmbajtjes.",
           "precautions": "Masa paraprake",
           "agreement": "marrëveshje",
+          "Watch the ad and save the file as.": "Shikoni reklamën dhe ruajeni skedarin si.",
         },
         "am": {
           "key": "am",
@@ -5593,6 +5633,7 @@ class Messages extends Translations {
           "save as cmd": "ተጠቃሚዎች በጽሁፍ እይታ የተፈጠረውን ሁሉ ይዘት ለግል ጥቅም ብቻ መጠቀም አለባቸው.\nተጠቃሚዎች ለተፈቀደላቸው ለማንኛውም የአደገኛ ድጋፎች ሀላፊነት አለባቸው.",
           "precautions": "ቅድመ ጥንቃቄዎች",
           "agreement": "ስምምነት",
+          "Watch the ad and save the file as.": "ማስታወቂያውን ይመልከቱ እና ፋይሉን እንደ.",
         },
         "et": {
           "key": "et",
@@ -5729,6 +5770,7 @@ class Messages extends Translations {
               "Kasutajad peavad kasutama kogu OpenTecView kaudu loodud sisu ainult isiklikuks kasutamiseks.\nKasutajad vastutavad igasuguse volitamata ümberjaotamise või sisu ärilise kasutamise eest.",
           "precautions": "Ettevaatusabinõud",
           "agreement": "kokkulepe",
+          "Watch the ad and save the file as.": "Vaadake reklaami ja salvestage fail järgmiselt.",
         },
         "en": {
           "key": "en",
@@ -5865,6 +5907,7 @@ class Messages extends Translations {
               "Users must use all content created through OpenTecView only for personal use.\nUsers are responsible for any unauthorized redistribution or commercial use of content.",
           "precautions": "Precautions",
           "agreement": "agreement",
+          "Watch the ad and save the file as.": "Watch the ad and save the file as.",
         },
         "ur": {
           "key": "ur",
@@ -6001,6 +6044,7 @@ class Messages extends Translations {
               "صارفین کو صرف ذاتی استعمال کے لئے اوپنیک ویو کے ذریعے تیار کردہ تمام مواد کا استعمال کرنا چاہئے۔\nصارفین کسی بھی غیر مجاز دوبارہ تقسیم یا مواد کے تجارتی استعمال کے ذمہ دار ہیں۔",
           "precautions": "احتیاطی تدابیر",
           "agreement": "معاہدہ",
+          "Watch the ad and save the file as.": "اشتہار دیکھیں اور فائل کو بطور محفوظ کریں۔",
         },
         "uk": {
           "key": "uk",
@@ -6138,6 +6182,7 @@ class Messages extends Translations {
               "Користувачі повинні використовувати весь вміст, створений через OpenTeCview лише для особистого використання.\nКористувачі несуть відповідальність за будь -який несанкціонований перерозподіл або комерційне використання вмісту.",
           "precautions": "Запобіжні заходи",
           "agreement": "Угода",
+          "Watch the ad and save the file as.": "Перегляньте рекламу та збережіть файл як.",
         },
         "it": {
           "key": "it",
@@ -6274,6 +6319,7 @@ class Messages extends Translations {
               "Gli utenti devono utilizzare tutti i contenuti creati tramite OpenTecView solo per uso personale.\nGli utenti sono responsabili per qualsiasi ridistribuzione non autorizzata o uso commerciale dei contenuti.",
           "precautions": "Precauzioni",
           "agreement": "accordo",
+          "Watch the ad and save the file as.": "Guarda l'annuncio e salva il file come.",
         },
         "id": {
           "key": "id",
@@ -6409,6 +6455,7 @@ class Messages extends Translations {
               "Pengguna harus menggunakan semua konten yang dibuat melalui OpENTECVIEW hanya untuk penggunaan pribadi.\nPengguna bertanggung jawab atas redistribusi yang tidak sah atau penggunaan konten komersial.",
           "precautions": "Tindakan pencegahan",
           "agreement": "persetujuan",
+          "Watch the ad and save the file as.": "Tonton iklan dan simpan file sebagai.",
         },
         "ja": {
           "key": "ja",
@@ -6542,6 +6589,7 @@ class Messages extends Translations {
           "save as cmd": "ユーザーは、個人使用のためにのみOpenteCviewを使用して作成されたすべてのコンテンツを使用する必要があります。\nユーザーは、不正な再分配またはコンテンツの商用使用について責任を負います。",
           "precautions": "予防",
           "agreement": "合意",
+          "Watch the ad and save the file as.": "広告を見て、ファイルを保存します。",
         },
         "ka": {
           "key": "ka",
@@ -6677,6 +6725,7 @@ class Messages extends Translations {
               "მომხმარებლებმა უნდა გამოიყენონ OpentEcview- ის საშუალებით შექმნილი ყველა შინაარსი მხოლოდ პირადი სარგებლობისთვის.\nმომხმარებლები პასუხისმგებელნი არიან ნებისმიერი უნებართვო გადანაწილებაზე ან შინაარსის კომერციულ გამოყენებაზე.",
           "precautions": "Სიფრთხილის ზომები",
           "agreement": "შეთანხმება",
+          "Watch the ad and save the file as.": "უყურეთ რეკლამას და შეინახეთ ფაილი, როგორც.",
         },
         "zu": {
           "key": "zu",
@@ -6813,6 +6862,7 @@ class Messages extends Translations {
               "Abasebenzisi kumele basebenzise konke okuqukethwe okwenziwe nge-Opentecview kuphela ukusetshenziswa komuntu siqu.\nAbasebenzisi banesibopho sokusabalalisa kabusha okungagunyaziwe noma ukusetshenziswa kwezentengiso okuqukethwe.",
           "precautions": "Izinyathelo zokuzivikela",
           "agreement": "isivumelwano",
+          "Watch the ad and save the file as.": "Bukela isikhangiso bese ugcine ifayili njengoba.",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -6946,6 +6996,7 @@ class Messages extends Translations {
           "save as cmd": "用户必须仅使用OpenteCview创建的所有内容才能进行个人使用。\n用户负责任何未经授权的重新分配或内容的商业用途。",
           "precautions": "防范措施",
           "agreement": "协议",
+          "Watch the ad and save the file as.": "观看广告并将文件保存为。",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -7079,6 +7130,7 @@ class Messages extends Translations {
           "save as cmd": "用戶必須僅使用OpenteCview創建的所有內容才能進行個人使用。\n用戶負責任何未經授權的重新分配或內容的商業用途。",
           "precautions": "防範措施",
           "agreement": "協議",
+          "Watch the ad and save the file as.": "觀看廣告並將文件保存為。",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -7212,6 +7264,7 @@ class Messages extends Translations {
           "save as cmd": "用戶必須僅使用OpenteCview創建的所有內容才能進行個人使用。\n用戶負責任何未經授權的重新分配或內容的商業用途。",
           "precautions": "防範措施",
           "agreement": "協議",
+          "Watch the ad and save the file as.": "觀看廣告並將文件保存為。",
         },
         "cs": {
           "key": "cs",
@@ -7348,6 +7401,7 @@ class Messages extends Translations {
               "Uživatelé musí používat veškerý obsah vytvořený prostřednictvím OpenCeewiew pouze pro osobní použití.\nUživatelé jsou zodpovědní za jakékoli neoprávněné přerozdělování nebo komerční využití obsahu.",
           "precautions": "Opatření",
           "agreement": "dohoda",
+          "Watch the ad and save the file as.": "Sledujte reklamu a uložte soubor jako.",
         },
         "kk": {
           "key": "kk",
@@ -7484,6 +7538,7 @@ class Messages extends Translations {
               "Пайдаланушылар тек OpenteCView арқылы жасалған барлық мазмұнды тек жеке пайдалану үшін пайдалануы керек.\nПайдаланушылар кез-келген рұқсатсыз қайта бөлу немесе мазмұнды коммерциялық пайдалануға жауап береді.",
           "precautions": "Сақтық шаралары",
           "agreement": "келісім",
+          "Watch the ad and save the file as.": "Жарнаманы қарап, файлды сақтаңыз.",
         },
         "ca": {
           "key": "ca",
@@ -7620,6 +7675,7 @@ class Messages extends Translations {
               "Els usuaris han d’utilitzar tot el contingut creat mitjançant OpentEcView només per a ús personal.\nEls usuaris són responsables de qualsevol redistribució no autoritzada o ús comercial del contingut.",
           "precautions": "Precaucions",
           "agreement": "acord",
+          "Watch the ad and save the file as.": "Mireu l'anunci i deseu el fitxer com.",
         },
         "kn": {
           "key": "kn",
@@ -7757,6 +7813,7 @@ class Messages extends Translations {
               "ಬಳಕೆದಾರರು ವೈಯಕ್ತಿಕ ಬಳಕೆಗಾಗಿ ಮಾತ್ರ ಒಪೆಂಟೆನ್‌ಕ್ವ್ಯೂ ಮೂಲಕ ರಚಿಸಲಾದ ಎಲ್ಲಾ ವಿಷಯವನ್ನು ಬಳಸಬೇಕು.\nಯಾವುದೇ ಅನಧಿಕೃತ ಪುನರ್ವಿತರಣೆ ಅಥವಾ ವಿಷಯದ ವಾಣಿಜ್ಯ ಬಳಕೆಗೆ ಬಳಕೆದಾರರು ಜವಾಬ್ದಾರರಾಗಿರುತ್ತಾರೆ.",
           "precautions": "ಮುನ್ನೆಚ್ಚರಿಕೆಗಳು",
           "agreement": "ಒಪ್ಪಂದ",
+          "Watch the ad and save the file as.": "ಜಾಹೀರಾತನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ಫೈಲ್ ಅನ್ನು ಹೀಗೆ ಉಳಿಸಿ.",
         },
         "hr": {
           "key": "hr",
@@ -7893,6 +7950,7 @@ class Messages extends Translations {
               "Korisnici moraju koristiti sav sadržaj stvoren putem OpenTecView samo za osobnu upotrebu.\nKorisnici su odgovorni za bilo kakvu neovlaštenu preraspodjelu ili komercijalnu upotrebu sadržaja.",
           "precautions": "Mjere opreza",
           "agreement": "sporazum",
+          "Watch the ad and save the file as.": "Pogledajte oglas i spremite datoteku kao.",
         },
         "km": {
           "key": "km",
@@ -8030,6 +8088,7 @@ class Messages extends Translations {
               "អ្នកប្រើត្រូវតែប្រើមាតិកាទាំងអស់ដែលបានបង្កើតតាមរយៈកម្មវិធី Optencview សម្រាប់តែការប្រើប្រាស់ផ្ទាល់ខ្លួនប៉ុណ្ណោះ។\nអ្នកប្រើប្រាស់ទទួលខុសត្រូវចំពោះការចែកចាយមាតិកាដែលមិនមានការអនុញ្ញាតឬការប្រើប្រាស់មាតិកានៃមាតិកា។",
           "precautions": "ការប្រុងប្រយ័ត្នជាមុន",
           "agreement": "សេចក្ដីយល់របម",
+          "Watch the ad and save the file as.": "មើលការផ្សាយពាណិជ្ជកម្មនិងរក្សាទុកឯកសារជា។",
         },
         "ky": {
           "key": "ky",
@@ -8166,6 +8225,7 @@ class Messages extends Translations {
               "Колдонуучулар OpenTecView аркылуу түзүлгөн бардык мазмунун жеке колдонуу үчүн гана колдонушу керек.\nКолдонуучулар каалаган уруксатсыз бөлүштүрүлбөгөн кайра бөлүштүрүү же коммерциялык максатта пайдалануу үчүн жооптуу.",
           "precautions": "Cактык чаралары",
           "agreement": "Келишим",
+          "Watch the ad and save the file as.": "Жарнаманы карап, файлды сактаңыз.",
         },
         "ta": {
           "key": "ta",
@@ -8303,6 +8363,7 @@ class Messages extends Translations {
               "பயனர்கள் தனிப்பட்ட பயன்பாட்டிற்காக மட்டுமே OpentecView மூலம் உருவாக்கப்பட்ட அனைத்து உள்ளடக்கங்களையும் பயன்படுத்த வேண்டும்.\nஎந்தவொரு அங்கீகரிக்கப்படாத மறுவிநியோகம் அல்லது உள்ளடக்கத்தின் வணிக பயன்பாட்டிற்கு பயனர்கள் பொறுப்பு.",
           "precautions": "தற்காப்பு நடவடிக்கைகள்",
           "agreement": "ஒப்பந்தம்",
+          "Watch the ad and save the file as.": "விளம்பரத்தைப் பார்த்து கோப்பை சேமிக்கவும்.",
         },
         "th": {
           "key": "th",
@@ -8438,6 +8499,7 @@ class Messages extends Translations {
               "ผู้ใช้จะต้องใช้เนื้อหาทั้งหมดที่สร้างขึ้นผ่าน OpentEcView สำหรับการใช้งานส่วนตัวเท่านั้น\nผู้ใช้มีหน้าที่รับผิดชอบในการแจกจ่ายซ้ำหรือใช้เนื้อหาในเชิงพาณิชย์",
           "precautions": "ข้อควรระวัง",
           "agreement": "ข้อตกลง",
+          "Watch the ad and save the file as.": "ดูโฆษณาและบันทึกไฟล์เป็น",
         },
         "tr": {
           "key": "tr",
@@ -8575,6 +8637,7 @@ class Messages extends Translations {
               "Kullanıcılar OpenTecview aracılığıyla oluşturulan tüm içeriği yalnızca kişisel kullanım için kullanmalıdır.\nKullanıcılar, yetkisiz yeniden dağıtım veya ticari içerik kullanımından sorumludur.",
           "precautions": "Önlemler",
           "agreement": "anlaşma",
+          "Watch the ad and save the file as.": "Reklamı izleyin ve dosyayı kaydedin.",
         },
         "te": {
           "key": "te",
@@ -8713,6 +8776,7 @@ class Messages extends Translations {
               "వినియోగదారులు వ్యక్తిగత ఉపయోగం కోసం మాత్రమే ఓపెన్‌టెక్యూ ద్వారా సృష్టించబడిన మొత్తం కంటెంట్‌ను ఉపయోగించాలి.\nఏదైనా అనధికార పున ist పంపిణీ లేదా కంటెంట్ యొక్క వాణిజ్య ఉపయోగం కోసం వినియోగదారులు బాధ్యత వహిస్తారు.",
           "precautions": "ముందుజాగ్రత్తలు",
           "agreement": "ఒప్పందం",
+          "Watch the ad and save the file as.": "ప్రకటనను చూడండి మరియు ఫైల్‌ను ఇలా సేవ్ చేయండి.",
         },
         "pa": {
           "key": "pa",
@@ -8849,6 +8913,7 @@ class Messages extends Translations {
               "ਉਪਭੋਗਤਾ ਸਿਰਫ ਓਪਨਟੈਕਵਿ view ਦੁਆਰਾ ਨਿੱਜੀ ਵਰਤੋਂ ਲਈ ਤਿਆਰ ਕੀਤੀ ਸਾਰੀ ਸਮੱਗਰੀ ਦੀ ਵਰਤੋਂ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ.\nਉਪਭੋਗਤਾ ਕਿਸੇ ਵੀ ਅਣਅਧਿਕਾਰਤ ਮੁੜ ਵੰਡ ਜਾਂ ਸਮੱਗਰੀ ਦੀ ਵਪਾਰਕ ਵਰਤੋਂ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਹਨ.",
           "precautions": "ਸਾਵਧਾਨੀਆਂ",
           "agreement": "ਸਮਝੌਤਾ",
+          "Watch the ad and save the file as.": "ਵਿਗਿਆਪਨ ਵੇਖੋ ਅਤੇ ਫਾਈਲ ਨੂੰ ਸੇਵ ਕਰੋ.",
         },
         "fa": {
           "key": "fa",
@@ -8986,6 +9051,7 @@ class Messages extends Translations {
               "کاربران باید از کلیه مطالب ایجاد شده از طریق OpentEcView فقط برای استفاده شخصی استفاده کنند.\nکاربران مسئول هرگونه توزیع مجدد غیرمجاز یا استفاده تجاری از محتوا هستند.",
           "precautions": "موارد احتیاط",
           "agreement": "توافق",
+          "Watch the ad and save the file as.": "آگهی را تماشا کرده و پرونده را به عنوان ذخیره کنید.",
         },
         "pt": {
           "key": "pt",
@@ -9124,6 +9190,7 @@ class Messages extends Translations {
               "Os usuários devem usar todo o conteúdo criado através do OpenTECView apenas para uso pessoal.\nOs usuários são responsáveis ​​por qualquer redistribuição não autorizada ou uso comercial de conteúdo.",
           "precautions": "Precauções",
           "agreement": "acordo",
+          "Watch the ad and save the file as.": "Assista ao anúncio e salve o arquivo como.",
         },
         "pl": {
           "key": "pl",
@@ -9259,6 +9326,7 @@ class Messages extends Translations {
               "Użytkownicy muszą korzystać z wszystkich treści utworzonych za pośrednictwem OpenteCview tylko do użytku osobistego.\nUżytkownicy są odpowiedzialni za nieautoryzowaną redystrybucję lub komercyjne wykorzystanie treści.",
           "precautions": "Środki ostrożności",
           "agreement": "umowa",
+          "Watch the ad and save the file as.": "Obejrzyj reklamę i zapisz plik jako.",
         },
         "fr": {
           "key": "fr",
@@ -9397,6 +9465,7 @@ class Messages extends Translations {
               "Les utilisateurs doivent utiliser tout le contenu créé via OpentecView uniquement pour un usage personnel.\nLes utilisateurs sont responsables de toute redistribution non autorisée ou utilisation commerciale du contenu.",
           "precautions": "Précautions",
           "agreement": "accord",
+          "Watch the ad and save the file as.": "Regardez l'annonce et enregistrez le fichier sous.",
         },
         "fi": {
           "key": "fi",
@@ -9532,6 +9601,7 @@ class Messages extends Translations {
               "Käyttäjien on käytettävä kaikkia OpenTecview -kautta luotuja sisältöjä vain henkilökohtaiseen käyttöön.\nKäyttäjät ovat vastuussa kaikista luvattomasta uudelleenjakautumisesta tai sisällön kaupallisesta käytöstä.",
           "precautions": "Varotoimenpiteet",
           "agreement": "sopimus",
+          "Watch the ad and save the file as.": "Katso mainos ja tallenna tiedosto nimellä.",
         },
         "fil": {
           "key": "fil",
@@ -9670,6 +9740,7 @@ class Messages extends Translations {
               "Dapat gamitin ng mga gumagamit ang lahat ng nilalaman na nilikha sa pamamagitan ng OpenTecview lamang para sa personal na paggamit.\nAng mga gumagamit ay may pananagutan para sa anumang hindi awtorisadong muling pamamahagi o komersyal na paggamit ng nilalaman.",
           "precautions": "Mga pag-iingat",
           "agreement": "kasunduan",
+          "Watch the ad and save the file as.": "Panoorin ang ad at i -save ang file bilang.",
         },
         "hu": {
           "key": "hu",
@@ -9806,6 +9877,7 @@ class Messages extends Translations {
               "A felhasználóknak csak az OpenCview -n keresztül létrehozott tartalmat csak személyes használatra kell használniuk.\nA felhasználók felelősek a tartalom jogosulatlan újraelosztásáért vagy kereskedelmi felhasználásáért.",
           "precautions": "Óvintézkedések",
           "agreement": "megegyezés",
+          "Watch the ad and save the file as.": "Nézze meg a hirdetést, és mentse el a fájlt.",
         },
         "iw": {
           "key": "iw",
@@ -9941,6 +10013,7 @@ class Messages extends Translations {
               "על המשתמשים להשתמש בכל התוכן שנוצר באמצעות OpenTecView רק לשימוש אישי.\nהמשתמשים אחראים לכל חלוקה מחודשת לא מורשית או שימוש מסחרי בתוכן.",
           "precautions": "אמצעי זהירות",
           "agreement": "הֶסכֵּם",
+          "Watch the ad and save the file as.": "צפו במודעה ושמרו את הקובץ כ.",
         },
         "hi": {
           "key": "hi",
@@ -10078,6 +10151,7 @@ class Messages extends Translations {
               "उपयोगकर्ताओं को केवल व्यक्तिगत उपयोग के लिए opentecview के माध्यम से बनाई गई सभी सामग्री का उपयोग करना चाहिए।\nउपयोगकर्ता किसी भी अनधिकृत पुनर्वितरण या सामग्री के व्यावसायिक उपयोग के लिए जिम्मेदार हैं।",
           "precautions": "एहतियात",
           "agreement": "समझौता",
+          "Watch the ad and save the file as.": "विज्ञापन देखें और फ़ाइल को सहेजें।",
         },
       };
 }

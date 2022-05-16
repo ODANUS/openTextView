@@ -70,11 +70,23 @@ class Utils {
   }
 
   static Future<bool> saveAs(File f) async {
-    if (!await Get.dialog(
-        AlertDialog(title: Text("precautions".tr), content: Text("save as cmd".tr), actionsAlignment: MainAxisAlignment.spaceAround, actions: [
-      ElevatedButton(style: ElevatedButton.styleFrom(primary: Colors.red), onPressed: () => Get.back(result: false), child: Text("cancel".tr)),
-      ElevatedButton(onPressed: () => Get.back(result: true), child: Text("agreement".tr))
-    ]))) {
+    if (!await Get.dialog(AlertDialog(
+        title: Text("precautions".tr),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("save as cmd".tr),
+            SizedBox(height: 10),
+            Divider(),
+            SizedBox(height: 10),
+            Text("Watch the ad and save the file as.".tr),
+          ],
+        ),
+        actionsAlignment: MainAxisAlignment.spaceAround,
+        actions: [
+          ElevatedButton(style: ElevatedButton.styleFrom(primary: Colors.red), onPressed: () => Get.back(result: false), child: Text("cancel".tr)),
+          ElevatedButton.icon(onPressed: () => Get.back(result: true), icon: Icon(Icons.smart_display), label: Text("agreement".tr)),
+        ]))) {
       return false;
     }
     // if (!AdCtl.hasOpenRewardedInterstitialAd()) {
