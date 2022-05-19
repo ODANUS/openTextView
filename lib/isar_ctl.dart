@@ -76,6 +76,8 @@ class IsarCtl {
   static RxBool bLoadingLib = false.obs;
   static RxDouble lastVolume = 0.1.obs;
 
+  static RxString curDragEx = "".obs;
+
   // static RxBool bImageFullScreen = false.obs;
   // static RxBool bTowDrage = false.obs;
 

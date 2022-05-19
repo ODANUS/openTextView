@@ -11,8 +11,10 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:open_textview/component/hero_dialog_route.dart';
+import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:open_textview/model/model_isar.dart';
+import 'package:open_textview/provider/Gdrive.dart';
 import 'package:open_textview/provider/svg_data.dart';
 import 'package:open_textview/provider/utils.dart';
 
@@ -312,12 +314,15 @@ class LibraryFileViewer extends GetView {
           tag: f.path,
           child: Container(
             width: Get.width * 0.7,
+            // padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 100.h),
             child: ListView(
               shrinkWrap: true,
+              // padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 100.h),
               children: [
                 Card(
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    // padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 80.h),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -327,9 +332,15 @@ class LibraryFileViewer extends GetView {
                             child: ListTile(
                                 onTap: () async {
                                   Get.back();
-                                  Utils.saveAs(f);
+                                  IsarCtl.bLoadingLib(true);
+                                  await Gdrive.gdriveSignIn();
+                                  await AdCtl.startInterstitialAd();
+                                  await Gdrive.createFile(name: fileName, data: await Utils.readFile(f));
+                                  IsarCtl.bLoadingLib(false);
+                                  // Utils.saveAs(f);
                                 },
-                                title: Text("save as".tr))),
+                                leading: Icon(Icons.add_to_drive),
+                                title: Text("google drive backup".tr))),
 
                         // if (kDebugMode)
                         //   Card(
@@ -713,14 +724,19 @@ class LibraryFileViewer extends GetView {
                               var ex = e.path.split(".").last;
                               bDrag(true);
                               dragEx(ex);
+                              if (ex == 'txt') {
+                                IsarCtl.curDragEx(ex);
+                              }
                             },
                             onDragEnd: (d) {
                               bDrag(false);
                               dragEx("");
+                              IsarCtl.curDragEx("");
                             },
                             onDraggableCanceled: (v, o) {
                               bDrag(false);
                               dragEx("");
+                              IsarCtl.curDragEx("");
                             },
                             child: fileWidget(f),
                             feedback: fileFeedbackWidget(f));

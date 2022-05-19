@@ -27,11 +27,11 @@ class AdBanner extends GetView {
           _bannerAd(ad as BannerAd);
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          print('$BannerAd failedToLoad: $error');
+          // print('$BannerAd failedToLoad: $error');
           ad.dispose();
         },
-        onAdOpened: (Ad ad) => print('$BannerAd onAdOpened.'),
-        onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
+        // onAdOpened: (Ad ad) => print('$BannerAd onAdOpened.'),
+        // onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
       ),
     ).load();
   }
@@ -148,18 +148,21 @@ class AdCtl {
 
   static Future<bool> startSaveAsInterstitialAd() async {
     Completer<bool> c = Completer<bool>();
+    MobileAds.instance.setAppMuted(false);
     IsarCtl.bLoadingLib(true);
     var stat = false;
     if (await initRewardedAd()) {
       _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (RewardedAd ad) async {
           IsarCtl.bLoadingLib(false);
+          MobileAds.instance.setAppMuted(true);
           c.complete(stat);
           await ad.dispose();
           _rewardedAd = null;
         },
         onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
           IsarCtl.bLoadingLib(false);
+          MobileAds.instance.setAppMuted(true);
           await ad.dispose();
           _rewardedAd = null;
         },
@@ -172,6 +175,7 @@ class AdCtl {
       return c.future;
     } else {
       IsarCtl.bLoadingLib(false);
+      MobileAds.instance.setAppMuted(true);
       return await Get.dialog(AlertDialog(
           content: Text("Failed to load ad"), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
     }

@@ -112,7 +112,10 @@ class OptionFilter extends GetView {
                     decoration: InputDecoration(
                       labelText: "name".tr,
                     ),
-                    onFieldSubmitted: (v) {
+                    // onFieldSubmitted: (v) {
+                    //   IsarCtl.putFilter(e..name = v);
+                    // },
+                    onChanged: (v) {
                       IsarCtl.putFilter(e..name = v);
                     },
                   ),
@@ -121,7 +124,7 @@ class OptionFilter extends GetView {
                     decoration: InputDecoration(
                       labelText: "filter rules".tr,
                     ),
-                    onFieldSubmitted: (v) {
+                    onChanged: (v) {
                       IsarCtl.putFilter(e..filter = v);
                     },
                   ),
@@ -130,7 +133,7 @@ class OptionFilter extends GetView {
                     decoration: InputDecoration(
                       labelText: "change text".tr,
                     ),
-                    onFieldSubmitted: (v) {
+                    onChanged: (v) {
                       IsarCtl.putFilter(e..to = v);
                     },
                   ),

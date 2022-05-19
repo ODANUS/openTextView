@@ -268,7 +268,7 @@ packages:
     source: hosted
     version: "0.3.2+2"
   fading_edge_scrollview:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: fading_edge_scrollview
       url: "https://pub.dartlang.org"
@@ -411,7 +411,7 @@ packages:
       name: flutter_slidable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -664,7 +664,7 @@ packages:
       name: marquee
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   matcher:
     dependency: transitive
     description:
@@ -869,7 +869,7 @@ packages:
       name: scrollable_positioned_list
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.3"
+    version: "0.3.2"
   share_plus:
     dependency: "direct main"
     description:
@@ -1212,5 +1212,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.17.0-0 <3.0.0"
-  flutter: ">=2.10.0"
+  dart: ">=2.17.0 <3.0.0"
+  flutter: ">=3.0.0"

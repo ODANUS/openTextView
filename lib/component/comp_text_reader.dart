@@ -141,6 +141,8 @@ class TextViewerPainter extends CustomPainter {
 
   Paint bg = Paint()..color = Colors.green;
   Paint highlight = Paint()..color = Colors.blueGrey.shade400;
+  String lastData = "";
+  List<TextSpan> spans = [];
 
   void render(Canvas canvas, Size size) {
     var ctl = textViewerController;
@@ -152,18 +154,87 @@ class TextViewerPainter extends CustomPainter {
     var pper = TextPainter(
       text: TextSpan(text: perData.contents + "-", style: ctl._style),
       textDirection: TextDirection.ltr,
-    )..layout(maxWidth: size.width);
+    )..layout();
 
     // ------------ next ------------
     var data = ctl._getNextText(size);
 
+    var start = DateTime.now();
+
+    if (lastData != data.contents) {
+      spans = data.contents
+          .split("\n")
+          .asMap()
+          .map((idx, e) {
+            if (e.trim().isEmpty) {
+              return MapEntry(
+                  idx,
+                  TextSpan(
+                    text: "\n\n",
+                    style: ctl._style,
+                  ));
+            }
+
+            var tmpP = TextPainter(
+              text: TextSpan(
+                text: e,
+                style: ctl._style,
+              ),
+              textDirection: TextDirection.ltr,
+            )..layout();
+            var curWidth = tmpP.width;
+            // var curWidth = data.lineWidths[idx];
+
+            if (curWidth >= size.width) {
+              //* 0.98
+              return MapEntry(
+                  idx,
+                  TextSpan(
+                    text: "$e\n",
+                    style: ctl._style?.copyWith(letterSpacing: -((size.width) / curWidth)),
+                  ));
+            }
+            if (idx < data.lineWidths.length && curWidth > size.width * 0.8 && curWidth <= size.width * 0.92) {
+              return MapEntry(
+                  idx,
+                  TextSpan(
+                    text: "$e\n",
+                    style: ctl._style?.copyWith(letterSpacing: (size.width / curWidth)),
+                  ));
+            }
+
+            return MapEntry(
+                idx,
+                TextSpan(
+                  text: "$e\n",
+                  style: ctl._style,
+                ));
+          })
+          .values
+          .toList();
+      lastData = data.contents;
+    }
+
+    // TextSpan(children: )
     var p = TextPainter(
       text: TextSpan(
-        text: data.contents,
-        style: ctl._style,
+        children: spans,
+        // text: data.contents,
+        // style: ctl._style,
       ),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: size.width);
+
+    // var p1 = TextPainter(
+    //   text: TextSpan(
+    //     // children: spans,
+    //     text: data.contents,
+    //     style: ctl._style?.copyWith(color: Colors.white38),
+    //   ),
+    //   textDirection: TextDirection.ltr,
+    // )..layout(maxWidth: size.width);
+
+    // p1.paint(canvas, Offset(0, offsetY));
 
     if (ctl.bHighlight) {
       var curHighlightPos = max(ctl.highlightPos - (pos), 0);
@@ -317,6 +388,17 @@ class TextViewerController extends ChangeNotifier {
     var nextText = contents.substring(cntntPstn, min(cntntPstn + 2200, contents.length));
     // var nextText = contents.substring(0, 20);
     nextPosData = _clcText(nextText, size, cntntPstn);
+    for (var i = 0; i < 4; i++) {
+      if (nextPosData.nextPos < contents.length) {
+        var nextStr = contents.substring(nextPosData.nextPos, min(nextPosData.nextPos + 1, contents.length));
+        if (nextStr.trim().isEmpty) {
+          nextPosData.nextPos++;
+        }
+      }
+    }
+    // print("${nextPosData.lineWidths} ::: ${size.width}");
+    // print(nextPosData.contents.split("\n").first);
+    // print(">>>>> ${}");
 
     return nextPosData;
   }
@@ -334,7 +416,7 @@ class TextViewerController extends ChangeNotifier {
 
     var nextLine = 0;
     var newlineCnt = 0;
-
+    List<double> lineWidths = [];
     for (var i = 0; i < nextArr.length; i++) {
       var newLine = nextArr[i];
 
@@ -352,11 +434,12 @@ class TextViewerController extends ChangeNotifier {
         lastWidth += cacheMap[" "]![0];
         lineWidth += lastWidth;
 
-        if (lineWidth > size.width) {
+        if (lineWidth > (size.width + (cacheMap[" "]![0] * 4))) {
           word = "\n${word.trimLeft()}";
+          lineWidths.add(lineWidth - lastWidth);
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += avgHeight * (lastWidth ~/ size.width + 2);
+            lineHeight += avgHeight * (lastWidth ~/ size.width);
           } else {
             lineHeight += avgHeight;
           }
@@ -384,14 +467,19 @@ class TextViewerController extends ChangeNotifier {
       if (i < nextArr.length - 1) {
         rtnStr += "\n";
       }
+      lineWidths.add(lineWidth - lastWidth);
     }
+    lineWidths.add(0.0);
+
     var data = PosData();
+
     // data.perPos = max(basePos - tleng, 0);
     data.basePos = basePos;
     data.nextPos = basePos + tleng;
     data.nextLine = basePos + nextLine;
     data.lastLine = basePos + (tleng - rtnStr.split("\n").last.length);
     data.newlineCnt = newlineCnt;
+    data.lineWidths = lineWidths;
     if (data.nextPos - data.lastLine <= 1) {
       data.lastLine--;
     }
@@ -457,6 +545,7 @@ class PosData {
   int lastLine = 0;
   int newlineCnt = 0;
   String contents = "";
+  List<double> lineWidths = [];
 
   String toJson() => json.encode(toMap());
 
@@ -468,5 +557,6 @@ class PosData {
         "lastLine": lastLine,
         "contents": contents,
         "newlineCnt": newlineCnt,
+        "lineWidths": lineWidths,
       };
 }

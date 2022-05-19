@@ -113,7 +113,7 @@ class SettingIsar {
     this.fontWeight = 3,
     this.fontFamily = "",
     this.customFont,
-    this.fontHeight = 1.4,
+    this.fontHeight = 1.8,
     this.letterSpacing = 0,
     this.speechRate = 1,
     this.volume = 1.0,
@@ -135,7 +135,7 @@ class SettingIsar {
     this.paddingBottom = 20,
     this.bgIdx = 0,
     this.bgFilter = 0x00FFFFFF,
-    this.fullScreenType = 0,
+    this.fullScreenType = 1,
   });
   int id = Isar.autoIncrement;
   int fontWeight;

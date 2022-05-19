@@ -32,10 +32,35 @@ class Gdrive {
     return true;
   }
 
+  static Future<List<drive.File>> getAppTextFileList() async {
+    if (driveApi != null) {
+      var list = await driveApi!.files.list(spaces: 'appDataFolder');
+      if (list.files != null) {
+        return list.files!.where((e) {
+          if (e.name != null && e.name!.endsWith(".txt")) {
+            return true;
+          }
+          return false;
+        }).toList();
+        // return list.files!;
+      }
+      // return list.files!;
+    }
+    return [];
+  }
+
   static Future<List<drive.File>> getAppDataList() async {
     if (driveApi != null) {
       var list = await driveApi!.files.list(spaces: 'appDataFolder');
-      return list.files!;
+      if (list.files != null) {
+        return list.files!.where((e) {
+          if (e.name != null && e.name!.startsWith("opentextView_") && e.name!.endsWith(".json")) {
+            return true;
+          }
+          return false;
+        }).toList();
+        // return list.files!;
+      }
     }
     return [];
   }
