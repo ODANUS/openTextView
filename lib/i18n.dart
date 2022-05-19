@@ -139,6 +139,8 @@ class Messages extends Translations {
           "precautions": "Precautions",
           "agreement": "agreement",
           "Watch the ad and save the file as.": "Watch the ad and save the file as.",
+          "drive file list": "drive file list",
+          "download": "download",
         },
         "ko": {
           "key": "ko",
@@ -273,6 +275,8 @@ class Messages extends Translations {
           "precautions": "주의사항",
           "agreement": "동의",
           "Watch the ad and save the file as.": "광고 를 시청하고 다른이름으로 저장.",
+          "drive file list": "드라이브 파일 리스트",
+          "download": "다운로드",
         },
         "gl": {
           "key": "gl",
@@ -410,6 +414,8 @@ class Messages extends Translations {
           "precautions": "Precaucións",
           "agreement": "acordo",
           "Watch the ad and save the file as.": "Mira o anuncio e garda o ficheiro como.",
+          "drive file list": "Lista de ficheiros de unidade",
+          "download": "descargar",
         },
         "gu": {
           "key": "gu",
@@ -548,6 +554,8 @@ class Messages extends Translations {
           "precautions": "સાવચેતીનાં પગલાં",
           "agreement": "સહમત",
           "Watch the ad and save the file as.": "જાહેરાત જુઓ અને ફાઇલને સાચવો.",
+          "drive file list": "ડ્રાઇવ ફાઇલ સૂચિ",
+          "download": "ડાઉનલોડ કરવું",
         },
         "el": {
           "key": "el",
@@ -689,6 +697,8 @@ class Messages extends Translations {
           "precautions": "Προφυλάξεις",
           "agreement": "συμφωνία",
           "Watch the ad and save the file as.": "Παρακολουθήστε τη διαφήμιση και αποθηκεύστε το αρχείο ως.",
+          "drive file list": "λίστα αρχείων μονάδας δίσκου",
+          "download": "Κατεβάστε",
         },
         "nl": {
           "key": "nl",
@@ -828,6 +838,8 @@ class Messages extends Translations {
           "precautions": "Voorzorgsmaatregelen",
           "agreement": "Akkoord",
           "Watch the ad and save the file as.": "Bekijk de advertentie en sla het bestand op als.",
+          "drive file list": "Drive -bestandslijst",
+          "download": "downloaden",
         },
         "ne": {
           "key": "ne",
@@ -967,6 +979,8 @@ class Messages extends Translations {
           "precautions": "सावधानी",
           "agreement": "सम्भ्कौता",
           "Watch the ad and save the file as.": "विज्ञापन हेर्नुहोस् र फाईल बचत गर्नुहोस्।",
+          "drive file list": "ड्राइभ फाइल सूची",
+          "download": "डाउनलोड गर्नुहोस्",
         },
         "no": {
           "key": "no",
@@ -1105,6 +1119,8 @@ class Messages extends Translations {
           "precautions": "Forholdsregler",
           "agreement": "avtale",
           "Watch the ad and save the file as.": "Se annonsen og lagre filen som.",
+          "drive file list": "Drive File List",
+          "download": "nedlasting",
         },
         "da": {
           "key": "da",
@@ -1243,6 +1259,8 @@ class Messages extends Translations {
           "precautions": "Forholdsregler",
           "agreement": "aftale",
           "Watch the ad and save the file as.": "Se annoncen og gem filen som.",
+          "drive file list": "Drivfilliste",
+          "download": "Hent",
         },
         "de": {
           "key": "de",
@@ -1383,6 +1401,8 @@ class Messages extends Translations {
           "precautions": "Vorsichtsmaßnahmen",
           "agreement": "Zustimmung",
           "Watch the ad and save the file as.": "Sehen Sie sich die Anzeige an und speichern Sie die Datei als.",
+          "drive file list": "Laufwerksdateiliste",
+          "download": "Download",
         },
         "lo": {
           "key": "lo",
@@ -1518,6 +1538,8 @@ class Messages extends Translations {
           "precautions": "ການ​ປ້ອງ​ກັນ​ລ່ວງ​ໜ້າ",
           "agreement": "ການຕົກລົງ",
           "Watch the ad and save the file as.": "ເບິ່ງໂຄສະນາແລະບັນທຶກເອກະສານດັ່ງກ່າວ.",
+          "drive file list": "ລາຍຊື່ເອກະສານ Drive",
+          "download": "ດາວໂຫລດ",
         },
         "lv": {
           "key": "lv",
@@ -1655,6 +1677,8 @@ class Messages extends Translations {
           "precautions": "Piesardzības pasākumi",
           "agreement": "vienošanās",
           "Watch the ad and save the file as.": "Noskatieties reklāmu un saglabājiet failu kā.",
+          "drive file list": "Diska failu saraksts",
+          "download": "lejupielādēt",
         },
         "ru": {
           "key": "ru",
@@ -1794,6 +1818,8 @@ class Messages extends Translations {
           "precautions": "Меры предосторожности",
           "agreement": "соглашение",
           "Watch the ad and save the file as.": "Посмотрите объявление и сохраните файл как.",
+          "drive file list": "Список файлов диска",
+          "download": "скачать",
         },
         "ro": {
           "key": "ro",
@@ -1934,6 +1960,8 @@ class Messages extends Translations {
           "precautions": "Precauții",
           "agreement": "acord",
           "Watch the ad and save the file as.": "Urmăriți anunțul și salvați fișierul ca.",
+          "drive file list": "Lista de fișiere de unitate",
+          "download": "Descarca",
         },
         "lt": {
           "key": "lt",
@@ -2070,6 +2098,8 @@ class Messages extends Translations {
           "precautions": "Atsargumo priemonės",
           "agreement": "susitarimas",
           "Watch the ad and save the file as.": "Peržiūrėkite skelbimą ir išsaugokite failą kaip.",
+          "drive file list": "disko failų sąrašas",
+          "download": "parsisiųsti",
         },
         "mr": {
           "key": "mr",
@@ -2207,6 +2237,8 @@ class Messages extends Translations {
           "precautions": "सावधगिरी",
           "agreement": "करार",
           "Watch the ad and save the file as.": "जाहिरात पहा आणि फाईल म्हणून जतन करा.",
+          "drive file list": "ड्राइव्ह फाइल सूची",
+          "download": "डाउनलोड करा",
         },
         "mk": {
           "key": "mk",
@@ -2345,6 +2377,8 @@ class Messages extends Translations {
           "precautions": "Мерки на претпазливост",
           "agreement": "Договор",
           "Watch the ad and save the file as.": "Погледнете ја рекламата и зачувајте ја датотеката како.",
+          "drive file list": "Список на датотеки за возење",
+          "download": "преземете",
         },
         "ml": {
           "key": "ml",
@@ -2485,6 +2519,8 @@ class Messages extends Translations {
           "precautions": "മുൻകരുതലുകൾ",
           "agreement": "കരാര്",
           "Watch the ad and save the file as.": "പരസ്യം കാണുക, ഫയൽ ഇതായി സംരക്ഷിക്കുക.",
+          "drive file list": "ഡ്രൈവ് ഫയൽ ലിസ്റ്റ്",
+          "download": "ഡൗൺലോഡ്",
         },
         "ms": {
           "key": "ms",
@@ -2622,6 +2658,8 @@ class Messages extends Translations {
           "precautions": "Langkah berjaga-berjaga",
           "agreement": "perjanjian",
           "Watch the ad and save the file as.": "Tonton iklan dan simpan fail sebagai.",
+          "drive file list": "Senarai fail pemacu",
+          "download": "muat turun",
         },
         "ms": {
           "key": "ms",
@@ -2759,6 +2797,8 @@ class Messages extends Translations {
           "precautions": "Langkah berjaga-berjaga",
           "agreement": "perjanjian",
           "Watch the ad and save the file as.": "Tonton iklan dan simpan fail sebagai.",
+          "drive file list": "Senarai fail pemacu",
+          "download": "muat turun",
         },
         "mn": {
           "key": "mn",
@@ -2895,6 +2935,8 @@ class Messages extends Translations {
           "precautions": "Урьдчилан сэргийлэх",
           "agreement": "тохиролцоо",
           "Watch the ad and save the file as.": "Зарыг үзээд файлыг нь хадгал.",
+          "drive file list": "Файлын жагсаалтыг жолоодох",
+          "download": "татаж авах",
         },
         "eu": {
           "key": "eu",
@@ -3033,6 +3075,8 @@ class Messages extends Translations {
           "precautions": "Neurriak",
           "agreement": "akordio",
           "Watch the ad and save the file as.": "Ikusi iragarkia eta gorde fitxategia.",
+          "drive file list": "Gidatu fitxategi zerrenda",
+          "download": "desengopen",
         },
         "my": {
           "key": "my",
@@ -3170,6 +3214,8 @@ class Messages extends Translations {
           "precautions": "ကြိုတင်ကာကွယ်မှုများ",
           "agreement": "သဘောတူညီချက်",
           "Watch the ad and save the file as.": "ကြော်ငြာကိုကြည့်ပြီးဖိုင်ကိုသိမ်းဆည်းပါ။",
+          "drive file list": "ဖိုင်တွဲစာရင်း",
+          "download": "ဒေါက်ဒေါင်း",
         },
         "vi": {
           "key": "vi",
@@ -3306,6 +3352,8 @@ class Messages extends Translations {
           "precautions": "Các biện pháp phòng ngừa",
           "agreement": "hợp đồng",
           "Watch the ad and save the file as.": "Xem quảng cáo và lưu tệp dưới dạng.",
+          "drive file list": "Danh sách tập tin lái xe",
+          "download": "Tải xuống",
         },
         "be": {
           "key": "be",
@@ -3444,6 +3492,8 @@ class Messages extends Translations {
           "precautions": "Меры засцярогі",
           "agreement": "пагадненне",
           "Watch the ad and save the file as.": "Глядзіце рэкламу і захавайце файл як.",
+          "drive file list": "Спіс файлаў прывада",
+          "download": "загрузка",
         },
         "bn": {
           "key": "bn",
@@ -3581,6 +3631,8 @@ class Messages extends Translations {
           "precautions": "সতর্কতা",
           "agreement": "চুক্তি",
           "Watch the ad and save the file as.": "বিজ্ঞাপনটি দেখুন এবং ফাইলটি সংরক্ষণ করুন।",
+          "drive file list": "ড্রাইভ ফাইল তালিকা",
+          "download": "ডাউনলোড",
         },
         "bg": {
           "key": "bg",
@@ -3719,6 +3771,8 @@ class Messages extends Translations {
           "precautions": "Предпазни мерки",
           "agreement": "споразумение",
           "Watch the ad and save the file as.": "Гледайте рекламата и запазете файла като.",
+          "drive file list": "Списък с файлове на устройството",
+          "download": "Изтегли",
         },
         "sr": {
           "key": "sr",
@@ -3856,6 +3910,8 @@ class Messages extends Translations {
           "precautions": "Превентивне мере",
           "agreement": "договор",
           "Watch the ad and save the file as.": "Гледајте оглас и сачувајте датотеку као.",
+          "drive file list": "Листа датотека погона",
+          "download": "преузимање",
         },
         "sw": {
           "key": "sw",
@@ -3994,6 +4050,8 @@ class Messages extends Translations {
           "precautions": "Tahadhari",
           "agreement": "makubaliano",
           "Watch the ad and save the file as.": "Tazama tangazo na uhifadhi faili kama.",
+          "drive file list": "Orodha ya faili ya kuendesha",
+          "download": "Pakua",
         },
         "sv": {
           "key": "sv",
@@ -4132,6 +4190,8 @@ class Messages extends Translations {
           "precautions": "Försiktighetsåtgärder",
           "agreement": "avtal",
           "Watch the ad and save the file as.": "Titta på annonsen och spara filen som.",
+          "drive file list": "enhetsfillista",
+          "download": "ladda ner",
         },
         "es": {
           "key": "es",
@@ -4269,6 +4329,8 @@ class Messages extends Translations {
           "precautions": "Precauciones",
           "agreement": "convenio",
           "Watch the ad and save the file as.": "Mire el anuncio y guarde el archivo como.",
+          "drive file list": "Lista de archivos de manejo",
+          "download": "descargar",
         },
         "sk": {
           "key": "sk",
@@ -4405,6 +4467,8 @@ class Messages extends Translations {
           "precautions": "Prevencia",
           "agreement": "dohoda",
           "Watch the ad and save the file as.": "Sledujte reklamu a uložte súbor ako.",
+          "drive file list": "zoznam súborov",
+          "download": "Stiahnuť ▼",
         },
         "sl": {
           "key": "sl",
@@ -4541,6 +4605,8 @@ class Messages extends Translations {
           "precautions": "Previdnostni ukrepi",
           "agreement": "sporazum",
           "Watch the ad and save the file as.": "Oglejte si oglas in shranite datoteko kot.",
+          "drive file list": "seznam datotek pogona",
+          "download": "Prenesi",
         },
         "si": {
           "key": "si",
@@ -4677,6 +4743,8 @@ class Messages extends Translations {
           "precautions": "පූර්වාරක්‍ෂා",
           "agreement": "ගිවිසුම",
           "Watch the ad and save the file as.": "දැන්වීම නරඹා ගොනුව විකාශනය කරන්න.",
+          "drive file list": "ධාවක ගොනු ලැයිස්තුව",
+          "download": "බාගත",
         },
         "ar": {
           "key": "ar",
@@ -4813,6 +4881,8 @@ class Messages extends Translations {
           "precautions": "احتياطات",
           "agreement": "اتفاق",
           "Watch the ad and save the file as.": "شاهد الإعلان وحفظ الملف باسم.",
+          "drive file list": "قائمة ملفات محرك الأقراص",
+          "download": "تحميل",
         },
         "hy": {
           "key": "hy",
@@ -4950,6 +5020,8 @@ class Messages extends Translations {
           "precautions": "Նախազգուշական միջոցներ",
           "agreement": "համաձայնություն",
           "Watch the ad and save the file as.": "Դիտեք գովազդը եւ պահեք ֆայլը որպես:",
+          "drive file list": "Drive ֆայլերի ցուցակը",
+          "download": "Ներբեռնեք",
         },
         "is": {
           "key": "is",
@@ -5088,6 +5160,8 @@ class Messages extends Translations {
           "precautions": "Varúðarráðstafanir",
           "agreement": "samningur",
           "Watch the ad and save the file as.": "Horfðu á auglýsinguna og vistaðu skrána sem.",
+          "drive file list": "Drive File List",
+          "download": "Sækja",
         },
         "az": {
           "key": "az",
@@ -5225,6 +5299,8 @@ class Messages extends Translations {
           "precautions": "Ehtiyat tədbirləri",
           "agreement": "razılaşma",
           "Watch the ad and save the file as.": "Reklamı izləyin və faylı olaraq qeyd edin.",
+          "drive file list": "Sürücü Fayl siyahısı",
+          "download": "Download",
         },
         "af": {
           "key": "af",
@@ -5362,6 +5438,8 @@ class Messages extends Translations {
           "precautions": "Voorsorgmaatreëls",
           "agreement": "ooreenkoms",
           "Watch the ad and save the file as.": "Kyk na die advertensie en stoor die lêer as.",
+          "drive file list": "Bestuur lêerlys",
+          "download": "Aflaai",
         },
         "sq": {
           "key": "sq",
@@ -5500,6 +5578,8 @@ class Messages extends Translations {
           "precautions": "Masa paraprake",
           "agreement": "marrëveshje",
           "Watch the ad and save the file as.": "Shikoni reklamën dhe ruajeni skedarin si.",
+          "drive file list": "Lista e skedarëve të makinës",
+          "download": "Shkarko",
         },
         "am": {
           "key": "am",
@@ -5634,6 +5714,8 @@ class Messages extends Translations {
           "precautions": "ቅድመ ጥንቃቄዎች",
           "agreement": "ስምምነት",
           "Watch the ad and save the file as.": "ማስታወቂያውን ይመልከቱ እና ፋይሉን እንደ.",
+          "drive file list": "የ SITS ፋይል ዝርዝር",
+          "download": "አውርድ",
         },
         "et": {
           "key": "et",
@@ -5771,6 +5853,8 @@ class Messages extends Translations {
           "precautions": "Ettevaatusabinõud",
           "agreement": "kokkulepe",
           "Watch the ad and save the file as.": "Vaadake reklaami ja salvestage fail järgmiselt.",
+          "drive file list": "draivifailide loend",
+          "download": "lae alla",
         },
         "en": {
           "key": "en",
@@ -5908,6 +5992,8 @@ class Messages extends Translations {
           "precautions": "Precautions",
           "agreement": "agreement",
           "Watch the ad and save the file as.": "Watch the ad and save the file as.",
+          "drive file list": "drive file list",
+          "download": "download",
         },
         "ur": {
           "key": "ur",
@@ -6045,6 +6131,8 @@ class Messages extends Translations {
           "precautions": "احتیاطی تدابیر",
           "agreement": "معاہدہ",
           "Watch the ad and save the file as.": "اشتہار دیکھیں اور فائل کو بطور محفوظ کریں۔",
+          "drive file list": "ڈرائیو فائل کی فہرست",
+          "download": "ڈاؤن لوڈ کریں",
         },
         "uk": {
           "key": "uk",
@@ -6183,6 +6271,8 @@ class Messages extends Translations {
           "precautions": "Запобіжні заходи",
           "agreement": "Угода",
           "Watch the ad and save the file as.": "Перегляньте рекламу та збережіть файл як.",
+          "drive file list": "Список файлів накопичувача",
+          "download": "завантажувати",
         },
         "it": {
           "key": "it",
@@ -6320,6 +6410,8 @@ class Messages extends Translations {
           "precautions": "Precauzioni",
           "agreement": "accordo",
           "Watch the ad and save the file as.": "Guarda l'annuncio e salva il file come.",
+          "drive file list": "Elenco dei file di unità",
+          "download": "Scarica",
         },
         "id": {
           "key": "id",
@@ -6456,6 +6548,8 @@ class Messages extends Translations {
           "precautions": "Tindakan pencegahan",
           "agreement": "persetujuan",
           "Watch the ad and save the file as.": "Tonton iklan dan simpan file sebagai.",
+          "drive file list": "Daftar File Drive",
+          "download": "unduh",
         },
         "ja": {
           "key": "ja",
@@ -6590,6 +6684,8 @@ class Messages extends Translations {
           "precautions": "予防",
           "agreement": "合意",
           "Watch the ad and save the file as.": "広告を見て、ファイルを保存します。",
+          "drive file list": "ドライブファイルリスト",
+          "download": "ダウンロード",
         },
         "ka": {
           "key": "ka",
@@ -6726,6 +6822,8 @@ class Messages extends Translations {
           "precautions": "Სიფრთხილის ზომები",
           "agreement": "შეთანხმება",
           "Watch the ad and save the file as.": "უყურეთ რეკლამას და შეინახეთ ფაილი, როგორც.",
+          "drive file list": "წამყვანი ფაილების სია",
+          "download": "ჩამოტვირთვა",
         },
         "zu": {
           "key": "zu",
@@ -6863,6 +6961,8 @@ class Messages extends Translations {
           "precautions": "Izinyathelo zokuzivikela",
           "agreement": "isivumelwano",
           "Watch the ad and save the file as.": "Bukela isikhangiso bese ugcine ifayili njengoba.",
+          "drive file list": "Uhlu lwefayela leDrayivu",
+          "download": "thwebula",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -6997,6 +7097,8 @@ class Messages extends Translations {
           "precautions": "防范措施",
           "agreement": "协议",
           "Watch the ad and save the file as.": "观看广告并将文件保存为。",
+          "drive file list": "驱动文件列表",
+          "download": "下载",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -7131,6 +7233,8 @@ class Messages extends Translations {
           "precautions": "防範措施",
           "agreement": "協議",
           "Watch the ad and save the file as.": "觀看廣告並將文件保存為。",
+          "drive file list": "驅動文件列表",
+          "download": "下載",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -7265,6 +7369,8 @@ class Messages extends Translations {
           "precautions": "防範措施",
           "agreement": "協議",
           "Watch the ad and save the file as.": "觀看廣告並將文件保存為。",
+          "drive file list": "驅動文件列表",
+          "download": "下載",
         },
         "cs": {
           "key": "cs",
@@ -7402,6 +7508,8 @@ class Messages extends Translations {
           "precautions": "Opatření",
           "agreement": "dohoda",
           "Watch the ad and save the file as.": "Sledujte reklamu a uložte soubor jako.",
+          "drive file list": "Seznam souborů pohonu",
+          "download": "stažení",
         },
         "kk": {
           "key": "kk",
@@ -7539,6 +7647,8 @@ class Messages extends Translations {
           "precautions": "Сақтық шаралары",
           "agreement": "келісім",
           "Watch the ad and save the file as.": "Жарнаманы қарап, файлды сақтаңыз.",
+          "drive file list": "Дискі файлдар тізімі",
+          "download": "сайлау",
         },
         "ca": {
           "key": "ca",
@@ -7676,6 +7786,8 @@ class Messages extends Translations {
           "precautions": "Precaucions",
           "agreement": "acord",
           "Watch the ad and save the file as.": "Mireu l'anunci i deseu el fitxer com.",
+          "drive file list": "Llista de fitxers de conducció",
+          "download": "descarregar",
         },
         "kn": {
           "key": "kn",
@@ -7814,6 +7926,8 @@ class Messages extends Translations {
           "precautions": "ಮುನ್ನೆಚ್ಚರಿಕೆಗಳು",
           "agreement": "ಒಪ್ಪಂದ",
           "Watch the ad and save the file as.": "ಜಾಹೀರಾತನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ಫೈಲ್ ಅನ್ನು ಹೀಗೆ ಉಳಿಸಿ.",
+          "drive file list": "ಡ್ರೈವ್ ಫೈಲ್ ಪಟ್ಟಿ",
+          "download": "ಡೌನ್‌ಲೋಡ್",
         },
         "hr": {
           "key": "hr",
@@ -7951,6 +8065,8 @@ class Messages extends Translations {
           "precautions": "Mjere opreza",
           "agreement": "sporazum",
           "Watch the ad and save the file as.": "Pogledajte oglas i spremite datoteku kao.",
+          "drive file list": "Popis datoteka pogona",
+          "download": "preuzimanje datoteka",
         },
         "km": {
           "key": "km",
@@ -8089,6 +8205,8 @@ class Messages extends Translations {
           "precautions": "ការប្រុងប្រយ័ត្នជាមុន",
           "agreement": "សេចក្ដីយល់របម",
           "Watch the ad and save the file as.": "មើលការផ្សាយពាណិជ្ជកម្មនិងរក្សាទុកឯកសារជា។",
+          "drive file list": "បើកបញ្ជីឯកសារ",
+          "download": "របចាបរេកា",
         },
         "ky": {
           "key": "ky",
@@ -8226,6 +8344,8 @@ class Messages extends Translations {
           "precautions": "Cактык чаралары",
           "agreement": "Келишим",
           "Watch the ad and save the file as.": "Жарнаманы карап, файлды сактаңыз.",
+          "drive file list": "Файлдын тизмесин",
+          "download": "жүктөө",
         },
         "ta": {
           "key": "ta",
@@ -8364,6 +8484,8 @@ class Messages extends Translations {
           "precautions": "தற்காப்பு நடவடிக்கைகள்",
           "agreement": "ஒப்பந்தம்",
           "Watch the ad and save the file as.": "விளம்பரத்தைப் பார்த்து கோப்பை சேமிக்கவும்.",
+          "drive file list": "கோப்பு பட்டியல் இயக்கி",
+          "download": "பதிவிறக்க Tamil",
         },
         "th": {
           "key": "th",
@@ -8500,6 +8622,8 @@ class Messages extends Translations {
           "precautions": "ข้อควรระวัง",
           "agreement": "ข้อตกลง",
           "Watch the ad and save the file as.": "ดูโฆษณาและบันทึกไฟล์เป็น",
+          "drive file list": "รายการไฟล์ไดรฟ์",
+          "download": "การดาวน์โหลด",
         },
         "tr": {
           "key": "tr",
@@ -8638,6 +8762,8 @@ class Messages extends Translations {
           "precautions": "Önlemler",
           "agreement": "anlaşma",
           "Watch the ad and save the file as.": "Reklamı izleyin ve dosyayı kaydedin.",
+          "drive file list": "Sürücü Dosya Listesi",
+          "download": "indirmek",
         },
         "te": {
           "key": "te",
@@ -8777,6 +8903,8 @@ class Messages extends Translations {
           "precautions": "ముందుజాగ్రత్తలు",
           "agreement": "ఒప్పందం",
           "Watch the ad and save the file as.": "ప్రకటనను చూడండి మరియు ఫైల్‌ను ఇలా సేవ్ చేయండి.",
+          "drive file list": "డ్రైవ్ ఫైల్ జాబితా",
+          "download": "డౌన్‌లోడ్",
         },
         "pa": {
           "key": "pa",
@@ -8914,6 +9042,8 @@ class Messages extends Translations {
           "precautions": "ਸਾਵਧਾਨੀਆਂ",
           "agreement": "ਸਮਝੌਤਾ",
           "Watch the ad and save the file as.": "ਵਿਗਿਆਪਨ ਵੇਖੋ ਅਤੇ ਫਾਈਲ ਨੂੰ ਸੇਵ ਕਰੋ.",
+          "drive file list": "ਡਰਾਈਵ ਫਾਈਲ ਲਿਸਟ",
+          "download": "ਡਾਉਨਲੋਡ ਕਰੋ",
         },
         "fa": {
           "key": "fa",
@@ -9052,6 +9182,8 @@ class Messages extends Translations {
           "precautions": "موارد احتیاط",
           "agreement": "توافق",
           "Watch the ad and save the file as.": "آگهی را تماشا کرده و پرونده را به عنوان ذخیره کنید.",
+          "drive file list": "لیست پرونده های درایو",
+          "download": "دانلود",
         },
         "pt": {
           "key": "pt",
@@ -9191,6 +9323,8 @@ class Messages extends Translations {
           "precautions": "Precauções",
           "agreement": "acordo",
           "Watch the ad and save the file as.": "Assista ao anúncio e salve o arquivo como.",
+          "drive file list": "Lista de arquivos de unidade",
+          "download": "download",
         },
         "pl": {
           "key": "pl",
@@ -9327,6 +9461,8 @@ class Messages extends Translations {
           "precautions": "Środki ostrożności",
           "agreement": "umowa",
           "Watch the ad and save the file as.": "Obejrzyj reklamę i zapisz plik jako.",
+          "drive file list": "Lista plików napędu",
+          "download": "Ściągnij",
         },
         "fr": {
           "key": "fr",
@@ -9466,6 +9602,8 @@ class Messages extends Translations {
           "precautions": "Précautions",
           "agreement": "accord",
           "Watch the ad and save the file as.": "Regardez l'annonce et enregistrez le fichier sous.",
+          "drive file list": "Liste des fichiers de lecteur",
+          "download": "Télécharger",
         },
         "fi": {
           "key": "fi",
@@ -9602,6 +9740,8 @@ class Messages extends Translations {
           "precautions": "Varotoimenpiteet",
           "agreement": "sopimus",
           "Watch the ad and save the file as.": "Katso mainos ja tallenna tiedosto nimellä.",
+          "drive file list": "Ajatiedostoluettelo",
+          "download": "ladata",
         },
         "fil": {
           "key": "fil",
@@ -9741,6 +9881,8 @@ class Messages extends Translations {
           "precautions": "Mga pag-iingat",
           "agreement": "kasunduan",
           "Watch the ad and save the file as.": "Panoorin ang ad at i -save ang file bilang.",
+          "drive file list": "Listahan ng File ng Drive",
+          "download": "I -download",
         },
         "hu": {
           "key": "hu",
@@ -9878,6 +10020,8 @@ class Messages extends Translations {
           "precautions": "Óvintézkedések",
           "agreement": "megegyezés",
           "Watch the ad and save the file as.": "Nézze meg a hirdetést, és mentse el a fájlt.",
+          "drive file list": "meghajtófájllista",
+          "download": "Letöltés",
         },
         "iw": {
           "key": "iw",
@@ -10014,6 +10158,8 @@ class Messages extends Translations {
           "precautions": "אמצעי זהירות",
           "agreement": "הֶסכֵּם",
           "Watch the ad and save the file as.": "צפו במודעה ושמרו את הקובץ כ.",
+          "drive file list": "כונן רשימת קבצים",
+          "download": "הורד",
         },
         "hi": {
           "key": "hi",
@@ -10152,6 +10298,8 @@ class Messages extends Translations {
           "precautions": "एहतियात",
           "agreement": "समझौता",
           "Watch the ad and save the file as.": "विज्ञापन देखें और फ़ाइल को सहेजें।",
+          "drive file list": "अभियान फ़ाइल सूची",
+          "download": "डाउनलोड",
         },
       };
 }
