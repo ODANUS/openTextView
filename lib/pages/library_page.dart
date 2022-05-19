@@ -249,7 +249,6 @@ class LibraryPage extends GetView {
                           ],
                         ),
                       );
-                      print(fileList);
                       // await Utils.selectFile();
                       // reloadFn(!reloadValue!);
                     },

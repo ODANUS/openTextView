@@ -27,11 +27,8 @@ class AdBanner extends GetView {
           _bannerAd(ad as BannerAd);
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          // print('$BannerAd failedToLoad: $error');
           ad.dispose();
         },
-        // onAdOpened: (Ad ad) => print('$BannerAd onAdOpened.'),
-        // onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
       ),
     ).load();
   }

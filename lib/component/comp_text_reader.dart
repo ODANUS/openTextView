@@ -396,9 +396,6 @@ class TextViewerController extends ChangeNotifier {
         }
       }
     }
-    // print("${nextPosData.lineWidths} ::: ${size.width}");
-    // print(nextPosData.contents.split("\n").first);
-    // print(">>>>> ${}");
 
     return nextPosData;
   }
