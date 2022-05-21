@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:open_textview/component/comp_text_reader.dart';
 import 'package:open_textview/component/comp_ui_setting.dart';
 import 'package:open_textview/component/readpage_floating_button.dart';
+import 'package:open_textview/controller/ad_ctl.dart';
 import 'package:open_textview/controller/audio_play.dart';
 import 'package:open_textview/isar_ctl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,6 +65,7 @@ class ReadPage extends GetView {
                         ),
                       ),
                     ))),
+                Obx(() => IsarCtl.bfullScreen.value ? SizedBox() : AdBanner()),
                 Expanded(
                   child: Stack(children: [
                     IsarCtl.rxSetting((_, setting) {
@@ -115,7 +117,7 @@ class ReadPage extends GetView {
                               return CompUiSetting(setting: setting);
                             })
                           : SizedBox(),
-                    )
+                    ),
                   ]),
                 ),
               ],

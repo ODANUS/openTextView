@@ -91,6 +91,8 @@ class IsarCtl {
 
   static StreamSubscription? iosVolumeSub;
 
+  static RxBool bScreenHelp = true.obs;
+
   // static RxBool bOpen = false.obs;
 
   static Future<void> init() async {

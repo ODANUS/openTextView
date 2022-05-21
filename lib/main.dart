@@ -32,6 +32,7 @@ void main() async {
   await AudioPlay.init();
   AdCtl.init();
   Wakelock.enable();
+  // IsarCtl.bScreenHelp(true);
   runApp(ScreenUtilInit(
       designSize: Size(360, 690),
       minTextAdapt: true,
@@ -56,4 +57,10 @@ void main() async {
               GetPage(name: '/editor', page: () => TextEditorPage()),
             ]);
       }));
+
+  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    Future.delayed(1.8.seconds).then((value) {
+      IsarCtl.bScreenHelp(false);
+    });
+  });
 }

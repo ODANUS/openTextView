@@ -32,55 +32,52 @@ class CompTextReader extends GetView {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        GestureDetector(
-          onVerticalDragUpdate: (d) async {
-            var curPos = IsarCtl.tctl.cntntPstn;
-            if (curPos <= 0 && d.delta.dy > 0 && IsarCtl.tctl.offsetY > 50) {
-              return;
-            }
-            if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
-              return;
-            }
-            IsarCtl.basyncOffset(true);
-            var dy = d.delta.dy;
-            var cnt = 1;
-            cnt += dy.abs() ~/ 8;
-            if (d.delta.dy < 0 && d.delta.dy < -8) {
-              dy = -8;
-            }
-            if (d.delta.dy > 0 && d.delta.dy > 8) {
-              dy = 8;
-            }
-            for (var i = 0; i < cnt; i++) {
-              IsarCtl.tctl.offsetY += dy;
-              await Future.delayed(5.milliseconds);
-            }
-            IsarCtl.basyncOffset(false);
-          },
-          onPanUpdate: (d) {},
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: CustomPaint(
-              key: Key(IsarCtl.lastHistory?.name ?? ""),
-              size: Size(100, 100),
-              painter: TextViewerPainter(
-                textViewerController: IsarCtl.tctl
-                  ..contents = contens.text
-                  ..style = IsarCtl.textStyle
-                  ..cntntPstn = IsarCtl.cntntPstn
-                  ..onChange = (idx) async {
-                    // IsarCtl.basyncOffset(true);
-                    // IsarCtl.basyncOffset(false);
-                    // IsarCtl.cntntPstnAsync(idx);
-                  },
-                // style: IsarCtl.textStyle,
-              ),
+        SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: CustomPaint(
+            key: Key(IsarCtl.lastHistory?.name ?? ""),
+            size: Size(100, 100),
+            painter: TextViewerPainter(
+              textViewerController: IsarCtl.tctl
+                ..contents = contens.text
+                ..style = IsarCtl.textStyle
+                ..cntntPstn = IsarCtl.cntntPstn
+                ..onChange = (idx) async {
+                  // IsarCtl.basyncOffset(true);
+                  // IsarCtl.basyncOffset(false);
+                  // IsarCtl.cntntPstnAsync(idx);
+                },
+              // style: IsarCtl.textStyle,
             ),
           ),
         ),
-        ReadpageOverlay(
-            bScreenHelp: false,
+        Obx(() => ReadpageOverlay(
+            onVerticalDragUpdate: (DragUpdateDetails d) async {
+              var curPos = IsarCtl.tctl.cntntPstn;
+              if (curPos <= 0 && d.delta.dy > 0 && IsarCtl.tctl.offsetY > 50) {
+                return;
+              }
+              if (curPos >= IsarCtl.tctl.contents.length - 2 && d.delta.dy < 0) {
+                return;
+              }
+              IsarCtl.basyncOffset(true);
+              var dy = d.delta.dy;
+              var cnt = 1;
+              cnt += dy.abs() ~/ 8;
+              if (d.delta.dy < 0 && d.delta.dy < -8) {
+                dy = -8;
+              }
+              if (d.delta.dy > 0 && d.delta.dy > 8) {
+                dy = 8;
+              }
+              for (var i = 0; i < cnt; i++) {
+                IsarCtl.tctl.offsetY += dy;
+                await Future.delayed(5.milliseconds);
+              }
+              IsarCtl.basyncOffset(false);
+            },
+            bScreenHelp: IsarCtl.bScreenHelp.value,
             touchLayout: setting.touchLayout,
             onFullScreen: () async {
               if (!IsarCtl.enableVolumeButton.value && Platform.isAndroid) {
@@ -126,7 +123,7 @@ class CompTextReader extends GetView {
               IsarCtl.basyncOffset(true);
               IsarCtl.tctl.next();
               IsarCtl.basyncOffset(false);
-            }),
+            })),
       ],
     );
   }
@@ -407,7 +404,7 @@ class TextViewerController extends ChangeNotifier {
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
-    var lineHeight = avgHeight / 2;
+    var lineHeight = avgHeight * 0.8;
 
     var bBreak = false;
 
@@ -502,7 +499,7 @@ class TextViewerController extends ChangeNotifier {
     if (avgHeight == 0.0) {
       avgHeight = (TextPainter(text: TextSpan(text: "", style: _style), textDirection: TextDirection.ltr)..layout()).height;
     }
-    // print(avgHeight);
+
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
@@ -522,20 +519,6 @@ class TextViewerController extends ChangeNotifier {
         }
       }
     }
-
-    var thevalue = 0;
-    String thekey = "";
-
-    // count.forEach((k, v) {
-    //   if (v > thevalue) {
-    //     thevalue = v;
-    //     thekey = k;
-    //   }
-    // });
-    // if (count.isNotEmpty) {
-    //   avgWidth = double.parse(thekey.split(",").first);
-    //   // avgHeight = double.parse(thekey.split(",").last);
-    // }
   }
 }
 

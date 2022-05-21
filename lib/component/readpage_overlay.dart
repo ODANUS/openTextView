@@ -10,23 +10,32 @@ class ReadpageOverlay extends GetView {
     this.onBackpage,
     this.onNextpage,
     this.onFullScreen,
+    this.onVerticalDragUpdate,
   }) {
     if (this.bScreenHelp) {
       this.decoration = BoxDecoration(
           color: Colors.black54,
           border: Border.all(
-            width: 1,
+            width: 0.1,
             color: Colors.white,
           ));
     }
+    this.decoration = BoxDecoration(
+        color: Colors.black54,
+        border: Border.all(
+          width: 0.1,
+          color: Colors.white,
+        ));
   }
 
   bool bScreenHelp;
+  RxBool onAniEnd = false.obs;
   int touchLayout;
   BoxDecoration? decoration;
   Function? onBackpage;
   Function? onFullScreen;
   Function? onNextpage;
+  Function(DragUpdateDetails)? onVerticalDragUpdate;
 
   Widget getText(int type) {
     String str = "Back page".tr;
@@ -40,33 +49,40 @@ class ReadpageOverlay extends GetView {
       fn = onNextpage;
     }
 
-    return Container(
-        decoration: decoration,
-        alignment: Alignment.center,
-        child: GestureDetector(
-            onTapUp: (c) {
-              if ((type == 0 || type == 2) && fn != null) {
-                fn();
-              }
-            },
-            onLongPressDown: (v) {},
-            onLongPressUp: () {},
-            onDoubleTap: () {
-              if (type == 1 && fn != null) {
-                fn();
-              }
-            },
-            onTap: () {
-              // if ((type == 0 || type == 2) && fn != null) {
-              //   fn();
-              // }
-            },
-            child: this.bScreenHelp
-                ? Text(
-                    str,
-                    style: TextStyle(color: Colors.white),
-                  )
-                : null));
+    return AnimatedOpacity(
+      opacity: this.bScreenHelp ? 1 : 0,
+      duration: 0.5.seconds,
+      onEnd: () {
+        onAniEnd(true);
+      },
+      child: Obx(
+        () {
+          return GestureDetector(
+              onTapUp: (c) {
+                if ((type == 0 || type == 2) && fn != null) {
+                  fn();
+                }
+              },
+              onDoubleTap: () {
+                if (type == 1 && fn != null) {
+                  fn();
+                }
+              },
+              onVerticalDragUpdate: onVerticalDragUpdate,
+              child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: decoration,
+                  alignment: Alignment.center,
+                  child: !this.onAniEnd.value || !this.bScreenHelp
+                      ? Text(
+                          str,
+                          style: TextStyle(color: Colors.white),
+                        )
+                      : null));
+        },
+      ),
+    );
   }
 
   Widget layout0() {

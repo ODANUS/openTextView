@@ -268,7 +268,7 @@ packages:
     source: hosted
     version: "0.3.2+2"
   fading_edge_scrollview:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: fading_edge_scrollview
       url: "https://pub.dartlang.org"
