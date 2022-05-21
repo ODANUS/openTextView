@@ -59,7 +59,7 @@ void main() async {
       }));
 
   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    Future.delayed(1.8.seconds).then((value) {
+    Future.delayed(1.2.seconds).then((value) {
       IsarCtl.bScreenHelp(false);
     });
   });
