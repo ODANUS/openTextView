@@ -294,7 +294,7 @@ class TextViewerController extends ChangeNotifier {
   int highlightPos = 0;
   int highlightCnt = 0;
 
-  double avgWidth = 0.0;
+  // double avgWidth = 0.0;
   double avgHeight = 0.0;
 
   TextStyle? _style = TextStyle(fontSize: 25);
@@ -407,7 +407,8 @@ class TextViewerController extends ChangeNotifier {
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
-    var lineHeight = avgHeight;
+    var lineHeight = avgHeight / 2;
+    //avgHeight;
 
     var bBreak = false;
 
@@ -494,10 +495,15 @@ class TextViewerController extends ChangeNotifier {
         _laststyle?.letterSpacing != _style?.letterSpacing ||
         _laststyle?.fontFamily != _style?.fontFamily) {
       cacheMap.clear();
+      avgHeight = 0.0;
       if (_style != null) {
         _laststyle = _style!.copyWith();
       }
     }
+    if (avgHeight == 0.0) {
+      avgHeight = (TextPainter(text: TextSpan(text: "", style: _style), textDirection: TextDirection.ltr)..layout()).height;
+    }
+    print(avgHeight);
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
@@ -527,10 +533,10 @@ class TextViewerController extends ChangeNotifier {
         thekey = k;
       }
     });
-    if (count.isNotEmpty) {
-      avgWidth = double.parse(thekey.split(",").first);
-      avgHeight = double.parse(thekey.split(",").last);
-    }
+    // if (count.isNotEmpty) {
+    //   avgWidth = double.parse(thekey.split(",").first);
+    //   // avgHeight = double.parse(thekey.split(",").last);
+    // }
   }
 }
 
