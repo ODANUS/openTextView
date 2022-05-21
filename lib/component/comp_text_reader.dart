@@ -527,12 +527,12 @@ class TextViewerController extends ChangeNotifier {
     var thevalue = 0;
     String thekey = "";
 
-    count.forEach((k, v) {
-      if (v > thevalue) {
-        thevalue = v;
-        thekey = k;
-      }
-    });
+    // count.forEach((k, v) {
+    //   if (v > thevalue) {
+    //     thevalue = v;
+    //     thekey = k;
+    //   }
+    // });
     // if (count.isNotEmpty) {
     //   avgWidth = double.parse(thekey.split(",").first);
     //   // avgHeight = double.parse(thekey.split(",").last);
