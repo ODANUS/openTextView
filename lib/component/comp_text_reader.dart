@@ -407,7 +407,7 @@ class TextViewerController extends ChangeNotifier {
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
-    var lineHeight = avgHeight / 2;
+    var lineHeight = 0.0;
     //avgHeight;
 
     var bBreak = false;
