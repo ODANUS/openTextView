@@ -503,7 +503,7 @@ class TextViewerController extends ChangeNotifier {
     if (avgHeight == 0.0) {
       avgHeight = (TextPainter(text: TextSpan(text: "", style: _style), textDirection: TextDirection.ltr)..layout()).height;
     }
-    print(avgHeight);
+    // print(avgHeight);
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
