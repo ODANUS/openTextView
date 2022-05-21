@@ -50,39 +50,41 @@ class ReadpageOverlay extends GetView {
     }
 
     return AnimatedOpacity(
-      opacity: this.bScreenHelp ? 1 : 0,
-      duration: 0.5.seconds,
-      onEnd: () {
-        onAniEnd(true);
-      },
-      child: Obx(
-        () {
-          return GestureDetector(
-              onTapUp: (c) {
-                if ((type == 0 || type == 2) && fn != null) {
-                  fn();
-                }
-              },
-              onDoubleTap: () {
-                if (type == 1 && fn != null) {
-                  fn();
-                }
-              },
-              onVerticalDragUpdate: onVerticalDragUpdate,
-              child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: decoration,
-                  alignment: Alignment.center,
-                  child: !this.onAniEnd.value || !this.bScreenHelp
-                      ? Text(
-                          str,
-                          style: TextStyle(color: Colors.white),
-                        )
-                      : null));
+        opacity: this.bScreenHelp ? 1 : 0,
+        duration: 0.5.seconds,
+        onEnd: () {
+          onAniEnd(true);
         },
-      ),
-    );
+        child: GestureDetector(
+            onTapUp: (c) {
+              if ((type == 0 || type == 2) && fn != null) {
+                fn();
+              }
+            },
+            onDoubleTap: () {
+              if (type == 1 && fn != null) {
+                fn();
+              }
+            },
+            onVerticalDragUpdate: onVerticalDragUpdate,
+            child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: decoration,
+                alignment: Alignment.center,
+                child: Text(
+                  str,
+                  style: TextStyle(color: Colors.white),
+                )))
+
+        // !this.onAniEnd.value || !this.bScreenHelp
+        //     ? Text(
+        //         str,
+        //         style: TextStyle(color: Colors.white),
+        //       )
+        //     : null));
+
+        );
   }
 
   Widget layout0() {

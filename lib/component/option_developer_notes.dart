@@ -21,8 +21,6 @@ class DeveloperNotes extends GetView {
 3. 전체화면 기능을 모르시는 분을 위해 어플 실행시 1.8초 가량 설정된 단축키 레이아웃을 잠시 보여 주고 사라지게 하였습니다. 
 
 
-
-
 2.3.7 (2022 05 19)
 
 1. 다음 페이지 첫번째 줄좌표 가 빈 줄(엔터) 일 경우 해당 좌표를 건너 뛰도록 수정 
@@ -127,11 +125,11 @@ class DeveloperNotes extends GetView {
                 title: Text("${snapshot.data!.version} 버전이 출시 되었습니다."),
                 content: Column(
                   children: [
-                    InkWell(
-                        onTap: () {
-                          launchUrlString("https://www.youtube.com/watch?v=uBhiGBPOl4I");
-                        },
-                        child: Text("https://www.youtube.com/watch?v=uBhiGBPOl4I")),
+                    // InkWell(
+                    //     onTap: () {
+                    //       launchUrlString("https://www.youtube.com/watch?v=uBhiGBPOl4I");
+                    //     },
+                    //     child: Text("https://www.youtube.com/watch?v=uBhiGBPOl4I")),
                     Expanded(
                       child: SingleChildScrollView(
                         child: Text(content),
