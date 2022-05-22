@@ -417,15 +417,8 @@ class TextViewerController extends ChangeNotifier {
 
       lineWidth = 0;
 
-      // if (newLine.length == 1 && newLine.first.isEmpty) {
-      //   lineHeight += avgHeight;
-      // } else {
       lineHeight += avgHeight;
-      // }
       if (bBreak || lineHeight + avgHeight >= size.height - avgHeight) {
-        // if (bnext) {
-        //   print(">>>>>>>>>>>:::>>>>>>>>> ${lineHeight}");
-        // }
         break;
       }
       for (var y = 0; y < newLine.length; y++) {
