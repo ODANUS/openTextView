@@ -422,7 +422,7 @@ class TextViewerController extends ChangeNotifier {
       // } else {
       lineHeight += avgHeight;
       // }
-      if (bBreak || lineHeight + avgHeight >= size.height - avgHeight) {
+      if (bBreak || lineHeight + avgHeight >= size.height) {
         // if (bnext) {
         //   print(">>>>>>>>>>>:::>>>>>>>>> ${lineHeight}");
         // }
