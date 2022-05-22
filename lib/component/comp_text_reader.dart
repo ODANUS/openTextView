@@ -405,6 +405,12 @@ class TextViewerController extends ChangeNotifier {
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
+    double h = _style?.height ?? 1.3;
+    var _avgHeight = h <= 1.3
+        ? avgHeight * 1.3
+        : h <= 1.5
+            ? avgHeight * 1.1
+            : avgHeight;
     var lineHeight = avgHeight; //avgHeight * 0.8;
 
     var bBreak = false;
@@ -417,8 +423,8 @@ class TextViewerController extends ChangeNotifier {
 
       lineWidth = 0;
 
-      lineHeight += avgHeight;
-      if (bBreak || lineHeight + avgHeight >= size.height - avgHeight) {
+      lineHeight += _avgHeight;
+      if (bBreak || lineHeight + _avgHeight >= size.height - _avgHeight) {
         break;
       }
       for (var y = 0; y < newLine.length; y++) {
@@ -435,9 +441,9 @@ class TextViewerController extends ChangeNotifier {
           lineWidths.add(lineWidth - lastWidth);
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += avgHeight * ((lastWidth ~/ size.width) + 1);
+            lineHeight += _avgHeight * ((lastWidth ~/ size.width) + 1);
           } else {
-            lineHeight += avgHeight;
+            lineHeight += _avgHeight;
           }
           newlineCnt++;
 
@@ -445,7 +451,7 @@ class TextViewerController extends ChangeNotifier {
             nextLine = tleng;
           }
 
-          if (lineHeight > size.height - avgHeight) {
+          if (lineHeight > size.height - _avgHeight) {
             bBreak = true;
             break;
           }
@@ -489,8 +495,8 @@ class TextViewerController extends ChangeNotifier {
   }
 
   cacheWord() {
-    avgHeight = 0.0;
-    newLineheight = 0.0;
+    // avgHeight = 0.0;
+    // newLineheight = 0.0;
     if (_laststyle?.fontSize != _style?.fontSize ||
         _laststyle?.height != _style?.height ||
         _laststyle?.letterSpacing != _style?.letterSpacing ||

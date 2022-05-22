@@ -168,16 +168,16 @@ class AudioHandlerIOS extends BaseAudioHandler
       int end = min(setting.groupcnt, listContents.length);
       String speakText = listContents.getRange(0, end).toList().join(" ");
       int nextPos = speakText.length;
-      for (var i = 1; i < 6; i++) {
-        if (end + i < listContents.length) {
-          var tmp = listContents[end + i];
-          if (tmp.trim().isEmpty) {
-            nextPos++;
-          } else {
-            break;
-          }
-        }
-      }
+      // for (var i = 1; i < 6; i++) {
+      //   if (end + i < listContents.length) {
+      //     var tmp = listContents[end + i];
+      //     if (tmp.trim().isEmpty) {
+      //       nextPos++;
+      //     } else {
+      //       break;
+      //     }
+      //   }
+      // }
       if (speakText.isEmpty) {
         nextPos += 1;
       }
