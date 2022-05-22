@@ -188,7 +188,7 @@ class TextViewerPainter extends CustomPainter {
                   idx,
                   TextSpan(
                     text: "$e\n",
-                    style: ctl._style?.copyWith(letterSpacing: -((size.width) / curWidth)),
+                    style: ctl._style?.copyWith(letterSpacing: -((size.width) / curWidth) - 0.1),
                   ));
             }
             if (idx < data.lineWidths.length && curWidth > size.width * 0.8 && curWidth <= size.width * 0.92) {
@@ -293,6 +293,7 @@ class TextViewerController extends ChangeNotifier {
 
   // double avgWidth = 0.0;
   double avgHeight = 0.0;
+  double newLineheight = 0.0;
 
   TextStyle? _style = TextStyle(fontSize: 25);
 
@@ -384,7 +385,7 @@ class TextViewerController extends ChangeNotifier {
     // cntntPstn
     var nextText = contents.substring(cntntPstn, min(cntntPstn + 2200, contents.length));
     // var nextText = contents.substring(0, 20);
-    nextPosData = _clcText(nextText, size, cntntPstn);
+    nextPosData = _clcText(nextText, size, cntntPstn, bnext: true);
     for (var i = 0; i < 4; i++) {
       if (nextPosData.nextPos < contents.length) {
         var nextStr = contents.substring(nextPosData.nextPos, min(nextPosData.nextPos + 1, contents.length));
@@ -397,14 +398,14 @@ class TextViewerController extends ChangeNotifier {
     return nextPosData;
   }
 
-  PosData _clcText(String _str, Size size, int basePos) {
+  PosData _clcText(String _str, Size size, int basePos, {bool bnext = false}) {
     var nextArr = _str.split("\n").map((e) => e.split(" ")).toList();
     var rtnStr = "";
 
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
-    var lineHeight = avgHeight * 0.8;
+    var lineHeight = newLineheight; //avgHeight * 0.8;
 
     var bBreak = false;
 
@@ -415,9 +416,16 @@ class TextViewerController extends ChangeNotifier {
       var newLine = nextArr[i];
 
       lineWidth = 0;
-      lineHeight += avgHeight;
 
-      if (bBreak || lineHeight + avgHeight > size.height) {
+      // if (newLine.length == 1 && newLine.first.isEmpty) {
+      //   lineHeight += avgHeight;
+      // } else {
+      lineHeight += avgHeight;
+      // }
+      if (bBreak || lineHeight + avgHeight >= size.height - avgHeight) {
+        // if (bnext) {
+        //   print(">>>>>>>>>>>:::>>>>>>>>> ${lineHeight}");
+        // }
         break;
       }
       for (var y = 0; y < newLine.length; y++) {
@@ -428,12 +436,13 @@ class TextViewerController extends ChangeNotifier {
         lastWidth += cacheMap[" "]![0];
         lineWidth += lastWidth;
 
-        if (lineWidth > (size.width + (cacheMap[" "]![0] * 4))) {
+        if (lineWidth > (size.width + (cacheMap[" "]![0] * 2))) {
           word = "\n${word.trimLeft()}";
+
           lineWidths.add(lineWidth - lastWidth);
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += avgHeight * (lastWidth ~/ size.width);
+            lineHeight += avgHeight * ((lastWidth ~/ size.width) + 1);
           } else {
             lineHeight += avgHeight;
           }
@@ -463,6 +472,7 @@ class TextViewerController extends ChangeNotifier {
       }
       lineWidths.add(lineWidth - lastWidth);
     }
+
     lineWidths.add(0.0);
 
     var data = PosData();
@@ -486,18 +496,24 @@ class TextViewerController extends ChangeNotifier {
   }
 
   cacheWord() {
+    avgHeight = 0.0;
+    newLineheight = 0.0;
     if (_laststyle?.fontSize != _style?.fontSize ||
         _laststyle?.height != _style?.height ||
         _laststyle?.letterSpacing != _style?.letterSpacing ||
         _laststyle?.fontFamily != _style?.fontFamily) {
       cacheMap.clear();
       avgHeight = 0.0;
+      newLineheight = 0.0;
       if (_style != null) {
         _laststyle = _style!.copyWith();
       }
     }
     if (avgHeight == 0.0) {
-      avgHeight = (TextPainter(text: TextSpan(text: "", style: _style), textDirection: TextDirection.ltr)..layout()).height;
+      avgHeight = (TextPainter(text: TextSpan(text: " ", style: _style), textDirection: TextDirection.ltr)..layout()).height;
+    }
+    if (newLineheight == 0.0) {
+      newLineheight = (TextPainter(text: TextSpan(text: "\n", style: _style), textDirection: TextDirection.ltr)..layout()).height;
     }
 
     if (contents.isEmpty || cntntPstn > contents.length) {
