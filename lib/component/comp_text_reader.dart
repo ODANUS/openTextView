@@ -405,7 +405,7 @@ class TextViewerController extends ChangeNotifier {
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
-    var lineHeight = newLineheight; //avgHeight * 0.8;
+    var lineHeight = avgHeight; //avgHeight * 0.8;
 
     var bBreak = false;
 
@@ -422,7 +422,7 @@ class TextViewerController extends ChangeNotifier {
       // } else {
       lineHeight += avgHeight;
       // }
-      if (bBreak || lineHeight + avgHeight >= size.height) {
+      if (bBreak || lineHeight + avgHeight >= size.height - avgHeight) {
         // if (bnext) {
         //   print(">>>>>>>>>>>:::>>>>>>>>> ${lineHeight}");
         // }
@@ -452,7 +452,7 @@ class TextViewerController extends ChangeNotifier {
             nextLine = tleng;
           }
 
-          if (lineHeight > size.height) {
+          if (lineHeight > size.height - avgHeight) {
             bBreak = true;
             break;
           }
