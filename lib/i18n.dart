@@ -141,6 +141,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Watch the ad and save the file as.",
           "drive file list": "drive file list",
           "download": "download",
+          "Ad placement": "Ad placement",
+          "lower": "lower",
+          "Top": "Top",
         },
         "ko": {
           "key": "ko",
@@ -277,6 +280,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "광고 를 시청하고 다른이름으로 저장.",
           "drive file list": "드라이브 파일 리스트",
           "download": "다운로드",
+          "Ad placement": "광고 게재위치",
+          "lower": "하단",
+          "Top": "상단",
         },
         "gl": {
           "key": "gl",
@@ -416,6 +422,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Mira o anuncio e garda o ficheiro como.",
           "drive file list": "Lista de ficheiros de unidade",
           "download": "descargar",
+          "Ad placement": "Colocación de anuncios",
+          "lower": "Baixa",
+          "Top": "Arriba",
         },
         "gu": {
           "key": "gu",
@@ -556,6 +565,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "જાહેરાત જુઓ અને ફાઇલને સાચવો.",
           "drive file list": "ડ્રાઇવ ફાઇલ સૂચિ",
           "download": "ડાઉનલોડ કરવું",
+          "Ad placement": "જાહેરાત -મૂકવી",
+          "lower": "નીચેનું",
+          "Top": "ટોચ",
         },
         "el": {
           "key": "el",
@@ -699,6 +711,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Παρακολουθήστε τη διαφήμιση και αποθηκεύστε το αρχείο ως.",
           "drive file list": "λίστα αρχείων μονάδας δίσκου",
           "download": "Κατεβάστε",
+          "Ad placement": "Τοποθέτηση διαφημίσεων",
+          "lower": "πιο χαμηλα",
+          "Top": "Μπλουζα",
         },
         "nl": {
           "key": "nl",
@@ -840,6 +855,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Bekijk de advertentie en sla het bestand op als.",
           "drive file list": "Drive -bestandslijst",
           "download": "downloaden",
+          "Ad placement": "Advertentieplaatsing",
+          "lower": "lager",
+          "Top": "Bovenkant",
         },
         "ne": {
           "key": "ne",
@@ -981,6 +999,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "विज्ञापन हेर्नुहोस् र फाईल बचत गर्नुहोस्।",
           "drive file list": "ड्राइभ फाइल सूची",
           "download": "डाउनलोड गर्नुहोस्",
+          "Ad placement": "विज्ञापन प्लेसमेन्ट",
+          "lower": "तल्लो",
+          "Top": "टुप्पो",
         },
         "no": {
           "key": "no",
@@ -1121,6 +1142,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Se annonsen og lagre filen som.",
           "drive file list": "Drive File List",
           "download": "nedlasting",
+          "Ad placement": "Annonseplassering",
+          "lower": "Nedre",
+          "Top": "Topp",
         },
         "da": {
           "key": "da",
@@ -1261,6 +1285,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Se annoncen og gem filen som.",
           "drive file list": "Drivfilliste",
           "download": "Hent",
+          "Ad placement": "Annonceplacering",
+          "lower": "nederste",
+          "Top": "Top",
         },
         "de": {
           "key": "de",
@@ -1403,6 +1430,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Sehen Sie sich die Anzeige an und speichern Sie die Datei als.",
           "drive file list": "Laufwerksdateiliste",
           "download": "Download",
+          "Ad placement": "Anzeigenplatzierung",
+          "lower": "niedriger",
+          "Top": "Spitze",
         },
         "lo": {
           "key": "lo",
@@ -1540,6 +1570,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ເບິ່ງໂຄສະນາແລະບັນທຶກເອກະສານດັ່ງກ່າວ.",
           "drive file list": "ລາຍຊື່ເອກະສານ Drive",
           "download": "ດາວໂຫລດ",
+          "Ad placement": "ການຈັດວາງໂຄສະນາ",
+          "lower": "ຕ່ໍາກວ່າ",
+          "Top": "ທາງເທີງ",
         },
         "lv": {
           "key": "lv",
@@ -1679,6 +1712,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Noskatieties reklāmu un saglabājiet failu kā.",
           "drive file list": "Diska failu saraksts",
           "download": "lejupielādēt",
+          "Ad placement": "Reklāmas izvietojums",
+          "lower": "apakšējais",
+          "Top": "Tops",
         },
         "ru": {
           "key": "ru",
@@ -1820,6 +1856,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Посмотрите объявление и сохраните файл как.",
           "drive file list": "Список файлов диска",
           "download": "скачать",
+          "Ad placement": "Расположение рекламы",
+          "lower": "ниже",
+          "Top": "Вершина",
         },
         "ro": {
           "key": "ro",
@@ -1962,6 +2001,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Urmăriți anunțul și salvați fișierul ca.",
           "drive file list": "Lista de fișiere de unitate",
           "download": "Descarca",
+          "Ad placement": "Plasare publicitară",
+          "lower": "inferior",
+          "Top": "Top",
         },
         "lt": {
           "key": "lt",
@@ -2100,6 +2142,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Peržiūrėkite skelbimą ir išsaugokite failą kaip.",
           "drive file list": "disko failų sąrašas",
           "download": "parsisiųsti",
+          "Ad placement": "Skelbimo vieta",
+          "lower": "žemesnis",
+          "Top": "Viršus",
         },
         "mr": {
           "key": "mr",
@@ -2239,6 +2284,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "जाहिरात पहा आणि फाईल म्हणून जतन करा.",
           "drive file list": "ड्राइव्ह फाइल सूची",
           "download": "डाउनलोड करा",
+          "Ad placement": "जाहिरात प्लेसमेंट",
+          "lower": "लोअर",
+          "Top": "शीर्ष",
         },
         "mk": {
           "key": "mk",
@@ -2379,6 +2427,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Погледнете ја рекламата и зачувајте ја датотеката како.",
           "drive file list": "Список на датотеки за возење",
           "download": "преземете",
+          "Ad placement": "Поставување на реклами",
+          "lower": "пониско",
+          "Top": "Врв",
         },
         "ml": {
           "key": "ml",
@@ -2521,6 +2572,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "പരസ്യം കാണുക, ഫയൽ ഇതായി സംരക്ഷിക്കുക.",
           "drive file list": "ഡ്രൈവ് ഫയൽ ലിസ്റ്റ്",
           "download": "ഡൗൺലോഡ്",
+          "Ad placement": "പരസ്യ പ്ലെയ്സ്മെന്റ്",
+          "lower": "താഴത്തെ",
+          "Top": "അറ്റം",
         },
         "ms": {
           "key": "ms",
@@ -2660,6 +2714,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Tonton iklan dan simpan fail sebagai.",
           "drive file list": "Senarai fail pemacu",
           "download": "muat turun",
+          "Ad placement": "Penempatan iklan",
+          "lower": "lebih rendah",
+          "Top": "Atas",
         },
         "ms": {
           "key": "ms",
@@ -2799,6 +2856,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Tonton iklan dan simpan fail sebagai.",
           "drive file list": "Senarai fail pemacu",
           "download": "muat turun",
+          "Ad placement": "Penempatan iklan",
+          "lower": "lebih rendah",
+          "Top": "Atas",
         },
         "mn": {
           "key": "mn",
@@ -2937,6 +2997,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Зарыг үзээд файлыг нь хадгал.",
           "drive file list": "Файлын жагсаалтыг жолоодох",
           "download": "татаж авах",
+          "Ad placement": "Зар байрлуулах",
+          "lower": "буулгах",
+          "Top": "Таг",
         },
         "eu": {
           "key": "eu",
@@ -3077,6 +3140,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Ikusi iragarkia eta gorde fitxategia.",
           "drive file list": "Gidatu fitxategi zerrenda",
           "download": "desengopen",
+          "Ad placement": "Iragarkien kokapena",
+          "lower": "baxuagoa",
+          "Top": "Tontor",
         },
         "my": {
           "key": "my",
@@ -3216,6 +3282,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ကြော်ငြာကိုကြည့်ပြီးဖိုင်ကိုသိမ်းဆည်းပါ။",
           "drive file list": "ဖိုင်တွဲစာရင်း",
           "download": "ဒေါက်ဒေါင်း",
+          "Ad placement": "ကြော်ငြာနေရာချထားရေး",
+          "lower": "နျိမ့်",
+          "Top": "အထိပ်",
         },
         "vi": {
           "key": "vi",
@@ -3354,6 +3423,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Xem quảng cáo và lưu tệp dưới dạng.",
           "drive file list": "Danh sách tập tin lái xe",
           "download": "Tải xuống",
+          "Ad placement": "Vị trí quảng cáo",
+          "lower": "thấp hơn",
+          "Top": "Đứng đầu",
         },
         "be": {
           "key": "be",
@@ -3494,6 +3566,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Глядзіце рэкламу і захавайце файл як.",
           "drive file list": "Спіс файлаў прывада",
           "download": "загрузка",
+          "Ad placement": "Размяшчэнне рэкламы",
+          "lower": "ніжэйшы",
+          "Top": "Вяршыня",
         },
         "bn": {
           "key": "bn",
@@ -3633,6 +3708,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "বিজ্ঞাপনটি দেখুন এবং ফাইলটি সংরক্ষণ করুন।",
           "drive file list": "ড্রাইভ ফাইল তালিকা",
           "download": "ডাউনলোড",
+          "Ad placement": "বিজ্ঞাপন স্থান",
+          "lower": "নিম্ন",
+          "Top": "শীর্ষ",
         },
         "bg": {
           "key": "bg",
@@ -3773,6 +3851,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Гледайте рекламата и запазете файла като.",
           "drive file list": "Списък с файлове на устройството",
           "download": "Изтегли",
+          "Ad placement": "Пласиране на реклами",
+          "lower": "нисък",
+          "Top": "Горна част",
         },
         "sr": {
           "key": "sr",
@@ -3912,6 +3993,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Гледајте оглас и сачувајте датотеку као.",
           "drive file list": "Листа датотека погона",
           "download": "преузимање",
+          "Ad placement": "Постављање огласа",
+          "lower": "нижи",
+          "Top": "На врху",
         },
         "sw": {
           "key": "sw",
@@ -4052,6 +4136,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Tazama tangazo na uhifadhi faili kama.",
           "drive file list": "Orodha ya faili ya kuendesha",
           "download": "Pakua",
+          "Ad placement": "Uwekaji wa tangazo",
+          "lower": "chini",
+          "Top": "Juu",
         },
         "sv": {
           "key": "sv",
@@ -4192,6 +4279,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Titta på annonsen och spara filen som.",
           "drive file list": "enhetsfillista",
           "download": "ladda ner",
+          "Ad placement": "Annonsplacering",
+          "lower": "lägre",
+          "Top": "Topp",
         },
         "es": {
           "key": "es",
@@ -4331,6 +4421,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Mire el anuncio y guarde el archivo como.",
           "drive file list": "Lista de archivos de manejo",
           "download": "descargar",
+          "Ad placement": "Colocación de anuncios",
+          "lower": "más bajo",
+          "Top": "Cima",
         },
         "sk": {
           "key": "sk",
@@ -4469,6 +4562,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Sledujte reklamu a uložte súbor ako.",
           "drive file list": "zoznam súborov",
           "download": "Stiahnuť ▼",
+          "Ad placement": "Umiestňovanie reklamy",
+          "lower": "znížiť",
+          "Top": "Vrchol",
         },
         "sl": {
           "key": "sl",
@@ -4607,6 +4703,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Oglejte si oglas in shranite datoteko kot.",
           "drive file list": "seznam datotek pogona",
           "download": "Prenesi",
+          "Ad placement": "Namestitev oglasov",
+          "lower": "nižje",
+          "Top": "Na vrh",
         },
         "si": {
           "key": "si",
@@ -4745,6 +4844,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "දැන්වීම නරඹා ගොනුව විකාශනය කරන්න.",
           "drive file list": "ධාවක ගොනු ලැයිස්තුව",
           "download": "බාගත",
+          "Ad placement": "දැන්වීම් ස්ථානගත කිරීම",
+          "lower": "පහළ",
+          "Top": "ඉහළට",
         },
         "ar": {
           "key": "ar",
@@ -4883,6 +4985,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "شاهد الإعلان وحفظ الملف باسم.",
           "drive file list": "قائمة ملفات محرك الأقراص",
           "download": "تحميل",
+          "Ad placement": "وضع الإعلان",
+          "lower": "أدنى",
+          "Top": "قمة",
         },
         "hy": {
           "key": "hy",
@@ -5022,6 +5127,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Դիտեք գովազդը եւ պահեք ֆայլը որպես:",
           "drive file list": "Drive ֆայլերի ցուցակը",
           "download": "Ներբեռնեք",
+          "Ad placement": "Գովազդի տեղադրում",
+          "lower": "ավելի ցածր",
+          "Top": "Գագաթ",
         },
         "is": {
           "key": "is",
@@ -5162,6 +5270,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Horfðu á auglýsinguna og vistaðu skrána sem.",
           "drive file list": "Drive File List",
           "download": "Sækja",
+          "Ad placement": "Staðsetning auglýsinga",
+          "lower": "lægra",
+          "Top": "Efst",
         },
         "az": {
           "key": "az",
@@ -5301,6 +5412,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Reklamı izləyin və faylı olaraq qeyd edin.",
           "drive file list": "Sürücü Fayl siyahısı",
           "download": "Download",
+          "Ad placement": "Elan yerləşdirmə",
+          "lower": "aşağı",
+          "Top": "Üst",
         },
         "af": {
           "key": "af",
@@ -5440,6 +5554,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Kyk na die advertensie en stoor die lêer as.",
           "drive file list": "Bestuur lêerlys",
           "download": "Aflaai",
+          "Ad placement": "Advertensieplasing",
+          "lower": "laat sak",
+          "Top": "Top",
         },
         "sq": {
           "key": "sq",
@@ -5580,6 +5697,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Shikoni reklamën dhe ruajeni skedarin si.",
           "drive file list": "Lista e skedarëve të makinës",
           "download": "Shkarko",
+          "Ad placement": "Vendosje reklamash",
+          "lower": "më i ulët",
+          "Top": "I lartë",
         },
         "am": {
           "key": "am",
@@ -5716,6 +5836,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ማስታወቂያውን ይመልከቱ እና ፋይሉን እንደ.",
           "drive file list": "የ SITS ፋይል ዝርዝር",
           "download": "አውርድ",
+          "Ad placement": "የማስታወቂያ ምደባ",
+          "lower": "ዝቅ",
+          "Top": "ከላይ",
         },
         "et": {
           "key": "et",
@@ -5855,6 +5978,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Vaadake reklaami ja salvestage fail järgmiselt.",
           "drive file list": "draivifailide loend",
           "download": "lae alla",
+          "Ad placement": "Reklaamipaigutus",
+          "lower": "madalam",
+          "Top": "Tipus",
         },
         "en": {
           "key": "en",
@@ -5994,6 +6120,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Watch the ad and save the file as.",
           "drive file list": "drive file list",
           "download": "download",
+          "Ad placement": "Ad placement",
+          "lower": "lower",
+          "Top": "Top",
         },
         "ur": {
           "key": "ur",
@@ -6133,6 +6262,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "اشتہار دیکھیں اور فائل کو بطور محفوظ کریں۔",
           "drive file list": "ڈرائیو فائل کی فہرست",
           "download": "ڈاؤن لوڈ کریں",
+          "Ad placement": "اشتہار کی جگہ کا تعین",
+          "lower": "نچلا",
+          "Top": "اوپر",
         },
         "uk": {
           "key": "uk",
@@ -6273,6 +6405,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Перегляньте рекламу та збережіть файл як.",
           "drive file list": "Список файлів накопичувача",
           "download": "завантажувати",
+          "Ad placement": "Розміщення реклами",
+          "lower": "опускатися",
+          "Top": "Топ",
         },
         "it": {
           "key": "it",
@@ -6412,6 +6547,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Guarda l'annuncio e salva il file come.",
           "drive file list": "Elenco dei file di unità",
           "download": "Scarica",
+          "Ad placement": "Posizionamento degli annunci",
+          "lower": "minore",
+          "Top": "Superiore",
         },
         "id": {
           "key": "id",
@@ -6550,6 +6688,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Tonton iklan dan simpan file sebagai.",
           "drive file list": "Daftar File Drive",
           "download": "unduh",
+          "Ad placement": "Penempatan iklan",
+          "lower": "lebih rendah",
+          "Top": "Atas",
         },
         "ja": {
           "key": "ja",
@@ -6686,6 +6827,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "広告を見て、ファイルを保存します。",
           "drive file list": "ドライブファイルリスト",
           "download": "ダウンロード",
+          "Ad placement": "広告配置",
+          "lower": "低い",
+          "Top": "上",
         },
         "ka": {
           "key": "ka",
@@ -6824,6 +6968,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "უყურეთ რეკლამას და შეინახეთ ფაილი, როგორც.",
           "drive file list": "წამყვანი ფაილების სია",
           "download": "ჩამოტვირთვა",
+          "Ad placement": "რეკლამის განთავსება",
+          "lower": "უფრო დაბალი",
+          "Top": "თავი",
         },
         "zu": {
           "key": "zu",
@@ -6963,6 +7110,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Bukela isikhangiso bese ugcine ifayili njengoba.",
           "drive file list": "Uhlu lwefayela leDrayivu",
           "download": "thwebula",
+          "Ad placement": "Ukubekwa kwesikhangiso",
+          "lower": "shonisa",
+          "Top": "Isihloko",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -7099,6 +7249,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "观看广告并将文件保存为。",
           "drive file list": "驱动文件列表",
           "download": "下载",
+          "Ad placement": "广告放置",
+          "lower": "降低",
+          "Top": "最佳",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -7235,6 +7388,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "觀看廣告並將文件保存為。",
           "drive file list": "驅動文件列表",
           "download": "下載",
+          "Ad placement": "廣告放置",
+          "lower": "降低",
+          "Top": "最佳",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -7371,6 +7527,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "觀看廣告並將文件保存為。",
           "drive file list": "驅動文件列表",
           "download": "下載",
+          "Ad placement": "廣告放置",
+          "lower": "降低",
+          "Top": "最佳",
         },
         "cs": {
           "key": "cs",
@@ -7510,6 +7669,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Sledujte reklamu a uložte soubor jako.",
           "drive file list": "Seznam souborů pohonu",
           "download": "stažení",
+          "Ad placement": "Umístění reklamy",
+          "lower": "dolní",
+          "Top": "Horní",
         },
         "kk": {
           "key": "kk",
@@ -7649,6 +7811,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Жарнаманы қарап, файлды сақтаңыз.",
           "drive file list": "Дискі файлдар тізімі",
           "download": "сайлау",
+          "Ad placement": "Жарнаманы орналастыру",
+          "lower": "төменгі",
+          "Top": "Шың",
         },
         "ca": {
           "key": "ca",
@@ -7788,6 +7953,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Mireu l'anunci i deseu el fitxer com.",
           "drive file list": "Llista de fitxers de conducció",
           "download": "descarregar",
+          "Ad placement": "Col·locació publicitària",
+          "lower": "més baix",
+          "Top": "Superior",
         },
         "kn": {
           "key": "kn",
@@ -7928,6 +8096,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ಜಾಹೀರಾತನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ಫೈಲ್ ಅನ್ನು ಹೀಗೆ ಉಳಿಸಿ.",
           "drive file list": "ಡ್ರೈವ್ ಫೈಲ್ ಪಟ್ಟಿ",
           "download": "ಡೌನ್‌ಲೋಡ್",
+          "Ad placement": "ಜಾಹೀರಾತು ನಿಯೋಜನೆ",
+          "lower": "ಕಡಿಮೆ",
+          "Top": "ಮೇಲಕ್ಕೆ",
         },
         "hr": {
           "key": "hr",
@@ -8067,6 +8238,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Pogledajte oglas i spremite datoteku kao.",
           "drive file list": "Popis datoteka pogona",
           "download": "preuzimanje datoteka",
+          "Ad placement": "Postavljanje oglasa",
+          "lower": "niži",
+          "Top": "Vrh",
         },
         "km": {
           "key": "km",
@@ -8207,6 +8381,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "មើលការផ្សាយពាណិជ្ជកម្មនិងរក្សាទុកឯកសារជា។",
           "drive file list": "បើកបញ្ជីឯកសារ",
           "download": "របចាបរេកា",
+          "Ad placement": "ការដាក់ផ្សាយពាណិជ្ជកម្ម",
+          "lower": "តាបចាង",
+          "Top": "ឯផ្ទលើ",
         },
         "ky": {
           "key": "ky",
@@ -8346,6 +8523,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Жарнаманы карап, файлды сактаңыз.",
           "drive file list": "Файлдын тизмесин",
           "download": "жүктөө",
+          "Ad placement": "AD жайгаштыруу",
+          "lower": "төмөн",
+          "Top": "Топ",
         },
         "ta": {
           "key": "ta",
@@ -8486,6 +8666,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "விளம்பரத்தைப் பார்த்து கோப்பை சேமிக்கவும்.",
           "drive file list": "கோப்பு பட்டியல் இயக்கி",
           "download": "பதிவிறக்க Tamil",
+          "Ad placement": "விளம்பர வேலை வாய்ப்பு",
+          "lower": "கீழ்",
+          "Top": "மேல்",
         },
         "th": {
           "key": "th",
@@ -8624,6 +8807,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ดูโฆษณาและบันทึกไฟล์เป็น",
           "drive file list": "รายการไฟล์ไดรฟ์",
           "download": "การดาวน์โหลด",
+          "Ad placement": "ตำแหน่งโฆษณา",
+          "lower": "ต่ำกว่า",
+          "Top": "สูงสุด",
         },
         "tr": {
           "key": "tr",
@@ -8764,6 +8950,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Reklamı izleyin ve dosyayı kaydedin.",
           "drive file list": "Sürücü Dosya Listesi",
           "download": "indirmek",
+          "Ad placement": "Reklam",
+          "lower": "daha düşük",
+          "Top": "Üst",
         },
         "te": {
           "key": "te",
@@ -8905,6 +9094,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ప్రకటనను చూడండి మరియు ఫైల్‌ను ఇలా సేవ్ చేయండి.",
           "drive file list": "డ్రైవ్ ఫైల్ జాబితా",
           "download": "డౌన్‌లోడ్",
+          "Ad placement": "ప్రకటన ప్లేస్‌మెంట్",
+          "lower": "తక్కువ",
+          "Top": "టాప్",
         },
         "pa": {
           "key": "pa",
@@ -9044,6 +9236,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "ਵਿਗਿਆਪਨ ਵੇਖੋ ਅਤੇ ਫਾਈਲ ਨੂੰ ਸੇਵ ਕਰੋ.",
           "drive file list": "ਡਰਾਈਵ ਫਾਈਲ ਲਿਸਟ",
           "download": "ਡਾਉਨਲੋਡ ਕਰੋ",
+          "Ad placement": "ਵਿਗਿਆਪਨ ਪਲੇਸਮੈਂਟ",
+          "lower": "ਘੱਟ",
+          "Top": "ਸਿਖਰ",
         },
         "fa": {
           "key": "fa",
@@ -9184,6 +9379,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "آگهی را تماشا کرده و پرونده را به عنوان ذخیره کنید.",
           "drive file list": "لیست پرونده های درایو",
           "download": "دانلود",
+          "Ad placement": "جایگاه تبلیغاتی",
+          "lower": "پایین",
+          "Top": "بالا",
         },
         "pt": {
           "key": "pt",
@@ -9325,6 +9523,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Assista ao anúncio e salve o arquivo como.",
           "drive file list": "Lista de arquivos de unidade",
           "download": "download",
+          "Ad placement": "Colocação de anúncios",
+          "lower": "mais baixo",
+          "Top": "Topo",
         },
         "pl": {
           "key": "pl",
@@ -9463,6 +9664,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Obejrzyj reklamę i zapisz plik jako.",
           "drive file list": "Lista plików napędu",
           "download": "Ściągnij",
+          "Ad placement": "Umieszczenie reklamy",
+          "lower": "niżej",
+          "Top": "Szczyt",
         },
         "fr": {
           "key": "fr",
@@ -9604,6 +9808,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Regardez l'annonce et enregistrez le fichier sous.",
           "drive file list": "Liste des fichiers de lecteur",
           "download": "Télécharger",
+          "Ad placement": "Placement d'annonce",
+          "lower": "plus bas",
+          "Top": "Haut",
         },
         "fi": {
           "key": "fi",
@@ -9742,6 +9949,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Katso mainos ja tallenna tiedosto nimellä.",
           "drive file list": "Ajatiedostoluettelo",
           "download": "ladata",
+          "Ad placement": "Mainosten sijoitus",
+          "lower": "alempi",
+          "Top": "Ylhäältä",
         },
         "fil": {
           "key": "fil",
@@ -9883,6 +10093,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Panoorin ang ad at i -save ang file bilang.",
           "drive file list": "Listahan ng File ng Drive",
           "download": "I -download",
+          "Ad placement": "Paglalagay ng ad",
+          "lower": "mas mababa",
+          "Top": "Tuktok",
         },
         "hu": {
           "key": "hu",
@@ -10022,6 +10235,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "Nézze meg a hirdetést, és mentse el a fájlt.",
           "drive file list": "meghajtófájllista",
           "download": "Letöltés",
+          "Ad placement": "Hirdetési elhelyezés",
+          "lower": "Alsó",
+          "Top": "Felső",
         },
         "iw": {
           "key": "iw",
@@ -10160,6 +10376,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "צפו במודעה ושמרו את הקובץ כ.",
           "drive file list": "כונן רשימת קבצים",
           "download": "הורד",
+          "Ad placement": "מיקום מודעות",
+          "lower": "נמוך יותר",
+          "Top": "חלק עליון",
         },
         "hi": {
           "key": "hi",
@@ -10300,6 +10519,9 @@ class Messages extends Translations {
           "Watch the ad and save the file as.": "विज्ञापन देखें और फ़ाइल को सहेजें।",
           "drive file list": "अभियान फ़ाइल सूची",
           "download": "डाउनलोड",
+          "Ad placement": "विज्ञापन स्थान",
+          "lower": "निचला",
+          "Top": "ऊपर",
         },
       };
 }

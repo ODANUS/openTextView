@@ -56,6 +56,7 @@ class AdBanner extends GetView {
 class AdCtl {
   static AdManagerInterstitialAd? _interstitialAd;
   static RewardedAd? _rewardedAd;
+  static RewardedAd? _rewardeRemovedAd;
 
   static init() {
     MobileAds.instance.initialize().then((value) {
@@ -119,6 +120,83 @@ class AdCtl {
           },
         ));
     return c.future;
+  }
+
+  static initRemoveRewardedAd() {
+    Completer<bool> c = Completer<bool>();
+    String adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    if (Platform.isIOS && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/9674875505";
+    }
+    if (Platform.isAndroid && !kDebugMode) {
+      adUnitId = "ca-app-pub-6280862087797110/8347699009";
+    }
+    RewardedAd.load(
+        adUnitId: adUnitId,
+        request: AdRequest(),
+        rewardedAdLoadCallback: RewardedAdLoadCallback(
+          onAdLoaded: (RewardedAd ad) {
+            _rewardeRemovedAd = ad;
+            c.complete(true);
+          },
+          onAdFailedToLoad: (LoadAdError error) {
+            _rewardeRemovedAd = null;
+            c.complete(false);
+          },
+        ));
+    return c.future;
+  }
+
+  static Future<bool> startRemoveRewardedAd() async {
+    Completer<bool> c = Completer<bool>();
+    MobileAds.instance.setAppMuted(false);
+    IsarCtl.bLoadingLib(true);
+    var stat = false;
+    if (await initRemoveRewardedAd()) {
+      _rewardeRemovedAd?.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (RewardedAd ad) async {
+          IsarCtl.bLoadingLib(false);
+          MobileAds.instance.setAppMuted(true);
+          c.complete(stat);
+          await ad.dispose();
+          _rewardeRemovedAd = null;
+        },
+        onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
+          IsarCtl.bLoadingLib(false);
+          MobileAds.instance.setAppMuted(true);
+          await ad.dispose();
+          _rewardeRemovedAd = null;
+        },
+      );
+
+      _rewardeRemovedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {
+        IsarCtl.bLoadingLib(false);
+        stat = true;
+      });
+      return c.future;
+    } else {
+      IsarCtl.bLoadingLib(false);
+      MobileAds.instance.setAppMuted(true);
+      return await Get.dialog(AlertDialog(
+          content: Text("Failed to load ad"), actions: [ElevatedButton(onPressed: () => Get.back(result: false), child: Text("confirm".tr))]));
+    }
+    // if (await initRewardedAd()) {
+    //   _rewardeRemovedAd?.fullScreenContentCallback = FullScreenContentCallback(
+    //     onAdDismissedFullScreenContent: (RewardedAd ad) async {
+    //       await ad.dispose();
+    //       _rewardeRemovedAd = null;
+    //     },
+    //     onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) async {
+    //       await ad.dispose();
+    //       _rewardeRemovedAd = null;
+    //     },
+    //   );
+
+    //   _rewardeRemovedAd?.show(onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {});
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   static Future<bool> startInterstitialAd() async {

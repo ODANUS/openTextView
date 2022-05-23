@@ -65,7 +65,7 @@ class ReadPage extends GetView {
                         ),
                       ),
                     ))),
-                Obx(() => IsarCtl.bfullScreen.value ? SizedBox() : AdBanner()),
+                // Obx(() => IsarCtl.bfullScreen.value ? SizedBox() : AdBanner()),
                 Expanded(
                   child: Stack(children: [
                     IsarCtl.rxSetting((_, setting) {

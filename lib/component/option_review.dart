@@ -34,22 +34,24 @@ class OptionReview extends GetView {
               onPressed: () async {
                 if (installationSource.value == Source.IS_INSTALLED_FROM_PLAY_STORE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  launchUrlString('https://play.google.com/store/apps/details?id=${packageInfo.packageName}');
+                  launchUrlString('https://play.google.com/store/apps/details?id=${packageInfo.packageName}', mode: LaunchMode.externalApplication);
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
-                  launchUrlString('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                  launchUrlString('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}',
+                      mode: LaunchMode.externalApplication);
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_LOCAL_SOURCE) {
                   PackageInfo packageInfo = await PackageInfo.fromPlatform();
                   if (Platform.isAndroid) {
-                    launchUrlString('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
+                    launchUrlString('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}',
+                        mode: LaunchMode.externalApplication);
                   } else if (Platform.isIOS) {
-                    launchUrlString('https://apps.apple.com/app/id1622580218');
+                    launchUrlString('https://apps.apple.com/app/id1622580218', mode: LaunchMode.externalApplication);
                   }
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
-                  launchUrlString('https://apps.apple.com/app/id1622580218');
+                  launchUrlString('https://apps.apple.com/app/id1622580218', mode: LaunchMode.externalApplication);
                   // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
               },

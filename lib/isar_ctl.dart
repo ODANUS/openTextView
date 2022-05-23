@@ -93,6 +93,10 @@ class IsarCtl {
 
   static RxBool bScreenHelp = true.obs;
 
+  static RxBool bRemoveAd = false.obs;
+
+  static RxBool bLoadingSetting = false.obs;
+
   // static RxBool bOpen = false.obs;
 
   static Future<void> init() async {
@@ -137,8 +141,18 @@ class IsarCtl {
         bInitValue = true;
         settingIsar.fullScreenType = 0;
       }
+      if (settingIsar.adPosition < -999) {
+        bInitValue = true;
+        settingIsar.adPosition = 0;
+      }
       if (bInitValue) {
         putSetting(settingIsar);
+      }
+
+      var df = DateTime.now().difference(settingIsar.last24Ad);
+      print(":::::::::::${df}");
+      if (df.inHours < 24) {
+        bRemoveAd(true);
       }
     }
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

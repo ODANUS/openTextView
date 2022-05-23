@@ -136,6 +136,7 @@ class SettingIsar {
     this.bgIdx = 0,
     this.bgFilter = 0x00FFFFFF,
     this.fullScreenType = 1,
+    this.adPosition = 0,
   });
   int id = Isar.autoIncrement;
   int fontWeight;
@@ -165,6 +166,8 @@ class SettingIsar {
   int bgIdx = 0;
   int bgFilter = 0x00FFFFFF;
   int fullScreenType = 0;
+  int adPosition = 0;
+  DateTime last24Ad = DateTime.now().add(Duration(days: -2));
 
   factory SettingIsar.fromJson(String str) => SettingIsar.fromMap(json.decode(str));
 
@@ -199,6 +202,7 @@ class SettingIsar {
       bgIdx: json["bgIdx"] ?? 0,
       bgFilter: json["bgFilter"] ?? 0x00FFFFFF,
       fullScreenType: json["fullScreenType"] ?? 0,
+      adPosition: json["adPosition"] ?? 0,
     );
   }
 
@@ -230,6 +234,7 @@ class SettingIsar {
         "bgIdx": bgIdx,
         "bgFilter": bgFilter,
         "fullScreenType": fullScreenType,
+        "adPosition": adPosition,
       };
 }
 

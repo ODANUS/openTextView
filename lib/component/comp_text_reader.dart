@@ -43,6 +43,7 @@ class CompTextReader extends GetView {
                 ..contents = contens.text
                 ..style = IsarCtl.textStyle
                 ..cntntPstn = IsarCtl.cntntPstn
+                ..cntntPstn = 0
                 ..onChange = (idx) async {
                   // IsarCtl.basyncOffset(true);
                   // IsarCtl.basyncOffset(false);
@@ -167,7 +168,7 @@ class TextViewerPainter extends CustomPainter {
               return MapEntry(
                   idx,
                   TextSpan(
-                    text: "\n\n",
+                    text: "\n",
                     style: ctl._style,
                   ));
             }
@@ -405,12 +406,8 @@ class TextViewerController extends ChangeNotifier {
     var tleng = 0;
     var lineWidth = 0.0;
     var lastWidth = 0.0;
-    double h = _style?.height ?? 1.3;
-    var _avgHeight = h <= 1.3
-        ? avgHeight * 1.3
-        : h <= 1.5
-            ? avgHeight * 1.1
-            : avgHeight;
+
+    // var _avgHeight = avgHeight;
     var lineHeight = avgHeight; //avgHeight * 0.8;
 
     var bBreak = false;
@@ -422,11 +419,15 @@ class TextViewerController extends ChangeNotifier {
       var newLine = nextArr[i];
 
       lineWidth = 0;
-
-      lineHeight += _avgHeight;
-      if (bBreak || lineHeight + _avgHeight >= size.height - _avgHeight) {
+      if (newLine.isEmpty || newLine.first.isEmpty) {
+        lineHeight += newLineheight;
+      } else {
+        lineHeight += avgHeight;
+      }
+      if (bBreak || lineHeight >= size.height) {
         break;
       }
+
       for (var y = 0; y < newLine.length; y++) {
         var word = newLine[y];
         var wordLen = word.length + 1;
@@ -441,9 +442,9 @@ class TextViewerController extends ChangeNotifier {
           lineWidths.add(lineWidth - lastWidth);
           lineWidth = lastWidth;
           if (lastWidth > size.width) {
-            lineHeight += _avgHeight * ((lastWidth ~/ size.width) + 1);
+            lineHeight += avgHeight * ((lastWidth ~/ size.width) + 1);
           } else {
-            lineHeight += _avgHeight;
+            lineHeight += avgHeight;
           }
           newlineCnt++;
 
@@ -451,7 +452,7 @@ class TextViewerController extends ChangeNotifier {
             nextLine = tleng;
           }
 
-          if (lineHeight > size.height - _avgHeight) {
+          if (lineHeight > size.height) {
             bBreak = true;
             break;
           }
@@ -495,8 +496,8 @@ class TextViewerController extends ChangeNotifier {
   }
 
   cacheWord() {
-    // avgHeight = 0.0;
-    // newLineheight = 0.0;
+    avgHeight = 0.0;
+    newLineheight = 0.0;
     if (_laststyle?.fontSize != _style?.fontSize ||
         _laststyle?.height != _style?.height ||
         _laststyle?.letterSpacing != _style?.letterSpacing ||
@@ -509,10 +510,19 @@ class TextViewerController extends ChangeNotifier {
       }
     }
     if (avgHeight == 0.0) {
-      avgHeight = (TextPainter(text: TextSpan(text: " ", style: _style), textDirection: TextDirection.ltr)..layout()).height;
+      avgHeight = (TextPainter(text: TextSpan(text: "A", style: _style), textDirection: TextDirection.ltr)..layout()).height;
     }
     if (newLineheight == 0.0) {
-      newLineheight = (TextPainter(text: TextSpan(text: "\n", style: _style), textDirection: TextDirection.ltr)..layout()).height;
+      newLineheight = ((TextPainter(
+                      text: TextSpan(children: [
+                        TextSpan(text: "A", style: _style),
+                        TextSpan(text: "\n", style: _style),
+                      ]),
+                      textDirection: TextDirection.ltr)
+                    ..layout())
+                  .height -
+              avgHeight) *
+          max(0.45, ((_style?.height ?? 1.8) - 1 - 1).abs());
     }
 
     if (contents.isEmpty || cntntPstn > contents.length) {

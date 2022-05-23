@@ -98,10 +98,10 @@ class HistoryPage extends GetView {
             //       ],
             //     ))
           ],
-          bottom: PreferredSize(
-            preferredSize: Size(Get.width, 50),
-            child: AdBanner(key: Key("history")),
-          ),
+          // bottom: PreferredSize(
+          //   preferredSize: Size(Get.width, 50),
+          //   child: AdBanner(key: Key("history")),
+          // ),
         ),
         body: IsarCtl.rxHistoryFilterDate((ctx, historys) {
           historys.sort((a, b) {
