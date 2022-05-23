@@ -496,8 +496,8 @@ class TextViewerController extends ChangeNotifier {
   }
 
   cacheWord() {
-    avgHeight = 0.0;
-    newLineheight = 0.0;
+    // avgHeight = 0.0;
+    // newLineheight = 0.0;
     if (_laststyle?.fontSize != _style?.fontSize ||
         _laststyle?.height != _style?.height ||
         _laststyle?.letterSpacing != _style?.letterSpacing ||
