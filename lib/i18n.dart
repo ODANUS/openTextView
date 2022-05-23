@@ -144,6 +144,9 @@ class Messages extends Translations {
           "Ad placement": "Ad placement",
           "lower": "lower",
           "Top": "Top",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Remove viewer banner ads for 24 hours after watching 30 seconds of ads",
+          "AD settings": "Ad Settings",
         },
         "ko": {
           "key": "ko",
@@ -283,6 +286,8 @@ class Messages extends Translations {
           "Ad placement": "광고 게재위치",
           "lower": "하단",
           "Top": "상단",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "30초 광고 시청후 24 시간 동안 뷰어 배너 광고제거",
+          "AD settings": "광고 설정",
         },
         "gl": {
           "key": "gl",
@@ -425,6 +430,9 @@ class Messages extends Translations {
           "Ad placement": "Colocación de anuncios",
           "lower": "Baixa",
           "Top": "Arriba",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Elimina os anuncios do banner do espectador durante 24 horas despois de ver 30 segundos de anuncios",
+          "AD settings": "Configuración do anuncio",
         },
         "gu": {
           "key": "gu",
@@ -568,6 +576,9 @@ class Messages extends Translations {
           "Ad placement": "જાહેરાત -મૂકવી",
           "lower": "નીચેનું",
           "Top": "ટોચ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 સેકંડની જાહેરાતો જોયા પછી 24 કલાક માટે દર્શકોની બેનર જાહેરાતો દૂર કરો",
+          "AD settings": "જાહેરાત -સેટિંગ્સ",
         },
         "el": {
           "key": "el",
@@ -714,6 +725,9 @@ class Messages extends Translations {
           "Ad placement": "Τοποθέτηση διαφημίσεων",
           "lower": "πιο χαμηλα",
           "Top": "Μπλουζα",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Αφαιρέστε τις διαφημίσεις banner προβολής για 24 ώρες μετά την παρακολούθηση 30 δευτερολέπτων διαφημίσεων",
+          "AD settings": "Διαφημίσεις",
         },
         "nl": {
           "key": "nl",
@@ -858,6 +872,9 @@ class Messages extends Translations {
           "Ad placement": "Advertentieplaatsing",
           "lower": "lager",
           "Top": "Bovenkant",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Verwijder de advertenties van kijker banner gedurende 24 uur na het bekijken van 30 seconden advertenties",
+          "AD settings": "Advertentie -instellingen",
         },
         "ne": {
           "key": "ne",
@@ -1002,6 +1019,8 @@ class Messages extends Translations {
           "Ad placement": "विज्ञापन प्लेसमेन्ट",
           "lower": "तल्लो",
           "Top": "टुप्पो",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "2 24 घण्टाको लागि दर्शक ब्यानर विज्ञापनहरू हटाउनुहोस्",
+          "AD settings": "विज्ञापन सेटिंग्स",
         },
         "no": {
           "key": "no",
@@ -1145,6 +1164,9 @@ class Messages extends Translations {
           "Ad placement": "Annonseplassering",
           "lower": "Nedre",
           "Top": "Topp",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Fjern seerbannerannonser i 24 timer etter å ha sett 30 sekunders annonser",
+          "AD settings": "Annonseinnstillinger",
         },
         "da": {
           "key": "da",
@@ -1288,6 +1310,9 @@ class Messages extends Translations {
           "Ad placement": "Annonceplacering",
           "lower": "nederste",
           "Top": "Top",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Fjern Viewer Banner -annoncer i 24 timer efter at have set 30 sekunders annoncer",
+          "AD settings": "Annonceindstillinger",
         },
         "de": {
           "key": "de",
@@ -1433,6 +1458,9 @@ class Messages extends Translations {
           "Ad placement": "Anzeigenplatzierung",
           "lower": "niedriger",
           "Top": "Spitze",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Entfernen Sie den Zuschauer -Banner -Anzeigen 24 Stunden lang, nachdem Sie 30 Sekunden Anzeigen beobachtet haben",
+          "AD settings": "Anzeigeneinstellungen",
         },
         "lo": {
           "key": "lo",
@@ -1573,6 +1601,9 @@ class Messages extends Translations {
           "Ad placement": "ການຈັດວາງໂຄສະນາ",
           "lower": "ຕ່ໍາກວ່າ",
           "Top": "ທາງເທີງ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "ເອົາປ້າຍໂຄສະນາປ້າຍໂຄສະນາ viewer ສໍາລັບ 24 ຊົ່ວໂມງຫຼັງຈາກເບິ່ງໂຄສະນາ 30 ວິນາທີ",
+          "AD settings": "ການຕັ້ງຄ່າໂຄສະນາ",
         },
         "lv": {
           "key": "lv",
@@ -1715,6 +1746,9 @@ class Messages extends Translations {
           "Ad placement": "Reklāmas izvietojums",
           "lower": "apakšējais",
           "Top": "Tops",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Noņemiet skatītāja reklāmkarogu reklāmas 24 stundas pēc 30 sekunžu reklāmu skatīšanās",
+          "AD settings": "AD iestatījumi",
         },
         "ru": {
           "key": "ru",
@@ -1859,6 +1893,9 @@ class Messages extends Translations {
           "Ad placement": "Расположение рекламы",
           "lower": "ниже",
           "Top": "Вершина",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Удалите рекламные объявления зрителя в течение 24 часов после просмотра 30 секунд рекламы",
+          "AD settings": "Настройки рекламы",
         },
         "ro": {
           "key": "ro",
@@ -2004,6 +2041,9 @@ class Messages extends Translations {
           "Ad placement": "Plasare publicitară",
           "lower": "inferior",
           "Top": "Top",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Eliminați anunțurile Banner Viewer timp de 24 de ore după vizionarea a 30 de secunde de reclame",
+          "AD settings": "Setări publicitare",
         },
         "lt": {
           "key": "lt",
@@ -2145,6 +2185,9 @@ class Messages extends Translations {
           "Ad placement": "Skelbimo vieta",
           "lower": "žemesnis",
           "Top": "Viršus",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Pašalinkite „Viewer“ reklamjuostę 24 valandas po 30 sekundžių skelbimų žiūrėjimo",
+          "AD settings": "Skelbimo nustatymai",
         },
         "mr": {
           "key": "mr",
@@ -2287,6 +2330,8 @@ class Messages extends Translations {
           "Ad placement": "जाहिरात प्लेसमेंट",
           "lower": "लोअर",
           "Top": "शीर्ष",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "30 सेकंद जाहिराती पाहिल्यानंतर 24 तास दर्शक बॅनर जाहिराती काढा",
+          "AD settings": "जाहिरात सेटिंग्ज",
         },
         "mk": {
           "key": "mk",
@@ -2430,6 +2475,9 @@ class Messages extends Translations {
           "Ad placement": "Поставување на реклами",
           "lower": "пониско",
           "Top": "Врв",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Отстранете ги рекламите за банер на гледачот 24 часа по гледањето 30 секунди реклами",
+          "AD settings": "Поставки за рекламирање",
         },
         "ml": {
           "key": "ml",
@@ -2575,6 +2623,9 @@ class Messages extends Translations {
           "Ad placement": "പരസ്യ പ്ലെയ്സ്മെന്റ്",
           "lower": "താഴത്തെ",
           "Top": "അറ്റം",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 സെക്കൻഡ് പരസ്യങ്ങൾ കണ്ടതിന് ശേഷം 24 മണിക്കൂർ കാഴ്ച, 24 മണിക്കൂർ നീക്കംചെയ്യുക",
+          "AD settings": "പരസ്യ ക്രമീകരണങ്ങൾ",
         },
         "ms": {
           "key": "ms",
@@ -2717,6 +2768,9 @@ class Messages extends Translations {
           "Ad placement": "Penempatan iklan",
           "lower": "lebih rendah",
           "Top": "Atas",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Keluarkan iklan spanduk penonton selama 24 jam setelah menonton 30 saat iklan",
+          "AD settings": "Tetapan iklan",
         },
         "ms": {
           "key": "ms",
@@ -2859,6 +2913,9 @@ class Messages extends Translations {
           "Ad placement": "Penempatan iklan",
           "lower": "lebih rendah",
           "Top": "Atas",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Keluarkan iklan spanduk penonton selama 24 jam setelah menonton 30 saat iklan",
+          "AD settings": "Tetapan iklan",
         },
         "mn": {
           "key": "mn",
@@ -3000,6 +3057,9 @@ class Messages extends Translations {
           "Ad placement": "Зар байрлуулах",
           "lower": "буулгах",
           "Top": "Таг",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Viewer Banner зарыг 30 секундын турш зарж авснаас хойш 24 цагийн турш ав",
+          "AD settings": "Агийн тохиргоо",
         },
         "eu": {
           "key": "eu",
@@ -3143,6 +3203,9 @@ class Messages extends Translations {
           "Ad placement": "Iragarkien kokapena",
           "lower": "baxuagoa",
           "Top": "Tontor",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Kendu ikuslearen banner iragarkiak 24 orduz 30 segundoko iragarkiak ikusi ondoren",
+          "AD settings": "Iragarkien ezarpenak",
         },
         "my": {
           "key": "my",
@@ -3285,6 +3348,9 @@ class Messages extends Translations {
           "Ad placement": "ကြော်ငြာနေရာချထားရေး",
           "lower": "နျိမ့်",
           "Top": "အထိပ်",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "ကြော်ငြာ 30 ကိုကြည့်ပြီးကြည့်ပြီးနောက် Viewer Banner Banner ကြော်ငြာများကို 24 နာရီအကြာတွင်ဖယ်ရှားပါ",
+          "AD settings": "ad ချိန်ညှိချက်များ",
         },
         "vi": {
           "key": "vi",
@@ -3426,6 +3492,9 @@ class Messages extends Translations {
           "Ad placement": "Vị trí quảng cáo",
           "lower": "thấp hơn",
           "Top": "Đứng đầu",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Xóa quảng cáo biểu ngữ của người xem trong 24 giờ sau khi xem 30 giây quảng cáo",
+          "AD settings": "Cài đặt quảng cáo",
         },
         "be": {
           "key": "be",
@@ -3569,6 +3638,9 @@ class Messages extends Translations {
           "Ad placement": "Размяшчэнне рэкламы",
           "lower": "ніжэйшы",
           "Top": "Вяршыня",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Зніміце рэкламу для прагляду банера на працягу 24 гадзін пасля прагляду 30 секунд аб'яў",
+          "AD settings": "Налады рэкламы",
         },
         "bn": {
           "key": "bn",
@@ -3711,6 +3783,9 @@ class Messages extends Translations {
           "Ad placement": "বিজ্ঞাপন স্থান",
           "lower": "নিম্ন",
           "Top": "শীর্ষ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 সেকেন্ড বিজ্ঞাপন দেখার পরে 24 ঘন্টা দর্শকের ব্যানার বিজ্ঞাপনগুলি সরান",
+          "AD settings": "বিজ্ঞাপন সেটিংস",
         },
         "bg": {
           "key": "bg",
@@ -3854,6 +3929,9 @@ class Messages extends Translations {
           "Ad placement": "Пласиране на реклами",
           "lower": "нисък",
           "Top": "Горна част",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Премахнете рекламите за банери за зрители за 24 часа след гледане на 30 секунди реклами",
+          "AD settings": "Настройки на рекламата",
         },
         "sr": {
           "key": "sr",
@@ -3996,6 +4074,9 @@ class Messages extends Translations {
           "Ad placement": "Постављање огласа",
           "lower": "нижи",
           "Top": "На врху",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Уклоните огласе за прегледнике за 24 сата након гледања 30 секунди огласа",
+          "AD settings": "Подешавања огласа",
         },
         "sw": {
           "key": "sw",
@@ -4139,6 +4220,9 @@ class Messages extends Translations {
           "Ad placement": "Uwekaji wa tangazo",
           "lower": "chini",
           "Top": "Juu",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Ondoa matangazo ya mabango ya watazamaji kwa masaa 24 baada ya kutazama sekunde 30 za matangazo",
+          "AD settings": "Mipangilio ya tangazo",
         },
         "sv": {
           "key": "sv",
@@ -4282,6 +4366,9 @@ class Messages extends Translations {
           "Ad placement": "Annonsplacering",
           "lower": "lägre",
           "Top": "Topp",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Ta bort Viewer Banner -annonser i 24 timmar efter att ha sett 30 sekunder av annonser",
+          "AD settings": "Annonsinställningar",
         },
         "es": {
           "key": "es",
@@ -4424,6 +4511,9 @@ class Messages extends Translations {
           "Ad placement": "Colocación de anuncios",
           "lower": "más bajo",
           "Top": "Cima",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Retire los anuncios de Banner del espectador durante 24 horas después de ver 30 segundos de anuncios",
+          "AD settings": "Configuración de anuncios",
         },
         "sk": {
           "key": "sk",
@@ -4565,6 +4655,9 @@ class Messages extends Translations {
           "Ad placement": "Umiestňovanie reklamy",
           "lower": "znížiť",
           "Top": "Vrchol",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Odstráňte reklamy na prehliadač Banner 24 hodín po sledovaní 30 sekúnd reklám",
+          "AD settings": "Nastavenia reklamy",
         },
         "sl": {
           "key": "sl",
@@ -4706,6 +4799,9 @@ class Messages extends Translations {
           "Ad placement": "Namestitev oglasov",
           "lower": "nižje",
           "Top": "Na vrh",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Odstranite oglase za pasice gledalcev 24 ur po ogledu 30 sekund oglasov",
+          "AD settings": "Nastavitve oglasov",
         },
         "si": {
           "key": "si",
@@ -4847,6 +4943,9 @@ class Messages extends Translations {
           "Ad placement": "දැන්වීම් ස්ථානගත කිරීම",
           "lower": "පහළ",
           "Top": "ඉහළට",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "තත්පර 30 ක දැන්වීම් නැරඹීමෙන් පැය 24 කට පසු නරඹන්නා බැනර් දැන්වීම් ඉවත් කරන්න",
+          "AD settings": "දැන්වීම් සැකසුම්",
         },
         "ar": {
           "key": "ar",
@@ -4988,6 +5087,9 @@ class Messages extends Translations {
           "Ad placement": "وضع الإعلان",
           "lower": "أدنى",
           "Top": "قمة",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "قم بإزالة إعلانات لافتة المشاهد لمدة 24 ساعة بعد مشاهدة 30 ثانية من الإعلانات",
+          "AD settings": "إعدادات الإعلان",
         },
         "hy": {
           "key": "hy",
@@ -5130,6 +5232,9 @@ class Messages extends Translations {
           "Ad placement": "Գովազդի տեղադրում",
           "lower": "ավելի ցածր",
           "Top": "Գագաթ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Հեռացրեք Viewer Banner- ի գովազդը 24 ժամվա ընթացքում 24 վայրկյան դիտելուց հետո",
+          "AD settings": "Գովազդային պարամետրեր",
         },
         "is": {
           "key": "is",
@@ -5273,6 +5378,9 @@ class Messages extends Translations {
           "Ad placement": "Staðsetning auglýsinga",
           "lower": "lægra",
           "Top": "Efst",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Fjarlægðu borða auglýsingar áhorfenda í sólarhring eftir að hafa horft á 30 sekúndur af auglýsingum",
+          "AD settings": "Auglýsingastillingar",
         },
         "az": {
           "key": "az",
@@ -5415,6 +5523,9 @@ class Messages extends Translations {
           "Ad placement": "Elan yerləşdirmə",
           "lower": "aşağı",
           "Top": "Üst",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 saniyəlik reklamı izlədikdən sonra 24 saat sonra görüntü banner elanlarını silmək",
+          "AD settings": "Reklam parametrləri",
         },
         "af": {
           "key": "af",
@@ -5557,6 +5668,9 @@ class Messages extends Translations {
           "Ad placement": "Advertensieplasing",
           "lower": "laat sak",
           "Top": "Top",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Verwyder die kykersbanieradvertensies 24 uur nadat hulle 30 sekondes advertensies gekyk het",
+          "AD settings": "Advertensie -instellings",
         },
         "sq": {
           "key": "sq",
@@ -5700,6 +5814,9 @@ class Messages extends Translations {
           "Ad placement": "Vendosje reklamash",
           "lower": "më i ulët",
           "Top": "I lartë",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Hiqni reklamat e banderolës së shikuesit për 24 orë pasi të shikoni 30 sekonda reklama",
+          "AD settings": "Cilësimet e reklamave",
         },
         "am": {
           "key": "am",
@@ -5839,6 +5956,9 @@ class Messages extends Translations {
           "Ad placement": "የማስታወቂያ ምደባ",
           "lower": "ዝቅ",
           "Top": "ከላይ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "የ MINEWW BASES ማስታወቂያዎችን ከ 24 ሰዓታት በኋላ ማስታወቂያዎችን ከያዙ በኋላ ለ 24 ሰዓታት ያስወግዱ",
+          "AD settings": "የማስታወቂያ ቅንብሮች",
         },
         "et": {
           "key": "et",
@@ -5981,6 +6101,9 @@ class Messages extends Translations {
           "Ad placement": "Reklaamipaigutus",
           "lower": "madalam",
           "Top": "Tipus",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Eemaldage vaataja ribareklaamid 24 tundi pärast 30 sekundi reklaamide vaatamist",
+          "AD settings": "Reklaami sätted",
         },
         "en": {
           "key": "en",
@@ -6123,6 +6246,9 @@ class Messages extends Translations {
           "Ad placement": "Ad placement",
           "lower": "lower",
           "Top": "Top",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Remove viewer banner ads for 24 hours after watching 30 seconds of ads",
+          "AD settings": "Ad Settings",
         },
         "ur": {
           "key": "ur",
@@ -6265,6 +6391,9 @@ class Messages extends Translations {
           "Ad placement": "اشتہار کی جگہ کا تعین",
           "lower": "نچلا",
           "Top": "اوپر",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 سیکنڈ اشتہارات دیکھنے کے بعد 24 گھنٹے ناظرین کے بینر اشتہارات کو ہٹا دیں",
+          "AD settings": "اشتہار کی ترتیبات",
         },
         "uk": {
           "key": "uk",
@@ -6408,6 +6537,9 @@ class Messages extends Translations {
           "Ad placement": "Розміщення реклами",
           "lower": "опускатися",
           "Top": "Топ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Видаліть рекламні банерні глядачі протягом 24 годин після перегляду 30 секунд реклами",
+          "AD settings": "Налаштування оголошення",
         },
         "it": {
           "key": "it",
@@ -6550,6 +6682,9 @@ class Messages extends Translations {
           "Ad placement": "Posizionamento degli annunci",
           "lower": "minore",
           "Top": "Superiore",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Rimuovi gli annunci banner degli spettatori per 24 ore dopo aver visto 30 secondi di annunci",
+          "AD settings": "Impostazioni pubblicitarie",
         },
         "id": {
           "key": "id",
@@ -6691,6 +6826,9 @@ class Messages extends Translations {
           "Ad placement": "Penempatan iklan",
           "lower": "lebih rendah",
           "Top": "Atas",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Hapus iklan spanduk penampil selama 24 jam setelah menonton 30 detik iklan",
+          "AD settings": "Pengaturan Iklan",
         },
         "ja": {
           "key": "ja",
@@ -6830,6 +6968,8 @@ class Messages extends Translations {
           "Ad placement": "広告配置",
           "lower": "低い",
           "Top": "上",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "30秒の広告を見た後、24時間視聴者バナー広告を削除します",
+          "AD settings": "広告設定",
         },
         "ka": {
           "key": "ka",
@@ -6971,6 +7111,9 @@ class Messages extends Translations {
           "Ad placement": "რეკლამის განთავსება",
           "lower": "უფრო დაბალი",
           "Top": "თავი",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "ამოიღეთ მაყურებლის ბანერის რეკლამები 24 საათის განმავლობაში, 30 წამის რეკლამირების ყურების შემდეგ",
+          "AD settings": "სარეკლამო პარამეტრები",
         },
         "zu": {
           "key": "zu",
@@ -7113,6 +7256,9 @@ class Messages extends Translations {
           "Ad placement": "Ukubekwa kwesikhangiso",
           "lower": "shonisa",
           "Top": "Isihloko",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Susa izikhangiso zesibhengezo sezibukeli amahora angama-24 ngemuva kokubuka imizuzwana engama-30 yezikhangiso",
+          "AD settings": "Izilungiselelo ze-AD",
         },
         "zh-CN": {
           "key": "zh-CN",
@@ -7252,6 +7398,8 @@ class Messages extends Translations {
           "Ad placement": "广告放置",
           "lower": "降低",
           "Top": "最佳",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "观看30秒的广告后，删除查看器横幅广告24小时",
+          "AD settings": "广告设置",
         },
         "zh-TW": {
           "key": "zh-TW",
@@ -7391,6 +7539,8 @@ class Messages extends Translations {
           "Ad placement": "廣告放置",
           "lower": "降低",
           "Top": "最佳",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "觀看30秒的廣告後，刪除查看器橫幅廣告24小時",
+          "AD settings": "廣告設置",
         },
         "zh-HK": {
           "key": "zh-HK",
@@ -7530,6 +7680,8 @@ class Messages extends Translations {
           "Ad placement": "廣告放置",
           "lower": "降低",
           "Top": "最佳",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "觀看30秒的廣告後，刪除查看器橫幅廣告24小時",
+          "AD settings": "廣告設置",
         },
         "cs": {
           "key": "cs",
@@ -7672,6 +7824,9 @@ class Messages extends Translations {
           "Ad placement": "Umístění reklamy",
           "lower": "dolní",
           "Top": "Horní",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Odstraňte reklamy pro prohlížeče po dobu 24 hodin po sledování 30 sekund reklam",
+          "AD settings": "Nastavení reklamy",
         },
         "kk": {
           "key": "kk",
@@ -7814,6 +7969,9 @@ class Messages extends Translations {
           "Ad placement": "Жарнаманы орналастыру",
           "lower": "төменгі",
           "Top": "Шың",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "ADS 30 секундынан кейін қарау баннер жарнамаларын 24 сағат ішінде алып тастаңыз",
+          "AD settings": "Жарнама параметрлері",
         },
         "ca": {
           "key": "ca",
@@ -7956,6 +8114,9 @@ class Messages extends Translations {
           "Ad placement": "Col·locació publicitària",
           "lower": "més baix",
           "Top": "Superior",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Elimineu els anuncis de pancartes de l'espectador durant 24 hores després de veure 30 segons d'anuncis",
+          "AD settings": "Configuració d’anuncis",
         },
         "kn": {
           "key": "kn",
@@ -8099,6 +8260,9 @@ class Messages extends Translations {
           "Ad placement": "ಜಾಹೀರಾತು ನಿಯೋಜನೆ",
           "lower": "ಕಡಿಮೆ",
           "Top": "ಮೇಲಕ್ಕೆ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 ಸೆಕೆಂಡುಗಳ ಜಾಹೀರಾತುಗಳನ್ನು ನೋಡಿದ ನಂತರ 24 ಗಂಟೆಗಳ ಕಾಲ ವೀಕ್ಷಕ ಬ್ಯಾನರ್ ಜಾಹೀರಾತುಗಳನ್ನು ತೆಗೆದುಹಾಕಿ",
+          "AD settings": "ಜಾಹೀರಾತು ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
         },
         "hr": {
           "key": "hr",
@@ -8241,6 +8405,9 @@ class Messages extends Translations {
           "Ad placement": "Postavljanje oglasa",
           "lower": "niži",
           "Top": "Vrh",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Uklonite oglase za natpise gledatelja 24 sata nakon gledanja 30 sekundi oglasa",
+          "AD settings": "Postavke oglasa",
         },
         "km": {
           "key": "km",
@@ -8384,6 +8551,9 @@ class Messages extends Translations {
           "Ad placement": "ការដាក់ផ្សាយពាណិជ្ជកម្ម",
           "lower": "តាបចាង",
           "Top": "ឯផ្ទលើ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "យកការផ្សាយពាណិជ្ជកម្មបដារបស់អ្នកមើលចេញរយៈពេល 24 ម៉ោងបន្ទាប់ពីបានមើល 30 វិនាទីនៃការផ្សាយពាណិជ្ជកម្ម",
+          "AD settings": "ការកំណត់ការផ្សាយពាណិជ្ជកម្ម",
         },
         "ky": {
           "key": "ky",
@@ -8526,6 +8696,9 @@ class Messages extends Translations {
           "Ad placement": "AD жайгаштыруу",
           "lower": "төмөн",
           "Top": "Топ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Жарнаманын 30 секундасын карап чыккандан кийин Viewer баннерди чыгарып алыңыз",
+          "AD settings": "Жарнама орнотуулары",
         },
         "ta": {
           "key": "ta",
@@ -8669,6 +8842,9 @@ class Messages extends Translations {
           "Ad placement": "விளம்பர வேலை வாய்ப்பு",
           "lower": "கீழ்",
           "Top": "மேல்",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 விநாடிகள் விளம்பரங்களைப் பார்த்த 24 மணி நேரம் பார்வையாளர் பேனர் விளம்பரங்களை அகற்றவும்",
+          "AD settings": "விளம்பர அமைப்புகள்",
         },
         "th": {
           "key": "th",
@@ -8810,6 +8986,8 @@ class Messages extends Translations {
           "Ad placement": "ตำแหน่งโฆษณา",
           "lower": "ต่ำกว่า",
           "Top": "สูงสุด",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads": "ลบโฆษณาแบนเนอร์ดูเป็นเวลา 24 ชั่วโมงหลังจากดูโฆษณา 30 วินาที",
+          "AD settings": "การตั้งค่าโฆษณา",
         },
         "tr": {
           "key": "tr",
@@ -8953,6 +9131,9 @@ class Messages extends Translations {
           "Ad placement": "Reklam",
           "lower": "daha düşük",
           "Top": "Üst",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 saniyelik reklam izledikten sonra izleyici banner reklamlarını 24 saat kaldırın",
+          "AD settings": "Reklam Ayarları",
         },
         "te": {
           "key": "te",
@@ -9097,6 +9278,9 @@ class Messages extends Translations {
           "Ad placement": "ప్రకటన ప్లేస్‌మెంట్",
           "lower": "తక్కువ",
           "Top": "టాప్",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 సెకన్ల ప్రకటనలను చూసిన తర్వాత 24 గంటలు వీక్షకుల బ్యానర్ ప్రకటనలను తొలగించండి",
+          "AD settings": "ప్రకటన సెట్టింగులు",
         },
         "pa": {
           "key": "pa",
@@ -9239,6 +9423,9 @@ class Messages extends Translations {
           "Ad placement": "ਵਿਗਿਆਪਨ ਪਲੇਸਮੈਂਟ",
           "lower": "ਘੱਟ",
           "Top": "ਸਿਖਰ",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "ਇਸ਼ਤਿਹਾਰਾਂ ਦੇ 30 ਸਕਿੰਟਾਂ ਨੂੰ 24 ਘੰਟਿਆਂ ਲਈ ਦਰਸ਼ਕ ਬੈਨਰ ਵਿਗਿਆਪਨ ਹਟਾਓ",
+          "AD settings": "ਵਿਗਿਆਪਨ ਸੈਟਿੰਗਾਂ",
         },
         "fa": {
           "key": "fa",
@@ -9382,6 +9569,9 @@ class Messages extends Translations {
           "Ad placement": "جایگاه تبلیغاتی",
           "lower": "پایین",
           "Top": "بالا",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "بعد از تماشای 30 ثانیه تبلیغات ، تبلیغات بنر بیننده را به مدت 24 ساعت حذف کنید",
+          "AD settings": "تنظیمات تبلیغاتی",
         },
         "pt": {
           "key": "pt",
@@ -9526,6 +9716,9 @@ class Messages extends Translations {
           "Ad placement": "Colocação de anúncios",
           "lower": "mais baixo",
           "Top": "Topo",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Remova os anúncios do banner do visualizador por 24 horas depois de assistir 30 segundos de anúncios",
+          "AD settings": "Configurações de anúncios",
         },
         "pl": {
           "key": "pl",
@@ -9667,6 +9860,9 @@ class Messages extends Translations {
           "Ad placement": "Umieszczenie reklamy",
           "lower": "niżej",
           "Top": "Szczyt",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Usuń reklamy banerowe widza przez 24 godziny po obejrzeniu 30 sekund reklam",
+          "AD settings": "Ustawienia reklam",
         },
         "fr": {
           "key": "fr",
@@ -9811,6 +10007,9 @@ class Messages extends Translations {
           "Ad placement": "Placement d'annonce",
           "lower": "plus bas",
           "Top": "Haut",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Retirez la bannière de téléspectateurs pendant 24 heures après avoir regardé 30 secondes d'annonces",
+          "AD settings": "Paramètres d'annonces",
         },
         "fi": {
           "key": "fi",
@@ -9952,6 +10151,9 @@ class Messages extends Translations {
           "Ad placement": "Mainosten sijoitus",
           "lower": "alempi",
           "Top": "Ylhäältä",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Poista katsojan bannerimainokset 24 tunnin ajan 30 sekunnin mainosten katselun jälkeen",
+          "AD settings": "Mainosasetukset",
         },
         "fil": {
           "key": "fil",
@@ -10096,6 +10298,9 @@ class Messages extends Translations {
           "Ad placement": "Paglalagay ng ad",
           "lower": "mas mababa",
           "Top": "Tuktok",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Alisin ang mga ad ng viewer banner sa loob ng 24 na oras pagkatapos manood ng 30 segundo ng mga ad",
+          "AD settings": "Mga setting ng ad",
         },
         "hu": {
           "key": "hu",
@@ -10238,6 +10443,9 @@ class Messages extends Translations {
           "Ad placement": "Hirdetési elhelyezés",
           "lower": "Alsó",
           "Top": "Felső",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "Távolítsa el a néző szalaghirdetéseit 24 órán keresztül, miután megnézte a 30 másodperces hirdetéseket",
+          "AD settings": "Hirdetési beállítások",
         },
         "iw": {
           "key": "iw",
@@ -10379,6 +10587,9 @@ class Messages extends Translations {
           "Ad placement": "מיקום מודעות",
           "lower": "נמוך יותר",
           "Top": "חלק עליון",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "הסר את מודעות באנר הצופה למשך 24 שעות לאחר הצפייה ב -30 שניות של מודעות",
+          "AD settings": "הגדרות מודעות",
         },
         "hi": {
           "key": "hi",
@@ -10522,6 +10733,9 @@ class Messages extends Translations {
           "Ad placement": "विज्ञापन स्थान",
           "lower": "निचला",
           "Top": "ऊपर",
+          "Remove viewer banner ads for 24 hours after watching 30 seconds of ads":
+              "30 सेकंड के विज्ञापनों को देखने के बाद 24 घंटे के लिए दर्शक बैनर विज्ञापन निकालें",
+          "AD settings": "विज्ञापन सेटिंग्स",
         },
       };
 }

@@ -63,7 +63,7 @@ class OptionAdPosition extends GetView {
                 }
                 IsarCtl.bLoadingSetting(false);
               },
-              title: Text("30초 광고 시청후 24 시간 동안 뷰어 배너 광고제거"),
+              title: Text("Remove viewer banner ads for 24 hours after watching 30 seconds of ads".tr),
             ));
           }
           return SizedBox();
