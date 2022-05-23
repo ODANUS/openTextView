@@ -58,8 +58,6 @@ class OptionAdPosition extends GetView {
                   IsarCtl.bLoadingSetting(false);
                   IsarCtl.putSetting(setting..last24Ad = DateTime.now());
                   IsarCtl.bRemoveAd(true);
-                  // var df = DateTime.now().difference(setting.last24Ad);
-                  // print(df.inHours);
                 }
                 IsarCtl.bLoadingSetting(false);
               },

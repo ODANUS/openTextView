@@ -150,7 +150,7 @@ class IsarCtl {
       }
 
       var df = DateTime.now().difference(settingIsar.last24Ad);
-      print(":::::::::::${df}");
+
       if (df.inHours < 24) {
         bRemoveAd(true);
       }
