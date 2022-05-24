@@ -50,7 +50,7 @@ class OptionReview extends GetView {
                     launchUrlString('https://apps.apple.com/app/id1622580218');
                   }
                 }
-                if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
+                if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE || Platform.isIOS) {
                   launchUrlString('https://apps.apple.com/app/id1622580218');
                   // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
@@ -74,7 +74,7 @@ class OptionReview extends GetView {
                     Share.share('https://apps.apple.com/app/id1622580218');
                   }
                 }
-                if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
+                if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE || Platform.isIOS) {
                   Share.share('https://apps.apple.com/app/id1622580218');
                 }
               },
