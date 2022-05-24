@@ -143,7 +143,7 @@ class IsarCtl {
       }
       if (settingIsar.adPosition < -999) {
         bInitValue = true;
-        settingIsar.adPosition = 0;
+        settingIsar.adPosition = 1;
       }
       if (bInitValue) {
         putSetting(settingIsar);

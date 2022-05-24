@@ -136,7 +136,7 @@ class SettingIsar {
     this.bgIdx = 0,
     this.bgFilter = 0x00FFFFFF,
     this.fullScreenType = 1,
-    this.adPosition = 0,
+    this.adPosition = 1,
   });
   int id = Isar.autoIncrement;
   int fontWeight;

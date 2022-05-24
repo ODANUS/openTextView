@@ -43,7 +43,6 @@ class CompTextReader extends GetView {
                 ..contents = contens.text
                 ..style = IsarCtl.textStyle
                 ..cntntPstn = IsarCtl.cntntPstn
-                ..cntntPstn = 0
                 ..onChange = (idx) async {
                   // IsarCtl.basyncOffset(true);
                   // IsarCtl.basyncOffset(false);
