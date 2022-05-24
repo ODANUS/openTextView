@@ -12,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReadPage extends GetView {
   @override
   Widget build(BuildContext context) {
+    var bFold = Get.width / Get.height > 0.6;
     return Scaffold(
         body: SafeArea(
           child: Builder(builder: (ctx) {
@@ -51,6 +52,7 @@ class ReadPage extends GetView {
                                 ),
                                 SizedBox(width: 5),
                                 Obx(() {
+                                  print(Get.height);
                                   if (IsarCtl.btitleFullScreen.value) {
                                     return SizedBox();
                                   }
@@ -58,7 +60,31 @@ class ReadPage extends GetView {
                                       onTap: () => IsarCtl.bSetting(!IsarCtl.bSetting.value),
                                       child: Icon(IsarCtl.bSetting.value ? Icons.cancel : Icons.settings_outlined));
                                 }),
-                                SizedBox(width: 2),
+                                SizedBox(width: 5),
+                                Obx(() {
+                                  if (IsarCtl.btitleFullScreen.value) {
+                                    return SizedBox();
+                                  }
+                                  return Row(
+                                    children: [
+                                      if (context.isTablet && bFold) SizedBox(width: 5),
+                                      if (context.isTablet && bFold)
+                                        IsarCtl.rxSetting(
+                                          (ctx, setting) {
+                                            return InkWell(
+                                                onTap: () {
+                                                  IsarCtl.putSetting(setting..bMultiScreen = !setting.bMultiScreen);
+                                                },
+                                                child: RotatedBox(
+                                                  quarterTurns: setting.bMultiScreen ? 0 : 1,
+                                                  child: setting.bMultiScreen ? Icon(Icons.aod) : Icon(Icons.splitscreen),
+                                                ));
+                                          },
+                                        ),
+                                      if (context.isTablet && bFold) SizedBox(width: 10),
+                                    ],
+                                  );
+                                })
                               ],
                             )
                           ],

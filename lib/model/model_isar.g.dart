@@ -1910,38 +1910,39 @@ extension GetSettingIsarCollection on Isar {
 const SettingIsarSchema = CollectionSchema(
   name: 'SettingIsar',
   schema:
-      '{"name":"SettingIsar","idName":"id","properties":[{"name":"adPosition","type":"Long"},{"name":"audioduck","type":"Bool"},{"name":"audiosession","type":"Bool"},{"name":"backgroundColor","type":"Long"},{"name":"bgFilter","type":"Long"},{"name":"bgIdx","type":"Long"},{"name":"customFont","type":"String"},{"name":"enablescroll","type":"Bool"},{"name":"fontColor","type":"Long"},{"name":"fontFamily","type":"String"},{"name":"fontHeight","type":"Double"},{"name":"fontSize","type":"Double"},{"name":"fontWeight","type":"Long"},{"name":"fullScreenType","type":"Long"},{"name":"groupcnt","type":"Long"},{"name":"headsetbutton","type":"Bool"},{"name":"last24Ad","type":"Long"},{"name":"lastDevVersion","type":"String"},{"name":"letterSpacing","type":"Double"},{"name":"paddingBottom","type":"Double"},{"name":"paddingLeft","type":"Double"},{"name":"paddingRight","type":"Double"},{"name":"paddingTop","type":"Double"},{"name":"pitch","type":"Double"},{"name":"speechRate","type":"Double"},{"name":"theme","type":"String"},{"name":"touchLayout","type":"Long"},{"name":"useClipboard","type":"Bool"},{"name":"volume","type":"Double"}],"indexes":[],"links":[]}',
+      '{"name":"SettingIsar","idName":"id","properties":[{"name":"adPosition","type":"Long"},{"name":"audioduck","type":"Bool"},{"name":"audiosession","type":"Bool"},{"name":"bMultiScreen","type":"Bool"},{"name":"backgroundColor","type":"Long"},{"name":"bgFilter","type":"Long"},{"name":"bgIdx","type":"Long"},{"name":"customFont","type":"String"},{"name":"enablescroll","type":"Bool"},{"name":"fontColor","type":"Long"},{"name":"fontFamily","type":"String"},{"name":"fontHeight","type":"Double"},{"name":"fontSize","type":"Double"},{"name":"fontWeight","type":"Long"},{"name":"fullScreenType","type":"Long"},{"name":"groupcnt","type":"Long"},{"name":"headsetbutton","type":"Bool"},{"name":"last24Ad","type":"Long"},{"name":"lastDevVersion","type":"String"},{"name":"letterSpacing","type":"Double"},{"name":"paddingBottom","type":"Double"},{"name":"paddingLeft","type":"Double"},{"name":"paddingRight","type":"Double"},{"name":"paddingTop","type":"Double"},{"name":"pitch","type":"Double"},{"name":"speechRate","type":"Double"},{"name":"theme","type":"String"},{"name":"touchLayout","type":"Long"},{"name":"useClipboard","type":"Bool"},{"name":"volume","type":"Double"}],"indexes":[],"links":[]}',
   idName: 'id',
   propertyIds: {
     'adPosition': 0,
     'audioduck': 1,
     'audiosession': 2,
-    'backgroundColor': 3,
-    'bgFilter': 4,
-    'bgIdx': 5,
-    'customFont': 6,
-    'enablescroll': 7,
-    'fontColor': 8,
-    'fontFamily': 9,
-    'fontHeight': 10,
-    'fontSize': 11,
-    'fontWeight': 12,
-    'fullScreenType': 13,
-    'groupcnt': 14,
-    'headsetbutton': 15,
-    'last24Ad': 16,
-    'lastDevVersion': 17,
-    'letterSpacing': 18,
-    'paddingBottom': 19,
-    'paddingLeft': 20,
-    'paddingRight': 21,
-    'paddingTop': 22,
-    'pitch': 23,
-    'speechRate': 24,
-    'theme': 25,
-    'touchLayout': 26,
-    'useClipboard': 27,
-    'volume': 28
+    'bMultiScreen': 3,
+    'backgroundColor': 4,
+    'bgFilter': 5,
+    'bgIdx': 6,
+    'customFont': 7,
+    'enablescroll': 8,
+    'fontColor': 9,
+    'fontFamily': 10,
+    'fontHeight': 11,
+    'fontSize': 12,
+    'fontWeight': 13,
+    'fullScreenType': 14,
+    'groupcnt': 15,
+    'headsetbutton': 16,
+    'last24Ad': 17,
+    'lastDevVersion': 18,
+    'letterSpacing': 19,
+    'paddingBottom': 20,
+    'paddingLeft': 21,
+    'paddingRight': 22,
+    'paddingTop': 23,
+    'pitch': 24,
+    'speechRate': 25,
+    'theme': 26,
+    'touchLayout': 27,
+    'useClipboard': 28,
+    'volume': 29
   },
   listProperties: {},
   indexIds: {},
@@ -1991,65 +1992,67 @@ void _settingIsarSerializeNative(
   final _audioduck = value1;
   final value2 = object.audiosession;
   final _audiosession = value2;
-  final value3 = object.backgroundColor;
-  final _backgroundColor = value3;
-  final value4 = object.bgFilter;
-  final _bgFilter = value4;
-  final value5 = object.bgIdx;
-  final _bgIdx = value5;
-  final value6 = object.customFont;
+  final value3 = object.bMultiScreen;
+  final _bMultiScreen = value3;
+  final value4 = object.backgroundColor;
+  final _backgroundColor = value4;
+  final value5 = object.bgFilter;
+  final _bgFilter = value5;
+  final value6 = object.bgIdx;
+  final _bgIdx = value6;
+  final value7 = object.customFont;
   IsarUint8List? _customFont;
-  if (value6 != null) {
-    _customFont = IsarBinaryWriter.utf8Encoder.convert(value6);
+  if (value7 != null) {
+    _customFont = IsarBinaryWriter.utf8Encoder.convert(value7);
   }
   dynamicSize += (_customFont?.length ?? 0) as int;
-  final value7 = object.enablescroll;
-  final _enablescroll = value7;
-  final value8 = object.fontColor;
-  final _fontColor = value8;
-  final value9 = object.fontFamily;
-  final _fontFamily = IsarBinaryWriter.utf8Encoder.convert(value9);
+  final value8 = object.enablescroll;
+  final _enablescroll = value8;
+  final value9 = object.fontColor;
+  final _fontColor = value9;
+  final value10 = object.fontFamily;
+  final _fontFamily = IsarBinaryWriter.utf8Encoder.convert(value10);
   dynamicSize += (_fontFamily.length) as int;
-  final value10 = object.fontHeight;
-  final _fontHeight = value10;
-  final value11 = object.fontSize;
-  final _fontSize = value11;
-  final value12 = object.fontWeight;
-  final _fontWeight = value12;
-  final value13 = object.fullScreenType;
-  final _fullScreenType = value13;
-  final value14 = object.groupcnt;
-  final _groupcnt = value14;
-  final value15 = object.headsetbutton;
-  final _headsetbutton = value15;
-  final value16 = object.last24Ad;
-  final _last24Ad = value16;
-  final value17 = object.lastDevVersion;
-  final _lastDevVersion = IsarBinaryWriter.utf8Encoder.convert(value17);
+  final value11 = object.fontHeight;
+  final _fontHeight = value11;
+  final value12 = object.fontSize;
+  final _fontSize = value12;
+  final value13 = object.fontWeight;
+  final _fontWeight = value13;
+  final value14 = object.fullScreenType;
+  final _fullScreenType = value14;
+  final value15 = object.groupcnt;
+  final _groupcnt = value15;
+  final value16 = object.headsetbutton;
+  final _headsetbutton = value16;
+  final value17 = object.last24Ad;
+  final _last24Ad = value17;
+  final value18 = object.lastDevVersion;
+  final _lastDevVersion = IsarBinaryWriter.utf8Encoder.convert(value18);
   dynamicSize += (_lastDevVersion.length) as int;
-  final value18 = object.letterSpacing;
-  final _letterSpacing = value18;
-  final value19 = object.paddingBottom;
-  final _paddingBottom = value19;
-  final value20 = object.paddingLeft;
-  final _paddingLeft = value20;
-  final value21 = object.paddingRight;
-  final _paddingRight = value21;
-  final value22 = object.paddingTop;
-  final _paddingTop = value22;
-  final value23 = object.pitch;
-  final _pitch = value23;
-  final value24 = object.speechRate;
-  final _speechRate = value24;
-  final value25 = object.theme;
-  final _theme = IsarBinaryWriter.utf8Encoder.convert(value25);
+  final value19 = object.letterSpacing;
+  final _letterSpacing = value19;
+  final value20 = object.paddingBottom;
+  final _paddingBottom = value20;
+  final value21 = object.paddingLeft;
+  final _paddingLeft = value21;
+  final value22 = object.paddingRight;
+  final _paddingRight = value22;
+  final value23 = object.paddingTop;
+  final _paddingTop = value23;
+  final value24 = object.pitch;
+  final _pitch = value24;
+  final value25 = object.speechRate;
+  final _speechRate = value25;
+  final value26 = object.theme;
+  final _theme = IsarBinaryWriter.utf8Encoder.convert(value26);
   dynamicSize += (_theme.length) as int;
-  final value26 = object.touchLayout;
-  final _touchLayout = value26;
-  final value27 = object.useClipboard;
-  final _useClipboard = value27;
-  final value28 = object.volume;
-  final _volume = value28;
+  final value27 = object.touchLayout;
+  final _touchLayout = value27;
+  final value28 = object.useClipboard;
+  final _useClipboard = value28;
+  final value29 = object.volume;
+  final _volume = value29;
   final size = staticSize + dynamicSize;
 
   rawObj.buffer = alloc(size);
@@ -2059,32 +2062,33 @@ void _settingIsarSerializeNative(
   writer.writeLong(offsets[0], _adPosition);
   writer.writeBool(offsets[1], _audioduck);
   writer.writeBool(offsets[2], _audiosession);
-  writer.writeLong(offsets[3], _backgroundColor);
-  writer.writeLong(offsets[4], _bgFilter);
-  writer.writeLong(offsets[5], _bgIdx);
-  writer.writeBytes(offsets[6], _customFont);
-  writer.writeBool(offsets[7], _enablescroll);
-  writer.writeLong(offsets[8], _fontColor);
-  writer.writeBytes(offsets[9], _fontFamily);
-  writer.writeDouble(offsets[10], _fontHeight);
-  writer.writeDouble(offsets[11], _fontSize);
-  writer.writeLong(offsets[12], _fontWeight);
-  writer.writeLong(offsets[13], _fullScreenType);
-  writer.writeLong(offsets[14], _groupcnt);
-  writer.writeBool(offsets[15], _headsetbutton);
-  writer.writeDateTime(offsets[16], _last24Ad);
-  writer.writeBytes(offsets[17], _lastDevVersion);
-  writer.writeDouble(offsets[18], _letterSpacing);
-  writer.writeDouble(offsets[19], _paddingBottom);
-  writer.writeDouble(offsets[20], _paddingLeft);
-  writer.writeDouble(offsets[21], _paddingRight);
-  writer.writeDouble(offsets[22], _paddingTop);
-  writer.writeDouble(offsets[23], _pitch);
-  writer.writeDouble(offsets[24], _speechRate);
-  writer.writeBytes(offsets[25], _theme);
-  writer.writeLong(offsets[26], _touchLayout);
-  writer.writeBool(offsets[27], _useClipboard);
-  writer.writeDouble(offsets[28], _volume);
+  writer.writeBool(offsets[3], _bMultiScreen);
+  writer.writeLong(offsets[4], _backgroundColor);
+  writer.writeLong(offsets[5], _bgFilter);
+  writer.writeLong(offsets[6], _bgIdx);
+  writer.writeBytes(offsets[7], _customFont);
+  writer.writeBool(offsets[8], _enablescroll);
+  writer.writeLong(offsets[9], _fontColor);
+  writer.writeBytes(offsets[10], _fontFamily);
+  writer.writeDouble(offsets[11], _fontHeight);
+  writer.writeDouble(offsets[12], _fontSize);
+  writer.writeLong(offsets[13], _fontWeight);
+  writer.writeLong(offsets[14], _fullScreenType);
+  writer.writeLong(offsets[15], _groupcnt);
+  writer.writeBool(offsets[16], _headsetbutton);
+  writer.writeDateTime(offsets[17], _last24Ad);
+  writer.writeBytes(offsets[18], _lastDevVersion);
+  writer.writeDouble(offsets[19], _letterSpacing);
+  writer.writeDouble(offsets[20], _paddingBottom);
+  writer.writeDouble(offsets[21], _paddingLeft);
+  writer.writeDouble(offsets[22], _paddingRight);
+  writer.writeDouble(offsets[23], _paddingTop);
+  writer.writeDouble(offsets[24], _pitch);
+  writer.writeDouble(offsets[25], _speechRate);
+  writer.writeBytes(offsets[26], _theme);
+  writer.writeLong(offsets[27], _touchLayout);
+  writer.writeBool(offsets[28], _useClipboard);
+  writer.writeDouble(offsets[29], _volume);
 }
 
 SettingIsar _settingIsarDeserializeNative(
@@ -2096,34 +2100,35 @@ SettingIsar _settingIsarDeserializeNative(
     adPosition: reader.readLong(offsets[0]),
     audioduck: reader.readBool(offsets[1]),
     audiosession: reader.readBool(offsets[2]),
-    backgroundColor: reader.readLong(offsets[3]),
-    bgFilter: reader.readLong(offsets[4]),
-    bgIdx: reader.readLong(offsets[5]),
-    customFont: reader.readStringOrNull(offsets[6]),
-    enablescroll: reader.readBool(offsets[7]),
-    fontColor: reader.readLong(offsets[8]),
-    fontFamily: reader.readString(offsets[9]),
-    fontHeight: reader.readDouble(offsets[10]),
-    fontSize: reader.readDouble(offsets[11]),
-    fontWeight: reader.readLong(offsets[12]),
-    fullScreenType: reader.readLong(offsets[13]),
-    groupcnt: reader.readLong(offsets[14]),
-    headsetbutton: reader.readBool(offsets[15]),
-    lastDevVersion: reader.readString(offsets[17]),
-    letterSpacing: reader.readDouble(offsets[18]),
-    paddingBottom: reader.readDouble(offsets[19]),
-    paddingLeft: reader.readDouble(offsets[20]),
-    paddingRight: reader.readDouble(offsets[21]),
-    paddingTop: reader.readDouble(offsets[22]),
-    pitch: reader.readDouble(offsets[23]),
-    speechRate: reader.readDouble(offsets[24]),
-    theme: reader.readString(offsets[25]),
-    touchLayout: reader.readLong(offsets[26]),
-    useClipboard: reader.readBool(offsets[27]),
-    volume: reader.readDouble(offsets[28]),
+    bMultiScreen: reader.readBool(offsets[3]),
+    backgroundColor: reader.readLong(offsets[4]),
+    bgFilter: reader.readLong(offsets[5]),
+    bgIdx: reader.readLong(offsets[6]),
+    customFont: reader.readStringOrNull(offsets[7]),
+    enablescroll: reader.readBool(offsets[8]),
+    fontColor: reader.readLong(offsets[9]),
+    fontFamily: reader.readString(offsets[10]),
+    fontHeight: reader.readDouble(offsets[11]),
+    fontSize: reader.readDouble(offsets[12]),
+    fontWeight: reader.readLong(offsets[13]),
+    fullScreenType: reader.readLong(offsets[14]),
+    groupcnt: reader.readLong(offsets[15]),
+    headsetbutton: reader.readBool(offsets[16]),
+    lastDevVersion: reader.readString(offsets[18]),
+    letterSpacing: reader.readDouble(offsets[19]),
+    paddingBottom: reader.readDouble(offsets[20]),
+    paddingLeft: reader.readDouble(offsets[21]),
+    paddingRight: reader.readDouble(offsets[22]),
+    paddingTop: reader.readDouble(offsets[23]),
+    pitch: reader.readDouble(offsets[24]),
+    speechRate: reader.readDouble(offsets[25]),
+    theme: reader.readString(offsets[26]),
+    touchLayout: reader.readLong(offsets[27]),
+    useClipboard: reader.readBool(offsets[28]),
+    volume: reader.readDouble(offsets[29]),
   );
   object.id = id;
-  object.last24Ad = reader.readDateTime(offsets[16]);
+  object.last24Ad = reader.readDateTime(offsets[17]);
   return object;
 }
 
@@ -2139,37 +2144,37 @@ P _settingIsarDeserializePropNative<P>(
     case 2:
       return (reader.readBool(offset)) as P;
     case 3:
-      return (reader.readLong(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 4:
       return (reader.readLong(offset)) as P;
     case 5:
       return (reader.readLong(offset)) as P;
     case 6:
-      return (reader.readStringOrNull(offset)) as P;
-    case 7:
-      return (reader.readBool(offset)) as P;
-    case 8:
       return (reader.readLong(offset)) as P;
+    case 7:
+      return (reader.readStringOrNull(offset)) as P;
+    case 8:
+      return (reader.readBool(offset)) as P;
     case 9:
-      return (reader.readString(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 10:
-      return (reader.readDouble(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 11:
       return (reader.readDouble(offset)) as P;
     case 12:
-      return (reader.readLong(offset)) as P;
+      return (reader.readDouble(offset)) as P;
     case 13:
       return (reader.readLong(offset)) as P;
     case 14:
       return (reader.readLong(offset)) as P;
     case 15:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 16:
-      return (reader.readDateTime(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 17:
-      return (reader.readString(offset)) as P;
+      return (reader.readDateTime(offset)) as P;
     case 18:
-      return (reader.readDouble(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 19:
       return (reader.readDouble(offset)) as P;
     case 20:
@@ -2183,12 +2188,14 @@ P _settingIsarDeserializePropNative<P>(
     case 24:
       return (reader.readDouble(offset)) as P;
     case 25:
-      return (reader.readString(offset)) as P;
+      return (reader.readDouble(offset)) as P;
     case 26:
-      return (reader.readLong(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 27:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 28:
+      return (reader.readBool(offset)) as P;
+    case 29:
       return (reader.readDouble(offset)) as P;
     default:
       throw 'Illegal propertyIndex';
@@ -2201,6 +2208,7 @@ dynamic _settingIsarSerializeWeb(
   IsarNative.jsObjectSet(jsObj, 'adPosition', object.adPosition);
   IsarNative.jsObjectSet(jsObj, 'audioduck', object.audioduck);
   IsarNative.jsObjectSet(jsObj, 'audiosession', object.audiosession);
+  IsarNative.jsObjectSet(jsObj, 'bMultiScreen', object.bMultiScreen);
   IsarNative.jsObjectSet(jsObj, 'backgroundColor', object.backgroundColor);
   IsarNative.jsObjectSet(jsObj, 'bgFilter', object.bgFilter);
   IsarNative.jsObjectSet(jsObj, 'bgIdx', object.bgIdx);
@@ -2239,6 +2247,7 @@ SettingIsar _settingIsarDeserializeWeb(
         IsarNative.jsObjectGet(jsObj, 'adPosition') ?? double.negativeInfinity,
     audioduck: IsarNative.jsObjectGet(jsObj, 'audioduck') ?? false,
     audiosession: IsarNative.jsObjectGet(jsObj, 'audiosession') ?? false,
+    bMultiScreen: IsarNative.jsObjectGet(jsObj, 'bMultiScreen') ?? false,
     backgroundColor: IsarNative.jsObjectGet(jsObj, 'backgroundColor') ??
         double.negativeInfinity,
     bgFilter:
@@ -2299,6 +2308,8 @@ P _settingIsarDeserializePropWeb<P>(Object jsObj, String propertyName) {
       return (IsarNative.jsObjectGet(jsObj, 'audioduck') ?? false) as P;
     case 'audiosession':
       return (IsarNative.jsObjectGet(jsObj, 'audiosession') ?? false) as P;
+    case 'bMultiScreen':
+      return (IsarNative.jsObjectGet(jsObj, 'bMultiScreen') ?? false) as P;
     case 'backgroundColor':
       return (IsarNative.jsObjectGet(jsObj, 'backgroundColor') ??
           double.negativeInfinity) as P;
@@ -2516,6 +2527,15 @@ extension SettingIsarQueryFilter
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.eq,
       property: 'audiosession',
+      value: value,
+    ));
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterFilterCondition>
+      bMultiScreenEqualTo(bool value) {
+    return addFilterConditionInternal(FilterCondition(
+      type: ConditionType.eq,
+      property: 'bMultiScreen',
       value: value,
     ));
   }
@@ -3824,6 +3844,15 @@ extension SettingIsarQueryWhereSortBy
     return addSortByInternal('audiosession', Sort.desc);
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByBMultiScreen() {
+    return addSortByInternal('bMultiScreen', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy>
+      sortByBMultiScreenDesc() {
+    return addSortByInternal('bMultiScreen', Sort.desc);
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> sortByBackgroundColor() {
     return addSortByInternal('backgroundColor', Sort.asc);
   }
@@ -4077,6 +4106,15 @@ extension SettingIsarQueryWhereSortThenBy
     return addSortByInternal('audiosession', Sort.desc);
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByBMultiScreen() {
+    return addSortByInternal('bMultiScreen', Sort.asc);
+  }
+
+  QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy>
+      thenByBMultiScreenDesc() {
+    return addSortByInternal('bMultiScreen', Sort.desc);
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QAfterSortBy> thenByBackgroundColor() {
     return addSortByInternal('backgroundColor', Sort.asc);
   }
@@ -4317,6 +4355,10 @@ extension SettingIsarQueryWhereDistinct
     return addDistinctByInternal('audiosession');
   }
 
+  QueryBuilder<SettingIsar, SettingIsar, QDistinct> distinctByBMultiScreen() {
+    return addDistinctByInternal('bMultiScreen');
+  }
+
   QueryBuilder<SettingIsar, SettingIsar, QDistinct>
       distinctByBackgroundColor() {
     return addDistinctByInternal('backgroundColor');
@@ -4444,6 +4486,10 @@ extension SettingIsarQueryProperty
 
   QueryBuilder<SettingIsar, bool, QQueryOperations> audiosessionProperty() {
     return addPropertyNameInternal('audiosession');
+  }
+
+  QueryBuilder<SettingIsar, bool, QQueryOperations> bMultiScreenProperty() {
+    return addPropertyNameInternal('bMultiScreen');
   }
 
   QueryBuilder<SettingIsar, int, QQueryOperations> backgroundColorProperty() {

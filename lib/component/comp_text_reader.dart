@@ -40,15 +40,11 @@ class CompTextReader extends GetView {
             size: Size(100, 100),
             painter: TextViewerPainter(
               textViewerController: IsarCtl.tctl
+                ..bMultiScreen = setting.bMultiScreen && Get.width / Get.height > 0.6
                 ..contents = contens.text
                 ..style = IsarCtl.textStyle
                 ..cntntPstn = IsarCtl.cntntPstn
-                ..onChange = (idx) async {
-                  // IsarCtl.basyncOffset(true);
-                  // IsarCtl.basyncOffset(false);
-                  // IsarCtl.cntntPstnAsync(idx);
-                },
-              // style: IsarCtl.textStyle,
+                ..onChange = (idx) async {},
             ),
           ),
         ),
@@ -141,6 +137,65 @@ class TextViewerPainter extends CustomPainter {
   String lastData = "";
   List<TextSpan> spans = [];
 
+  String leftLastData = "";
+  String rightLastData = "";
+  List<TextSpan> leftSpans = [];
+  List<TextSpan> rightSpans = [];
+
+  List<TextSpan> strToSpans(PosData data, Size size) {
+    var ctl = textViewerController;
+    return data.contents
+        .split("\n")
+        .asMap()
+        .map((idx, e) {
+          if (e.trim().isEmpty) {
+            return MapEntry(
+                idx,
+                TextSpan(
+                  text: "\n",
+                  style: ctl._style,
+                ));
+          }
+
+          var tmpP = TextPainter(
+            text: TextSpan(
+              text: e,
+              style: ctl._style,
+            ),
+            textDirection: TextDirection.ltr,
+          )..layout();
+          var curWidth = tmpP.width;
+          // var curWidth = data.lineWidths[idx];
+
+          if (curWidth >= size.width) {
+            //* 0.98
+            return MapEntry(
+                idx,
+                TextSpan(
+                  text: "$e\n",
+                  style: ctl._style?.copyWith(letterSpacing: -((size.width) / curWidth) - 0.1),
+                ));
+          }
+          if (idx < data.lineWidths.length && curWidth > size.width * 0.8 && curWidth <= size.width * 0.92) {
+            return MapEntry(
+                idx,
+                TextSpan(
+                  text: "$e\n",
+                  style: ctl._style?.copyWith(letterSpacing: (size.width / curWidth)),
+                ));
+          }
+
+          return MapEntry(
+              idx,
+              TextSpan(
+                text: "$e\n",
+                style: ctl._style,
+              ));
+        })
+        .values
+        .toList();
+  }
+
   void render(Canvas canvas, Size size) {
     var ctl = textViewerController;
     var pos = ctl.cntntPstn;
@@ -148,112 +203,104 @@ class TextViewerPainter extends CustomPainter {
     double offsetY = textViewerController.offsetY;
     // ------------ per ------------
     var perData = ctl._getPerText(size);
-    var pper = TextPainter(
-      text: TextSpan(text: perData.contents + "-", style: ctl._style),
-      textDirection: TextDirection.ltr,
-    )..layout();
-
-    // ------------ next ------------
-    var data = ctl._getNextText(size);
-
-    var start = DateTime.now();
-
-    if (lastData != data.contents) {
-      spans = data.contents
-          .split("\n")
-          .asMap()
-          .map((idx, e) {
-            if (e.trim().isEmpty) {
-              return MapEntry(
-                  idx,
-                  TextSpan(
-                    text: "\n",
-                    style: ctl._style,
-                  ));
-            }
-
-            var tmpP = TextPainter(
-              text: TextSpan(
-                text: e,
-                style: ctl._style,
-              ),
-              textDirection: TextDirection.ltr,
-            )..layout();
-            var curWidth = tmpP.width;
-            // var curWidth = data.lineWidths[idx];
-
-            if (curWidth >= size.width) {
-              //* 0.98
-              return MapEntry(
-                  idx,
-                  TextSpan(
-                    text: "$e\n",
-                    style: ctl._style?.copyWith(letterSpacing: -((size.width) / curWidth) - 0.1),
-                  ));
-            }
-            if (idx < data.lineWidths.length && curWidth > size.width * 0.8 && curWidth <= size.width * 0.92) {
-              return MapEntry(
-                  idx,
-                  TextSpan(
-                    text: "$e\n",
-                    style: ctl._style?.copyWith(letterSpacing: (size.width / curWidth)),
-                  ));
-            }
-
-            return MapEntry(
-                idx,
-                TextSpan(
-                  text: "$e\n",
-                  style: ctl._style,
-                ));
-          })
-          .values
-          .toList();
-      lastData = data.contents;
-    }
-
-    // TextSpan(children: )
-    var p = TextPainter(
-      text: TextSpan(
-        children: spans,
-        // text: data.contents,
-        // style: ctl._style,
-      ),
-      textDirection: TextDirection.ltr,
-    )..layout(maxWidth: size.width);
-
-    // var p1 = TextPainter(
-    //   text: TextSpan(
-    //     // children: spans,
-    //     text: data.contents,
-    //     style: ctl._style?.copyWith(color: Colors.white38),
-    //   ),
+    ctl.perPosData = perData;
+    // var pper = TextPainter(
+    //   text: TextSpan(text: perData.contents + "-", style: ctl._style),
     //   textDirection: TextDirection.ltr,
-    // )..layout(maxWidth: size.width);
+    // )..layout();
 
-    // p1.paint(canvas, Offset(0, offsetY));
+    if (ctl.bMultiScreen) {
+      var dataLeft = ctl._getNextText(Size(size.width * 0.49, size.height));
+      var dataRight = ctl._getNextText(Size(size.width * 0.49, size.height), pos: dataLeft.nextPos);
+      ctl.nextPosData = dataRight;
 
-    if (ctl.bHighlight) {
-      var curHighlightPos = max(ctl.highlightPos - (pos), 0);
-      var curHighlightCnt = max(ctl.highlightPos - (pos) + ctl.highlightCnt, 0);
-      curHighlightCnt += data.newlineCnt;
+      if (leftLastData != dataLeft.contents) {
+        leftSpans = strToSpans(dataLeft, Size(size.width * 0.49, size.height));
+        leftLastData = dataLeft.contents;
+      }
+      var pLeft = TextPainter(
+          text: TextSpan(
+            children: leftSpans,
+          ),
+          textDirection: TextDirection.ltr)
+        ..layout(maxWidth: size.width * 0.49);
+      if (ctl.bHighlight) {
+        var curHighlightPos = max(ctl.highlightPos - (pos), 0);
+        var curHighlightCnt = max(ctl.highlightPos - (pos) + ctl.highlightCnt, 0);
+        curHighlightCnt += dataLeft.newlineCnt;
 
-      var tb = p.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightCnt));
-      tb.forEach((e) {
-        var r = e.toRect();
-        var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
-        // rect = Rect.fromLTRB(rect.left, rect.top, r.right, rect.bottom);
-        rect = Rect.fromLTRB(rect.left, rect.top, size.width, rect.bottom);
-        canvas.drawRect(rect, highlight);
-      });
-    }
-    p.paint(canvas, Offset(0, offsetY));
+        var tb = pLeft.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightCnt));
+        tb.forEach((e) {
+          var r = e.toRect();
+          var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
+          // rect = Rect.fromLTRB(rect.left, rect.top, r.right, rect.bottom);
+          rect = Rect.fromLTRB(rect.left, rect.top, size.width * 0.49, rect.bottom);
+          canvas.drawRect(rect, highlight);
+        });
+      }
+      pLeft.paint(canvas, Offset(0, offsetY));
+      if (rightLastData != dataRight.contents) {
+        rightSpans = strToSpans(dataRight, Size(size.width * 0.49, size.height));
+        rightLastData = dataRight.contents;
+      }
+      var pRight = TextPainter(
+          text: TextSpan(
+            children: rightSpans,
+          ),
+          textDirection: TextDirection.ltr)
+        ..layout(maxWidth: size.width * 0.49);
+      pRight.paint(canvas, Offset(size.width * 0.51, 0));
 
-    if (offsetY < -ctl.avgHeight) {
-      ctl.setCntntPstn(data.nextLine, offsetY: 0);
-    }
-    if (offsetY > ctl.avgHeight) {
-      ctl.setCntntPstn(perData.lastLine, offsetY: 0);
+      canvas.drawLine(
+        Offset(size.width * 0.495, 0),
+        Offset(size.width * 0.495, size.height),
+        Paint()..color = (ctl._style?.color ?? Colors.white).withOpacity(0.4),
+      );
+      if (offsetY < -ctl.avgHeight) {
+        ctl.setCntntPstn(dataLeft.nextLine, offsetY: 0);
+      }
+      if (offsetY > ctl.avgHeight) {
+        ctl.setCntntPstn(perData.lastLine, offsetY: 0);
+      }
+    } else {
+      var data = ctl._getNextText(size);
+      ctl.nextPosData = data;
+      var start = DateTime.now();
+
+      if (lastData != data.contents) {
+        spans = strToSpans(data, size);
+        lastData = data.contents;
+      }
+
+      var p = TextPainter(
+        text: TextSpan(
+          children: spans,
+          // text: data.contents,
+          // style: ctl._style,
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout(maxWidth: size.width);
+      if (ctl.bHighlight) {
+        var curHighlightPos = max(ctl.highlightPos - (pos), 0);
+        var curHighlightCnt = max(ctl.highlightPos - (pos) + ctl.highlightCnt, 0);
+        curHighlightCnt += data.newlineCnt;
+
+        var tb = p.getBoxesForSelection(TextSelection(baseOffset: curHighlightPos, extentOffset: curHighlightCnt));
+        tb.forEach((e) {
+          var r = e.toRect();
+          var rect = Rect.fromLTRB(r.left, r.top + offsetY, r.right, r.bottom + offsetY);
+          // rect = Rect.fromLTRB(rect.left, rect.top, r.right, rect.bottom);
+          rect = Rect.fromLTRB(rect.left, rect.top, size.width, rect.bottom);
+          canvas.drawRect(rect, highlight);
+        });
+      }
+      p.paint(canvas, Offset(0, offsetY));
+      if (offsetY < -ctl.avgHeight) {
+        ctl.setCntntPstn(data.nextLine, offsetY: 0);
+      }
+      if (offsetY > ctl.avgHeight) {
+        ctl.setCntntPstn(perData.lastLine, offsetY: 0);
+      }
     }
 
     return;
@@ -294,6 +341,8 @@ class TextViewerController extends ChangeNotifier {
   // double avgWidth = 0.0;
   double avgHeight = 0.0;
   double newLineheight = 0.0;
+
+  bool bMultiScreen = false;
 
   TextStyle? _style = TextStyle(fontSize: 25);
 
@@ -377,25 +426,32 @@ class TextViewerController extends ChangeNotifier {
       }
       data = tmpData;
     }
-    perPosData = data;
     return data;
   }
 
-  PosData _getNextText(Size size) {
+  PosData _getNextText(Size size, {int? pos}) {
     // cntntPstn
-    var nextText = contents.substring(cntntPstn, min(cntntPstn + 2200, contents.length));
+    var nextText = "";
+    PosData rtnNextData;
+    if (pos == null) {
+      nextText = contents.substring(cntntPstn, min(cntntPstn + 2200, contents.length));
+      rtnNextData = _clcText(nextText, size, cntntPstn, bnext: true);
+    } else {
+      nextText = contents.substring(pos, min(pos + 2200, contents.length));
+      rtnNextData = _clcText(nextText, size, pos, bnext: true);
+    }
     // var nextText = contents.substring(0, 20);
-    nextPosData = _clcText(nextText, size, cntntPstn, bnext: true);
+
     for (var i = 0; i < 4; i++) {
-      if (nextPosData.nextPos < contents.length) {
-        var nextStr = contents.substring(nextPosData.nextPos, min(nextPosData.nextPos + 1, contents.length));
+      if (rtnNextData.nextPos < contents.length) {
+        var nextStr = contents.substring(rtnNextData.nextPos, min(rtnNextData.nextPos + 1, contents.length));
         if (nextStr.trim().isEmpty) {
-          nextPosData.nextPos++;
+          rtnNextData.nextPos++;
         }
       }
     }
 
-    return nextPosData;
+    return rtnNextData;
   }
 
   PosData _clcText(String _str, Size size, int basePos, {bool bnext = false}) {
@@ -495,8 +551,9 @@ class TextViewerController extends ChangeNotifier {
   }
 
   cacheWord() {
-    // avgHeight = 0.0;
-    // newLineheight = 0.0;
+    if (kDebugMode) avgHeight = 0.0;
+    if (kDebugMode) newLineheight = 0.0;
+
     if (_laststyle?.fontSize != _style?.fontSize ||
         _laststyle?.height != _style?.height ||
         _laststyle?.letterSpacing != _style?.letterSpacing ||
@@ -521,14 +578,14 @@ class TextViewerController extends ChangeNotifier {
                     ..layout())
                   .height -
               avgHeight) *
-          max(0.45, ((_style?.height ?? 1.8) - 1 - 1).abs());
+          max(0.35, ((_style?.height ?? 1.8) - 1 - 1).abs());
     }
 
     if (contents.isEmpty || cntntPstn > contents.length) {
       return;
     }
 
-    String str = contents.substring(max(cntntPstn - 2200, 0), min(cntntPstn + 2200, contents.length));
+    String str = contents.substring(max(cntntPstn - 3200, 0), min(cntntPstn + 3200, contents.length));
     var nextArr = str.split("\n").map((e) => e.split(" ")).toList();
     Map<String, int> count = {};
     var painter = TextPainter(text: TextSpan(text: " ", style: _style), textDirection: TextDirection.ltr)..layout();

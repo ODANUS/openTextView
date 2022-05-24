@@ -49,7 +49,7 @@ class OptionAdPosition extends GetView {
         ),
         Obx(() {
           var df = DateTime.now().difference(setting.last24Ad);
-          if (!IsarCtl.bRemoveAd.value || df.inHours >= 24) {
+          if (!IsarCtl.bRemoveAd.value || df.inHours >= 23) {
             return Card(
                 child: ListTile(
               onTap: () async {

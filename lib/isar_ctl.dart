@@ -97,6 +97,8 @@ class IsarCtl {
 
   static RxBool bLoadingSetting = false.obs;
 
+  // static RxBool bMultiScreen = false.obs;
+
   // static RxBool bOpen = false.obs;
 
   static Future<void> init() async {
