@@ -47,11 +47,11 @@ class OptionReview extends GetView {
                     launchUrlString('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}',
                         mode: LaunchMode.externalApplication);
                   } else if (Platform.isIOS) {
-                    launchUrlString('https://apps.apple.com/app/id1622580218', mode: LaunchMode.externalApplication);
+                    launchUrlString('https://apps.apple.com/app/id1622580218');
                   }
                 }
                 if (installationSource.value == Source.IS_INSTALLED_FROM_APP_STORE) {
-                  launchUrlString('https://apps.apple.com/app/id1622580218', mode: LaunchMode.externalApplication);
+                  launchUrlString('https://apps.apple.com/app/id1622580218');
                   // launch('https://apps.samsung.com/appquery/appDetail.as?appId=${packageInfo.packageName}');
                 }
               },
