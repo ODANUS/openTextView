@@ -18,9 +18,9 @@ class OptionReview extends GetView {
   Rxn<Source> installationSource = Rxn<Source>();
   @override
   Widget build(BuildContext context) {
-    // if (Platform.isIOS) {
-    //   return SizedBox();
-    // }
+    if (Platform.isIOS) {
+      return SizedBox();
+    }
     return Obx(() {
       if (installationSource.value != Source.IS_INSTALLED_FROM_PLAY_STORE &&
           installationSource.value != Source.IS_INSTALLED_FROM_SAMSUNG_GALAXY_STORE &&
