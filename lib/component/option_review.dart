@@ -18,7 +18,7 @@ class OptionReview extends GetView {
   Rxn<Source> installationSource = Rxn<Source>();
   @override
   Widget build(BuildContext context) {
-    if (Platform.isIOS) {
+    if (Platform.isIOS || Platform.isMacOS) {
       return SizedBox();
     }
     return Obx(() {
