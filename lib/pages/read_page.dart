@@ -12,7 +12,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReadPage extends GetView {
   @override
   Widget build(BuildContext context) {
-    var bFold = Get.width / Get.height > 0.6;
+    var bFold = context.isTablet || context.isSmallTablet || Get.height / Get.width > 0.55;
+
     return Scaffold(
         body: SafeArea(
           child: Builder(builder: (ctx) {
@@ -52,7 +53,6 @@ class ReadPage extends GetView {
                                 ),
                                 SizedBox(width: 5),
                                 Obx(() {
-                                  print(Get.height);
                                   if (IsarCtl.btitleFullScreen.value) {
                                     return SizedBox();
                                   }
@@ -67,8 +67,8 @@ class ReadPage extends GetView {
                                   }
                                   return Row(
                                     children: [
-                                      if (context.isTablet && bFold) SizedBox(width: 5),
-                                      if (context.isTablet && bFold)
+                                      if (bFold) SizedBox(width: 5),
+                                      if (bFold)
                                         IsarCtl.rxSetting(
                                           (ctx, setting) {
                                             return InkWell(
@@ -81,7 +81,7 @@ class ReadPage extends GetView {
                                                 ));
                                           },
                                         ),
-                                      if (context.isTablet && bFold) SizedBox(width: 10),
+                                      if (bFold) SizedBox(width: 10),
                                     ],
                                   );
                                 })

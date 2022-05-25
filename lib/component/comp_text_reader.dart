@@ -40,7 +40,7 @@ class CompTextReader extends GetView {
             size: Size(100, 100),
             painter: TextViewerPainter(
               textViewerController: IsarCtl.tctl
-                ..bMultiScreen = setting.bMultiScreen && Get.width / Get.height > 0.6
+                ..bMultiScreen = setting.bMultiScreen && (context.isSmallTablet || context.isTablet || Get.height / Get.width > 0.55)
                 ..contents = contens.text
                 ..style = IsarCtl.textStyle
                 ..cntntPstn = IsarCtl.cntntPstn
@@ -99,14 +99,21 @@ class CompTextReader extends GetView {
               if (setting.fullScreenType == 2 && !IsarCtl.bfullScreen.value) {
                 IsarCtl.bfullScreen(true);
                 IsarCtl.btitleFullScreen(true);
-                await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+                await SystemChrome.setEnabledSystemUIMode(
+                  SystemUiMode.manual,
+                  overlays: [],
+                );
                 return;
               }
 
               if (IsarCtl.bfullScreen.value) {
                 IsarCtl.bfullScreen(false);
                 IsarCtl.btitleFullScreen(false);
-                await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+                await SystemChrome.setEnabledSystemUIMode(
+                  SystemUiMode.manual,
+                  overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom],
+                );
+                // await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
                 return;
               }
             },
