@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReadPage extends GetView {
   @override
   Widget build(BuildContext context) {
-    var bFold = context.isTablet || context.isSmallTablet || Get.height / Get.width > 0.55;
+    var bFold = context.isTablet || context.isSmallTablet || context.isLargeTablet || context.isLandscape;
 
     return Scaffold(
         body: SafeArea(

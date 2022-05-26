@@ -40,7 +40,7 @@ class CompTextReader extends GetView {
             size: Size(100, 100),
             painter: TextViewerPainter(
               textViewerController: IsarCtl.tctl
-                ..bMultiScreen = setting.bMultiScreen && (context.isSmallTablet || context.isTablet || Get.height / Get.width > 0.55)
+                ..bMultiScreen = setting.bMultiScreen && (context.isSmallTablet || context.isLargeTablet || context.isTablet || context.isLandscape)
                 ..contents = contens.text
                 ..style = IsarCtl.textStyle
                 ..cntntPstn = IsarCtl.cntntPstn

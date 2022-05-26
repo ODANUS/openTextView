@@ -137,7 +137,7 @@ class SettingIsar {
     this.bgFilter = 0x00FFFFFF,
     this.fullScreenType = 1,
     this.adPosition = 1,
-    this.bMultiScreen = true,
+    this.bMultiScreen = false,
   });
   int id = Isar.autoIncrement;
   int fontWeight;
@@ -169,7 +169,7 @@ class SettingIsar {
   int fullScreenType = 0;
   int adPosition = 0;
   DateTime last24Ad = DateTime.now().add(Duration(days: -2));
-  bool bMultiScreen = true;
+  bool bMultiScreen = false;
 
   factory SettingIsar.fromJson(String str) => SettingIsar.fromMap(json.decode(str));
 
