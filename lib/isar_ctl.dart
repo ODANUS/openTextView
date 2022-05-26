@@ -30,7 +30,6 @@ class IsarCtl {
     "NanumPen",
     "RIDIBatang",
   ];
-
   static final List<String> listBg = [
     "",
     "bg1.png",
