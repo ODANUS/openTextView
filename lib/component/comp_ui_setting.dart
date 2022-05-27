@@ -577,8 +577,6 @@ class LayoutSetting extends GetView {
   SettingIsar setting;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    print(Get.width);
     return Container(
         padding: EdgeInsets.all(10.w),
         color: Colors.black26,
