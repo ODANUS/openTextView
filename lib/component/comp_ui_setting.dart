@@ -578,6 +578,7 @@ class LayoutSetting extends GetView {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    print(Get.width);
     return Container(
         padding: EdgeInsets.all(10.w),
         color: Colors.black26,
@@ -587,7 +588,7 @@ class LayoutSetting extends GetView {
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, //1 개의 행에 보여줄 item 개수
+                  crossAxisCount: max(2, Get.width ~/ 200), //1 개의 행에 보여줄 item 개수
                   childAspectRatio: 1 / 1.1, //item 의 가로 1, 세로 2 의 비율
                   mainAxisSpacing: 2, //수평 Padding
                   crossAxisSpacing: 2, //수직 Padding
